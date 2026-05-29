@@ -108,6 +108,7 @@ from src.research_logger import (
 from src.report_exporter import markdown_to_html, rows_to_csv
 from src.report_generator import generate_research_report
 from src.release_readiness_checker import check_release_readiness
+from src.release_bundle_exporter import export_release_bundle
 from src.release_report_exporter import export_release_readiness_report, release_readiness_to_markdown
 from src.search_cards import list_civilizations, list_tags, search_cards
 from src.settings_manager import env_creation_guide, load_app_settings, setup_guide
@@ -1690,6 +1691,26 @@ def render_data_maintenance_page() -> None:
             file_name="launch_report.md",
             mime="text/markdown",
         )
+
+        st.subheader("リリース成果物ZIP")
+        bundle_col1, bundle_col2 = st.columns(2)
+        if bundle_col1.button("リリース成果物ZIPを作成"):
+            bundle_path = export_release_bundle(
+                launch_report["release"],
+                launch_report["smoke"],
+                launch_report,
+            )
+            st.session_state["release_bundle_path"] = bundle_path
+            st.success(f"リリース成果物ZIPを作成しました: {bundle_path.name}")
+
+        bundle_path = st.session_state.get("release_bundle_path")
+        if bundle_path and bundle_path.exists():
+            bundle_col2.download_button(
+                "リリース成果物ZIPをダウンロード",
+                data=bundle_path.read_bytes(),
+                file_name="project_mana_release_bundle.zip",
+                mime="application/zip",
+            )
 
     st.subheader("復元ガイド")
     for index, item in enumerate(restore_guide(), start=1):

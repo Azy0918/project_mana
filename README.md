@@ -348,6 +348,22 @@ Windowsでは `setup_app.bat` を再実行してもDB初期化できます。
 
 Markdown/JSONとして `data/exports/launch_reports/` に保存でき、Markdownレポートは画面から直接ダウンロードできます。
 
+## リリース成果物ZIP
+
+最終ローンチレポート作成後、`データ保守` 画面からリリース成果物ZIPを作成できます。
+
+ZIPには以下を含めます。
+
+- `data/cards.csv`
+- `README.md`
+- `requirements.txt`
+- カードDBサマリー
+- 公開前診断レポート
+- スモークテスト結果
+- 最終ローンチレポート
+
+保存先は `data/exports/release_bundles/` です。
+
 ## デッキ評価
 
 `デッキ評価` 画面では、以下の形式でデッキリストを入力できます。

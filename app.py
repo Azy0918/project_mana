@@ -34,6 +34,7 @@ from src.card_db_exporter import (
 )
 from src.data_health_checker import check_data_health
 from src.environment_checker import collect_environment_report
+from src.deck_builder import build_deck_for_request
 from src.deck_change_analyzer import (
     attach_match_stats_to_versions,
     compare_deck_texts,
@@ -51,6 +52,8 @@ from src.card_editor import (
     validate_card,
 )
 from src.deck_feedback import generate_feedback
+from src.deck_condition_analyzer import analyze_deck_condition
+from src.deck_generation_request import DeckGenerationRequest, parse_tag_input
 from src.deck_improver import create_improvement_plan
 from src.deck_version_manager import (
     ensure_version_tables,
@@ -66,6 +69,19 @@ from src.db_bootstrap import ensure_cards_db_from_csv
 from src.evaluate_deck import evaluate_deck
 from src.evolutionary_search import WEIGHT_PRESETS, run_evolutionary_search
 from src.generate_deck import generate_deck
+from src.generated_deck_analyzer import (
+    SORT_COLUMNS,
+    available_deck_types,
+    comparison_summary,
+    filter_and_sort_generated_decks,
+    generated_decks_to_csv,
+)
+from src.generated_deck_store import (
+    ensure_generated_decks_table,
+    load_generated_deck_detail,
+    load_generated_decks,
+    save_generated_deck,
+)
 from src.import_cards import DEFAULT_CSV_PATH, DEFAULT_DB_PATH, import_cards
 from src.match_log_validator import VALID_PLAY_ORDERS, VALID_RESULTS, validate_match_log
 from src.match_recorder import (
@@ -90,6 +106,7 @@ from src.research_logger import (
 )
 from src.report_exporter import markdown_to_html, rows_to_csv
 from src.report_generator import generate_research_report
+from src.release_readiness_checker import check_release_readiness
 from src.search_cards import list_civilizations, list_tags, search_cards
 from src.settings_manager import env_creation_guide, load_app_settings, setup_guide
 from src.simulate_goldfish import simulate_goldfish
@@ -121,6 +138,7 @@ def ensure_database() -> None:
     ensure_match_log_table(DEFAULT_DB_PATH)
     ensure_version_tables(DEFAULT_DB_PATH)
     ensure_test_plan_tables(DEFAULT_DB_PATH)
+    ensure_generated_decks_table(DEFAULT_DB_PATH)
 
 
 def render_card(card: dict) -> None:
@@ -373,21 +391,141 @@ def render_search_page() -> None:
 
 def render_generate_page() -> None:
     st.header("デッキ生成")
-    st.caption("card_tags を使って、初動・マナ加速・受け札・フィニッシャーを優先した40枚デッキを作ります。")
+    st.caption("入力した文明、デッキタイプ、タグ、役割比率を使って検証用デッキを生成します。")
 
-    civilizations = list_civilizations(DEFAULT_DB_PATH)
-    preferred = st.multiselect("優先する文明", civilizations)
+    st.subheader("デッキ生成条件")
+    deck_name = st.text_input(
+        "デッキ名",
+        value="火自然ドラゴンランプ検証",
+    )
+    civilizations = st.multiselect(
+        "使用文明",
+        ["自然", "水", "闇", "火", "光", "無色"],
+        default=["火", "自然"],
+    )
+    deck_type = st.selectbox(
+        "想定デッキタイプ",
+        [
+            "速攻",
+            "ビートダウン",
+            "中速",
+            "コントロール",
+            "ランプ",
+            "コンボ",
+            "ロック",
+            "耐久",
+            "墓地利用",
+            "進化",
+            "ランダム",
+        ],
+    )
+    focus_tags_text = st.text_input(
+        "重視タグ（; 区切り）",
+        value="マナ加速;ドラゴン;フィニッシャー;除去;受け札",
+    )
+    avoid_tags_text = st.text_input(
+        "避けたいタグ（; 区切り）",
+        value="",
+    )
+    strategy_note = st.text_area(
+        "想定・戦略メモ",
+        value="序盤にマナ加速し、中盤に除去、終盤に大型ドラゴンで決着する。",
+    )
+    deck_size = st.number_input(
+        "デッキ枚数",
+        min_value=20,
+        max_value=60,
+        value=40,
+        step=1,
+    )
+
+    ratio_col1, ratio_col2, ratio_col3 = st.columns(3)
+    early_ratio = ratio_col1.slider("初動・マナ加速比率", 0, 60, 30, 5)
+    defense_ratio = ratio_col2.slider("受け札比率", 0, 60, 30, 5)
+    finisher_ratio = ratio_col3.slider("フィニッシャー比率", 0, 60, 20, 5)
     seed = st.number_input("乱数シード", min_value=0, value=1, step=1)
 
-    if st.button("40枚デッキを生成", type="primary"):
-        deck = generate_deck(DEFAULT_DB_PATH, preferred_civilizations=preferred, seed=int(seed))
+    request = DeckGenerationRequest(
+        deck_name=deck_name,
+        civilizations=civilizations,
+        deck_type=deck_type,
+        focus_tags=parse_tag_input(focus_tags_text),
+        avoid_tags=parse_tag_input(avoid_tags_text),
+        strategy_note=strategy_note,
+        deck_size=int(deck_size),
+        early_ratio=int(early_ratio),
+        defense_ratio=int(defense_ratio),
+        finisher_ratio=int(finisher_ratio),
+    )
+
+    if st.button("条件からデッキを生成", type="primary"):
+        deck = build_deck_for_request(request, DEFAULT_DB_PATH, seed=int(seed))
         st.session_state["generated_deck"] = deck
         st.session_state["deck_text"] = deck_to_text(deck)
+        st.session_state["deck_generation_request"] = request
 
     deck = st.session_state.get("generated_deck", [])
     if not deck:
         st.info("条件を選んでデッキを生成してください。")
+        render_generated_deck_history()
         return
+
+    used_request = st.session_state.get("deck_generation_request", request)
+    st.markdown("### 使用した生成条件")
+    st.write(f"デッキ名: {used_request.deck_name}")
+    st.write(f"文明: {' / '.join(used_request.civilizations) if used_request.civilizations else '指定なし'}")
+    st.write(f"デッキタイプ: {used_request.deck_type}")
+    st.write(f"重視タグ: {'; '.join(used_request.focus_tags) if used_request.focus_tags else 'なし'}")
+    st.write(f"避けたいタグ: {'; '.join(used_request.avoid_tags) if used_request.avoid_tags else 'なし'}")
+    st.write(f"想定: {used_request.strategy_note}")
+    st.write(
+        f"枚数: {used_request.deck_size} / "
+        f"初動・マナ加速 {used_request.early_ratio}% / "
+        f"受け札 {used_request.defense_ratio}% / "
+        f"フィニッシャー {used_request.finisher_ratio}%"
+    )
+
+    analysis = analyze_deck_condition(
+        deck_cards=deck,
+        civilizations=used_request.civilizations,
+        focus_tags=used_request.focus_tags,
+        avoid_tags=used_request.avoid_tags,
+        target_starter_count=round(used_request.deck_size * used_request.early_ratio / 100),
+        target_defense_count=round(used_request.deck_size * used_request.defense_ratio / 100),
+        target_finisher_count=round(used_request.deck_size * used_request.finisher_ratio / 100),
+    )
+    st.markdown("### 生成条件への適合度")
+    fit_col1, fit_col2, fit_col3, fit_col4 = st.columns(4)
+    fit_col1.metric("条件適合スコア", f"{analysis.condition_score} / 100")
+    fit_col2.metric("文明一致率", f"{analysis.civilization_match_rate}%")
+    fit_col3.metric("重視タグ一致数", sum(analysis.focus_tag_hits.values()))
+    fit_col4.metric("避けたいタグ混入数", sum(analysis.avoid_tag_hits.values()))
+
+    role_col1, role_col2, role_col3, role_col4 = st.columns(4)
+    role_col1.metric("初動枚数", analysis.starter_count)
+    role_col2.metric("受け札枚数", analysis.defense_count)
+    role_col3.metric("フィニッシャー枚数", analysis.finisher_count)
+    role_col4.metric("平均コスト", analysis.average_cost)
+
+    extra_col1, extra_col2 = st.columns(2)
+    extra_col1.metric("除去枚数", analysis.removal_count)
+    extra_col2.metric("ドロー/リソース枚数", analysis.draw_count)
+
+    st.markdown("#### 重視タグ一致")
+    st.json(analysis.focus_tag_hits)
+
+    st.markdown("#### 避けたいタグ混入")
+    st.json(analysis.avoid_tag_hits)
+
+    if analysis.warnings:
+        st.markdown("#### 警告")
+        for warning in analysis.warnings:
+            st.warning(warning)
+
+    if analysis.comments:
+        st.markdown("#### コメント")
+        for comment in analysis.comments:
+            st.info(comment)
 
     render_deck_table(deck)
     st.text_area("デッキリスト", value=deck_to_text(deck), height=260)
@@ -395,10 +533,85 @@ def render_generate_page() -> None:
     render_evaluation(summary)
 
     log_col1, log_col2 = st.columns([2, 1])
-    log_name = log_col1.text_input("保存名", value="生成デッキ")
+    log_name = log_col1.text_input("保存名", value=used_request.deck_name or "生成デッキ")
     if log_col2.button("生成デッキ評価を保存"):
         deck_id = save_deck_with_evaluation(log_name, "generated", deck_to_text(deck), summary, DEFAULT_DB_PATH)
         st.success(f"保存しました: {deck_id}")
+
+    st.markdown("### 生成デッキの保存")
+    if st.button("この生成デッキを保存"):
+        saved_id = save_generated_deck(
+            deck_name=used_request.deck_name,
+            civilizations=used_request.civilizations,
+            deck_type=used_request.deck_type,
+            focus_tags=used_request.focus_tags,
+            avoid_tags=used_request.avoid_tags,
+            strategy_note=used_request.strategy_note,
+            deck_cards=deck,
+            analysis=analysis,
+            evaluation=summary,
+            db_path=DEFAULT_DB_PATH,
+        )
+        st.success(f"生成デッキを保存しました。ID: {saved_id}")
+
+    render_generated_deck_history()
+
+
+def render_generated_deck_history() -> None:
+    st.markdown("### 保存済み生成デッキ")
+
+    saved_df = load_generated_decks(DEFAULT_DB_PATH)
+    if saved_df.empty:
+        st.info("保存済み生成デッキはまだありません。")
+        return
+
+    filter_col1, filter_col2, filter_col3 = st.columns(3)
+    deck_type_options = [""] + available_deck_types(saved_df)
+    deck_type_filter = filter_col1.selectbox(
+        "デッキタイプで絞り込み",
+        deck_type_options,
+        format_func=lambda value: value or "すべて",
+    )
+    sort_label = filter_col2.selectbox("並び替え", list(SORT_COLUMNS.keys()), index=1)
+    ascending = filter_col3.checkbox("昇順", value=False)
+
+    view_df = filter_and_sort_generated_decks(
+        saved_df,
+        deck_type=deck_type_filter,
+        sort_label=sort_label,
+        ascending=ascending,
+    )
+    st.dataframe(view_df, use_container_width=True, hide_index=True)
+
+    if view_df.empty:
+        st.info("条件に合う保存済み生成デッキはありません。")
+        return
+
+    st.download_button(
+        label="保存済み生成デッキ一覧をCSV出力",
+        data=generated_decks_to_csv(view_df),
+        file_name="generated_decks.csv",
+        mime="text/csv",
+    )
+
+    comparison_rows = comparison_summary(view_df)
+    if comparison_rows:
+        st.markdown("#### 比較サマリー")
+        st.dataframe(comparison_rows, use_container_width=True, hide_index=True)
+
+    selected_id = st.selectbox(
+        "詳細表示する保存デッキ",
+        [int(value) for value in view_df["id"].tolist()],
+        format_func=lambda value: f"ID {value}",
+    )
+    detail = load_generated_deck_detail(int(selected_id), DEFAULT_DB_PATH)
+    if detail:
+        st.write(f"**{detail.get('deck_name', '')}** / {detail.get('created_at', '')}")
+        st.write(f"文明: {detail.get('civilizations') or '指定なし'}")
+        st.write(f"重視タグ: {detail.get('focus_tags') or 'なし'}")
+        st.write(f"避けたいタグ: {detail.get('avoid_tags') or 'なし'}")
+        st.write(f"戦略メモ: {detail.get('strategy_note') or ''}")
+        render_deck_table(detail.get("deck_cards", []))
 
 
 def render_evaluate_page() -> None:
@@ -1387,6 +1600,32 @@ def render_data_maintenance_page() -> None:
 
     st.write("### 孤立データチェック")
     st.dataframe(health["orphans"], use_container_width=True, hide_index=True)
+
+    st.subheader("公開前リリース診断")
+    if st.button("公開前診断を実行", type="primary"):
+        st.session_state["release_readiness"] = check_release_readiness(DEFAULT_CSV_PATH, DEFAULT_DB_PATH)
+
+    release = st.session_state.get("release_readiness")
+    if release:
+        release_cols = st.columns(3)
+        release_cols[0].metric("公開判定", release["status"])
+        release_cols[1].metric("リリーススコア", f'{release["score"]} / 100')
+        release_cols[2].metric("問題数", len(release["issues"]))
+
+        if release["issues"]:
+            st.error("公開前に直すべき項目があります。")
+            st.dataframe([{"問題": issue} for issue in release["issues"]], use_container_width=True, hide_index=True)
+        elif release["warnings"]:
+            st.warning("公開は可能ですが、確認したい警告があります。")
+        else:
+            st.success("公開前診断はOKです。")
+
+        if release["warnings"]:
+            st.dataframe([{"警告": warning} for warning in release["warnings"]], use_container_width=True, hide_index=True)
+
+        st.dataframe(release["checks"], use_container_width=True, hide_index=True)
+        st.write("### サンプル生成チェック")
+        st.dataframe([release["sample_generation"]], use_container_width=True, hide_index=True)
 
     st.subheader("復元ガイド")
     for index, item in enumerate(restore_guide(), start=1):

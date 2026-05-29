@@ -8,6 +8,8 @@ venv/
 .streamlit/secrets.toml
 
 data/backups/
+data/exports/
+data/cards_deduped.csv
 data/*.db
 data/*.sqlite
 *.zip

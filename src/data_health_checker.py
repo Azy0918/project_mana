@@ -19,6 +19,7 @@ REQUIRED_TABLES = [
     "deck_changes",
     "test_plans",
     "test_plan_targets",
+    "generated_decks",
 ]
 
 

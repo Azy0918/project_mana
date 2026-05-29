@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from pathlib import Path
+
+import pandas as pd
 import streamlit as st
 
 from src.analytics import (
@@ -23,6 +26,12 @@ from src.backup_manager import (
 )
 from src.battle_simulator import simulate_battle
 from src.card_csv_validator import validate_cards_csv
+from src.card_db_completion_checker import check_completion, load_cards
+from src.card_db_exporter import (
+    export_cards_summary,
+    export_completed_cards_csv,
+    export_completed_cards_zip,
+)
 from src.data_health_checker import check_data_health
 from src.environment_checker import collect_environment_report
 from src.deck_change_analyzer import (
@@ -94,6 +103,9 @@ from src.test_plan_manager import (
     update_test_plan_status,
 )
 from src.test_result_analyzer import analyze_test_plan, summarize_plan_rows
+
+
+CARDS_CSV_PATH = Path("data/cards.csv")
 
 
 st.set_page_config(
@@ -1446,6 +1458,139 @@ def render_settings_page() -> None:
     st.markdown(env_creation_guide())
 
 
+def render_card_db_completion_check() -> None:
+    st.subheader("仮カードDB完成度チェック")
+
+    if not CARDS_CSV_PATH.exists():
+        st.warning("data/cards.csv が見つかりません。")
+        return
+
+    try:
+        df = load_cards(CARDS_CSV_PATH)
+        result = check_completion(df)
+    except Exception as exc:
+        st.error(f"完成度チェックに失敗しました: {exc}")
+        return
+
+    metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
+    metric_col1.metric("仮DB完成度スコア", f"{result.score} / 100")
+    metric_col2.metric("総カード数", result.total_cards)
+    metric_col3.metric("ユニークカード名数", result.unique_names)
+    metric_col4.metric("同名重複数", result.duplicate_name_count)
+
+    if result.score >= 90:
+        st.success("仮カードDBとして十分に完成しています。")
+    elif result.score >= 70:
+        st.info("仮カードDBとして利用可能です。重複整理や不足タグ補強を行うとさらに良くなります。")
+    else:
+        st.warning("仮カードDBとしてはまだ不足があります。警告内容を確認してください。")
+
+    if result.warnings:
+        st.markdown("### 警告")
+        for warning in result.warnings:
+            st.warning(warning)
+
+    st.markdown("### 重要カテゴリ集計")
+    key_df = pd.DataFrame(
+        [
+            {"カテゴリ": key, "枚数": value}
+            for key, value in result.key_category_counts.items()
+        ]
+    ).sort_values("枚数", ascending=False)
+    st.dataframe(key_df, use_container_width=True, hide_index=True)
+
+    st.markdown("### 文明別カード数")
+    civ_df = pd.DataFrame(
+        [
+            {"文明": key, "枚数": value}
+            for key, value in result.civilization_counts.items()
+        ]
+    )
+    st.dataframe(civ_df, use_container_width=True, hide_index=True)
+
+    st.markdown("### カードタイプ別カード数")
+    type_df = pd.DataFrame(
+        [
+            {"カードタイプ": key, "枚数": value}
+            for key, value in result.card_type_counts.items()
+        ]
+    )
+    st.dataframe(type_df, use_container_width=True, hide_index=True)
+
+    st.markdown("### コスト帯別カード数")
+    cost_df = pd.DataFrame(
+        [
+            {"コスト帯": key, "枚数": value}
+            for key, value in result.cost_band_counts.items()
+        ]
+    )
+    st.dataframe(cost_df, use_container_width=True, hide_index=True)
+
+    st.markdown("### タグ上位50件")
+    tag_df = pd.DataFrame(
+        [
+            {"タグ": key, "枚数": value}
+            for key, value in result.tag_counts.items()
+        ]
+    ).sort_values("枚数", ascending=False).head(50)
+    st.dataframe(tag_df, use_container_width=True, hide_index=True)
+
+
+def render_completed_card_db_export_section() -> None:
+    st.subheader("仮カードDB完成版エクスポート")
+
+    if not CARDS_CSV_PATH.exists():
+        st.warning("data/cards.csv が見つかりません。")
+        return
+
+    st.write("現在の data/cards.csv を、仮カードDB完成版として出力します。")
+
+    if st.button("完成版CSVを作成"):
+        try:
+            output_path = export_completed_cards_csv(CARDS_CSV_PATH)
+            st.success(f"完成版CSVを作成しました: {output_path}")
+
+            data = output_path.read_bytes()
+            st.download_button(
+                label="cards_completed.csv をダウンロード",
+                data=data,
+                file_name="cards_completed.csv",
+                mime="text/csv",
+            )
+        except Exception as exc:
+            st.error(f"CSV作成に失敗しました: {exc}")
+
+    if st.button("サマリーを作成"):
+        try:
+            summary_path = export_cards_summary(CARDS_CSV_PATH)
+            st.success(f"サマリーを作成しました: {summary_path}")
+
+            data = summary_path.read_bytes()
+            st.download_button(
+                label="cards_summary.txt をダウンロード",
+                data=data,
+                file_name="cards_summary.txt",
+                mime="text/plain",
+            )
+        except Exception as exc:
+            st.error(f"サマリー作成に失敗しました: {exc}")
+
+    if st.button("完成版ZIPを作成"):
+        try:
+            zip_path = export_completed_cards_zip(CARDS_CSV_PATH)
+            st.success(f"完成版ZIPを作成しました: {zip_path}")
+
+            data = zip_path.read_bytes()
+            st.download_button(
+                label="完成版ZIPをダウンロード",
+                data=data,
+                file_name="project_mana_cards_completed.zip",
+                mime="application/zip",
+            )
+        except Exception as exc:
+            st.error(f"ZIP作成に失敗しました: {exc}")
+
+
 def render_csv_management_page() -> None:
     st.header("CSV管理")
     st.caption("data/cards.csv の入力ミス検出と、能力テキストからのタグ付け支援を行います。")
@@ -1545,6 +1690,8 @@ def render_csv_management_page() -> None:
 
     if not matched_cards:
         st.info("該当カードがありません。")
+        render_card_db_completion_check()
+        render_completed_card_db_export_section()
         return
 
     selected_label = st.selectbox(
@@ -1615,6 +1762,9 @@ def render_csv_management_page() -> None:
                     st.write(f'保存後検査: エラー {len(validation["errors"])}件 / 警告 {len(validation["warnings"])}件')
                 except Exception as exc:
                     st.error(f"更新に失敗しました: {exc}")
+
+    render_card_db_completion_check()
+    render_completed_card_db_export_section()
 
 
 def main() -> None:

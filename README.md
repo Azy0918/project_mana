@@ -315,6 +315,7 @@ Windowsでは `setup_app.bat` を再実行してもDB初期化できます。
 - サンプル生成デッキの条件適合スコア
 
 公開前診断が `公開OK` なら、GitHubへpushしてStreamlit Cloudで再起動する準備が整っています。
+診断結果はMarkdown/JSONとして `data/exports/release_reports/` に保存でき、Markdownレポートは画面から直接ダウンロードできます。
 
 ## デッキ評価
 

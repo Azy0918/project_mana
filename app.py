@@ -107,6 +107,7 @@ from src.research_logger import (
 from src.report_exporter import markdown_to_html, rows_to_csv
 from src.report_generator import generate_research_report
 from src.release_readiness_checker import check_release_readiness
+from src.release_report_exporter import export_release_readiness_report, release_readiness_to_markdown
 from src.search_cards import list_civilizations, list_tags, search_cards
 from src.settings_manager import env_creation_guide, load_app_settings, setup_guide
 from src.simulate_goldfish import simulate_goldfish
@@ -1626,6 +1627,19 @@ def render_data_maintenance_page() -> None:
         st.dataframe(release["checks"], use_container_width=True, hide_index=True)
         st.write("### サンプル生成チェック")
         st.dataframe([release["sample_generation"]], use_container_width=True, hide_index=True)
+
+        report_col1, report_col2 = st.columns(2)
+        if report_col1.button("公開前診断レポートを保存"):
+            paths = export_release_readiness_report(release)
+            st.success(f"診断レポートを保存しました: {paths['markdown'].name} / {paths['json'].name}")
+
+        report_markdown = release_readiness_to_markdown(release)
+        report_col2.download_button(
+            "公開前診断レポートをダウンロード",
+            data=report_markdown.encode("utf-8"),
+            file_name="release_readiness.md",
+            mime="text/markdown",
+        )
 
     st.subheader("復元ガイド")
     for index, item in enumerate(restore_guide(), start=1):

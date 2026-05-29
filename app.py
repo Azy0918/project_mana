@@ -83,6 +83,7 @@ from src.generated_deck_store import (
     save_generated_deck,
 )
 from src.import_cards import DEFAULT_CSV_PATH, DEFAULT_DB_PATH, import_cards
+from src.launch_report_exporter import build_launch_report, export_launch_report, launch_report_to_markdown
 from src.match_log_validator import VALID_PLAY_ORDERS, VALID_RESULTS, validate_match_log
 from src.match_recorder import (
     ensure_match_log_table,
@@ -1657,6 +1658,38 @@ def render_data_maintenance_page() -> None:
         else:
             st.error("スモークテストで失敗があります。")
         st.dataframe(smoke["rows"], use_container_width=True, hide_index=True)
+
+    st.subheader("最終ローンチレポート")
+    if st.button("最終ローンチレポートを作成"):
+        release_result = st.session_state.get("release_readiness") or check_release_readiness(DEFAULT_CSV_PATH, DEFAULT_DB_PATH)
+        smoke_result = st.session_state.get("smoke_test") or run_smoke_tests()
+        st.session_state["release_readiness"] = release_result
+        st.session_state["smoke_test"] = smoke_result
+        st.session_state["launch_report"] = build_launch_report(release_result, smoke_result)
+
+    launch_report = st.session_state.get("launch_report")
+    if launch_report:
+        launch_cols = st.columns(3)
+        launch_cols[0].metric("ローンチ判定", launch_report["launch_status"])
+        launch_cols[1].metric("総合スコア", f'{launch_report["overall_score"]} / 100')
+        launch_cols[2].metric("スモーク失敗", launch_report["smoke"]["failed"])
+        if launch_report["launch_ok"]:
+            st.success("最終ローンチ判定はOKです。")
+        else:
+            st.error("ローンチ前に確認が必要です。")
+
+        launch_col1, launch_col2 = st.columns(2)
+        if launch_col1.button("最終ローンチレポートを保存"):
+            paths = export_launch_report(launch_report)
+            st.success(f"最終ローンチレポートを保存しました: {paths['markdown'].name} / {paths['json'].name}")
+
+        launch_markdown = launch_report_to_markdown(launch_report)
+        launch_col2.download_button(
+            "最終ローンチレポートをダウンロード",
+            data=launch_markdown.encode("utf-8"),
+            file_name="launch_report.md",
+            mime="text/markdown",
+        )
 
     st.subheader("復元ガイド")
     for index, item in enumerate(restore_guide(), start=1):

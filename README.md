@@ -383,6 +383,50 @@ ZIPには以下を含めます。
 - 生成物が混ざっていないか
 - 推奨 `git add` / `git commit` / `git push` コマンド
 
+## Streamlit Cloudデプロイ手順書
+
+`データ保守` 画面では、GitHub push準備チェックの結果をもとに、Streamlit Cloud向けのデプロイ手順書を作成できます。
+
+手順書には以下を記録します。
+
+- Git branch / commit / origin
+- 公開前診断、スモークテスト、ローンチ判定
+- push用コマンド
+- Streamlit Cloudでの再起動手順
+- 公開サイトで確認する項目
+- 異常時の戻し方
+
+Markdownとして `data/exports/deployment_runbooks/` に保存でき、画面から直接ダウンロードできます。
+
+## 公開URLチェック
+
+`データ保守` 画面では、Streamlit Cloudなどの公開URLを入力して応答確認できます。
+
+確認する項目は以下です。
+
+- HTTPステータス
+- 取得できたHTML文字数
+- 任意キーワードの初期HTML内チェック
+
+Streamlitは画面内容をJavaScriptで描画するため、キーワードが初期HTMLにない場合は警告として扱います。
+確認結果はMarkdown/JSONとして `data/exports/public_site_reports/` に保存でき、Markdownレポートは画面から直接ダウンロードできます。
+
+## リリースチェックリスト
+
+`データ保守` 画面では、リリース作業の完了状況を一覧で確認できます。
+
+確認する項目は以下です。
+
+- 公開前リリース診断
+- スモークテスト
+- 最終ローンチレポート
+- リリース成果物ZIP
+- GitHub push準備
+- 公開URL確認
+
+公開URL確認は公開後の任意確認として扱い、それ以外の必須項目が完了するとリリース準備完了として表示します。
+チェックリストはMarkdown/JSONとして `data/exports/release_checklists/` に保存でき、Markdownは画面から直接ダウンロードできます。
+
 ## デッキ評価
 
 `デッキ評価` 画面では、以下の形式でデッキリストを入力できます。

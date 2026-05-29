@@ -64,6 +64,7 @@ from src.deck_version_manager import (
     save_deck_changes,
     save_deck_version,
 )
+from src.deployment_runbook import build_streamlit_cloud_runbook, export_streamlit_cloud_runbook
 from src.dashboard import collect_dashboard_data
 from src.db_bootstrap import ensure_cards_db_from_csv
 from src.evaluate_deck import evaluate_deck
@@ -99,6 +100,8 @@ from src.performance_analyzer import (
     fetch_latest_evaluation_by_deck_name,
     fetch_real_match_logs,
 )
+from src.public_site_checker import check_public_site
+from src.public_site_report_exporter import export_public_site_report, public_site_check_to_markdown
 from src.research_logger import (
     ensure_log_tables,
     save_battle_log,
@@ -110,6 +113,8 @@ from src.report_exporter import markdown_to_html, rows_to_csv
 from src.report_generator import generate_research_report
 from src.release_readiness_checker import check_release_readiness
 from src.release_bundle_exporter import export_release_bundle
+from src.release_checklist import build_release_checklist
+from src.release_checklist_exporter import export_release_checklist, release_checklist_to_markdown
 from src.release_manifest import build_release_manifest
 from src.release_report_exporter import export_release_readiness_report, release_readiness_to_markdown
 from src.search_cards import list_civilizations, list_tags, search_cards
@@ -1747,6 +1752,92 @@ def render_data_maintenance_page() -> None:
         st.code("\n".join(git_check["status_lines"]) or "clean", language="text")
         st.write("### 推奨コマンド")
         st.code("\n".join(git_check["suggested_commands"]), language="powershell")
+
+        st.subheader("Streamlit Cloudデプロイ手順書")
+        runbook = build_streamlit_cloud_runbook(
+            git_check=git_check,
+            release_result=st.session_state.get("release_readiness"),
+            smoke_result=st.session_state.get("smoke_test"),
+            launch_report=st.session_state.get("launch_report"),
+        )
+        runbook_col1, runbook_col2 = st.columns(2)
+        if runbook_col1.button("デプロイ手順書を保存"):
+            runbook_path = export_streamlit_cloud_runbook(runbook)
+            st.success(f"デプロイ手順書を保存しました: {runbook_path.name}")
+        runbook_col2.download_button(
+            "デプロイ手順書をダウンロード",
+            data=runbook.encode("utf-8"),
+            file_name="streamlit_cloud_deploy_runbook.md",
+            mime="text/markdown",
+        )
+
+    st.subheader("公開URLチェック")
+    public_url = st.text_input("公開サイトURL", placeholder="https://your-app.streamlit.app")
+    expected_keywords_text = st.text_input("確認キーワード（; 区切り）", value="Project MANA;1250")
+    if st.button("公開URLを確認"):
+        expected_keywords = parse_tag_input(expected_keywords_text)
+        st.session_state["public_site_check"] = check_public_site(public_url, expected_keywords)
+
+    public_check = st.session_state.get("public_site_check")
+    if public_check:
+        public_cols = st.columns(3)
+        public_cols[0].metric("状態", public_check["status"])
+        public_cols[1].metric("HTTP", public_check["status_code"] or "-")
+        public_cols[2].metric("取得文字数", public_check["content_length"])
+
+        if public_check["issues"]:
+            st.error("公開URL確認で問題があります。")
+            st.dataframe([{"問題": issue} for issue in public_check["issues"]], use_container_width=True, hide_index=True)
+        else:
+            st.success("公開URLは応答しています。")
+
+        if public_check["warnings"]:
+            st.warning("補助チェックの警告があります。")
+            st.dataframe([{"警告": warning} for warning in public_check["warnings"]], use_container_width=True, hide_index=True)
+
+        st.write("### キーワード確認")
+        st.dataframe(
+            [{"キーワード": key, "初期HTML内": "あり" if value else "なし"} for key, value in public_check["keyword_hits"].items()],
+            use_container_width=True,
+            hide_index=True,
+        )
+
+        public_report_col1, public_report_col2 = st.columns(2)
+        if public_report_col1.button("公開URL確認レポートを保存"):
+            paths = export_public_site_report(public_check)
+            st.success(f"公開URL確認レポートを保存しました: {paths['markdown'].name} / {paths['json'].name}")
+
+        public_report_markdown = public_site_check_to_markdown(public_check)
+        public_report_col2.download_button(
+            "公開URL確認レポートをダウンロード",
+            data=public_report_markdown.encode("utf-8"),
+            file_name="public_site_check.md",
+            mime="text/markdown",
+        )
+
+    st.subheader("リリースチェックリスト")
+    checklist = build_release_checklist(st.session_state)
+    checklist_cols = st.columns(3)
+    checklist_cols[0].metric("状態", checklist["status"])
+    checklist_cols[1].metric("必須完了", f'{checklist["required_done"]} / {checklist["required_count"]}')
+    checklist_cols[2].metric("全体完了", f'{checklist["done_count"]} / {checklist["total_count"]}')
+    if checklist["ready"]:
+        st.success("必須リリース作業は完了しています。")
+    else:
+        st.warning("未完了の必須作業があります。")
+    st.dataframe(checklist["items"], use_container_width=True, hide_index=True)
+
+    checklist_col1, checklist_col2 = st.columns(2)
+    if checklist_col1.button("リリースチェックリストを保存"):
+        paths = export_release_checklist(checklist)
+        st.success(f"リリースチェックリストを保存しました: {paths['markdown'].name} / {paths['json'].name}")
+    checklist_markdown = release_checklist_to_markdown(checklist)
+    checklist_col2.download_button(
+        "リリースチェックリストをダウンロード",
+        data=checklist_markdown.encode("utf-8"),
+        file_name="release_checklist.md",
+        mime="text/markdown",
+    )
 
     st.subheader("復元ガイド")
     for index, item in enumerate(restore_guide(), start=1):

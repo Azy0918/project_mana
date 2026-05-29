@@ -109,6 +109,7 @@ from src.report_exporter import markdown_to_html, rows_to_csv
 from src.report_generator import generate_research_report
 from src.release_readiness_checker import check_release_readiness
 from src.release_bundle_exporter import export_release_bundle
+from src.release_manifest import build_release_manifest
 from src.release_report_exporter import export_release_readiness_report, release_readiness_to_markdown
 from src.search_cards import list_civilizations, list_tags, search_cards
 from src.settings_manager import env_creation_guide, load_app_settings, setup_guide
@@ -1678,6 +1679,10 @@ def render_data_maintenance_page() -> None:
             st.success("最終ローンチ判定はOKです。")
         else:
             st.error("ローンチ前に確認が必要です。")
+
+        manifest = build_release_manifest(launch_report["release"], launch_report["smoke"], launch_report)
+        with st.expander("リリースマニフェスト"):
+            st.json(manifest)
 
         launch_col1, launch_col2 = st.columns(2)
         if launch_col1.button("最終ローンチレポートを保存"):

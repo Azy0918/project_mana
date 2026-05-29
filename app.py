@@ -111,6 +111,7 @@ from src.release_report_exporter import export_release_readiness_report, release
 from src.search_cards import list_civilizations, list_tags, search_cards
 from src.settings_manager import env_creation_guide, load_app_settings, setup_guide
 from src.simulate_goldfish import simulate_goldfish
+from src.smoke_test_runner import run_smoke_tests
 from src.tag_suggester import suggest_missing_tags, suggest_tags, suggest_tags_from_text
 from src.test_plan_manager import (
     ensure_test_plan_tables,
@@ -1640,6 +1641,22 @@ def render_data_maintenance_page() -> None:
             file_name="release_readiness.md",
             mime="text/markdown",
         )
+
+    st.subheader("公開後スモークテスト")
+    if st.button("スモークテストを実行"):
+        st.session_state["smoke_test"] = run_smoke_tests()
+
+    smoke = st.session_state.get("smoke_test")
+    if smoke:
+        smoke_cols = st.columns(3)
+        smoke_cols[0].metric("状態", smoke["status"])
+        smoke_cols[1].metric("成功", smoke["passed"])
+        smoke_cols[2].metric("失敗", smoke["failed"])
+        if smoke["ok"]:
+            st.success("主要機能のスモークテストはOKです。")
+        else:
+            st.error("スモークテストで失敗があります。")
+        st.dataframe(smoke["rows"], use_container_width=True, hide_index=True)
 
     st.subheader("復元ガイド")
     for index, item in enumerate(restore_guide(), start=1):

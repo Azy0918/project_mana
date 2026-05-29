@@ -82,6 +82,7 @@ from src.generated_deck_store import (
     load_generated_decks,
     save_generated_deck,
 )
+from src.git_release_checker import check_git_release_readiness
 from src.import_cards import DEFAULT_CSV_PATH, DEFAULT_DB_PATH, import_cards
 from src.launch_report_exporter import build_launch_report, export_launch_report, launch_report_to_markdown
 from src.match_log_validator import VALID_PLAY_ORDERS, VALID_RESULTS, validate_match_log
@@ -1716,6 +1717,36 @@ def render_data_maintenance_page() -> None:
                 file_name="project_mana_release_bundle.zip",
                 mime="application/zip",
             )
+
+    st.subheader("GitHub push準備チェック")
+    if st.button("push準備チェックを実行"):
+        st.session_state["git_release_check"] = check_git_release_readiness()
+
+    git_check = st.session_state.get("git_release_check")
+    if git_check:
+        git_cols = st.columns(4)
+        git_cols[0].metric("状態", git_check["status"])
+        git_cols[1].metric("ブランチ", git_check["branch"] or "-")
+        git_cols[2].metric("未追跡", git_check["untracked_count"])
+        git_cols[3].metric("変更あり", "yes" if git_check["dirty"] else "no")
+
+        if git_check["issues"]:
+            st.error("push前に確認が必要です。")
+            st.dataframe([{"問題": issue} for issue in git_check["issues"]], use_container_width=True, hide_index=True)
+        else:
+            st.success("GitHub push準備チェックはOKです。")
+
+        if git_check["warnings"]:
+            st.warning("注意事項があります。")
+            st.dataframe([{"警告": warning} for warning in git_check["warnings"]], use_container_width=True, hide_index=True)
+
+        st.write(f"origin: `{git_check['remote'] or '-'}`")
+        st.write(f"upstream: `{git_check['upstream'] or '-'}`")
+        st.write(f"commit: `{git_check['commit'] or '-'}`")
+        st.write("### git status")
+        st.code("\n".join(git_check["status_lines"]) or "clean", language="text")
+        st.write("### 推奨コマンド")
+        st.code("\n".join(git_check["suggested_commands"]), language="powershell")
 
     st.subheader("復元ガイド")
     for index, item in enumerate(restore_guide(), start=1):

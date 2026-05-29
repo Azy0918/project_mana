@@ -115,6 +115,10 @@ python src/import_cards.py
 
 取り込み後、`data/cards.db` が作成されます。
 
+アプリ起動時にも `data/cards.csv` から `data/cards.db` への自動反映を行います。
+DBが未作成、`cards` テーブル件数がCSVより少ない、または `card_tags` テーブルがない場合は、既存の取り込み処理で `cards` / `card_tags` を作り直します。
+Streamlit Cloud では、リポジトリ内の `data/cards.csv` を元に起動時DBが復元されます。
+
 ## アプリ起動
 
 ### Windows通常起動
@@ -140,7 +144,7 @@ streamlit run app.py
 ```
 
 ブラウザで表示されたURLを開くと検索画面を利用できます。
-DBが未作成の場合、アプリ起動時に `data/cards.csv` から自動作成します。
+DBが未作成、またはCSVよりDB件数が少ない場合、アプリ起動時に `data/cards.csv` から自動作成します。
 
 画面は以下です。
 

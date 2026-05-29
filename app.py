@@ -62,6 +62,7 @@ from src.deck_version_manager import (
     save_deck_version,
 )
 from src.dashboard import collect_dashboard_data
+from src.db_bootstrap import ensure_cards_db_from_csv
 from src.evaluate_deck import evaluate_deck
 from src.evolutionary_search import WEIGHT_PRESETS, run_evolutionary_search
 from src.generate_deck import generate_deck
@@ -115,8 +116,7 @@ st.set_page_config(
 
 
 def ensure_database() -> None:
-    if not DEFAULT_DB_PATH.exists():
-        import_cards(DEFAULT_CSV_PATH, DEFAULT_DB_PATH)
+    ensure_cards_db_from_csv()
     ensure_log_tables(DEFAULT_DB_PATH)
     ensure_match_log_table(DEFAULT_DB_PATH)
     ensure_version_tables(DEFAULT_DB_PATH)

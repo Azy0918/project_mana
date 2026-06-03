@@ -48,6 +48,7 @@ def run_smoke_tests() -> dict[str, Any]:
 
     request = DeckGenerationRequest(
         deck_name="スモークテスト",
+        format="ND",
         civilizations=["火", "自然"],
         deck_type="ランプ",
         focus_tags=parse_tag_input("マナ加速;フィニッシャー;除去;受け札"),

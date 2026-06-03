@@ -106,6 +106,16 @@ def _rank_cards(cards: list[dict[str, Any]], request: DeckGenerationRequest) -> 
     )
 
 
+def _dedupe_cards_by_name(cards: list[dict[str, Any]], request: DeckGenerationRequest) -> list[dict[str, Any]]:
+    ranked_cards = _rank_cards(cards, request)
+    selected: dict[str, dict[str, Any]] = {}
+    for card in ranked_cards:
+        name = str(card.get("name") or card.get("card_id", ""))
+        if name and name not in selected:
+            selected[name] = card
+    return list(selected.values())
+
+
 def _add_role_cards(
     deck: Counter[str],
     candidates: list[dict[str, Any]],
@@ -134,7 +144,7 @@ def build_deck_for_request(
     seed: int | None = None,
 ) -> list[dict[str, Any]]:
     rng = random.Random(seed)
-    all_cards = search_cards(db_path)
+    all_cards = _dedupe_cards_by_name(search_cards(db_path), request)
     if not all_cards:
         return []
 

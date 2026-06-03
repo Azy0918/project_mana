@@ -19,6 +19,7 @@ def parse_tag_input(value: str) -> list[str]:
 @dataclass
 class DeckGenerationRequest:
     deck_name: str
+    format: str
     civilizations: list[str]
     deck_type: str
     focus_tags: list[str]

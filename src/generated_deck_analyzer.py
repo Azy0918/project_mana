@@ -17,6 +17,7 @@ SORT_COLUMNS = {
 
 def filter_and_sort_generated_decks(
     decks: pd.DataFrame,
+    format: str = "",
     deck_type: str = "",
     sort_label: str = "条件適合スコア",
     ascending: bool = False,
@@ -25,6 +26,8 @@ def filter_and_sort_generated_decks(
         return decks
 
     result = decks.copy()
+    if format and "format" in result.columns:
+        result = result[result["format"] == format]
     if deck_type:
         result = result[result["deck_type"] == deck_type]
 
@@ -39,6 +42,12 @@ def available_deck_types(decks: pd.DataFrame) -> list[str]:
     if decks.empty or "deck_type" not in decks.columns:
         return []
     return sorted(deck_type for deck_type in decks["deck_type"].dropna().unique() if deck_type)
+
+
+def available_formats(decks: pd.DataFrame) -> list[str]:
+    if decks.empty or "format" not in decks.columns:
+        return []
+    return sorted(format for format in decks["format"].dropna().unique() if format)
 
 
 def generated_decks_to_csv(decks: pd.DataFrame) -> bytes:

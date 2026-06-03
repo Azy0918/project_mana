@@ -29,6 +29,7 @@ def ensure_generated_decks_table(db_path: Path = DB_PATH) -> None:
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 created_at TEXT NOT NULL,
                 deck_name TEXT NOT NULL,
+                format TEXT,
                 civilizations TEXT,
                 deck_type TEXT,
                 focus_tags TEXT,
@@ -46,7 +47,8 @@ def ensure_generated_decks_table(db_path: Path = DB_PATH) -> None:
                 average_cost REAL,
                 evaluation_score REAL,
                 novelty_score REAL,
-                meta_score REAL
+                meta_score REAL,
+                candidate_origin TEXT
             )
             """
         )
@@ -54,13 +56,17 @@ def ensure_generated_decks_table(db_path: Path = DB_PATH) -> None:
             row["name"] for row in conn.execute("PRAGMA table_info(generated_decks)").fetchall()
         }
         optional_columns = {
+            "format": "TEXT",
             "evaluation_score": "REAL",
             "novelty_score": "REAL",
             "meta_score": "REAL",
+            "candidate_origin": "TEXT",
         }
         for column, column_type in optional_columns.items():
             if column not in existing_columns:
                 conn.execute(f"ALTER TABLE generated_decks ADD COLUMN {column} {column_type}")
+        conn.execute("UPDATE generated_decks SET format = 'ND' WHERE format IS NULL OR format = ''")
+        conn.execute("UPDATE generated_decks SET candidate_origin = 'tag_based' WHERE candidate_origin IS NULL OR candidate_origin = ''")
         conn.commit()
 
 
@@ -84,6 +90,8 @@ def save_generated_deck(
     deck_cards: list[dict[str, Any]],
     analysis: Any,
     evaluation: dict[str, Any] | None = None,
+    format: str = "ND",
+    candidate_origin: str = "tag_based",
     db_path: Path = DB_PATH,
 ) -> int:
     ensure_generated_decks_table(db_path)
@@ -95,6 +103,7 @@ def save_generated_deck(
             INSERT INTO generated_decks (
                 created_at,
                 deck_name,
+                format,
                 civilizations,
                 deck_type,
                 focus_tags,
@@ -112,13 +121,15 @@ def save_generated_deck(
                 average_cost,
                 evaluation_score,
                 novelty_score,
-                meta_score
+                meta_score,
+                candidate_origin
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 datetime.now().isoformat(timespec="seconds"),
                 deck_name.strip() or "生成デッキ",
+                format.strip() or "ND",
                 ";".join(civilizations),
                 deck_type,
                 ";".join(focus_tags),
@@ -137,6 +148,7 @@ def save_generated_deck(
                 evaluation.get("score"),
                 evaluation.get("novelty_score"),
                 evaluation.get("meta_score"),
+                _normalize_candidate_origin(candidate_origin),
             ),
         )
         conn.commit()
@@ -153,6 +165,7 @@ def load_generated_decks(db_path: Path = DB_PATH) -> pd.DataFrame:
                 id,
                 created_at,
                 deck_name,
+                format,
                 civilizations,
                 deck_type,
                 focus_tags,
@@ -168,7 +181,8 @@ def load_generated_decks(db_path: Path = DB_PATH) -> pd.DataFrame:
                 average_cost,
                 evaluation_score,
                 novelty_score,
-                meta_score
+                meta_score,
+                candidate_origin
             FROM generated_decks
             ORDER BY id DESC
             """,
@@ -195,3 +209,16 @@ def load_generated_deck_detail(deck_id: int, db_path: Path = DB_PATH) -> dict[st
         data["deck_cards"] = []
 
     return data
+
+
+def _normalize_candidate_origin(value: str) -> str:
+    allowed = {
+        "tag_based",
+        "route_based",
+        "proof_based",
+        "combo_based",
+        "meta_counter_based",
+        "human_imported",
+    }
+    value = str(value or "").strip()
+    return value if value in allowed else "tag_based"

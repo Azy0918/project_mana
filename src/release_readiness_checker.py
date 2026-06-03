@@ -47,6 +47,7 @@ def _count_table(conn: sqlite3.Connection, table_name: str) -> int:
 def _check_sample_deck_generation() -> dict[str, Any]:
     request = DeckGenerationRequest(
         deck_name="公開前診断サンプル",
+        format="ND",
         civilizations=["火", "自然"],
         deck_type="ランプ",
         focus_tags=parse_tag_input("マナ加速;フィニッシャー;除去;受け札"),

@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import Counter
 from typing import Any
 
+from src.deck_sanity_checker import analyze_deck_sanity
 from src.matchup_estimator import estimate_meta_matchups
 from src.novelty_score import calculate_novelty_score
 
@@ -80,6 +81,15 @@ def evaluate_deck(
     total_score = max(0, min(100, size_score + role_score + curve_score + civ_score - duplicate_penalty))
     novelty = calculate_novelty_score(deck, known_decks)
     meta_matchups = estimate_meta_matchups(deck)
+    sanity = analyze_deck_sanity(deck)
+    final_fitness = (
+        total_score * 0.35
+        + novelty["score"] * 0.15
+        + meta_matchups["overall_score"] * 0.20
+        + sanity["score"] * 0.30
+    )
+    if sanity["fatal_issues"] or sanity["score"] < 60:
+        final_fitness = min(final_fitness, sanity["score"])
 
     warnings = []
     if total_cards != 40:
@@ -95,14 +105,19 @@ def evaluate_deck(
         warnings.append("フィニッシャー候補が少なめです。")
     if len(civilization_counts) > 3:
         warnings.append("文明が多く、色事故のリスクがあります。")
+    warnings.extend(sanity["warnings"])
+    warnings.extend(f"致命的: {issue}" for issue in sanity["fatal_issues"])
 
     return {
         "total_cards": total_cards,
         "score": total_score,
+        "final_fitness": round(final_fitness, 2),
         "novelty_score": novelty["score"],
         "novelty": novelty,
         "meta_score": meta_matchups["overall_score"],
         "meta_matchups": meta_matchups,
+        "sanity": sanity,
+        "sanity_score": sanity["score"],
         "role_counts": {
             "初動": early_count,
             "マナ加速": ramp_count,

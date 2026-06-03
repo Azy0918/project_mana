@@ -20,6 +20,9 @@ REQUIRED_TABLES = [
     "test_plans",
     "test_plan_targets",
     "generated_decks",
+    "meta_decks",
+    "known_combos",
+    "card_effect_features",
 ]
 
 

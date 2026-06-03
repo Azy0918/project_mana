@@ -58,6 +58,7 @@ def normalize_row(row: dict) -> dict:
     # Keep both numeric and display information where possible.
     cost = safe_int(row.get("cost"), default=0)
     power = first_nonempty(row, "power", "power_disp", default="")
+    nd_legal = first_nonempty(row, "nd_legal", default="")
 
     return {
         "card_id": card_id,
@@ -69,6 +70,7 @@ def normalize_row(row: dict) -> dict:
         "race": race,
         "text": text,
         "tags": tags,
+        "nd_legal": nd_legal,
     }
 
 
@@ -100,7 +102,8 @@ def import_cards(csv_path: str | Path = DEFAULT_CSV, db_path: str | Path = DEFAU
             card_type TEXT,
             power TEXT,
             race TEXT,
-            text TEXT
+            text TEXT,
+            nd_legal TEXT
         )
         """
     )
@@ -120,8 +123,8 @@ def import_cards(csv_path: str | Path = DEFAULT_CSV, db_path: str | Path = DEFAU
         cur.execute(
             """
             INSERT OR REPLACE INTO cards
-            (card_id, name, civilization, cost, card_type, power, race, text)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            (card_id, name, civilization, cost, card_type, power, race, text, nd_legal)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 row["card_id"],
@@ -132,6 +135,7 @@ def import_cards(csv_path: str | Path = DEFAULT_CSV, db_path: str | Path = DEFAU
                 row["power"],
                 row["race"],
                 row["text"],
+                row["nd_legal"],
             ),
         )
         inserted += 1

@@ -4,6 +4,7 @@ import argparse
 import csv
 import json
 import math
+import os
 import re
 import time
 from html.parser import HTMLParser
@@ -149,6 +150,16 @@ def make_session() -> requests.Session:
             "X-Requested-With": "XMLHttpRequest",
         }
     )
+    # SSL傍受環境（社内プロキシ/セキュリティソフト）で公開カードDBを取得する場合に限り、
+    # MANA_INSECURE_SSL=1 で証明書検証を明示的に無効化できる。既定は検証あり。
+    if os.environ.get("MANA_INSECURE_SSL") == "1":
+        s.verify = False
+        try:
+            import urllib3
+
+            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        except Exception:
+            pass
     return s
 
 
@@ -314,6 +325,17 @@ def try_search(session: requests.Session, base_params: list[tuple[str, str]], cs
     raise RuntimeError("search.jsonの公式JS方式POSTでもカード配列を取得できませんでした。dmps_api_debug_v2を確認してください。")
 
 
+def join_races(raw: dict[str, Any]) -> str:
+    """公式APIは種族を race1〜race4 に分けて返す（未設定は "-"）。/ 区切りで結合する。"""
+    races: list[str] = []
+    for i in range(1, 5):
+        value = raw.get(f"race{i}")
+        text = "" if value is None else str(value).strip()
+        if text and text != "-":
+            races.append(text)
+    return "/".join(races)
+
+
 def normalize_card(raw: dict[str, Any]) -> dict[str, Any]:
     out: dict[str, str] = {}
     for field in CARD_FIELDS:
@@ -322,9 +344,15 @@ def normalize_card(raw: dict[str, Any]) -> dict[str, Any]:
             v = json.dumps(v, ensure_ascii=False)
         out[field] = "" if v is None else str(v)
 
+    race_joined = join_races(raw)
+
     out["name"] = out.get("card_name", "") or str(raw.get("name", ""))
     out["civilization"] = out.get("culture", "")
-    out["race"] = out.get("race", "") or out.get("race_text", "")
+    out["race"] = race_joined or out.get("race", "") or out.get("race_text", "")
+    out["race_text"] = race_joined or out.get("race_text", "")
+    out["keyword"] = "" if raw.get("keyword") is None else str(raw.get("keyword", ""))
+    # 公式APIの new_division=1 がND（ニュー・ディビジョン）使用可フラグ。
+    out["nd_legal"] = "1" if str(raw.get("new_division", "")).strip() == "1" else "0"
     out["text"] = out.get("body_text", "")
     out["tags"] = ""
     out["source"] = "dmps_official_api"

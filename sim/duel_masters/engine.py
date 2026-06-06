@@ -165,6 +165,7 @@ class Game:
         # ターン終了時に呼ぶフック群(覚醒チェック等)。fn(game, active_player)。
         self.turn_end_hooks: List[Callable] = []
         self.attacking: Optional[Card] = None   # 現在攻撃中のクリーチャー
+        self.attack_target = None               # 現在の攻撃先('player' または Card)
         self.pending_extra_turn: Optional[Player] = None  # 追加ターン(スコーラー等)
         self.skip_rest_of_turn = False          # 終末の時計等: 現ターンの残りをとばす
 
@@ -614,6 +615,7 @@ class Game:
     def resolve_attack(self, attacker: Card, target):
         attacker.tapped = True
         self.attacking = attacker            # 「このクリーチャーの攻撃中」判定用
+        self.attack_target = target          # ブロック判断のロールアウト用
         self.log(f"  {attacker.controller}: {attacker} が攻撃")
         self.trigger(ON_ATTACK, attacker)
         if self.winner is not None:
@@ -636,6 +638,11 @@ class Game:
                 self.battle(attacker, b)
                 return
 
+        self._resolve_unblocked(attacker, target, defender)
+
+    def _resolve_unblocked(self, attacker: Card, target, defender: Player):
+        """ブロックされなかった攻撃の解決(シールドブレイク/ダイレクト/クリーチャー戦)。
+        ブロック判断のロールアウトからも『ブロックしない』選択肢として呼ぶ。"""
         if target == "player":
             if defender.shields:
                 # W・ブレイカー等は複数枚ブレイク(シールド枚数が上限)
@@ -805,6 +812,7 @@ class Game:
         g.log_lines = []
         g.turn_end_hooks = list(self.turn_end_hooks)
         g.attacking = None
+        g.attack_target = None
         g.pending_extra_turn = None
         g.skip_rest_of_turn = False
         g.winner = None

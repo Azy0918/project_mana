@@ -437,6 +437,48 @@ class RolloutAgent(HeuristicAgent):
             return self._decide_attack_rollout(game, actions)
         return super().decide(game, actions)
 
+    def choose_card(self, game, prompt, cards, optional=False):
+        # ブロック判断(防御側・任意)はロールアウトで評価。除去対象等は Heuristic 流用。
+        if optional and cards and game.attacking is not None and "ブロック" in prompt:
+            return self._rollout_block(game, cards)
+        return super().choose_card(game, prompt, cards, optional)
+
+    def _rollout_block(self, game, blockers):
+        defender = blockers[0].controller
+        def_idx = game.players.index(defender)
+        atk_uid = game.attacking.uid
+        tgt = game.attack_target
+        tgt_uid = getattr(tgt, "uid", None)
+        best_opt, best_v = None, None
+        for opt in [None] + list(blockers):     # None = ブロックしない
+            score = 0.0
+            for _ in range(self.rollouts):
+                g2 = game.clone()
+                g2.players[0].agent = HeuristicAgent("r0")
+                g2.players[1].agent = HeuristicAgent("r1")
+                d2 = g2.players[def_idx]
+                atk2 = next((c for c in g2.opponent(d2).battle
+                             if c.uid == atk_uid), None)
+                if atk2 is not None:
+                    if opt is None:
+                        t2 = "player" if tgt == "player" else next(
+                            (c for c in d2.battle if c.uid == tgt_uid), "player")
+                        g2._resolve_unblocked(atk2, t2, d2)
+                    else:
+                        b2 = next((c for c in d2.battle if c.uid == opt.uid), None)
+                        if b2 is not None:
+                            b2.tapped = True
+                            g2.battle(atk2, b2)
+                if g2.winner is None:           # 攻撃側の残りは近似で飛ばし防御側ターンへ
+                    g2.active_index = def_idx
+                    g2.skip_rest_of_turn = False
+                    g2.play_out_turns(self.horizon)
+                score += self._outcome(g2, def_idx)
+            v = score / self.rollouts
+            if best_v is None or v > best_v:
+                best_v, best_opt = v, opt
+        return best_opt
+
     def _outcome(self, g, me_idx):
         me = g.players[me_idx]
         if g.winner is me:

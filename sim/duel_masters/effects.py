@@ -323,6 +323,16 @@ def on_turn_end_mill_self(draw_n: int, discard_n: int) -> Ability:
     return Ability(ON_TURN_END, f, f"ターン終了時:{draw_n}引き{discard_n}捨て")
 
 
+def cast_mana_refund(n: int = 1) -> Ability:
+    """セイレーン・コンチェルト/シンクロ・スパイラル等の『実質0コスト』: 唱えると
+    タップ済みマナを n 回復(コスト分を実質返す)。安い呪文の連打=G・ゼロの燃料になる。"""
+    def f(game, controller, source):
+        tapped = [m for m in controller.mana if m.tapped]
+        for m in tapped[:n]:
+            m.tapped = False
+    return Ability(CAST, f, f"実質0コスト(マナ{n}回復)")
+
+
 def cast_tap_all_draw() -> Ability:
     """ノヴァルティ・アメイズ(本体): 相手全タップ+1ドロー。"""
     def f(game, controller, source):
@@ -339,6 +349,8 @@ register("水上第九院 シャコガイル",
          abilities=[on_summon_grave_to_deck(), on_turn_end_mill_self(5, 3)],
          statics=[win_on_deckout()])
 register("ノヴァルティ・アメイズ", abilities=[cast_tap_all_draw()])
+register("セイレーン・コンチェルト", abilities=[cast_mana_refund(1)])
+register("シンクロ・スパイラル", abilities=[cast_mana_refund(1)])
 register("閃光の守護者ホーリー", abilities=[on_summon_tap_all()])
 register("オリオティス・ジャッジ", abilities=[cast_oriotis_judge()])
 register("超宮兵 マノミ", abilities=[on_summon_draw(2)], statics=[g_zero(3)])

@@ -725,7 +725,13 @@ class Game:
         if a.kind == "charge":
             self.charge_mana(p, a.card)
 
-        # メイン(出せるだけ出す)。G・ゼロ条件を満たすカードは無料でも出せる。
+        self._main_phase(p)
+        self._attack_phase(p)
+        self._end_phase(p)
+
+    def _main_phase(self, p: Player):
+        """メイン: 出せるだけ出す。G・ゼロ条件を満たすカードは無料でも出せる。
+        (ロールアウトから途中再開で呼べるよう分離)"""
         while self.winner is None and not self.skip_rest_of_turn:
             spell_ok = self.turn_count >= p.no_spell_until   # 呪文ロック(ジャミング・チャフ等)
             playable = [c for c in p.hand if self.can_pay(p, c)
@@ -741,18 +747,22 @@ class Game:
             a = p.agent.decide(self, acts)
             if a.kind == "pass":
                 break
-            if a.face == "spell":
-                self.play_twin_spell(p, a.card)
-            elif a.free:
-                p.hand.remove(a.card)
-                if a.card.ctype == CREATURE:
-                    self._enter_battle(p, a.card, free=True)
-                else:
-                    self._resolve_spell(p, a.card, free=True)
-            else:
-                self.play(p, a.card)
+            self.apply_play(p, a)
 
-        # 攻撃
+    def apply_play(self, p: Player, a):
+        """play アクションの適用(通常召喚/G・ゼロ無料/ツインパクト呪文面)。"""
+        if a.face == "spell":
+            self.play_twin_spell(p, a.card)
+        elif a.free:
+            p.hand.remove(a.card)
+            if a.card.ctype == CREATURE:
+                self._enter_battle(p, a.card, free=True)
+            else:
+                self._resolve_spell(p, a.card, free=True)
+        else:
+            self.play(p, a.card)
+
+    def _attack_phase(self, p: Player):
         while self.winner is None and not self.skip_rest_of_turn:
             acts = self.legal_attacks(p) + [Action("pass")]
             a = p.agent.decide(self, acts)
@@ -761,6 +771,7 @@ class Game:
             self.resolve_attack(a.card, a.target)
         self.attacking = None
 
+    def _end_phase(self, p: Player):
         # ターン終了処理(覚醒チェック等のフック → 各クリーチャーのターン終了能力)
         if self.winner is None:
             for hook in self.turn_end_hooks:

@@ -435,7 +435,62 @@ class RolloutAgent(HeuristicAgent):
     def decide(self, game, actions):
         if any(a.kind == "attack" for a in actions):
             return self._decide_attack_rollout(game, actions)
+        if any(a.kind == "play" for a in actions):
+            return self._decide_main_rollout(game, actions)
         return super().decide(game, actions)
+
+    def _advance_and_playout(self, g, me2):
+        """現ターンの残り(メイン継続→攻撃→終了)を回し、以降を horizon ターン進める。"""
+        if g.winner is None:
+            g._main_phase(me2)
+        if g.winner is None:
+            g._attack_phase(me2)
+        if g.winner is None:
+            g._end_phase(me2)
+        if g.winner is None:
+            if g.pending_extra_turn is me2:   # 追加ターンは同プレイヤー続行
+                g.pending_extra_turn = None
+            else:
+                g.pending_extra_turn = None
+                g.active_index ^= 1
+            g.play_out_turns(self.horizon)
+
+    def _decide_main_rollout(self, game, actions):
+        """各プレイ(と pass)を clone で適用→ターン継続→プレイアウトし勝率で選ぶ。
+        within-turn のコンボ手順(安い呪文連打→無料フィニッシュ等)を発見できる。"""
+        me_idx = game.players.index(game.active())
+        best_a, best_v = None, None
+        for a in actions:
+            score = 0.0
+            for _ in range(self.rollouts):
+                g2 = game.clone()
+                g2.players[0].agent = HeuristicAgent("r0")
+                g2.players[1].agent = HeuristicAgent("r1")
+                me2 = g2.players[me_idx]
+                if a.kind == "play":
+                    card2 = next((c for c in me2.hand if c.uid == a.card.uid), None)
+                    if card2 is not None:
+                        a2 = Action("play", card2, free=a.free, face=a.face)
+                        try:
+                            g2.apply_play(me2, a2)
+                        except Exception:
+                            pass
+                    self._advance_and_playout(g2, me2)   # play なら継続して掘る
+                else:
+                    # pass: メインをここで止め、攻撃→終了→以降
+                    if g2.winner is None:
+                        g2._attack_phase(me2)
+                    if g2.winner is None:
+                        g2._end_phase(me2)
+                    if g2.winner is None:
+                        g2.pending_extra_turn = None
+                        g2.active_index ^= 1
+                        g2.play_out_turns(self.horizon)
+                score += self._outcome(g2, me_idx)
+            v = score / self.rollouts
+            if best_v is None or v > best_v:
+                best_v, best_a = v, a
+        return best_a
 
     def choose_card(self, game, prompt, cards, optional=False):
         # ブロック判断(防御側・任意)はロールアウトで評価。除去対象等は Heuristic 流用。

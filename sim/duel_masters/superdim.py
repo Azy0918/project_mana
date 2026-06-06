@@ -133,6 +133,8 @@ def register_awaken(name, condition, awakened_def):
 
 def turn_end_awaken(game, player):
     """ターン終了フック: 登録済みサイキックの覚醒条件を満たせば反転させる。"""
+    if not AWAKEN_REGISTRY:          # 既定で空=ほとんどの対戦で早期脱出(高速化)
+        return
     for c in list(player.battle):
         entry = AWAKEN_REGISTRY.get(c.name)
         if not entry:
@@ -163,6 +165,8 @@ def register_dragsolve(name, condition, solved_def):
 
 def turn_end_dragsolve(game, player):
     """ターン終了フック: 登録済みドラグハートの龍解条件を満たせば反転させる。"""
+    if not DRAGSOLVE_REGISTRY:       # 既定で空=早期脱出
+        return
     for c in list(player.field) + list(player.battle):
         entry = DRAGSOLVE_REGISTRY.get(c.name)
         if not entry:
@@ -183,17 +187,25 @@ def register_builtin_dragsolves():
 # linked_def(覚醒後スタッツ)は API から取れないので手入力(下記 _GAROWZ 参照)。
 #   LINK_REGISTRY[key] = (component_names, linked_def, super_return_names, condition)
 LINK_REGISTRY = {}
+_ALL_LINK_COMPONENTS = set()      # 全リンク家系の構成カード名の和集合(早期脱出用)
 
 
 def register_link_awaken(component_names, linked_def, super_return_names=(),
                          condition=None, key=None):
     LINK_REGISTRY[key or linked_def.name] = (
         tuple(component_names), linked_def, tuple(super_return_names), condition)
+    _ALL_LINK_COMPONENTS.update(component_names)
 
 
 def turn_end_link(game, player):
-    for comps, linked_def, super_ret, cond in list(LINK_REGISTRY.values()):
-        names_in_battle = {c.name for c in player.battle}
+    battle = player.battle
+    if not battle:
+        return
+    names_in_battle = {c.name for c in battle}
+    # 構成カードが場に1枚も無ければ即脱出(リンク非使用デッキの大半でここで終わる)
+    if names_in_battle.isdisjoint(_ALL_LINK_COMPONENTS):
+        return
+    for comps, linked_def, super_ret, cond in LINK_REGISTRY.values():
         if not all(n in names_in_battle for n in comps):
             continue
         if cond is not None and not cond(game, player):
@@ -553,6 +565,7 @@ def _build_linked_def(d) -> CardDef:
 def register_builtin_links():
     """実データ表 _LINK_DATA から覚醒リンクを一括登録する。"""
     LINK_REGISTRY.clear()
+    _ALL_LINK_COMPONENTS.clear()
     for d in _LINK_DATA:
         register_link_awaken(
             component_names=tuple(d["components"]),

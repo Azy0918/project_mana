@@ -24,14 +24,15 @@ from .agents import HeuristicAgent
 
 
 def _play_vs(pool, super_pool, ga_names, meta_main, meta_super, seed, ga_first,
-             ga_super=()):
+             ga_super=(), pilot=None):
     rng = random.Random(seed)
-    ga_p = Player("GA", HeuristicAgent("GA", rng))
+    pilot = pilot or (lambda n, r: HeuristicAgent(n, r))
+    ga_p = Player("GA", pilot("GA", rng))
     ga_p.deck = carddb.build_deck(pool, ga_p, ga_names)
     if ga_super:
         ga_p.super_zone = carddb.build_super_zone(super_pool, ga_p, ga_super)
     meta_p = decks.make_player(pool, super_pool, "META",
-                               HeuristicAgent("META", rng), meta_main, meta_super)
+                               pilot("META", rng), meta_main, meta_super)
     p0, p1 = (ga_p, meta_p) if ga_first else (meta_p, ga_p)
     g = Game(p0, p1, rng=rng)
     superdim.install_awaken_hook(g)
@@ -41,15 +42,17 @@ def _play_vs(pool, super_pool, ga_names, meta_main, meta_super, seed, ga_first,
     return 1.0 if w is ga_p else 0.0
 
 
-def fitness_vs_meta(pool, super_pool, deck, gauntlet, games=6, ga_super=()):
+def fitness_vs_meta(pool, super_pool, deck, gauntlet, games=6, ga_super=(),
+                    pilot=None):
+    """deck の対メタ平均勝率。pilot を渡すと両席をそのパイロットで操縦(忠実評価)。"""
     names = ga.deck_to_list(deck)
     s = 0.0
     for gi, (mm, ms) in enumerate(gauntlet):
         for k in range(games):
             s += _play_vs(pool, super_pool, names, mm, ms, 100 + gi * 50 + k,
-                          True, ga_super)
+                          True, ga_super, pilot)
             s += _play_vs(pool, super_pool, names, mm, ms, 600 + gi * 50 + k,
-                          False, ga_super)
+                          False, ga_super, pilot)
     return s / (len(gauntlet) * games * 2)
 
 
@@ -97,6 +100,68 @@ def evolve_vs_meta(generations=10, pop=18, games=5, elite_frac=0.25, seed=42,
             newpop.append(child)
         population = newpop
     return pool, super_pool, best, fit(best)
+
+
+def fast_ismcts_pilot(name, rng):
+    """GAの精評価用 ISMCTS(40反復/horizon6/反応窓は木/ブロック探索off)。
+    フル(ISMCTS80/blk40)の約2倍速で較正を維持しつつ、フル評価への**予測力**を確保する
+    (24反復より弱いとメタの操縦が甘くアグロを過大評価し、GAが幻のデッキを選ぶ)。"""
+    from .ismcts import ISMCTSAgent
+    return ISMCTSAgent(name, rng, iterations=40, horizon=6, max_depth=10,
+                       block_iterations=0, reactions_in_tree=True)
+
+
+def evolve_two_tier(generations=8, pop=20, h_games=4, ismcts_top_k=6,
+                    ismcts_games=3, elite_frac=0.3, seed=42, verbose=True):
+    """二段GA: Tier1=Heuristicで全個体を高速ランク、Tier2=高速ISMCTSで上位K体だけを
+    忠実評価しエリート選抜・最良決定に使う。=『ISMCTSをGA本走に載せる』実用解。
+
+    Heuristic単独GAはアグロ偏重で『見かけだけメタに勝つ』デッキを選ぶが(meta_validation
+    で実証)、エリート選抜をISMCTS忠実評価に委ねることでその幻を排す。ISMCTSは高コスト
+    なので全個体でなく有望上位K体のみに使い、評価はキャッシュして再利用する。
+    戻り値 (pool, super_pool, best_deck, best_ismcts_score)。"""
+    pool, super_pool = decks.build_full_pool()
+    _, cand = ga.build_pools()
+    gauntlet = [decks.decklist(n) for n in decks.DECKS]
+    rng = random.Random(seed)
+    hcache, icache = {}, {}
+
+    def hfit(ind):
+        k = ga.deck_key(ind)
+        if k not in hcache:
+            hcache[k] = fitness_vs_meta(pool, super_pool, ind, gauntlet,
+                                        games=h_games)
+        return hcache[k]
+
+    def ifit(ind):
+        k = ga.deck_key(ind)
+        if k not in icache:
+            icache[k] = fitness_vs_meta(pool, super_pool, ind, gauntlet,
+                                        games=ismcts_games, pilot=fast_ismcts_pilot)
+        return icache[k]
+
+    population = [ga.random_deck(cand, rng) for _ in range(pop)]
+    n_elite = max(2, int(pop * elite_frac))
+    best, best_i = None, -1.0
+    for gen in range(generations):
+        ranked = sorted(population, key=hfit, reverse=True)       # Tier1
+        topk = ranked[:ismcts_top_k]
+        topk_scored = sorted(topk, key=ifit, reverse=True)        # Tier2(忠実)
+        gen_best = topk_scored[0]
+        if ifit(gen_best) > best_i:
+            best_i, best = ifit(gen_best), gen_best
+        if verbose:
+            print(f"gen {gen:2d}: ISMCTS最良 {ifit(gen_best):.3f} "
+                  f"(H={hfit(gen_best):.3f})  H評価{len(hcache)} I評価{len(icache)}",
+                  flush=True)
+        elite = topk_scored[:n_elite]            # エリート=ISMCTS上位
+        newpop = list(elite)
+        while len(newpop) < pop:                 # 交配は Heuristic ランクで(安価・多様)
+            a = ga._tournament(ranked, hfit, rng)
+            b = ga._tournament(ranked, hfit, rng)
+            newpop.append(ga.mutate(ga.crossover(a, b, cand, rng), cand, rng))
+        population = newpop
+    return pool, super_pool, best, best_i
 
 
 def endurance(hours=3.0, pop=22, games=5, gens_per_epoch=4, elite_frac=0.25,

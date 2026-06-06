@@ -143,9 +143,39 @@ def turn_end_awaken(game, player):
 
 
 def install_awaken_hook(game):
-    """Game にターン終了の覚醒/リンク覚醒チェックを取り付ける。"""
+    """Game にターン終了の覚醒/リンク覚醒/龍解チェックを取り付ける。"""
     game.turn_end_hooks.append(turn_end_awaken)
     game.turn_end_hooks.append(turn_end_link)
+    game.turn_end_hooks.append(turn_end_dragsolve)
+
+
+# ---- 龍解(ドラグハート → 龍解後クリーチャー) -------------------------------
+# ドラグハート・ウエポン/フォートレスは超次元ゾーン所属。ドラグナーが場に出し、
+# 龍解条件を満たすとクリーチャーに反転する(engine.dragsolve)。覚醒と同じく、龍解後
+# フォームのスタッツは公式APIに無いため手入力前提。データが揃った家系だけ登録する。
+#   DRAGSOLVE_REGISTRY[name] = (condition(game, card)->bool, solved CardDef)
+DRAGSOLVE_REGISTRY = {}
+
+
+def register_dragsolve(name, condition, solved_def):
+    DRAGSOLVE_REGISTRY[name] = (condition, solved_def)
+
+
+def turn_end_dragsolve(game, player):
+    """ターン終了フック: 登録済みドラグハートの龍解条件を満たせば反転させる。"""
+    for c in list(player.field) + list(player.battle):
+        entry = DRAGSOLVE_REGISTRY.get(c.name)
+        if not entry:
+            continue
+        cond, solved = entry
+        if solved is not None and cond(game, c):
+            game.dragsolve(c, solved)
+
+
+def register_builtin_dragsolves():
+    """実データ(龍解後スタッツ)が手入力された家系を一括登録する。
+    現状は空(=機構のみ提供)。覚醒リンク _LINK_DATA と同様、確認できたものから足す。"""
+    return list(DRAGSOLVE_REGISTRY)
 
 
 # ---- 覚醒リンク(複数サイキック → 1体) -------------------------------------

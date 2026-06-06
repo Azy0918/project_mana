@@ -341,6 +341,45 @@ def cast_tap_all_draw() -> Ability:
     return Ability(CAST, f, "相手全タップ+1ドロー")
 
 
+def on_summon_number_bounce() -> Ability:
+    """機術士ディール: 出た時、数字を1つ選び、その(印刷)コストの相手クリーチャーを全て手札へ。
+    選ぶ数字は『戻して一番得なコスト帯(パワー総和最大)』を貪欲に選択する。"""
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        if not opp.battle:
+            game.log("    効果: 対象なし(数字選択)")
+            return
+        by_cost = {}
+        for c in opp.battle:
+            by_cost.setdefault(c.cost, []).append(c)
+        num = max(by_cost,
+                  key=lambda k: sum((c.power or 0) for c in by_cost[k]))
+        for c in list(by_cost[num]):
+            game.bounce(c)
+        game.log(f"    効果: 数字{num}を選び同コストの相手を全て手札へ")
+    return Ability(ON_SUMMON, f, "出た時:数字を選びその同コストの相手を全バウンス")
+
+
+def doom_break() -> Static:
+    """Q.Q.QX: シールドをブレイクする時、相手はそれを手札に加えるかわりに山札に刺す。
+    刺さったカードを相手が引くと敗北する(engine.break_shield/_move_top_to_hand が解決)。"""
+    return Static("doom_break", lambda g, s, leaving: True,
+                  "ブレイクしたシールドを山札に刺す(引いたら敗北)")
+
+
+def field_protect_multicolor(min_cost: int = 5) -> Static:
+    """Dの妖艶 マッド・デッド・ウッド: 自分のコスト min_cost 以上の多色クリーチャーが
+    離場する時、パワーが0より大きければ、かわりにとどまる(離場の置換・フィールド由来)。"""
+    def fn(game, src, leaving):
+        if leaving.controller is not src.controller:
+            return False
+        if leaving.cost < min_cost or len(leaving.civs) < 2:
+            return False
+        return (game.power_of(leaving) or 0) > 0
+    return Static("replace_leave_field", fn,
+                  f"自分のコスト{min_cost}以上の多色は破壊されず残る(パワー>0)")
+
+
 # 登録(Tier S 実メタの核カード)
 register("DNA・スパーク", abilities=[cast_tap_all(shield_if_le=2)])
 register("終末の時計 ザ・クロック", abilities=[on_summon_skip_turn()])
@@ -361,6 +400,19 @@ register("“乱振”舞神 G・W・D", abilities=[on_summon_battle_enemy()])
 register("“B-零朱”レイド", abilities=[on_summon_shield_burn(1)])
 register("“轟轟轟”ブランド", abilities=[on_summon_brand_destroy()])
 register("刻解人形ジェニー・ジェーン", abilities=[on_summon_discard_opp(1)])
+
+# --- 未実装解決(2026-06): 数字ロック / 特殊敗北 / D2フィールド ---
+# 機術士ディール(ツインパクトのクリーチャー面): 出た時、数字を選び同コストの相手を全戻し。
+# 呪文面「本日のラッキーナンバー！」(数字ロック)は twinpact.py 側で付与。
+register("機術士ディール/「本日のラッキーナンバー！」",
+         abilities=[on_summon_number_bounce()])
+# Q.Q.QX.(クリーチャー面): ブレイクしたシールドを山札に刺す(引いたら敗北)。
+# 呪文面「終葬 5.S.D.」(相手を山札に刺す+自身を場に)は twinpact.py 側で付与。
+register("Q.Q.QX./終葬 5.S.D.", statics=[doom_break()])
+# Dの妖艶 マッド・デッド・ウッド(D2フィールド): 自分のコスト5以上多色を離場から守る。
+# Dスイッチ(全墓地進化蘇生)は複雑なため未実装。
+register("Dの妖艶 マッド・デッド・ウッド",
+         statics=[field_protect_multicolor(5)])
 
 
 def apply_effects(pool):

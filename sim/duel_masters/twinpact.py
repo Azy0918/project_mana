@@ -176,6 +176,34 @@ def cast_spell_lock_draw() -> Ability:
     return Ability(CAST, f, "相手の呪文ロック+1ドロー")
 
 
+def cast_number_lock() -> Ability:
+    """「本日のラッキーナンバー！」: 数字を1つ選び、次の自分のターン開始時まで、相手は
+    その(印刷)コストのクリーチャーと呪文を実行できない。相手の手札+盤面で最頻のコストを潰す。"""
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        counts = {}
+        for c in opp.hand:
+            counts[c.cost] = counts.get(c.cost, 0) + 1
+        for c in opp.battle:
+            counts[c.cost] = counts.get(c.cost, 0) + 1
+        num = max(counts, key=counts.get) if counts else 5
+        opp.locked_costs[num] = game.turn_count + 2   # 次の自分のターン開始まで
+        game.log(f"    効果: 数字{num}ロック(相手はそのコストを実行不可)")
+    return Ability(CAST, f, "数字ロック:指定コストのクリーチャー/呪文を実行不可")
+
+
+def cast_doom_stick() -> Ability:
+    """終葬 5.S.D.: 相手クリーチャー1体を山札の4枚目に刺し(引いたら敗北)、このカードを場に出す。"""
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        if opp.battle:
+            t = max(opp.battle, key=lambda c: c.power or 0)
+            game.stick_into_deck(opp, t, pos=3, doom=True)
+        # このツインパクト(Q.Q.QX.のクリーチャー面)をバトルゾーンに出す(墓地送りされない)。
+        game._enter_battle(controller, source, free=True)
+    return Ability(CAST, f, "相手1体を山札に刺す(引いたら敗北)+自身を場に")
+
+
 def cast_creature_or_shield_to_mana() -> Ability:
     """地獄極楽トラップ黙示録: 相手のクリーチャー1体、または無ければシールド1つをマナ送り。"""
     def f(game, controller, source):
@@ -237,6 +265,14 @@ TWIN_SPELLS = {
     "ふでがき師匠/一筆奏上！": dict(
         spell="一筆奏上！", cost=2, civs={NATURE}, st=False,            # コスト推定
         ability=cast_jokers_search()),
+    # --- 未実装解決(2026-06): 数字ロック / 特殊敗北 ---
+    "機術士ディール/「本日のラッキーナンバー！」": dict(
+        spell="「本日のラッキーナンバー！」", cost=4, civs={WATER}, st=False,  # コスト推定
+        ability=cast_number_lock()),
+    # 終葬 5.S.D.: 条件付きS・トリガー(マナにツインパクト5枚以上)は簡略し非ST。
+    "Q.Q.QX./終葬 5.S.D.": dict(
+        spell="終葬 5.S.D.", cost=5, civs={NATURE}, st=False,
+        ability=cast_doom_stick()),
 }
 
 

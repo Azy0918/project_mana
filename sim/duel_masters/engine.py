@@ -24,7 +24,7 @@ from typing import Callable, Optional, List
 
 LIGHT, WATER, DARKNESS, FIRE, NATURE = "光", "水", "闇", "火", "自然"
 
-CREATURE, SPELL = "creature", "spell"
+CREATURE, SPELL, FIELD = "creature", "spell", "field"
 
 # イベント名(能力の発火タイミング)
 ON_SUMMON = "on_summon"        # クリーチャーがバトルゾーンに出たとき
@@ -76,6 +76,9 @@ class CardDef:
     psychic: bool = False               # サイキック等=超次元ゾーン所属。離場時ゾーンへ戻る
     text: str = ""                      # DB本文(効果の自動検出/ホール召喚条件パース用)
     twin_spell: object = None           # ツインパクトの呪文面(別 CardDef)。両面プレイ用
+    evolution: bool = False             # 進化クリーチャー(基盤の上に重ねて召喚=酔いなし)
+    neo: bool = False                   # NEO/エグザイル等: 基盤無しでも直接召喚できる進化
+    field: bool = False                 # D2フィールド/城等=フィールドゾーン所属の常在パーマネント
 
 
 class Card:
@@ -123,9 +126,12 @@ class Player:
         self.shields: List[Card] = []
         self.graveyard: List[Card] = []
         self.super_zone: List[Card] = []   # 超次元ゾーン(最大8)。山札とは別、シャッフル・ドロー対象外
+        self.field: List[Card] = []        # D2フィールド/城。常在効果を出すパーマネント(原則1枚)
         self.charged_this_turn = False
         self.spells_this_turn = 0          # このターンに唱えた呪文数(G・ゼロ判定用)
         self.no_spell_until = 0            # このターン番号未満は呪文を唱えられない(ロック)
+        self.locked_costs = {}             # {コスト: 解除ターン}。本日のラッキーナンバー等の数字ロック
+        self.doomed_uids = set()           # Q.Q.QX: 山札に刺さった「引いたら敗北」カードのuid集合
 
     def __repr__(self):
         return self.name
@@ -201,8 +207,44 @@ class Game:
 
     def _move_top_to_hand(self, p: Player):
         c = p.deck.pop(0)
+        # Q.Q.QX: 山札に刺さった「横向き」カードを手札に加える時、かわりに敗北。
+        if c.uid in p.doomed_uids:
+            p.doomed_uids.discard(c.uid)
+            if self.loss_is_prevented(p):
+                c.zone = "hand"
+                p.hand.append(c)
+                self.log(f"  {p} は敗北拒否で『刺さったカード』でも負けない")
+                return
+            self.winner = self.opponent(p)
+            self.log(f"  ★ {p} は山札に刺さったカードを引いて敗北!(Q.Q.QX)")
+            return
         c.zone = "hand"
         p.hand.append(c)
+
+    def stick_into_deck(self, p: Player, card: Card, pos: int = 3,
+                        doom: bool = True):
+        """card を p の山札の上から pos+1 枚目(既定=4枚目)に差し込み、doom 指定なら
+        「引いたら敗北」マークを付ける(Q.Q.QX/終葬 5.S.D.)。card は現ゾーンから外す。"""
+        ctrl = card.controller
+        for zone in (ctrl.battle, ctrl.hand, ctrl.shields, ctrl.mana,
+                     ctrl.graveyard, p.shields, p.battle):
+            if card in zone:
+                zone.remove(card)
+                break
+        card.tapped = False
+        card.controller = card.owner
+        card.zone = "deck"
+        idx = min(pos, len(p.deck))
+        p.deck.insert(idx, card)
+        if doom:
+            p.doomed_uids.add(card.uid)
+        self.log(f"  {p} の山札{idx + 1}枚目に {card} を刺す"
+                 + ("(引いたら敗北)" if doom else ""))
+
+    def is_cost_locked(self, p: Player, card: Card) -> bool:
+        """本日のラッキーナンバー等: card の(印刷)コストが p にロックされていれば True。"""
+        until = p.locked_costs.get(card.cost)
+        return until is not None and self.turn_count < until
 
     # --- ゾーン移動の基本操作 ----------------------------------------------
 
@@ -250,11 +292,17 @@ class Game:
 
     def _replace_leave(self, card: Card) -> bool:
         """離場の置換効果(Static kind='replace_leave')。True を返すと離場を肩代わり/防止。
-        fn(game, source, leaving_card) -> bool。コスト支払い等は fn 内で行う。"""
+        fn(game, source, leaving_card) -> bool。コスト支払い等は fn 内で行う。
+        自身の静的効果に加え、コントローラーのフィールド(D2フィールド等)も参照する。"""
         for st in card.d.statics:
             if st.kind == "replace_leave" and st.fn(self, card, card):
                 self.log(f"  置換効果: {card} はバトルゾーンに残る")
                 return True
+        for fsrc in card.controller.field:
+            for st in fsrc.d.statics:
+                if st.kind == "replace_leave_field" and st.fn(self, fsrc, card):
+                    self.log(f"  置換効果({fsrc.name}): {card} はバトルゾーンに残る")
+                    return True
         return False
 
     def destroy(self, card: Card):
@@ -266,6 +314,7 @@ class Game:
             card.tapped = False
             self.log(f"  破壊: {card}")
             self.trigger(ON_DESTROYED, card)
+            self._discard_evo_under(card)        # 進化の下のカードを墓地へ
             # 覚醒リンク中のフォームは『リンク解除』で各構成カードを所定の場所へ返す。
             comps = getattr(card, "_link_components", None)
             if comps:
@@ -353,18 +402,25 @@ class Game:
         for ab in ts.abilities:
             if ab.event == CAST and self.winner is None:
                 ab.resolve(self, p, card)
-        card.zone = "graveyard"
-        p.graveyard.append(card)
+        # 通常は呪文を唱えたら墓地へ。ただし効果で自身を場に出した(終葬 5.S.D.等)場合は残す。
+        if card not in p.battle and card.zone != "battle":
+            card.zone = "graveyard"
+            p.graveyard.append(card)
 
     # --- 常在効果の問い合わせ ----------------------------------------------
 
     def _all_battle_cards(self) -> List[Card]:
         return self.players[0].battle + self.players[1].battle
 
+    def _static_sources(self) -> List[Card]:
+        """常在効果の発生源(バトルゾーン＋フィールドゾーンのパーマネント)。"""
+        return (self.players[0].battle + self.players[1].battle
+                + self.players[0].field + self.players[1].field)
+
     def keywords_of(self, card: Card) -> set:
         """innate + 常在効果で付与された実効キーワード集合。"""
         kw = set(card.d.keywords)
-        for src in self._all_battle_cards():
+        for src in self._static_sources():
             for st in src.d.statics:
                 if st.kind == "keywords":
                     kw |= st.fn(self, src, card)
@@ -373,7 +429,7 @@ class Game:
     def cost_of(self, p: Player, card: Card) -> int:
         """コスト軽減を反映した実効コスト。下限は文明数と1の大きい方。"""
         red = 0
-        for src in self._all_battle_cards():
+        for src in self._static_sources():
             for st in src.d.statics:
                 if st.kind == "cost":
                     red += st.fn(self, src, p, card)
@@ -385,7 +441,7 @@ class Game:
         if base is None:
             return None
         total = base
-        for src in self._all_battle_cards():
+        for src in self._static_sources():
             for st in src.d.statics:
                 if st.kind == "power":
                     total += st.fn(self, src, card)
@@ -396,7 +452,7 @@ class Game:
         """常在(Static kind='restrict')による制限の問い合わせ。
         fn(game, source, player, kind, card) -> bool が一つでも True なら制限。
         例: 'no_free_play'(踏み倒し禁止), 'cant_attack', 'untargetable'。"""
-        for src in self._all_battle_cards():
+        for src in self._static_sources():
             for st in src.d.statics:
                 if st.kind == "restrict" and st.fn(self, src, player, kind, card):
                     return True
@@ -441,7 +497,7 @@ class Game:
 
     def loss_is_prevented(self, p: Player) -> bool:
         """p が今この瞬間、敗北拒否(常在効果)で負けないか。"""
-        for src in p.battle:
+        for src in p.battle + p.field:
             for st in src.d.statics:
                 if st.kind == "loss_refusal" and st.fn(self, src, p):
                     return True
@@ -449,22 +505,56 @@ class Game:
 
     # --- カードを使う -------------------------------------------------------
 
-    def play(self, p: Player, card: Card):
+    def play(self, p: Player, card: Card, evolve_on: Optional[Card] = None):
         self.pay_cost(p, card)
         p.hand.remove(card)
-        if card.ctype == CREATURE:
-            self._enter_battle(p, card, free=False)
+        if card.d.field:
+            self._enter_field(p, card)
+        elif card.ctype == CREATURE:
+            self._enter_battle(p, card, free=False, evolve_on=evolve_on)
         else:
             self._resolve_spell(p, card)
 
-    def _enter_battle(self, p: Player, card: Card, free: bool):
+    def evolution_base(self, p: Player, card: Card) -> Optional[Card]:
+        """進化の基盤候補(自分のクリーチャーで最もパワーの高いもの)。無ければ None。"""
+        if not card.d.evolution:
+            return None
+        bases = [c for c in p.battle]
+        if not bases:
+            return None
+        return max(bases, key=lambda c: self.power_of(c) or 0)
+
+    def _enter_field(self, p: Player, card: Card):
+        """D2フィールド/城をフィールドゾーンへ。既存のフィールドは1枚に保たれる。"""
+        for old in list(p.field):
+            p.field.remove(old)
+            old.zone = "graveyard"
+            old.controller = old.owner
+            old.owner.graveyard.append(old)
+            self.log(f"  {p}: 既存フィールド {old} を破壊")
+        card.controller = p
+        card.zone = "field"
+        card.tapped = False
+        p.field.append(card)
+        self.log(f"  {p}: フィールド {card} を展開")
+        self.trigger(ON_SUMMON, card)
+
+    def _enter_battle(self, p: Player, card: Card, free: bool,
+                      evolve_on: Optional[Card] = None):
         card.controller = p
         card.zone = "battle"
         card.tapped = False
-        card.summoning_sick = True   # 実効SAは legal_attacks 側で keywords_of により判定
+        if evolve_on is not None and evolve_on in p.battle:
+            # 進化: 基盤の上に重ねる。基盤は場から外し下に格納。召喚酔いを引き継ぐ(=なし)。
+            p.battle.remove(evolve_on)
+            card._evo_under = getattr(evolve_on, "_evo_under", []) + [evolve_on]
+            card.summoning_sick = False
+        else:
+            card.summoning_sick = True   # 実効SAは legal_attacks 側で keywords_of により判定
         p.battle.append(card)
         tag = " (S・トリガー)" if free else ""
-        self.log(f"  {p}: {card} を召喚{tag}")
+        evo = f" (進化 on {evolve_on})" if evolve_on is not None else ""
+        self.log(f"  {p}: {card} を召喚{tag}{evo}")
         self.trigger(ON_SUMMON, card)
 
     def _resolve_spell(self, p: Player, card: Card, free: bool = False):
@@ -535,6 +625,39 @@ class Game:
         # 覚醒時の ON_SUMMON 相当は MVP では発火しない(覚醒後の常在は keywords_of 経由)。
         return card
 
+    def dragsolve(self, card: Card, solved_def: CardDef):
+        """龍解: ドラグハート(フィールド/ウエポン)を龍解後クリーチャーに反転し、バトルゾーンへ。
+        実体(uid)は保持。龍解後も psychic 扱い(離場で超次元へ戻る)。awaken の場-移動版。"""
+        ctrl = card.controller
+        if card in ctrl.field:
+            ctrl.field.remove(card)
+        elif card in ctrl.battle:
+            ctrl.battle.remove(card)
+        old = card.name
+        card.d = solved_def
+        card.zone = "battle"
+        card.tapped = False
+        card.summoning_sick = False
+        ctrl.battle.append(card)
+        self.log(f"  ★龍解: {old} → {card.name} (P{card.power})")
+        return card
+
+    def deploy_dragheart(self, player: Player, card: Card):
+        """ドラグナーがドラグハートを超次元ゾーンからフィールド/バトルへ出す(踏み倒し)。
+        フォートレス(field=True)はフィールドへ、ウエポン等はバトルゾーンへ置く簡略実装。"""
+        if card in player.super_zone:
+            player.super_zone.remove(card)
+        card.controller = player
+        card.tapped = False
+        if card.d.field:
+            card.zone = "field"
+            player.field.append(card)
+        else:
+            card.zone = "battle"
+            card.summoning_sick = False
+            player.battle.append(card)
+        self.log(f"  {player}: ドラグハート {card} を展開")
+
     def link_awaken(self, player: Player, components: List[Card],
                     linked_def: CardDef, super_return_names: tuple = ()):
         """覚醒リンク: 複数のサイキック(components)を1体の linked_def に束ねる。
@@ -570,11 +693,24 @@ class Game:
         names = ", ".join(f"{c.name}->{d}" for c, d in components)
         self.log(f"    リンク解除: {names}")
 
+    def _discard_evo_under(self, card: Card):
+        """進化クリーチャーが離場する時、その下に重ねた基盤カードを墓地へ送る。"""
+        under = getattr(card, "_evo_under", None)
+        if not under:
+            return
+        for u in under:
+            u.controller = u.owner
+            u.zone = "graveyard"
+            u.owner.graveyard.append(u)
+        self.log(f"    進化の下のカード{len(under)}枚を墓地へ")
+        card._evo_under = []
+
     def bounce(self, card: Card):
         """クリーチャーを持ち主の手札へ戻す(サイキックは超次元ゾーンへ)。"""
         ctrl = card.controller
         if card in ctrl.battle:
             ctrl.battle.remove(card)
+            self._discard_evo_under(card)
         card.tapped = False
         card.controller = card.owner
         if card.d.psychic:
@@ -673,12 +809,20 @@ class Game:
             self.destroy(c1)
             self.destroy(c2)
 
+    def _has_static(self, card: Optional[Card], kind: str) -> bool:
+        return card is not None and any(st.kind == kind for st in card.d.statics)
+
     def break_shield(self, defender: Player, breaker: Player):
         # シールドは非公開情報なのでブレイク対象はランダムに選ぶ
         shield = self.rng.choice(defender.shields)
         defender.shields.remove(shield)
         self.log(f"  {breaker}: {defender} のシールドを1枚ブレイク "
                  f"(残り{len(defender.shields)})")
+        # Q.Q.QX: ブレイクしたシールドは手札に加わらず、山札に「刺さる」(引いたら敗北)。
+        # S・トリガーも誘発しない(手札に加えるかわりの置換)。
+        if self._has_static(self.attacking, "doom_break"):
+            self.stick_into_deck(defender, shield, pos=3, doom=True)
+            return
         ts = shield.d.twin_spell
         st_creature = "shield_trigger" in shield.keywords
         st_spell = bool(ts) and "shield_trigger" in ts.keywords
@@ -729,17 +873,30 @@ class Game:
         self._attack_phase(p)
         self._end_phase(p)
 
+    def _can_play_now(self, p: Player, card: Card, spell_ok: bool) -> bool:
+        """このメインフェイズで card を通常プレイできるか(コスト/呪文ロック/数字ロック/進化基盤)。"""
+        if not self.can_pay(p, card):
+            return False
+        if card.ctype == SPELL and not spell_ok:
+            return False
+        if card.ctype in (CREATURE, SPELL) and self.is_cost_locked(p, card):
+            return False                            # 本日のラッキーナンバー等の数字ロック
+        if card.d.evolution and not card.d.neo \
+                and self.evolution_base(p, card) is None:
+            return False                            # 進化は基盤(自分のクリーチャー)が必要
+        return True
+
     def _main_phase(self, p: Player):
         """メイン: 出せるだけ出す。G・ゼロ条件を満たすカードは無料でも出せる。
         (ロールアウトから途中再開で呼べるよう分離)"""
         while self.winner is None and not self.skip_rest_of_turn:
             spell_ok = self.turn_count >= p.no_spell_until   # 呪文ロック(ジャミング・チャフ等)
-            playable = [c for c in p.hand if self.can_pay(p, c)
-                        and (spell_ok or c.ctype != SPELL)]
+            playable = [c for c in p.hand if self._can_play_now(p, c, spell_ok)]
             free_cards = [c for c in p.hand
                           if c not in playable and self.can_gzero(p, c)]
             twin = [c for c in p.hand
-                    if self.can_pay_twin_spell(p, c) and spell_ok]
+                    if self.can_pay_twin_spell(p, c) and spell_ok
+                    and not self._twin_cost_locked(p, c)]
             acts = ([Action("play", c) for c in playable]
                     + [Action("play", c, free=True) for c in free_cards]
                     + [Action("play", c, face="spell") for c in twin]
@@ -749,18 +906,28 @@ class Game:
                 break
             self.apply_play(p, a)
 
+    def _twin_cost_locked(self, p: Player, card: Card) -> bool:
+        """ツインパクト呪文面のコストが数字ロックされているか。"""
+        ts = card.d.twin_spell
+        until = p.locked_costs.get(ts.cost) if ts else None
+        return until is not None and self.turn_count < until
+
     def apply_play(self, p: Player, a):
-        """play アクションの適用(通常召喚/G・ゼロ無料/ツインパクト呪文面)。"""
+        """play アクションの適用(通常召喚/G・ゼロ無料/ツインパクト呪文面/進化/フィールド)。"""
         if a.face == "spell":
             self.play_twin_spell(p, a.card)
         elif a.free:
             p.hand.remove(a.card)
-            if a.card.ctype == CREATURE:
-                self._enter_battle(p, a.card, free=True)
+            if a.card.d.field:
+                self._enter_field(p, a.card)
+            elif a.card.ctype == CREATURE:
+                evo = self.evolution_base(p, a.card) if a.card.d.evolution else None
+                self._enter_battle(p, a.card, free=True, evolve_on=evo)
             else:
                 self._resolve_spell(p, a.card, free=True)
         else:
-            self.play(p, a.card)
+            evo = self.evolution_base(p, a.card) if a.card.d.evolution else None
+            self.play(p, a.card, evolve_on=evo)
 
     def _attack_phase(self, p: Player):
         while self.winner is None and not self.skip_rest_of_turn:
@@ -845,6 +1012,17 @@ class Game:
             cmap[card.uid] = c2
             return c2
 
+        def cc_under(card):
+            under = getattr(card, "_evo_under", None)
+            if under:
+                copies = []
+                for u in under:
+                    u2 = cc(u)
+                    u2.owner = pmap[id(u.owner)]
+                    u2.controller = pmap[id(u.controller)]
+                    copies.append(u2)
+                cmap[card.uid]._evo_under = copies
+
         pmap = {}
         for p in self.players:
             p2 = Player.__new__(Player)
@@ -857,9 +1035,12 @@ class Game:
             p2.shields = [cc(c) for c in p.shields]
             p2.graveyard = [cc(c) for c in p.graveyard]
             p2.super_zone = [cc(c) for c in p.super_zone]
+            p2.field = [cc(c) for c in p.field]
             p2.charged_this_turn = p.charged_this_turn
             p2.spells_this_turn = p.spells_this_turn
             p2.no_spell_until = p.no_spell_until
+            p2.locked_costs = dict(p.locked_costs)
+            p2.doomed_uids = set(p.doomed_uids)
             p2._extra_turn_used = getattr(p, "_extra_turn_used", False)
             pmap[id(p)] = p2
             g.players.append(p2)
@@ -867,11 +1048,12 @@ class Game:
         allcards = []
         for p in self.players:
             allcards += (p.deck + p.hand + p.mana + p.battle + p.shields
-                         + p.graveyard + p.super_zone)
+                         + p.graveyard + p.super_zone + p.field)
         for card in allcards:
             c2 = cmap[card.uid]
             c2.owner = pmap[id(card.owner)]
             c2.controller = pmap[id(card.controller)]
+            cc_under(card)
             comps = getattr(card, "_link_components", None)
             if comps:
                 new = []

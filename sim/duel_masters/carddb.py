@@ -26,7 +26,7 @@ from typing import Optional, Dict, List
 
 from .engine import (
     CardDef, Card,
-    CREATURE, SPELL,
+    CREATURE, SPELL, FIELD,
     LIGHT, WATER, DARKNESS, FIRE, NATURE,
 )
 
@@ -104,6 +104,8 @@ def classify_ctype(card_type: Optional[str]) -> Optional[str]:
     ct = card_type or ""
     if ct == "呪文":
         return SPELL
+    if "D2フィールド" in ct:           # D2フィールド=フィールドゾーンの常在パーマネント
+        return FIELD
     if "クリーチャー" in ct or ct == "ゴッド":
         return CREATURE
     # ツインパクト(クリーチャー／呪文の二面)は MVP ではクリーチャー面の骨格として扱う。
@@ -135,6 +137,9 @@ def load_pool(db_path: Optional[str] = None,
         # ツインパクトは本文が【LINE】でクリーチャー面/呪文面に分かれる。
         # クリーチャー面のキーワードは face1 のみから判定(呪文面STの誤検出防止)。
         face1 = (text or "").split("【LINE】")[0]
+        ctr = ctype_raw or ""
+        is_evo = ("進化" in ctr) or ("NEO" in ctr)   # 進化/NEO進化=基盤に重ねる
+        is_neo = "NEO" in ctr                         # NEOは基盤無しでも直接召喚できる
         pool[name] = CardDef(
             cid=card_id or name,
             name=name,
@@ -146,6 +151,9 @@ def load_pool(db_path: Optional[str] = None,
             keywords=parse_keywords(face1),
             abilities=(),                   # ← effects.py が後から差す
             text=text or "",
+            evolution=is_evo,
+            neo=is_neo,
+            field=(ct == FIELD),
         )
     con.close()
     return pool
@@ -191,6 +199,48 @@ def load_super_pool(csv_path: Optional[str] = None,
                 keywords=parse_keywords(text),
                 abilities=(),
                 psychic=True,
+                text=text or "",
+            )
+    return pool
+
+
+def load_dragheart_pool(csv_path: Optional[str] = None) -> Dict[str, CardDef]:
+    """超次元CSVから ドラグハート(ウエポン/フォートレス)を読み込む。
+
+    フォートレスは field=True(フィールドゾーン)、ウエポンは battle 寄りのパーマネント
+    として扱う。いずれも psychic=True で離場時は超次元ゾーンへ戻る。龍解後フォームの
+    スタッツは公式APIに無いため superdim.register_dragsolve() で手入力する(覚醒と同運用)。
+    """
+    csv_path = csv_path or _DEFAULT_SUPERDIM_CSV
+    pool: Dict[str, CardDef] = {}
+    if not os.path.exists(csv_path):
+        return pool
+    with open(csv_path, encoding="utf-8-sig", newline="") as f:
+        for row in csv.DictReader(f):
+            ctype_raw = row.get("card_type", "")
+            if "ドラグハート" not in ctype_raw:
+                continue
+            name = row.get("name") or row.get("card_name") or ""
+            if not name or name in pool:
+                continue
+            civ = row.get("civilization") or row.get("culture") or ""
+            race = row.get("race") or row.get("race_text") or ""
+            text = row.get("text") or row.get("body_text") or ""
+            cost = row.get("cost") or "0"
+            races = tuple(r for r in race.replace("／", "/").split("/") if r)
+            is_fortress = "フォートレス" in ctype_raw
+            pool[name] = CardDef(
+                cid=row.get("card_id") or name,
+                name=name,
+                cost=int(cost) if str(cost).isdigit() else 0,
+                civs=parse_civs(civ),
+                ctype=FIELD if is_fortress else CREATURE,
+                power=parse_power(row.get("power") or row.get("power_disp")),
+                races=races,
+                keywords=parse_keywords(text),
+                abilities=(),
+                psychic=True,
+                field=is_fortress,
                 text=text or "",
             )
     return pool

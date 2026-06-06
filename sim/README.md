@@ -1,0 +1,125 @@
+# Duel Masters PLAY'S ルールエンジン (Python)
+
+デュエル・マスターズ プレイス(デュエプレ)準拠の対戦を Python で再現する、
+**イベント駆動・拡張可能なルールエンジン**。bot に操作させて勝率を測り、
+遺伝的アルゴリズム(GA)で「人間が作っていない未知デッキ」を探索するために作られた
+(MetaStone+GA の Hearthstone 事例の Duel Masters 版)。
+
+依存ライブラリなし(標準ライブラリのみ)。`data/cards.db`(実カードDB)に接続して
+**796枚のND可カードの骨格**を自動ロードし、効果は `effects.py`/`superdim.py` で実装する。
+
+## 設計思想
+
+カードは「データ」ではなく **イベントに反応する小さな能力の集合**。エンジンが
+瞬間ごとにイベントを発火し、カード側が反応する。新カードはエンジン本体に触れず
+**部品(Ability/Static)を1つ足すだけ**で増える。
+
+```
+イベント(Ability):  ON_SUMMON / CAST / ON_ATTACK / ON_DESTROYED /
+                     ON_BATTLE_WIN / ON_TURN_END / ON_LINK
+常在効果(Static):    keywords(キーワード付与) / power(パワー修整) /
+                     cost(コスト軽減) / loss_refusal(敗北拒否) /
+                     restrict(踏み倒し/攻撃/対象/ブロックの制限) /
+                     replace_leave(離場の置換効果)
+```
+
+bot/探索用に **「今の意思決定 = Action のリスト」** を前面に出し、各フェーズで
+`agent.decide(game, actions)` を呼ぶ統一インターフェースにしている。
+
+## ファイル構成
+
+```
+duel_masters/
+  engine.py     ゲーム状態・全ゾーン・ターン進行・行動生成・イベント/常在/制限/置換の解決
+  carddb.py     実カードDB(data/cards.db)→ CardDef骨格 への接続層。超次元プールも
+  effects.py    DB骨格にカード名で手書き効果を差す登録層(火の敗北拒否MVP等)
+  superdim.py   超次元ゾーン: ホール本文パーサ / 召喚 / 覚醒 / 覚醒リンク(実データ表)
+  gauntlet.py   GAのfitness相手となる人間風アーキタイプ・デッキ群
+  agents.py     RandomAgent / GreedyAgent / HeuristicAgent(盤面評価パイロット)
+  ga.py         遺伝的アルゴリズム本体(個体=40枚デッキ, 適応度=ガントレット勝率)
+  endurance.py  GAを壁時計時間で回す耐久ランナー(殿堂+共進化+チェックポイント)
+demo.py         動作確認(詳細ログ1戦 / 勝率測定)
+tests_ext.py        エンジン基礎9項目
+test_superdim.py    超次元ゾーン/ホール召喚/覚醒(21項目)
+test_awaken_link.py 覚醒リンク全10家系(85項目)
+test_complex.py     複雑能力21項目(常在/制限/置換/トリガー)
+```
+
+## 実装済みメカニクス(能力カバレッジ)
+
+| 区分 | 実装済み |
+|---|---|
+| 基本 | マナ/文明支払い・チャージ・召喚酔い・アンタップ・ターン進行 |
+| 戦闘 | 攻撃・バトル(実効パワー判定)・ブロッカー・**強制ブロック**・**ハンティング**(アンタップ攻撃) |
+| ブレイク | 通常/W/T/**Q**/ワールド・ブレイカー・ダイレクトアタック勝利 |
+| シールド | シールドブレイク・**S・トリガー**・山札切れ敗北 |
+| キーワード | ブロッカー・スピードアタッカー・S・トリガー・各ブレイカー(常在付与も可) |
+| 常在効果 | **パワー永続修整**・キーワード付与・コスト軽減・**敗北拒否**・種族条件バフ |
+| 制限 | **踏み倒しメタ**(no_free_play)・**攻撃不可**(cant_attack)・**選択不可**(untargetable)・強制ブロック |
+| 置換効果 | **離場時生存**(replace_leave) |
+| 超次元 | **超次元ゾーン**・**ホール召喚**(本文パーサで条件抽出)・サイキック離場時ゾーン帰還 |
+| 覚醒 | **覚醒**(裏返し)・**覚醒リンク**(複数→1体, 解除で各カードを所定位置へ) |
+| 状態起因 | 実効パワー0以下の破壊(全体パワー修整との連動) |
+| 効果例 | 除去/全体除去/バウンス/ドロー/墓地回収/ライブラリアウト/勝利時アンタップ 等 |
+
+超次元の覚醒後フォーム(死海竜ガロウズ等)は **10家系を実データで実装済み**
+(`superdim._LINK_DATA`)。データは kamigame デュエプレで確認(紙版とは数値が違うので
+デュエプレ専用ソースを使うこと)。
+
+## カードを足す(拡張方法)
+
+```python
+# 1) 通常カードの効果: effects.py
+register("スチーム・ハエタタキ", abilities=[cast_destroy_le(4000)])
+
+# 2) ホール呪文: 本文から自動でパースされる(superdim.attach_hole_abilities)
+#    「超次元ゾーンからコスト7以下の火のサイキックを1体出す」→ 自動で召喚能力に
+
+# 3) 覚醒リンク: superdim._LINK_DATA に1家系=1 dict を足すだけ
+{
+  "name": "激竜王ガイアール・オウドラゴン", "civs": {FIRE}, "cost": 24,
+  "power": 25000, "races": ("キング・コマンド・ドラゴン", "ハンター"),
+  "keywords": ["world_breaker"],
+  "components": ["ガイアール・カイザー", "ブーストグレンオー", "ドラゴニック・ピッピー"],
+  "super_return": ["ガイアール・カイザー"],
+  "on_attack": ("destroy_weaker", None),
+}
+```
+
+## 実行 / テスト
+
+```bash
+cd sim
+PYTHONPATH=. PYTHONUTF8=1 python demo.py            # 動作確認
+PYTHONPATH=. PYTHONUTF8=1 python tests_ext.py       # 9
+PYTHONPATH=. PYTHONUTF8=1 python test_superdim.py   # 21
+PYTHONPATH=. PYTHONUTF8=1 python test_awaken_link.py# 85
+PYTHONPATH=. PYTHONUTF8=1 python test_complex.py    # 21
+# 合計 136 チェック
+PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
+```
+
+## AI パイロット
+
+- **RandomAgent** — 下限ベースライン
+- **GreedyAgent** — 素朴(重いの出して顔殴り)。A/B比較の基準
+- **HeuristicAgent** — 盤面評価+候補手スコアリング+リーサル/有利トレード/ブロック判断。
+  MetaStone のデフォルトAI同型(状態複製の要らない1手評価)。GAの評価はこれを使う。
+  ミラー戦で Greedy に 56–63%、Random に 94–95%。
+
+## GA / 耐久モード
+
+個体=40枚デッキ(同名4枚)、適応度=人間風ガントレットへの**着席公平**な勝率。
+`endurance.py` は世代をまたぐ連続進化 + 殿堂(HoF) + 共進化(固定相手への過学習を抑制)
++ エポックごとの原子的チェックポイント(途中クラッシュでも発見が残る)。
+
+## 既知の制約(正直な範囲)
+
+- **カバレッジは逐次拡張型**: コア・ルールは完成しているが、個々のカード効果は
+  自然言語のため手実装が要る(MTGのForge等と同じ性質)。現状は火の敗北拒否軸 +
+  超次元/覚醒リンク10家系 + 主要キーワードを実装。
+- 一部の固有能力は近似/未実装(各 `_LINK_DATA` の `note` に明記): 龍解/ドラグハート、
+  ハンティングの細部、覚醒の個別発動条件(リンクは構成3体集結で発動を採用)。
+- 反応窓(ブロック/ST/対象選択)は agent コールバック。完全な木探索には
+  `legal_actions()` への平坦化が必要。
+- 不完全情報(山札順・手札・シールド)はそのまま。MCTSは determinization が要る。

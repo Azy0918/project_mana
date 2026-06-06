@@ -112,8 +112,8 @@ PYTHONPATH=. PYTHONUTF8=1 python test_awaken_link.py# 85
 PYTHONPATH=. PYTHONUTF8=1 python test_complex.py    # 21
 PYTHONPATH=. PYTHONUTF8=1 python test_twinpact.py   # 9
 PYTHONPATH=. PYTHONUTF8=1 python test_mechanics.py  # 43
-PYTHONPATH=. PYTHONUTF8=1 python test_ismcts.py     # 7
-# 合計 195 チェック
+PYTHONPATH=. PYTHONUTF8=1 python test_ismcts.py     # 9
+# 合計 197 チェック
 PYTHONPATH=. PYTHONUTF8=1 python diag.py            # パイロット較正の診断
 PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
 ```
@@ -127,9 +127,10 @@ PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
 - **LookaheadAgent** — メインフェイズを clone+1手先読みで選ぶ(設置/展開の手順が正確に)。
 - **RolloutAgent** — clone→候補手適用→以降を高速方策でプレイアウトしフラットMC勝率で選ぶ。
   攻撃/防御(ブロック)/メイン(within-turnコンボ)を実結果で判断。任意で `determinize`(ISMCTS)。
-- **ISMCTSAgent** — 情報集合MCTS(SO-ISMCTS)。操縦プレイヤーのメイン＋攻撃の意思決定列に
-  UCT木を張り、反復ごとに決定化してプレイアウト→逆伝播。**忠実評価の正準パイロット**
-  (`decks.eval_pilot`, 80反復/horizon8)。flatより手順(コンボ連鎖/カーブ)を正しく評価する。
+- **ISMCTSAgent** — 情報集合MCTS(SO-ISMCTS)。操縦プレイヤーのメイン＋攻撃**＋反応窓
+  (ブロック/ST/対象)**の意思決定列にUCT木を張り(=完全木探索)、反復ごとに決定化して
+  プレイアウト→逆伝播。**忠実評価の正準パイロット**(`decks.eval_pilot`, 80反復/horizon8)。
+  flatより手順(コンボ連鎖/カーブ/防御計画)を正しく評価する。
 
 ### 深い探索がメタを較正する(`diag.py` で実証)
 
@@ -165,9 +166,10 @@ PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
 - 一部の固有能力は近似/未実装: **龍解は機構のみ実装済み(龍解後フォームのスタッツは
   覚醒リンク同様、公式API非提供のため手入力前提)**、D2フィールドのDスイッチ(全墓地蘇生)、
   ハンティングの細部、覚醒の個別発動条件(リンクは構成3体集結で発動を採用)。
-- 反応窓(ブロック/ST/対象選択)は agent コールバック。ISMCTSAgent はメイン＋攻撃の
-  意思決定列を木に張り、反応窓は反復内では高速方策・実ゲームのブロックはロールアウトで評価する
-  (反応窓まで木に含める完全な木探索は分岐爆発のため未実装=次フェーズ)。
+- 反応窓(ブロック/S・トリガー/対象選択)も ISMCTS の木に載る**完全木探索**(`reactions_in_tree`,
+  既定ON)。反復内のプレイアウト中、me の将来の防御・トリガー使用まで木で計画するので評価が忠実。
+  実ゲームの単発ブロックは親 RolloutAgent のロールアウトを継承。A/B計測で完全木探索が前版を上回る
+  ことを確認(vs火光: 青白 0.64→0.75, スコーラー 0.63→0.66, 闇自然 0.94→0.95、速度ペナルティ無し)。
 - 不完全情報の決定化(`Game.determinize`)は実装済み。少サンプルでは操縦を悪化させるため
   ロールアウト/ISMCTS とも既定OFF(上記の知見。高サンプルの忠実評価時のみ有効化)。
 - ISMCTSは強いが重い(80反復で ~0.5–0.7秒/戦)。GAの数千対戦には載らないので最終評価専用。

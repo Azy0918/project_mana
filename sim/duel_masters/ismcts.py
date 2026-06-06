@@ -15,9 +15,11 @@ ISMCTSAgent は操縦プレイヤーの**メイン＋攻撃フェイズの意思
   公平に評価できる)。
 - 1反復 = clone→決定化→木方策(UCB選択＋1ノード展開)で me を駆動、相手は
   HeuristicAgent、葉(frontier)以降はロールアウト方策で終局までプレイアウト→逆伝播。
-- 反応窓(ブロック/ST/対象選択)は反復内では高速ヒューリスティック(ネストした
-  ロールアウトを避ける)。**実ゲームのブロック判断は親 RolloutAgent の強力なブロック・
-  ロールアウトを継承**(コントロールの防御レバーを温存)。
+- **反応窓(ブロック/S・トリガー/対象選択)も木に載せる=完全木探索**。反復内のプレイアウト中、
+  me の将来の防御・トリガー使用・対象選択まで木で計画するので、メイン/攻撃の評価が「自分は
+  後で最適に受ける」前提で正しくなる。葉(frontier)以降は高速方策。**実ゲームのブロック判断は
+  親 RolloutAgent の強力なブロック・ロールアウトを継承**(相手ターン中の単発判断は木の根に
+  しづらいため)。
 - 速度が本質的に重いので最終評価専用。GA は引き続き高速 HeuristicAgent。
 """
 from __future__ import annotations
@@ -59,20 +61,24 @@ class _TreePlayoutAgent:
     charge と反応窓(ブロック/ST/対象)は高速方策に委譲。path に通過ノードを溜め、
     呼び出し側が逆伝播する。"""
 
-    def __init__(self, root, rollout_policy, max_depth, rng, c):
+    def __init__(self, root, rollout_policy, max_depth, rng, c,
+                 reactions_in_tree=True):
         self.name = "tree"
         self.root = root
         self.rollout_policy = rollout_policy
         self.max_depth = max_depth
         self.rng = rng
         self.c = c
+        # reactions_in_tree=False で反応窓(ブロック/ST/対象)を木に載せず高速方策に回す
+        # (=旧挙動)。A/B比較・予算が薄い時用。
+        self.reactions_in_tree = reactions_in_tree
         # per-iteration 状態
         self.current = root
         self.path = []
         self.in_rollout = False
         self.depth = 0
 
-    # me のメイン/攻撃決定だけ木で選ぶ。それ以外は高速方策。
+    # me のメイン/攻撃決定を木で選ぶ。それ以外(charge/pass)は高速方策。
     def decide(self, game, actions):
         kinds = {a.kind for a in actions}
         if "charge" in kinds:
@@ -81,7 +87,7 @@ class _TreePlayoutAgent:
             return next(a for a in actions if a.kind == "pass")
         if self.in_rollout:
             return self.rollout_policy.decide(game, actions)
-        return self._tree_decide(game, actions)
+        return self._tree_choose([(_sig(a), a) for a in actions])
 
     def _ucb(self, child):
         if child.visits == 0:
@@ -90,41 +96,54 @@ class _TreePlayoutAgent:
         explore = self.c * math.sqrt(math.log(max(1, child.avail)) / child.visits)
         return exploit + explore
 
-    def _tree_decide(self, game, actions):
+    def _tree_choose(self, pairs):
+        """pairs=[(sig, option), ...]。木の選択/展開で1つ選び option を返す(汎用)。
+        decide/choose_card/choose_yes_no が共通でこれを通り、反応窓も木に載る。"""
         node = self.current
         expanded, unexpanded = [], []
-        for a in actions:
-            sg = _sig(a)
+        for sg, opt in pairs:
             ch = node.children.get(sg)
             if ch is None:
-                unexpanded.append((sg, a))
+                unexpanded.append((sg, opt))
             else:
                 ch.avail += 1
-                expanded.append((a, ch))
+                expanded.append((opt, ch))
         if unexpanded:
-            sg, a = self.rng.choice(unexpanded)   # 1ノード展開
+            sg, opt = self.rng.choice(unexpanded)   # 1ノード展開
             child = Node()
             child.avail = 1
             node.children[sg] = child
             self.path.append(child)
             self.current = child
-            self.in_rollout = True                # 展開後は以降ロールアウト
+            self.in_rollout = True                  # 展開後は以降ロールアウト
             self.depth += 1
-            return a
-        a, ch = max(expanded, key=lambda x: self._ucb(x[1]))   # UCB選択で降下
+            return opt
+        opt, ch = max(expanded, key=lambda x: self._ucb(x[1]))   # UCB選択で降下
         self.path.append(ch)
         self.current = ch
         self.depth += 1
         if self.depth >= self.max_depth:
             self.in_rollout = True
-        return a
+        return opt
 
-    # 反応窓は高速方策(ネストしたロールアウトを避ける)
+    # 反応窓(ブロック/対象選択)も木に載せる=完全木探索。葉以降は高速方策。
     def choose_card(self, game, prompt, cards, optional=False):
-        return self.rollout_policy.choose_card(game, prompt, cards, optional)
+        if self.in_rollout or not cards or not self.reactions_in_tree:
+            return self.rollout_policy.choose_card(game, prompt, cards, optional)
+        tag = "block" if ("ブロック" in prompt) else "choose"
+        opts = ([None] if optional else []) + list(cards)
+        pairs = []
+        for o in opts:
+            sg = (tag, "none") if o is None else (tag, prompt[:10], o.d.name)
+            pairs.append((sg, o))
+        return self._tree_choose(pairs)
 
     def choose_yes_no(self, game, prompt):
-        return self.rollout_policy.choose_yes_no(game, prompt)
+        if self.in_rollout or not self.reactions_in_tree:
+            return self.rollout_policy.choose_yes_no(game, prompt)
+        pairs = [(("yn", prompt[:14], True), True),
+                 (("yn", prompt[:14], False), False)]
+        return self._tree_choose(pairs)
 
 
 # ---- ISMCTS パイロット本体 --------------------------------------------------
@@ -133,13 +152,15 @@ class ISMCTSAgent(RolloutAgent):
     ブロック判断は親 RolloutAgent のロールアウトを継承(強い防御を温存)。"""
 
     def __init__(self, name="ISMCTS", rng=None, iterations=120, horizon=8,
-                 max_depth=12, c=0.7, determinize=False, determinize_shields=False):
+                 max_depth=12, c=0.7, determinize=False, determinize_shields=False,
+                 reactions_in_tree=True):
         super().__init__(name, rng, rollouts=1, horizon=horizon,
                          determinize=determinize,
                          determinize_shields=determinize_shields)
         self.iterations = iterations
         self.max_depth = max_depth
         self.c = c
+        self.reactions_in_tree = reactions_in_tree
 
     def decide(self, game, actions):
         kinds = {a.kind for a in actions}
@@ -177,7 +198,8 @@ class ISMCTSAgent(RolloutAgent):
             opp2 = g2.opponent(me2)
             rollout_pol = HeuristicAgent("ro", force_combo=True)
             agent = _TreePlayoutAgent(root, rollout_pol, self.max_depth,
-                                      self.rng, self.c)
+                                      self.rng, self.c,
+                                      reactions_in_tree=self.reactions_in_tree)
             me2.agent = agent
             opp2.agent = HeuristicAgent("op", force_combo=True)
             try:

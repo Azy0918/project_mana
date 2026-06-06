@@ -4,11 +4,17 @@
 import random
 
 from duel_masters import decks, superdim
-from duel_masters.engine import Game, Action
+from duel_masters.engine import Game, Action, Card, CardDef, FIRE, CREATURE
 from duel_masters.agents import RandomAgent, HeuristicAgent
 from duel_masters.ismcts import ISMCTSAgent, Node, _sig, _TreePlayoutAgent
 
 PASS = FAIL = 0
+
+
+def mkcard(owner, name):
+    cd = CardDef(cid=name, name=name, cost=2, civs=frozenset({FIRE}),
+                 ctype=CREATURE, power=2000)
+    return Card(cd, owner)
 
 
 def check(cond, label):
@@ -47,8 +53,8 @@ def test_tree_mechanics():
                  ctype=CREATURE, power=2000)
     A = type("P", (), {})()
     acts = [Action("play", Card(cd, A)), Action("pass")]
-    # 未展開 → 展開して frontier(in_rollout)へ
-    a = agent._tree_decide(None, acts)
+    # 未展開 → 展開して frontier(in_rollout)へ(汎用 _tree_choose)
+    a = agent._tree_choose([(_sig(x), x) for x in acts])
     check(a in acts, "未展開: 候補から1手を選び展開")
     check(len(root.children) == 1 and len(agent.path) == 1, "子1ノード展開・path記録")
     # 逆伝播の模倣
@@ -57,6 +63,17 @@ def test_tree_mechanics():
         node.reward += 1.0
     child = next(iter(root.children.values()))
     check(child.visits == 1 and child.reward == 1.0, "逆伝播でvisits/reward更新")
+
+    # 反応窓も木に載る(完全木探索): choose_yes_no / choose_card がノードを作る
+    a2 = _TreePlayoutAgent(Node(), pol, max_depth=5, rng=random.Random(2), c=0.7)
+    yn = a2.choose_yes_no(None, "S・トリガー Xを使う?")
+    check(yn in (True, False) and len(a2.root.children) == 1,
+          "S・トリガー判断が木のノードになる")
+    a3 = _TreePlayoutAgent(Node(), pol, max_depth=5, rng=random.Random(3), c=0.7)
+    blk = mkcard(A, "ブロッカーA")
+    chosen = a3.choose_card(None, "Xをブロックする?", [blk], optional=True)
+    check(chosen in (None, blk) and len(a3.root.children) == 1,
+          "ブロック判断(任意)が木のノードになる")
 
 
 def _play(agentA_factory, agentB_factory, seed, deckname="火光レイド"):

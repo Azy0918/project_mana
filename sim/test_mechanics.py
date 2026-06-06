@@ -242,6 +242,60 @@ def test_clone_integrity():
     check(len(A2.field) == 1 and A2.field[0].name == "D2", "フィールドゾーンが複製される")
 
 
+def test_joker_lock_win():
+    print("[ジョーカーズ・ロック / 盤面空勝利]")
+    pool, super_pool = decks.build_full_pool(nd_only=False)
+    jolly_n = decks.resolve_name(pool, "ジョリー・ザ・ジョニー")
+    senno_n = decks.resolve_name(pool, "洗脳センノー")
+    golden_n = decks.resolve_name(pool, "ゴールデン・ザ・ジョニー")
+    check(jolly_n and senno_n and golden_n, "核カードがプールに存在")
+
+    def setup(njokers):
+        g, A, B = fresh_game()
+        jolly = Card(pool[jolly_n], A)
+        jolly.zone = "battle"; jolly.summoning_sick = False
+        A.battle = [jolly]
+        A.mana = [Card(pool[senno_n], A) for _ in range(njokers)]  # センノー=ジョーカーズ
+        for m in A.mana:
+            m.zone = "mana"
+        B.battle = []
+        B.shields = [mk(B, f"s{i}", 1000) for i in range(2)]       # 盾2(direct勝ちを防ぐ)
+        for s in B.shields:
+            s.zone = "shield"
+        return g, A, B, jolly
+
+    # ジョーカーズ5枚(自身含む=マナ5+バトル1)→アンブロッカブル＋盤面空勝利
+    g, A, B, jolly = setup(5)
+    check("unblockable" in g.keywords_of(jolly), "ジョーカーズ5枚で自身アンブロッカブル")
+    g.resolve_attack(jolly, "player")
+    check(g.winner is A, "盤面空(相手クリーチャー0)で盾を割り切り攻撃後に特殊勝利")
+
+    # ジョーカーズ4枚(マナ3+自身1)では勝利条件未成立(盾を割るだけ)
+    g2, A2, B2 = fresh_game()
+    jolly2 = Card(pool[jolly_n], A2); jolly2.zone = "battle"; jolly2.summoning_sick = False
+    A2.battle = [jolly2]
+    A2.mana = [Card(pool[senno_n], A2) for _ in range(3)]
+    for m in A2.mana:
+        m.zone = "mana"
+    B2.battle = []
+    B2.shields = [mk(B2, f"s{i}", 1000) for i in range(2)]
+    for s in B2.shields:
+        s.zone = "shield"
+    g2.resolve_attack(jolly2, "player")
+    check(g2.winner is None, "ジョーカーズ4枚では特殊勝利しない(盾を割るのみ)")
+
+    # ゴールデン: 相手は各ターン呪文1回まで(spell_cap)
+    g3, A3, B3 = fresh_game()
+    golden = Card(pool[golden_n], A3); golden.zone = "battle"; A3.battle = [golden]
+    B3.spells_this_turn = 1
+    spell = mk(B3, "呪文", None, ctype="spell" if False else CREATURE)  # ダミー
+    from duel_masters.engine import SPELL as _SP
+    sp = Card(CardDef(cid="sp", name="テスト呪文", cost=1, civs=frozenset({FIRE}),
+                      ctype=_SP), B3)
+    check(g3.spell_cap(B3) == 1, "相手の呪文上限=1")
+    check(g3._can_play_now(B3, sp, True) is False, "1回唱えた後は呪文不可(ゴールデン)")
+
+
 def test_determinize():
     print("[決定化(ISMCTS): 隠匿情報のランダム化と不変条件]")
     g, A, B = fresh_game()
@@ -288,6 +342,7 @@ def main():
     test_doom_stick_spell()
     test_d2field()
     test_dragheart()
+    test_joker_lock_win()
     test_determinize()
     test_clone_integrity()
     print(f"\n{'ALL PASS' if FAIL == 0 else 'FAILED'} ({PASS} ok / {FAIL} ng)")

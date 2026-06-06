@@ -367,6 +367,87 @@ def doom_break() -> Static:
                   "ブレイクしたシールドを山札に刺す(引いたら敗北)")
 
 
+# ---- ジョーカーズ・ロック / 盤面空勝利(未開拓軸) ---------------------------
+
+def _jokers(game, p) -> int:
+    return game.count_race(p, "ジョーカーズ")     # バトル＋マナのジョーカーズ枚数
+
+
+def joker_unblockable(threshold: int = 5) -> Static:
+    """ジョリー: 自分のジョーカーズが threshold 枚以上なら自身はブロックされない。"""
+    def fn(game, src, target):
+        if target is src and _jokers(game, src.controller) >= threshold:
+            return {"unblockable"}
+        return set()
+    return Static("keywords", fn, f"ジョーカーズ{threshold}枚で自身アンブロッカブル")
+
+
+def joker_attack_win(threshold: int = 5) -> Static:
+    """ジョリー・ザ・ジョニー: ジョーカーズ threshold 枚以上で、攻撃の後に相手の
+    シールドもクリーチャーも無ければゲームに勝つ(engine._check_attack_win が解決)。"""
+    def fn(game, src):
+        opp = game.opponent(src.controller)
+        return (_jokers(game, src.controller) >= threshold
+                and not opp.shields and not opp.battle)
+    return Static("attack_win", fn,
+                  f"ジョーカーズ{threshold}枚&相手の盤面/シールド空で攻撃後に勝利")
+
+
+def senno_no_cheat() -> Static:
+    """洗脳センノー: 相手は自分のターン中、召喚以外の方法でクリーチャーを出せない。"""
+    def fn(game, src, player, kind, card):
+        if kind != "no_free_play" or player is src.controller:
+            return False
+        return game.active() is player
+    return Static("restrict", fn, "相手は自分のターン中、踏み倒しでクリーチャーを出せない")
+
+
+def golden_spell_cap(cap: int = 1) -> Static:
+    """ゴールデン・ザ・ジョニー: 相手は各ターンに cap 回しか呪文を唱えられない。"""
+    def fn(game, src, player):
+        return cap if player is not src.controller else None
+    return Static("spell_cap", fn, f"相手は各ターン呪文{cap}回まで")
+
+
+def cast_joker_search() -> Ability:
+    """ジョジョジョ・ジョーカーズ: 山札上4枚からジョーカーズ・クリーチャー1枚を手札へ。"""
+    def f(game, controller, source):
+        top = controller.deck[:4]
+        del controller.deck[:4]
+        found = next((c for c in top
+                      if c.ctype == "creature"
+                      and any("ジョーカーズ" in r for r in c.d.races)), None)
+        if found is not None:
+            found.zone = "hand"
+            controller.hand.append(found)
+            top.remove(found)
+        for c in top:
+            c.zone = "deck"
+            controller.deck.append(c)
+    return Ability(CAST, f, "山札上4枚からジョーカーズ1枚回収")
+
+
+def cast_meramera() -> Ability:
+    """メラメラ・ジョーカーズ: ジョーカーズ1枚を捨て、2枚引く。"""
+    def f(game, controller, source):
+        jk = next((c for c in controller.hand
+                   if any("ジョーカーズ" in r for r in c.d.races)), None)
+        if jk is not None:
+            controller.hand.remove(jk)
+            jk.zone = "graveyard"
+            controller.graveyard.append(jk)
+            game.draw(controller, 2)
+    return Ability(CAST, f, "ジョーカーズ1捨て2ドロー")
+
+
+def on_summon_gayou() -> Ability:
+    """ガヨウ神: 出た時、ジョーカーズが5枚以上なら2枚引く(簡略)。"""
+    def f(game, controller, source):
+        if _jokers(game, controller) >= 5:
+            game.draw(controller, 2)
+    return Ability(ON_SUMMON, f, "出た時ジョーカーズ5枚以上で2ドロー")
+
+
 def field_protect_multicolor(min_cost: int = 5) -> Static:
     """Dの妖艶 マッド・デッド・ウッド: 自分のコスト min_cost 以上の多色クリーチャーが
     離場する時、パワーが0より大きければ、かわりにとどまる(離場の置換・フィールド由来)。"""
@@ -413,6 +494,17 @@ register("Q.Q.QX./終葬 5.S.D.", statics=[doom_break()])
 # Dスイッチ(全墓地進化蘇生)は複雑なため未実装。
 register("Dの妖艶 マッド・デッド・ウッド",
          statics=[field_protect_multicolor(5)])
+
+# --- 未開拓軸: ジョーカーズ・ロック / 盤面空勝利(2026-06) ---
+# ジョリー・ザ・ジョニー: ジョーカーズ5枚でアンブロッカブル＋攻撃後の盤面空勝利。
+# SA/マスター・W・ブレイカーはテキストから自動付与。ゲーム外フェッチは未実装。
+register("ジョリー・ザ・ジョニー",
+         statics=[joker_unblockable(5), joker_attack_win(5)])
+register("洗脳センノー", statics=[senno_no_cheat()])
+register("ゴールデン・ザ・ジョニー", statics=[golden_spell_cap(1)])
+register("ジョジョジョ・ジョーカーズ", abilities=[cast_joker_search()])
+register("メラメラ・ジョーカーズ", abilities=[cast_meramera()])
+register("ガヨウ神", abilities=[on_summon_gayou()])
 
 
 def apply_effects(pool):

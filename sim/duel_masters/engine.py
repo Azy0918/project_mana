@@ -759,8 +759,9 @@ class Game:
             return
         defender = self.opponent(attacker.controller)
 
-        # ブロッカー判定(防御側が任意で1体タップしてブロック)
-        blockers = [c for c in defender.battle
+        # ブロッカー判定(防御側が任意で1体タップしてブロック)。アンブロッカブルは飛ばす。
+        unblockable = "unblockable" in self.keywords_of(attacker)
+        blockers = [] if unblockable else [c for c in defender.battle
                     if "blocker" in self.keywords_of(c) and not c.tapped]
         if blockers:
             # 強制ブロック(雲龍等): 可能ならブロックを省略できない。
@@ -775,6 +776,29 @@ class Game:
                 return
 
         self._resolve_unblocked(attacker, target, defender)
+        self._check_attack_win(attacker)     # 攻撃後の特殊勝利(ジョリー・ザ・ジョニー等)
+
+    def _check_attack_win(self, attacker: Card):
+        """攻撃の後に成立する特殊勝利(Static kind='attack_win')。
+        fn(game, attacker) -> bool が True なら攻撃側の勝ち。"""
+        if self.winner is not None:
+            return
+        for st in attacker.d.statics:
+            if st.kind == "attack_win" and st.fn(self, attacker):
+                if self.loss_is_prevented(self.opponent(attacker.controller)):
+                    return
+                self.winner = attacker.controller
+                self.log(f"  ★ 特殊勝利! {attacker.controller} ({attacker})")
+                return
+
+    def count_race(self, p: Player, race: str, zones=("battle", "mana")) -> int:
+        """指定ゾーンにある p の指定種族カード枚数(ジョリーの『ジョーカーズ5枚』判定用)。"""
+        n = 0
+        for z in zones:
+            for c in getattr(p, z):
+                if any(race in r for r in c.d.races):
+                    n += 1
+        return n
 
     def _resolve_unblocked(self, attacker: Card, target, defender: Player):
         """ブロックされなかった攻撃の解決(シールドブレイク/ダイレクト/クリーチャー戦)。
@@ -873,12 +897,27 @@ class Game:
         self._attack_phase(p)
         self._end_phase(p)
 
+    def spell_cap(self, p: Player) -> Optional[int]:
+        """p がこのターンに唱えられる呪文数の上限(ゴールデン・ザ・ジョニー等)。無制限はNone。"""
+        caps = []
+        for src in self._static_sources():
+            for st in src.d.statics:
+                if st.kind == "spell_cap":
+                    c = st.fn(self, src, p)
+                    if c is not None:
+                        caps.append(c)
+        return min(caps) if caps else None
+
     def _can_play_now(self, p: Player, card: Card, spell_ok: bool) -> bool:
         """このメインフェイズで card を通常プレイできるか(コスト/呪文ロック/数字ロック/進化基盤)。"""
         if not self.can_pay(p, card):
             return False
         if card.ctype == SPELL and not spell_ok:
             return False
+        if card.ctype == SPELL:                      # 呪文上限(ゴールデン: 各ターン1回)
+            cap = self.spell_cap(p)
+            if cap is not None and p.spells_this_turn >= cap:
+                return False
         if card.ctype in (CREATURE, SPELL) and self.is_cost_locked(p, card):
             return False                            # 本日のラッキーナンバー等の数字ロック
         if card.d.evolution and not card.d.neo \
@@ -894,8 +933,10 @@ class Game:
             playable = [c for c in p.hand if self._can_play_now(p, c, spell_ok)]
             free_cards = [c for c in p.hand
                           if c not in playable and self.can_gzero(p, c)]
+            cap = self.spell_cap(p)
+            cap_ok = cap is None or p.spells_this_turn < cap
             twin = [c for c in p.hand
-                    if self.can_pay_twin_spell(p, c) and spell_ok
+                    if self.can_pay_twin_spell(p, c) and spell_ok and cap_ok
                     and not self._twin_cost_locked(p, c)]
             acts = ([Action("play", c) for c in playable]
                     + [Action("play", c, free=True) for c in free_cards]

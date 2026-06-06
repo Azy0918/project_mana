@@ -13,6 +13,7 @@ import time
 from duel_masters import decks, superdim
 from duel_masters.engine import Game
 from duel_masters.agents import HeuristicAgent, RolloutAgent
+from duel_masters.ismcts import ISMCTSAgent
 
 
 # ---- パイロット工場(name, rng)->agent ---------------------------------------
@@ -26,10 +27,20 @@ def _rollout(rollouts=2, horizon=5):
     return make
 
 
+def _ismcts(iters=80, horizon=8, max_depth=12):
+    def make(name, rng):
+        return ISMCTSAgent(name, rng, iterations=iters, horizon=horizon,
+                           max_depth=max_depth)
+    return make
+
+
 PILOTS = {
     "heuristic": _heuristic,
     "rollout_r2h5": _rollout(2, 5),
     "rollout_r3h6": _rollout(3, 6),
+    "rollout_r6h10": _rollout(6, 10),
+    "ismcts80": _ismcts(80),
+    "ismcts150": _ismcts(150),
 }
 
 

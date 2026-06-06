@@ -20,6 +20,7 @@ import random
 from . import carddb, effects, superdim, twinpact
 from .engine import Game, Player
 from .agents import HeuristicAgent, RolloutAgent
+from .ismcts import ISMCTSAgent
 
 
 def heuristic_pilot(name, rng):
@@ -28,10 +29,17 @@ def heuristic_pilot(name, rng):
 
 
 def eval_pilot(name, rng):
-    """忠実評価パイロット(正準=非決定化ロールアウト r6h10)。コントロール/コンボの
-    受け・連鎖を深い探索で正しく回す。GAの数千対戦には重いので最終評価専用。
-    計測(diag.py)で、これによりコントロール/コンボがアグロに勝ち越す=メタが正しく
-    較正されることを確認済み(闇自然0.70→0.88, 青白0.37→0.54, スコーラー0.29→0.51)。"""
+    """忠実評価の正準パイロット(ISMCTS, 80反復/horizon8)。操縦プレイヤーのメイン＋
+    攻撃の意思決定列をUCT木で探索し、コントロールの受け・コンボの連鎖を最も正しく回す。
+    最も重いので最終評価専用。計測(diag.py)で、これがメタを最も忠実に較正することを確認:
+    vs火光アグロで 闇自然0.70→0.95 / 青白0.37→0.73 / スコーラー0.29→0.66、
+    スコーラーのコンボ発火も flat の約3倍(追加ターン9→26)。"""
+    return ISMCTSAgent(name, rng, iterations=80, horizon=8, max_depth=12)
+
+
+def eval_pilot_fast(name, rng):
+    """忠実評価の軽量版(非決定化ロールアウト r6h10)。ISMCTSより約4倍速い。
+    較正は中間(闇自然0.88/青白0.54/スコーラー0.51)。中量の評価に。"""
     return RolloutAgent(name, rng, rollouts=6, horizon=10)
 
 

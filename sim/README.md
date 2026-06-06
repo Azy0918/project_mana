@@ -112,8 +112,8 @@ PYTHONPATH=. PYTHONUTF8=1 python test_awaken_link.py# 85
 PYTHONPATH=. PYTHONUTF8=1 python test_complex.py    # 21
 PYTHONPATH=. PYTHONUTF8=1 python test_twinpact.py   # 9
 PYTHONPATH=. PYTHONUTF8=1 python test_mechanics.py  # 43
-PYTHONPATH=. PYTHONUTF8=1 python test_ismcts.py     # 9
-# 合計 197 チェック
+PYTHONPATH=. PYTHONUTF8=1 python test_ismcts.py     # 10
+# 合計 198 チェック
 PYTHONPATH=. PYTHONUTF8=1 python diag.py            # パイロット較正の診断
 PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
 ```
@@ -168,8 +168,9 @@ PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
   ハンティングの細部、覚醒の個別発動条件(リンクは構成3体集結で発動を採用)。
 - 反応窓(ブロック/S・トリガー/対象選択)も ISMCTS の木に載る**完全木探索**(`reactions_in_tree`,
   既定ON)。反復内のプレイアウト中、me の将来の防御・トリガー使用まで木で計画するので評価が忠実。
-  実ゲームの単発ブロックは親 RolloutAgent のロールアウトを継承。A/B計測で完全木探索が前版を上回る
-  ことを確認(vs火光: 青白 0.64→0.75, スコーラー 0.63→0.66, 闇自然 0.94→0.95、速度ペナルティ無し)。
+  **実ゲームの単発ブロック判断も ISMCTS で探索**(`block_iterations`, 既定40。0で旧ロールアウト)
+  =操縦プレイヤーの全意思決定が木探索。A/B計測で完全木探索・ブロックISMCTS化とも前版を上回る
+  (vs火光: 青白 0.64→0.72→**0.78**, 闇自然 0.94→**0.96**、速度コストは小)。
 - 不完全情報の決定化(`Game.determinize`)は実装済み。少サンプルでは操縦を悪化させるため
   ロールアウト/ISMCTS とも既定OFF(上記の知見。高サンプルの忠実評価時のみ有効化)。
 - ISMCTSは強いが重い(80反復で ~0.5–0.7秒/戦)。GAの数千対戦には載らないので最終評価専用。

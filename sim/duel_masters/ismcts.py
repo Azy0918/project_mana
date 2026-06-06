@@ -17,9 +17,11 @@ ISMCTSAgent は操縦プレイヤーの**メイン＋攻撃フェイズの意思
   HeuristicAgent、葉(frontier)以降はロールアウト方策で終局までプレイアウト→逆伝播。
 - **反応窓(ブロック/S・トリガー/対象選択)も木に載せる=完全木探索**。反復内のプレイアウト中、
   me の将来の防御・トリガー使用・対象選択まで木で計画するので、メイン/攻撃の評価が「自分は
-  後で最適に受ける」前提で正しくなる。葉(frontier)以降は高速方策。**実ゲームのブロック判断は
-  親 RolloutAgent の強力なブロック・ロールアウトを継承**(相手ターン中の単発判断は木の根に
-  しづらいため)。
+  後で最適に受ける」前提で正しくなる。葉(frontier)以降は高速方策。
+- **実ゲームの単発ブロック判断も ISMCTS で探索**(`_ismcts_block`, block_iterations)。相手の
+  攻撃時、ブロック決定を根に clone→決定化→選択適用→相手の残り攻撃(防御側=木が以降のブロックも
+  判断)→防御側ターン→プレイアウトし、勝率最大の選択を返す。=操縦プレイヤーの全意思決定
+  (プレイ・攻撃・ブロック・トリガー・対象)が木探索になる完全なISMCTS。
 - 速度が本質的に重いので最終評価専用。GA は引き続き高速 HeuristicAgent。
 """
 from __future__ import annotations
@@ -42,6 +44,11 @@ def _sig(action):
     if action.kind == "play":
         return ("play", action.card.d.name, action.face, bool(action.free))
     return (action.kind,)
+
+
+def _block_sig(prompt, opt):
+    """ブロック選択のノードキー(木方策と実ゲームのブロック探索で共有し一致させる)。"""
+    return ("block", "none") if opt is None else ("block", prompt[:10], opt.d.name)
 
 
 class Node:
@@ -130,11 +137,14 @@ class _TreePlayoutAgent:
     def choose_card(self, game, prompt, cards, optional=False):
         if self.in_rollout or not cards or not self.reactions_in_tree:
             return self.rollout_policy.choose_card(game, prompt, cards, optional)
-        tag = "block" if ("ブロック" in prompt) else "choose"
+        is_block = "ブロック" in prompt
         opts = ([None] if optional else []) + list(cards)
         pairs = []
         for o in opts:
-            sg = (tag, "none") if o is None else (tag, prompt[:10], o.d.name)
+            if is_block:
+                sg = _block_sig(prompt, o)
+            else:
+                sg = ("choose", "none") if o is None else ("choose", prompt[:10], o.d.name)
             pairs.append((sg, o))
         return self._tree_choose(pairs)
 
@@ -153,7 +163,7 @@ class ISMCTSAgent(RolloutAgent):
 
     def __init__(self, name="ISMCTS", rng=None, iterations=120, horizon=8,
                  max_depth=12, c=0.7, determinize=False, determinize_shields=False,
-                 reactions_in_tree=True):
+                 reactions_in_tree=True, block_iterations=40):
         super().__init__(name, rng, rollouts=1, horizon=horizon,
                          determinize=determinize,
                          determinize_shields=determinize_shields)
@@ -161,6 +171,9 @@ class ISMCTSAgent(RolloutAgent):
         self.max_depth = max_depth
         self.c = c
         self.reactions_in_tree = reactions_in_tree
+        # 実ゲームの単発ブロック判断も ISMCTS で探索する(根=ブロック決定)。頻発するので
+        # メインより少なめの反復に。0 で親 RolloutAgent のフラットMCブロックに委譲。
+        self.block_iterations = block_iterations
 
     def decide(self, game, actions):
         kinds = {a.kind for a in actions}
@@ -217,3 +230,67 @@ class ISMCTSAgent(RolloutAgent):
             if _sig(a) == best_sig:
                 return a
         return HeuristicAgent.decide(self, game, actions)
+
+    # ---- 実ゲームの単発ブロック判断も ISMCTS で探索(根=ブロック決定) ----------
+    def choose_card(self, game, prompt, cards, optional=False):
+        if (self.block_iterations > 0 and optional and cards
+                and game.attacking is not None and "ブロック" in prompt):
+            return self._ismcts_block(game, prompt, cards)
+        return HeuristicAgent.choose_card(self, game, prompt, cards, optional)
+
+    def _ismcts_block(self, game, prompt, blockers):
+        """ブロック決定を根に ISMCTS。選択肢=ノーブロック/各ブロッカー。各反復で
+        その選択を適用→相手の残り攻撃(防御側=木agentが以降のブロックも木で判断)→
+        防御側ターン→以降をプレイアウトし、勝率の高い選択を返す。"""
+        defender = blockers[0].controller
+        def_idx = game.players.index(defender)
+        atk_uid = game.attacking.uid
+        tgt = game.attack_target
+        tgt_uid = getattr(tgt, "uid", None)
+        root = Node()
+        for _ in range(self.block_iterations):
+            g2 = game.clone()
+            if self.determinize:
+                g2.determinize(g2.players[def_idx], shields=self.determinize_shields)
+            d2 = g2.players[def_idx]
+            opp2 = g2.opponent(d2)
+            atk2 = next((c for c in opp2.battle if c.uid == atk_uid), None)
+            rollout_pol = HeuristicAgent("ro", force_combo=True)
+            agent = _TreePlayoutAgent(root, rollout_pol, self.max_depth,
+                                      self.rng, self.c,
+                                      reactions_in_tree=self.reactions_in_tree)
+            d2.agent = agent
+            opp2.agent = HeuristicAgent("op", force_combo=True)
+            # 根=このブロック決定(木に問う)。木のブロッカー候補は d2 側の実体に対応付け。
+            blk2 = [c for c in d2.battle if c.uid in {b.uid for b in blockers}]
+            choice = agent.choose_card(g2, prompt, blk2, optional=True)
+            if atk2 is not None:
+                if choice is None:
+                    t2 = "player" if tgt == "player" else next(
+                        (c for c in d2.battle if c.uid == tgt_uid), "player")
+                    g2._resolve_unblocked(atk2, t2, d2)
+                else:
+                    choice.tapped = True
+                    g2.battle(atk2, choice)
+            # 相手の残り攻撃を続行(防御側=木agentが以降のブロックも木で判断)
+            if g2.winner is None:
+                g2._attack_phase(opp2)
+            if g2.winner is None:
+                g2._end_phase(opp2)
+            if g2.winner is None:                   # 防御側のターンへ
+                g2.active_index = def_idx
+                g2.skip_rest_of_turn = False
+                g2.play_out_turns(self.horizon)
+            reward = self._outcome(g2, def_idx)
+            for node in agent.path:
+                node.visits += 1
+                node.reward += reward
+        if not root.children:                       # 探索不能→ロールアウトブロックに委譲
+            return self._rollout_block(game, blockers)
+        best_sig = max(root.children, key=lambda s: root.children[s].visits)
+        if best_sig == _block_sig(prompt, None):
+            return None
+        for b in blockers:                          # 最多訪問の根ブロック選択を実行
+            if _block_sig(prompt, b) == best_sig:
+                return b
+        return None

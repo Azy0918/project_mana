@@ -96,6 +96,21 @@ def test_full_game():
     check(s >= 3, f"ISMCTS(30) vs Random: {s}/4 勝(クラッシュなく完走)")
 
 
+def test_block_search():
+    print("[単発ブロックのISMCTS化: ブロッカー持ちデッキで完走]")
+    # 青白(ブロッカー多数)を ISMCTS(ブロック探索ON)で操縦→ブロック経路を通す
+    def ism(n, r):
+        return ISMCTSAgent(n, r, iterations=20, horizon=5, max_depth=8,
+                           block_iterations=12)
+    ok = True
+    try:
+        _play(ism, lambda n, r: HeuristicAgent(n, r), 400, deckname="青白コントロール")
+    except Exception as e:
+        ok = False
+        print("    error:", e)
+    check(ok, "ブロック探索を含む実戦が例外なく完走")
+
+
 def main():
     test_sig()
     test_tree_mechanics()

@@ -37,11 +37,15 @@ duel_masters/
   carddb.py     実カードDB(data/cards.db)→ CardDef骨格 への接続層。超次元プールも
   effects.py    DB骨格にカード名で手書き効果を差す登録層(火の敗北拒否MVP等)
   superdim.py   超次元ゾーン: ホール本文パーサ / 召喚 / 覚醒 / 覚醒リンク(実データ表)
+  twinpact.py   ツインパクトの呪文面(別CardDef)を差す層。数字ロック等も
+  decks.py      実メタ(Tier S)デッキ定義・検証・対戦フレーム(2段評価パイロット)
   gauntlet.py   GAのfitness相手となる人間風アーキタイプ・デッキ群
-  agents.py     RandomAgent / GreedyAgent / HeuristicAgent(盤面評価パイロット)
+  agents.py     Random/Greedy/Heuristic/Lookahead/Rollout パイロット(深い探索の段階)
   ga.py         遺伝的アルゴリズム本体(個体=40枚デッキ, 適応度=ガントレット勝率)
+  evolve_meta.py 実メタ相手のGA・シード型未知デッキ探索
   endurance.py  GAを壁時計時間で回す耐久ランナー(殿堂+共進化+チェックポイント)
 demo.py         動作確認(詳細ログ1戦 / 勝率測定)
+diag.py         パイロット較正の診断(コンボ指標/コントロールvsアグロ勝率)
 tests_ext.py        エンジン基礎9項目
 test_superdim.py    超次元ゾーン/ホール召喚/覚醒(21項目)
 test_awaken_link.py 覚醒リンク全10家系(85項目)
@@ -106,18 +110,41 @@ PYTHONPATH=. PYTHONUTF8=1 python test_superdim.py   # 21
 PYTHONPATH=. PYTHONUTF8=1 python test_awaken_link.py# 85
 PYTHONPATH=. PYTHONUTF8=1 python test_complex.py    # 21
 PYTHONPATH=. PYTHONUTF8=1 python test_twinpact.py   # 9
-PYTHONPATH=. PYTHONUTF8=1 python test_mechanics.py  # 37
-# 合計 182 チェック
+PYTHONPATH=. PYTHONUTF8=1 python test_mechanics.py  # 43
+# 合計 188 チェック
+PYTHONPATH=. PYTHONUTF8=1 python diag.py            # パイロット較正の診断
 PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
 ```
 
-## AI パイロット
+## AI パイロット(2段構え)
 
 - **RandomAgent** — 下限ベースライン
 - **GreedyAgent** — 素朴(重いの出して顔殴り)。A/B比較の基準
 - **HeuristicAgent** — 盤面評価+候補手スコアリング+リーサル/有利トレード/ブロック判断。
-  MetaStone のデフォルトAI同型(状態複製の要らない1手評価)。GAの評価はこれを使う。
-  ミラー戦で Greedy に 56–63%、Random に 94–95%。
+  MetaStone のデフォルトAI同型(状態複製の要らない1手評価)。**GAの大量対戦はこれ**(高速)。
+- **LookaheadAgent** — メインフェイズを clone+1手先読みで選ぶ(設置/展開の手順が正確に)。
+- **RolloutAgent** — clone→候補手適用→以降を高速方策でプレイアウトしフラットMC勝率で選ぶ。
+  攻撃/防御(ブロック)/メイン(within-turnコンボ)を実結果で判断。**忠実評価の正準パイロット**
+  (非決定化 r6h10)。任意で `determinize`(ISMCTS)。
+
+### 深い探索がメタを較正する(`diag.py` で実証)
+
+1手評価(Heuristic)はコントロール/コンボの受け・連鎖を回せず、評価が**構造的にアグロ偏重**
+になる(実環境ではTier1の受けデッキが sim では弱く出る=誤較正)。これは**パイロットの限界**で、
+深い探索(ロールアウト)で解消する。vs 火光アグロ(3シード×120戦):
+
+| デッキ | HeuristicAgent | RolloutAgent r6h10 |
+|---|---|---|
+| 闇自然デンジャデオン(コントロール) | 0.70 | **0.88** |
+| 青白コントロール(代替札ありで不利) | 0.37 | **0.54** |
+| 水自然スコーラー(G・ゼロ＋追加ターン コンボ) | 0.29 | **0.51** |
+
+3デッキとも**負け越し→勝ち越しに反転**=実環境通りに較正される。よって GA は高速 Heuristic で
+回し、有望軸の最終評価は RolloutAgent で行う**2段構え**にする(`decks.eval_pilot`/`play_match(pilot=)`)。
+
+**決定化(ISMCTS)の知見**: 隠匿情報のランダム化は理論上は忠実だが、少サンプルでは分散が増えて
+操縦を悪化させる(特にシールドのランダム化は致命的)。手札/山札のみの決定化でも非決定化に追いつくのに
+約2倍のロールアウトが要る。よって**既定は非決定化**(高サンプルの忠実評価時のみ決定化を有効化)。
 
 ## GA / 耐久モード
 
@@ -134,5 +161,6 @@ PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
   覚醒リンク同様、公式API非提供のため手入力前提)**、D2フィールドのDスイッチ(全墓地蘇生)、
   ハンティングの細部、覚醒の個別発動条件(リンクは構成3体集結で発動を採用)。
 - 反応窓(ブロック/ST/対象選択)は agent コールバック。完全な木探索には
-  `legal_actions()` への平坦化が必要。
-- 不完全情報(山札順・手札・シールド)はそのまま。MCTSは determinization が要る。
+  `legal_actions()` への平坦化が必要。RolloutAgent は各反応窓を個別にロールアウト評価する。
+- 不完全情報の決定化(`Game.determinize`)は実装済みだが、少サンプルでは操縦を悪化させるため
+  既定OFF(上記の知見)。フルISMCTS(木探索+多数の決定化サンプル)は速度が本質的課題で独立研究フェーズ。

@@ -166,6 +166,7 @@ class Game:
         self.turn_end_hooks: List[Callable] = []
         self.attacking: Optional[Card] = None   # 現在攻撃中のクリーチャー
         self.pending_extra_turn: Optional[Player] = None  # 追加ターン(スコーラー等)
+        self.skip_rest_of_turn = False          # 終末の時計等: 現ターンの残りをとばす
 
     # --- ユーティリティ -----------------------------------------------------
 
@@ -207,6 +208,11 @@ class Game:
     def draw(self, p: Player, n: int = 1):
         for _ in range(n):
             if not p.deck:
+                # 山札切れ勝利(シャコガイル等): 引き切る時、代わりに勝つ
+                if self._wins_on_deckout(p):
+                    self.winner = p
+                    self.log(f"  ★ {p} は山札を引き切って特殊勝利!")
+                    return
                 if self.loss_is_prevented(p):
                     self.log(f"{p} は敗北拒否で山札切れでも負けない")
                     return
@@ -214,6 +220,13 @@ class Game:
                 self.log(f"{p} は山札切れで敗北")
                 return
             self._move_top_to_hand(p)
+
+    def _wins_on_deckout(self, p: Player) -> bool:
+        for src in p.battle:
+            for st in src.d.statics:
+                if st.kind == "win_on_deckout":
+                    return True
+        return False
 
     def mana_from_deck(self, p: Player, n: int = 1):
         """デッキトップをマナゾーンへ(マナ加速)。"""
@@ -691,6 +704,7 @@ class Game:
             c.summoning_sick = False
         p.charged_this_turn = False
         p.spells_this_turn = 0
+        self.skip_rest_of_turn = False
 
         # ドロー(ゲーム最初のターンのみスキップ)
         if self.turn_count > 1:
@@ -705,7 +719,7 @@ class Game:
             self.charge_mana(p, a.card)
 
         # メイン(出せるだけ出す)。G・ゼロ条件を満たすカードは無料でも出せる。
-        while self.winner is None:
+        while self.winner is None and not self.skip_rest_of_turn:
             spell_ok = self.turn_count >= p.no_spell_until   # 呪文ロック(ジャミング・チャフ等)
             playable = [c for c in p.hand if self.can_pay(p, c)
                         and (spell_ok or c.ctype != SPELL)]
@@ -732,7 +746,7 @@ class Game:
                 self.play(p, a.card)
 
         # 攻撃
-        while self.winner is None:
+        while self.winner is None and not self.skip_rest_of_turn:
             acts = self.legal_attacks(p) + [Action("pass")]
             a = p.agent.decide(self, acts)
             if a.kind == "pass":
@@ -778,6 +792,7 @@ class Game:
         g.turn_end_hooks = list(self.turn_end_hooks)
         g.attacking = None
         g.pending_extra_turn = None
+        g.skip_rest_of_turn = False
         g.winner = None
         g.players = []
 

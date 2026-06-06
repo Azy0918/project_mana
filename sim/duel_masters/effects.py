@@ -14,7 +14,7 @@ carddb が作る CardDef 骨格(効果なし)に、手書きの効果(Ability/St
 from __future__ import annotations
 import dataclasses
 
-from .engine import Static, Ability, CAST, ON_ATTACK, ON_SUMMON
+from .engine import Static, Ability, CAST, ON_ATTACK, ON_SUMMON, ON_TURN_END
 
 _REG = {}  # normalized name -> (abilities tuple, statics tuple)
 
@@ -271,8 +271,74 @@ def on_summon_extra_turn() -> Ability:
     return Ability(ON_SUMMON, f, "召喚時:追加ターン(ゲーム中1回)")
 
 
+def on_summon_skip_turn() -> Ability:
+    """終末の時計 ザ・クロック: 出た時(相手の攻撃中等)、このターンの残りをとばす。"""
+    def f(game, controller, source):
+        game.skip_rest_of_turn = True
+        game.log("    効果: このターンの残りをとばす")
+    return Ability(ON_SUMMON, f, "出た時:このターンの残りをとばす")
+
+
+def on_summon_refresh_shields(n: int) -> Ability:
+    """煌メク聖壁 灰瞳: 出た時、自分のシールドを手札に加え(ST不可)、山札上 n 枚をシールド化。"""
+    def f(game, controller, source):
+        for s in list(controller.shields):
+            controller.shields.remove(s)
+            s.zone = "hand"
+            controller.hand.append(s)
+        for _ in range(n):
+            if controller.deck:
+                c = controller.deck.pop(0)
+                c.zone = "shield"
+                controller.shields.append(c)
+        game.log(f"    効果: シールドを{n}枚に張り替え")
+    return Ability(ON_SUMMON, f, f"出た時:シールドを{n}枚に張り替え")
+
+
+def on_summon_grave_to_deck() -> Ability:
+    """水上第九院 シャコガイル(着地): 墓地を山札に加えシャッフル。"""
+    def f(game, controller, source):
+        for c in list(controller.graveyard):
+            controller.graveyard.remove(c)
+            c.zone = "deck"
+            controller.deck.append(c)
+        game.rng.shuffle(controller.deck)
+    return Ability(ON_SUMMON, f, "出た時:墓地を山札に加えシャッフル")
+
+
+def win_on_deckout() -> Static:
+    """山札を引き切る時、代わりにゲームに勝つ(シャコガイル)。"""
+    return Static("win_on_deckout", lambda g, s, p: True, "山札を引き切る時に勝利")
+
+
+def on_turn_end_mill_self(draw_n: int, discard_n: int) -> Ability:
+    """シャコガイル: ターン終了時に draw_n 引き discard_n 捨て(自山札を掘り引き切り勝利へ)。"""
+    def f(game, controller, source):
+        game.draw(controller, draw_n)
+        for _ in range(discard_n):
+            if controller.hand and game.winner is None:
+                d = controller.hand.pop()
+                d.zone = "graveyard"
+                controller.graveyard.append(d)
+    return Ability(ON_TURN_END, f, f"ターン終了時:{draw_n}引き{discard_n}捨て")
+
+
+def cast_tap_all_draw() -> Ability:
+    """ノヴァルティ・アメイズ(本体): 相手全タップ+1ドロー。"""
+    def f(game, controller, source):
+        _tap_all_enemies(game, controller)
+        game.draw(controller, 1)
+    return Ability(CAST, f, "相手全タップ+1ドロー")
+
+
 # 登録(Tier S 実メタの核カード)
 register("DNA・スパーク", abilities=[cast_tap_all(shield_if_le=2)])
+register("終末の時計 ザ・クロック", abilities=[on_summon_skip_turn()])
+register("煌メク聖壁 灰瞳", abilities=[on_summon_refresh_shields(5)])
+register("水上第九院 シャコガイル",
+         abilities=[on_summon_grave_to_deck(), on_turn_end_mill_self(5, 3)],
+         statics=[win_on_deckout()])
+register("ノヴァルティ・アメイズ", abilities=[cast_tap_all_draw()])
 register("閃光の守護者ホーリー", abilities=[on_summon_tap_all()])
 register("オリオティス・ジャッジ", abilities=[cast_oriotis_judge()])
 register("超宮兵 マノミ", abilities=[on_summon_draw(2)], statics=[g_zero(3)])

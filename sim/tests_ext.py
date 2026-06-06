@@ -27,9 +27,12 @@ def _is_bj(cd):
 
 
 def main():
-    pool = carddb.load_pool()
-    applied, missing = effects.apply_effects(pool)
+    # 登録名は全カードプール(AD含む)に存在すること(AD専用カードの効果も登録するため)
+    _, missing = effects.apply_effects(carddb.load_pool(nd_only=False))
     assert not missing, ("効果登録の名前不一致:", missing)
+    # ゲームテストは ND プールで行う
+    pool = carddb.load_pool()
+    applied, _ = effects.apply_effects(pool)
     assert set(applied) >= {"グレイト“S-駆”", "一番隊 チュチュリス",
                             "グッド“MSL”バウンサー", "“血煙” マキシマム"}
 

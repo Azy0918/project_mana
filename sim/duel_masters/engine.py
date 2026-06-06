@@ -779,6 +779,20 @@ class Game:
             self.active_index ^= 1
         return self.winner
 
+    def play_out_turns(self, n: int) -> Optional[Player]:
+        """現在の状態(ターン境界)から最大 n ターン進める。setup() はしない。
+        ロールアウト評価用(プレイヤーの agent でプレイし、勝敗 or n ターンで停止)。"""
+        turns = 0
+        while self.winner is None and turns < n and self.turn_count < 1000:
+            self.play_turn()
+            if self.pending_extra_turn is self.active() and self.winner is None:
+                self.pending_extra_turn = None
+                continue
+            self.pending_extra_turn = None
+            self.active_index ^= 1
+            turns += 1
+        return self.winner
+
     # --- 状態の複製(先読みパイロット用) -------------------------------------
     def clone(self) -> "Game":
         """ゲーム状態を複製する。CardDef は共有(不変)、Card/ゾーン/プレイヤーのみコピー。

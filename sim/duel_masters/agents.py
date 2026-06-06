@@ -417,3 +417,69 @@ class LookaheadAgent(HeuristicAgent):
             if v > best_v:
                 best_v, best_a = v, a
         return best_a
+
+
+# ---------------------------------------------------------------------------
+# RolloutAgent : 攻撃判断を「数ターン先までプレイして勝率」で決める(フラットMC)
+# ---------------------------------------------------------------------------
+# 1手評価が苦手な攻撃/受けを、clone→候補手適用→自ターン終了→以降を高速方策で
+# プレイアウトし、勝敗で評価する。「殴ると返り討ちか/受けを残すべきか」を実結果で
+# 判断できる。メイン/チャージ/選択は HeuristicAgent を流用。clone+rollout で重い。
+
+class RolloutAgent(HeuristicAgent):
+    def __init__(self, name="Rollout", rng=None, rollouts=2, horizon=5):
+        super().__init__(name, rng)
+        self.rollouts = rollouts
+        self.horizon = horizon
+
+    def decide(self, game, actions):
+        if any(a.kind == "attack" for a in actions):
+            return self._decide_attack_rollout(game, actions)
+        return super().decide(game, actions)
+
+    def _outcome(self, g, me_idx):
+        me = g.players[me_idx]
+        if g.winner is me:
+            return 1.0
+        if g.winner is None:
+            tie = max(-0.49, min(0.49, self._evaluate(g, me) / 100000.0))
+            return 0.5 + tie
+        return 0.0
+
+    def _decide_attack_rollout(self, game, actions):
+        me_idx = game.players.index(game.active())
+        pass_act = next(a for a in actions if a.kind == "pass")
+        best_a, best_v = pass_act, None
+        for a in actions:
+            score = 0.0
+            for _ in range(self.rollouts):
+                g2 = game.clone()
+                g2.players[0].agent = HeuristicAgent("r0")   # 高速方策(再帰防止)
+                g2.players[1].agent = HeuristicAgent("r1")
+                me2 = g2.players[me_idx]
+                if a.kind == "attack":
+                    atk2 = next((c for c in me2.battle if c.uid == a.card.uid), None)
+                    if atk2 is None:
+                        score += 0.5
+                        continue
+                    if a.target == "player":
+                        tgt2 = "player"
+                    else:
+                        tgt2 = next((c for c in g2.opponent(me2).battle
+                                     if c.uid == a.target.uid), None)
+                        if tgt2 is None:
+                            score += 0.5
+                            continue
+                    try:
+                        g2.resolve_attack(atk2, tgt2)
+                    except Exception:
+                        score += 0.5
+                        continue
+                if g2.winner is None:        # 自ターン終了→以降をプレイアウト
+                    g2.active_index ^= 1
+                    g2.play_out_turns(self.horizon)
+                score += self._outcome(g2, me_idx)
+            v = score / self.rollouts
+            if best_v is None or v > best_v:
+                best_v, best_a = v, a
+        return best_a

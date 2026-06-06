@@ -112,17 +112,28 @@ def fast_ismcts_pilot(name, rng):
 
 
 def evolve_two_tier(generations=8, pop=20, h_games=4, ismcts_top_k=6,
-                    ismcts_games=3, elite_frac=0.3, seed=42, verbose=True):
+                    ismcts_games=3, elite_frac=0.3, seed=42, verbose=True,
+                    seed_cards=None, ga_super=()):
     """二段GA: Tier1=Heuristicで全個体を高速ランク、Tier2=高速ISMCTSで上位K体だけを
     忠実評価しエリート選抜・最良決定に使う。=『ISMCTSをGA本走に載せる』実用解。
 
     Heuristic単独GAはアグロ偏重で『見かけだけメタに勝つ』デッキを選ぶが(meta_validation
     で実証)、エリート選抜をISMCTS忠実評価に委ねることでその幻を排す。ISMCTSは高コスト
     なので全個体でなく有望上位K体のみに使い、評価はキャッシュして再利用する。
-    戻り値 (pool, super_pool, best_deck, best_ismcts_score)。"""
+
+    seed_cards={名前:枚数} を渡すと未開拓軸の核カードを毎個体に強制(未知デッキ探索)。
+    ga_super=8枚の超次元ゾーン(名前list)を渡すと各個体に超次元ゾーンを持たせる。
+    戻り値 (pool, super_pool, best_deck, best_ismcts_score, ga_super)。"""
+    from collections import Counter as _C
     pool, super_pool = decks.build_full_pool()
     _, cand = ga.build_pools()
     gauntlet = [decks.decklist(n) for n in decks.DECKS]
+    seed_cards = {decks.resolve_name(pool, n) or n: c
+                  for n, c in (seed_cards or {}).items()}
+    for n in seed_cards:                         # シードが火候補に無ければ加える
+        if n not in cand:
+            cand = cand + [n]
+    ga_super = [decks.resolve_name(super_pool, n) or n for n in ga_super]
     rng = random.Random(seed)
     hcache, icache = {}, {}
 
@@ -130,17 +141,26 @@ def evolve_two_tier(generations=8, pop=20, h_games=4, ismcts_top_k=6,
         k = ga.deck_key(ind)
         if k not in hcache:
             hcache[k] = fitness_vs_meta(pool, super_pool, ind, gauntlet,
-                                        games=h_games)
+                                        games=h_games, ga_super=ga_super)
         return hcache[k]
 
     def ifit(ind):
         k = ga.deck_key(ind)
         if k not in icache:
             icache[k] = fitness_vs_meta(pool, super_pool, ind, gauntlet,
-                                        games=ismcts_games, pilot=fast_ismcts_pilot)
+                                        games=ismcts_games, ga_super=ga_super,
+                                        pilot=fast_ismcts_pilot)
         return icache[k]
 
-    population = [ga.random_deck(cand, rng) for _ in range(pop)]
+    def make_child(parents=None):
+        if parents is None:
+            d = ga.random_deck(cand, rng)
+        else:
+            d = ga.mutate(ga.crossover(parents[0], parents[1], cand, rng),
+                          cand, rng)
+        return _repair_seed(d, seed_cards, cand, rng) if seed_cards else d
+
+    population = [make_child() for _ in range(pop)]
     n_elite = max(2, int(pop * elite_frac))
     best, best_i = None, -1.0
     for gen in range(generations):
@@ -159,9 +179,9 @@ def evolve_two_tier(generations=8, pop=20, h_games=4, ismcts_top_k=6,
         while len(newpop) < pop:                 # 交配は Heuristic ランクで(安価・多様)
             a = ga._tournament(ranked, hfit, rng)
             b = ga._tournament(ranked, hfit, rng)
-            newpop.append(ga.mutate(ga.crossover(a, b, cand, rng), cand, rng))
+            newpop.append(make_child((a, b)))
         population = newpop
-    return pool, super_pool, best, best_i
+    return pool, super_pool, best, best_i, ga_super
 
 
 def endurance(hours=3.0, pop=22, games=5, gens_per_epoch=4, elite_frac=0.25,

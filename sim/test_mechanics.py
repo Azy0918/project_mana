@@ -242,6 +242,44 @@ def test_clone_integrity():
     check(len(A2.field) == 1 and A2.field[0].name == "D2", "フィールドゾーンが複製される")
 
 
+def test_determinize():
+    print("[決定化(ISMCTS): 隠匿情報のランダム化と不変条件]")
+    g, A, B = fresh_game()
+    # A=視点。各ゾーンにユニークなカードを置く
+    A.hand = [mk(A, f"Ah{i}", 1000) for i in range(4)]
+    A.deck = [mk(A, f"Ad{i}", 1000) for i in range(20)]
+    A.shields = [mk(A, f"As{i}", 1000) for i in range(5)]
+    A.battle = [mk(A, "Abat", 3000)]
+    B.hand = [mk(B, f"Bh{i}", 1000) for i in range(5)]
+    B.deck = [mk(B, f"Bd{i}", 1000) for i in range(20)]
+    B.shields = [mk(B, f"Bs{i}", 1000) for i in range(5)]
+    B.battle = [mk(B, "Bbat", 3000)]
+    for z, zn in [(A.deck, "deck"), (A.shields, "shield"), (B.hand, "hand"),
+                  (B.deck, "deck"), (B.shields, "shield")]:
+        for c in z:
+            c.zone = zn
+
+    a_hand0 = {c.uid for c in A.hand}
+    a_deck0 = {c.uid for c in A.deck}
+    b_hand0 = {c.uid for c in B.hand}
+    b_pool0 = {c.uid for c in B.hand + B.deck}
+    counts0 = (len(A.hand), len(A.deck), len(A.shields),
+               len(B.hand), len(B.deck), len(B.shields))
+
+    g.determinize(A, shields=False)
+    counts1 = (len(A.hand), len(A.deck), len(A.shields),
+               len(B.hand), len(B.deck), len(B.shields))
+    check(counts0 == counts1, "各ゾーンの枚数は保存される")
+    check({c.uid for c in A.hand} == a_hand0, "視点(A)の手札は不変(公開情報)")
+    check({c.uid for c in A.deck} == a_deck0, "自山札の中身集合は不変(順だけ変わる)")
+    check({c.uid for c in B.hand + B.deck} == b_pool0,
+          "相手の手札+山札のカード集合は保存")
+    check({c.uid for c in B.battle} == {B.battle[0].uid}, "相手盤面(公開)は不変")
+    # 相手手札がランダム化された(=元と異なる可能性)。山札の順も変わりうる。
+    # シールドは shields=False なので不変
+    check(len(A.shields) == 5 and len(B.shields) == 5, "シールド枚数は不変")
+
+
 def main():
     test_evolution()
     test_number_lock()
@@ -250,6 +288,7 @@ def main():
     test_doom_stick_spell()
     test_d2field()
     test_dragheart()
+    test_determinize()
     test_clone_integrity()
     print(f"\n{'ALL PASS' if FAIL == 0 else 'FAILED'} ({PASS} ok / {FAIL} ng)")
     return FAIL == 0

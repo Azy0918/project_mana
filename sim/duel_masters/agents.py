@@ -122,9 +122,13 @@ def _is_removal(card):
 
 
 class HeuristicAgent:
-    def __init__(self, name="Heuristic", rng=None):
+    def __init__(self, name="Heuristic", rng=None, force_combo=False):
         self.name = name
         self.rng = rng or random.Random()
+        # force_combo: G・ゼロのフィニッシャーが手札にある限り、到達可否に関わらず
+        # 安い呪文/無料カードを連打してコンボ完走を試みる(ロールアウト方策専用)。
+        # 外側のロールアウト評価が「不発で損する線」を弾くので、内部方策は強気でよい。
+        self.force_combo = force_combo
 
     # ---- 盤面評価(自分視点。高いほど良い) ------------------------------
     def _evaluate(self, game, me):
@@ -223,7 +227,7 @@ class HeuristicAgent:
         #  - まだ到達できない(hold)    → 燃料呪文は温存し、ドロー/サーチだけ撃って掘る
         payoff = any(st.kind == "g_zero" and not game.can_gzero(me, c)
                      for c in me.hand for st in c.d.statics)
-        combo = payoff and self._gzero_reachable(game, me)
+        combo = payoff and (self.force_combo or self._gzero_reachable(game, me))
         hold = payoff and not combo
 
         def _is_dig(a):
@@ -427,10 +431,17 @@ class LookaheadAgent(HeuristicAgent):
 # 判断できる。メイン/チャージ/選択は HeuristicAgent を流用。clone+rollout で重い。
 
 class RolloutAgent(HeuristicAgent):
-    def __init__(self, name="Rollout", rng=None, rollouts=2, horizon=5):
+    def __init__(self, name="Rollout", rng=None, rollouts=2, horizon=5,
+                 determinize=False, determinize_shields=False):
         super().__init__(name, rng)
         self.rollouts = rollouts
         self.horizon = horizon
+        # determinize: 各ロールアウト直前に隠匿情報(自山札順/相手手札)をランダム化し
+        # 評価を忠実化(ISMCTS)。determinize_shields でシールド中身もランダム化する。
+        # 既定はOFF=従来の"実引き"。少サンプルでは決定化が分散を増やし操縦を悪化させる
+        # ため、高サンプル(rollouts大)での忠実評価時のみ有効化するのが良い(計測で確認)。
+        self.determinize = determinize
+        self.determinize_shields = determinize_shields
 
     def decide(self, game, actions):
         if any(a.kind == "attack" for a in actions):
@@ -438,6 +449,17 @@ class RolloutAgent(HeuristicAgent):
         if any(a.kind == "play" for a in actions):
             return self._decide_main_rollout(game, actions)
         return super().decide(game, actions)
+
+    def _rollout_clone(self, game, perspective_idx):
+        """ロールアウト用の clone を作り、高速方策設定＋(任意で)決定化して返す。
+        perspective_idx = 意思決定者の席。決定化はこの視点の隠匿情報を対象にする。"""
+        g2 = game.clone()
+        g2.players[0].agent = HeuristicAgent("r0", force_combo=True)
+        g2.players[1].agent = HeuristicAgent("r1", force_combo=True)
+        if self.determinize:
+            g2.determinize(g2.players[perspective_idx],
+                           shields=self.determinize_shields)
+        return g2
 
     def _advance_and_playout(self, g, me2):
         """現ターンの残り(メイン継続→攻撃→終了)を回し、以降を horizon ターン進める。"""
@@ -463,9 +485,7 @@ class RolloutAgent(HeuristicAgent):
         for a in actions:
             score = 0.0
             for _ in range(self.rollouts):
-                g2 = game.clone()
-                g2.players[0].agent = HeuristicAgent("r0")
-                g2.players[1].agent = HeuristicAgent("r1")
+                g2 = self._rollout_clone(game, me_idx)
                 me2 = g2.players[me_idx]
                 if a.kind == "play":
                     card2 = next((c for c in me2.hand if c.uid == a.card.uid), None)
@@ -508,9 +528,7 @@ class RolloutAgent(HeuristicAgent):
         for opt in [None] + list(blockers):     # None = ブロックしない
             score = 0.0
             for _ in range(self.rollouts):
-                g2 = game.clone()
-                g2.players[0].agent = HeuristicAgent("r0")
-                g2.players[1].agent = HeuristicAgent("r1")
+                g2 = self._rollout_clone(game, def_idx)
                 d2 = g2.players[def_idx]
                 atk2 = next((c for c in g2.opponent(d2).battle
                              if c.uid == atk_uid), None)
@@ -550,9 +568,7 @@ class RolloutAgent(HeuristicAgent):
         for a in actions:
             score = 0.0
             for _ in range(self.rollouts):
-                g2 = game.clone()
-                g2.players[0].agent = HeuristicAgent("r0")   # 高速方策(再帰防止)
-                g2.players[1].agent = HeuristicAgent("r1")
+                g2 = self._rollout_clone(game, me_idx)       # 高速方策+決定化
                 me2 = g2.players[me_idx]
                 if a.kind == "attack":
                     atk2 = next((c for c in me2.battle if c.uid == a.card.uid), None)

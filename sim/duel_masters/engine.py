@@ -978,6 +978,42 @@ class Game:
             turns += 1
         return self.winner
 
+    # --- 隠匿情報の決定化(ISMCTSロールアウト用) -----------------------------
+    def determinize(self, perspective: Player, shields: bool = False):
+        """perspective から見て隠れている情報をランダム化する(clone後に呼ぶ前提)。
+        隠匿: 自分の山札順 / 相手の手札の中身 / (shields=Trueなら)両者のシールドの中身。
+        公開情報(盤面/マナ/墓地/超次元/フィールド/手札枚数/シールド枚数)は不変。
+        これによりロールアウトが『実際の引き・相手の手札』を覗くカンニングを排し、
+        評価を忠実にする。doomed_uids等のuid参照はカード実体を保つので維持される。
+        ※shieldsのランダム化はS・トリガー受けの分散を激増させ、少サンプルでは操縦を
+          悪化させるため既定で無効(高サンプル評価時のみ有効化を推奨)。"""
+        opp = self.opponent(perspective)
+        rng = self.rng
+        # 1) 自分の山札順は不明 → シャッフル
+        rng.shuffle(perspective.deck)
+        # 2) 相手の手札は不明 → 相手の(手札+山札)をプールし、手札枚数を配り直す
+        hsize = len(opp.hand)
+        pool = opp.hand + opp.deck
+        rng.shuffle(pool)
+        opp.hand = pool[:hsize]
+        opp.deck = pool[hsize:]
+        for c in opp.hand:
+            c.zone = "hand"
+        for c in opp.deck:
+            c.zone = "deck"
+        # 3) シールドの中身は両者不明 → 各自の(シールド+山札)をプールし、枚数を配り直す
+        if shields:
+            for pl in (perspective, opp):
+                ssize = len(pl.shields)
+                spool = pl.shields + pl.deck
+                rng.shuffle(spool)
+                pl.shields = spool[:ssize]
+                pl.deck = spool[ssize:]
+                for c in pl.shields:
+                    c.zone = "shield"
+                for c in pl.deck:
+                    c.zone = "deck"
+
     # --- 状態の複製(先読みパイロット用) -------------------------------------
     def clone(self) -> "Game":
         """ゲーム状態を複製する。CardDef は共有(不変)、Card/ゾーン/プレイヤーのみコピー。

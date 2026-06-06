@@ -19,7 +19,20 @@ import random
 
 from . import carddb, effects, superdim, twinpact
 from .engine import Game, Player
-from .agents import HeuristicAgent
+from .agents import HeuristicAgent, RolloutAgent
+
+
+def heuristic_pilot(name, rng):
+    """高速パイロット(GAの大量対戦・既定)。1手評価。"""
+    return HeuristicAgent(name, rng)
+
+
+def eval_pilot(name, rng):
+    """忠実評価パイロット(正準=非決定化ロールアウト r6h10)。コントロール/コンボの
+    受け・連鎖を深い探索で正しく回す。GAの数千対戦には重いので最終評価専用。
+    計測(diag.py)で、これによりコントロール/コンボがアグロに勝ち越す=メタが正しく
+    較正されることを確認済み(闇自然0.70→0.88, 青白0.37→0.54, スコーラー0.29→0.51)。"""
+    return RolloutAgent(name, rng, rollouts=6, horizon=10)
 
 
 def build_full_pool(nd_only=False):
@@ -136,14 +149,18 @@ def make_player(pool, super_pool, name, agent, main_names, super_names=()):
 
 
 def play_match(pool, super_pool, deckA, deckB, games=20, seed0=1000,
-               max_turns=120):
-    """deckA/deckB = (main_names, super_names)。A視点の着席公平な勝率。"""
+               max_turns=120, pilot=None):
+    """deckA/deckB = (main_names, super_names)。A視点の着席公平な勝率。
+
+    pilot=工場(name, rng)->agent。既定は高速な heuristic_pilot。忠実評価には
+    eval_pilot(ロールアウト)を渡す(コントロール/コンボの受け・連鎖を正しく回す)。"""
+    pilot = pilot or heuristic_pilot
     s = 0.0
     for k in range(games):
         for swap in (0, 1):           # 先攻/後攻を入れ替えて着席公平に
             rng = random.Random(seed0 + k * 7 + swap)
-            pa = make_player(pool, super_pool, "A", HeuristicAgent("A", rng), *deckA)
-            pb = make_player(pool, super_pool, "B", HeuristicAgent("B", rng), *deckB)
+            pa = make_player(pool, super_pool, "A", pilot("A", rng), *deckA)
+            pb = make_player(pool, super_pool, "B", pilot("B", rng), *deckB)
             p0, p1 = (pa, pb) if swap == 0 else (pb, pa)
             w = Game(p0, p1, rng=rng)
             superdim.install_awaken_hook(w)

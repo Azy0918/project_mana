@@ -20,7 +20,10 @@
 常在効果(Static):    keywords(キーワード付与) / power(パワー修整) /
                      cost(コスト軽減) / loss_refusal(敗北拒否) /
                      restrict(踏み倒し/攻撃/対象/ブロックの制限) /
-                     replace_leave(離場の置換効果)
+                     replace_leave(離場の置換効果) / replace_leave_field(D2フィールド由来) /
+                     g_zero(無料召喚) / win_on_deckout(山札切れ勝利) / doom_break(山札に刺す)
+ゾーン:              手札 / 山札 / マナ / バトル / シールド / 墓地 /
+                     超次元(サイキック・ドラグハート) / フィールド(D2フィールド)
 ```
 
 bot/探索用に **「今の意思決定 = Action のリスト」** を前面に出し、各フェーズで
@@ -43,6 +46,8 @@ tests_ext.py        エンジン基礎9項目
 test_superdim.py    超次元ゾーン/ホール召喚/覚醒(21項目)
 test_awaken_link.py 覚醒リンク全10家系(85項目)
 test_complex.py     複雑能力21項目(常在/制限/置換/トリガー)
+test_twinpact.py    ツインパクト両面9項目
+test_mechanics.py   進化/数字ロック/特殊敗北/D2フィールド/龍解(37項目)
 ```
 
 ## 実装済みメカニクス(能力カバレッジ)
@@ -59,6 +64,11 @@ test_complex.py     複雑能力21項目(常在/制限/置換/トリガー)
 | 置換効果 | **離場時生存**(replace_leave) |
 | 超次元 | **超次元ゾーン**・**ホール召喚**(本文パーサで条件抽出)・サイキック離場時ゾーン帰還 |
 | 覚醒 | **覚醒**(裏返し)・**覚醒リンク**(複数→1体, 解除で各カードを所定位置へ) |
+| 進化 | **進化/NEO進化**(基盤に重ね召喚酔いなし・破壊で下も墓地。純粋進化は基盤必須/NEOは直接召喚可) |
+| フィールド | **D2フィールド**(専用ゾーン・常在効果がゾーン横断・離場置換でクリーチャー保護・新展開で旧破壊) |
+| ロック | **数字ロック**(本日のラッキーナンバー: 指定コストのクリーチャー/呪文を実行不可)・呪文ロック |
+| 特殊勝利/敗北 | 山札切れ勝利(シャコガイル)・**Q.Q.QX**(ブレイク盾を山札に刺す→引いたら敗北。敗北拒否で防御可) |
+| 龍解 | **ドラグハート**ロード(ウエポン/フォートレス)・**龍解**(反転してバトルへ)機構 ※龍解後スタッツは手入力前提 |
 | 状態起因 | 実効パワー0以下の破壊(全体パワー修整との連動) |
 | 効果例 | 除去/全体除去/バウンス/ドロー/墓地回収/ライブラリアウト/勝利時アンタップ 等 |
 
@@ -95,7 +105,9 @@ PYTHONPATH=. PYTHONUTF8=1 python tests_ext.py       # 9
 PYTHONPATH=. PYTHONUTF8=1 python test_superdim.py   # 21
 PYTHONPATH=. PYTHONUTF8=1 python test_awaken_link.py# 85
 PYTHONPATH=. PYTHONUTF8=1 python test_complex.py    # 21
-# 合計 136 チェック
+PYTHONPATH=. PYTHONUTF8=1 python test_twinpact.py   # 9
+PYTHONPATH=. PYTHONUTF8=1 python test_mechanics.py  # 37
+# 合計 182 チェック
 PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
 ```
 
@@ -118,7 +130,8 @@ PYTHONPATH=. PYTHONUTF8=1 python -m duel_masters.endurance --hours 4  # GA耐久
 - **カバレッジは逐次拡張型**: コア・ルールは完成しているが、個々のカード効果は
   自然言語のため手実装が要る(MTGのForge等と同じ性質)。現状は火の敗北拒否軸 +
   超次元/覚醒リンク10家系 + 主要キーワードを実装。
-- 一部の固有能力は近似/未実装(各 `_LINK_DATA` の `note` に明記): 龍解/ドラグハート、
+- 一部の固有能力は近似/未実装: **龍解は機構のみ実装済み(龍解後フォームのスタッツは
+  覚醒リンク同様、公式API非提供のため手入力前提)**、D2フィールドのDスイッチ(全墓地蘇生)、
   ハンティングの細部、覚醒の個別発動条件(リンクは構成3体集結で発動を採用)。
 - 反応窓(ブロック/ST/対象選択)は agent コールバック。完全な木探索には
   `legal_actions()` への平坦化が必要。

@@ -736,9 +736,12 @@ class Game:
         for c in p.battle:
             if c.tapped:
                 continue
-            if c.summoning_sick and "speed_attacker" not in self.keywords_of(c):
+            kw_self = self.keywords_of(c)
+            if c.summoning_sick and "speed_attacker" not in kw_self:
                 continue
-            if self.is_restricted(p, "cant_attack", c):   # 相手サイキック攻撃不可等
+            if "cant_attack" in kw_self:                   # 無条件「攻撃できない」
+                continue
+            if self.is_restricted(p, "cant_attack", c):   # 条件付き/相手サイキック攻撃不可等
                 continue
             out.append(Action("attack", c, "player"))
             kw = self.keywords_of(c)

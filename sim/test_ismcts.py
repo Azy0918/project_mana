@@ -92,8 +92,8 @@ def test_full_game():
     print("[実デッキ: 完走&対ランダム圧勝(少反復)]")
     def ism(n, r):
         return ISMCTSAgent(n, r, iterations=30, horizon=6, max_depth=8)
-    s = sum(_play(ism, lambda n, r: RandomAgent(n, r), 300 + i) for i in range(4))
-    check(s >= 3, f"ISMCTS(30) vs Random: {s}/4 勝(クラッシュなく完走)")
+    s = sum(_play(ism, lambda n, r: RandomAgent(n, r), 300 + i) for i in range(8))
+    check(s >= 5, f"ISMCTS(30) vs Random: {s}/8 勝(クラッシュなく完走・圧勝)")
 
 
 def test_block_search():
@@ -115,6 +115,7 @@ def main():
     test_sig()
     test_tree_mechanics()
     test_full_game()
+    test_block_search()
     print(f"\n{'ALL PASS' if FAIL == 0 else 'FAILED'} ({PASS} ok / {FAIL} ng)")
     return FAIL == 0
 

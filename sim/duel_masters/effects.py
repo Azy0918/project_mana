@@ -524,6 +524,17 @@ def cast_mana_to_hand_fix() -> Ability:
     return Ability(CAST, f, "マナのクリーチャー1枚を手札へ+山札上1枚をマナへ")
 
 
+def cant_attack_unless_big(count: int = 6, power: int = 12000) -> Static:
+    """グランセクト(デデカブラ/ハノコハノ等): 自分のパワー power 以上が count 体未満なら
+    このクリーチャーは攻撃できない(条件付き攻撃制限)。"""
+    def fn(game, src, player, kind, card):
+        if kind != "cant_attack" or card is not src:
+            return False
+        n = sum(1 for c in src.controller.battle if (game.power_of(c) or 0) >= power)
+        return n < count
+    return Static("restrict", fn, f"パワー{power}以上が{count}体未満なら攻撃不可")
+
+
 def field_protect_multicolor(min_cost: int = 5) -> Static:
     """Dの妖艶 マッド・デッド・ウッド: 自分のコスト min_cost 以上の多色クリーチャーが
     離場する時、パワーが0より大きければ、かわりにとどまる(離場の置換・フィールド由来)。"""
@@ -596,6 +607,10 @@ register("ダチッコ・チュリス", statics=[bj_cost_reducer(3)])
 # 水自然スコーラー(10→12/14): ランプ系。
 register("豊潤フォージュン", abilities=[cast_ramp_draw(draw_if_le=5)])
 register("ローラー雪だるま", abilities=[cast_mana_to_hand_fix()])
+# グランセクト: パワー12000以上が6体未満なら攻撃不可(安すぎる大型の攻撃制限=本来の縛り)。
+# これが未実装だとc1の12000T・ブレイカーが自由に殴れて壊れる(シナジー発掘の偽陽性要因)。
+register("デデカブラ", statics=[cant_attack_unless_big(6, 12000)])
+register("ハノコハノ", statics=[cant_attack_unless_big(6, 12000)])
 
 
 def apply_effects(pool):

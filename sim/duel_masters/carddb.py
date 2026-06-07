@@ -95,6 +95,11 @@ def parse_keywords(text: Optional[str]) -> frozenset:
         kw.add("q_breaker")
     if "マスター・W・ブレイカー" in t or "マスター・ブレイカー" in t:
         kw.add("master_breaker")            # 3枚以上(MVPでは=2枚扱いでも可)
+    # 無条件「攻撃できない」(防御専用)。条件付き(なければ/あれば)は effects で扱う。
+    # 「相手プレイヤーを攻撃できない」(クリーチャーには攻撃可)も別扱いで除外。
+    if ("攻撃できない" in t and "なければ" not in t and "あれば" not in t
+            and "プレイヤーを攻撃でき" not in t and "攻撃する時" not in t):
+        kw.add("cant_attack")
     return frozenset(kw)
 
 

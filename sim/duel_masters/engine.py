@@ -551,6 +551,8 @@ class Game:
             card.summoning_sick = False
         else:
             card.summoning_sick = True   # 実効SAは legal_attacks 側で keywords_of により判定
+        if "no_untap" in card.d.keywords:   # 「タップしてバトルゾーンに出る/アンタップしない」
+            card.tapped = True
         p.battle.append(card)
         tag = " (S・トリガー)" if free else ""
         evo = f" (進化 on {evolve_on})" if evolve_on is not None else ""
@@ -875,11 +877,18 @@ class Game:
         self.turn_count += 1
         self.log(f"\n[T{self.turn_count}] {p} のターン")
 
-        # アンタップ / 召喚酔い解除
-        for c in p.battle + p.mana:
+        # アンタップ / 召喚酔い解除(「アンタップしない」持ちは起こさない)
+        for c in p.mana:
             c.tapped = False
         for c in p.battle:
+            if "no_untap" not in self.keywords_of(c):
+                c.tapped = False
             c.summoning_sick = False
+        # ターン開始時の自壊(堕魔 ドゥジード等。Static kind='self_destruct_start')
+        for c in list(p.battle):
+            if any(s.kind == "self_destruct_start" for s in c.d.statics):
+                self.log(f"  ターン開始時自壊: {c}")
+                self.destroy(c)
         p.charged_this_turn = False
         p.spells_this_turn = 0
         self.skip_rest_of_turn = False
@@ -914,6 +923,8 @@ class Game:
     def _can_play_now(self, p: Player, card: Card, spell_ok: bool) -> bool:
         """このメインフェイズで card を通常プレイできるか(コスト/呪文ロック/数字ロック/進化基盤)。"""
         if not self.can_pay(p, card):
+            return False
+        if "cant_summon" in card.d.keywords:     # 召喚不可(踏み倒し専用カード)
             return False
         if card.ctype == SPELL and not spell_ok:
             return False

@@ -611,6 +611,10 @@ register("ローラー雪だるま", abilities=[cast_mana_to_hand_fix()])
 # これが未実装だとc1の12000T・ブレイカーが自由に殴れて壊れる(シナジー発掘の偽陽性要因)。
 register("デデカブラ", statics=[cant_attack_unless_big(6, 12000)])
 register("ハノコハノ", statics=[cant_attack_unless_big(6, 12000)])
+# 堕魔 ドゥジード: 自分のターン開始時に自身を破壊(一時ブロッカー)。未実装だと永続化して壊れる。
+register("堕魔 ドゥジード",
+         statics=[Static("self_destruct_start", lambda g, s, p: True,
+                         "自分のターン開始時に自身を破壊")])
 
 
 def apply_effects(pool):

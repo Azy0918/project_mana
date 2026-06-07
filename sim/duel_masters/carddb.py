@@ -100,6 +100,16 @@ def parse_keywords(text: Optional[str]) -> frozenset:
     if ("攻撃できない" in t and "なければ" not in t and "あれば" not in t
             and "プレイヤーを攻撃でき" not in t and "攻撃する時" not in t):
         kw.add("cant_attack")
+    # 「(このクリーチャーは)召喚できない」= 通常召喚不可(踏み倒し専用)。
+    # 「アンタップしない」= アンタップ・ステップで起きない(タップインと併せ実質置物)。
+    # 直前12文字に「相手」が無い=自己言及のものだけ拾う(相手への制限は対象外)。
+    def _self_ref(phrase):
+        i = t.find(phrase)
+        return i >= 0 and "相手" not in t[max(0, i - 12):i]
+    if _self_ref("召喚できない"):
+        kw.add("cant_summon")
+    if _self_ref("アンタップしない"):
+        kw.add("no_untap")
     return frozenset(kw)
 
 

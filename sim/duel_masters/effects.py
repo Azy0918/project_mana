@@ -716,6 +716,143 @@ def kindan_no_attack():
     return Static("restrict", fn, "鼓動は攻撃できない")
 
 
+# ---- 公平化2: ADメタ5デッキの主要効果(2026-06) ------------------------------
+
+def on_summon_destroy_total(maxtotal=8) -> Ability:
+    """爆殺!! 覇悪怒楽苦: 出た時、相手をコスト合計 maxtotal 以下になるよう破壊。"""
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        chosen, total = [], 0
+        for c in sorted(opp.battle, key=lambda c: -(c.cost or 0)):
+            if total + (c.cost or 0) <= maxtotal:
+                chosen.append(c); total += c.cost or 0
+        for c in chosen:
+            game.destroy(c)
+        if chosen:
+            game.log(f"    効果: コスト合計{maxtotal}以下を{len(chosen)}体破壊")
+    return Ability(ON_SUMMON, f, f"出た時:コスト合計{maxtotal}以下を破壊")
+
+
+def on_summon_cheat_bj_battle() -> Ability:
+    """必駆 蛮触礼亞: 出た時、手札からビートジョッキー1枚を出し、相手1体とバトルさせる。"""
+    def f(game, controller, source):
+        bj = [c for c in controller.hand if c.ctype == "creature"
+              and any("ビートジョッキー" in r for r in c.d.races)]
+        if not bj:
+            return
+        pick = max(bj, key=lambda c: c.power or 0)
+        controller.hand.remove(pick)
+        game._enter_battle(controller, pick, free=True)
+        opp = game.opponent(controller)
+        if opp.battle and pick in controller.battle:
+            t = controller.agent.choose_card(game, "バトルさせる相手", opp.battle)
+            if t is not None:
+                game.battle(pick, t)
+    return Ability(ON_SUMMON, f, "出た時:手札のビートジョッキーを出してバトル")
+
+
+def on_summon_debuff_n_revive(n=3, amount=3000, revive_max=4) -> Ability:
+    """撃髄医 スパイナー: 出た時、相手 n 体を-amount(0以下は破壊)＋墓地からコスト
+    revive_max 以下を展開(SST簡略=常時)。"""
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        for c in sorted(opp.battle, key=lambda c: (c.power or 0))[:n]:
+            c._power_mod = getattr(c, "_power_mod", 0) - amount
+        game.check_state_based()
+        revived = [c for c in controller.graveyard
+                   if c.ctype == "creature" and c.cost <= revive_max][:3]
+        for c in revived:
+            controller.graveyard.remove(c)
+            game._enter_battle(controller, c, free=True)
+    return Ability(ON_SUMMON, f, f"出た時:相手{n}体-{amount}+墓地展開")
+
+
+def cheat_meta_bounce() -> Static:
+    """異端流し オニカマス: 相手が踏み倒しで出したクリーチャーを手札に戻す。"""
+    def fn(game, src, cheated):
+        ctrl = cheated.controller
+        if cheated in ctrl.battle:
+            ctrl.battle.remove(cheated)
+            cheated.zone = "hand"; cheated.tapped = False
+            cheated.controller = cheated.owner
+            cheated.owner.hand.append(cheated)
+            game.log(f"    踏み倒しメタ({src.name}): {cheated} を手札へ戻す")
+    return Static("cheat_meta", fn, "相手の踏み倒しを手札へ戻す")
+
+
+def cheat_meta_destroy() -> Static:
+    """ウソと盗みのエンターテイナー: 相手が踏み倒しで出したクリーチャーを破壊。"""
+    def fn(game, src, cheated):
+        game.log(f"    踏み倒しメタ({src.name}): {cheated} を破壊")
+        game.destroy(cheated)
+    return Static("cheat_meta", fn, "相手の踏み倒しを破壊")
+
+
+def untargetable_self() -> Static:
+    """相手は(相手のターン中)このクリーチャーを選べない。"""
+    def fn(game, src, player, kind, card):
+        return kind == "untargetable" and card is src and player is not src.controller
+    return Static("restrict", fn, "相手はこのクリーチャーを選べない")
+
+
+def metalica_cost_reduce(amount=1) -> Static:
+    """一番隊 クリスタ: 自分のメタリカの召喚コストを amount 軽減。"""
+    def fn(game, src, player, card):
+        if src.controller is not player:
+            return 0
+        if card.ctype == "creature" and any("メタリカ" in r for r in card.d.races):
+            return amount
+        return 0
+    return Static("cost", fn, f"自分のメタリカ召喚コスト-{amount}")
+
+
+def cast_cheat_light(maxtotal=4) -> Ability:
+    """ヘブンズ・フォース: 手札から進化でない光のクリーチャーをコスト合計 maxtotal 以下で出す。"""
+    def f(game, controller, source):
+        budget = maxtotal
+        for c in sorted([x for x in controller.hand if x.ctype == "creature"
+                         and "光" in x.civs and not x.d.evolution],
+                        key=lambda c: -(c.power or 0)):
+            if c.cost <= budget:
+                controller.hand.remove(c)
+                game._enter_battle(controller, c, free=True)
+                budget -= c.cost
+    return Ability(CAST, f, f"光クリーチャーをコスト合計{maxtotal}以下で踏み倒し")
+
+
+def _cast_draw(n=1) -> Ability:
+    return Ability(CAST, lambda g, c, s: g.draw(c, n), f"{n}枚引く")
+
+
+def cast_dig_draw(n=2) -> Ability:
+    """海郷楽園 パールパーク等: 山札を掘って実質 n ドロー(簡略)。"""
+    return Ability(CAST, lambda g, c, s: g.draw(c, n), f"山札を掘る(簡略{n}ドロー)")
+
+
+def cast_bounce_le(maxpow=3000) -> Ability:
+    """時を戻す水時計: 相手のパワー maxpow 以下を1体手札に戻す。"""
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        cands = [c for c in opp.battle if (c.power or 0) <= maxpow]
+        if cands:
+            game.bounce(max(cands, key=lambda c: c.power or 0))
+    return Ability(CAST, f, f"パワー{maxpow}以下を1体手札へ")
+
+
+def on_summon_mill_recur() -> Ability:
+    """絶叫の悪魔龍 イーヴィル・ヒート: 出た時、山札上1枚を墓地→墓地からクリーチャー1枚回収。"""
+    def f(game, controller, source):
+        if controller.deck:
+            m = controller.deck.pop(0); m.zone = "graveyard"
+            controller.graveyard.append(m)
+        cre = [c for c in controller.graveyard if c.ctype == "creature"]
+        if cre:
+            pick = max(cre, key=lambda c: c.cost)
+            controller.graveyard.remove(pick); pick.zone = "hand"
+            controller.hand.append(pick)
+    return Ability(ON_SUMMON, f, "出た時:1枚墓地肥やし+クリーチャー回収")
+
+
 def field_protect_multicolor(min_cost: int = 5) -> Static:
     """Dの妖艶 マッド・デッド・ウッド: 自分のコスト min_cost 以上の多色クリーチャーが
     離場する時、パワーが0より大きければ、かわりにとどまる(離場の置換・フィールド由来)。"""
@@ -817,7 +954,18 @@ register("未来設計図", abilities=[Ability(CAST, lambda g, c, s: g.draw(c, 1
                                        "山札を掘る(簡略1ドロー)")])
 register("次元の霊峰", abilities=[Ability(CAST, lambda g, c, s: g.draw(c, 1),
                                        "多色サーチ(簡略1ドロー)")])
-# イーヴィル・ヒート(SA闇火ドラゴン=革命チェンジ役)/スパイナー(SST)はキーワード稼働で簡略。
+# --- 公平化2: ADメタ5デッキの主要効果(2026-06) ---
+register("爆殺!! 覇悪怒楽苦", abilities=[on_summon_destroy_total(8)])
+register("“必駆”蛮触礼亞", abilities=[on_summon_cheat_bj_battle()])
+register("撃髄医 スパイナー", abilities=[on_summon_debuff_n_revive(3, 3000, 4)])
+register("異端流し オニカマス", statics=[cheat_meta_bounce(), untargetable_self()])
+register("ウソと盗みのエンターテイナー", statics=[cheat_meta_destroy()])
+register("一番隊 クリスタ", statics=[metalica_cost_reduce(1)])
+register("ヘブンズ・フォース", abilities=[cast_cheat_light(4)])
+register("ガード・グリップ", abilities=[_cast_draw(1)])
+register("海郷楽園 パールパーク", abilities=[cast_dig_draw(2)])
+register("時を戻す水時計", abilities=[cast_bounce_le(3000)])
+register("絶叫の悪魔龍 イーヴィル・ヒート", abilities=[on_summon_mill_recur()])
 # 堕魔 ドゥジード: 自分のターン開始時に自身を破壊(一時ブロッカー)。未実装だと永続化して壊れる。
 register("堕魔 ドゥジード",
          statics=[Static("self_destruct_start", lambda g, s, p: True,

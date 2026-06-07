@@ -580,6 +580,17 @@ class Game:
         card._came_free = free               # 手札ハードキャスト(False)か踏み倒し(True)か
         self.trigger(ON_SUMMON, card)
         self._kindan_unseal(p, card)         # 火コマンドで禁断の封印を1つ外す
+        if free:                             # 踏み倒しで出たら相手の踏み倒しメタが反応
+            self._cheat_meta(p, card)
+
+    def _cheat_meta(self, p: Player, cheated: Card):
+        """相手の踏み倒しメタ(オニカマス/ウソと盗み等, Static kind='cheat_meta')に、
+        p が踏み倒しで出したクリーチャーを処理させる。fn(game, src, cheated)。"""
+        opp = self.opponent(p)
+        for src in opp.battle + opp.field:
+            for st in src.d.statics:
+                if st.kind == "cheat_meta" and cheated in p.battle:
+                    st.fn(self, src, cheated)
 
     def _kindan_unseal(self, p: Player, entered: Card):
         """火のコマンドがバトルゾーンに出たら、p の禁断の封印を1つ外す。全て外れたら解放。"""

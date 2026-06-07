@@ -90,10 +90,12 @@ def behavior(pool, deck):
 
 
 # ---- MAP-Elites -------------------------------------------------------------
-def map_elites(iters=300, init=50, games=4, seed=42, max_cost=9, verbose=True):
-    """戻り値 (pool, super_pool, archive)。archive[cell]=(fitness, deck, civs)。"""
+def map_elites(iters=300, init=50, games=4, seed=42, max_cost=9, verbose=True,
+               nd_only=True):
+    """戻り値 (pool, super_pool, archive)。archive[cell]=(fitness, deck, civs)。
+    nd_only=False でAD全体(約3942種)を候補に発想する。"""
     rng = random.Random(seed)
-    pool, super_pool, cand = build_nd_candidates(max_cost)
+    pool, super_pool, cand = build_nd_candidates(max_cost, nd_only=nd_only)
     gauntlet = [decks.decklist(n) for n in decks.META]
     cache = {}
 

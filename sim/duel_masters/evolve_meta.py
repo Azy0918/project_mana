@@ -111,9 +111,24 @@ def fast_ismcts_pilot(name, rng):
                        block_iterations=0, reactions_in_tree=True)
 
 
+def ad_candidates(pool, civs, max_cost=9):
+    """AD全体から、指定文明(＋無色)で払える効果ありorクリーチャーの候補名を作る。
+    多色シナジー核(アイニー=火自然等)を最適化する二段GAの素材プール。"""
+    civset = set(civs)
+    cand = []
+    for n, cd in pool.items():
+        if cd.cost > max_cost or cd.field or "kindan" in {s.kind for s in cd.statics}:
+            continue
+        if not (cd.civs <= civset):
+            continue
+        if cd.ctype == "creature" or cd.abilities or cd.statics or cd.twin_spell:
+            cand.append(n)
+    return cand
+
+
 def evolve_two_tier(generations=8, pop=20, h_games=4, ismcts_top_k=6,
                     ismcts_games=3, elite_frac=0.3, seed=42, verbose=True,
-                    seed_cards=None, ga_super=()):
+                    seed_cards=None, ga_super=(), cand=None):
     """二段GA: Tier1=Heuristicで全個体を高速ランク、Tier2=高速ISMCTSで上位K体だけを
     忠実評価しエリート選抜・最良決定に使う。=『ISMCTSをGA本走に載せる』実用解。
 
@@ -126,7 +141,8 @@ def evolve_two_tier(generations=8, pop=20, h_games=4, ismcts_top_k=6,
     戻り値 (pool, super_pool, best_deck, best_ismcts_score, ga_super)。"""
     from collections import Counter as _C
     pool, super_pool = decks.build_full_pool()
-    _, cand = ga.build_pools()
+    if cand is None:
+        _, cand = ga.build_pools()
     gauntlet = [decks.decklist(n) for n in decks.META]
     seed_cards = {decks.resolve_name(pool, n) or n: c
                   for n, c in (seed_cards or {}).items()}

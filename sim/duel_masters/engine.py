@@ -577,6 +577,7 @@ class Game:
         tag = " (S・トリガー)" if free else ""
         evo = f" (進化 on {evolve_on})" if evolve_on is not None else ""
         self.log(f"  {p}: {card} を召喚{tag}{evo}")
+        card._came_free = free               # 手札ハードキャスト(False)か踏み倒し(True)か
         self.trigger(ON_SUMMON, card)
         self._kindan_unseal(p, card)         # 火コマンドで禁断の封印を1つ外す
 

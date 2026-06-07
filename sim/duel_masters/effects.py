@@ -525,6 +525,26 @@ def cast_mana_to_hand_fix() -> Ability:
     return Ability(CAST, f, "マナのクリーチャー1枚を手札へ+山札上1枚をマナへ")
 
 
+def tomana_if_hardcast_else_bounce() -> Ability:
+    """ルツパーフェ・パンツァー等: 手札から出たら自身をマナゾーンへ(ハードキャストでは
+    残らない)。手札以外(踏み倒し)から出たら相手1体をマナゾーンへ送り、自身は残る。"""
+    def f(game, controller, source):
+        if not getattr(source, "_came_free", False):     # 手札ハードキャスト
+            if source in controller.battle:
+                controller.battle.remove(source)
+                source.zone = "mana"; source.tapped = False
+                controller.mana.append(source)
+                game.log(f"    効果: {source} は手札から出たのでマナゾーンへ")
+        else:                                              # 踏み倒し
+            opp = game.opponent(controller)
+            if opp.battle:
+                t = max(opp.battle, key=lambda c: c.power or 0)
+                opp.battle.remove(t); t.zone = "mana"; t.tapped = False
+                t.controller = t.owner; t.owner.mana.append(t)
+                game.log(f"    効果: {t} をマナゾーンへ")
+    return Ability(ON_SUMMON, f, "手札から出たら自身マナ/踏み倒しなら相手マナ送り")
+
+
 def cant_attack_unless_big(count: int = 6, power: int = 12000) -> Static:
     """グランセクト(デデカブラ/ハノコハノ等): 自分のパワー power 以上が count 体未満なら
     このクリーチャーは攻撃できない(条件付き攻撃制限)。"""
@@ -772,6 +792,7 @@ register("ローラー雪だるま", abilities=[cast_mana_to_hand_fix()])
 # これが未実装だとc1の12000T・ブレイカーが自由に殴れて壊れる(シナジー発掘の偽陽性要因)。
 register("デデカブラ", statics=[cant_attack_unless_big(6, 12000)])
 register("ハノコハノ", statics=[cant_attack_unless_big(6, 12000)])
+register("ルツパーフェ・パンツァー", abilities=[tomana_if_hardcast_else_bounce()])
 
 # --- AD: 革命チェンジ ドギラゴン剣(火闇自然/火水)2デッキ分 ---
 register("蒼き団長 ドギラゴン剣",

@@ -448,6 +448,82 @@ def on_summon_gayou() -> Ability:
     return Ability(ON_SUMMON, f, "出た時ジョーカーズ5枚以上で2ドロー")
 
 
+# ---- 公平化: メタ4デッキのカバレッジ補完(2026-06) ----------------------------
+
+def cast_draw_discard(nd: int, ndi: int) -> Ability:
+    """エマージェンシー・タイフーン/サイバー・チューン: nd枚引きndi枚捨てる。"""
+    def f(game, controller, source):
+        game.draw(controller, nd)
+        for _ in range(ndi):
+            if controller.hand:
+                d = min(controller.hand, key=lambda c: c.cost)   # 安いカードを捨てる
+                controller.hand.remove(d)
+                d.zone = "graveyard"
+                controller.graveyard.append(d)
+    return Ability(CAST, f, f"{nd}枚引き{ndi}枚捨て")
+
+
+def cast_ramp_draw(draw_if_le: int = 0) -> Ability:
+    """豊潤フォージュン/トライガード・チャージャー等: 山札上1枚をマナへ。最大マナが
+    draw_if_le 以下なら1ドロー。"""
+    def f(game, controller, source):
+        if controller.deck:
+            c = controller.deck.pop(0)
+            c.zone = "mana"; c.tapped = False
+            controller.mana.append(c)
+        if draw_if_le and len(controller.mana) <= draw_if_le:
+            game.draw(controller, 1)
+    return Ability(CAST, f, "山札上1枚をマナ加速(条件で1ドロー)")
+
+
+def on_summon_destroy_all_others() -> Ability:
+    """悪魔神王ディス・バルカミラ: 出た時、自身以外のクリーチャーをすべて破壊(全体除去)。"""
+    def f(game, controller, source):
+        for p in game.players:
+            for c in list(p.battle):
+                if c is not source:
+                    game.destroy(c)
+        game.log("    効果: 他のクリーチャーをすべて破壊")
+    return Ability(ON_SUMMON, f, "出た時:自身以外を全破壊")
+
+
+def on_summon_discard_all_opp() -> Ability:
+    """「黒幕」: 出た時、相手は手札をすべて捨てる(全ハンデス)。"""
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        n = len(opp.hand)
+        for c in list(opp.hand):
+            opp.hand.remove(c)
+            c.zone = "graveyard"
+            opp.graveyard.append(c)
+        game.log(f"    効果: 相手の手札{n}枚を全て捨てさせる")
+    return Ability(ON_SUMMON, f, "出た時:相手の手札を全て捨てさせる")
+
+
+def spell_cost_tax(amount: int = 2) -> Static:
+    """奇石 タスリク: 相手の呪文を唱えるコストが amount 多くなる(cost静的で負の軽減)。"""
+    def fn(game, src, player, card):
+        if player is not src.controller and card.ctype == "spell":
+            return -amount
+        return 0
+    return Static("cost", fn, f"相手の呪文コスト+{amount}")
+
+
+def cast_mana_to_hand_fix() -> Ability:
+    """ローラー雪だるま: マナのクリーチャー1枚を手札へ→山札上1枚をマナへ(色/事故修正)。"""
+    def f(game, controller, source):
+        creatures = [c for c in controller.mana if c.ctype == "creature"]
+        if creatures and controller.deck:
+            pick = max(creatures, key=lambda c: c.cost)
+            controller.mana.remove(pick)
+            pick.zone = "hand"; pick.tapped = False
+            controller.hand.append(pick)
+            c = controller.deck.pop(0)
+            c.zone = "mana"; c.tapped = False
+            controller.mana.append(c)
+    return Ability(CAST, f, "マナのクリーチャー1枚を手札へ+山札上1枚をマナへ")
+
+
 def field_protect_multicolor(min_cost: int = 5) -> Static:
     """Dの妖艶 マッド・デッド・ウッド: 自分のコスト min_cost 以上の多色クリーチャーが
     離場する時、パワーが0より大きければ、かわりにとどまる(離場の置換・フィールド由来)。"""
@@ -505,6 +581,21 @@ register("ゴールデン・ザ・ジョニー", statics=[golden_spell_cap(1)])
 register("ジョジョジョ・ジョーカーズ", abilities=[cast_joker_search()])
 register("メラメラ・ジョーカーズ", abilities=[cast_meramera()])
 register("ガヨウ神", abilities=[on_summon_gayou()])
+
+# --- 公平化: メタ4デッキのカバレッジ補完(2026-06) ---
+# 青白コントロール(5→13/14): ドロー呪文/全体除去/全ハンデス/ランプ。ブロッカー群
+# (エメラルーダ/ミタラシオ/ラ・ウラ・ギガ)はキーワードで既に受けが機能。
+register("エマージェンシー・タイフーン", abilities=[cast_draw_discard(2, 1)])
+register("サイバー・チューン", abilities=[cast_draw_discard(3, 2)])
+register("トライガード・チャージャー", abilities=[cast_ramp_draw()])
+register("悪魔神王ディス・バルカミラ", abilities=[on_summon_destroy_all_others()])
+register("「黒幕」", abilities=[on_summon_discard_all_opp()])
+# 火光レイド(9→11/13): タスリク=相手呪文増税、ダチッコ=自分のBJ軽減。
+register("奇石 タスリク", statics=[spell_cost_tax(2)])
+register("ダチッコ・チュリス", statics=[bj_cost_reducer(3)])
+# 水自然スコーラー(10→12/14): ランプ系。
+register("豊潤フォージュン", abilities=[cast_ramp_draw(draw_if_le=5)])
+register("ローラー雪だるま", abilities=[cast_mana_to_hand_fix()])
 
 
 def apply_effects(pool):

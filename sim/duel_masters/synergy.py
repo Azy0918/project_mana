@@ -46,11 +46,11 @@ _RACE_COUNT_RE = re.compile(r"(\d+)\s*(枚|体)以上")
 _REF_RE = re.compile(r"《([^》]+)》")
 
 
-def _full_nd_pool():
-    """ゲーム用 full pool(AD込み)＋ND候補名。効果/ホール/ツインパクト適用済み。"""
+def _full_nd_pool(nd_only=True):
+    """ゲーム用 full pool(AD込み)＋候補名。nd_only=FalseでAD全体を候補に。"""
     pool, super_pool = decks.build_full_pool(nd_only=False)
-    nd = set(carddb.load_pool(nd_only=True))
-    return pool, super_pool, nd
+    names = set(carddb.load_pool(nd_only=True)) if nd_only else set(pool)
+    return pool, super_pool, names
 
 
 def tag_roles(pool, nd_names):
@@ -238,10 +238,11 @@ def score_cluster(pool, super_pool, nd_names, cand, gauntlet, rng,
                 why=cand["why"], deck=conc, payoffs=payoffs[:4])
 
 
-def mine_and_rank(games=4, seed=42, ismcts_top=5, verbose=True):
-    """全候補を生成→Heuristicリフトで採点→上位を ISMCTS で再採点しランク。"""
+def mine_and_rank(games=4, seed=42, ismcts_top=5, verbose=True, nd_only=True):
+    """全候補を生成→Heuristicリフトで採点→上位を ISMCTS で再採点しランク。
+    nd_only=False でAD全体(約3942種)からシナジーを発掘。"""
     rng = random.Random(seed)
-    pool, super_pool, nd = _full_nd_pool()
+    pool, super_pool, nd = _full_nd_pool(nd_only=nd_only)
     tags = tag_roles(pool, nd)
     cands = mine_candidates(pool, nd, tags)
     gauntlet = [decks.decklist(n) for n in decks.DECKS]

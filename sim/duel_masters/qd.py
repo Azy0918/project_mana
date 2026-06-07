@@ -27,13 +27,14 @@ from .engine import LIGHT, WATER, DARKNESS, FIRE, NATURE
 _CIV_ORDER = [LIGHT, WATER, DARKNESS, FIRE, NATURE]
 
 
-def build_nd_candidates(max_cost=9):
-    """全ND多色プール(ゲームはAD込みfull pool、候補名はND・効果/クリーチャー優先)。
-    戻り値 (pool, super_pool, cand, by_civ)。by_civ[civ]=その文明を含む候補名。"""
+def build_nd_candidates(max_cost=9, nd_only=True):
+    """探索候補プール。ゲームはAD込みfull pool。候補名は nd_only=True でND、Falseで
+    AD全体(約3942種)。効果実装済みorクリーチャーを優先(バニラ呪文は除外)。
+    戻り値 (pool, super_pool, cand)。"""
     pool, super_pool = decks.build_full_pool(nd_only=False)
-    nd_names = set(carddb.load_pool(nd_only=True))
+    names = set(carddb.load_pool(nd_only=True)) if nd_only else set(pool)
     cand = []
-    for n in nd_names:
+    for n in names:
         cd = pool.get(n)
         if cd is None or cd.cost > max_cost or cd.field:
             continue

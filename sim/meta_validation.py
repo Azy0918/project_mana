@@ -30,7 +30,7 @@ from duel_masters import decks, ga, evolve_meta
 def round_robin(games=12, seed0=99):
     """証拠①: 4デッキの忠実総当たり(ISMCTS両席)。行vs列の勝率行列と各デッキ平均。"""
     pool, super_pool = decks.build_full_pool(nd_only=False)
-    names = list(decks.DECKS)
+    names = list(decks.META)
     DL = {n: decks.decklist(n) for n in names}
     mat = {a: {} for a in names}
     for i, a in enumerate(names):
@@ -50,7 +50,7 @@ def challenge(generations=14, pop=20, ga_games=5, eval_games=15):
     """証拠②: GA(Heuristic)が見つける反メタデッキを Heuristic と ISMCTS で再評価。
     戻り値 (ga_main, heuristic_winrates, ismcts_winrates)。"""
     pool, super_pool = decks.build_full_pool(nd_only=False)
-    named = {n: decks.decklist(n) for n in decks.DECKS}
+    named = {n: decks.decklist(n) for n in decks.META}
     _, _, best, claim = evolve_meta.evolve_vs_meta(
         generations=generations, pop=pop, games=ga_games, seed=42, verbose=False)
     ga_main = ga.deck_to_list(best)

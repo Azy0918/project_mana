@@ -4,7 +4,7 @@ duel_masters.evolve_meta
 GA で「実メタ(Tier S 3デッキ)に勝つ火単NDデッキ」を進化させる。
 
 ga.py の遺伝操作(個体=40枚, 交叉/変異/トーナメント)を流用しつつ、適応度を
-**decks.DECKS の実メタ3デッキへの着席公平な勝率**にする。個体は火単(build_pools
+**decks.META の実メタ3デッキへの着席公平な勝率**にする。個体は火単(build_pools
 の候補)。対戦は全NDプール+超次元(覚醒フック)で行うので、相手のホール召喚・覚醒
 リンク・ツインパクト(クリーチャー面)も機能する。
 
@@ -72,7 +72,7 @@ def evolve_vs_meta(generations=10, pop=18, games=5, elite_frac=0.25, seed=42,
                    verbose=True):
     pool, super_pool = decks.build_full_pool()
     _, cand = ga.build_pools()                      # 火単候補(個体の素材)
-    gauntlet = [decks.decklist(n) for n in decks.DECKS]
+    gauntlet = [decks.decklist(n) for n in decks.META]
     rng = random.Random(seed)
     cache = {}
 
@@ -127,7 +127,7 @@ def evolve_two_tier(generations=8, pop=20, h_games=4, ismcts_top_k=6,
     from collections import Counter as _C
     pool, super_pool = decks.build_full_pool()
     _, cand = ga.build_pools()
-    gauntlet = [decks.decklist(n) for n in decks.DECKS]
+    gauntlet = [decks.decklist(n) for n in decks.META]
     seed_cards = {decks.resolve_name(pool, n) or n: c
                   for n, c in (seed_cards or {}).items()}
     for n in seed_cards:                         # シードが火候補に無ければ加える
@@ -203,8 +203,8 @@ def endurance(hours=3.0, pop=22, games=5, gens_per_epoch=4, elite_frac=0.25,
 
     pool, super_pool = decks.build_full_pool()
     _, cand = ga.build_pools()
-    gauntlet = [decks.decklist(n) for n in decks.DECKS]
-    named = {n: decks.decklist(n) for n in decks.DECKS}
+    gauntlet = [decks.decklist(n) for n in decks.META]
+    named = {n: decks.decklist(n) for n in decks.META}
     rng = random.Random(seed)
     cache = {}
 
@@ -218,7 +218,7 @@ def endurance(hours=3.0, pop=22, games=5, gens_per_epoch=4, elite_frac=0.25,
     n_elite = max(1, int(pop * elite_frac))
     hof = []                       # [(fitness, deck)]
     log(f"耐久(対実メタ)開始: {hours}時間 / pop={pop} games={games} seed={seed}")
-    log(f"ガントレット: {', '.join(decks.DECKS)} / 候補 {len(cand)} 種 / 出力 {outdir}")
+    log(f"ガントレット: {', '.join(decks.META)} / 候補 {len(cand)} 種 / 出力 {outdir}")
 
     epoch = total_gens = 0
     while time.time() < deadline:
@@ -330,8 +330,8 @@ def evolve_novel(seed, generations=14, pop=20, games=5, elite_frac=0.25,
     for n in seed:
         if n not in cand:
             cand = cand + [n]
-    gauntlet = [decks.decklist(n) for n in decks.DECKS]
-    named = {n: decks.decklist(n) for n in decks.DECKS}
+    gauntlet = [decks.decklist(n) for n in decks.META]
+    named = {n: decks.decklist(n) for n in decks.META}
     ga_super = [decks.resolve_name(super_pool, n) or n for n in ga_super]
     rng = random.Random(rng_seed)
     cache = {}
@@ -383,7 +383,7 @@ def main(**kw):
     pool, super_pool, best, score = evolve_vs_meta(**kw)
     print(f"\n=== 発見デッキ 対メタ平均勝率 {score:.3f} ===")
     print(ga.describe(pool, best))
-    named = {n: decks.decklist(n) for n in decks.DECKS}
+    named = {n: decks.decklist(n) for n in decks.META}
     wr = winrates_vs_each(pool, super_pool, best, named, games=25)
     print("\n各Tier Sデッキへの勝率(着席公平・25x2戦):")
     for dname, w in wr.items():

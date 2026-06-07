@@ -245,7 +245,7 @@ def mine_and_rank(games=4, seed=42, ismcts_top=5, verbose=True, nd_only=True):
     pool, super_pool, nd = _full_nd_pool(nd_only=nd_only)
     tags = tag_roles(pool, nd)
     cands = mine_candidates(pool, nd, tags)
-    gauntlet = [decks.decklist(n) for n in decks.DECKS]
+    gauntlet = [decks.decklist(n) for n in decks.META]
     if verbose:
         print(f"候補クラスタ {len(cands)}件を採点(Heuristicリフト)…", flush=True)
     scored = []
@@ -266,7 +266,7 @@ def mine_and_rank(games=4, seed=42, ismcts_top=5, verbose=True, nd_only=True):
         main = ga.deck_to_list(r["deck"])
         iw = sum(decks.play_match(pool, super_pool, (main, []),
                                   decks.decklist(dn), games=6, seed0=4242,
-                                  pilot=decks.eval_pilot) for dn in decks.DECKS) / 4
+                                  pilot=decks.eval_pilot) for dn in decks.META) / 4
         r["ismcts"] = iw
         if verbose:
             print(f"  {r['label']:22s} ISMCTS対メタ {iw:.3f} (Heuristicリフト{r['lift']:+.3f})",

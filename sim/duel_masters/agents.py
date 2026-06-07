@@ -342,6 +342,8 @@ class HeuristicAgent:
 
     # ---- ブロック判断: リーサル阻止 or 有利トレードのみ受ける ------------
     def choose_card(self, game, prompt, cards, optional=False):
+        if "革命チェンジ" in prompt and cards:   # 基本は革命チェンジする(最大コストへ)
+            return max(cards, key=lambda c: (c.cost, c.power or 0))
         if optional:   # ブロッカー選択(防御側)
             if not cards:
                 return None

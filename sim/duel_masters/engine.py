@@ -174,6 +174,8 @@ class Game:
         self.attack_target = None               # 現在の攻撃先('player' または Card)
         self.pending_extra_turn: Optional[Player] = None  # 追加ターン(スコーラー等)
         self.skip_rest_of_turn = False          # 終末の時計等: 現ターンの残りをとばす
+        self._final_revo_used = False            # ファイナル革命(ドギラゴン剣)はターン1回
+        self.attacks_this_turn = 0               # このターンの攻撃回数(バルチュリス等)
 
     # --- ユーティリティ -----------------------------------------------------
 
@@ -753,11 +755,61 @@ class Game:
                     out.append(Action("attack", c, t))
         return out
 
+    def _maybe_revo_change(self, attacker: Card) -> Card:
+        """革命チェンジ: 攻撃中のクリーチャーを、条件を満たす手札の革命チェンジ持ちと
+        入れ替える(元は手札へ、新は攻撃を引き継ぐ=タップ状態で登場)。Static
+        kind='revo_change' fn(game, change_card, attacker)->bool で適性を判定。"""
+        p = attacker.controller
+        cands = []
+        for c in p.hand:
+            for st in c.d.statics:
+                if st.kind == "revo_change" and st.fn(self, c, attacker):
+                    cands.append(c)
+                    break
+        if not cands:
+            return attacker
+        chosen = p.agent.choose_card(
+            self, f"革命チェンジ {attacker} を入れ替える?", cands, optional=True)
+        if chosen is None:
+            return attacker
+        if attacker in p.battle:
+            p.battle.remove(attacker)
+        attacker.zone = "hand"
+        attacker.tapped = False
+        attacker.summoning_sick = False
+        p.hand.append(attacker)
+        p.hand.remove(chosen)
+        chosen.controller = p
+        chosen.zone = "battle"
+        chosen.tapped = True                 # 攻撃を引き継ぐのでタップ状態
+        chosen.summoning_sick = False
+        chosen._came_by_revo_change = True
+        p.battle.append(chosen)
+        self.attacking = chosen
+        self.log(f"  ★革命チェンジ: {attacker} → {chosen}")
+        self.trigger(ON_SUMMON, chosen)      # ETB＋ファイナル革命(ON_SUMMONでフラグ判定)
+        return chosen
+
+    def _free_on_nth_attack(self, p: Player):
+        """バルチュリス等: このターンの攻撃回数が閾値に達したら、手札の該当カードを
+        無料で場に出す(Static kind='free_on_nth_attack' fn(game,src,player)->bool)。"""
+        for c in list(p.hand):
+            for st in c.d.statics:
+                if st.kind == "free_on_nth_attack" and st.fn(self, c, p):
+                    p.hand.remove(c)
+                    self._enter_battle(p, c, free=True)
+                    break
+
     def resolve_attack(self, attacker: Card, target):
         attacker.tapped = True
+        self.attacks_this_turn += 1
         self.attacking = attacker            # 「このクリーチャーの攻撃中」判定用
         self.attack_target = target          # ブロック判断のロールアウト用
         self.log(f"  {attacker.controller}: {attacker} が攻撃")
+        attacker = self._maybe_revo_change(attacker)   # 革命チェンジ(入れ替え)
+        if self.winner is not None:
+            self.attacking = None
+            return
         self.trigger(ON_ATTACK, attacker)
         if self.winner is not None:
             self.attacking = None
@@ -778,10 +830,14 @@ class Game:
                 b.tapped = True
                 self.log(f"  {defender}: {b} でブロック")
                 self.battle(attacker, b)
+                if self.winner is None:
+                    self._free_on_nth_attack(attacker.controller)  # バルチュリス等
                 return
 
         self._resolve_unblocked(attacker, target, defender)
         self._check_attack_win(attacker)     # 攻撃後の特殊勝利(ジョリー・ザ・ジョニー等)
+        if self.winner is None:
+            self._free_on_nth_attack(attacker.controller)          # バルチュリス等
 
     def _check_attack_win(self, attacker: Card):
         """攻撃の後に成立する特殊勝利(Static kind='attack_win')。
@@ -892,6 +948,8 @@ class Game:
         p.charged_this_turn = False
         p.spells_this_turn = 0
         self.skip_rest_of_turn = False
+        self._final_revo_used = False
+        self.attacks_this_turn = 0
 
         # ドロー(ゲーム最初のターンのみスキップ)
         if self.turn_count > 1:
@@ -1084,6 +1142,8 @@ class Game:
         g.attack_target = None
         g.pending_extra_turn = None
         g.skip_rest_of_turn = False
+        g._final_revo_used = self._final_revo_used
+        g.attacks_this_turn = self.attacks_this_turn
         g.winner = None
         g.players = []
 

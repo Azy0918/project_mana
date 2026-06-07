@@ -94,7 +94,7 @@ def map_elites(iters=300, init=50, games=4, seed=42, max_cost=9, verbose=True):
     """戻り値 (pool, super_pool, archive)。archive[cell]=(fitness, deck, civs)。"""
     rng = random.Random(seed)
     pool, super_pool, cand = build_nd_candidates(max_cost)
-    gauntlet = [decks.decklist(n) for n in decks.DECKS]
+    gauntlet = [decks.decklist(n) for n in decks.META]
     cache = {}
 
     def fit(deck):
@@ -141,7 +141,7 @@ def archive_table(archive):
 
 def qd_validate(pool, super_pool, archive, top=6, games=8):
     """アーカイブから多様な上位セルを ISMCTS で忠実検証(高速Heuristic適応度の裏取り)。"""
-    named = {n: decks.decklist(n) for n in decks.DECKS}
+    named = {n: decks.decklist(n) for n in decks.META}
     rows = sorted(archive.values(), key=lambda x: -x[0])[:top]
     out = []
     for f, deck, cell in rows:

@@ -535,6 +535,138 @@ def cant_attack_unless_big(count: int = 6, power: int = 12000) -> Static:
     return Static("restrict", fn, f"パワー{power}以上が{count}体未満なら攻撃不可")
 
 
+# ---- 革命チェンジ(ドギラゴン剣)アーキタイプ(AD) ------------------------------
+
+def revo_change(civs=("火", "自然"), min_cost=0, need_dragon=True) -> Static:
+    """革命チェンジ: 自分の[civs]の(min_cost以上の)ドラゴンが攻撃する時、これに入替可能。
+    engine._maybe_revo_change が fn(game, src, attacker)->bool を見て候補にする。"""
+    civset = set(civs)
+    def fn(game, src, attacker):
+        if attacker.controller is not src.controller:
+            return False
+        if need_dragon and not any("ドラゴン" in r for r in attacker.d.races):
+            return False
+        if attacker.cost < min_cost:
+            return False
+        return bool(set(attacker.civs) & civset)
+    return Static("revo_change", fn,
+                  f"革命チェンジ:{'/'.join(civs)}のコスト{min_cost}以上ドラゴン")
+
+
+def final_revolution(max_total=6) -> Ability:
+    """ファイナル革命(ドギラゴン剣): 革命チェンジで出た時、手札/マナから進化でない多色
+    クリーチャーをコスト合計 max_total 以下で好きな数踏み倒す(ターン1回)。"""
+    def f(game, controller, source):
+        if not getattr(source, "_came_by_revo_change", False):
+            return
+        if game._final_revo_used:
+            return
+        game._final_revo_used = True
+        budget = max_total
+        picked = []
+        for zone in (controller.hand, controller.mana):
+            for c in sorted([x for x in zone if x.ctype == "creature"
+                             and len(x.civs) >= 2 and not x.d.evolution],
+                            key=lambda c: -(c.power or 0)):
+                if c.cost <= budget:
+                    picked.append((zone, c))
+                    budget -= c.cost
+        for zone, c in picked:
+            if c in zone:
+                zone.remove(c)
+                game._enter_battle(controller, c, free=True)
+        if picked:
+            game.log(f"    ★ファイナル革命: {len(picked)}体を踏み倒し")
+    return Ability(ON_SUMMON, f, "ファイナル革命:多色を合計6以下踏み倒し")
+
+
+def grant_sa_multicolor() -> Static:
+    """ドギラゴン剣: 自分の多色クリーチャーすべてにスピードアタッカーを与える。"""
+    def fn(game, src, target):
+        if target.controller is src.controller and len(target.civs) >= 2:
+            return {"speed_attacker"}
+        return set()
+    return Static("keywords", fn, "自分の多色にスピードアタッカー付与")
+
+
+def free_on_nth_attack(n=2, self_name="龍装者 バルチュリス") -> Static:
+    """バルチュリス: このターン n 体目の攻撃時、まだ場に居なければ手札から無料着地。"""
+    def fn(game, src, player):
+        if game.attacks_this_turn < n:
+            return False
+        return not any(c.name == self_name for c in player.battle)
+    return Static("free_on_nth_attack", fn, f"{n}体目の攻撃で手札から無料着地")
+
+
+def on_summon_destroy_le_cost(maxc=6) -> Ability:
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        cands = [c for c in opp.battle if c.cost <= maxc
+                 and not game.is_restricted(controller, "untargetable", c)]
+        if cands:
+            game.destroy(max(cands, key=lambda c: (c.power or 0)))
+    return Ability(ON_SUMMON, f, f"出た時:相手のコスト{maxc}以下を1体破壊")
+
+
+def on_summon_deploy_from_mana(maxc=3) -> Ability:
+    def f(game, controller, source):
+        cands = [c for c in controller.mana
+                 if c.ctype == "creature" and c.cost <= maxc]
+        if cands:
+            pick = max(cands, key=lambda c: (c.power or 0))
+            controller.mana.remove(pick)
+            game._enter_battle(controller, pick, free=True)
+    return Ability(ON_SUMMON, f, f"出た時:マナからコスト{maxc}以下を踏み倒し")
+
+
+def opponent_no_st() -> Static:
+    """単騎連射 マグナム: 相手はS・トリガー(踏み倒し)を使えない。"""
+    def fn(game, src, player, kind, card):
+        return kind == "no_free_play" and player is not src.controller
+    return Static("restrict", fn, "相手はS・トリガー/踏み倒し不可")
+
+
+def on_attack_draw_discard(nd=3, ndi=1) -> Ability:
+    def f(game, controller, source):
+        game.draw(controller, nd)
+        for _ in range(ndi):
+            if controller.hand:
+                d = min(controller.hand, key=lambda c: c.cost)
+                controller.hand.remove(d)
+                d.zone = "graveyard"
+                controller.graveyard.append(d)
+    return Ability(ON_ATTACK, f, f"攻撃時:{nd}引き{ndi}捨て")
+
+
+def on_summon_mana_send_opp() -> Ability:
+    """ニルバーナー: 出た時、相手クリーチャー1体をマナゾーンへ。"""
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        if opp.battle:
+            t = max(opp.battle, key=lambda c: c.power or 0)
+            opp.battle.remove(t)
+            t.zone = "mana"; t.tapped = False; t.controller = t.owner
+            t.owner.mana.append(t)
+            game.log(f"    効果: {t} をマナゾーンへ")
+    return Ability(ON_SUMMON, f, "出た時:相手1体をマナ送り")
+
+
+def on_summon_jonny() -> Ability:
+    """爆砕面 ジョニーウォーカー: 出た時、自壊して山札上をマナ or 相手2000以下を破壊。"""
+    def f(game, controller, source):
+        opp = game.opponent(controller)
+        kill = [c for c in opp.battle if (c.power or 0) <= 2000]
+        if source in controller.battle:
+            controller.battle.remove(source)
+            source.zone = "graveyard"; controller.graveyard.append(source)
+        if kill:
+            game.destroy(max(kill, key=lambda c: c.power or 0))
+        elif controller.deck:
+            c = controller.deck.pop(0); c.zone = "mana"; c.tapped = False
+            controller.mana.append(c)
+    return Ability(ON_SUMMON, f, "出た時:自壊して2000以下破壊orマナ加速")
+
+
 def field_protect_multicolor(min_cost: int = 5) -> Static:
     """Dの妖艶 マッド・デッド・ウッド: 自分のコスト min_cost 以上の多色クリーチャーが
     離場する時、パワーが0より大きければ、かわりにとどまる(離場の置換・フィールド由来)。"""
@@ -611,6 +743,28 @@ register("ローラー雪だるま", abilities=[cast_mana_to_hand_fix()])
 # これが未実装だとc1の12000T・ブレイカーが自由に殴れて壊れる(シナジー発掘の偽陽性要因)。
 register("デデカブラ", statics=[cant_attack_unless_big(6, 12000)])
 register("ハノコハノ", statics=[cant_attack_unless_big(6, 12000)])
+
+# --- AD: 革命チェンジ ドギラゴン剣(火闇自然/火水)2デッキ分 ---
+register("蒼き団長 ドギラゴン剣",
+         abilities=[final_revolution(6)],
+         statics=[revo_change(("火", "自然"), min_cost=5), grant_sa_multicolor()])
+register("超DXブリキン将軍",
+         abilities=[on_summon_destroy_le_cost(6)],
+         statics=[revo_change(("火", "自然"), min_cost=0)])
+register("龍装者 バルチュリス", statics=[free_on_nth_attack(2, "龍装者 バルチュリス")])
+register("守護炎龍 レヴィヤ・ターン", abilities=[on_summon_deploy_from_mana(3)])
+register("単騎連射 マグナム", statics=[opponent_no_st()])
+register("プラチナ・ワルスラS", abilities=[on_attack_draw_discard(3, 1)])
+register("ニルバーナー", abilities=[on_summon_mana_send_opp()])
+register("爆砕面 ジョニーウォーカー", abilities=[on_summon_jonny()])
+register("熱湯グレンニャー", abilities=[on_summon_draw(1)])
+register("月光電人オボロカゲロウ", abilities=[on_summon_draw(2)])
+# 呪文サポート(山札を掘ってクリーチャー確保=簡略で1ドロー扱い)
+register("未来設計図", abilities=[Ability(CAST, lambda g, c, s: g.draw(c, 1),
+                                       "山札を掘る(簡略1ドロー)")])
+register("次元の霊峰", abilities=[Ability(CAST, lambda g, c, s: g.draw(c, 1),
+                                       "多色サーチ(簡略1ドロー)")])
+# イーヴィル・ヒート(SA闇火ドラゴン=革命チェンジ役)/スパイナー(SST)はキーワード稼働で簡略。
 # 堕魔 ドゥジード: 自分のターン開始時に自身を破壊(一時ブロッカー)。未実装だと永続化して壊れる。
 register("堕魔 ドゥジード",
          statics=[Static("self_destruct_start", lambda g, s, p: True,

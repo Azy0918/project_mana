@@ -14,7 +14,8 @@ carddb が作る CardDef 骨格(効果なし)に、手書きの効果(Ability/St
 from __future__ import annotations
 import dataclasses
 
-from .engine import Static, Ability, CAST, ON_ATTACK, ON_SUMMON, ON_TURN_END
+from .engine import (Static, Ability, CardDef, CAST, ON_ATTACK, ON_SUMMON,
+                     ON_TURN_END, CREATURE)
 
 _REG = {}  # normalized name -> (abilities tuple, statics tuple)
 
@@ -667,6 +668,34 @@ def on_summon_jonny() -> Ability:
     return Ability(ON_SUMMON, f, "出た時:自壊して2000以下破壊orマナ加速")
 
 
+# ---- 禁断 ～封印されしX～ / 伝説の禁断 ドキンダムX(AD, kamigameデュエプレ準拠) -----
+# 伝説の禁断 ドキンダムX(DBに無いので実データから定義): 火/P99999/T・ブレイカー、
+# 禁断解放時に相手の全クリーチャーを封印(≒全体除去)、場を離れない。
+DOKINDAM_X = CardDef(
+    cid="dokindamX", name="伝説の禁断 ドキンダムX", cost=99,
+    civs=frozenset({"火"}), ctype=CREATURE, power=99999,
+    keywords=frozenset({"t_breaker"}),
+    statics=(Static("replace_leave", lambda g, s, leaving: True,
+                    "場を離れない(離れると敗北の代わりに残す)"),),
+    text="禁断クリーチャー/禁断解放で相手全クリーチャー封印")
+
+
+def kindan_marker():
+    """ゲーム開始時設置の禁断。fn()->(封印数, 解放後CardDef)。engine.setupが参照。"""
+    return Static("kindan", lambda: (6, DOKINDAM_X),
+                  "ゲーム開始時に封印6/全て外れたらドキンダムXに裏返る")
+
+
+def kindan_stay():
+    return Static("replace_leave", lambda g, s, leaving: True, "バトルゾーンを離れない")
+
+
+def kindan_no_attack():
+    def fn(game, src, player, kind, card):
+        return kind == "cant_attack" and card is src
+    return Static("restrict", fn, "鼓動は攻撃できない")
+
+
 def field_protect_multicolor(min_cost: int = 5) -> Static:
     """Dの妖艶 マッド・デッド・ウッド: 自分のコスト min_cost 以上の多色クリーチャーが
     離場する時、パワーが0より大きければ、かわりにとどまる(離場の置換・フィールド由来)。"""
@@ -759,6 +788,9 @@ register("ニルバーナー", abilities=[on_summon_mana_send_opp()])
 register("爆砕面 ジョニーウォーカー", abilities=[on_summon_jonny()])
 register("熱湯グレンニャー", abilities=[on_summon_draw(1)])
 register("月光電人オボロカゲロウ", abilities=[on_summon_draw(2)])
+# 禁断 ～封印されしX～: ゲーム開始時設置、火コマンドで封印を外し、解放でドキンダムX。
+register("禁断 ～封印されし【禁断文字】X【／禁断文字】～",
+         statics=[kindan_marker(), kindan_stay(), kindan_no_attack()])
 # 呪文サポート(山札を掘ってクリーチャー確保=簡略で1ドロー扱い)
 register("未来設計図", abilities=[Ability(CAST, lambda g, c, s: g.draw(c, 1),
                                        "山札を掘る(簡略1ドロー)")])

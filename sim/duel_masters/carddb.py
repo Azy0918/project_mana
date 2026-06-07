@@ -121,6 +121,8 @@ def classify_ctype(card_type: Optional[str]) -> Optional[str]:
         return SPELL
     if "D2フィールド" in ct:           # D2フィールド=フィールドゾーンの常在パーマネント
         return FIELD
+    if ct == "禁断の鼓動":             # 禁断(ゲーム開始時設置)。setupで場へ、解放でクリーチャー化
+        return CREATURE
     if "クリーチャー" in ct or ct == "ゴッド":
         return CREATURE
     # ツインパクト(クリーチャー／呪文の二面)は MVP ではクリーチャー面の骨格として扱う。

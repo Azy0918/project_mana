@@ -296,6 +296,36 @@ def test_joker_lock_win():
     check(g3._can_play_now(B3, sp, True) is False, "1回唱えた後は呪文不可(ゴールデン)")
 
 
+def test_kindan():
+    print("[禁断 ～封印されしX～ / ドキンダムX(AD)]")
+    from duel_masters import effects
+    pool, super_pool = decks.build_full_pool(nd_only=False)
+    kin_name = decks.resolve_name(pool, "禁断 ～封印されし【禁断文字】X【／禁断文字】～")
+    check(kin_name is not None, "禁断がプールに存在(禁断の鼓動→ロード)")
+    g, A, B = fresh_game()
+    kin = Card(pool[kin_name], A)
+    kin.zone = "battle"; kin._seals = 2
+    kin._kindan_target = effects.DOKINDAM_X
+    A.battle = [kin]
+    B.battle = [mk(B, "敵1", 3000), mk(B, "敵2", 5000)]
+    # 火コマンドでない通常クリーチャー→封印は外れない
+    g._enter_battle(A, mk(A, "ただの火", 2000), free=True)
+    check(kin._seals == 2, "火コマンドでなければ封印は外れない")
+    # 火コマンド(ドラゴン)を2体出す→封印2→0→解放
+    dogi = Card(pool[decks.resolve_name(pool, "蒼き団長 ドギラゴン剣")], A)
+    g._enter_battle(A, dogi, free=True)
+    check(kin._seals == 1, "火コマンドで封印1つ外れる")
+    bri = Card(pool[decks.resolve_name(pool, "超DXブリキン将軍")], A)
+    g._enter_battle(A, bri, free=True)
+    check(kin.name == "伝説の禁断 ドキンダムX" and kin.power == 99999,
+          "封印が全て外れてドキンダムX(P99999)に裏返る")
+    check("t_breaker" in kin.d.keywords, "ドキンダムXはT・ブレイカー")
+    check(len(B.battle) == 0, "禁断解放で相手の全クリーチャーを封印(=除去)")
+    # 場を離れない(置換効果)
+    g.destroy(kin)
+    check(kin in A.battle, "ドキンダムX/鼓動は場を離れない")
+
+
 def test_determinize():
     print("[決定化(ISMCTS): 隠匿情報のランダム化と不変条件]")
     g, A, B = fresh_game()
@@ -343,6 +373,7 @@ def main():
     test_d2field()
     test_dragheart()
     test_joker_lock_win()
+    test_kindan()
     test_determinize()
     test_clone_integrity()
     print(f"\n{'ALL PASS' if FAIL == 0 else 'FAILED'} ({PASS} ok / {FAIL} ng)")

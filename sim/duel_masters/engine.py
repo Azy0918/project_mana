@@ -192,8 +192,26 @@ class Game:
 
     # --- セットアップ -------------------------------------------------------
 
+    def _place_kindan(self, p: Player):
+        """禁断(Static kind='kindan')をデッキから抜き、封印を付けてバトルゾーンへ置く。"""
+        for c in list(p.deck):
+            st = next((s for s in c.d.statics if s.kind == "kindan"), None)
+            if st is None:
+                continue
+            seals, target = st.fn()
+            p.deck.remove(c)
+            c.zone = "battle"
+            c.controller = p
+            c.tapped = False
+            c.summoning_sick = False
+            c._seals = seals
+            c._kindan_target = target
+            p.battle.append(c)
+            self.log(f"  ゲーム開始時: {c} を封印{seals}つで設置")
+
     def setup(self):
         for p in self.players:
+            self._place_kindan(p)        # 禁断はゲーム開始時に場へ(山札に入れない)
             self.rng.shuffle(p.deck)
             for c in p.deck:
                 c.zone = "deck"
@@ -560,6 +578,32 @@ class Game:
         evo = f" (進化 on {evolve_on})" if evolve_on is not None else ""
         self.log(f"  {p}: {card} を召喚{tag}{evo}")
         self.trigger(ON_SUMMON, card)
+        self._kindan_unseal(p, card)         # 火コマンドで禁断の封印を1つ外す
+
+    def _kindan_unseal(self, p: Player, entered: Card):
+        """火のコマンドがバトルゾーンに出たら、p の禁断の封印を1つ外す。全て外れたら解放。"""
+        if "火" not in entered.civs or not any("コマンド" in r for r in entered.d.races):
+            return
+        for c in p.battle:
+            if getattr(c, "_seals", 0) > 0:
+                c._seals -= 1
+                self.log(f"  P'S封印を1つ外す({c} 残り{c._seals})")
+                if c._seals == 0:
+                    self._kindan_release(c)
+                break                        # コマンド1体につき封印1つ
+
+    def _kindan_release(self, card: Card):
+        """禁断解放: 鼓動をドキンダムX(card._kindan_target)に裏返し、相手の全クリーチャーを
+        封印(=このsimでは除去)する。"""
+        target = getattr(card, "_kindan_target", None)
+        if target is None:
+            return
+        card.d = target
+        card.summoning_sick = False
+        self.log(f"  ★禁断解放! → {card.name} (P{card.power})")
+        opp = self.opponent(card.controller)
+        for c in list(opp.battle):
+            self.destroy(c)                  # 封印≒除去(能力停止・攻撃/ブロック不可)
 
     def _resolve_spell(self, p: Player, card: Card, free: bool = False):
         card.controller = p
@@ -788,6 +832,7 @@ class Game:
         self.attacking = chosen
         self.log(f"  ★革命チェンジ: {attacker} → {chosen}")
         self.trigger(ON_SUMMON, chosen)      # ETB＋ファイナル革命(ON_SUMMONでフラグ判定)
+        self._kindan_unseal(p, chosen)       # 革命チェンジで出た火コマンドも封印を外す
         return chosen
 
     def _free_on_nth_attack(self, p: Player):
@@ -1160,6 +1205,9 @@ class Game:
             c2.zone = card.zone
             c2.uid = card.uid
             c2._power_mod = getattr(card, "_power_mod", 0)
+            if hasattr(card, "_seals"):           # 禁断の封印状態を引き継ぐ
+                c2._seals = card._seals
+                c2._kindan_target = getattr(card, "_kindan_target", None)
             cmap[card.uid] = c2
             return c2
 

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duel Masters ルールエンジン研究 — 未知勝利ルート探索</title>
+<meta name="description" content="デュエル・マスターズ プレイス準拠のルールエンジンを用いた、AI(ISMCTS/GA/Quality-Diversity)による未開拓デッキ探索の研究成果。Claudeとの共同研究記録。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ ヒーロー ============ -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow"><span class="dot"></span> 研究成果レポート &nbsp;/&nbsp; Duel Masters PLAY'S</p>
+    <h1 class="title">忠実シミュレーターで挑む<br><span class="grad">未知勝利ルート探索</span></h1>
+    <p class="lead">
+      デュエプレ準拠のイベント駆動ルールエンジンを土台に、情報集合モンテカルロ木探索(ISMCTS)・
+      遺伝的アルゴリズム(GA)・Quality-Diversity でカードプール全体から「人間が作っていないデッキ」を
+      探す。その過程で見えた<strong class="hl">メタの頑健性</strong>と、評価器が引き起こす
+      <strong class="hl">"幻のアグロ"</strong>、そして実証の途上で見つけた1つの無限ループバグの記録。
+    </p>
+    <p class="byline">研究・実装: ユーザー × <strong>Claude (Opus 4.8)</strong> ・ 最終更新 2026-06-08</p>
+  </div>
+</header>
+
+<!-- ============ ナビ ============ -->
+<nav class="toc"><div class="wrap">
+  <a href="#overview">概要</a>
+  <a href="#engine">エンジン</a>
+  <a href="#explore">未開拓デッキ探索</a>
+  <a href="#decks">代表デッキ</a>
+  <a href="#bug">バグ発見と修正</a>
+  <a href="#conclusion">結論</a>
+</div></nav>
+
+<!-- ============ 概要 ============ -->
+<section id="overview"><div class="wrap">
+  <p class="kicker">Overview</p>
+  <h2>カードは「データ」ではなく、イベントに反応する能力の集合</h2>
+  <p>
+    本エンジンは、デュエル・マスターズ プレイスの対戦を Python の標準ライブラリのみで再現する
+    <strong class="hl">イベント駆動・拡張可能なルールエンジン</strong>。エンジンが瞬間ごとにイベントを
+    発火し、カード側が反応する設計で、新カードは本体に触れず部品を1つ足すだけで増える。
+    bot に操作させて勝率を測り、未知デッキを探索するための土台になっている。
+  </p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">211</div><div class="lbl">エンジン自動テスト全合格</div></div>
+    <div class="stat"><div class="num">133</div><div class="lbl">発見した戦略ニッチ (ND 81 + AD 52)</div></div>
+    <div class="stat"><div class="num">114,268</div><div class="lbl">ファズ検証したデッキ数</div></div>
+    <div class="stat"><div class="num">0.425</div><div class="lbl">忠実評価での最高 対メタ勝率</div></div>
+  </div>
+
+  <div class="grid two" style="margin-top:22px">
+    <div class="card">
+      <h3>AI パイロット(2段構え)</h3>
+      <p class="tight">
+        <strong class="hl">Heuristic</strong>(盤面評価の1手読み・高速)で大量対戦を回し、有望軸の
+        最終評価は <strong class="hl">ISMCTS</strong>(情報集合MCTS・80反復)で行う。ISMCTS は
+        コントロールの受けやコンボの連鎖まで木で計画するため、最も忠実な評価器。
+      </p>
+    </div>
+    <div class="card">
+      <h3>探索エンジン</h3>
+      <p class="tight">
+        <strong class="hl">GA</strong>(40枚デッキを進化)と <strong class="hl">MAP-Elites
+        (Quality-Diversity)</strong>。後者は解を「振る舞い=色×コストカーブ×勝ち筋」でニッチに分け、
+        各ニッチの最良個体を保持して、人間が列挙しない戦略を表面化させる。
+      </p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ エンジン ============ -->
+<section id="engine"><div class="wrap">
+  <p class="kicker">Engine</p>
+  <h2>ルールエンジンの完成度:全 211 チェック合格</h2>
+  <p>
+    基本ルール(マナ/文明支払い・召喚酔い・ターン進行)から、超次元ゾーン・覚醒リンク・進化・
+    ツインパクト・D2フィールド・数字ロック・特殊勝利/敗北・龍解まで、コア機構を実装・検証済み。
+  </p>
+  <table class="tbl">
+    <thead><tr><th>テスト領域</th><th class="r">チェック数</th><th>状態</th></tr></thead>
+    <tbody>
+      <tr><td>エンジン基礎(ゾーン/ターン進行/戦闘)</td><td class="r">9</td><td>✅ 合格</td></tr>
+      <tr><td>超次元ゾーン・ホール召喚・覚醒</td><td class="r">21</td><td>✅ 合格</td></tr>
+      <tr><td>覚醒リンク 全10家系</td><td class="r">85</td><td>✅ 合格</td></tr>
+      <tr><td>複雑能力(常在/制限/置換/トリガー)</td><td class="r">21</td><td>✅ 合格</td></tr>
+      <tr><td>ツインパクト両面</td><td class="r">9</td><td>✅ 合格</td></tr>
+      <tr><td>進化/数字ロック/特殊敗北/D2フィールド/龍解</td><td class="r">56</td><td>✅ 合格</td></tr>
+      <tr><td>忠実パイロット(ISMCTS)の完走・圧勝</td><td class="r">10</td><td>✅ 合格</td></tr>
+      <tr><td><strong class="hl">合計</strong></td><td class="r"><strong class="hl">211</strong></td><td>✅ <span class="em-accent">全合格</span></td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<!-- ============ 探索 ============ -->
+<section id="explore"><div class="wrap">
+  <p class="kicker">Exploration</p>
+  <h2>未開拓デッキ探索:メタを超えるデッキは見つからなかった</h2>
+  <p>
+    MAP-Elites で戦略ニッチを発掘(Heuristic で高速探索)し、各ニッチの代表を ISMCTS で忠実評価した。
+    結果は明快 ―― <strong class="hl">どのニッチも忠実評価では勝率 0.5 に届かない</strong>。
+    さらに重要なのは、Heuristic が高く評価したデッキほど ISMCTS で大きく崩壊した点だ。
+  </p>
+
+  <div class="note warn">
+    <p class="t">⚠ 評価器が生む "幻のアグロ"</p>
+    <p>
+      1手読みの Heuristic はコントロール/コンボの受け・連鎖を回せず、評価が構造的にアグロ偏重になる。
+      下のグラフで、<span style="color:var(--accent)">明るいバー(ISMCTS=忠実)</span>に対し
+      <span style="color:#8b96b5">薄いバー(Heuristic)</span>がどれだけ伸びているか＝
+      <strong class="hl">過大評価された"幻"</strong>の大きさ。点線は 0.5(互角)ライン。
+    </p>
+  </div>
+
+  <div class="legend">
+    <span><i class="sw-ismcts"></i>ISMCTS(忠実・80反復)</span>
+    <span><i class="sw-heur"></i>Heuristic(1手読み)</span>
+    <span><i class="sw-line"></i>0.5 互角ライン</span>
+  </div>
+
+  <h3>ND プール探索 ― 81 ニッチ・最良 <span class="em-accent">0.425</span></h3>
+  <div class="chart">
+    <div class="bar-row"><span class="name"><span class="civ water">水</span><span class="civ dark">闇</span> 受け</span><div class="bar-track"><div class="bar-fill heur" style="width:75%"></div><div class="bar-fill" style="width:42.5%"></div></div><span class="val">0.425</span></div>
+    <div class="bar-row"><span class="name"><span class="civ dark">闇</span><span class="civ fire">火</span> 敗北拒否</span><div class="bar-track"><div class="bar-fill heur" style="width:80%"></div><div class="bar-fill" style="width:37.5%"></div></div><span class="val">0.375</span></div>
+    <div class="bar-row"><span class="name"><span class="civ fire">火</span> ビート</span><div class="bar-track"><div class="bar-fill heur" style="width:72.5%"></div><div class="bar-fill" style="width:32.5%"></div></div><span class="val">0.325</span></div>
+    <div class="bar-row"><span class="name"><span class="civ light">光</span><span class="civ water">水</span> ロック</span><div class="bar-track"><div class="bar-fill heur" style="width:77.5%"></div><div class="bar-fill" style="width:25%"></div></div><span class="val">0.250</span></div>
+    <div class="bar-row"><span class="name"><span class="civ light">光</span><span class="civ water">水</span> コンボ</span><div class="bar-track"><div class="bar-fill heur" style="width:62.5%"></div><div class="bar-fill" style="width:25%"></div></div><span class="val">0.250</span></div>
+    <div class="bar-row"><span class="name"><span class="civ fire">火</span> 敗北拒否</span><div class="bar-track"><div class="bar-fill heur" style="width:82.5%"></div><div class="bar-fill" style="width:22.5%"></div></div><span class="val">0.225</span></div>
+    <div class="bar-row"><span class="name"><span class="civ water">水</span><span class="civ dark">闇</span> 特殊勝利</span><div class="bar-track"><div class="bar-fill heur" style="width:65%"></div><div class="bar-fill" style="width:22.5%"></div></div><span class="val">0.225</span></div>
+  </div>
+
+  <h3>AD 全体プール探索(約3,200種)― 52 ニッチ・最良 <span class="em-accent">0.400</span></h3>
+  <div class="chart">
+    <div class="bar-row"><span class="name"><span class="civ fire">火</span> ロック</span><div class="bar-track"><div class="bar-fill heur" style="width:77.5%"></div><div class="bar-fill" style="width:40%"></div></div><span class="val">0.400</span></div>
+    <div class="bar-row"><span class="name"><span class="civ light">光</span><span class="civ water">水</span> コンボ</span><div class="bar-track"><div class="bar-fill heur" style="width:60%"></div><div class="bar-fill" style="width:37.5%"></div></div><span class="val">0.375</span></div>
+    <div class="bar-row"><span class="name"><span class="civ light">光</span> 受け</span><div class="bar-track"><div class="bar-fill heur" style="width:70%"></div><div class="bar-fill" style="width:35%"></div></div><span class="val">0.350</span></div>
+    <div class="bar-row"><span class="name"><span class="civ nature">自然</span> ビート</span><div class="bar-track"><div class="bar-fill heur" style="width:77.5%"></div><div class="bar-fill" style="width:25%"></div></div><span class="val">0.250</span></div>
+    <div class="bar-row"><span class="name"><span class="civ dark">闇</span><span class="civ fire">火</span> 敗北拒否</span><div class="bar-track"><div class="bar-fill heur" style="width:65%"></div><div class="bar-fill" style="width:22.5%"></div></div><span class="val">0.225</span></div>
+    <div class="bar-row"><span class="name"><span class="civ light">光</span><span class="civ fire">火</span> ロック</span><div class="bar-track"><div class="bar-fill heur" style="width:80%"></div><div class="bar-fill" style="width:20%"></div></div><span class="val">0.200</span></div>
+    <div class="bar-row"><span class="name"><span class="civ dark">闇</span> 特殊勝利</span><div class="bar-track"><div class="bar-fill heur" style="width:70%"></div><div class="bar-fill" style="width:17.5%"></div></div><span class="val">0.175</span></div>
+  </div>
+
+  <div class="grid two" style="margin-top:26px">
+    <div class="card">
+      <h3>じゃんけん構造のメタ</h3>
+      <p class="tight">
+        ニッチの相性は極端に振れる。AD探索の <span class="civ light">光</span> 受けは
+        <strong class="hl">火光レイドに 0.88 で勝ち越す一方、ドギラゴン剣には 0.00</strong>。
+        「特定メタに刺さるが他に轢かれる」=支配的デッキは存在しないが、対策枠としての価値は示唆される。
+      </p>
+    </div>
+    <div class="card">
+      <h3>多様性 &gt; 単一目的</h3>
+      <p class="tight">
+        最も粘ったのは Heuristic に過小評価されがちな<strong class="hl">受け/ロック系コントロール</strong>。
+        単一目的GAはアグロの幻に一直線に収束するため、QD の多様性が逆に「忠実評価で強い軸」を
+        取りこぼさず残した。
+      </p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ 代表デッキ ============ -->
+<section id="decks"><div class="wrap">
+  <p class="kicker">Representative Decks</p>
+  <h2>代表デッキの実リスト</h2>
+  <p>
+    探索が実際に発掘した「最も粘った」構成を、忠実評価(ISMCTS)の対メタ勝率つきで掲載する。
+    <strong class="hl">1枚挿しが多いのは多様性探索の生データ="発想の種"</strong>であり、人間が
+    枚数を整える前の状態である点に留意。緑のチップは勝ち越し(0.5以上)のマッチアップ。
+  </p>
+
+  <!-- ND: 水闇/受け -->
+  <div class="deck">
+    <div class="deck-head">
+      <div class="nm"><span class="civ water">水</span> <span class="civ dark">闇</span> 受け
+        <span class="sub">中速・ND探索の最良(0.425)/全代表で最も粘る</span></div>
+      <div class="wr-badge"><b>0.425</b><span>ISMCTS 対メタ平均</span></div>
+    </div>
+    <div class="vs-row">
+      <span class="vs">vs 火闇自然ドギ剣 <b>0.38</b></span>
+      <span class="vs">vs 火水ドギ剣 <b>0.38</b></span>
+      <span class="vs">vs 水単スコーラー <b>0.25</b></span>
+      <span class="vs win">vs 火水レイド <b>0.62</b></span>
+      <span class="vs win">vs 火光レイド <b>0.50</b></span>
+    </div>
+    <details class="dl"><summary>40枚のデッキリストを表示</summary>
+      <ul class="decklist">
+        <li><span class="dl-cc">0</span><span class="dl-cnt">×1</span><span class="dl-nm">グロティス・インカーン／陰影なる印影</span></li>
+        <li><span class="dl-cc">0</span><span class="dl-cnt">×1</span><span class="dl-nm">卍 ギ・ルーギリン 卍／卍獄ブレイン</span></li>
+        <li><span class="dl-cc">0</span><span class="dl-cnt">×1</span><span class="dl-nm">凶鬼93号 ジャジャン／冥界からの重低音</span></li>
+        <li><span class="dl-cc">0</span><span class="dl-cnt">×1</span><span class="dl-nm">牙修羅バット／真血染める闇牙</span></li>
+        <li><span class="dl-cc">0</span><span class="dl-cnt">×1</span><span class="dl-nm">龍装者 バタラス／ネプタラン・ウェイブ</span></li>
+        <li><span class="dl-cc">1</span><span class="dl-cnt">×1</span><span class="dl-nm">アクア・ガード</span></li>
+        <li><span class="dl-cc">1</span><span class="dl-cnt">×1</span><span class="dl-nm">ジョジョジョ・ジョーカーズ<em class="dl-star">★</em></span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt mult">×2</span><span class="dl-nm">ザビ・クラズ・ドラグーン</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">ヤッタレマン</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">一なる部隊 イワシン</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">一番隊 バギン16号</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">堕魔 ドゥグラス</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">堕魔 ドゥザイコ</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">堕魔 ドゥポイズ</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">救急ピーポー</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt mult">×2</span><span class="dl-nm">虹彩奪取 マイレイン</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">貝獣 マジュガイ</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">堕魔 グリペイジ</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">TOYザマス</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt mult">×2</span><span class="dl-nm">ビシャモンス・デーケン／「深淵より来たれ、魂よ」</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">ヤミノ・ストライクSP</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">貝獣 イカリヤ</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">追憶人形ラビリピト</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">堕魔 ヴァイシング</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">最終兵ッキー</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">集器医 ランプ</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">魔水晶スーパー・ディス・リバイバー</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt mult">×2</span><span class="dl-nm">アクア・サーファー</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">ガ・ルビーズ</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">ラジコンBOY</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt mult">×2</span><span class="dl-nm">凶鬼03号 ガシャゴズラ</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">暗黒の騎士ザガーン</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">龍装艦 ゴクガ・ロイザー</span></li>
+        <li><span class="dl-cc">7</span><span class="dl-cnt">×1</span><span class="dl-nm">キング・ザ・セプトン</span></li>
+        <li><span class="dl-cc">7</span><span class="dl-cnt">×1</span><span class="dl-nm">貝獣 ウーニ</span></li>
+      </ul>
+    </details>
+  </div>
+
+  <!-- AD: 火/ロック -->
+  <div class="deck">
+    <div class="deck-head">
+      <div class="nm"><span class="civ fire">火</span> ロック
+        <span class="sub">高コスト・AD全体探索の最良(0.400)/禁断＋レッドゾーン＋GENJI 速攻</span></div>
+      <div class="wr-badge"><b>0.400</b><span>ISMCTS 対メタ平均</span></div>
+    </div>
+    <div class="vs-row">
+      <span class="vs win">vs 火闇自然ドギ剣 <b>0.50</b></span>
+      <span class="vs">vs 火水ドギ剣 <b>0.25</b></span>
+      <span class="vs">vs 水単スコーラー <b>0.25</b></span>
+      <span class="vs">vs 火水レイド <b>0.38</b></span>
+      <span class="vs win">vs 火光レイド <b>0.62</b></span>
+    </div>
+    <details class="dl"><summary>40枚のデッキリストを表示</summary>
+      <ul class="decklist">
+        <li><span class="dl-cc">0</span><span class="dl-cnt mult">×2</span><span class="dl-nm">ゴリガン砕車 ゴルドーザ／ダイナマウス・スクラッパー</span></li>
+        <li><span class="dl-cc">0</span><span class="dl-cnt mult">×2</span><span class="dl-nm">禁断 ～封印されしX～<em class="dl-star">★</em></span></li>
+        <li><span class="dl-cc">1</span><span class="dl-cnt">×1</span><span class="dl-nm">グレイト“S-駆”<em class="dl-star">★</em></span></li>
+        <li><span class="dl-cc">1</span><span class="dl-cnt">×1</span><span class="dl-nm">ホップ・チュリス</span></li>
+        <li><span class="dl-cc">1</span><span class="dl-cnt">×1</span><span class="dl-nm">火之鳥ピルドル</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">G・アイニー</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">The ラー漢</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">リッピ・ポルタ</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">奇襲兵ブルレイザー</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">ゴーオン・ピッピー</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">ボールぺんぎん</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">ライラ・アイニー</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">単騎連射 マグナム<em class="dl-star">★</em></span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">ノウメン</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">ラウド “NYZ” ノイジー</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">超音速 レッドゾーンNeo</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">音速 ガトリング</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">ガルザウルス</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">チョートッQ</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">メガ・ヒット・ドラゴン</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">幻獣竜機ボルパンサー</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">機神装甲ヴァルゲットⅢ</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">爆師範 フィディック</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">アルティメット・影虎・ドラゴン</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt mult">×2</span><span class="dl-nm">ツイン“LES”ポール／「ミュージック・スタァァァト!!!」</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">テンペストザウルス</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">ボルシャック・大和・ドラゴン</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">ヴァリアブル・アモン・ドラゴン</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">怪神兵ナグール</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">熱血ボス！バルス・カイザー</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">爆竜 GENJI・XX</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">轟く侵略 レッドゾーン</span></li>
+        <li><span class="dl-cc">7</span><span class="dl-cnt">×1</span><span class="dl-nm">ミラフォース・ドラゴン</span></li>
+        <li><span class="dl-cc">7</span><span class="dl-cnt">×1</span><span class="dl-nm">弐刀龍覇 グレンモルト「双」</span></li>
+        <li><span class="dl-cc">7</span><span class="dl-cnt">×1</span><span class="dl-nm">時空の剣士GENJI・XX</span></li>
+        <li><span class="dl-cc">8</span><span class="dl-cnt">×1</span><span class="dl-nm">ボルメテウス・剣誠・ドラゴン</span></li>
+        <li><span class="dl-cc">8</span><span class="dl-cnt">×1</span><span class="dl-nm">翔竜提督ザークピッチ</span></li>
+      </ul>
+    </details>
+  </div>
+
+  <!-- AD: 光/受け(じゃんけんの好例) -->
+  <div class="deck">
+    <div class="deck-head">
+      <div class="nm"><span class="civ light">光</span> 受け
+        <span class="sub">高コスト・じゃんけんの好例(火光レイドに 0.88・ドギラゴン剣に 0.00)</span></div>
+      <div class="wr-badge"><b>0.350</b><span>ISMCTS 対メタ平均</span></div>
+    </div>
+    <div class="vs-row">
+      <span class="vs">vs 火闇自然ドギ剣 <b>0.12</b></span>
+      <span class="vs">vs 火水ドギ剣 <b>0.00</b></span>
+      <span class="vs">vs 水単スコーラー <b>0.25</b></span>
+      <span class="vs win">vs 火水レイド <b>0.50</b></span>
+      <span class="vs win">vs 火光レイド <b>0.88</b></span>
+    </div>
+    <details class="dl"><summary>40枚のデッキリストを表示</summary>
+      <ul class="decklist">
+        <li><span class="dl-cc">1</span><span class="dl-cnt">×1</span><span class="dl-nm">はずれポンの助</span></li>
+        <li><span class="dl-cc">1</span><span class="dl-cnt">×1</span><span class="dl-nm">予言者キュベラ</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">アクア・ハンプティ</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">オッケーBros.</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">宣凶師ベリックス</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">明浄の守護者ベインズ・セーレ</span></li>
+        <li><span class="dl-cc">2</span><span class="dl-cnt">×1</span><span class="dl-nm">虹色の玉 ラグルビ</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">リンネノ裁徒</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">剛厳の使徒シュライバー</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">時空の守護者ジル・ワーカ</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">晴天の守護者レゾ・パコス</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">栄光の翼 バロンアルデ</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">神座の伝道師バーニアン</span></li>
+        <li><span class="dl-cc">3</span><span class="dl-cnt">×1</span><span class="dl-nm">青守銀 ニプローハ／ニプローハ・アロー</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">ノウメン</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">光魂の伝道士クルス</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">天頂の精霊ワテライオ</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">宣凶師ドロシア</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">宣凶師ロッカナタ</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt mult">×2</span><span class="dl-nm">粛清者アイザク</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">聖球 リブリバリア</span></li>
+        <li><span class="dl-cc">4</span><span class="dl-cnt">×1</span><span class="dl-nm">霊騎レングストン</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">D2P ヘビーポップ</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">日向草</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">烈風の求道者サンゾン</span></li>
+        <li><span class="dl-cc">5</span><span class="dl-cnt">×1</span><span class="dl-nm">龍覇 レグルスフィア</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">時空の幸運ファイブスター</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">連珠の精霊アガピトス</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">陰陽の果て 白夜</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">龍装の調べ 初不／ホーリー・スパーク</span></li>
+        <li><span class="dl-cc">6</span><span class="dl-cnt">×1</span><span class="dl-nm">龍覇 エバーローズ</span></li>
+        <li><span class="dl-cc">7</span><span class="dl-cnt">×1</span><span class="dl-nm">真実の名 ラララ・ライオネル</span></li>
+        <li><span class="dl-cc">7</span><span class="dl-cnt">×1</span><span class="dl-nm">神聖斬 アシッド</span></li>
+        <li><span class="dl-cc">7</span><span class="dl-cnt">×1</span><span class="dl-nm">聖霊王イカズチ</span></li>
+        <li><span class="dl-cc">7</span><span class="dl-cnt">×1</span><span class="dl-nm">革命聖龍 ウルトラスター</span></li>
+        <li><span class="dl-cc">8</span><span class="dl-cnt">×1</span><span class="dl-nm">煌メク聖壁 灰瞳<em class="dl-star">★</em></span></li>
+        <li><span class="dl-cc">9</span><span class="dl-cnt">×1</span><span class="dl-nm">八極 ハリルヤ</span></li>
+        <li><span class="dl-cc">9</span><span class="dl-cnt">×1</span><span class="dl-nm">四極 キジトロン</span></li>
+        <li><span class="dl-cc">9</span><span class="dl-cnt">×1</span><span class="dl-nm">超九極 モモタルス</span></li>
+      </ul>
+    </details>
+  </div>
+
+  <div class="note">
+    <p class="t">読み方</p>
+    <p>これらは <span class="em-accent">単一目的でなく多様性で探索した生の個体</span>。枚数の偏り(1枚挿し)は
+      未調整の証拠であり、ここから人間が4枚化・不純物除去で磨くのが次の工程。<em class="dl-star">★</em>=効果実装済みカード。</p>
+  </div>
+</div></section>
+
+<!-- ============ バグ ============ -->
+<section id="bug"><div class="wrap">
+  <p class="kicker">Debugging</p>
+  <h2>探索が炙り出した無限ループバグ</h2>
+  <p>
+    AD全体プールでの探索が、ある対戦で <strong class="hl">8時間以上ハング</strong>した。原因は
+    カード単体ではなく <strong class="hl">2枚の相互作用</strong>だった ――
+    <span class="civ water">水</span>「次元の嵐 スコーラー」と
+    <span class="civ water">水</span>「異端流し オニカマス」。
+  </p>
+
+  <ol class="steps">
+    <li><span class="st">① 異常検知</span>出力が更新されないまま CPU が回り続ける。ターン跨ぎの上限
+      (<code>max_turns</code>)はターン<em>内</em>ループを止められない、と判明。</li>
+    <li><span class="st">② ファズで再現</span>色コヒーレントなランダムデッキを <strong class="hl">114,268個</strong>
+      対戦させ、ターン内行動数を監視。暴走を2件捕捉 ―― いずれも犯人は1ターンに
+      <strong class="hl">約796回</strong>召喚される「次元の嵐 スコーラー」。</li>
+    <li><span class="st">③ 機構の特定</span>スコーラーは「呪文5枚で<strong class="hl">無料召喚</strong>(G・ゼロ)」。
+      無料召喚するたびに相手のオニカマスが<strong class="hl">手札へ戻す</strong>が、コストを払っていない
+      ため条件は維持され、AI が永遠に出し続ける。実機トレースで状態が完全な固定点になることを確認。</li>
+    <li class="fix"><span class="st">④ 修正</span><strong class="hl">個別:</strong> 踏み倒しメタで戻された札は同ターン
+      再度踏み倒せないよう刻印。<strong class="hl">汎用:</strong> 1ターンの行動数に安全弁を追加し、
+      未知の無進行ループも強制終了。</li>
+    <li class="fix"><span class="st">⑤ 検証</span><strong class="hl">全211テスト合格</strong>・
+      <strong class="hl">27,753戦で暴走0</strong>(以前暴走した同一デッキ列を含む)。AD全体探索も
+      512秒で完走するようになった。</li>
+  </ol>
+
+  <div class="note ok">
+    <p class="t">✅ 教訓</p>
+    <p>カードバグというより<strong class="hl">エンジンの構造的欠陥</strong>(無進行の無料プレイを無制限に
+      再提示する)だった。広いプールを機械的に総当たりすることが、人手のテストでは踏まない
+      エッジケースを掘り当てる ―― 探索そのものが検証になる。</p>
+  </div>
+</div></section>
+
+<!-- ============ 結論 ============ -->
+<section id="conclusion"><div class="wrap">
+  <p class="kicker">Conclusion</p>
+  <h2>結論:メタは頑健、未踏の種は「受け/ロック」</h2>
+  <p>
+    ND探索(0.425)・AD全体探索(0.400)・ISMCTSループ内の二段GA(忠実0.283)の<strong class="hl">3方向すべて</strong>で、
+    実装カバレッジ内では現環境メタを<strong class="hl">支配するデッキは存在しない</strong>ことが再確認された。
+    メタは頑健で、相性はじゃんけん構造を持つ。
+  </p>
+  <p>
+    一方で、忠実評価で最も粘るのは Heuristic が見落とす<strong class="hl">受け/ロック系コントロール</strong>。
+    ここが今後の「未開拓の種」として最有望だ。次の一手は明確 ――
+    <span class="em-accent">この軸をシードに、ISMCTS をループ内に入れた二段GA で磨く</span>こと
+    (1手読みの幻を排した、最も忠実な探索)。
+  </p>
+  <div class="note">
+    <p class="t">方法論の核</p>
+    <p>「<strong class="hl">未知シナジー → 状態変換連鎖 → 勝利条件到達 → 環境への有効性</strong>」。
+      強さの主張は必ず忠実評価器で裏を取る。速い評価器の高評価は、まず疑う。</p>
+  </div>
+</div></section>
+
+<!-- ============ フッター ============ -->
+<footer><div class="wrap">
+  <div>
+    <span class="pill">Python 標準ライブラリのみ</span>
+    <span class="pill">ISMCTS</span>
+    <span class="pill">遺伝的アルゴリズム</span>
+    <span class="pill">MAP-Elites / QD</span>
+    <span class="pill">イベント駆動エンジン</span>
+  </div>
+  <div style="text-align:right">
+    研究記録 2026-06-08 ・ ユーザー × Claude (Opus 4.8)<br>
+    <span style="color:var(--faint)">数値はすべて本エンジン上での忠実評価(ISMCTS)に基づく。</span>
+  </div>
+</div></footer>
+
+</body>
+</html>

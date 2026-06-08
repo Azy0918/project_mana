@@ -1,0 +1,245 @@
+/* Duel Masters ルールエンジン研究 — 公開ページ
+   自己完結・外部依存なし(オフラインでも表示可) */
+
+:root {
+  --bg: #0c0f17;
+  --bg-grad: radial-gradient(1200px 600px at 80% -10%, #1a2340 0%, #0c0f17 60%);
+  --surface: #151a27;
+  --surface-2: #1c2333;
+  --border: #28304a;
+  --text: #e8ecf6;
+  --muted: #9aa6bd;
+  --faint: #6b7689;
+  --accent: #5b8cff;
+  --accent-2: #b06cff;
+  --ok: #36d399;
+  --warn: #fbbd23;
+  --bad: #f87272;
+  /* 5文明 */
+  --c-light: #ffd24a;
+  --c-water: #4aa6ff;
+  --c-dark: #a06cff;
+  --c-fire: #ff6b5b;
+  --c-nature: #4fd07a;
+  --radius: 14px;
+  --maxw: 1060px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    "Noto Sans JP", Meiryo, system-ui, -apple-system, sans-serif;
+  line-height: 1.75;
+  font-feature-settings: "palt";
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+/* ---------- ヘッダー / ヒーロー ---------- */
+header.hero {
+  background: var(--bg-grad);
+  border-bottom: 1px solid var(--border);
+  padding: 84px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+header.hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(transparent 95%, rgba(91,140,255,.06) 95%),
+    linear-gradient(90deg, transparent 95%, rgba(91,140,255,.06) 95%);
+  background-size: 26px 26px;
+  pointer-events: none;
+  mask-image: linear-gradient(180deg, #000, transparent 70%);
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; letter-spacing: .14em; color: var(--accent);
+  text-transform: uppercase; font-weight: 700; margin: 0 0 18px;
+}
+.eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok);
+  box-shadow: 0 0 12px var(--ok); }
+h1.title {
+  font-size: clamp(30px, 5.2vw, 52px);
+  line-height: 1.18; margin: 0 0 18px; font-weight: 800;
+  letter-spacing: .01em;
+}
+h1.title .grad {
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lead { font-size: clamp(15px, 2vw, 18px); color: var(--muted); max-width: 760px; margin: 0; }
+.byline { margin-top: 22px; font-size: 14px; color: var(--faint); }
+.byline strong { color: var(--text); }
+
+/* ---------- ナビ ---------- */
+nav.toc {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(12,15,23,.82); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+nav.toc .wrap { display: flex; gap: 4px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+nav.toc a {
+  color: var(--muted); font-size: 14px; font-weight: 600;
+  padding: 7px 13px; border-radius: 9px;
+}
+nav.toc a:hover { color: var(--text); background: var(--surface-2); text-decoration: none; }
+
+/* ---------- セクション ---------- */
+section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+section > .wrap > .kicker {
+  color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: .12em;
+  text-transform: uppercase; margin: 0 0 10px;
+}
+h2 { font-size: clamp(22px, 3.4vw, 32px); margin: 0 0 14px; font-weight: 800; }
+h3 { font-size: 18px; margin: 30px 0 12px; font-weight: 700; }
+p { color: var(--muted); margin: 0 0 14px; }
+p.tight { margin-bottom: 0; }
+strong.hl { color: var(--text); }
+.em-accent { color: var(--accent); font-weight: 700; }
+
+/* ---------- 統計カード ---------- */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 8px 0 4px; }
+.stat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 18px; text-align: center;
+}
+.stat .num { font-size: clamp(26px, 4vw, 38px); font-weight: 800; line-height: 1;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat .lbl { color: var(--muted); font-size: 13px; margin-top: 9px; }
+
+/* ---------- カードグリッド ---------- */
+.grid { display: grid; gap: 16px; }
+.grid.two { grid-template-columns: 1fr 1fr; }
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px;
+}
+.card h3 { margin-top: 0; }
+
+/* ---------- テーブル ---------- */
+.tbl { width: 100%; border-collapse: collapse; font-size: 14.5px; margin: 6px 0 4px; }
+.tbl th, .tbl td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+.tbl th { color: var(--faint); font-weight: 600; font-size: 12.5px; letter-spacing: .04em;
+  text-transform: uppercase; }
+.tbl td { color: var(--text); }
+.tbl tr:hover td { background: var(--surface-2); }
+.tbl .r { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---------- 勝率バー ---------- */
+.bar-row { display: grid; grid-template-columns: 160px 1fr 56px; align-items: center; gap: 12px;
+  margin: 9px 0; font-size: 14px; }
+.bar-row .name { color: var(--text); }
+.bar-track {
+  position: relative; height: 16px; background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+}
+.bar-track::after { /* 50% 互角ライン */
+  content: ""; position: absolute; left: 50%; top: -1px; bottom: -1px;
+  width: 2px; background: repeating-linear-gradient(var(--faint) 0 3px, transparent 3px 6px);
+}
+.bar-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 7px 0 0 7px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.bar-fill.heur { background: linear-gradient(90deg, #3a4566, #4a5680); opacity: .6; }
+.bar-row .val { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+.legend { display: flex; gap: 18px; font-size: 13px; color: var(--faint); margin: 4px 0 18px; }
+.legend i { display: inline-block; width: 22px; height: 10px; border-radius: 3px; vertical-align: middle; margin-right: 6px; }
+.sw-ismcts { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.sw-heur { background: #4a5680; opacity: .6; }
+.sw-line { background: repeating-linear-gradient(90deg, var(--faint) 0 3px, transparent 3px 6px); }
+
+/* ---------- 文明タグ ---------- */
+.civ { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px;
+  font-weight: 700; border: 1px solid currentColor; }
+.civ.light  { color: var(--c-light); }
+.civ.water  { color: var(--c-water); }
+.civ.dark   { color: var(--c-dark); }
+.civ.fire   { color: var(--c-fire); }
+.civ.nature { color: var(--c-nature); }
+
+/* ---------- 注記 / ハイライトボックス ---------- */
+.note { background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); border-radius: 10px; padding: 16px 18px; margin: 16px 0; }
+.note.ok   { border-left-color: var(--ok); }
+.note.warn { border-left-color: var(--warn); }
+.note .t { color: var(--text); font-weight: 700; margin: 0 0 6px; }
+.note p { margin: 0; }
+
+/* バグ修正タイムライン */
+.steps { list-style: none; padding: 0; margin: 18px 0 0; }
+.steps li { position: relative; padding: 0 0 22px 30px; border-left: 2px solid var(--border); }
+.steps li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.steps li::before { content: ""; position: absolute; left: -8px; top: 2px;
+  width: 14px; height: 14px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(91,140,255,.15); }
+.steps li.fix::before { background: var(--ok); box-shadow: 0 0 0 4px rgba(54,211,153,.18); }
+.steps .st { color: var(--text); font-weight: 700; display: block; margin-bottom: 2px; }
+.steps code { background: var(--surface-2); padding: 1px 6px; border-radius: 5px;
+  font-size: 13px; color: #cdd6ea; }
+
+code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+
+/* ---------- フッター ---------- */
+footer { padding: 40px 0 60px; color: var(--faint); font-size: 13.5px; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+footer a { color: var(--muted); }
+.pill { display: inline-block; border: 1px solid var(--border); border-radius: 999px;
+  padding: 3px 11px; font-size: 12px; color: var(--muted); margin: 0 6px 6px 0; }
+
+/* ---------- レスポンシブ ---------- */
+/* ---------- 代表デッキ ---------- */
+.deck { background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 22px; margin: 16px 0; }
+.deck-head { display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap; }
+.deck-head .nm { font-size: 18px; font-weight: 700; color: var(--text); }
+.deck-head .nm .sub { color: var(--faint); font-size: 13px; font-weight: 400; margin-left: 8px; }
+.wr-badge { display: inline-flex; align-items: baseline; gap: 7px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 6px 13px; }
+.wr-badge b { font-size: 20px; font-variant-numeric: tabular-nums;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+.wr-badge span { font-size: 11px; color: var(--faint); letter-spacing: .06em; }
+.vs-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 2px; }
+.vs { font-size: 12.5px; padding: 3px 11px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface-2);
+  color: var(--muted); font-variant-numeric: tabular-nums; }
+.vs b { color: var(--text); font-weight: 700; }
+.vs.win { border-color: #2e6b4d; color: #8fe6b0; }
+.vs.win b { color: #b9f3d0; }
+details.dl { margin-top: 14px; border-top: 1px solid var(--border); padding-top: 10px; }
+details.dl > summary { cursor: pointer; color: var(--accent); font-weight: 600;
+  font-size: 14px; list-style: none; }
+details.dl > summary::-webkit-details-marker { display: none; }
+details.dl > summary::before { content: "▸ "; }
+details.dl[open] > summary::before { content: "▾ "; }
+.decklist { column-count: 2; column-gap: 32px; margin: 14px 0 2px; padding: 0; list-style: none; }
+.decklist li { break-inside: avoid; font-size: 13.5px; padding: 3px 0;
+  color: var(--text); display: flex; align-items: baseline; gap: 9px; }
+.dl-cc { font-family: Consolas, monospace; font-size: 11px; color: var(--muted);
+  background: var(--bg); border: 1px solid var(--border); border-radius: 5px;
+  padding: 0 6px; min-width: 22px; text-align: center; flex: none; }
+.dl-cnt { color: var(--faint); min-width: 24px; flex: none; font-variant-numeric: tabular-nums; }
+.dl-cnt.mult { color: var(--accent); font-weight: 700; }
+.dl-nm { flex: 1; }
+.dl-star { color: var(--warn); font-style: normal; margin-left: 4px; }
+
+@media (max-width: 820px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .grid.two { grid-template-columns: 1fr; }
+  .bar-row { grid-template-columns: 116px 1fr 48px; }
+  .decklist { column-count: 1; }
+}

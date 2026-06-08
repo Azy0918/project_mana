@@ -776,6 +776,7 @@ def cheat_meta_bounce() -> Static:
             cheated.zone = "hand"; cheated.tapped = False
             cheated.controller = cheated.owner
             cheated.owner.hand.append(cheated)
+            cheated._no_recheat_turn = game.turn_count   # 同ターンの再踏み倒し禁止(無限ループ防止)
             game.log(f"    踏み倒しメタ({src.name}): {cheated} を手札へ戻す")
     return Static("cheat_meta", fn, "相手の踏み倒しを手札へ戻す")
 

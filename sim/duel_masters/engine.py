@@ -506,6 +506,8 @@ class Game:
         カード自身の Static kind='g_zero' fn(game, source, player) -> bool で判定。"""
         if card.zone != "hand":
             return False
+        if getattr(card, "_no_recheat_turn", None) == self.turn_count:
+            return False          # 踏み倒しメタでバウンスされた札は同ターン再度踏み倒せない
         for st in card.d.statics:
             if st.kind == "g_zero" and st.fn(self, card, p):
                 return True
@@ -1007,6 +1009,7 @@ class Game:
         self.skip_rest_of_turn = False
         self._final_revo_used = False
         self.attacks_this_turn = 0
+        self._turn_actions = 0                   # 無進行ループ安全弁: 1ターンの行動数
 
         # ドロー(ゲーム最初のターンのみスキップ)
         if self.turn_count > 1:
@@ -1058,6 +1061,10 @@ class Game:
         """メイン: 出せるだけ出す。G・ゼロ条件を満たすカードは無料でも出せる。
         (ロールアウトから途中再開で呼べるよう分離)"""
         while self.winner is None and not self.skip_rest_of_turn:
+            if getattr(self, "_turn_actions", 0) > 2000:   # 無進行ループ安全弁(正当な連鎖は遥か手前で終わる)
+                self.log("  ⚠ 無進行ガード: 1ターンの行動が上限超過 → 強制終了")
+                self.skip_rest_of_turn = True
+                break
             spell_ok = self.turn_count >= p.no_spell_until   # 呪文ロック(ジャミング・チャフ等)
             playable = [c for c in p.hand if self._can_play_now(p, c, spell_ok)]
             free_cards = [c for c in p.hand
@@ -1075,6 +1082,7 @@ class Game:
             if a.kind == "pass":
                 break
             self.apply_play(p, a)
+            self._turn_actions = getattr(self, "_turn_actions", 0) + 1
 
     def _twin_cost_locked(self, p: Player, card: Card) -> bool:
         """ツインパクト呪文面のコストが数字ロックされているか。"""
@@ -1101,11 +1109,16 @@ class Game:
 
     def _attack_phase(self, p: Player):
         while self.winner is None and not self.skip_rest_of_turn:
+            if getattr(self, "_turn_actions", 0) > 2000:   # 無進行ループ安全弁
+                self.log("  ⚠ 無進行ガード: 1ターンの行動が上限超過 → 強制終了")
+                self.skip_rest_of_turn = True
+                break
             acts = self.legal_attacks(p) + [Action("pass")]
             a = p.agent.decide(self, acts)
             if a.kind == "pass":
                 break
             self.resolve_attack(a.card, a.target)
+            self._turn_actions = getattr(self, "_turn_actions", 0) + 1
         self.attacking = None
 
     def _end_phase(self, p: Player):

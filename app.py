@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pandas as pd
@@ -23,6 +24,13 @@ from src.backup_manager import (
     list_backups,
     read_backup_bytes,
     restore_guide,
+)
+from src.battle.effects import (
+    coverage_summary,
+    ensure_card_effects_table,
+    generate_drafts_for_missing_cards,
+    list_effect_scripts,
+    upsert_effect_script,
 )
 from src.battle_simulator import simulate_battle
 from src.card_csv_validator import validate_cards_csv
@@ -2218,6 +2226,84 @@ def render_csv_management_page() -> None:
     render_completed_card_db_export_section()
 
 
+def render_effect_script_page() -> None:
+    st.subheader("効果スクリプト管理")
+    st.write(
+        "カードの能力テキストを、厳密対戦シミュレーション用の構造化効果(EffectScript)としてレビュー・管理します。"
+        "承認済み(approved)のスクリプトだけがシミュレーションで実行されます。"
+    )
+
+    ensure_card_effects_table(DEFAULT_DB_PATH)
+    summary = coverage_summary(DEFAULT_DB_PATH)
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("カード総数", summary["total_cards"])
+    col2.metric("スクリプト登録済み", summary["registered"])
+    col3.metric("登録率", f"{summary['registered_rate']:.1%}")
+    col4.metric("承認済み率", f"{summary['approved_rate']:.1%}")
+
+    if st.button("未登録カードの下書きを一括生成"):
+        created = generate_drafts_for_missing_cards(DEFAULT_DB_PATH)
+        st.success(f"{created}件の下書きを生成しました。")
+
+    status_filter = st.selectbox("レビュー状態で絞り込み", ["すべて", "draft", "approved", "rejected"])
+    scripts = list_effect_scripts(
+        DEFAULT_DB_PATH,
+        review_status=None if status_filter == "すべて" else status_filter,
+    )
+    if not scripts:
+        st.info("該当するEffectScriptがありません。下書きの一括生成を実行してください。")
+        return
+
+    overview = pd.DataFrame(
+        [
+            {
+                "card_id": script["card_id"],
+                "カード名": script["name"],
+                "効果数": len(script["abilities"]),
+                "レビュー状態": script["review_status"],
+                "メモ": script["notes"],
+                "更新日時": script["updated_at"],
+            }
+            for script in scripts
+        ]
+    )
+    st.dataframe(overview, use_container_width=True, hide_index=True)
+
+    st.markdown("### スクリプト編集")
+    options = {f"{script['card_id']} / {script['name']}": script for script in scripts}
+    selected_label = st.selectbox("編集するカード", list(options.keys()))
+    selected = options[selected_label]
+
+    editable = {
+        "card_id": selected["card_id"],
+        "name": selected["name"],
+        "abilities": selected["abilities"],
+    }
+    edited_json = st.text_area(
+        "EffectScript (JSON)",
+        json.dumps(editable, ensure_ascii=False, indent=2),
+        height=260,
+    )
+    status_options = ["draft", "approved", "rejected"]
+    new_status = st.selectbox(
+        "レビュー状態",
+        status_options,
+        index=status_options.index(selected["review_status"]),
+    )
+    if st.button("検証して保存"):
+        try:
+            parsed = json.loads(edited_json)
+        except json.JSONDecodeError as error:
+            st.error(f"JSONとして解釈できません: {error}")
+            return
+        errors = upsert_effect_script(parsed, review_status=new_status, db_path=DEFAULT_DB_PATH)
+        if errors:
+            for message in errors:
+                st.error(message)
+        else:
+            st.success(f"{parsed.get('card_id')} を {new_status} として保存しました。")
+
+
 def main() -> None:
     ensure_database()
 
@@ -2234,6 +2320,7 @@ def main() -> None:
             "一人回しシミュレーション",
             "AIデッキ生成",
             "簡易AI対戦",
+            "効果スクリプト管理",
             "進化探索",
             "研究ログ",
             "対戦ログ",
@@ -2263,6 +2350,8 @@ def main() -> None:
         render_ai_deck_page()
     elif page == "簡易AI対戦":
         render_battle_page()
+    elif page == "効果スクリプト管理":
+        render_effect_script_page()
     elif page == "進化探索":
         render_evolution_page()
     elif page == "研究ログ":

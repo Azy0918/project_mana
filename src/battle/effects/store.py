@@ -116,6 +116,21 @@ def list_effect_scripts(
     return results
 
 
+def load_approved_effects_map(db_path: Path = DEFAULT_DB_PATH) -> dict[str, list[dict[str, Any]]]:
+    """承認済みEffectScriptを card_id -> abilities のマップで返す(カーネル実行用)。"""
+    ensure_card_effects_table(db_path)
+    with sqlite3.connect(db_path) as conn:
+        rows = conn.execute(
+            "SELECT card_id, effect_json FROM card_effects WHERE review_status = 'approved'"
+        ).fetchall()
+    effects: dict[str, list[dict[str, Any]]] = {}
+    for card_id, effect_json in rows:
+        abilities = json.loads(effect_json).get("abilities", [])
+        if abilities:
+            effects[card_id] = abilities
+    return effects
+
+
 def generate_drafts_for_missing_cards(db_path: Path = DEFAULT_DB_PATH) -> int:
     """card_effects未登録のカードに対してEffectScript下書きを生成・保存する。"""
     ensure_card_effects_table(db_path)

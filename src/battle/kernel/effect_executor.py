@@ -1,0 +1,117 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Any
+
+from src.battle.kernel.cards import BattleCard
+from src.battle.kernel.state import CreatureInstance, ManaCard, PlayerState
+
+if TYPE_CHECKING:
+    from src.battle.kernel.engine import DuelEngine
+
+# 1トリガー連鎖あたりの効果解決数上限(無限ループ防止)
+MAX_RESOLUTIONS_PER_CHAIN = 20
+
+
+class EffectExecutor:
+    """承認済みEffectScriptをゲーム状態に対して実行する。
+
+    対象選択は現状ヒューリスティック(最大パワー優先)で行う。
+    方策(Policy)による対象選択はv2.0で導入する。
+    """
+
+    def __init__(self, effects: dict[str, list[dict[str, Any]]] | None = None) -> None:
+        self.effects = effects or {}
+        self._chain_depth = 0
+
+    def abilities_for(self, card: BattleCard, trigger: str) -> list[dict[str, Any]]:
+        return [
+            ability
+            for ability in self.effects.get(card.card_id, [])
+            if ability.get("trigger") == trigger
+        ]
+
+    def has_trigger(self, card: BattleCard, trigger: str) -> bool:
+        return bool(self.abilities_for(card, trigger))
+
+    def run(self, engine: "DuelEngine", controller_index: int, trigger: str, card: BattleCard) -> None:
+        abilities = self.abilities_for(card, trigger)
+        if not abilities:
+            return
+        is_chain_root = self._chain_depth == 0
+        try:
+            for ability in abilities:
+                for action in ability.get("actions", []):
+                    if engine.state.finished or self._chain_depth >= MAX_RESOLUTIONS_PER_CHAIN:
+                        return
+                    self._chain_depth += 1
+                    self._execute_action(engine, controller_index, trigger, card, action)
+        finally:
+            if is_chain_root:
+                self._chain_depth = 0
+
+    def _execute_action(
+        self,
+        engine: "DuelEngine",
+        controller_index: int,
+        trigger: str,
+        card: BattleCard,
+        action: dict[str, Any],
+    ) -> None:
+        op = action.get("op")
+        count = int(action.get("count", 1))
+        controller = engine.state.players[controller_index]
+        engine.record_effect(trigger=trigger, card=card.name, op=op, count=count)
+
+        if op == "draw":
+            for _ in range(count):
+                if not engine.draw_for(controller_index):
+                    return
+        elif op == "deck_top_to_mana":
+            for _ in range(count):
+                if not controller.deck:
+                    return
+                controller.mana_zone.append(ManaCard(card=controller.deck.pop(0)))
+        elif op == "destroy_creature":
+            target_player_index = self._target_player_index(controller_index, action)
+            target_player = engine.state.players[target_player_index]
+            max_power = action.get("max_power")
+            for _ in range(count):
+                target = self._pick_strongest(target_player.battle_zone, max_power=max_power)
+                if target is None:
+                    return
+                engine.destroy_creature(target_player_index, target)
+        elif op == "bounce_creature":
+            target_player_index = self._target_player_index(controller_index, action)
+            target_player = engine.state.players[target_player_index]
+            for _ in range(count):
+                target = self._pick_strongest(target_player.battle_zone)
+                if target is None:
+                    return
+                target_player.battle_zone.remove(target)
+                target_player.hand.append(target.card)
+        elif op == "tap_creature":
+            target_player_index = self._target_player_index(controller_index, action)
+            target_player = engine.state.players[target_player_index]
+            for _ in range(count):
+                candidates = [creature for creature in target_player.battle_zone if not creature.tapped]
+                target = self._pick_strongest(candidates)
+                if target is None:
+                    return
+                target.tapped = True
+
+    @staticmethod
+    def _target_player_index(controller_index: int, action: dict[str, Any]) -> int:
+        scope = action.get("scope", "opponent")
+        return controller_index if scope == "self" else 1 - controller_index
+
+    @staticmethod
+    def _pick_strongest(
+        creatures: list[CreatureInstance],
+        max_power: int | None = None,
+    ) -> CreatureInstance | None:
+        candidates = creatures
+        if max_power is not None:
+            candidates = [creature for creature in creatures if creature.card.power <= max_power]
+        if not candidates:
+            return None
+        return max(candidates, key=lambda creature: creature.card.power)

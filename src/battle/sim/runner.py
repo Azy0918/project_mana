@@ -59,10 +59,12 @@ def simulate_matches(
     max_turns: int = DEFAULT_MAX_TURNS,
     policy_a: Policy | None = None,
     policy_b: Policy | None = None,
+    effects: dict[str, list[dict[str, Any]]] | None = None,
 ) -> SimulationSummary:
     """デッキ同士をN試合シミュレーションし、勝率と95%信頼区間を返す。
 
     先攻有利の偏りを避けるため、試合ごとに先攻デッキを入れ替える。
+    effects には承認済みEffectScriptのマップ(card_id -> abilities)を渡す。
     """
     cards_a = deck_a if deck_a and isinstance(deck_a[0], BattleCard) else battle_deck_from_dicts(deck_a)  # type: ignore[arg-type]
     cards_b = deck_b if deck_b and isinstance(deck_b[0], BattleCard) else battle_deck_from_dicts(deck_b)  # type: ignore[arg-type]
@@ -89,6 +91,7 @@ def simulate_matches(
             rng=random.Random(rng.random()),
             max_turns=max_turns,
             keep_log=game_index == 0,
+            effects=effects,
         )
         result = engine.run()
         total_turns += result.turns

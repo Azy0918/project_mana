@@ -30,8 +30,10 @@ from src.battle.effects import (
     ensure_card_effects_table,
     generate_drafts_for_missing_cards,
     list_effect_scripts,
+    load_approved_effects_map,
     upsert_effect_script,
 )
+from src.battle.sim.runner import simulate_matches
 from src.battle_simulator import simulate_battle
 from src.card_csv_validator import validate_cards_csv
 from src.card_db_completion_checker import check_completion, load_cards
@@ -798,9 +800,20 @@ def render_battle_page() -> None:
     if errors_a or errors_b:
         return
 
+    mode = st.radio(
+        "シミュレーション方式",
+        ["簡易(タグ推定)", "厳密(β)"],
+        horizontal=True,
+        help="厳密(β)は最小ルールカーネルで実際に対戦を行います。承認済みEffectScriptのカードのみ効果を実行し、未定義カードはバニラ扱いです。",
+    )
+
     config_col1, config_col2 = st.columns(2)
     trials = config_col1.number_input("試行回数", min_value=100, max_value=1000, value=500, step=100)
     seed = config_col2.number_input("乱数シード", min_value=0, value=1, step=1)
+
+    if mode == "厳密(β)":
+        _render_strict_battle_section(deck_a, deck_b, int(trials), int(seed))
+        return
 
     if st.button("対戦シミュレーション実行", type="primary"):
         st.session_state["battle_result"] = simulate_battle(deck_a, deck_b, trials=int(trials), seed=int(seed))
@@ -860,6 +873,55 @@ def render_battle_page() -> None:
         deck_b_id = save_deck_log(name_b, "battle_b", st.session_state.get("battle_deck_b_text", ""), DEFAULT_DB_PATH)
         battle_id = save_battle_log(deck_a_id, deck_b_id, result, DEFAULT_DB_PATH)
         st.success(f"対戦ログを保存しました: {battle_id}")
+
+
+def _render_strict_battle_section(deck_a: list[dict], deck_b: list[dict], games: int, seed: int) -> None:
+    effects = load_approved_effects_map(DEFAULT_DB_PATH)
+
+    def scripted_count(deck: list[dict]) -> int:
+        return sum(1 for card in deck if str(card.get("card_id", "")) in effects)
+
+    st.info(
+        f"効果実行対象(承認済みEffectScript): デッキA {scripted_count(deck_a)}種 / "
+        f"デッキB {scripted_count(deck_b)}種。未定義カードはバニラとして扱います。"
+    )
+
+    if st.button("厳密シミュレーション実行", type="primary"):
+        st.session_state["strict_battle_result"] = simulate_matches(
+            deck_a,
+            deck_b,
+            games=games,
+            seed=seed,
+            effects=effects,
+        )
+
+    summary = st.session_state.get("strict_battle_result")
+    if not summary:
+        return
+
+    cols = st.columns(4)
+    cols[0].metric("デッキA勝率", f"{summary.win_rate_a:.1%}", f"{summary.wins_a}勝")
+    cols[1].metric("デッキB勝率", f"{summary.win_rate_b:.1%}", f"{summary.wins_b}勝")
+    cols[2].metric("引き分け", summary.draws)
+    cols[3].metric("平均決着ターン", f"{summary.average_turns:.1f}")
+    st.caption(
+        f"デッキA勝率の95%信頼区間: {summary.ci95_low_a:.1%} 〜 {summary.ci95_high_a:.1%}"
+        f"({summary.games}試合、試合ごとに先攻を交代)"
+    )
+
+    st.subheader("決着理由")
+    reason_labels = {"direct_attack": "ダイレクトアタック", "deckout": "山札切れ", "turn_limit": "ターン上限"}
+    st.dataframe(
+        [
+            {"決着理由": reason_labels.get(reason, reason), "試合数": count}
+            for reason, count in sorted(summary.finish_reasons.items(), key=lambda item: -item[1])
+        ],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    with st.expander("1試合目の行動ログ"):
+        st.dataframe(pd.DataFrame(summary.sample_log), use_container_width=True, hide_index=True)
 
 
 def _render_search_result_deck(title: str, result: dict | None) -> None:

@@ -1,0 +1,270 @@
+from __future__ import annotations
+
+import random
+from dataclasses import dataclass, field
+from typing import Any
+
+from src.battle.kernel.cards import BattleCard
+from src.battle.kernel.policy import AttackChoice, Policy
+from src.battle.kernel.state import CreatureInstance, GameState, ManaCard, PlayerState
+
+OPENING_HAND = 5
+SHIELD_COUNT = 5
+DEFAULT_MAX_TURNS = 30
+
+
+def select_mana_payment(mana_zone: list[ManaCard], card: BattleCard) -> list[ManaCard] | None:
+    """コストと文明拘束を満たすアンタップマナの組み合わせを返す。支払えなければNone。
+
+    文明ごとに最低1枚の一致マナをタップする必要がある(多色カードは全文明ぶん)。
+    """
+    untapped = [mana for mana in mana_zone if not mana.tapped]
+    if card.cost <= 0 or len(untapped) < card.cost:
+        return None if card.cost > len(untapped) else []
+
+    payment: list[ManaCard] = []
+    remaining = untapped[:]
+    for civilization in card.civilizations:
+        match = next(
+            (mana for mana in remaining if civilization in mana.card.civilizations and mana not in payment),
+            None,
+        )
+        if match is None:
+            return None
+        payment.append(match)
+        remaining.remove(match)
+        if len(payment) >= card.cost:
+            break
+
+    for mana in remaining:
+        if len(payment) >= card.cost:
+            break
+        payment.append(mana)
+
+    if len(payment) < card.cost:
+        return None
+    return payment[: card.cost]
+
+
+def playable_hand_indexes(player: PlayerState) -> list[int]:
+    indexes = []
+    for index, card in enumerate(player.hand):
+        if select_mana_payment(player.mana_zone, card) is not None:
+            indexes.append(index)
+    return indexes
+
+
+@dataclass
+class MatchResult:
+    winner: int | None
+    turns: int
+    reason: str
+    log: list[dict[str, Any]] = field(default_factory=list)
+
+
+class DuelEngine:
+    """バニラ(効果未実行)対戦を実ルールに沿って完走させる最小ルールカーネル。
+
+    対応範囲: マナチャージ、文明拘束付きコスト支払い、召喚酔い、攻撃、
+    ブロッカー、パワー比較バトル、シールドブレイク、ダイレクトアタック、山札切れ。
+    カード効果・S・トリガーは未実行(EffectScript導入後に解決する)。
+    """
+
+    def __init__(
+        self,
+        deck_a: list[BattleCard],
+        deck_b: list[BattleCard],
+        policy_a: Policy,
+        policy_b: Policy,
+        rng: random.Random | None = None,
+        max_turns: int = DEFAULT_MAX_TURNS,
+        keep_log: bool = True,
+    ) -> None:
+        self.rng = rng or random.Random()
+        self.policies = (policy_a, policy_b)
+        self.max_turns = max_turns
+        self.keep_log = keep_log
+        self.state = GameState(players=(self._setup_player("player_a", deck_a), self._setup_player("player_b", deck_b)))
+
+    def _setup_player(self, name: str, deck: list[BattleCard]) -> PlayerState:
+        shuffled = deck[:]
+        self.rng.shuffle(shuffled)
+        player = PlayerState(name=name)
+        player.shields = shuffled[:SHIELD_COUNT]
+        player.hand = shuffled[SHIELD_COUNT : SHIELD_COUNT + OPENING_HAND]
+        player.deck = shuffled[SHIELD_COUNT + OPENING_HAND :]
+        return player
+
+    def _record(self, action: str, **detail: Any) -> None:
+        if self.keep_log:
+            self.state.record(action, **detail)
+
+    def run(self) -> MatchResult:
+        state = self.state
+        while not state.finished:
+            state.turn += 1
+            if state.turn > self.max_turns:
+                state.finished = True
+                state.finish_reason = "turn_limit"
+                break
+            self._play_turn()
+            if not state.finished:
+                state.active_index = state.opponent_index
+        return MatchResult(
+            winner=state.winner,
+            turns=min(state.turn, self.max_turns),
+            reason=state.finish_reason,
+            log=state.log,
+        )
+
+    def _play_turn(self) -> None:
+        state = self.state
+        player = state.active_player
+        policy = self.policies[state.active_index]
+
+        player.untap_all()
+
+        # 先攻1ターン目はドローなし
+        if not (state.turn == 1 and state.active_index == 0):
+            if not self._draw(player):
+                return
+
+        charge_index = policy.choose_charge(state, player)
+        if charge_index is not None and 0 <= charge_index < len(player.hand):
+            card = player.hand.pop(charge_index)
+            player.mana_zone.append(ManaCard(card=card))
+            self._record("charge", card=card.name)
+
+        self._main_phase(player, policy)
+        self._attack_phase(player, policy)
+
+    def _draw(self, player: PlayerState) -> bool:
+        state = self.state
+        if not player.deck:
+            state.finished = True
+            state.winner = state.opponent_index
+            state.finish_reason = "deckout"
+            self._record("deckout")
+            return False
+        card = player.deck.pop(0)
+        player.hand.append(card)
+        self._record("draw")
+        return True
+
+    def _main_phase(self, player: PlayerState, policy: Policy) -> None:
+        state = self.state
+        while True:
+            playable = playable_hand_indexes(player)
+            if not playable:
+                return
+            choice = policy.choose_main_action(state, player, playable)
+            if choice is None or choice not in playable:
+                return
+            card = player.hand.pop(choice)
+            payment = select_mana_payment(player.mana_zone, card)
+            if payment is None:
+                player.hand.insert(choice, card)
+                return
+            for mana in payment:
+                mana.tapped = True
+            if card.is_creature:
+                player.battle_zone.append(CreatureInstance(card=card, summoned_turn=state.turn))
+                self._record("summon", card=card.name, cost=card.cost)
+            else:
+                # 効果は未実行。EffectScript対応後にここで解決する。
+                player.graveyard.append(card)
+                self._record("cast_spell", card=card.name, cost=card.cost, note="effect_not_executed")
+
+    def _attack_phase(self, player: PlayerState, policy: Policy) -> None:
+        state = self.state
+        while not state.finished:
+            choices = self._legal_attacks(player)
+            if not choices:
+                return
+            attack = policy.choose_attack(state, player, choices)
+            if attack is None:
+                return
+            self._resolve_attack(player, attack)
+
+    def _legal_attacks(self, player: PlayerState) -> list[AttackChoice]:
+        state = self.state
+        choices: list[AttackChoice] = []
+        opponent = state.opponent
+        for index, creature in enumerate(player.battle_zone):
+            if not creature.can_attack(state.turn):
+                continue
+            choices.append(AttackChoice(attacker_index=index, target_creature_index=None))
+            for target_index, target in enumerate(opponent.battle_zone):
+                if target.tapped:
+                    choices.append(AttackChoice(attacker_index=index, target_creature_index=target_index))
+        return choices
+
+    def _resolve_attack(self, player: PlayerState, attack: AttackChoice) -> None:
+        state = self.state
+        opponent = state.opponent
+        opponent_policy = self.policies[state.opponent_index]
+        attacker = player.battle_zone[attack.attacker_index]
+        attacker.tapped = True
+
+        blockers = opponent.untapped_blockers()
+        if blockers:
+            blocker_choice = opponent_policy.choose_blocker(state, opponent, attack, blockers)
+            if blocker_choice is not None and 0 <= blocker_choice < len(blockers):
+                blocker = blockers[blocker_choice]
+                blocker.tapped = True
+                self._record("block", attacker=attacker.card.name, blocker=blocker.card.name)
+                self._battle(player, attacker, opponent, blocker)
+                return
+
+        if attack.target_creature_index is not None:
+            if attack.target_creature_index >= len(opponent.battle_zone):
+                return
+            target = opponent.battle_zone[attack.target_creature_index]
+            self._record("attack_creature", attacker=attacker.card.name, target=target.card.name)
+            self._battle(player, attacker, opponent, target)
+            return
+
+        if opponent.shields:
+            self._break_shields(opponent, attacker)
+            return
+
+        state.finished = True
+        state.winner = state.active_index
+        state.finish_reason = "direct_attack"
+        self._record("direct_attack", attacker=attacker.card.name)
+
+    def _break_shields(self, opponent: PlayerState, attacker: CreatureInstance) -> None:
+        break_count = min(attacker.card.breaker_count, len(opponent.shields))
+        broken = []
+        for _ in range(break_count):
+            shield = opponent.shields.pop()
+            # S・トリガーは未実行。手札に加えるのみ(EffectScript対応後にトリガーウィンドウを解決する)。
+            opponent.hand.append(shield)
+            broken.append(shield.name)
+        self._record("break_shield", attacker=attacker.card.name, broken=broken)
+
+    def _battle(
+        self,
+        attacking_player: PlayerState,
+        attacker: CreatureInstance,
+        defending_player: PlayerState,
+        defender: CreatureInstance,
+    ) -> None:
+        attacker_power = attacker.card.power
+        defender_power = defender.card.power
+        if attacker_power >= defender_power:
+            self._destroy(defending_player, defender)
+        if defender_power >= attacker_power:
+            self._destroy(attacking_player, attacker)
+        self._record(
+            "battle",
+            attacker=attacker.card.name,
+            attacker_power=attacker_power,
+            defender=defender.card.name,
+            defender_power=defender_power,
+        )
+
+    def _destroy(self, owner: PlayerState, creature: CreatureInstance) -> None:
+        if creature in owner.battle_zone:
+            owner.battle_zone.remove(creature)
+            owner.graveyard.append(creature.card)

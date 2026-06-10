@@ -33,6 +33,7 @@ from src.battle.effects import (
     load_approved_effects_map,
     upsert_effect_script,
 )
+from src.battle.sim.goldfish import simulate_goldfish_strict
 from src.battle.sim.runner import simulate_matches
 from src.battle_simulator import simulate_battle
 from src.card_csv_validator import validate_cards_csv
@@ -689,10 +690,31 @@ def render_simulate_page() -> None:
         if errors:
             return
 
+    mode = st.radio(
+        "判定方式",
+        ["簡易(タグ判定)", "厳密(β・実コスト支払い)"],
+        horizontal=True,
+        help="厳密(β)は文明拘束込みの実コスト支払いで「実際にプレイできたか」を判定します。承認済みEffectScriptのドロー/マナ加速効果も再現します。",
+    )
+
     config_col1, config_col2, config_col3 = st.columns(3)
     trials = config_col1.number_input("試行回数", min_value=100, max_value=10000, value=1000, step=100)
     max_turns = config_col2.number_input("最大ターン", min_value=1, max_value=10, value=5, step=1)
     seed = config_col3.number_input("乱数シード", min_value=0, value=1, step=1)
+
+    if mode == "厳密(β・実コスト支払い)":
+        if st.button("シミュレーション実行", type="primary"):
+            st.session_state["strict_simulation_summary"] = simulate_goldfish_strict(
+                deck,
+                trials=int(trials),
+                max_turns=int(max_turns),
+                seed=int(seed),
+                effects=load_approved_effects_map(DEFAULT_DB_PATH),
+            )
+        strict_summary = st.session_state.get("strict_simulation_summary")
+        if strict_summary:
+            _render_strict_goldfish(strict_summary)
+        return
 
     if st.button("シミュレーション実行", type="primary"):
         summary = simulate_goldfish(deck, trials=int(trials), max_turns=int(max_turns), seed=int(seed))
@@ -701,6 +723,34 @@ def render_simulate_page() -> None:
     summary = st.session_state.get("simulation_summary")
     if summary:
         render_simulation(summary)
+
+
+def _render_strict_goldfish(summary: dict) -> None:
+    cols = st.columns(4)
+    cols[0].metric("初動成功率(実プレイ)", f'{summary["first_play_rate"]:.1%}')
+    cols[1].metric("平均プレイ枚数", f'{summary["average_plays"]:.1f}')
+    cols[2].metric("平均最終マナ", f'{summary["average_final_mana"]:.1f}')
+    cols[3].metric("試行回数", summary["trials"])
+
+    st.subheader("初プレイターン分布")
+    st.dataframe(
+        [
+            {"初プレイ": label, "回数": count}
+            for label, count in sorted(summary["first_play_turn_distribution"].items())
+        ],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    st.subheader("ターン別平均プレイ枚数")
+    st.dataframe(
+        [
+            {"ターン": turn, "平均プレイ枚数": round(value, 2)}
+            for turn, value in summary["average_plays_by_turn"].items()
+        ],
+        use_container_width=True,
+        hide_index=True,
+    )
 
 
 def render_ai_deck_page() -> None:

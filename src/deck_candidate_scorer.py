@@ -96,3 +96,25 @@ def score_deck_candidate(
         "shortage_penalty": shortage_penalty,
         "warning_penalty": warning_penalty,
     }
+
+
+def apply_sim_strength(
+    score_result: dict[str, Any],
+    sim_win_rate: float,
+    weight: float = 0.3,
+) -> dict[str, Any]:
+    """厳密シミュレーションの対メタ勝率を候補スコアに合成する。
+
+    weight はシミュレーション側の比重(0〜1)。既定0.3は暫定値で、
+    実勝率との回帰により今後調整する。
+    """
+    weight = max(0.0, min(1.0, weight))
+    sim_strength_score = round(sim_win_rate * 100, 1)
+    base_score = float(score_result.get("candidate_score", 0))
+    blended = round(base_score * (1 - weight) + (sim_win_rate * 120) * weight, 1)
+    result = dict(score_result)
+    result["sim_win_rate"] = sim_win_rate
+    result["sim_strength_score"] = sim_strength_score
+    result["sim_weight"] = weight
+    result["candidate_score_with_sim"] = max(0.0, min(120.0, blended))
+    return result

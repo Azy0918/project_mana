@@ -33,6 +33,11 @@ from src.battle.effects import (
     load_approved_effects_map,
     upsert_effect_script,
 )
+from src.battle.rating import (
+    list_sim_ratings,
+    load_meta_battle_decks,
+    rate_deck_against_meta,
+)
 from src.battle.sim.goldfish import simulate_goldfish_strict
 from src.battle.sim.runner import simulate_matches
 from src.battle_simulator import simulate_battle
@@ -923,6 +928,106 @@ def render_battle_page() -> None:
         deck_b_id = save_deck_log(name_b, "battle_b", st.session_state.get("battle_deck_b_text", ""), DEFAULT_DB_PATH)
         battle_id = save_battle_log(deck_a_id, deck_b_id, result, DEFAULT_DB_PATH)
         st.success(f"対戦ログを保存しました: {battle_id}")
+
+
+def render_strength_rating_page() -> None:
+    st.header("厳密強さ判定(β)")
+    st.caption("収集済みメタデッキと総当たりで厳密シミュレーションを行い、絶対強さスコア(平均勝率×100)を算出します。")
+
+    meta_decks, meta_warnings = load_meta_battle_decks(DEFAULT_DB_PATH)
+    for warning in meta_warnings:
+        st.warning(warning)
+    if not meta_decks:
+        st.info("対戦可能なメタデッキがありません。データ保守画面などからメタデッキを収集してください。")
+        return
+
+    st.dataframe(
+        [
+            {
+                "メタデッキ": deck["deck_name"],
+                "カードDB一致率": f'{deck["coverage"]:.0%}',
+                "枚数": deck["total_cards"],
+            }
+            for deck in meta_decks
+        ],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    cards = search_cards(DEFAULT_DB_PATH)
+    generated_deck = st.session_state.get("generated_deck", [])
+    if generated_deck and st.checkbox("生成デッキを使う", value=True):
+        deck = generated_deck
+        render_deck_table(deck)
+    else:
+        deck_text = st.text_area("デッキリスト", value=st.session_state.get("deck_text", ""), height=260)
+        if not deck_text.strip():
+            st.info("デッキリストを入力するか、先にデッキ生成画面で生成してください。")
+            return
+        deck, errors = parse_deck_text(deck_text, cards)
+        for error in errors:
+            st.error(error)
+        if errors:
+            return
+
+    config_col1, config_col2, config_col3 = st.columns(3)
+    deck_name = config_col1.text_input("デッキ名(保存用)", value="評価対象デッキ")
+    games_per_pair = config_col2.number_input("メタデッキごとの試合数", min_value=50, max_value=500, value=100, step=50)
+    seed = config_col3.number_input("乱数シード", min_value=0, value=1, step=1)
+
+    if st.button("強さ判定を実行", type="primary"):
+        with st.spinner(f"{len(meta_decks)}デッキ × {int(games_per_pair)}試合を実行中..."):
+            st.session_state["strength_rating_result"] = rate_deck_against_meta(
+                deck,
+                deck_name,
+                db_path=DEFAULT_DB_PATH,
+                games_per_pair=int(games_per_pair),
+                seed=int(seed),
+                effects=load_approved_effects_map(DEFAULT_DB_PATH),
+            )
+
+    result = st.session_state.get("strength_rating_result")
+    if result:
+        for warning in result["warnings"]:
+            st.warning(warning)
+        if result["strength_score"] is not None:
+            cols = st.columns(3)
+            cols[0].metric("絶対強さスコア", result["strength_score"])
+            cols[1].metric("総合勝率", f'{result["win_rate"]:.1%}')
+            cols[2].metric("総試合数", result["games_total"])
+            st.subheader("メタデッキ別相性")
+            st.dataframe(
+                [
+                    {
+                        "相手": detail["opponent"],
+                        "勝率": f'{detail["win_rate"]:.1%}',
+                        "95%信頼区間": f'{detail["ci95_low"]:.1%} 〜 {detail["ci95_high"]:.1%}',
+                        "平均決着ターン": round(detail["average_turns"], 1),
+                    }
+                    for detail in result["details"]
+                ],
+                use_container_width=True,
+                hide_index=True,
+            )
+
+    history = list_sim_ratings(DEFAULT_DB_PATH, limit=20)
+    if history:
+        st.subheader("判定履歴")
+        st.dataframe(
+            [
+                {
+                    "日時": record["created_at"],
+                    "デッキ": record["deck_name"],
+                    "強さスコア": record["strength_score"],
+                    "勝率": f'{record["win_rate"]:.1%}',
+                    "相手数": record["opponents"],
+                    "試合数": record["games_total"],
+                }
+                for record in history
+            ],
+            use_container_width=True,
+            hide_index=True,
+        )
 
 
 def _render_strict_battle_section(deck_a: list[dict], deck_b: list[dict], games: int, seed: int) -> None:
@@ -2432,6 +2537,7 @@ def main() -> None:
             "一人回しシミュレーション",
             "AIデッキ生成",
             "簡易AI対戦",
+            "厳密強さ判定(β)",
             "効果スクリプト管理",
             "進化探索",
             "研究ログ",
@@ -2462,6 +2568,8 @@ def main() -> None:
         render_ai_deck_page()
     elif page == "簡易AI対戦":
         render_battle_page()
+    elif page == "厳密強さ判定(β)":
+        render_strength_rating_page()
     elif page == "効果スクリプト管理":
         render_effect_script_page()
     elif page == "進化探索":

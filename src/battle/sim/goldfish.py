@@ -48,6 +48,7 @@ def _simulate_once(
     first_play_turn: int | None = None
     total_plays = 0
     plays_by_turn: dict[int, int] = {}
+    play_sequence: list[str] = []
 
     for turn in range(1, max_turns + 1):
         for mana in mana_zone:
@@ -74,6 +75,7 @@ def _simulate_once(
                 mana.tapped = True
             total_plays += 1
             plays_by_turn[turn] = plays_by_turn.get(turn, 0) + 1
+            play_sequence.append(card.card_id)
             if first_play_turn is None:
                 first_play_turn = turn
 
@@ -92,6 +94,7 @@ def _simulate_once(
         "first_play_turn": first_play_turn,
         "total_plays": total_plays,
         "plays_by_turn": plays_by_turn,
+        "play_sequence": play_sequence,
         "final_mana": len(mana_zone),
     }
 

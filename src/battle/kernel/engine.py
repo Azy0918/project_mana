@@ -14,14 +14,22 @@ SHIELD_COUNT = 5
 DEFAULT_MAX_TURNS = 30
 
 
-def select_mana_payment(mana_zone: list[ManaCard], card: BattleCard) -> list[ManaCard] | None:
+def select_mana_payment(
+    mana_zone: list[ManaCard],
+    card: BattleCard,
+    cost: int | None = None,
+) -> list[ManaCard] | None:
     """コストと文明拘束を満たすアンタップマナの組み合わせを返す。支払えなければNone。
 
     文明ごとに最低1枚の一致マナをタップする必要がある(多色カードは全文明ぶん)。
+    cost指定時はカード印刷コストの代わりにその値で支払う(軽減・G・ゼロ用)。
     """
+    required = card.cost if cost is None else cost
     untapped = [mana for mana in mana_zone if not mana.tapped]
-    if card.cost <= 0 or len(untapped) < card.cost:
-        return None if card.cost > len(untapped) else []
+    if required <= 0:
+        return []
+    if len(untapped) < required:
+        return None
 
     payment: list[ManaCard] = []
     remaining = untapped[:]
@@ -34,23 +42,36 @@ def select_mana_payment(mana_zone: list[ManaCard], card: BattleCard) -> list[Man
             return None
         payment.append(match)
         remaining.remove(match)
-        if len(payment) >= card.cost:
+        if len(payment) >= required:
             break
 
     for mana in remaining:
-        if len(payment) >= card.cost:
+        if len(payment) >= required:
             break
         payment.append(mana)
 
-    if len(payment) < card.cost:
+    if len(payment) < required:
         return None
-    return payment[: card.cost]
+    return payment[:required]
+
+
+def effective_cost(player: PlayerState, card: BattleCard) -> int:
+    """軽減オーラとG・ゼロを考慮した実支払いコスト。"""
+    g_zero = card.g_zero_spell_count
+    if g_zero is not None and player.spells_cast_this_turn >= g_zero:
+        return 0
+    cost = card.cost
+    if card.is_creature:
+        reduction = sum(creature.card.summon_cost_reduction for creature in player.battle_zone)
+        if reduction:
+            cost = max(1, cost - reduction)
+    return cost
 
 
 def playable_hand_indexes(player: PlayerState) -> list[int]:
     indexes = []
     for index, card in enumerate(player.hand):
-        if select_mana_payment(player.mana_zone, card) is not None:
+        if select_mana_payment(player.mana_zone, card, cost=effective_cost(player, card)) is not None:
             indexes.append(index)
     return indexes
 
@@ -120,7 +141,14 @@ class DuelEngine:
                 break
             self._play_turn()
             if not state.finished:
-                state.active_index = state.opponent_index
+                # 追加ターン: 無限ループ防止のため1プレイヤー3回まで
+                if state.extra_turn_pending and state.active_player.extra_turns_taken < 3:
+                    state.active_player.extra_turns_taken += 1
+                    state.extra_turn_pending = False
+                    self._record("extra_turn", player=state.active_player.name)
+                else:
+                    state.extra_turn_pending = False
+                    state.active_index = state.opponent_index
         return MatchResult(
             winner=state.winner,
             turns=min(state.turn, self.max_turns),
@@ -134,6 +162,7 @@ class DuelEngine:
         policy = self.policies[state.active_index]
 
         player.untap_all()
+        player.spells_cast_this_turn = 0
 
         # 先攻1ターン目はドローなし
         if not (state.turn == 1 and state.active_index == 0):
@@ -181,7 +210,8 @@ class DuelEngine:
             if choice is None or choice not in playable:
                 return
             card = player.hand.pop(choice)
-            payment = select_mana_payment(player.mana_zone, card)
+            pay_cost = effective_cost(player, card)
+            payment = select_mana_payment(player.mana_zone, card, cost=pay_cost)
             if payment is None:
                 player.hand.insert(choice, card)
                 return
@@ -189,11 +219,12 @@ class DuelEngine:
                 mana.tapped = True
             if card.is_creature:
                 player.battle_zone.append(CreatureInstance(card=card, summoned_turn=state.turn))
-                self._record("summon", card=card.name, cost=card.cost)
+                self._record("summon", card=card.name, cost=pay_cost)
                 self.executor.run(self, state.active_index, "on_play", card)
             else:
                 player.graveyard.append(card)
-                self._record("cast_spell", card=card.name, cost=card.cost)
+                player.spells_cast_this_turn += 1
+                self._record("cast_spell", card=card.name, cost=pay_cost)
                 self.executor.run(self, state.active_index, "on_cast", card)
             if state.finished:
                 return

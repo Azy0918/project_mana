@@ -174,6 +174,8 @@ class EffectExecutor:
                     return
                 # 墓地に置く=手札に加えずS・トリガーも使わせない
                 opponent.graveyard.append(opponent.shields.pop())
+        elif op == "extra_turn":
+            engine.state.extra_turn_pending = True
         elif op == "untap_creature":
             target_player_index = self._target_player_index(controller_index, {"scope": action.get("scope", "self")})
             target_player = engine.state.players[target_player_index]

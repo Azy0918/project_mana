@@ -5,6 +5,10 @@ from dataclasses import dataclass, field
 from typing import Any
 
 
+_G_ZERO_PATTERN = re.compile(r"G・ゼロ[::].*?呪文を(\d+)枚以上唱えたターン")
+_COST_REDUCTION_PATTERN = re.compile(r"コストを(\d+)少なくする")
+
+
 def _parse_power(value: Any) -> int:
     text = str(value or "").strip()
     match = re.search(r"\d+", text)
@@ -77,6 +81,27 @@ class BattleCard:
     @property
     def is_multicolor(self) -> bool:
         return len(self.civilizations) > 1
+
+    @property
+    def g_zero_spell_count(self) -> int | None:
+        """G・ゼロ条件(このターン唱えた呪文の枚数)。なければNone。"""
+        match = _G_ZERO_PATTERN.search(self.text)
+        if match:
+            return int(match.group(1))
+        return None
+
+    @property
+    def summon_cost_reduction(self) -> int:
+        """バトルゾーンにいる間、自分のクリーチャー召喚コストを下げる量(近似)。
+
+        種族・条件指定は無視した常時オーラとして扱う。
+        """
+        if not self.is_creature:
+            return 0
+        match = _COST_REDUCTION_PATTERN.search(self.text)
+        if match:
+            return int(match.group(1))
+        return 0
 
     @property
     def power_attacker_bonus(self) -> int:

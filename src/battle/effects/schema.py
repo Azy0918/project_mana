@@ -37,6 +37,7 @@ KNOWN_OPS: dict[str, set[str]] = {
     "send_creature_to_mana": {"count", "scope"},  # クリーチャーをマナゾーンへ送る(マナ送り除去)
     "summon_from_mana": {"count", "max_cost"},    # 自分のマナゾーンからバトルゾーンに出す
     "burn_opponent_shield": {"count"},            # 相手のシールドを墓地に置く(トリガーさせない)
+    "extra_turn": set(),                          # このターンの後に自分のターンを追加する
 }
 
 KNOWN_SCOPES = {"opponent", "self"}

@@ -42,6 +42,8 @@ class PlayerState:
     battle_zone: list[CreatureInstance] = field(default_factory=list)
     shields: list[BattleCard] = field(default_factory=list)
     graveyard: list[BattleCard] = field(default_factory=list)
+    spells_cast_this_turn: int = 0
+    extra_turns_taken: int = 0
 
     def untapped_mana(self) -> list[ManaCard]:
         return [mana for mana in self.mana_zone if not mana.tapped]
@@ -63,6 +65,7 @@ class GameState:
     active_index: int = 0
     winner: int | None = None
     finished: bool = False
+    extra_turn_pending: bool = False
     finish_reason: str = ""
     log: list[dict[str, Any]] = field(default_factory=list)
 

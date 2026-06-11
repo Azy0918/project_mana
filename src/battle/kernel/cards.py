@@ -49,6 +49,22 @@ class BattleCard:
         return "ブロッカー" in self.tags or "ブロッカー" in self.text
 
     @property
+    def is_speed_attacker(self) -> bool:
+        return "スピードアタッカー" in self.tags or "スピードアタッカー" in self.text
+
+    @property
+    def power_attacker_bonus(self) -> int:
+        match = re.search(r"パワーアタッカー\s*\+\s*(\d+)", self.text)
+        if match:
+            return int(match.group(1))
+        return 0
+
+    @property
+    def attack_power(self) -> int:
+        """攻撃時の実効パワー(パワーアタッカー込み)。"""
+        return self.power + self.power_attacker_bonus
+
+    @property
     def breaker_count(self) -> int:
         haystack = self.text + ";".join(self.tags)
         if "T・ブレイカー" in haystack:

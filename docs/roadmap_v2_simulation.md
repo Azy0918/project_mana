@@ -121,7 +121,7 @@
 1. モンテカルロ対戦による勝率 + 信頼区間の算出と研究ログ保存【実装済み: `src/battle/rating/`、sim_battle_logs / sim_ratings テーブル】
 2. メタデッキ総当たりによる絶対強さスコアを `deck_candidate_scorer.py` の合成スコアに組み込み【実装済み: `apply_sim_strength()`。重みは暫定0.3で、実勝率との回帰調整は未実施】
 3. コンボチェーンのカーネル検証(state_transition_modelの提案 → 実行可能性判定)【実装済み: `src/battle/sim/chain_validator.py`】
-4. 1〜2手読み方策AIと、実戦ログを使った方策・評価指標の検証レポート【未実装】
+4. 1〜2手読み方策AIと、実戦ログを使った方策・評価指標の検証レポート【一部実装: `LookaheadPolicy`(攻撃判断の1手読み+非公開ゾーンのdeterminization)。火光レイドミラーのベンチマークでは貪欲方策と同等(勝率51%)で、ブロッカー・効果の充実に伴い差が出る見込み。実戦ログとの相関検証は未実施】
 5. 完了条件: 「AI評価スコア vs 実勝率」ダッシュボードで、厳密シミュレーション勝率がヒューリスティックスコアより高い相関を示すこと【未検証: 実戦ログの蓄積が必要】
 
 ## 4. データモデル変更
@@ -138,7 +138,29 @@
 - **方策AIの弱さが勝率を歪める**: 同一方策同士の対戦に限定して相対比較する。方策強化は独立した改善ループとする
 - **既存ヒューリスティックは廃止しない**: 計算コストが軽く候補探索(進化探索)には引き続き有効なため、「探索はヒューリスティック、検証は厳密シミュレーション」の二段構えとする
 
-## 6. 着手順(v1.1の最初のタスク)
+## 6. ヘッドレス研究CLI
+
+UIを介さずシミュレーション研究を回すためのCLI(`python -m src.battle.research`)。
+
+```bash
+# EffectScript下書き生成 + 完全変換ぶんの一括承認(初回・カード追加後に実行)
+python -m src.battle.research prepare-effects
+
+# 収集済みメタデッキの総当たり戦(JSONレポートを data/reports/sim/ に出力)
+python -m src.battle.research --games 100 --seed 5 meta-tournament
+
+# デッキJSONをメタ総当たりで強さ判定
+python -m src.battle.research --games 100 rate path/to/deck.json
+
+# 方策ベンチマーク(ミラーマッチ)
+python -m src.battle.research --games 100 benchmark-policies --policy-a lookahead --policy-b greedy
+```
+
+既知の制約: 複雑な効果が未変換のデッキ(呪文・コンボ系)は厳密シミュレーション上
+不発が多く過小評価される。承認済み率の向上(命令セット拡張と下書きパターン追加)が
+評価精度に直結する。
+
+## 7. 着手順(v1.1の最初のタスク)
 
 1. `GameState` と ゾーン操作のデータ構造設計・実装
 2. ターン進行ループとバニラ対戦の完走

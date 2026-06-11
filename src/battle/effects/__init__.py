@@ -5,6 +5,7 @@ from src.battle.effects.schema import (
     validate_effect_script,
 )
 from src.battle.effects.store import (
+    approve_clean_drafts,
     coverage_summary,
     ensure_card_effects_table,
     generate_drafts_for_missing_cards,
@@ -17,6 +18,7 @@ from src.battle.effects.store import (
 __all__ = [
     "KNOWN_OPS",
     "KNOWN_TRIGGERS",
+    "approve_clean_drafts",
     "coverage_summary",
     "ensure_card_effects_table",
     "generate_draft_effect_script",

@@ -15,6 +15,9 @@ DEFAULT_DB_PATH = ROOT_DIR / "data" / "cards.db"
 
 REVIEW_STATUSES = {"draft", "approved", "rejected"}
 
+# 下書き生成時にテキストを完全変換できたとみなすnotes(自動承認の対象)
+CLEAN_NOTES = {"", "能力テキストなし(バニラ)"}
+
 
 def ensure_card_effects_table(db_path: Path = DEFAULT_DB_PATH) -> None:
     db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -150,6 +153,26 @@ def generate_drafts_for_missing_cards(db_path: Path = DEFAULT_DB_PATH) -> int:
         if not upsert_effect_script(script, review_status="draft", db_path=db_path):
             created += 1
     return created
+
+
+def approve_clean_drafts(db_path: Path = DEFAULT_DB_PATH) -> int:
+    """テキストを完全変換できた下書き(notesが警告なし)を一括承認する。
+
+    部分変換(未変換テキスト残りの警告付き)はdraftのまま残し、人手レビュー対象とする。
+    自律シミュレーション実行時に、レビュー待ちで効果が全く使われない状態を避けるための機能。
+    """
+    ensure_card_effects_table(db_path)
+    placeholders = ",".join("?" for _ in CLEAN_NOTES)
+    with sqlite3.connect(db_path) as conn:
+        cursor = conn.execute(
+            f"""
+            UPDATE card_effects
+            SET review_status = 'approved', updated_at = ?
+            WHERE review_status = 'draft' AND (notes IS NULL OR notes IN ({placeholders}))
+            """,
+            (datetime.now().isoformat(timespec="seconds"), *CLEAN_NOTES),
+        )
+        return cursor.rowcount
 
 
 def coverage_summary(db_path: Path = DEFAULT_DB_PATH) -> dict[str, Any]:

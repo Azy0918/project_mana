@@ -8,9 +8,11 @@ from pathlib import Path
 from src.battle.effects.draft_generator import generate_draft_effect_script
 from src.battle.effects.schema import validate_effect_script
 from src.battle.effects.store import (
+    approve_clean_drafts,
     coverage_summary,
     generate_drafts_for_missing_cards,
     get_effect_script,
+    load_approved_effects_map,
     upsert_effect_script,
 )
 
@@ -141,6 +143,23 @@ class StoreTest(unittest.TestCase):
         self.assertIsNone(get_effect_script("C1", db_path=self.db_path, approved_only=True))
         upsert_effect_script(script, review_status="approved", db_path=self.db_path)
         self.assertIsNotNone(get_effect_script("C1", db_path=self.db_path, approved_only=True))
+
+    def test_approve_clean_drafts(self) -> None:
+        with sqlite3.connect(self.db_path) as conn:
+            conn.execute(
+                "INSERT INTO cards VALUES ('C3', '部分変換', '水', 3, '呪文', '', '',"
+                " 'カードを1枚引く。その後、複雑な効果を解決する。')"
+            )
+        generate_drafts_for_missing_cards(db_path=self.db_path)
+        approved = approve_clean_drafts(db_path=self.db_path)
+        # C1(完全変換)とC2(バニラ)は承認、C3(部分変換の警告付き)はdraftのまま
+        self.assertEqual(approved, 2)
+        effects_map = load_approved_effects_map(db_path=self.db_path)
+        self.assertIn("C1", effects_map)
+        self.assertNotIn("C3", effects_map)
+        self.assertIsNone(get_effect_script("C3", db_path=self.db_path, approved_only=True))
+        # 再実行しても追加承認なし
+        self.assertEqual(approve_clean_drafts(db_path=self.db_path), 0)
 
     def test_generate_drafts_and_coverage(self) -> None:
         created = generate_drafts_for_missing_cards(db_path=self.db_path)

@@ -82,13 +82,20 @@ class DuelEngine:
         max_turns: int = DEFAULT_MAX_TURNS,
         keep_log: bool = True,
         effects: dict[str, list[dict[str, Any]]] | None = None,
+        state: GameState | None = None,
     ) -> None:
         self.rng = rng or random.Random()
         self.policies = (policy_a, policy_b)
         self.max_turns = max_turns
         self.keep_log = keep_log
         self.executor = EffectExecutor(effects)
-        self.state = GameState(players=(self._setup_player("player_a", deck_a), self._setup_player("player_b", deck_b)))
+        # state指定時は進行中のゲーム状態を引き継ぐ(先読み方策の仮実行用)
+        if state is not None:
+            self.state = state
+        else:
+            self.state = GameState(players=(self._setup_player("player_a", deck_a), self._setup_player("player_b", deck_b)))
+        for policy in self.policies:
+            policy.bind(self)
 
     def _setup_player(self, name: str, deck: list[BattleCard]) -> PlayerState:
         shuffled = deck[:]
@@ -282,7 +289,7 @@ class DuelEngine:
         defending_player: PlayerState,
         defender: CreatureInstance,
     ) -> None:
-        attacker_power = attacker.card.power
+        attacker_power = attacker.card.attack_power
         defender_power = defender.card.power
         if attacker_power >= defender_power:
             self.destroy_creature(self.state.players.index(defending_player), defender)

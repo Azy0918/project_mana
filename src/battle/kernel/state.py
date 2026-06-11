@@ -19,7 +19,9 @@ class CreatureInstance:
     summoned_turn: int = 0
 
     def can_attack(self, current_turn: int) -> bool:
-        return not self.tapped and self.summoned_turn < current_turn
+        if self.tapped:
+            return False
+        return self.summoned_turn < current_turn or self.card.is_speed_attacker
 
 
 @dataclass

@@ -9,6 +9,7 @@ venv/
 
 data/backups/
 data/exports/
+data/reports/
 data/cards_deduped.csv
 data/*.db
 data/*.sqlite

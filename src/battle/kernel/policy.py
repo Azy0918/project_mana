@@ -17,6 +17,9 @@ class AttackChoice:
 class Policy:
     """行動選択インターフェース。エンジンが列挙した合法手から選ぶ。"""
 
+    def bind(self, engine: object) -> None:
+        """エンジン構築時に呼ばれる。先読み方策が状態複製に使う(既定は何もしない)。"""
+
     def choose_charge(self, state: "GameState", player: "PlayerState") -> int | None:
         raise NotImplementedError
 

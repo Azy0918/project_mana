@@ -72,6 +72,10 @@ python -m src.battle.research --games 100 --seed 5 meta-tournament
 - `python -m src.battle.research validate-ratings`: 実戦ログ(real_match_logs)の
   デッキ別実勝率とsim_ratingsのシミュレーション勝率のPearson相関を算出。
   実戦5試合以上のデッキが3件貯まると有効(現状はデータ不足を案内して終了)。
+- `python -m src.battle.research --games 300 sanity-check`: **実戦ログなしで使える妥当性検証**。
+  「速攻は鈍重に勝つ」「トリガー除去は同型バニラに勝ち越す」「ミラーは五分」等の
+  方向性チェック6件(交絡を避けた同一ステータス比較)。カーネル・方策を変更したら
+  必ず実行する。テストスイートにも組み込み済み(tests/test_sanity.py)。
 
 ## 次に効くこと(優先順)
 

@@ -177,6 +177,8 @@ def main(argv: list[str] | None = None) -> int:
     expand_parser.add_argument("--generations", type=int, default=10)
     expand_parser.add_argument("--population", type=int, default=14)
 
+    sub.add_parser("sanity-check", help="実戦ログなしでシミュレーターの方向性妥当性を検証")
+
     sub.add_parser("validate-ratings", help="実戦ログの勝率とシミュレーション強さの相関を検証")
 
     bench_parser = sub.add_parser("benchmark-policies", help="ミラーマッチで方策同士を比較")
@@ -422,6 +424,18 @@ def main(argv: list[str] | None = None) -> int:
         pool, _w = load_meta_battle_decks(args.db)
         print(f"\n最終的な相手プール: {len(pool)}デッキ: {', '.join(d['deck_name'] for d in pool)}")
         return 0
+
+    if args.command == "sanity-check":
+        from src.battle.sim.sanity import run_sanity_checks
+
+        checks = run_sanity_checks(games=args.games, seed=args.seed or 1)
+        failed = [check for check in checks if not check["passed"]]
+        for check in checks:
+            mark = "OK " if check["passed"] else "NG "
+            print(f'{mark} {check["name"]}: 勝率 {check["win_rate_a"]:.1%}(期待 {check["expect"]})')
+        path = write_report({"checks": checks, "failed": len(failed)}, "sanity_check", args.report_dir)
+        print(f"\n{len(checks) - len(failed)}/{len(checks)} 件合格 / report: {path}")
+        return 1 if failed else 0
 
     if args.command == "validate-ratings":
         import sqlite3

@@ -176,6 +176,24 @@ class HybridSearchTest(MetaRatingTest):
         self.assertGreaterEqual(best["combined_score"], 0)
         self.assertEqual(result["opponents"], ["火速攻"])
 
+    def test_save_to_generated_decks(self) -> None:
+        import json as json_module
+        import sqlite3 as sq
+
+        from src.battle.hybrid_search import save_to_generated_decks
+
+        deck = deck_dicts("S", "火")
+        deck_id = save_to_generated_decks(deck, "保存テスト", "メモ", db_path=self.db_path)
+        with sq.connect(self.db_path) as conn:
+            conn.row_factory = sq.Row
+            row = conn.execute("SELECT * FROM generated_decks WHERE id = ?", (deck_id,)).fetchone()
+        self.assertIsNotNone(row)
+        self.assertEqual(row["deck_name"], "保存テスト")
+        self.assertEqual(row["candidate_origin"], "hybrid_search")
+        saved_deck = json_module.loads(row["deck_cards_json"])
+        self.assertEqual(sum(int(c.get("quantity", 1)) for c in saved_deck), 40)
+        self.assertGreater(row["average_cost"], 0)
+
     def test_hybrid_search_without_meta_decks(self) -> None:
         import sqlite3 as sq
 

@@ -169,6 +169,7 @@ def main(argv: list[str] | None = None) -> int:
     hybrid_parser.add_argument("--civilizations", default=None, help="カンマ区切りの文明フィルタ")
     hybrid_parser.add_argument("--no-rotate", action="store_true", help="選別相手の世代ローテーションを無効化(固定相手)")
     hybrid_parser.add_argument("--rotation-period", type=int, default=3, help="選別相手を入れ替える世代間隔")
+    hybrid_parser.add_argument("--no-save", action="store_true", help="成果デッキをgenerated_decksに保存しない")
 
     sub.add_parser("validate-ratings", help="実戦ログの勝率とシミュレーション強さの相関を検証")
 
@@ -356,6 +357,25 @@ def main(argv: list[str] | None = None) -> int:
         }
         path = write_report(payload, "hybrid_search", args.report_dir)
         print(f"report: {path}")
+        if not args.no_save:
+            from src.battle.hybrid_search import save_to_generated_decks
+
+            matchup_lines = "、".join(
+                f'{detail["opponent"]} {detail["win_rate"]:.0%}' for detail in rating["details"]
+            )
+            note = (
+                f'ハイブリッド探索(世代{args.generations}×{args.population}体, '
+                f'sim比重{args.sim_weight})の最良候補。'
+                f'絶対強さスコア {rating["strength_score"]}。相性: {matchup_lines}'
+            )
+            timestamp = datetime.now().strftime("%m/%d %H:%M")
+            deck_id = save_to_generated_decks(
+                best["deck"],
+                f"ハイブリッド探索 {timestamp} (強さ{rating['strength_score']})",
+                note,
+                db_path=args.db,
+            )
+            print(f"generated_decksに保存しました: id={deck_id}(アプリの生成デッキ一覧 / rate-generated --id {deck_id} で参照可)")
         return 0
 
     if args.command == "validate-ratings":

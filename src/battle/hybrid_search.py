@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import json
 import random
+import sqlite3
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -57,6 +60,93 @@ def _opponents_for_generation(
     window = (generation - 1) // max(1, rotation_period)
     start = window % len(shuffled_meta)
     return [shuffled_meta[(start + i) % len(shuffled_meta)] for i in range(sim_opponents)]
+
+
+def save_to_generated_decks(
+    deck: list[dict[str, Any]],
+    deck_name: str,
+    strategy_note: str,
+    db_path: Path = DEFAULT_DB_PATH,
+) -> int:
+    """探索成果をアプリの生成デッキ一覧(generated_decks)に保存する。
+
+    Streamlitの「生成デッキ保存・比較」画面や `rate-generated` から参照できる。
+    generated_deck_store はpandas依存のため、ここでは直接SQLで書き込む。
+    """
+    summary = evaluate_deck(deck)
+    role_counts = summary.get("role_counts", {})
+    cost_curve = summary.get("cost_curve", {})
+    total_cards = sum(cost_curve.values()) or 1
+    average_cost = sum(int(cost) * count for cost, count in cost_curve.items()) / total_cards
+    tag_counts = summary.get("tag_counts", {})
+    civilizations = "/".join(sorted(summary.get("civilization_counts", {}).keys()))
+
+    with sqlite3.connect(db_path) as conn:
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS generated_decks (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                created_at TEXT NOT NULL,
+                deck_name TEXT NOT NULL,
+                format TEXT,
+                civilizations TEXT,
+                deck_type TEXT,
+                focus_tags TEXT,
+                avoid_tags TEXT,
+                strategy_note TEXT,
+                deck_size INTEGER,
+                deck_cards_json TEXT,
+                condition_score INTEGER,
+                civilization_match_rate REAL,
+                starter_count INTEGER,
+                defense_count INTEGER,
+                finisher_count INTEGER,
+                removal_count INTEGER,
+                draw_count INTEGER,
+                average_cost REAL,
+                evaluation_score REAL,
+                novelty_score REAL,
+                meta_score REAL,
+                candidate_origin TEXT
+            )
+            """
+        )
+        cursor = conn.execute(
+            """
+            INSERT INTO generated_decks (
+                created_at, deck_name, format, civilizations, deck_type,
+                focus_tags, avoid_tags, strategy_note, deck_size, deck_cards_json,
+                condition_score, civilization_match_rate, starter_count, defense_count,
+                finisher_count, removal_count, draw_count, average_cost,
+                evaluation_score, novelty_score, meta_score, candidate_origin
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                datetime.now().isoformat(timespec="seconds"),
+                deck_name,
+                "ND",
+                civilizations,
+                "ハイブリッド探索",
+                "",
+                "",
+                strategy_note,
+                summary.get("total_cards", 40),
+                json.dumps(deck, ensure_ascii=False),
+                None,
+                None,
+                role_counts.get("初動", 0),
+                role_counts.get("受け札", 0),
+                role_counts.get("フィニッシャー", 0),
+                tag_counts.get("除去", 0),
+                tag_counts.get("ドロー", 0),
+                round(average_cost, 2),
+                summary.get("score", 0),
+                summary.get("novelty_score", 0),
+                summary.get("meta_score", 0),
+                "hybrid_search",
+            ),
+        )
+        return int(cursor.lastrowid)
 
 
 def run_hybrid_search(

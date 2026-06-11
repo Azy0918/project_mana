@@ -59,6 +59,15 @@ python -m src.battle.research --games 100 --seed 11 hybrid-search --generations 
 ただし現状メタは5デッキと小さく、差はノイズ範囲(n=4)。メタプールが
 増えるほどローテーションの効果は大きくなる見込み。
 
+### アプリ接続(成果デッキの保存)
+
+`hybrid-search` は既定で最良候補を `generated_decks` に保存する(`--no-save` で無効化)。
+candidate_origin='hybrid_search'、戦略メモに強さスコアと相性を記録。
+アプリの生成デッキ一覧から閲覧でき、`rate-generated --id N` で再判定できる。
+
+seed=23 の探索成果(id=2, 強さ76.2)は再判定でも73.7となり、
+**全メタデッキに勝ち越す初の候補**(対火水57%〜対スコーラー90%)。
+
 ## メタ総当たりの現状(games=100, seed=5, combo方策)
 
 火水レイド 78.0% > 火光レイド 60.2% > 光単裁きの紋章Z 46.8% >

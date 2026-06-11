@@ -131,7 +131,34 @@ class BattleCard:
             return 3
         if "W・ブレイカー" in haystack:
             return 2
+        if "パワード・ブレイカー" in haystack:
+            # パワー6000につき1枚ブレイク(切り上げ)の近似
+            return max(1, (self.power + 5999) // 6000)
         return 1
+
+    @property
+    def is_charger(self) -> bool:
+        """チャージャー呪文: 唱えた後、墓地ではなくマナゾーンに置く。"""
+        return self.is_spell and "チャージャー" in self.text
+
+    @property
+    def is_slayer(self) -> bool:
+        """スレイヤー: バトルした相手クリーチャーをパワーに関係なく破壊する。"""
+        return "スレイヤー" in self.text or "スレイヤー" in self.tags
+
+    @property
+    def enters_tapped(self) -> bool:
+        return "タップしてバトルゾーンに出る" in self.text
+
+    @property
+    def is_shield_burner(self) -> bool:
+        """ブレイクしたシールドを手札に加えさせず墓地に置かせる。"""
+        return "手札に加えるかわりに墓地に置く" in self.text
+
+    @property
+    def is_evolution(self) -> bool:
+        """進化クリーチャー: 召喚酔いしない(進化元の条件は無視する近似)。"""
+        return "進化" in self.card_type or bool(re.search(r"進化\s*[:：]", self.text))
 
 
 def battle_card_from_dict(card: dict[str, Any]) -> BattleCard:

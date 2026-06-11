@@ -27,7 +27,9 @@ class CreatureInstance:
     def can_attack(self, current_turn: int) -> bool:
         if self.tapped:
             return False
-        return self.summoned_turn < current_turn or self.card.is_speed_attacker
+        if self.summoned_turn < current_turn:
+            return True
+        return self.card.is_speed_attacker or self.card.is_evolution
 
     def can_attack_creature(self, current_turn: int) -> bool:
         # マッハファイターは出たターンでもクリーチャーには攻撃できる

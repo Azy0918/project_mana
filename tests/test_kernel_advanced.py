@@ -123,6 +123,46 @@ class BadDiscountTest(unittest.TestCase):
         self.assertTrue(any(c.name == "BAD獣" for c in player.graveyard))
 
 
+class KeywordKernelTest(unittest.TestCase):
+    def test_charger_goes_to_mana_after_cast(self) -> None:
+        engine = make_engine()
+        player = engine.state.players[0]
+        charger = make_card("ブースト・チャージャー", cost=3, card_type="呪文", text="■カードを1枚引く。\n■チャージャー")
+        player.hand = [charger]
+        player.mana_zone = [ManaCard(make_card(f"マナ{i}")) for i in range(3)]
+
+        class PlayAll(StubPolicy):
+            def choose_main_action(self, s, p, playable):
+                return playable[0] if playable else None
+
+        engine._main_phase(player, PlayAll())
+        self.assertNotIn(charger, player.graveyard)
+        self.assertTrue(any(mana.card.name == "ブースト・チャージャー" for mana in player.mana_zone))
+
+    def test_slayer_destroys_bigger_creature(self) -> None:
+        from src.battle.kernel.policy import AttackChoice
+
+        engine = make_engine()
+        state = engine.state
+        slayer = CreatureInstance(card=make_card("スレイヤー獣", power=1000, text="■スレイヤー"), summoned_turn=0)
+        big = CreatureInstance(card=make_card("大型", power=9000), tapped=True, summoned_turn=0)
+        state.players[0].battle_zone.append(slayer)
+        state.players[1].battle_zone.append(big)
+        engine._resolve_attack(state.players[0], AttackChoice(attacker_index=0, target_creature_index=0))
+        # 両者破壊(スレイヤーは負けても道連れ)
+        self.assertNotIn(slayer, state.players[0].battle_zone)
+        self.assertNotIn(big, state.players[1].battle_zone)
+
+    def test_powered_breaker_scales_with_power(self) -> None:
+        self.assertEqual(make_card("PB", power=12000, text="■パワード・ブレイカー").breaker_count, 2)
+        self.assertEqual(make_card("PB", power=13000, text="■パワード・ブレイカー").breaker_count, 3)
+        self.assertEqual(make_card("PB", power=3000, text="■パワード・ブレイカー").breaker_count, 1)
+
+    def test_evolution_attacks_on_summon_turn(self) -> None:
+        evo = CreatureInstance(card=make_card("進化獣", text="■進化:火のクリーチャー"), summoned_turn=5)
+        self.assertTrue(evo.can_attack(5))
+
+
 class ExtraTurnTest(unittest.TestCase):
     def test_extra_turn_keeps_active_player(self) -> None:
         effects = {"追加ターン獣": [{"trigger": "on_play", "actions": [{"op": "extra_turn"}]}]}

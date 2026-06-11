@@ -226,7 +226,12 @@ class DuelEngine:
             for mana in payment:
                 mana.tapped = True
             if card.is_creature:
-                instance = CreatureInstance(card=card, summoned_turn=state.turn, temporary=card.bad_discount > 0)
+                instance = CreatureInstance(
+                    card=card,
+                    summoned_turn=state.turn,
+                    temporary=card.bad_discount > 0,
+                    tapped=card.enters_tapped,
+                )
                 player.battle_zone.append(instance)
                 self._record("summon", card=card.name, cost=pay_cost)
                 self.executor.run(self, state.active_index, "on_play", card)
@@ -235,6 +240,10 @@ class DuelEngine:
                 player.spells_cast_this_turn += 1
                 self._record("cast_spell", card=card.name, cost=pay_cost)
                 self.executor.run(self, state.active_index, "on_cast", card)
+                # チャージャー: 解決後、墓地ではなくマナゾーンへ
+                if card.is_charger and card in player.graveyard:
+                    player.graveyard.remove(card)
+                    player.mana_zone.append(make_mana_card(card))
             if state.finished:
                 return
 
@@ -312,6 +321,10 @@ class DuelEngine:
                 break
             shield = opponent.shields.pop()
             broken.append(shield.name)
+            # シールド焼却: 手札にもトリガーにもならず墓地へ
+            if attacker.card.is_shield_burner:
+                opponent.graveyard.append(shield)
+                continue
             # S・トリガー持ちは即時使用する(現状の命令セットは有利効果のみのため常に使用)
             if self.executor.has_trigger(shield, "s_trigger"):
                 self._record("s_trigger", card=shield.name)
@@ -333,9 +346,10 @@ class DuelEngine:
     ) -> None:
         attacker_power = attacker.card.attack_power
         defender_power = defender.card.power
-        if attacker_power >= defender_power:
+        # スレイヤーはパワーに関係なくバトル相手を破壊する
+        if attacker_power >= defender_power or attacker.card.is_slayer:
             self.destroy_creature(self.state.players.index(defending_player), defender)
-        if defender_power >= attacker_power:
+        if defender_power >= attacker_power or defender.card.is_slayer:
             self.destroy_creature(self.state.players.index(attacking_player), attacker)
         self._record(
             "battle",

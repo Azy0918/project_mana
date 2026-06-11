@@ -229,6 +229,26 @@ class NewOpsTest(unittest.TestCase):
         spell_side_only = make_card("呪文寄り", card_type="ツインパクト", power=0)
         self.assertFalse(spell_side_only.is_creature)
 
+    def test_discard_own_and_shield_to_hand_and_hand_to_mana(self) -> None:
+        effects = {
+            "代償": [{"trigger": "on_cast", "actions": [{"op": "discard_own_hand", "count": 1}]}],
+            "回収": [{"trigger": "on_cast", "actions": [{"op": "own_shield_to_hand", "count": 1}]}],
+            "埋め": [{"trigger": "on_cast", "actions": [{"op": "hand_to_mana", "count": 1}]}],
+        }
+        engine = make_engine(effects)
+        player = engine.state.players[0]
+        hand_before = len(player.hand)
+        engine.executor.run(engine, 0, "on_cast", make_card("代償", card_type="呪文"))
+        self.assertEqual(len(player.hand), hand_before - 1)
+
+        shields_before = len(player.shields)
+        engine.executor.run(engine, 0, "on_cast", make_card("回収", card_type="呪文"))
+        self.assertEqual(len(player.shields), shields_before - 1)
+
+        mana_before = len(player.mana_zone)
+        engine.executor.run(engine, 0, "on_cast", make_card("埋め", card_type="呪文"))
+        self.assertEqual(len(player.mana_zone), mana_before + 1)
+
     def test_untap_creature_self(self) -> None:
         effects = {"再起": [{"trigger": "on_cast", "actions": [{"op": "untap_creature", "count": 1, "scope": "self"}]}]}
         engine = make_engine(effects)
@@ -357,6 +377,42 @@ class NewDraftPatternsTest(unittest.TestCase):
         # プレイヤー攻撃は不可、クリーチャー攻撃のみ可能
         self.assertEqual(len(choices), 1)
         self.assertIsNotNone(choices[0].target_creature_index)
+
+    def test_power_down_approximated_as_capped_destroy(self) -> None:
+        script = self._draft("バトルゾーンに出た時、そのターン、相手のクリーチャー1体のパワーを-3000する。", card_type="クリーチャー")
+        action = script["abilities"][0]["actions"][0]
+        self.assertEqual(action["op"], "destroy_creature")
+        self.assertEqual(action["max_power"], 3000)
+
+    def test_self_sacrifice_converted(self) -> None:
+        script = self._draft("バトルゾーンに出た時、自分のクリーチャー1体を破壊する。", card_type="クリーチャー")
+        action = script["abilities"][0]["actions"][0]
+        self.assertEqual(action["op"], "destroy_creature")
+        self.assertEqual(action["scope"], "self")
+
+    def test_search_to_hand_approximated_as_draw(self) -> None:
+        script = self._draft(
+            "自分の山札の上から3枚を見る。その中から呪文1枚を公開してから手札に加えてもよい。"
+            "残りをランダムな順番で山札の一番下に置く。"
+        )
+        self.assertEqual(script["notes"], [])
+        self.assertEqual(self._ops(script), ["draw"])
+
+    def test_noop_riders_count_as_converted(self) -> None:
+        script = self._draft("山札の上から1枚目をマナゾーンに置く。その後、山札をシャッフルする。")
+        self.assertEqual(script["notes"], [])
+        self.assertEqual(self._ops(script), ["deck_top_to_mana"])
+
+    def test_keyword_lines_charger_slayer_powered(self) -> None:
+        script = generate_draft_effect_script(
+            {
+                "card_id": "K2",
+                "name": "キーワード盛り",
+                "card_type": "クリーチャー",
+                "text": "◇スレイヤー\n■パワード・ブレイカー\n■進化:火のクリーチャー",
+            }
+        )
+        self.assertEqual(script["notes"], [])
 
     def test_untap_pattern_excludes_opponent(self) -> None:
         script = self._draft("このクリーチャーをアンタップする。", card_type="クリーチャー")

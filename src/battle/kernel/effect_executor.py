@@ -176,6 +176,24 @@ class EffectExecutor:
                 opponent.graveyard.append(opponent.shields.pop())
         elif op == "extra_turn":
             engine.state.extra_turn_pending = True
+        elif op == "discard_own_hand":
+            for _ in range(count):
+                if not controller.hand:
+                    return
+                index = engine.rng.randrange(len(controller.hand))
+                controller.graveyard.append(controller.hand.pop(index))
+        elif op == "own_shield_to_hand":
+            for _ in range(count):
+                if not controller.shields:
+                    return
+                controller.hand.append(controller.shields.pop())
+        elif op == "hand_to_mana":
+            for _ in range(count):
+                if not controller.hand:
+                    return
+                target_card = max(controller.hand, key=lambda entry: entry.cost)
+                controller.hand.remove(target_card)
+                controller.mana_zone.append(make_mana_card(target_card))
         elif op == "untap_creature":
             target_player_index = self._target_player_index(controller_index, {"scope": action.get("scope", "self")})
             target_player = engine.state.players[target_player_index]

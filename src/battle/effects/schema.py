@@ -38,6 +38,9 @@ KNOWN_OPS: dict[str, set[str]] = {
     "summon_from_mana": {"count", "max_cost"},    # 自分のマナゾーンからバトルゾーンに出す
     "burn_opponent_shield": {"count"},            # 相手のシールドを墓地に置く(トリガーさせない)
     "extra_turn": set(),                          # このターンの後に自分のターンを追加する
+    "discard_own_hand": {"count"},                # 自分の手札をランダムに捨てる(コスト・代償)
+    "own_shield_to_hand": {"count"},              # 自分のシールドを手札に加える
+    "hand_to_mana": {"count"},                    # 自分の手札をマナゾーンに置く
 }
 
 KNOWN_SCOPES = {"opponent", "self"}

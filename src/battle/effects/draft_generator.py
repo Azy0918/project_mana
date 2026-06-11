@@ -18,7 +18,8 @@ ALL_COUNT = 99
 # カーネルが直接処理するキーワードのみの行(EffectScript変換不要=変換済み扱い)
 _KERNEL_KEYWORD_SENTENCE = re.compile(
     r"^(?:このクリーチャーは)?"
-    r"(?:S・トリガー|(?:ドラゴン・)?[WT]・ブレイカー|ブロッカー|スピードアタッカー"
+    r"(?:(?:スーパー・)?S・トリガー|(?:ドラゴン・)?[WT]・ブレイカー|パワード・ブレイカー"
+    r"|ブロッカー|スピードアタッカー|スレイヤー|チャージャー"
     r"|パワーアタッカー\s*\+?\s*\d+|マッハファイター"
     r"|ブロックされない|相手プレイヤーを攻撃できない|攻撃できない)"
     r"(?:を(?:持つ|得る))?$"
@@ -26,6 +27,22 @@ _KERNEL_KEYWORD_SENTENCE = re.compile(
 
 # ツインパクトの面区切りなど、効果ではない構造トークン行
 _STRUCTURAL_SENTENCE = re.compile(r"^【[^】]*】$")
+
+# 盤面影響がない(またはカーネルの近似で吸収する)注釈・骨組み文
+_NOOP_SENTENCE_PATTERNS = [
+    re.compile(r"山札をシャッフルする"),
+    re.compile(r"^ただし"),
+    re.compile(r"「S・トリガー」は使えない"),
+    re.compile(r"山札の上から\d*枚?を(見る|表向きにする)"),
+    re.compile(r"残りを.*山札の(一番)?下に置く"),
+    re.compile(r"^進化\s*[:：]"),  # 進化元条件はカーネルで無視する近似
+    re.compile(r"破壊される時、かわりに(マナゾーン|山札)"),
+    re.compile(r"このクリーチャーを破壊してもよい$"),  # 任意の自壊は「しない」を選ぶ近似
+    re.compile(r"バトルの後、このクリーチャーを破壊する"),  # 自壊デメリットは無視する近似
+    re.compile(r"次の相手のターン開始時にアンタップしない"),  # タップ延長は通常タップで近似
+    re.compile(r"^可能なら毎ターン(、相手プレイヤーを)?攻撃する$"),  # 方策は常に攻撃する
+    re.compile(r"手札に加えるかわりに墓地に置く"),  # シールド焼却はカーネルが処理
+]
 
 
 def _normalize_sentences(text: str) -> list[str]:
@@ -40,7 +57,9 @@ def _normalize_sentences(text: str) -> list[str]:
 
 
 def _is_kernel_keyword_sentence(sentence: str) -> bool:
-    return bool(_KERNEL_KEYWORD_SENTENCE.match(sentence)) or bool(_STRUCTURAL_SENTENCE.match(sentence))
+    if _KERNEL_KEYWORD_SENTENCE.match(sentence) or _STRUCTURAL_SENTENCE.match(sentence):
+        return True
+    return any(pattern.search(sentence) for pattern in _NOOP_SENTENCE_PATTERNS)
 
 
 def _extract_count(sentence: str) -> int:
@@ -73,6 +92,14 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         if power_match:
             action["max_power"] = int(power_match.group(1))
         actions.append(action)
+    elif re.search(r"自分のクリーチャー.*破壊", sentence):
+        actions.append({"op": "destroy_creature", "count": count, "scope": "self"})
+    # パワー低下は同値以下の破壊で近似(パワー0以下は破壊されるルール)
+    power_down = re.search(r"相手のクリーチャー.*パワーを\s*[-−]\s*(\d+)", sentence)
+    if power_down:
+        actions.append(
+            {"op": "destroy_creature", "count": count, "scope": "opponent", "max_power": int(power_down.group(1))}
+        )
     if "手札に戻" in sentence and "相手" in sentence:
         actions.append({"op": "bounce_creature", "count": count, "scope": "opponent"})
     if "タップ" in sentence and "相手" in sentence and "アンタップ" not in sentence:
@@ -85,6 +112,14 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "deck_top_to_grave", "count": count})
     if "墓地から" in sentence and re.search(r"手札に(戻|加え)", sentence):
         actions.append({"op": "grave_to_hand", "count": count})
+    elif (
+        "手札に加え" in sentence
+        and "相手" not in sentence
+        and "シールド" not in sentence
+        and "墓地" not in sentence
+    ):
+        # 山札からのサーチ・回収をドローで近似
+        actions.append({"op": "draw", "count": count})
     if "手札から" in sentence and re.search(r"(コストを)?支払わ(ずに|ない)", sentence) and "出す" in sentence:
         action = {"op": "summon_from_hand", "count": count}
         cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
@@ -95,6 +130,12 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "untap_creature", "count": count, "scope": "self"})
     if "相手のシールド" in sentence and "墓地に置" in sentence:
         actions.append({"op": "burn_opponent_shield", "count": count})
+    if re.search(r"自分の手札を(\d+枚)?捨てる", sentence):
+        actions.append({"op": "discard_own_hand", "count": count})
+    if "自分のシールド" in sentence and re.search(r"手札に(戻|加え)", sentence):
+        actions.append({"op": "own_shield_to_hand", "count": count})
+    if re.search(r"自分の手札.*マナゾーンに置", sentence):
+        actions.append({"op": "hand_to_mana", "count": count})
     return actions
 
 

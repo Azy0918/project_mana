@@ -60,6 +60,9 @@ def effective_cost(player: PlayerState, card: BattleCard) -> int:
     g_zero = card.g_zero_spell_count
     if g_zero is not None and player.spells_cast_this_turn >= g_zero:
         return 0
+    g_zero_grave = card.g_zero_grave_count
+    if g_zero_grave is not None and len(player.graveyard) >= g_zero_grave:
+        return 0
     cost = card.cost
     if card.is_creature:
         reduction = sum(creature.card.summon_cost_reduction for creature in player.battle_zone)

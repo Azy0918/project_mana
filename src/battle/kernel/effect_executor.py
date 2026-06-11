@@ -194,6 +194,14 @@ class EffectExecutor:
                 target_card = max(controller.hand, key=lambda entry: entry.cost)
                 controller.hand.remove(target_card)
                 controller.mana_zone.append(make_mana_card(target_card))
+        elif op == "mana_to_hand":
+            for _ in range(count):
+                untapped = [mana for mana in controller.mana_zone if not mana.tapped]
+                if not untapped:
+                    return
+                target_mana = max(untapped, key=lambda mana: (mana.card.cost, mana.card.power))
+                controller.mana_zone.remove(target_mana)
+                controller.hand.append(target_mana.card)
         elif op == "untap_creature":
             target_player_index = self._target_player_index(controller_index, {"scope": action.get("scope", "self")})
             target_player = engine.state.players[target_player_index]

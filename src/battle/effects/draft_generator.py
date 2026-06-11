@@ -35,8 +35,12 @@ _NOOP_SENTENCE_PATTERNS = [
     re.compile(r"「S・トリガー」は使えない"),
     re.compile(r"山札の上から\d*枚?を(見る|表向きにする)"),
     re.compile(r"残りを.*山札の(一番)?下に置く"),
-    re.compile(r"^進化\s*[:：]"),  # 進化元条件はカーネルで無視する近似
+    re.compile(r"^進化(V|GV)?\s*[:：\-−–-]"),  # 進化元条件はカーネルで無視する近似
+    re.compile(r"^侵略\s*[:：]"),  # 侵略は通常召喚のみで近似(無償の乗り換えは未対応)
     re.compile(r"破壊される時、かわりに(マナゾーン|山札)"),
+    re.compile(r"残りを.*山札の(一番)?上に置く"),
+    re.compile(r"バトル中、パワーを\+\d+する"),  # 条件付きパワー加算は無視する近似
+    re.compile(r"プレイヤーを攻撃できない$"),  # 条件付きでもカーネルは常時制限として処理
     re.compile(r"このクリーチャーを破壊してもよい$"),  # 任意の自壊は「しない」を選ぶ近似
     re.compile(r"バトルの後、このクリーチャーを破壊する"),  # 自壊デメリットは無視する近似
     re.compile(r"次の相手のターン開始時にアンタップしない"),  # タップ延長は通常タップで近似
@@ -110,6 +114,8 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "discard_opponent_hand", "count": count})
     if "山札の上" in sentence and "墓地に置" in sentence and "相手" not in sentence:
         actions.append({"op": "deck_top_to_grave", "count": count})
+    elif re.search(r"その中から\d*枚?を?墓地に置", sentence):
+        actions.append({"op": "deck_top_to_grave", "count": count})
     if "墓地から" in sentence and re.search(r"手札に(戻|加え)", sentence):
         actions.append({"op": "grave_to_hand", "count": count})
     elif (
@@ -136,6 +142,8 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "own_shield_to_hand", "count": count})
     if re.search(r"自分の手札.*マナゾーンに置", sentence):
         actions.append({"op": "hand_to_mana", "count": count})
+    if "マナゾーンから" in sentence and re.search(r"手札に(戻|加え)", sentence):
+        actions.append({"op": "mana_to_hand", "count": count})
     return actions
 
 

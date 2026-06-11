@@ -6,6 +6,7 @@ from typing import Any
 
 
 _G_ZERO_PATTERN = re.compile(r"G・ゼロ\s*[:：]\s*.*?呪文を(\d+)枚以上唱えたターン")
+_G_ZERO_GRAVE_PATTERN = re.compile(r"G・ゼロ\s*[:：]\s*.*?墓地に.*?(\d+)枚以上")
 _COST_REDUCTION_PATTERN = re.compile(r"コストを(\d+)少なくする")
 _BAD_PATTERN = re.compile(r"B・A・D(?:・S)?\s*(\d+)")
 
@@ -87,6 +88,14 @@ class BattleCard:
     def g_zero_spell_count(self) -> int | None:
         """G・ゼロ条件(このターン唱えた呪文の枚数)。なければNone。"""
         match = _G_ZERO_PATTERN.search(self.text)
+        if match:
+            return int(match.group(1))
+        return None
+
+    @property
+    def g_zero_grave_count(self) -> int | None:
+        """G・ゼロ条件(自分の墓地の枚数)。なければNone。"""
+        match = _G_ZERO_GRAVE_PATTERN.search(self.text)
         if match:
             return int(match.group(1))
         return None

@@ -378,6 +378,22 @@ class NewDraftPatternsTest(unittest.TestCase):
         self.assertEqual(len(choices), 1)
         self.assertIsNotNone(choices[0].target_creature_index)
 
+    def test_look_and_mill_pattern(self) -> None:
+        script = self._draft(
+            "バトルゾーンに出た時、自分の山札の上から2枚を見る。その中から1枚墓地に置き、残りを山札の一番上に置く。",
+            card_type="クリーチャー",
+        )
+        self.assertEqual(script["notes"], [])
+        self.assertIn("deck_top_to_grave", self._ops(script))
+
+    def test_evolution_hyphen_and_invasion_covered(self) -> None:
+        script = self._draft("■進化-自然のクリーチャー\n■侵略:光のクリーチャー\n■W・ブレイカー", card_type="進化クリーチャー")
+        self.assertEqual(script["notes"], [])
+
+    def test_mana_to_hand_pattern(self) -> None:
+        script = self._draft("自分のマナゾーンからクリーチャーを探索し、2枚を手札に戻す。")
+        self.assertIn("mana_to_hand", self._ops(script))
+
     def test_power_down_approximated_as_capped_destroy(self) -> None:
         script = self._draft("バトルゾーンに出た時、そのターン、相手のクリーチャー1体のパワーを-3000する。", card_type="クリーチャー")
         action = script["abilities"][0]["actions"][0]

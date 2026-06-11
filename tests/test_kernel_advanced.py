@@ -70,6 +70,23 @@ class GZeroTest(unittest.TestCase):
         self.assertEqual(player.spells_cast_this_turn, 1)
 
 
+class GZeroGraveTest(unittest.TestCase):
+    def test_grave_condition_makes_card_free(self) -> None:
+        from src.battle.kernel.engine import effective_cost
+
+        engine = make_engine()
+        player = engine.state.players[0]
+        card = make_card(
+            "墓地Gゼロ獣", cost=7,
+            text="■G・ゼロ:自分の墓地にクリーチャーが6枚以上あり、バトルゾーンに自分の同名がない",
+        )
+        self.assertEqual(card.g_zero_grave_count, 6)
+        player.graveyard = [make_card(f"墓{i}") for i in range(5)]
+        self.assertEqual(effective_cost(player, card), 7)
+        player.graveyard.append(make_card("墓5"))
+        self.assertEqual(effective_cost(player, card), 0)
+
+
 class CostReductionTest(unittest.TestCase):
     def test_reduction_parsed_and_applied(self) -> None:
         engine = make_engine()

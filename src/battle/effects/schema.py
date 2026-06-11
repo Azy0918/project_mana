@@ -41,6 +41,7 @@ KNOWN_OPS: dict[str, set[str]] = {
     "discard_own_hand": {"count"},                # 自分の手札をランダムに捨てる(コスト・代償)
     "own_shield_to_hand": {"count"},              # 自分のシールドを手札に加える
     "hand_to_mana": {"count"},                    # 自分の手札をマナゾーンに置く
+    "mana_to_hand": {"count"},                    # 自分のマナゾーンから手札に回収する
 }
 
 KNOWN_SCOPES = {"opponent", "self"}

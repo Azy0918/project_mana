@@ -40,6 +40,25 @@ def _simulated_win_rate(
     return wins / total if total else 0.0
 
 
+def _opponents_for_generation(
+    shuffled_meta: list[dict[str, Any]],
+    generation: int,
+    sim_opponents: int,
+    rotation_period: int = 1,
+) -> list[dict[str, Any]]:
+    """選別相手をローテーションする(スライディングウィンドウ)。
+
+    固定相手への過適合を抑えるため、全メタデッキが周期的に選別に登場する。
+    rotation_period 世代ごとに窓を1つずらす(毎世代の全交代は選別シグナルを
+    揺らして収束を遅らせるため、緩やかな交代を既定とする)。
+    """
+    if len(shuffled_meta) <= sim_opponents:
+        return shuffled_meta
+    window = (generation - 1) // max(1, rotation_period)
+    start = window % len(shuffled_meta)
+    return [shuffled_meta[(start + i) % len(shuffled_meta)] for i in range(sim_opponents)]
+
+
 def run_hybrid_search(
     db_path: Path = DEFAULT_DB_PATH,
     generations: int = 8,
@@ -49,12 +68,17 @@ def run_hybrid_search(
     sim_games: int = 30,
     sim_opponents: int = 3,
     sim_weight: float = 0.7,
+    rotate_opponents: bool = True,
+    rotation_period: int = 3,
 ) -> dict[str, Any]:
     """世代内選別に厳密シミュレーション勝率を使う進化探索。
 
     各候補を「対メタ勝率×100 × sim_weight + ヒューリスティック評価 × (1-sim_weight)」で
     採点する。ヒューリスティック単独では見逃される実戦的に強い候補を残すための探索
     (背景は docs/sim_findings_2026-06.md)。
+
+    rotate_opponents=True(既定)では選別相手を世代ごとにローテーションし、
+    特定の相手への過適合を抑える。Falseは固定相手(従来動作)。
     """
     rng = random.Random(seed)
     sim_weight = max(0.0, min(1.0, sim_weight))
@@ -68,10 +92,9 @@ def run_hybrid_search(
     meta_decks, warnings = load_meta_battle_decks(db_path)
     if not meta_decks:
         return {"best": None, "history": [], "warnings": warnings + ["対戦相手となるメタデッキがありません"]}
-    if len(meta_decks) > sim_opponents:
-        opponents = rng.sample(meta_decks, sim_opponents)
-    else:
-        opponents = meta_decks
+    shuffled_meta = meta_decks[:]
+    rng.shuffle(shuffled_meta)
+    fixed_opponents = shuffled_meta[: min(sim_opponents, len(shuffled_meta))]
     effects = load_approved_effects_map(db_path)
 
     population = [
@@ -84,6 +107,10 @@ def run_hybrid_search(
     elite_count = max(1, len(population) // 3)
 
     for generation in range(1, max(1, generations) + 1):
+        if rotate_opponents:
+            opponents = _opponents_for_generation(shuffled_meta, generation, sim_opponents, rotation_period)
+        else:
+            opponents = fixed_opponents
         evaluated = []
         for deck in population:
             heuristic = float(evaluate_deck(deck)["score"])
@@ -107,6 +134,7 @@ def run_hybrid_search(
                 "best_combined": top["combined_score"],
                 "best_sim_win_rate": top["sim_win_rate"],
                 "best_heuristic": top["heuristic_score"],
+                "opponents": [deck["deck_name"] for deck in opponents],
             }
         )
 
@@ -120,7 +148,8 @@ def run_hybrid_search(
     return {
         "best": best,
         "history": history,
-        "opponents": [deck["deck_name"] for deck in opponents],
+        "opponents": sorted({name for entry in history for name in entry["opponents"]}),
+        "rotate_opponents": rotate_opponents,
         "sim_weight": sim_weight,
         "sim_games": sim_games,
         "warnings": warnings,

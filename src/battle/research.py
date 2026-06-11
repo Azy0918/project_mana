@@ -167,6 +167,8 @@ def main(argv: list[str] | None = None) -> int:
     hybrid_parser.add_argument("--sim-opponents", type=int, default=3, help="世代内選別で使うメタデッキ数")
     hybrid_parser.add_argument("--sim-weight", type=float, default=0.7, help="シミュレーション勝率の比重(0-1)")
     hybrid_parser.add_argument("--civilizations", default=None, help="カンマ区切りの文明フィルタ")
+    hybrid_parser.add_argument("--no-rotate", action="store_true", help="選別相手の世代ローテーションを無効化(固定相手)")
+    hybrid_parser.add_argument("--rotation-period", type=int, default=3, help="選別相手を入れ替える世代間隔")
 
     sub.add_parser("validate-ratings", help="実戦ログの勝率とシミュレーション強さの相関を検証")
 
@@ -318,6 +320,8 @@ def main(argv: list[str] | None = None) -> int:
             sim_games=args.sim_games,
             sim_opponents=args.sim_opponents,
             sim_weight=args.sim_weight,
+            rotate_opponents=not args.no_rotate,
+            rotation_period=args.rotation_period,
         )
         for warning in search.get("warnings", []):
             print(f"warning: {warning}")
@@ -327,9 +331,11 @@ def main(argv: list[str] | None = None) -> int:
         for entry in search["history"]:
             print(
                 f'世代{entry["generation"]}: 合成 {entry["best_combined"]} '
-                f'(勝率 {entry["best_sim_win_rate"]:.1%} / ヒューリスティック {entry["best_heuristic"]})'
+                f'(勝率 {entry["best_sim_win_rate"]:.1%} / ヒューリスティック {entry["best_heuristic"]}) '
+                f'相手: {", ".join(entry["opponents"])}'
             )
-        print(f'選別時の対戦相手: {", ".join(search["opponents"])}')
+        rotation_label = "ローテーション" if search.get("rotate_opponents") else "固定"
+        print(f'選別相手({rotation_label}): {", ".join(search["opponents"])}')
         deck_name = "ハイブリッド探索_best"
         rating = rate_deck_against_meta(
             best["deck"], deck_name, db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects

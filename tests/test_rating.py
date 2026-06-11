@@ -129,6 +129,29 @@ class ChainValidatorTest(unittest.TestCase):
         self.assertTrue(rates[0] >= rates[1] >= rates[2])
 
 
+class OpponentRotationTest(unittest.TestCase):
+    def test_sliding_window_covers_all_decks(self) -> None:
+        from src.battle.hybrid_search import _opponents_for_generation
+
+        meta = [{"deck_name": f"D{i}"} for i in range(5)]
+        seen = set()
+        windows = []
+        for generation in range(1, 6):
+            opponents = _opponents_for_generation(meta, generation, 2)
+            self.assertEqual(len(opponents), 2)
+            windows.append(tuple(d["deck_name"] for d in opponents))
+            seen.update(d["deck_name"] for d in opponents)
+        # 5世代で全デッキが選別相手に登場し、ウィンドウは世代ごとに変わる
+        self.assertEqual(seen, {f"D{i}" for i in range(5)})
+        self.assertGreater(len(set(windows)), 1)
+
+    def test_small_meta_returns_all(self) -> None:
+        from src.battle.hybrid_search import _opponents_for_generation
+
+        meta = [{"deck_name": "D0"}, {"deck_name": "D1"}]
+        self.assertEqual(_opponents_for_generation(meta, 3, 3), meta)
+
+
 class HybridSearchTest(MetaRatingTest):
     def test_run_hybrid_search(self) -> None:
         import sqlite3 as sq

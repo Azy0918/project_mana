@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 
-_G_ZERO_PATTERN = re.compile(r"G・ゼロ[::].*?呪文を(\d+)枚以上唱えたターン")
+_G_ZERO_PATTERN = re.compile(r"G・ゼロ\s*[:：]\s*.*?呪文を(\d+)枚以上唱えたターン")
 _COST_REDUCTION_PATTERN = re.compile(r"コストを(\d+)少なくする")
 
 

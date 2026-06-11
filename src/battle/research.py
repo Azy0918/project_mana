@@ -15,6 +15,7 @@ from src.battle.effects.store import (
     regenerate_unapproved_drafts,
 )
 from src.battle.kernel.cards import BattleCard, battle_deck_from_dicts
+from src.battle.kernel.combo import ComboPolicy
 from src.battle.kernel.lookahead import LookaheadPolicy
 from src.battle.kernel.policy import GreedyPolicy, Policy
 from src.battle.rating.meta_rating import load_meta_battle_decks, rate_deck_against_meta
@@ -26,6 +27,7 @@ DEFAULT_REPORT_DIR = Path("data/reports/sim")
 POLICY_FACTORIES: dict[str, Callable[[], Policy]] = {
     "greedy": GreedyPolicy,
     "lookahead": LookaheadPolicy,
+    "combo": ComboPolicy,
 }
 
 

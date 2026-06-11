@@ -20,6 +20,16 @@ class Policy:
     def bind(self, engine: object) -> None:
         """エンジン構築時に呼ばれる。先読み方策が状態複製に使う(既定は何もしない)。"""
 
+    def choose_effect_target(
+        self,
+        state: "GameState",
+        player: "PlayerState",
+        op: str,
+        candidates: list["CreatureInstance"],
+    ) -> int | None:
+        """効果の対象クリーチャーを選ぶ。Noneなら実行器の既定(最大パワー)に任せる。"""
+        return None
+
     def choose_charge(self, state: "GameState", player: "PlayerState") -> int | None:
         raise NotImplementedError
 

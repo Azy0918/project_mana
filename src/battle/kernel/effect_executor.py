@@ -15,8 +15,8 @@ MAX_RESOLUTIONS_PER_CHAIN = 20
 class EffectExecutor:
     """承認済みEffectScriptをゲーム状態に対して実行する。
 
-    対象選択は現状ヒューリスティック(最大パワー優先)で行う。
-    方策(Policy)による対象選択はv2.0で導入する。
+    クリーチャー対象の効果はコントローラーの方策(choose_effect_target)に
+    対象選択を問い合わせ、未指定なら最大パワー優先のヒューリスティックで選ぶ。
     """
 
     def __init__(self, effects: dict[str, list[dict[str, Any]]] | None = None) -> None:
@@ -76,7 +76,7 @@ class EffectExecutor:
             target_player = engine.state.players[target_player_index]
             max_power = action.get("max_power")
             for _ in range(count):
-                target = self._pick_strongest(target_player.battle_zone, max_power=max_power)
+                target = self._select_target(engine, controller_index, op, target_player.battle_zone, max_power=max_power)
                 if target is None:
                     return
                 engine.destroy_creature(target_player_index, target)
@@ -84,7 +84,7 @@ class EffectExecutor:
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]
             for _ in range(count):
-                target = self._pick_strongest(target_player.battle_zone)
+                target = self._select_target(engine, controller_index, op, target_player.battle_zone)
                 if target is None:
                     return
                 target_player.battle_zone.remove(target)
@@ -94,7 +94,7 @@ class EffectExecutor:
             target_player = engine.state.players[target_player_index]
             for _ in range(count):
                 candidates = [creature for creature in target_player.battle_zone if not creature.tapped]
-                target = self._pick_strongest(candidates)
+                target = self._select_target(engine, controller_index, op, candidates)
                 if target is None:
                     return
                 target.tapped = True
@@ -144,7 +144,7 @@ class EffectExecutor:
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]
             for _ in range(count):
-                target = self._pick_strongest(target_player.battle_zone)
+                target = self._select_target(engine, controller_index, op, target_player.battle_zone)
                 if target is None:
                     return
                 target_player.battle_zone.remove(target)
@@ -181,10 +181,32 @@ class EffectExecutor:
             target_player = engine.state.players[target_player_index]
             for _ in range(count):
                 candidates = [creature for creature in target_player.battle_zone if creature.tapped]
-                target = self._pick_strongest(candidates)
+                target = self._select_target(engine, controller_index, op, candidates)
                 if target is None:
                     return
                 target.tapped = False
+
+    def _select_target(
+        self,
+        engine: "DuelEngine",
+        controller_index: int,
+        op: str,
+        creatures: list[CreatureInstance],
+        max_power: int | None = None,
+    ) -> CreatureInstance | None:
+        """効果対象をコントローラーの方策に問い合わせる。Noneなら最大パワー優先。"""
+        candidates = creatures
+        if max_power is not None:
+            candidates = [creature for creature in creatures if creature.card.power <= max_power]
+        if not candidates:
+            return None
+        policy = engine.policies[controller_index]
+        choice = policy.choose_effect_target(
+            engine.state, engine.state.players[controller_index], op, candidates
+        )
+        if choice is not None and 0 <= choice < len(candidates):
+            return candidates[choice]
+        return self._pick_strongest(candidates)
 
     @staticmethod
     def _target_player_index(controller_index: int, action: dict[str, Any]) -> int:

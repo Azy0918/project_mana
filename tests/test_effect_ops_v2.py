@@ -195,6 +195,34 @@ class NewOpsTest(unittest.TestCase):
         self.assertTrue(any(card.name == "トリガー獣" for card in opponent.graveyard))
         self.assertFalse(opponent.battle_zone)
 
+    def test_policy_chooses_effect_target(self) -> None:
+        # 方策が最弱対象を指定すれば、既定の最大パワー優先を上書きできる
+        class WeakestTarget(StubPolicy):
+            def choose_effect_target(self, state, player, op, candidates):
+                return min(range(len(candidates)), key=lambda i: candidates[i].card.power)
+
+        effects = {"除去": [{"trigger": "on_cast", "actions": [{"op": "destroy_creature", "count": 1, "scope": "opponent"}]}]}
+        engine = DuelEngine(make_deck(), make_deck(), WeakestTarget(), StubPolicy(), effects=effects)
+        opponent = engine.state.players[1]
+        weak = CreatureInstance(card=make_card("弱い", power=1000), summoned_turn=0)
+        strong = CreatureInstance(card=make_card("強い", power=9000), summoned_turn=0)
+        opponent.battle_zone.extend([weak, strong])
+        engine.executor.run(engine, 0, "on_cast", make_card("除去", card_type="呪文"))
+        self.assertNotIn(weak, opponent.battle_zone)
+        self.assertIn(strong, opponent.battle_zone)
+
+    def test_zero_cost_twinpact_gets_estimated_cost(self) -> None:
+        from src.battle.kernel.cards import battle_card_from_dict
+
+        card = battle_card_from_dict(
+            {"card_id": "T0", "name": "罠", "civilization": "自然", "cost": 0, "card_type": "ツインパクト", "power": "7000"}
+        )
+        self.assertEqual(card.cost, 7)
+        spell_side = battle_card_from_dict(
+            {"card_id": "T1", "name": "罠2", "civilization": "自然", "cost": 0, "card_type": "ツインパクト", "power": ""}
+        )
+        self.assertEqual(spell_side.cost, 2)
+
     def test_twinpact_with_power_is_creature(self) -> None:
         twinpact = make_card("両面", card_type="ツインパクト", power=4000)
         self.assertTrue(twinpact.is_creature)

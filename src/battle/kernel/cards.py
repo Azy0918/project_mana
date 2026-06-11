@@ -126,13 +126,20 @@ class BattleCard:
 
 
 def battle_card_from_dict(card: dict[str, Any]) -> BattleCard:
+    card_type = str(card.get("card_type", ""))
+    power = _parse_power(card.get("power"))
+    cost = int(card.get("cost") or 0)
+    # データ品質対策: コスト0登録のツインパクトはパワーからコストを推定する
+    # (実カードにコスト0は存在せず、放置すると毎ターン無償プレイになるため)
+    if cost <= 0 and "ツインパクト" in card_type:
+        cost = max(2, power // 1000)
     return BattleCard(
         card_id=str(card.get("card_id", "")),
         name=str(card.get("name", "")),
         civilizations=_split_civilizations(card.get("civilization")),
-        cost=int(card.get("cost") or 0),
-        card_type=str(card.get("card_type", "")),
-        power=_parse_power(card.get("power")),
+        cost=cost,
+        card_type=card_type,
+        power=power,
         text=str(card.get("text", "") or ""),
         tags=_split_tags(card.get("tags")),
     )

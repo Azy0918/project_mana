@@ -19,13 +19,24 @@ KNOWN_TRIGGERS = {
     "on_destroyed",  # 破壊された時
 }
 
-# 命令セット第1弾(ロードマップv1.2)。op名 -> 許可パラメータ(必須は count のみ)
+# 命令セット。op名 -> 許可パラメータ(countは省略時1)
 KNOWN_OPS: dict[str, set[str]] = {
+    # 第1弾(v1.2)
     "draw": {"count"},
     "deck_top_to_mana": {"count"},
     "destroy_creature": {"count", "scope", "max_power"},
     "bounce_creature": {"count", "scope"},
     "tap_creature": {"count", "scope"},
+    # 第2弾
+    "add_shield": {"count"},                      # 山札の上をシールドゾーンへ
+    "discard_opponent_hand": {"count"},           # 相手の手札をランダムに捨てさせる
+    "deck_top_to_grave": {"count"},               # 自分の山札の上を墓地へ(墓地肥やし)
+    "grave_to_hand": {"count"},                   # 自分の墓地から手札へ回収
+    "summon_from_hand": {"count", "max_cost"},    # 手札からコストを支払わずに出す(踏み倒し)
+    "untap_creature": {"count", "scope"},         # クリーチャーをアンタップ
+    "send_creature_to_mana": {"count", "scope"},  # クリーチャーをマナゾーンへ送る(マナ送り除去)
+    "summon_from_mana": {"count", "max_cost"},    # 自分のマナゾーンからバトルゾーンに出す
+    "burn_opponent_shield": {"count"},            # 相手のシールドを墓地に置く(トリガーさせない)
 }
 
 KNOWN_SCOPES = {"opponent", "self"}
@@ -78,4 +89,7 @@ def _validate_action(action: Any, prefix: str) -> list[str]:
     max_power = action.get("max_power")
     if max_power is not None and (not isinstance(max_power, int) or max_power < 0):
         errors.append(f"{prefix}: max_powerは0以上の整数で指定してください")
+    max_cost = action.get("max_cost")
+    if max_cost is not None and (not isinstance(max_cost, int) or max_cost < 0):
+        errors.append(f"{prefix}: max_costは0以上の整数で指定してください")
     return errors

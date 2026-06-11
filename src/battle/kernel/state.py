@@ -12,6 +12,11 @@ class ManaCard:
     tapped: bool = False
 
 
+def make_mana_card(card: BattleCard) -> ManaCard:
+    """マナゾーンに置くカードを作る。多色カードはタップして置かれる。"""
+    return ManaCard(card=card, tapped=card.is_multicolor)
+
+
 @dataclass
 class CreatureInstance:
     card: BattleCard
@@ -22,6 +27,10 @@ class CreatureInstance:
         if self.tapped:
             return False
         return self.summoned_turn < current_turn or self.card.is_speed_attacker
+
+    def can_attack_creature(self, current_turn: int) -> bool:
+        # マッハファイターは出たターンでもクリーチャーには攻撃できる
+        return self.can_attack(current_turn) or (not self.tapped and self.card.is_mach_fighter)
 
 
 @dataclass

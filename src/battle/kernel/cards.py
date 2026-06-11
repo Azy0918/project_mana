@@ -38,7 +38,10 @@ class BattleCard:
 
     @property
     def is_creature(self) -> bool:
-        return "クリーチャー" in self.card_type
+        if "クリーチャー" in self.card_type:
+            return True
+        # ツインパクトはパワーを持てばクリーチャー面で運用する
+        return "ツインパクト" in self.card_type and self.power > 0
 
     @property
     def is_spell(self) -> bool:
@@ -51,6 +54,29 @@ class BattleCard:
     @property
     def is_speed_attacker(self) -> bool:
         return "スピードアタッカー" in self.tags or "スピードアタッカー" in self.text
+
+    @property
+    def is_mach_fighter(self) -> bool:
+        return "マッハファイター" in self.tags or "マッハファイター" in self.text
+
+    @property
+    def cannot_attack_player(self) -> bool:
+        return "プレイヤーを攻撃できない" in self.text
+
+    @property
+    def cannot_attack(self) -> bool:
+        # 「相手プレイヤーを攻撃できない」は部分制限なので全面攻撃禁止とは区別する
+        if self.cannot_attack_player:
+            return False
+        return "攻撃できない" in self.text
+
+    @property
+    def is_unblockable(self) -> bool:
+        return "ブロックされない" in self.text
+
+    @property
+    def is_multicolor(self) -> bool:
+        return len(self.civilizations) > 1
 
     @property
     def power_attacker_bonus(self) -> int:

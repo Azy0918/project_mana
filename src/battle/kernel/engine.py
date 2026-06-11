@@ -7,7 +7,7 @@ from typing import Any
 from src.battle.kernel.cards import BattleCard
 from src.battle.kernel.effect_executor import EffectExecutor
 from src.battle.kernel.policy import AttackChoice, Policy
-from src.battle.kernel.state import CreatureInstance, GameState, ManaCard, PlayerState
+from src.battle.kernel.state import CreatureInstance, GameState, ManaCard, PlayerState, make_mana_card
 
 OPENING_HAND = 5
 SHIELD_COUNT = 5
@@ -143,7 +143,7 @@ class DuelEngine:
         charge_index = policy.choose_charge(state, player)
         if charge_index is not None and 0 <= charge_index < len(player.hand):
             card = player.hand.pop(charge_index)
-            player.mana_zone.append(ManaCard(card=card))
+            player.mana_zone.append(make_mana_card(card))
             self._record("charge", card=card.name)
 
         self._main_phase(player, policy)
@@ -214,12 +214,14 @@ class DuelEngine:
         choices: list[AttackChoice] = []
         opponent = state.opponent
         for index, creature in enumerate(player.battle_zone):
-            if not creature.can_attack(state.turn):
+            if creature.card.cannot_attack:
                 continue
-            choices.append(AttackChoice(attacker_index=index, target_creature_index=None))
-            for target_index, target in enumerate(opponent.battle_zone):
-                if target.tapped:
-                    choices.append(AttackChoice(attacker_index=index, target_creature_index=target_index))
+            if creature.can_attack(state.turn) and not creature.card.cannot_attack_player:
+                choices.append(AttackChoice(attacker_index=index, target_creature_index=None))
+            if creature.can_attack_creature(state.turn):
+                for target_index, target in enumerate(opponent.battle_zone):
+                    if target.tapped:
+                        choices.append(AttackChoice(attacker_index=index, target_creature_index=target_index))
         return choices
 
     def _resolve_attack(self, player: PlayerState, attack: AttackChoice) -> None:
@@ -233,7 +235,7 @@ class DuelEngine:
         if state.finished or attacker not in player.battle_zone:
             return
 
-        blockers = opponent.untapped_blockers()
+        blockers = [] if attacker.card.is_unblockable else opponent.untapped_blockers()
         if blockers:
             blocker_choice = opponent_policy.choose_blocker(state, opponent, attack, blockers)
             if blocker_choice is not None and 0 <= blocker_choice < len(blockers):

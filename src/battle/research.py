@@ -7,10 +7,12 @@ from pathlib import Path
 from typing import Any, Callable
 
 from src.battle.effects.store import (
+    apply_curated_scripts,
     approve_clean_drafts,
     coverage_summary,
     generate_drafts_for_missing_cards,
     load_approved_effects_map,
+    regenerate_unapproved_drafts,
 )
 from src.battle.kernel.cards import BattleCard, battle_deck_from_dicts
 from src.battle.kernel.lookahead import LookaheadPolicy
@@ -156,9 +158,13 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "prepare-effects":
         created = generate_drafts_for_missing_cards(args.db)
+        regenerated = regenerate_unapproved_drafts(args.db)
         approved = approve_clean_drafts(args.db)
+        curated, missing = apply_curated_scripts(db_path=args.db)
         summary = coverage_summary(args.db)
-        print(f"下書き生成: {created}件 / 一括承認: {approved}件")
+        print(f"下書き生成: {created}件 / 再生成: {regenerated}件 / 一括承認: {approved}件 / キュレーション適用: {curated}件")
+        for name in missing:
+            print(f"warning: キュレーション対象が見つかりません: {name}")
         print(
             f'登録率: {summary["registered_rate"]:.1%} / 承認済み率: {summary["approved_rate"]:.1%} '
             f'(全{summary["total_cards"]}カード, 状態内訳: {summary["status_counts"]})'

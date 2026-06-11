@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Any
 
 from src.battle.kernel.cards import BattleCard
-from src.battle.kernel.state import CreatureInstance, ManaCard, PlayerState
+from src.battle.kernel.state import CreatureInstance, ManaCard, PlayerState, make_mana_card
 
 if TYPE_CHECKING:
     from src.battle.kernel.engine import DuelEngine
@@ -70,7 +70,7 @@ class EffectExecutor:
             for _ in range(count):
                 if not controller.deck:
                     return
-                controller.mana_zone.append(ManaCard(card=controller.deck.pop(0)))
+                controller.mana_zone.append(make_mana_card(controller.deck.pop(0)))
         elif op == "destroy_creature":
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]
@@ -98,6 +98,91 @@ class EffectExecutor:
                 if target is None:
                     return
                 target.tapped = True
+        elif op == "add_shield":
+            for _ in range(count):
+                if not controller.deck:
+                    return
+                controller.shields.append(controller.deck.pop(0))
+        elif op == "discard_opponent_hand":
+            opponent = engine.state.players[1 - controller_index]
+            for _ in range(count):
+                if not opponent.hand:
+                    return
+                index = engine.rng.randrange(len(opponent.hand))
+                opponent.graveyard.append(opponent.hand.pop(index))
+        elif op == "deck_top_to_grave":
+            for _ in range(count):
+                if not controller.deck:
+                    return
+                controller.graveyard.append(controller.deck.pop(0))
+        elif op == "grave_to_hand":
+            for _ in range(count):
+                if not controller.graveyard:
+                    return
+                target_card = max(controller.graveyard, key=lambda entry: entry.cost)
+                controller.graveyard.remove(target_card)
+                controller.hand.append(target_card)
+        elif op == "summon_from_hand":
+            max_cost = action.get("max_cost")
+            for _ in range(count):
+                candidates = [
+                    entry
+                    for entry in controller.hand
+                    if entry.is_creature and (max_cost is None or entry.cost <= max_cost)
+                ]
+                if not candidates:
+                    return
+                target_card = max(candidates, key=lambda entry: (entry.cost, entry.power))
+                controller.hand.remove(target_card)
+                controller.battle_zone.append(
+                    CreatureInstance(card=target_card, summoned_turn=engine.state.turn)
+                )
+                self.run(engine, controller_index, "on_play", target_card)
+                if engine.state.finished:
+                    return
+        elif op == "send_creature_to_mana":
+            target_player_index = self._target_player_index(controller_index, action)
+            target_player = engine.state.players[target_player_index]
+            for _ in range(count):
+                target = self._pick_strongest(target_player.battle_zone)
+                if target is None:
+                    return
+                target_player.battle_zone.remove(target)
+                target_player.mana_zone.append(make_mana_card(target.card))
+        elif op == "summon_from_mana":
+            max_cost = action.get("max_cost")
+            for _ in range(count):
+                candidates = [
+                    mana
+                    for mana in controller.mana_zone
+                    if mana.card.is_creature and (max_cost is None or mana.card.cost <= max_cost)
+                ]
+                if not candidates:
+                    return
+                target_mana = max(candidates, key=lambda mana: (mana.card.cost, mana.card.power))
+                controller.mana_zone.remove(target_mana)
+                controller.battle_zone.append(
+                    CreatureInstance(card=target_mana.card, summoned_turn=engine.state.turn)
+                )
+                self.run(engine, controller_index, "on_play", target_mana.card)
+                if engine.state.finished:
+                    return
+        elif op == "burn_opponent_shield":
+            opponent = engine.state.players[1 - controller_index]
+            for _ in range(count):
+                if not opponent.shields:
+                    return
+                # 墓地に置く=手札に加えずS・トリガーも使わせない
+                opponent.graveyard.append(opponent.shields.pop())
+        elif op == "untap_creature":
+            target_player_index = self._target_player_index(controller_index, {"scope": action.get("scope", "self")})
+            target_player = engine.state.players[target_player_index]
+            for _ in range(count):
+                candidates = [creature for creature in target_player.battle_zone if creature.tapped]
+                target = self._pick_strongest(candidates)
+                if target is None:
+                    return
+                target.tapped = False
 
     @staticmethod
     def _target_player_index(controller_index: int, action: dict[str, Any]) -> int:

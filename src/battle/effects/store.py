@@ -155,6 +155,31 @@ def generate_drafts_for_missing_cards(db_path: Path = DEFAULT_DB_PATH) -> int:
     return created
 
 
+def regenerate_unapproved_drafts(db_path: Path = DEFAULT_DB_PATH) -> int:
+    """draft状態のスクリプトを最新の下書き生成ロジックで作り直す。
+
+    approved / rejected は人手・自動承認済みの判断として保持する。
+    命令セットや抽出パターンを拡張した後に呼ぶことで変換率を引き上げる。
+    """
+    ensure_card_effects_table(db_path)
+    with sqlite3.connect(db_path) as conn:
+        conn.row_factory = sqlite3.Row
+        rows = conn.execute(
+            """
+            SELECT c.card_id, c.name, c.civilization, c.cost, c.card_type, c.power, c.text
+            FROM cards c
+            JOIN card_effects e ON e.card_id = c.card_id
+            WHERE e.review_status = 'draft'
+            """
+        ).fetchall()
+    updated = 0
+    for row in rows:
+        script = generate_draft_effect_script(dict(row))
+        if not upsert_effect_script(script, review_status="draft", db_path=db_path):
+            updated += 1
+    return updated
+
+
 def approve_clean_drafts(db_path: Path = DEFAULT_DB_PATH) -> int:
     """テキストを完全変換できた下書き(notesが警告なし)を一括承認する。
 
@@ -173,6 +198,47 @@ def approve_clean_drafts(db_path: Path = DEFAULT_DB_PATH) -> int:
             (datetime.now().isoformat(timespec="seconds"), *CLEAN_NOTES),
         )
         return cursor.rowcount
+
+
+DEFAULT_CURATED_DIR = ROOT_DIR / "data" / "effect_scripts"
+
+
+def apply_curated_scripts(
+    curated_dir: Path = DEFAULT_CURATED_DIR,
+    db_path: Path = DEFAULT_DB_PATH,
+) -> tuple[int, list[str]]:
+    """カード名キーのキュレーション済みEffectScriptを承認済みとして適用する。
+
+    curated_dir/*.json の各ファイルは [{"name": カード名, "abilities": [...], "note": 任意}] 形式。
+    自動変換できない複雑カードへの人手(またはAI)による近似定義を、再生成後も常に上書き適用する。
+    戻り値は (適用したカード数, 見つからなかったカード名)。
+    """
+    if not curated_dir.exists():
+        return 0, []
+    ensure_card_effects_table(db_path)
+    applied = 0
+    missing: list[str] = []
+    with sqlite3.connect(db_path) as conn:
+        for json_file in sorted(curated_dir.glob("*.json")):
+            entries = json.loads(json_file.read_text(encoding="utf-8"))
+            for entry in entries:
+                name = entry["name"]
+                card_ids = [
+                    row[0] for row in conn.execute("SELECT card_id FROM cards WHERE name = ?", (name,))
+                ]
+                if not card_ids:
+                    missing.append(name)
+                    continue
+                for card_id in card_ids:
+                    script = {
+                        "card_id": card_id,
+                        "name": name,
+                        "abilities": entry.get("abilities", []),
+                        "notes": [f"キュレーション適用: {entry.get('note', '')}".rstrip(": ")],
+                    }
+                    if not upsert_effect_script(script, review_status="approved", db_path=db_path):
+                        applied += 1
+    return applied, missing
 
 
 def coverage_summary(db_path: Path = DEFAULT_DB_PATH) -> dict[str, Any]:

@@ -8,6 +8,7 @@ from pathlib import Path
 from src.battle.effects.draft_generator import generate_draft_effect_script
 from src.battle.effects.schema import validate_effect_script
 from src.battle.effects.store import (
+    apply_curated_scripts,
     approve_clean_drafts,
     coverage_summary,
     generate_drafts_for_missing_cards,
@@ -160,6 +161,36 @@ class StoreTest(unittest.TestCase):
         self.assertIsNone(get_effect_script("C3", db_path=self.db_path, approved_only=True))
         # 再実行しても追加承認なし
         self.assertEqual(approve_clean_drafts(db_path=self.db_path), 0)
+
+    def test_apply_curated_scripts(self) -> None:
+        import json as json_module
+
+        curated_dir = Path(self._tmpdir.name) / "effect_scripts"
+        curated_dir.mkdir()
+        (curated_dir / "test.json").write_text(
+            json_module.dumps(
+                [
+                    {
+                        "name": "マナ加速",
+                        "abilities": [{"trigger": "on_cast", "actions": [{"op": "draw", "count": 1}]}],
+                        "note": "テスト用近似",
+                    },
+                    {"name": "存在しない名前", "abilities": []},
+                ],
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+        applied, missing = apply_curated_scripts(curated_dir, db_path=self.db_path)
+        self.assertEqual(applied, 1)
+        self.assertEqual(missing, ["存在しない名前"])
+        # キュレーションは承認済みとして適用され、再生成でも上書きされない
+        script = get_effect_script("C1", db_path=self.db_path, approved_only=True)
+        self.assertIsNotNone(script)
+        self.assertEqual(script["abilities"][0]["actions"][0]["op"], "draw")
+        self.assertEqual(generate_drafts_for_missing_cards(db_path=self.db_path), 1)  # C2のみ
+        script_after = get_effect_script("C1", db_path=self.db_path, approved_only=True)
+        self.assertEqual(script_after["abilities"], script["abilities"])
 
     def test_generate_drafts_and_coverage(self) -> None:
         created = generate_drafts_for_missing_cards(db_path=self.db_path)

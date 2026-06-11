@@ -6,7 +6,7 @@ from typing import Any
 
 from src.battle.kernel.cards import BattleCard, battle_deck_from_dicts
 from src.battle.kernel.engine import select_mana_payment
-from src.battle.kernel.state import ManaCard
+from src.battle.kernel.state import ManaCard, make_mana_card
 
 OPENING_HAND = 5
 
@@ -58,7 +58,7 @@ def _simulate_once(
 
         charge = _charge_index(hand, len(mana_zone))
         if charge is not None:
-            mana_zone.append(ManaCard(card=hand.pop(charge)))
+            mana_zone.append(make_mana_card(hand.pop(charge)))
 
         # 出せる限り実コストを支払ってプレイする(高コスト優先)
         while True:
@@ -88,7 +88,7 @@ def _simulate_once(
                 elif action["op"] == "deck_top_to_mana":
                     for _ in range(count):
                         if library:
-                            mana_zone.append(ManaCard(card=library.pop(0)))
+                            mana_zone.append(make_mana_card(library.pop(0)))
 
     return {
         "first_play_turn": first_play_turn,

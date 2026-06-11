@@ -171,6 +171,12 @@ def main(argv: list[str] | None = None) -> int:
     hybrid_parser.add_argument("--rotation-period", type=int, default=3, help="選別相手を入れ替える世代間隔")
     hybrid_parser.add_argument("--no-save", action="store_true", help="成果デッキをgenerated_decksに保存しない")
 
+    expand_parser = sub.add_parser("meta-expand", help="探索勝者を相手プールへ昇格させる自己対戦型メタ拡充(PSRO方式)")
+    expand_parser.add_argument("--rounds", type=int, default=3, help="拡充ラウンド数")
+    expand_parser.add_argument("--threshold", type=float, default=55.0, help="昇格に必要な絶対強さスコア")
+    expand_parser.add_argument("--generations", type=int, default=10)
+    expand_parser.add_argument("--population", type=int, default=14)
+
     sub.add_parser("validate-ratings", help="実戦ログの勝率とシミュレーション強さの相関を検証")
 
     bench_parser = sub.add_parser("benchmark-policies", help="ミラーマッチで方策同士を比較")
@@ -376,6 +382,45 @@ def main(argv: list[str] | None = None) -> int:
                 db_path=args.db,
             )
             print(f"generated_decksに保存しました: id={deck_id}(アプリの生成デッキ一覧 / rate-generated --id {deck_id} で参照可)")
+        return 0
+
+    if args.command == "meta-expand":
+        from src.battle.hybrid_search import run_hybrid_search, save_to_generated_decks
+        from src.battle.rating.meta_rating import add_deck_to_meta_pool
+
+        for round_index in range(1, args.rounds + 1):
+            pool, _w = load_meta_battle_decks(args.db)
+            print(f"\n=== ラウンド{round_index}: 相手プール {len(pool)}デッキ ===")
+            round_seed = None if args.seed is None else args.seed + round_index * 1000
+            search = run_hybrid_search(
+                db_path=args.db,
+                generations=args.generations,
+                population_size=args.population,
+                seed=round_seed,
+            )
+            best = search.get("best")
+            if best is None:
+                print("探索が候補を返しませんでした。中断します。")
+                return 1
+            rating = rate_deck_against_meta(
+                best["deck"], f"自己対戦R{round_index}", db_path=args.db,
+                games_per_pair=args.games, seed=round_seed, effects=effects, save=False,
+            )
+            score = rating["strength_score"]
+            print(f"勝者の絶対強さスコア: {score}(昇格閾値 {args.threshold})")
+            if score is None or score < args.threshold:
+                print("閾値未満のため昇格せず終了します(メタが探索に対して飽和)。")
+                break
+            deck_name = f"自己対戦デッキR{round_index} (強さ{score})"
+            added = add_deck_to_meta_pool(best["deck"], deck_name, db_path=args.db)
+            save_to_generated_decks(
+                best["deck"], deck_name,
+                f"meta-expandラウンド{round_index}の昇格デッキ。昇格時スコア {score}",
+                db_path=args.db,
+            )
+            print(f"相手プールへ昇格: {deck_name}({added}種)")
+        pool, _w = load_meta_battle_decks(args.db)
+        print(f"\n最終的な相手プール: {len(pool)}デッキ: {', '.join(d['deck_name'] for d in pool)}")
         return 0
 
     if args.command == "validate-ratings":

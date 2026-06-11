@@ -66,6 +66,36 @@ def load_meta_battle_decks(
     return results, warnings
 
 
+def add_deck_to_meta_pool(
+    deck: list[dict[str, Any]],
+    deck_name: str,
+    db_path: Path = DEFAULT_DB_PATH,
+    source_name: str = "self_play",
+) -> int:
+    """デッキを対戦相手プール(meta_deck_cards)に登録する。
+
+    探索で発見した強デッキを相手プールへ昇格させる自己対戦型メタ拡充に使う。
+    同名デッキが既に登録済みなら何もしない。戻り値は登録したカード行数。
+    """
+    with sqlite3.connect(db_path) as conn:
+        exists = conn.execute(
+            "SELECT COUNT(*) FROM meta_deck_cards WHERE deck_name = ?", (deck_name,)
+        ).fetchone()[0]
+        if exists:
+            return 0
+        inserted = 0
+        for card in deck:
+            conn.execute(
+                """
+                INSERT INTO meta_deck_cards (deck_name, format, source_url, card_name, count, raw_line, imported_at)
+                VALUES (?, 'SIM', ?, ?, ?, '', datetime('now'))
+                """,
+                (deck_name, source_name, card["name"], int(card.get("quantity", 1))),
+            )
+            inserted += 1
+        return inserted
+
+
 def rate_deck_against_meta(
     deck: list[dict[str, Any]],
     deck_name: str,

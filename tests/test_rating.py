@@ -129,6 +129,30 @@ class ChainValidatorTest(unittest.TestCase):
         self.assertTrue(rates[0] >= rates[1] >= rates[2])
 
 
+class MetaPoolExpansionTest(MetaRatingTest):
+    def test_add_deck_to_meta_pool(self) -> None:
+        from src.battle.rating.meta_rating import add_deck_to_meta_pool
+
+        deck = deck_dicts("M", "火")
+        # カード名がcardsテーブルと一致するように既存メタカード名を使う
+        deck = [
+            {"card_id": f"M{i}", "name": f"メタカード{i}", "civilization": "火", "cost": 2,
+             "card_type": "クリーチャー", "power": 2000, "quantity": 4}
+            for i in range(10)
+        ]
+        added = add_deck_to_meta_pool(deck, "自己対戦テスト", db_path=self.db_path)
+        self.assertEqual(added, 10)
+        # 同名は再登録しない
+        self.assertEqual(add_deck_to_meta_pool(deck, "自己対戦テスト", db_path=self.db_path), 0)
+        decks, warnings = load_meta_battle_decks(self.db_path)
+        names = {d["deck_name"] for d in decks}
+        self.assertIn("自己対戦テスト", names)
+        self.assertIn("火速攻", names)
+        promoted = next(d for d in decks if d["deck_name"] == "自己対戦テスト")
+        self.assertEqual(promoted["coverage"], 1.0)
+        self.assertEqual(promoted["total_cards"], 40)
+
+
 class OpponentRotationTest(unittest.TestCase):
     def test_sliding_window_covers_all_decks(self) -> None:
         from src.battle.hybrid_search import _opponents_for_generation

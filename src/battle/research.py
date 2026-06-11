@@ -149,6 +149,9 @@ def main(argv: list[str] | None = None) -> int:
     rate_parser.add_argument("deck_file", type=Path, help="デッキJSONファイル")
     rate_parser.add_argument("--name", default=None, help="デッキ名(省略時はファイル名)")
 
+    rate_gen_parser = sub.add_parser("rate-generated", help="保存済み生成デッキをメタ総当たりで強さ判定")
+    rate_gen_parser.add_argument("--id", type=int, default=None, help="generated_decksのID(省略時は一覧を表示)")
+
     bench_parser = sub.add_parser("benchmark-policies", help="ミラーマッチで方策同士を比較")
     bench_parser.add_argument("--deck-file", type=Path, default=None, help="デッキJSON(省略時は最初のメタデッキ)")
     bench_parser.add_argument("--policy-a", choices=sorted(POLICY_FACTORIES), default="lookahead")
@@ -194,6 +197,44 @@ def main(argv: list[str] | None = None) -> int:
             deck, deck_name, db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects
         )
         path = write_report(result, f"rate_{deck_name}", args.report_dir)
+        print(f"report: {path}")
+        print(f'絶対強さスコア: {result["strength_score"]}')
+        for detail in result["details"]:
+            print(f'  vs {detail["opponent"]}: {detail["win_rate"]:.1%}')
+        for warning in result["warnings"]:
+            print(f"warning: {warning}")
+        return 0
+
+    if args.command == "rate-generated":
+        import sqlite3
+
+        with sqlite3.connect(args.db) as conn:
+            conn.row_factory = sqlite3.Row
+            if args.id is None:
+                rows = conn.execute(
+                    "SELECT id, deck_name, created_at, evaluation_score FROM generated_decks ORDER BY id DESC LIMIT 30"
+                ).fetchall()
+                if not rows:
+                    print("保存済みの生成デッキがありません。")
+                    return 1
+                for row in rows:
+                    print(f'id={row["id"]} {row["deck_name"]} (評価{row["evaluation_score"]}, {row["created_at"]})')
+                print("\n--id を指定すると強さ判定を実行します。")
+                return 0
+            row = conn.execute(
+                "SELECT deck_name, deck_cards_json FROM generated_decks WHERE id = ?", (args.id,)
+            ).fetchone()
+        if row is None:
+            print(f"id={args.id} の生成デッキが見つかりません。")
+            return 1
+        deck = json.loads(row["deck_cards_json"] or "[]")
+        if not deck:
+            print(f"id={args.id} のデッキリストが空です。")
+            return 1
+        result = rate_deck_against_meta(
+            deck, row["deck_name"], db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects
+        )
+        path = write_report(result, f'rate_generated_{args.id}', args.report_dir)
         print(f"report: {path}")
         print(f'絶対強さスコア: {result["strength_score"]}')
         for detail in result["details"]:

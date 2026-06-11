@@ -60,4 +60,5 @@ python -m src.battle.research --games 100 --seed 5 meta-tournament
 2. 効果対象選択のPolicy化(現状は最大パワー固定)
 3. コスト軽減の近似(例: 条件を無視した固定軽減)
 4. ツインパクトのコスト0データ修正(取り込み側)
-5. 生成デッキ(generated_decks)を research CLI から直接レーティングする入口
+5. ~~生成デッキ(generated_decks)を research CLI から直接レーティングする入口~~
+   → 実装済み: `python -m src.battle.research rate-generated`(一覧)、`--id N` で判定実行

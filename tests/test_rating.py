@@ -129,7 +129,47 @@ class ChainValidatorTest(unittest.TestCase):
         self.assertTrue(rates[0] >= rates[1] >= rates[2])
 
 
-class ApplySimStrengthTest(unittest.TestCase):
+class HybridSearchTest(MetaRatingTest):
+    def test_run_hybrid_search(self) -> None:
+        import sqlite3 as sq
+
+        with sq.connect(self.db_path) as conn:
+            conn.execute("CREATE TABLE IF NOT EXISTS card_tags (card_id TEXT, tag TEXT)")
+        from src.battle.hybrid_search import run_hybrid_search
+
+        result = run_hybrid_search(
+            db_path=self.db_path,
+            generations=2,
+            population_size=4,
+            seed=1,
+            sim_games=4,
+            sim_opponents=1,
+            sim_weight=0.7,
+        )
+        best = result["best"]
+        self.assertIsNotNone(best)
+        self.assertEqual(sum(int(c.get("quantity", 1)) for c in best["deck"]), 40)
+        self.assertEqual(len(result["history"]), 2)
+        self.assertGreaterEqual(best["combined_score"], 0)
+        self.assertEqual(result["opponents"], ["火速攻"])
+
+    def test_hybrid_search_without_meta_decks(self) -> None:
+        import sqlite3 as sq
+
+        empty_db = Path(self._tmpdir.name) / "empty2.db"
+        with sq.connect(empty_db) as conn:
+            conn.execute("CREATE TABLE cards (card_id TEXT, name TEXT, civilization TEXT, cost INTEGER, card_type TEXT, power TEXT, race TEXT, text TEXT)")
+            conn.execute("CREATE TABLE card_tags (card_id TEXT, tag TEXT)")
+            conn.execute("CREATE TABLE meta_deck_cards (id INTEGER PRIMARY KEY, deck_name TEXT, format TEXT, source_url TEXT, card_name TEXT, count INTEGER, raw_line TEXT, imported_at TEXT)")
+            conn.execute("INSERT INTO cards VALUES ('C1','カード','火',1,'クリーチャー','1000','','')")
+        from src.battle.hybrid_search import run_hybrid_search
+
+        result = run_hybrid_search(db_path=empty_db, generations=1, population_size=2, seed=1)
+        self.assertIsNone(result["best"])
+        self.assertTrue(result["warnings"])
+
+
+
     def test_blend(self) -> None:
         base = {"candidate_score": 80.0}
         result = apply_sim_strength(base, sim_win_rate=0.5, weight=0.3)

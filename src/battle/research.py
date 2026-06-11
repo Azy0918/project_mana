@@ -160,6 +160,14 @@ def main(argv: list[str] | None = None) -> int:
     evolve_parser.add_argument("--focus", default="バランス", help="進化探索の重みプリセット")
     evolve_parser.add_argument("--civilizations", default=None, help="カンマ区切りの文明フィルタ")
 
+    hybrid_parser = sub.add_parser("hybrid-search", help="世代内選別に厳密シミュレーションを使う進化探索")
+    hybrid_parser.add_argument("--generations", type=int, default=8)
+    hybrid_parser.add_argument("--population", type=int, default=12)
+    hybrid_parser.add_argument("--sim-games", type=int, default=30, help="世代内選別での相手ごとの試合数")
+    hybrid_parser.add_argument("--sim-opponents", type=int, default=3, help="世代内選別で使うメタデッキ数")
+    hybrid_parser.add_argument("--sim-weight", type=float, default=0.7, help="シミュレーション勝率の比重(0-1)")
+    hybrid_parser.add_argument("--civilizations", default=None, help="カンマ区切りの文明フィルタ")
+
     sub.add_parser("validate-ratings", help="実戦ログの勝率とシミュレーション強さの相関を検証")
 
     bench_parser = sub.add_parser("benchmark-policies", help="ミラーマッチで方策同士を比較")
@@ -294,6 +302,53 @@ def main(argv: list[str] | None = None) -> int:
                 f'厳密強さスコア {rating["strength_score"]}'
             )
         path = write_report({"focus": args.focus, "results": results}, "evolve_rate", args.report_dir)
+        print(f"report: {path}")
+        return 0
+
+    if args.command == "hybrid-search":
+        from src.battle.hybrid_search import run_hybrid_search
+
+        civilizations = [c.strip() for c in (args.civilizations or "").split(",") if c.strip()] or None
+        search = run_hybrid_search(
+            db_path=args.db,
+            generations=args.generations,
+            population_size=args.population,
+            civilizations=civilizations,
+            seed=args.seed,
+            sim_games=args.sim_games,
+            sim_opponents=args.sim_opponents,
+            sim_weight=args.sim_weight,
+        )
+        for warning in search.get("warnings", []):
+            print(f"warning: {warning}")
+        best = search.get("best")
+        if best is None:
+            return 1
+        for entry in search["history"]:
+            print(
+                f'世代{entry["generation"]}: 合成 {entry["best_combined"]} '
+                f'(勝率 {entry["best_sim_win_rate"]:.1%} / ヒューリスティック {entry["best_heuristic"]})'
+            )
+        print(f'選別時の対戦相手: {", ".join(search["opponents"])}')
+        deck_name = "ハイブリッド探索_best"
+        rating = rate_deck_against_meta(
+            best["deck"], deck_name, db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects
+        )
+        print(f'最終候補の全メタ判定: 絶対強さスコア {rating["strength_score"]}')
+        for detail in rating["details"]:
+            print(f'  vs {detail["opponent"]}: {detail["win_rate"]:.1%}')
+        payload = {
+            "history": search["history"],
+            "opponents": search["opponents"],
+            "sim_weight": search["sim_weight"],
+            "best_deck": [
+                {"name": card["name"], "quantity": card.get("quantity", 1)} for card in best["deck"]
+            ],
+            "best_heuristic": best["heuristic_score"],
+            "final_rating": rating["strength_score"],
+            "matchups": rating["details"],
+        }
+        path = write_report(payload, "hybrid_search", args.report_dir)
         print(f"report: {path}")
         return 0
 

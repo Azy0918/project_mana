@@ -320,7 +320,8 @@ class DuelEngine:
         break_count = min(attacker.card.breaker_count, len(opponent.shields))
         broken = []
         for _ in range(break_count):
-            if state.finished:
+            # トリガー効果(シールド回収等)で枚数が変わりうるため毎回確認する
+            if state.finished or not opponent.shields:
                 break
             shield = opponent.shields.pop()
             broken.append(shield.name)

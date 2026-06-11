@@ -63,6 +63,8 @@ def effective_cost(player: PlayerState, card: BattleCard) -> int:
     cost = card.cost
     if card.is_creature:
         reduction = sum(creature.card.summon_cost_reduction for creature in player.battle_zone)
+        # B・A・D: 常に軽減を使う前提(代償のターン終了時破壊は召喚時にフラグ付与)
+        reduction += card.bad_discount
         if reduction:
             cost = max(1, cost - reduction)
     return cost
@@ -178,6 +180,12 @@ class DuelEngine:
         self._main_phase(player, policy)
         self._attack_phase(player, policy)
 
+        # B・A・D等のターン終了時破壊
+        if not state.finished:
+            for creature in [c for c in player.battle_zone if c.temporary]:
+                self._record("end_of_turn_destroy", card=creature.card.name)
+                self.destroy_creature(state.active_index, creature)
+
     def _draw(self, player: PlayerState) -> bool:
         return self.draw_for(self.state.players.index(player))
 
@@ -218,7 +226,8 @@ class DuelEngine:
             for mana in payment:
                 mana.tapped = True
             if card.is_creature:
-                player.battle_zone.append(CreatureInstance(card=card, summoned_turn=state.turn))
+                instance = CreatureInstance(card=card, summoned_turn=state.turn, temporary=card.bad_discount > 0)
+                player.battle_zone.append(instance)
                 self._record("summon", card=card.name, cost=pay_cost)
                 self.executor.run(self, state.active_index, "on_play", card)
             else:

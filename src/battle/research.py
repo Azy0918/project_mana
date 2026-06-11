@@ -154,6 +154,14 @@ def main(argv: list[str] | None = None) -> int:
     rate_gen_parser = sub.add_parser("rate-generated", help="保存済み生成デッキをメタ総当たりで強さ判定")
     rate_gen_parser.add_argument("--id", type=int, default=None, help="generated_decksのID(省略時は一覧を表示)")
 
+    evolve_parser = sub.add_parser("evolve-rate", help="進化探索の上位候補を厳密レーティングに流す")
+    evolve_parser.add_argument("--generations", type=int, default=8)
+    evolve_parser.add_argument("--population", type=int, default=12)
+    evolve_parser.add_argument("--focus", default="バランス", help="進化探索の重みプリセット")
+    evolve_parser.add_argument("--civilizations", default=None, help="カンマ区切りの文明フィルタ")
+
+    sub.add_parser("validate-ratings", help="実戦ログの勝率とシミュレーション強さの相関を検証")
+
     bench_parser = sub.add_parser("benchmark-policies", help="ミラーマッチで方策同士を比較")
     bench_parser.add_argument("--deck-file", type=Path, default=None, help="デッキJSON(省略時は最初のメタデッキ)")
     bench_parser.add_argument("--policy-a", choices=sorted(POLICY_FACTORIES), default="lookahead")
@@ -243,6 +251,92 @@ def main(argv: list[str] | None = None) -> int:
             print(f'  vs {detail["opponent"]}: {detail["win_rate"]:.1%}')
         for warning in result["warnings"]:
             print(f"warning: {warning}")
+        return 0
+
+    if args.command == "evolve-rate":
+        from src.evolutionary_search import run_evolutionary_search
+
+        civilizations = [c.strip() for c in (args.civilizations or "").split(",") if c.strip()] or None
+        search = run_evolutionary_search(
+            db_path=args.db,
+            generations=args.generations,
+            population_size=args.population,
+            civilizations=civilizations,
+            focus=args.focus,
+            seed=args.seed,
+        )
+        candidates = []
+        for label in ["best_overall", "best_novelty", "best_meta"]:
+            entry = search.get(label)
+            if entry and entry.get("deck"):
+                candidates.append((label, entry))
+        if not candidates:
+            print("進化探索が候補を返しませんでした。")
+            return 1
+        results = []
+        for label, entry in candidates:
+            deck_name = f"進化探索_{args.focus}_{label}"
+            rating = rate_deck_against_meta(
+                entry["deck"], deck_name, db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects
+            )
+            results.append(
+                {
+                    "label": label,
+                    "deck_name": deck_name,
+                    "heuristic_fitness": entry.get("fitness"),
+                    "strength_score": rating["strength_score"],
+                    "details": rating["details"],
+                    "warnings": rating["warnings"],
+                }
+            )
+            print(
+                f'{label}: ヒューリスティック適応度 {entry.get("fitness")} / '
+                f'厳密強さスコア {rating["strength_score"]}'
+            )
+        path = write_report({"focus": args.focus, "results": results}, "evolve_rate", args.report_dir)
+        print(f"report: {path}")
+        return 0
+
+    if args.command == "validate-ratings":
+        import sqlite3
+        from statistics import correlation
+
+        with sqlite3.connect(args.db) as conn:
+            rows = conn.execute(
+                """
+                SELECT deck_name,
+                       SUM(CASE WHEN result LIKE '%勝%' THEN 1 ELSE 0 END) AS wins,
+                       COUNT(*) AS games
+                FROM real_match_logs GROUP BY deck_name HAVING games >= 5
+                """
+            ).fetchall()
+            sim_rows = conn.execute(
+                "SELECT deck_name, MAX(id), win_rate FROM sim_ratings GROUP BY deck_name"
+            ).fetchall()
+        sim_by_name = {name: win_rate for name, _id, win_rate in sim_rows}
+        pairs = [
+            (wins / games, sim_by_name[name])
+            for name, wins, games in rows
+            if name in sim_by_name
+        ]
+        if len(pairs) < 3:
+            print(
+                f"相関検証に必要なデータが不足しています(実戦5試合以上のデッキ {len(rows)}件、"
+                f"シミュレーション判定済みと一致 {len(pairs)}件、必要3件以上)。"
+            )
+            print("実戦ログを記録し、同名デッキを rate / rate-generated で判定してから再実行してください。")
+            return 0
+        real_rates = [p[0] for p in pairs]
+        sim_rates = [p[1] for p in pairs]
+        r = correlation(real_rates, sim_rates)
+        payload = {
+            "decks": len(pairs),
+            "pearson_r": r,
+            "pairs": [{"real": a, "sim": b} for a, b in pairs],
+        }
+        path = write_report(payload, "rating_validation", args.report_dir)
+        print(f"実勝率 vs シミュレーション勝率 (n={len(pairs)}): Pearson r = {r:.3f}")
+        print(f"report: {path}")
         return 0
 
     if args.command == "benchmark-policies":

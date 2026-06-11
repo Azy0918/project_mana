@@ -93,6 +93,36 @@ class CostReductionTest(unittest.TestCase):
         self.assertEqual(effective_cost(player, spell), 4)
 
 
+class BadDiscountTest(unittest.TestCase):
+    def test_bad_parsed(self) -> None:
+        card = make_card("BAD獣", cost=6, text="■B・A・D 2\n■スピードアタッカー")
+        self.assertEqual(card.bad_discount, 2)
+        self.assertEqual(make_card("通常").bad_discount, 0)
+
+    def test_bad_reduces_cost_and_dies_at_end_of_turn(self) -> None:
+        engine = make_engine()
+        state = engine.state
+        state.turn = 4
+        player = state.players[0]
+        bad = make_card("BAD獣", cost=6, power=5000, text="■B・A・D 2")
+        player.hand = [bad]
+        player.mana_zone = [ManaCard(make_card(f"マナ{i}")) for i in range(4)]
+        from src.battle.kernel.engine import effective_cost
+
+        self.assertEqual(effective_cost(player, bad), 4)
+
+        class PlayAll(StubPolicy):
+            def choose_main_action(self, s, p, playable):
+                return playable[0] if playable else None
+
+        engine.policies = (PlayAll(), StubPolicy())
+        state.active_index = 0
+        engine._play_turn()
+        # ターン終了時に破壊され、墓地にある
+        self.assertFalse(any(c.card.name == "BAD獣" for c in player.battle_zone))
+        self.assertTrue(any(c.name == "BAD獣" for c in player.graveyard))
+
+
 class ExtraTurnTest(unittest.TestCase):
     def test_extra_turn_keeps_active_player(self) -> None:
         effects = {"追加ターン獣": [{"trigger": "on_play", "actions": [{"op": "extra_turn"}]}]}

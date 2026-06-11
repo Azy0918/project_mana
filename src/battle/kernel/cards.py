@@ -7,6 +7,7 @@ from typing import Any
 
 _G_ZERO_PATTERN = re.compile(r"G・ゼロ\s*[:：]\s*.*?呪文を(\d+)枚以上唱えたターン")
 _COST_REDUCTION_PATTERN = re.compile(r"コストを(\d+)少なくする")
+_BAD_PATTERN = re.compile(r"B・A・D(?:・S)?\s*(\d+)")
 
 
 def _parse_power(value: Any) -> int:
@@ -89,6 +90,14 @@ class BattleCard:
         if match:
             return int(match.group(1))
         return None
+
+    @property
+    def bad_discount(self) -> int:
+        """B・A・D(コストN軽減で使えるが、ターン終了時に破壊される)。なければ0。"""
+        match = _BAD_PATTERN.search(self.text)
+        if match:
+            return int(match.group(1))
+        return 0
 
     @property
     def summon_cost_reduction(self) -> int:

@@ -22,6 +22,7 @@ class CreatureInstance:
     card: BattleCard
     tapped: bool = False
     summoned_turn: int = 0
+    temporary: bool = False  # B・A・D等: ターン終了時に破壊される
 
     def can_attack(self, current_turn: int) -> bool:
         if self.tapped:

@@ -504,7 +504,12 @@ def main(argv: list[str] | None = None) -> int:
         result = mine_loops(db_path=args.db, verify_top=args.verify_top)
         print(f'静的候補: {result["static_candidates"]}件 / 動的検証: {len(result["verified"])}件\n')
         for entry in result["verified"][:12]:
-            mark = "★ループ署名" if entry["hits_cap"] else f'蘇生{entry["revive_count"]}回'
+            if entry.get("one_turn_kill"):
+                mark = f'★1ターンキル(詠唱{entry.get("cast_count", 0)}回・シールド{entry.get("shields_taken", 0)}枚)'
+            elif entry["hits_cap"]:
+                mark = "★ループ署名"
+            else:
+                mark = f'蘇生{entry["revive_count"]}回'
             print(f'[{entry["kind"]}] {" + ".join(entry["names"])}: {mark}')
             if entry["revived_names"]:
                 print(f'    連鎖: {" → ".join(str(n) for n in entry["revived_names"][:6])}')

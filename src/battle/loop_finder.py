@@ -47,6 +47,40 @@ def _revive_spec(abilities: list[dict[str, Any]]) -> dict[str, Any] | None:
     return None
 
 
+def _cast_spec(abilities: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """on_attackの墓地詠唱(cast_from_grave)仕様を返す(なければNone)。"""
+    for ability in abilities:
+        if ability.get("trigger") != "on_attack":
+            continue
+        for action in ability.get("actions", []):
+            if action.get("op") == "cast_from_grave":
+                return {"max_cost": action.get("max_cost"), "civilizations": action.get("civilizations")}
+    return None
+
+
+def _spell_revive_spec(abilities: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """on_castの蘇生仕様(呪文側)を返す(なければNone)。"""
+    for ability in abilities:
+        if ability.get("trigger") != "on_cast":
+            continue
+        for action in ability.get("actions", []):
+            if action.get("op") == "summon_from_grave":
+                return {
+                    "max_cost": action.get("max_cost"),
+                    "civilizations": action.get("civilizations"),
+                    "exclude_evolution": bool(action.get("exclude_evolution")),
+                    "speed_attacker": bool(action.get("speed_attacker")),
+                }
+    return None
+
+
+def _civ_match(civ_filter: list[str] | None, card: dict[str, Any]) -> bool:
+    if civ_filter is None:
+        return True
+    civ = str(card.get("civilization") or "")
+    return any(c in civ for c in civ_filter)
+
+
 def _has_self_destroy(abilities: list[dict[str, Any]]) -> bool:
     for ability in abilities:
         if ability.get("trigger") != "on_play":
@@ -121,6 +155,53 @@ def find_loop_candidates(db_path: Path = DEFAULT_DB_PATH) -> list[dict[str, Any]
                         "infinite_candidate": a_sd or b_sd,
                     }
                 )
+
+    # 呪文再装填型(MRC族): 攻撃時詠唱エンジンE ↔ Eを蘇生できる呪文S
+    from src.battle.kernel.cards import battle_card_from_dict
+
+    engines = []
+    spells = []
+    for card_id, abilities in effects.items():
+        card = cards.get(card_id)
+        if card is None:
+            continue
+        bc = battle_card_from_dict(card)
+        if bc.is_creature:
+            spec = _cast_spec(abilities)
+            if spec is not None:
+                engines.append((card_id, spec, bc))
+        elif bc.is_spell:
+            spec = _spell_revive_spec(abilities)
+            if spec is not None:
+                spells.append((card_id, spec, bc))
+
+    for e_id, e_spec, e_card in engines:
+        for s_id, s_spec, s_card in spells:
+            # EがSを詠唱できるか
+            if e_spec["max_cost"] is not None and s_card.cost > e_spec["max_cost"]:
+                continue
+            if not _civ_match(e_spec["civilizations"], cards[s_id]):
+                continue
+            # SがEを蘇生できるか
+            if s_spec["max_cost"] is not None and e_card.cost > s_spec["max_cost"]:
+                continue
+            if s_spec["exclude_evolution"] and e_card.is_evolution:
+                continue
+            if not _civ_match(s_spec["civilizations"], cards[e_id]):
+                continue
+            key = (e_id, s_id)
+            if key in seen:
+                continue
+            seen.add(key)
+            one_shot = s_spec["speed_attacker"]
+            candidates.append(
+                {
+                    "kind": "呪文再装填型" + ("(ワンショット候補)" if one_shot else "(持続型)"),
+                    "chain": [e_id, s_id],
+                    "names": [cards[e_id]["name"], cards[s_id]["name"]],
+                    "infinite_candidate": one_shot,
+                }
+            )
     return candidates
 
 
@@ -176,6 +257,49 @@ def verify_loop_candidate(
     }
 
 
+def verify_engine_candidate(
+    chain_ids: list[str],
+    db_path: Path = DEFAULT_DB_PATH,
+    seed: int = 1,
+) -> dict[str, Any]:
+    """呪文再装填型の動的検証: エンジン1体+墓地(呪文4・エンジン3)から攻撃フェイズを実走。"""
+    from src.battle.kernel.policy import GreedyPolicy
+
+    effects = load_approved_effects_map(db_path, exact_only=True)
+    cards = _load_cards(db_path)
+    engine_card = battle_card_from_dict(cards[chain_ids[0]])
+    spell_card = battle_card_from_dict(cards[chain_ids[1]])
+
+    filler = [
+        battle_card_from_dict(
+            {"card_id": f"F{i}", "name": f"埋め{i}", "civilization": "闇", "cost": 2,
+             "card_type": "クリーチャー", "power": "2000", "text": ""}
+        )
+        for i in range(40)
+    ]
+    engine = DuelEngine(filler, filler, GreedyPolicy(), GreedyPolicy(),
+                        rng=random.Random(seed), effects=effects)
+    state = engine.state
+    state.turn = 8
+    player = state.players[0]
+    player.battle_zone.append(CreatureInstance(card=engine_card, summoned_turn=7))
+    player.graveyard.extend([spell_card] * 4 + [engine_card] * 3)
+    shields_before = len(state.players[1].shields)
+    engine._attack_phase(player, engine.policies[0])
+
+    casts = [e for e in state.log if e.get("op") == "cast_from_grave" and "target" in e]
+    revives = [e for e in state.log if e.get("op") == "summon_from_grave" and "target" in e]
+    return {
+        "chain": chain_ids,
+        "cast_count": len(casts),
+        "revive_count": len(revives),
+        "shields_taken": shields_before - len(state.players[1].shields),
+        "hits_cap": False,
+        "one_turn_kill": state.finished and state.finish_reason == "direct_attack",
+        "revived_names": [e.get("target") for e in revives][:6],
+    }
+
+
 def mine_loops(db_path: Path = DEFAULT_DB_PATH, verify_top: int = 20) -> dict[str, Any]:
     """静的候補の列挙と動的検証をまとめて実行する。"""
     candidates = find_loop_candidates(db_path)
@@ -183,7 +307,10 @@ def mine_loops(db_path: Path = DEFAULT_DB_PATH, verify_top: int = 20) -> dict[st
     candidates.sort(key=lambda c: (not c["infinite_candidate"], len(c["chain"])))
     results = []
     for candidate in candidates[:verify_top]:
-        verification = verify_loop_candidate(candidate["chain"], db_path=db_path)
+        if candidate["kind"].startswith("呪文再装填型"):
+            verification = verify_engine_candidate(candidate["chain"], db_path=db_path)
+        else:
+            verification = verify_loop_candidate(candidate["chain"], db_path=db_path)
         results.append({**candidate, **verification})
-    results.sort(key=lambda r: (-int(r["hits_cap"]), -r["revive_count"]))
+    results.sort(key=lambda r: (-int(bool(r.get("one_turn_kill"))), -int(r["hits_cap"]), -r["revive_count"]))
     return {"static_candidates": len(candidates), "verified": results}

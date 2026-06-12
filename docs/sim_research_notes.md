@@ -79,8 +79,8 @@ python -m src.battle.research --games 100 --seed 5 meta-tournament
 
 ## アーキタイプ仮説の追跡
 
-- **「1枚刺しの海」(ハイランダー型グッドスタッフ)**: id=9(闇火37種, 86.2)。
-  `hybrid-search --max-card-types 40` で再探索可能。集約版(id=10, 79.5)との差
+- **「1枚刺しの海」(ハイランダー型グッドスタッフ)**: 「黒赤百鬼夜行」(id=9, 闇火37種, 86.2)。
+  `hybrid-search --max-card-types 40` で再探索可能。集約版「黒赤焦土コントロール」(id=10, 79.5)との差
   「多様性プレミアム≒6.7」をカーネル改善のたびに再測定すること。
   詳細は docs/sim_findings_2026-06.md のアーキタイプ仮説の節。
 

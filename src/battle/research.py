@@ -171,6 +171,8 @@ def main(argv: list[str] | None = None) -> int:
     hybrid_parser.add_argument("--rotation-period", type=int, default=3, help="選別相手を入れ替える世代間隔")
     hybrid_parser.add_argument("--no-save", action="store_true", help="成果デッキをgenerated_decksに保存しない")
     hybrid_parser.add_argument("--max-card-types", type=int, default=16, help="デッキ内カード種類数のソフト上限")
+    hybrid_parser.add_argument("--seed-deck-id", type=int, default=None, help="generated_decksのIDを進化の起点(シード)にする")
+    hybrid_parser.add_argument("--lock", default=None, help="カンマ区切りのカード名。4枚固定して進化が骨格を淘汰しないようにする")
 
     expand_parser = sub.add_parser("meta-expand", help="探索勝者を相手プールへ昇格させる自己対戦型メタ拡充(PSRO方式)")
     expand_parser.add_argument("--rounds", type=int, default=3, help="拡充ラウンド数")
@@ -330,9 +332,34 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "hybrid-search":
+        import sqlite3
+
         from src.battle.hybrid_search import run_hybrid_search
 
         civilizations = [c.strip() for c in (args.civilizations or "").split(",") if c.strip()] or None
+        seed_deck = None
+        if args.seed_deck_id is not None:
+            with sqlite3.connect(args.db) as conn:
+                conn.row_factory = sqlite3.Row
+                row = conn.execute(
+                    "SELECT deck_name, deck_cards_json FROM generated_decks WHERE id = ?", (args.seed_deck_id,)
+                ).fetchone()
+            if row is None:
+                print(f"id={args.seed_deck_id} の生成デッキが見つかりません。")
+                return 1
+            seed_deck = json.loads(row["deck_cards_json"] or "[]")
+            print(f'シードデッキ: {row["deck_name"]} (id={args.seed_deck_id})')
+        locked_card_ids: list[str] = []
+        if args.lock:
+            with sqlite3.connect(args.db) as conn:
+                for name in (n.strip() for n in args.lock.split(",") if n.strip()):
+                    found = conn.execute("SELECT card_id FROM cards WHERE name = ?", (name,)).fetchone()
+                    if found is None:
+                        print(f"warning: ロック対象カードが見つかりません: {name}")
+                        continue
+                    locked_card_ids.append(found[0])
+            if locked_card_ids:
+                print(f"ロック: {len(locked_card_ids)}種を4枚固定")
         search = run_hybrid_search(
             db_path=args.db,
             generations=args.generations,
@@ -345,6 +372,8 @@ def main(argv: list[str] | None = None) -> int:
             rotate_opponents=not args.no_rotate,
             rotation_period=args.rotation_period,
             max_card_types=args.max_card_types,
+            seed_deck=seed_deck or None,
+            locked_card_ids=locked_card_ids or None,
         )
         for warning in search.get("warnings", []):
             print(f"warning: {warning}")
@@ -361,9 +390,10 @@ def main(argv: list[str] | None = None) -> int:
         print(f'選別相手({rotation_label}): {", ".join(search["opponents"])}')
         deck_name = "ハイブリッド探索_best"
         rating = rate_deck_against_meta(
-            best["deck"], deck_name, db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects
+            best["deck"], deck_name, db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects,
+            policy_factory=POLICY_FACTORIES[args.policy], policy_name=args.policy,
         )
-        print(f'最終候補の全メタ判定: 絶対強さスコア {rating["strength_score"]}')
+        print(f'最終候補の全メタ判定: 絶対強さスコア {rating["strength_score"]}(方策: {args.policy})')
         for detail in rating["details"]:
             print(f'  vs {detail["opponent"]}: {detail["win_rate"]:.1%}')
         payload = {

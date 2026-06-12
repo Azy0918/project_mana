@@ -16,12 +16,18 @@ _THRESHOLD_PATTERN = re.compile(r"\d+\s*(?:枚|体)\s*(?:以下|以上)")
 _CIVILIZATIONS = ("光", "水", "闇", "火", "自然")
 
 
-def _summon_filters(sentence: str, zone_word: str) -> dict[str, Any]:
+# 踏み倒し対象の記述に現れる、種族ではないカタカナ語(これ以外のカタカナ語は
+# 種族・固有名指定とみなし、表現不可として変換を見送る)
+_NON_RACE_KATAKANA = {"クリーチャー", "カード", "コスト", "タップ", "アンタップ", "パワー", "ランダム", "シールド", "ゾーン"}
+
+
+def _summon_filters(sentence: str, zone_word: str) -> dict[str, Any] | None:
     """踏み倒し文(「<ゾーン>から…バトルゾーンに出す」)からフィルタを抽出する。
 
-    コスト上限・文明・進化除外を拾う。種族(ハンター等)はDBに種族データがなく
-    表現できないため落ちる(過大評価側の近似。鬼流院 刃事件: 無フィルタだと
-    任意の大型を踏み倒す捏造になるため、文明だけでも拾う)。
+    コスト上限・文明・進化除外を拾う。対象記述に未知のカタカナ語(種族・
+    固有名)が含まれる場合はNone=表現不可を返し、呼び出し側は変換を見送る
+    (exact-safe方向。Kサイズ事件: 「イニシャルズ1枚」の種族限定が落ちて
+    何でも蘇生する捏造エンジンになった)。
     """
     filters: dict[str, Any] = {}
     cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
@@ -29,6 +35,9 @@ def _summon_filters(sentence: str, zone_word: str) -> dict[str, Any]:
         filters["max_cost"] = int(cost_match.group(1))
     segment_match = re.search(zone_word + r"(.*?)バトルゾーンに出", sentence)
     segment = segment_match.group(1) if segment_match else ""
+    for token in re.findall(r"[ァ-ヴー・]{3,}", segment):
+        if token not in _NON_RACE_KATAKANA:
+            return None
     civs = [civ for civ in _CIVILIZATIONS if f"{civ}の" in segment]
     if civs:
         filters["civilizations"] = civs
@@ -132,9 +141,9 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
     # 「バトルゾーンに出す/出し」(他動詞)のみ。「出た時」はトリガー句であり
     # 「出た時、マナから手札に戻す」をsummon_from_manaと誤読する(ストーム・クロウラー事件)
     if "マナゾーンから" in sentence and re.search(r"バトルゾーンに出[すし]", sentence):
-        action = {"op": "summon_from_mana", "count": count}
-        action.update(_summon_filters(sentence, "マナゾーンから"))
-        actions.append(action)
+        filters = _summon_filters(sentence, "マナゾーンから")
+        if filters is not None:
+            actions.append({"op": "summon_from_mana", "count": count, **filters})
     if "破壊" in sentence and "相手" in sentence:
         action: dict[str, Any] = {"op": "destroy_creature", "count": count, "scope": "opponent"}
         power_match = re.search(r"パワー\s*(\d+)\s*以下", sentence)
@@ -162,9 +171,9 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
     elif re.search(r"その中から\d*枚?を?墓地に置", sentence):
         actions.append({"op": "deck_top_to_grave", "count": count})
     if "墓地から" in sentence and re.search(r"バトルゾーンに出[すし]", sentence):
-        action = {"op": "summon_from_grave", "count": count}
-        action.update(_summon_filters(sentence, "墓地から"))
-        actions.append(action)
+        filters = _summon_filters(sentence, "墓地から")
+        if filters is not None:
+            actions.append({"op": "summon_from_grave", "count": count, **filters})
     elif "墓地から" in sentence and re.search(r"手札に(戻|加え)", sentence):
         actions.append({"op": "grave_to_hand", "count": count})
     elif (

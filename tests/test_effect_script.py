@@ -131,19 +131,31 @@ class DraftGeneratorTest(unittest.TestCase):
         self.assertEqual(draws, [{"op": "draw", "count": 1}])
 
     def test_summon_filters_extract_civ_and_evolution(self) -> None:
-        # 鬼流院 刃型: 「マナゾーンから自然の進化でないハンターを…出す」から
-        # 文明フィルタと進化除外を拾う(種族はデータ欠落のため落ちる=既知の近似)
+        # 「マナゾーンから自然の進化でないクリーチャーを出す」から文明と進化除外を拾う
+        # (種族語を含む場合はtest_race_limited_summon_not_convertedのとおり変換見送り)
         card = {
             "card_id": "DMPC-0015",
             "name": "踏み倒し獣",
             "card_type": "クリーチャー",
-            "text": "■バトルゾーンに出た時、自分のマナゾーンから自然の進化でないハンターを好きな数、タップしてバトルゾーンに出す。",
+            "text": "■バトルゾーンに出た時、自分のマナゾーンから自然の進化でないクリーチャーを1体、バトルゾーンに出す。",
         }
         script = generate_draft_effect_script(card)
         summons = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "summon_from_mana"]
         self.assertTrue(summons)
         self.assertEqual(summons[0].get("civilizations"), ["自然"])
         self.assertTrue(summons[0].get("exclude_evolution"))
+
+    def test_race_limited_summon_not_converted(self) -> None:
+        # Kサイズ型: 「イニシャルズ1枚を出す」の種族限定は表現不可→変換を見送る
+        card = {
+            "card_id": "DMPC-0016",
+            "name": "種族蘇生獣",
+            "card_type": "クリーチャー",
+            "text": "■破壊された時、自分の墓地から《種族蘇生獣》以外のイニシャルズ1枚をバトルゾーンに出してもよい。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertNotIn("summon_from_grave", ops)
 
     def test_transitive_summon_from_mana_still_detected(self) -> None:
         card = {

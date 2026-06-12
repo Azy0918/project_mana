@@ -529,15 +529,21 @@ def main(argv: list[str] | None = None) -> int:
                     games_per_pair=args.games, seed=args.seed, effects=effects,
                     policy_factory=POLICY_FACTORIES[args.policy], policy_name=args.policy,
                 )
-                print(f'進化後の対メタ強さ: {rating["strength_score"]}(シード時 {best_combo.get("strength_score")})')
+                seed_score = best_combo.get("strength_score")
+                print(f'進化後の対メタ強さ: {rating["strength_score"]}(シード時 {seed_score})')
+                # 多目的化(chain+発火率)の代償で進化後が弱くなることがあるため、良い方を残す
+                if seed_score is not None and rating["strength_score"] is not None and seed_score > rating["strength_score"]:
+                    final_deck, final_score, origin = best_combo["deck"], seed_score, "シードデッキ(進化前が優位)"
+                else:
+                    final_deck, final_score, origin = search["best"]["deck"], rating["strength_score"], "進化後デッキ"
                 deck_id = save_to_generated_decks(
-                    search["best"]["deck"],
-                    f'コンボ進化 {best_combo["names"][-1][:12]} (強さ{rating["strength_score"]})',
-                    f'combo-mine --evolve の成果。コンボ骨格: {" → ".join(best_combo["names"])}。'
-                    f'成立率{best_combo["success_rate"]:.0%}、進化後強さ{rating["strength_score"]}',
+                    final_deck,
+                    f'コンボ進化 {best_combo["names"][-1][:12]} (強さ{final_score})',
+                    f'combo-mine --evolve の成果({origin})。コンボ骨格: {" → ".join(best_combo["names"])}。'
+                    f'成立率{best_combo["success_rate"]:.0%}、強さ{final_score}',
                     db_path=args.db,
                 )
-                print(f"generated_decksに保存: id={deck_id}")
+                print(f"generated_decksに保存: id={deck_id}({origin})")
         return 0
 
     if args.command == "loop-find":

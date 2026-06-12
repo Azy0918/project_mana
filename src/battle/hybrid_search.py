@@ -331,20 +331,19 @@ def run_hybrid_search(
                     chain, deck, trials=60, max_turns=8,
                     seed=int(rng.random() * 100000), effects=effects,
                 )["success_rate"]
-                win_share = max(0.0, sim_weight - chain_weight)
-                combined = round(
-                    win_rate * 100 * win_share + assembly * 100 * chain_weight
-                    + heuristic * (1 - win_share - chain_weight), 2,
-                )
-            elif engine_weight > 0:
-                # エンジン発火率を適応度に加える(勝ちながら回るデッキを選ぶ)
-                win_share = max(0.0, sim_weight - engine_weight)
-                combined = round(
-                    win_rate * 100 * win_share + fire_rate * 100 * engine_weight
-                    + heuristic * (1 - win_share - engine_weight), 2,
-                )
-            else:
-                combined = round(win_rate * 100 * sim_weight + heuristic * (1 - sim_weight), 2)
+            # 適応度 = 勝率 + chain成立率 + エンジン発火率 + ヒューリスティックの加重合成。
+            # chain/engineの比重はsim_weightから差し引く(勝率と同じ「実走シグナル」のため)
+            chain_share = chain_weight if chain else 0.0
+            engine_share = max(0.0, engine_weight)
+            win_share = max(0.0, sim_weight - chain_share - engine_share)
+            heuristic_share = max(0.0, 1 - win_share - chain_share - engine_share)
+            combined = round(
+                win_rate * 100 * win_share
+                + assembly * 100 * chain_share
+                + fire_rate * 100 * engine_share
+                + heuristic * heuristic_share,
+                2,
+            )
             evaluated.append(
                 {
                     "deck": deck,

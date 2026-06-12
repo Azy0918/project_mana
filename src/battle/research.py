@@ -187,6 +187,7 @@ def main(argv: list[str] | None = None) -> int:
     mine_parser.add_argument("--max-turns", type=int, default=8, help="成立期限ターン")
     mine_parser.add_argument("--rate-top", type=int, default=3, help="メタ判定まで行う上位件数")
     mine_parser.add_argument("--evolve", action="store_true", help="最良コンボをシードにハイブリッド探索で周辺を最適化")
+    mine_parser.add_argument("--engine-weight", type=float, default=0.2, help="--evolve時のエンジン発火率の適応度比重")
 
     loop_parser = sub.add_parser("loop-find", help="サガ型(相互/自己蘇生)ループの静的検出+動的検証")
     loop_parser.add_argument("--verify-top", type=int, default=20, help="動的検証する候補数")
@@ -514,13 +515,19 @@ def main(argv: list[str] | None = None) -> int:
                 db_path=args.db, generations=10, population_size=14,
                 seed=args.seed, seed_deck=best_combo["deck"],
                 locked_card_ids=best_combo["chain"], chain=best_combo["chain"],
+                chain_weight=0.2, engine_weight=args.engine_weight,
             )
             if search.get("best"):
                 final_assembly = search["best"].get("assembly_rate", 0.0)
-                print(f'進化後のコンボ成立率: {final_assembly:.1%}(発掘時 {best_combo["success_rate"]:.1%})')
+                final_fire = search["best"].get("engine_fire_rate", 0.0)
+                print(
+                    f'進化後のコンボ成立率: {final_assembly:.1%}(発掘時 {best_combo["success_rate"]:.1%})'
+                    f' / エンジン発火率: {final_fire:.1%}'
+                )
                 rating = rate_deck_against_meta(
                     search["best"]["deck"], "コンボ進化", db_path=args.db,
                     games_per_pair=args.games, seed=args.seed, effects=effects,
+                    policy_factory=POLICY_FACTORIES[args.policy], policy_name=args.policy,
                 )
                 print(f'進化後の対メタ強さ: {rating["strength_score"]}(シード時 {best_combo.get("strength_score")})')
                 deck_id = save_to_generated_decks(

@@ -35,9 +35,13 @@ def _summon_filters(sentence: str, zone_word: str) -> dict[str, Any] | None:
         filters["max_cost"] = int(cost_match.group(1))
     segment_match = re.search(zone_word + r"(.*?)バトルゾーンに出", sentence)
     segment = segment_match.group(1) if segment_match else ""
-    for token in re.findall(r"[ァ-ヴー・]{3,}", segment):
-        if token not in _NON_RACE_KATAKANA:
-            return None
+    if "このクリーチャー" in segment:
+        # 自己参照の蘇生(フッシッシ型)は同名限定。無制限蘇生への化けを防ぐ
+        filters["name_self"] = True
+    else:
+        for token in re.findall(r"[ァ-ヴー・]{3,}", segment):
+            if token not in _NON_RACE_KATAKANA:
+                return None
     civs = [civ for civ in _CIVILIZATIONS if f"{civ}の" in segment]
     if civs:
         filters["civilizations"] = civs
@@ -83,6 +87,7 @@ _NOOP_SENTENCE_PATTERNS = [
     re.compile(r"^可能なら毎ターン(、相手プレイヤーを)?攻撃する$"),  # 方策は常に攻撃する
     re.compile(r"手札に加えるかわりに墓地に置く"),  # シールド焼却はカーネルが処理
     re.compile(r"タップして(バトルゾーンに)?出る"),  # タップイン静的能力は未対応(ル・ギラ・レシール事件: 捏造タップ化を防ぐ)
+    re.compile(r"^【[^】]*】"),  # 【SST】等のモード段落は条件未対応→無視する近似(ゲドライド事件: 通常時の捏造全体除去を防ぐ)
 ]
 
 
@@ -129,6 +134,10 @@ def _extract_count(sentence: str) -> int:
 
 
 def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
+    # 【SST】等のモード段落は条件未対応のため効果を抽出しない(無視=過小評価側)。
+    # 【LINE】はテキスト段階で分離済みのため、ここに残る【】はモード指定
+    if re.search(r"【[^】]*】", sentence):
+        return []
     sentence = _strip_trigger_clause(sentence)
     actions: list[dict[str, Any]] = []
     count = _extract_count(sentence)
@@ -145,10 +154,16 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         if filters is not None:
             actions.append({"op": "summon_from_mana", "count": count, **filters})
     if "破壊" in sentence and "相手" in sentence:
-        action: dict[str, Any] = {"op": "destroy_creature", "count": count, "scope": "opponent"}
+        # 「最もパワーが大きい〜をすべて破壊」は最大1体の破壊で近似
+        # (countのすべて=99だと全滅除去を捏造する。1体⊆実際の対象=exact-safe方向)
+        destroy_count = 1 if "最もパワーが大きい" in sentence or "いちばんパワーの大きい" in sentence else count
+        action: dict[str, Any] = {"op": "destroy_creature", "count": destroy_count, "scope": "opponent"}
         power_match = re.search(r"パワー\s*(\d+)\s*以下", sentence)
         if power_match:
             action["max_power"] = int(power_match.group(1))
+        cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
+        if cost_match:
+            action["max_cost"] = int(cost_match.group(1))
         actions.append(action)
     elif re.search(r"自分のクリーチャー.*破壊", sentence):
         actions.append({"op": "destroy_creature", "count": count, "scope": "self"})
@@ -224,6 +239,12 @@ def generate_draft_effect_script(card: dict[str, Any]) -> dict[str, Any]:
     text = str(card.get("text", "") or "")
     abilities: list[dict[str, Any]] = []
     notes: list[str] = []
+
+    # ツインパクトの後半面(【LINE】以降)はカーネルが面選択未対応のため省略する。
+    # 混ぜて抽出すると呪文面の効果がクリーチャー面のon_playに合成される捏造になる
+    if "【LINE】" in text:
+        text = text.split("【LINE】")[0]
+        notes.append("ツインパクト後半面は面選択未対応のため省略(exact-safe)")
 
     sentences = _normalize_sentences(text)
     main_actions: list[dict[str, Any]] = []

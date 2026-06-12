@@ -145,6 +145,55 @@ class DraftGeneratorTest(unittest.TestCase):
         self.assertEqual(summons[0].get("civilizations"), ["自然"])
         self.assertTrue(summons[0].get("exclude_evolution"))
 
+    def test_sst_mode_paragraph_not_converted(self) -> None:
+        # ゲドライド型: 【SST】段落の効果が通常時の効果として抽出されない
+        card = {
+            "card_id": "DMPC-0017",
+            "name": "SST獣",
+            "card_type": "クリーチャー",
+            "text": "◇スーパー・S・トリガー 【SST】バトルゾーンに出た時、相手のパワー5000以下のクリーチャーをすべて破壊する。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertNotIn("destroy_creature", ops)
+
+    def test_strongest_all_destroy_capped_to_one(self) -> None:
+        # 轟く侵略レッドゾーン型: 「最もパワーが大きい〜すべて破壊」は1体で近似(全滅化を防ぐ)
+        card = {
+            "card_id": "DMPC-0018",
+            "name": "最大破壊獣",
+            "card_type": "クリーチャー",
+            "text": "■バトルゾーンに出た時、相手の最もパワーが大きいクリーチャーをすべて破壊する。",
+        }
+        script = generate_draft_effect_script(card)
+        destroys = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "destroy_creature"]
+        self.assertEqual(destroys[0]["count"], 1)
+
+    def test_self_reference_revive_gets_name_self(self) -> None:
+        # フッシッシ型: 「墓地からこのクリーチャーを出す」は同名限定(無制限蘇生への化けを防ぐ)
+        card = {
+            "card_id": "DMPC-0019",
+            "name": "不死獣",
+            "card_type": "クリーチャー",
+            "text": "■破壊された時、自分の墓地からこのクリーチャーをバトルゾーンに出す。",
+        }
+        script = generate_draft_effect_script(card)
+        summons = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "summon_from_grave"]
+        self.assertTrue(summons[0].get("name_self"))
+
+    def test_twinpact_second_face_omitted(self) -> None:
+        # 【LINE】以降(呪文面)の効果がクリーチャー面のon_playに合成されない
+        card = {
+            "card_id": "DMPC-0020",
+            "name": "両面獣/両面呪文",
+            "card_type": "ツインパクト",
+            "text": "■バトルゾーンに出た時、カードを1枚引く。 【LINE】 ■相手のクリーチャー1体を破壊する。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertIn("draw", ops)
+        self.assertNotIn("destroy_creature", ops)
+
     def test_race_limited_summon_not_converted(self) -> None:
         # Kサイズ型: 「イニシャルズ1枚を出す」の種族限定は表現不可→変換を見送る
         card = {

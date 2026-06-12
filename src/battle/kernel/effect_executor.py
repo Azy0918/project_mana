@@ -86,12 +86,16 @@ class EffectExecutor:
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]
             max_power = action.get("max_power")
+            max_cost = action.get("max_cost")
             for _ in range(count):
-                if action.get("chooser") == "opponent" and target_player.battle_zone:
+                pool = target_player.battle_zone
+                if max_cost is not None:
+                    pool = [creature for creature in pool if creature.card.cost <= max_cost]
+                if action.get("chooser") == "opponent" and pool:
                     # 「相手は自身のクリーチャーを破壊する」= 相手の最適行動(最弱を差し出す)
-                    target = min(target_player.battle_zone, key=lambda c: c.card.power)
+                    target = min(pool, key=lambda c: c.card.power)
                 else:
-                    target = self._select_target(engine, controller_index, op, target_player.battle_zone, max_power=max_power)
+                    target = self._select_target(engine, controller_index, op, pool, max_power=max_power)
                 if target is None:
                     return
                 engine.destroy_creature(target_player_index, target)
@@ -170,6 +174,7 @@ class EffectExecutor:
             target_player = engine.state.players[target_player_index]
             max_cost = action.get("max_cost")
             exclude_evolution = bool(action.get("exclude_evolution"))
+            name_self = bool(action.get("name_self"))
             civ_filter = action.get("civilizations")
             for _ in range(count):
                 candidates = [
@@ -178,6 +183,7 @@ class EffectExecutor:
                     if mana.card.is_creature
                     and (max_cost is None or mana.card.cost <= max_cost)
                     and not (exclude_evolution and mana.card.is_evolution)
+                    and not (name_self and mana.card.name != card.name)
                     and (civ_filter is None or any(c in civ for civ in mana.card.civilizations for c in civ_filter))
                 ]
                 if not candidates:

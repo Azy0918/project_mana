@@ -24,7 +24,7 @@ KNOWN_OPS: dict[str, set[str]] = {
     # 第1弾(v1.2)
     "draw": {"count"},
     "deck_top_to_mana": {"count"},
-    "destroy_creature": {"count", "scope", "max_power", "timing", "chooser"},  # chooser="opponent"=相手が選ぶ(最弱)
+    "destroy_creature": {"count", "scope", "max_power", "max_cost", "timing", "chooser"},  # chooser="opponent"=相手が選ぶ(最弱)
     "bounce_creature": {"count", "scope"},
     "tap_creature": {"count", "scope"},
     # 第2弾
@@ -35,7 +35,7 @@ KNOWN_OPS: dict[str, set[str]] = {
     "summon_from_hand": {"count", "max_cost"},    # 手札からコストを支払わずに出す(踏み倒し)
     "untap_creature": {"count", "scope"},         # クリーチャーをアンタップ
     "send_creature_to_mana": {"count", "scope"},  # クリーチャーをマナゾーンへ送る(マナ送り除去)
-    "summon_from_mana": {"count", "max_cost", "scope", "exclude_evolution", "civilizations"},  # マナからバトルゾーンへ(scope=opponentは父なる大地型の妨害)
+    "summon_from_mana": {"count", "max_cost", "scope", "exclude_evolution", "civilizations", "name_self"},  # マナからバトルゾーンへ(scope=opponentは父なる大地型の妨害)
     "summon_from_grave": {"count", "max_cost", "exclude_self", "race", "exclude_evolution", "civilizations", "speed_attacker", "name_self", "own_turn_only", "timing"},  # 精密蘇生(SA付与可)
     "burn_opponent_shield": {"count"},            # 相手のシールドを墓地に置く(トリガーさせない)
     "extra_turn": set(),                          # このターンの後に自分のターンを追加する

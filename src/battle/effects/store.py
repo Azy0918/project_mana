@@ -16,7 +16,12 @@ DEFAULT_DB_PATH = ROOT_DIR / "data" / "cards.db"
 REVIEW_STATUSES = {"draft", "approved", "rejected"}
 
 # 下書き生成時にテキストを完全変換できたとみなすnotes(自動承認の対象)
-CLEAN_NOTES = {"", "能力テキストなし(バニラ)"}
+CLEAN_NOTES = {
+    "",
+    "能力テキストなし(バニラ)",
+    # 後半面の省略は意図した過小評価(exact-safe)であり、前半面が完全変換なら承認可
+    "ツインパクト後半面は面選択未対応のため省略(exact-safe)",
+}
 
 
 def ensure_card_effects_table(db_path: Path = DEFAULT_DB_PATH) -> None:

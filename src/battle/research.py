@@ -183,6 +183,7 @@ def main(argv: list[str] | None = None) -> int:
     mine_parser.add_argument("--trials", type=int, default=300, help="チェーン成立検証の一人回し試行数")
     mine_parser.add_argument("--max-turns", type=int, default=8, help="成立期限ターン")
     mine_parser.add_argument("--rate-top", type=int, default=3, help="メタ判定まで行う上位件数")
+    mine_parser.add_argument("--evolve", action="store_true", help="最良コンボをシードにハイブリッド探索で周辺を最適化")
 
     sub.add_parser("sanity-check", help="実戦ログなしでシミュレーターの方向性妥当性を検証")
 
@@ -465,6 +466,31 @@ def main(argv: list[str] | None = None) -> int:
         }
         path = write_report(payload, "combo_mine", args.report_dir)
         print(f"\nreport: {path}")
+
+        if args.evolve and result["validated"] and result["validated"][0]["success_rate"] > 0:
+            from src.battle.hybrid_search import run_hybrid_search, save_to_generated_decks
+
+            best_combo = result["validated"][0]
+            print(f'\n=== 最良コンボをシードに進化: {" → ".join(best_combo["names"])} ===')
+            search = run_hybrid_search(
+                db_path=args.db, generations=10, population_size=14,
+                seed=args.seed, seed_deck=best_combo["deck"],
+                locked_card_ids=best_combo["chain"],
+            )
+            if search.get("best"):
+                rating = rate_deck_against_meta(
+                    search["best"]["deck"], "コンボ進化", db_path=args.db,
+                    games_per_pair=args.games, seed=args.seed, effects=effects,
+                )
+                print(f'進化後の対メタ強さ: {rating["strength_score"]}(シード時 {best_combo.get("strength_score")})')
+                deck_id = save_to_generated_decks(
+                    search["best"]["deck"],
+                    f'コンボ進化 {best_combo["names"][-1][:12]} (強さ{rating["strength_score"]})',
+                    f'combo-mine --evolve の成果。コンボ骨格: {" → ".join(best_combo["names"])}。'
+                    f'成立率{best_combo["success_rate"]:.0%}、進化後強さ{rating["strength_score"]}',
+                    db_path=args.db,
+                )
+                print(f"generated_decksに保存: id={deck_id}")
         return 0
 
     if args.command == "sanity-check":

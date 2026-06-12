@@ -217,6 +217,32 @@ def save_to_generated_decks(
         return int(cursor.lastrowid)
 
 
+def _enforce_locked(
+    deck: list[dict[str, Any]],
+    locked_card_ids: list[str],
+    pool: list[dict[str, Any]],
+    cards_by_id: dict[str, dict[str, Any]],
+    rng: random.Random,
+) -> list[dict[str, Any]]:
+    """コンボ核などの固定カードを4枚ずつ維持する(進化が骨格を淘汰しないように)。"""
+    counter = _deck_counter(deck)
+    for card_id in locked_card_ids:
+        counter[card_id] = MAX_COPIES
+    repaired = _repair(counter, pool, cards_by_id, rng)
+    # _repairが40枚調整で固定カードを削った場合は他を削って戻す
+    for card_id in locked_card_ids:
+        while repaired[card_id] < MAX_COPIES:
+            others = [cid for cid, n in repaired.items() if cid not in locked_card_ids and n > 0]
+            if not others:
+                break
+            victim = rng.choice(others)
+            repaired[victim] -= 1
+            if repaired[victim] <= 0:
+                del repaired[victim]
+            repaired[card_id] += 1
+    return _group_deck(repaired, cards_by_id)
+
+
 def run_hybrid_search(
     db_path: Path = DEFAULT_DB_PATH,
     generations: int = 8,
@@ -229,6 +255,8 @@ def run_hybrid_search(
     rotate_opponents: bool = True,
     rotation_period: int = 3,
     max_card_types: int = 16,
+    seed_deck: list[dict[str, Any]] | None = None,
+    locked_card_ids: list[str] | None = None,
 ) -> dict[str, Any]:
     """世代内選別に厳密シミュレーション勝率を使う進化探索。
 
@@ -241,6 +269,7 @@ def run_hybrid_search(
     """
     rng = random.Random(seed)
     sim_weight = max(0.0, min(1.0, sim_weight))
+    locked = list(locked_card_ids or [])
 
     all_cards = search_cards(db_path)
     if not all_cards:
@@ -256,10 +285,17 @@ def run_hybrid_search(
     fixed_opponents = shuffled_meta[: min(sim_opponents, len(shuffled_meta))]
     effects = load_approved_effects_map(db_path)
 
-    population = [
-        _initial_deck(pool, cards_by_id, rng, max_card_types)
-        for _ in range(max(2, population_size))
-    ]
+    size = max(2, population_size)
+    if seed_deck:
+        # コンボ骨格などを起点に周辺を進化させる: 半分はシードの変異、半分は新規
+        half = max(1, size // 2)
+        population = [seed_deck] + [
+            _consolidating_mutate(seed_deck, pool, cards_by_id, rng, max_card_types)
+            for _ in range(half - 1)
+        ]
+        population += [_initial_deck(pool, cards_by_id, rng, max_card_types) for _ in range(size - len(population))]
+    else:
+        population = [_initial_deck(pool, cards_by_id, rng, max_card_types) for _ in range(size)]
 
     history: list[dict[str, Any]] = []
     best: dict[str, Any] | None = None
@@ -301,7 +337,10 @@ def run_hybrid_search(
         next_population = elites[:]
         while len(next_population) < len(population):
             parent = rng.choice(elites)
-            next_population.append(_consolidating_mutate(parent, pool, cards_by_id, rng, max_card_types))
+            child = _consolidating_mutate(parent, pool, cards_by_id, rng, max_card_types)
+            if locked:
+                child = _enforce_locked(child, locked, pool, cards_by_id, rng)
+            next_population.append(child)
         population = next_population
 
     return {

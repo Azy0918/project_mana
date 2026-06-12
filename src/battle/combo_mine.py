@@ -43,6 +43,22 @@ def _civ_overlap(*cards: dict[str, Any]) -> bool:
     return len(civs) <= 3
 
 
+def _payoff_score(card: dict[str, Any], abilities: list[dict[str, Any]] | None) -> float:
+    """ペイオフの質: 複数ブレイク・パワー・承認済み効果の数で採点(コスト順だとネタカードが上位に来る)。"""
+    text = str(card.get("text") or "")
+    power = 0
+    try:
+        import re as re_module
+
+        match = re_module.search(r"\d+", str(card.get("power") or ""))
+        power = int(match.group()) if match else 0
+    except Exception:
+        power = 0
+    breaker = 3 if "T・ブレイカー" in text else (2 if "W・ブレイカー" in text else 1)
+    effect_count = sum(len(a.get("actions", [])) for a in (abilities or []))
+    return breaker * 10 + power / 1000 + effect_count * 4
+
+
 def propose_chains(
     db_path: Path = DEFAULT_DB_PATH,
     max_proposals: int = 30,
@@ -83,7 +99,7 @@ def propose_chains(
             continue
         if card_id in effects or "ブレイカー" in text:
             payoffs.append(card_id)
-    payoffs.sort(key=lambda cid: -int(cards[cid]["cost"] or 0))
+    payoffs.sort(key=lambda cid: -_payoff_score(cards[cid], effects.get(cid)))
 
     proposals: list[dict[str, Any]] = []
     seen: set[tuple[str, ...]] = set()

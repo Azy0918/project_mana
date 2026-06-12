@@ -84,7 +84,9 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "deck_top_to_mana", "count": count})
     if "相手のクリーチャー" in sentence and "マナゾーンに置" in sentence:
         actions.append({"op": "send_creature_to_mana", "count": count, "scope": "opponent"})
-    if "マナゾーンから" in sentence and "バトルゾーンに出" in sentence:
+    # 「バトルゾーンに出す/出し」(他動詞)のみ。「出た時」はトリガー句であり
+    # 「出た時、マナから手札に戻す」をsummon_from_manaと誤読する(ストーム・クロウラー事件)
+    if "マナゾーンから" in sentence and re.search(r"バトルゾーンに出[すし]", sentence):
         action = {"op": "summon_from_mana", "count": count}
         cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
         if cost_match:
@@ -116,7 +118,7 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "deck_top_to_grave", "count": count})
     elif re.search(r"その中から\d*枚?を?墓地に置", sentence):
         actions.append({"op": "deck_top_to_grave", "count": count})
-    if "墓地から" in sentence and "バトルゾーンに出" in sentence:
+    if "墓地から" in sentence and re.search(r"バトルゾーンに出[すし]", sentence):
         action = {"op": "summon_from_grave", "count": count}
         cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
         if cost_match:

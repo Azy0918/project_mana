@@ -187,7 +187,7 @@ class EffectExecutor:
                 )
                 if target_player_index == controller_index:
                     # 自分側の踏み倒しのみエンジン発火として計数する
-                    engine.record_effect(controller_index=controller_index, trigger=trigger, card=card.name, op=op, target=target_mana.card.name)
+                    engine.record_effect(controller_index=controller_index, source_card_id=card.card_id, trigger=trigger, card=card.name, op=op, target=target_mana.card.name)
                 self.run(engine, target_player_index, "on_play", target_mana.card)
                 if engine.state.finished:
                     return
@@ -216,7 +216,7 @@ class EffectExecutor:
                 controller.battle_zone.append(
                     CreatureInstance(card=target_card, summoned_turn=engine.state.turn, granted_speed=grant_speed)
                 )
-                engine.record_effect(controller_index=controller_index, trigger=trigger, card=card.name, op=op, target=target_card.name)
+                engine.record_effect(controller_index=controller_index, source_card_id=card.card_id, trigger=trigger, card=card.name, op=op, target=target_card.name)
                 self.run(engine, controller_index, "on_play", target_card)
                 if engine.state.finished:
                     return
@@ -243,7 +243,7 @@ class EffectExecutor:
                     return
                 spell = max(spells, key=lambda entry: entry.cost)
                 controller.graveyard.remove(spell)
-                engine.record_effect(controller_index=controller_index, trigger=trigger, card=card.name, op=op, target=spell.name)
+                engine.record_effect(controller_index=controller_index, source_card_id=card.card_id, trigger=trigger, card=card.name, op=op, target=spell.name)
                 self.run(engine, controller_index, "on_cast", spell)
                 controller.deck.append(spell)
                 if engine.state.finished:

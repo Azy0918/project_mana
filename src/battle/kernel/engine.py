@@ -110,13 +110,17 @@ class DuelEngine:
         keep_log: bool = True,
         effects: dict[str, list[dict[str, Any]]] | None = None,
         state: GameState | None = None,
+        fire_source_ids: set[str] | None = None,
     ) -> None:
         self.rng = rng or random.Random()
         self.policies = (policy_a, policy_b)
         self.max_turns = max_turns
         self.keep_log = keep_log
-        # プレイヤー別の効果成立カウント(op -> 回数)。keep_logと無関係に集計する
+        # プレイヤー別の効果成立カウント(op -> 回数)。keep_logと無関係に集計する。
+        # fire_source_ids指定時は発生源カードがその集合に含まれる場合のみ数える
+        # (exact限定にして、approxスクリプトが発火指標を荒稼ぎするのを防ぐ)
         self.op_success_counts: tuple[Counter[str], Counter[str]] = (Counter(), Counter())
+        self.fire_source_ids = fire_source_ids
         self.executor = EffectExecutor(effects)
         # state指定時は進行中のゲーム状態を引き継ぐ(先読み方策の仮実行用)
         if state is not None:
@@ -218,10 +222,20 @@ class DuelEngine:
         self._record("draw")
         return True
 
-    def record_effect(self, controller_index: int | None = None, **detail: Any) -> None:
+    def record_effect(
+        self,
+        controller_index: int | None = None,
+        source_card_id: str | None = None,
+        **detail: Any,
+    ) -> None:
         # 効果の成立(対象が確定した実行)はログ無効時も常時カウントする。
         # 探索の選別関数が「エンジンが実際に回ったか」を安価に観測するために使う。
-        if controller_index is not None and "target" in detail and detail.get("op"):
+        if (
+            controller_index is not None
+            and "target" in detail
+            and detail.get("op")
+            and (self.fire_source_ids is None or source_card_id in self.fire_source_ids)
+        ):
             self.op_success_counts[controller_index][detail["op"]] += 1
         if self.keep_log:
             self.state.record("effect", **detail)

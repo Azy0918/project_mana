@@ -94,8 +94,13 @@ def _simulated_metrics(
     games: int,
     seed: float,
     effects: dict[str, list[dict[str, Any]]] | None,
+    fire_source_ids: set[str] | None = None,
 ) -> tuple[float, float]:
-    """対メタ勝率と、エンジン系効果(墓地詠唱・蘇生)が成立した試合の割合を返す。"""
+    """対メタ勝率と、エンジン系効果(墓地詠唱・蘇生・マナ踏み倒し)が成立した試合の割合を返す。
+
+    発火率はexactスクリプト由来に限定する(fire_source_ids)。approxの誤読が
+    発火指標を荒稼ぎし、進化が誤読カードを集める事故を防ぐ(ストーム・クロウラー事件)。
+    """
     wins = 0
     total = 0
     fired = 0.0
@@ -108,6 +113,7 @@ def _simulated_metrics(
             effects=effects,
             policy_a=ComboPolicy(),
             policy_b=ComboPolicy(),
+            fire_source_ids=fire_source_ids,
         )
         wins += summary.wins_a
         total += summary.games
@@ -298,6 +304,8 @@ def run_hybrid_search(
     rng.shuffle(shuffled_meta)
     fixed_opponents = shuffled_meta[: min(sim_opponents, len(shuffled_meta))]
     effects = load_approved_effects_map(db_path)
+    # 発火率の発生源はexactスクリプト持ちカードに限定する
+    exact_source_ids = set(load_approved_effects_map(db_path, exact_only=True)) if engine_weight > 0 else None
 
     size = max(2, population_size)
     if seed_deck:
@@ -323,7 +331,9 @@ def run_hybrid_search(
         evaluated = []
         for deck in population:
             heuristic = float(evaluate_deck(deck)["score"])
-            win_rate, fire_rate = _simulated_metrics(deck, opponents, sim_games, rng.random(), effects)
+            win_rate, fire_rate = _simulated_metrics(
+                deck, opponents, sim_games, rng.random(), effects, fire_source_ids=exact_source_ids
+            )
             assembly = 0.0
             if chain:
                 # コンボ成立率を選別関数に組み込み、安定性を上げる方向の進化圧をかける

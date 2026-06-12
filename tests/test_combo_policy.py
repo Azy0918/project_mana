@@ -114,6 +114,18 @@ class ComboPolicyTest(unittest.TestCase):
         choice = engine.policies[0].choose_charge(engine.state, player)
         self.assertEqual(choice, 0)
 
+    def test_fire_source_whitelist_filters_counts(self) -> None:
+        # fire_source_ids指定時、リスト外のカードが発生源の効果成立は数えない
+        engine = DuelEngine(
+            make_deck(), make_deck(), ComboPolicy(), StubPolicy(),
+            effects=MRC_EFFECTS, fire_source_ids={"別のカード"},
+        )
+        player = engine.state.players[0]
+        player.graveyard = [make_card("ロマノフ", cost=6, power=6000)]
+        source = make_card("サイン", cost=5, card_type="呪文")
+        engine.executor._execute_action(engine, 0, "on_cast", source, {"op": "summon_from_grave", "count": 1})
+        self.assertEqual(engine.op_success_counts[0]["summon_from_grave"], 0)
+
     def test_engine_counts_effect_successes(self) -> None:
         # 対象が確定した効果はkeep_logと無関係にop_success_countsへ集計される
         engine = self._engine(effects=MRC_EFFECTS)

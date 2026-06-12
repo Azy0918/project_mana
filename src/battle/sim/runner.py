@@ -66,11 +66,14 @@ def simulate_matches(
     policy_a: Policy | None = None,
     policy_b: Policy | None = None,
     effects: dict[str, list[dict[str, Any]]] | None = None,
+    fire_source_ids: set[str] | None = None,
 ) -> SimulationSummary:
     """デッキ同士をN試合シミュレーションし、勝率と95%信頼区間を返す。
 
     先攻有利の偏りを避けるため、試合ごとに先攻デッキを入れ替える。
     effects には承認済みEffectScriptのマップ(card_id -> abilities)を渡す。
+    fire_source_ids を渡すと、エンジン発火率はその発生源カードに限定して数える
+    (exact限定にして、approxスクリプトの誤読が発火指標を荒稼ぎするのを防ぐ)。
     """
     cards_a = deck_a if deck_a and isinstance(deck_a[0], BattleCard) else battle_deck_from_dicts(deck_a)  # type: ignore[arg-type]
     cards_b = deck_b if deck_b and isinstance(deck_b[0], BattleCard) else battle_deck_from_dicts(deck_b)  # type: ignore[arg-type]
@@ -99,6 +102,7 @@ def simulate_matches(
             max_turns=max_turns,
             keep_log=game_index == 0,
             effects=effects,
+            fire_source_ids=fire_source_ids,
         )
         result = engine.run()
         total_turns += result.turns

@@ -80,6 +80,31 @@ class DraftGeneratorTest(unittest.TestCase):
         self.assertEqual(script["abilities"][0]["trigger"], "on_play")
         self.assertEqual(script["abilities"][0]["actions"], [{"op": "draw", "count": 2}])
 
+    def test_trigger_clause_not_misread_as_summon(self) -> None:
+        # 「バトルゾーンに出た時」はトリガー句であり、マナ回収をsummon_from_manaと
+        # 誤読してはいけない(ストーム・クロウラー事件の回帰テスト)
+        card = {
+            "card_id": "DMPC-0010",
+            "name": "マナ回収獣",
+            "card_type": "クリーチャー",
+            "text": "バトルゾーンに出た時、自分のマナゾーンからカードを探索し、1枚を手札に戻す。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {action["op"] for ability in script["abilities"] for action in ability["actions"]}
+        self.assertNotIn("summon_from_mana", ops)
+        self.assertIn("mana_to_hand", ops)
+
+    def test_transitive_summon_from_mana_still_detected(self) -> None:
+        card = {
+            "card_id": "DMPC-0011",
+            "name": "マナ展開獣",
+            "card_type": "クリーチャー",
+            "text": "バトルゾーンに出た時、自分のマナゾーンからコスト3以下のクリーチャーを1体バトルゾーンに出す。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {action["op"] for ability in script["abilities"] for action in ability["actions"]}
+        self.assertIn("summon_from_mana", ops)
+
     def test_removal_with_power_limit_and_s_trigger(self) -> None:
         card = {
             "card_id": "DMPC-0003",

@@ -66,6 +66,22 @@ def _is_kernel_keyword_sentence(sentence: str) -> bool:
     return any(pattern.search(sentence) for pattern in _NOOP_SENTENCE_PATTERNS)
 
 
+# トリガー句(「〜時、」)は効果ではないため、効果抽出の前に文頭から取り除く。
+# 句内の語(「出た」「攻撃する」「相手のクリーチャーが〜」等)へのキーワード誤反応が
+# 捏造スクリプトを生む(ストーム・クロウラー事件の一般化対策)。
+# 条件句(「〜であれば」「〜なら」)は意味を変えるため対象にしない。
+_TRIGGER_CLAUSE_PATTERN = re.compile(
+    r"^[^。]*?(?:出た時|出る時|出した時|攻撃する時|攻撃した時|攻撃される時|攻撃するとき"
+    r"|破壊された時|破壊される時|離れた時|捨てられた時|唱えた時|唱える時"
+    r"|ブロックした時|ブロックされた時|タップされた時|ターン開始時|ターンのはじめに?"
+    r"|バトルに勝った時|バトルに負けた時|手札に加えた時|カードを引いた時)[、，]\s*"
+)
+
+
+def _strip_trigger_clause(sentence: str) -> str:
+    return _TRIGGER_CLAUSE_PATTERN.sub("", sentence, count=1)
+
+
 def _extract_count(sentence: str) -> int:
     if "すべて" in sentence or "全て" in sentence:
         return ALL_COUNT
@@ -76,6 +92,7 @@ def _extract_count(sentence: str) -> int:
 
 
 def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
+    sentence = _strip_trigger_clause(sentence)
     actions: list[dict[str, Any]] = []
     count = _extract_count(sentence)
     if re.search(r"カードを(\d+枚)?引", sentence) or "ドロー" in sentence:

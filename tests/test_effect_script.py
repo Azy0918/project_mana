@@ -94,6 +94,30 @@ class DraftGeneratorTest(unittest.TestCase):
         self.assertNotIn("summon_from_mana", ops)
         self.assertIn("mana_to_hand", ops)
 
+    def test_opponent_in_trigger_clause_not_misread(self) -> None:
+        # トリガー句の「相手のクリーチャーが攻撃する時」が効果側の「相手」と
+        # 誤結合してtap_creature(scope=opponent)等を生んではいけない
+        card = {
+            "card_id": "DMPC-0012",
+            "name": "自陣タップ獣",
+            "card_type": "クリーチャー",
+            "text": "相手のクリーチャーが攻撃する時、このクリーチャーをタップしてもよい。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {action["op"] for ability in script["abilities"] for action in ability["actions"]}
+        self.assertNotIn("tap_creature", ops)
+
+    def test_trigger_clause_count_not_polluting(self) -> None:
+        # トリガー句内の数値(「2体目が出た時」)が効果のcountに混入しない
+        card = {
+            "card_id": "DMPC-0013",
+            "name": "数え獣",
+            "card_type": "クリーチャー",
+            "text": "バトルゾーンに出た時、カードを1枚引く。",
+        }
+        script = generate_draft_effect_script(card)
+        self.assertEqual(script["abilities"][0]["actions"], [{"op": "draw", "count": 1}])
+
     def test_transitive_summon_from_mana_still_detected(self) -> None:
         card = {
             "card_id": "DMPC-0011",

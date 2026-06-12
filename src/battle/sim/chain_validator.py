@@ -47,9 +47,11 @@ def validate_chain_playable(
     successes = 0
     partial_counts = Counter({card_id: 0 for card_id in chain_card_ids})
     completion_turns: Counter[str] = Counter()
+    # チェーンの部品はチャージから保護する(意図を持って回すパイロットの再現)
+    protected = frozenset(chain_card_ids)
 
     for _ in range(trials):
-        result = _simulate_once(cards, max_turns, rng, effects)
+        result = _simulate_once(cards, max_turns, rng, effects, protected_ids=protected)
         sequence: list[str] = result["play_sequence"]
         position = 0
         completion_turn: int | None = None

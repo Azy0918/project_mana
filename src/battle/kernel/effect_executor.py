@@ -161,21 +161,34 @@ class EffectExecutor:
                 target_player.battle_zone.remove(target)
                 target_player.mana_zone.append(make_mana_card(target.card))
         elif op == "summon_from_mana":
+            # scope=opponent は「相手のマナから相手のバトルゾーンに出させる」(父なる大地型の妨害)
+            target_player_index = self._target_player_index(controller_index, {"scope": action.get("scope", "self")})
+            target_player = engine.state.players[target_player_index]
             max_cost = action.get("max_cost")
+            exclude_evolution = bool(action.get("exclude_evolution"))
             for _ in range(count):
                 candidates = [
                     mana
-                    for mana in controller.mana_zone
-                    if mana.card.is_creature and (max_cost is None or mana.card.cost <= max_cost)
+                    for mana in target_player.mana_zone
+                    if mana.card.is_creature
+                    and (max_cost is None or mana.card.cost <= max_cost)
+                    and not (exclude_evolution and mana.card.is_evolution)
                 ]
                 if not candidates:
                     return
-                target_mana = max(candidates, key=lambda mana: (mana.card.cost, mana.card.power))
-                controller.mana_zone.remove(target_mana)
-                controller.battle_zone.append(
+                if target_player_index != controller_index:
+                    # 使用者が選ぶ=相手にとって最も無害な1体(最弱)を出させる
+                    target_mana = min(candidates, key=lambda mana: (mana.card.cost, mana.card.power))
+                else:
+                    target_mana = max(candidates, key=lambda mana: (mana.card.cost, mana.card.power))
+                target_player.mana_zone.remove(target_mana)
+                target_player.battle_zone.append(
                     CreatureInstance(card=target_mana.card, summoned_turn=engine.state.turn)
                 )
-                self.run(engine, controller_index, "on_play", target_mana.card)
+                if target_player_index == controller_index:
+                    # 自分側の踏み倒しのみエンジン発火として計数する
+                    engine.record_effect(controller_index=controller_index, trigger=trigger, card=card.name, op=op, target=target_mana.card.name)
+                self.run(engine, target_player_index, "on_play", target_mana.card)
                 if engine.state.finished:
                     return
         elif op == "summon_from_grave":

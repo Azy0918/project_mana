@@ -10,7 +10,7 @@ from src.battle.kernel.effect_executor import MAX_RESOLUTIONS_PER_CHAIN
 from src.battle.kernel.engine import DuelEngine
 from src.battle.kernel.policy import Policy
 from src.battle.kernel.state import CreatureInstance
-from src.battle.combo_mine import _load_cards, _ops_of, _action_param
+from src.battle.combo_mine import _load_cards, _ops_of
 from src.battle.rating.store import DEFAULT_DB_PATH
 
 # ループ探索器(第一弾): サガ型「相互蘇生+自壊」構造の検出。

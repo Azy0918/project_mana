@@ -179,6 +179,42 @@ class NewOpsTest(unittest.TestCase):
         self.assertFalse(any(creature.card.name == "出せない獣" for creature in player.battle_zone))
         self.assertEqual(len(player.mana_zone), mana_before - 1)
 
+    def test_summon_from_mana_opponent_scope(self) -> None:
+        # 父なる大地型: 相手1体をマナへ→相手のマナから進化でない最弱を相手の場に出させる
+        effects = {
+            "父なる大地": [
+                {
+                    "trigger": "on_cast",
+                    "actions": [
+                        {"op": "send_creature_to_mana", "count": 1, "scope": "opponent"},
+                        {"op": "summon_from_mana", "count": 1, "scope": "opponent", "exclude_evolution": True},
+                    ],
+                }
+            ]
+        }
+        engine = make_engine(effects)
+        caster, opponent = engine.state.players
+        big = make_card("大型", cost=7, power=9000)
+        opponent.battle_zone.append(CreatureInstance(card=big, summoned_turn=0))
+        weak = make_card("小型", cost=2, power=1000)
+        evo = make_card("進化獣", cost=1, power=12000, text="■進化：自分のクリーチャー1体の上に置く。")
+        opponent.mana_zone.extend([make_mana_card(weak), make_mana_card(evo)])
+        engine.executor.run(engine, 0, "on_cast", make_card("父なる大地", card_type="呪文"))
+        # 大型はマナへ送られ、相手の場に出るのは最弱の小型(進化は対象外)。自分の場には出ない
+        self.assertTrue(any(mana.card.name == "大型" for mana in opponent.mana_zone))
+        self.assertEqual([creature.card.name for creature in opponent.battle_zone], ["小型"])
+        self.assertFalse(caster.battle_zone)
+        # 相手側への展開はエンジン発火として計数しない
+        self.assertEqual(engine.op_success_counts[0]["summon_from_mana"], 0)
+
+    def test_summon_from_mana_counts_self_fire(self) -> None:
+        effects = {"マナ展開": [{"trigger": "on_cast", "actions": [{"op": "summon_from_mana", "count": 1}]}]}
+        engine = make_engine(effects)
+        player = engine.state.players[0]
+        player.mana_zone.append(make_mana_card(make_card("出せる獣", cost=6, power=6000)))
+        engine.executor.run(engine, 0, "on_cast", make_card("マナ展開", card_type="呪文"))
+        self.assertEqual(engine.op_success_counts[0]["summon_from_mana"], 1)
+
     def test_burn_opponent_shield_skips_trigger(self) -> None:
         effects = {
             "焼却": [{"trigger": "on_play", "actions": [{"op": "burn_opponent_shield", "count": 1}]}],

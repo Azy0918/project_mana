@@ -18,12 +18,46 @@ def _ops_of(abilities: list[dict[str, Any]]) -> set[str]:
     return {action.get("op") for ability in abilities for action in ability.get("actions", [])}
 
 
-def _action_param(abilities: list[dict[str, Any]], op: str, key: str) -> Any:
+def _first_action(abilities: list[dict[str, Any]], op: str) -> dict[str, Any] | None:
     for ability in abilities:
         for action in ability.get("actions", []):
             if action.get("op") == op:
-                return action.get(key)
+                return action
     return None
+
+
+def _playable_abilities(card: dict[str, Any], abilities: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """カーネルが実際に発火させるトリガーの能力だけを返す。
+
+    打点を持つツインパクトはクリーチャーとしてプレイされるため、呪文面の
+    on_castは現カーネルでは死にコード(デーケン/ルソー問題)。これを環として
+    提案すると成立率0%の幻のチェーンになる。
+    """
+    card_type = str(card.get("card_type") or "")
+    is_pure_spell = "呪文" in card_type and "クリーチャー" not in card_type and "ツインパクト" not in card_type
+    trigger = "on_cast" if is_pure_spell else "on_play"
+    return [ability for ability in abilities if ability.get("trigger") == trigger]
+
+
+def _is_evolution_card(card: dict[str, Any]) -> bool:
+    return "進化" in str(card.get("card_type") or "")
+
+
+def _matches_revive_filter(payoff: dict[str, Any], action: dict[str, Any] | None) -> bool:
+    """蘇生/踏み倒しアクションのフィルタ(コスト・進化除外・文明)をペイオフが満たすか。"""
+    if action is None:
+        return False
+    max_cost = action.get("max_cost")
+    if max_cost is not None and int(payoff.get("cost") or 0) > max_cost:
+        return False
+    if action.get("exclude_evolution") and _is_evolution_card(payoff):
+        return False
+    civ_filter = action.get("civilizations")
+    if civ_filter is not None:
+        payoff_civs = str(payoff.get("civilization") or "")
+        if not any(civ in payoff_civs for civ in civ_filter):
+            return False
+    return True
 
 
 def _load_cards(db_path: Path) -> dict[str, dict[str, Any]]:
@@ -63,8 +97,13 @@ def propose_chains(
     db_path: Path = DEFAULT_DB_PATH,
     max_proposals: int = 30,
 ) -> list[dict[str, Any]]:
-    """イネーブラー×ペイオフのチェーン候補を提案する(検証前の仮説リスト)。"""
-    effects = load_approved_effects_map(db_path)
+    """イネーブラー×ペイオフのチェーン候補を提案する(検証前の仮説リスト)。
+
+    チェーンの環(イネーブラー)はexactスクリプトのみから抽出する。
+    approxスクリプトはscope欠落などの誤読で実在しないコンボを捏造するため
+    (例: 父なる大地の旧approxが生んだid=23、loop-findと同じfidelityゲート)。
+    """
+    effects = load_approved_effects_map(db_path, exact_only=True)
     cards = _load_cards(db_path)
 
     mills: list[tuple[str, int]] = []        # (card_id, 落とす枚数)
@@ -78,19 +117,25 @@ def propose_chains(
         card = cards.get(card_id)
         if card is None:
             continue
-        ops = _ops_of(abilities)
+        # カーネルが実際に発火させるトリガーの能力だけを環の候補にする
+        playable = _playable_abilities(card, abilities)
+        ops = _ops_of(playable)
         cost = int(card["cost"] or 0)
         is_creature = "クリーチャー" in str(card["card_type"]) or "ツインパクト" in str(card["card_type"])
         if "deck_top_to_grave" in ops and cost <= 5:
-            count = _action_param(abilities, "deck_top_to_grave", "count") or 1
+            action = _first_action(playable, "deck_top_to_grave")
+            count = (action or {}).get("count", 1)
             if int(count) >= 2:
                 mills.append((card_id, int(count)))
         if "summon_from_grave" in ops and cost <= 7:
-            reanimators.append((card_id, _action_param(abilities, "summon_from_grave", "max_cost")))
+            reanimators.append((card_id, _first_action(playable, "summon_from_grave")))
         if "summon_from_grave" in ops and is_creature:
-            creature_reanimators.append((card_id, _action_param(abilities, "summon_from_grave", "max_cost")))
+            creature_reanimators.append((card_id, _first_action(playable, "summon_from_grave")))
         if "summon_from_mana" in ops and cost <= 7:
-            mana_cheats.append((card_id, _action_param(abilities, "summon_from_mana", "max_cost")))
+            action = _first_action(playable, "summon_from_mana")
+            # 父なる大地型(相手のマナから出させる妨害)は自分の踏み倒しではない
+            if action is not None and action.get("scope") != "opponent":
+                mana_cheats.append((card_id, action))
         if "deck_top_to_mana" in ops and cost <= 4:
             ramps.append(card_id)
 
@@ -128,20 +173,20 @@ def propose_chains(
             }
         )
 
-    # リアニメイト型: 墓地肥やし → 蘇生 → 大型(蘇生のmax_cost制約を満たすもの)
+    # リアニメイト型: 墓地肥やし → 蘇生 → 大型(蘇生フィルタ: コスト・進化除外・文明を満たすもの)
     for mill_id, _count in mills:
-        for rean_id, max_cost in reanimators:
+        for rean_id, rean_action in reanimators:
             for payoff_id in payoffs:
-                if max_cost is not None and int(cards[payoff_id]["cost"] or 0) > max_cost:
+                if not _matches_revive_filter(cards[payoff_id], rean_action):
                     continue
                 add("リアニメイト", [mill_id, rean_id], payoff_id)
                 break
 
     # マナ踏み倒し型: マナ加速 → マナから展開 → 大型
     for ramp_id in ramps[:10]:
-        for cheat_id, max_cost in mana_cheats:
+        for cheat_id, cheat_action in mana_cheats:
             for payoff_id in payoffs:
-                if max_cost is not None and int(cards[payoff_id]["cost"] or 0) > max_cost:
+                if not _matches_revive_filter(cards[payoff_id], cheat_action):
                     continue
                 add("マナ踏み倒し", [ramp_id, cheat_id], payoff_id)
                 break
@@ -149,16 +194,16 @@ def propose_chains(
     # 二段リアニメイト型: 肥やし → 蘇生呪文 → 蘇生能力持ちクリーチャー(中継ぎ) → 超大型
     # 1段目の蘇生制限内に収まる中継ぎが、自身の蘇生でさらに大きいペイオフを釣り上げる
     for mill_id, _count in mills[:5]:
-        for rean_id, max_cost1 in reanimators[:8]:
-            for mid_id, max_cost2 in creature_reanimators:
+        for rean_id, rean_action in reanimators[:8]:
+            for mid_id, mid_action in creature_reanimators:
                 mid_cost = int(cards[mid_id]["cost"] or 0)
-                if max_cost1 is not None and mid_cost > max_cost1:
+                if not _matches_revive_filter(cards[mid_id], rean_action):
                     continue
                 if mid_id in (mill_id, rean_id):
                     continue
                 for payoff_id in payoffs:
                     payoff_cost = int(cards[payoff_id]["cost"] or 0)
-                    if max_cost2 is not None and payoff_cost > max_cost2:
+                    if not _matches_revive_filter(cards[payoff_id], mid_action):
                         continue
                     # 中継ぎより重いペイオフが釣れる場合のみ二段の意味がある
                     if payoff_cost <= mid_cost:

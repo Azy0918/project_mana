@@ -35,14 +35,21 @@ def _charge_index(
     hand: list[BattleCard],
     mana_count: int,
     effects: dict[str, list[dict[str, Any]]] | None = None,
+    protected_ids: frozenset[str] | set[str] = frozenset(),
 ) -> int | None:
     if not hand:
         return None
     effects = effects or {}
     # 次のターンまでに出せない最高コストのカードをチャージに回す(貪欲方策と同じ基準)。
     # 効果なしカードを優先して埋め、コンボパーツをマナに沈めない。
-    unplayable = [i for i, card in enumerate(hand) if card.cost > mana_count + 1]
-    candidates = unplayable or list(range(len(hand)))
+    # protected_ids(検証対象チェーンの部品)は手札がそれだけにならない限り埋めない:
+    # 「出せない最高コスト」基準はチェーンの環(中~高コスト)を系統的にマナへ沈め、
+    # 成立率を偽って0%にする(チャージ規則がコンボを殺した事例: 第十一弾)。
+    candidates_all = [i for i in range(len(hand)) if hand[i].card_id not in protected_ids]
+    if not candidates_all:
+        candidates_all = list(range(len(hand)))
+    unplayable = [i for i in candidates_all if hand[i].cost > mana_count + 1]
+    candidates = unplayable or candidates_all
     vanilla = [i for i in candidates if hand[i].card_id not in effects]
     pool = vanilla or candidates
     return max(pool, key=lambda i: hand[i].cost)
@@ -53,6 +60,7 @@ def _simulate_once(
     max_turns: int,
     rng: random.Random,
     effects: dict[str, list[dict[str, Any]]],
+    protected_ids: frozenset[str] | set[str] = frozenset(),
 ) -> dict[str, Any]:
     shuffled = deck[:]
     rng.shuffle(shuffled)
@@ -72,7 +80,7 @@ def _simulate_once(
         if library:
             hand.append(library.pop(0))
 
-        charge = _charge_index(hand, len(mana_zone), effects)
+        charge = _charge_index(hand, len(mana_zone), effects, protected_ids)
         if charge is not None:
             mana_zone.append(make_mana_card(hand.pop(charge)))
 
@@ -128,16 +136,32 @@ def _simulate_once(
                             if library:
                                 graveyard.append(library.pop(0))
                     elif action["op"] == "summon_from_grave":
+                        exclude_evo = bool(action.get("exclude_evolution"))
+                        civ_filter = action.get("civilizations")
                         for _ in range(count):
-                            candidates = [c for c in graveyard if c.is_creature and (max_cost is None or c.cost <= max_cost)]
+                            candidates = [
+                                c for c in graveyard
+                                if c.is_creature
+                                and (max_cost is None or c.cost <= max_cost)
+                                and not (exclude_evo and c.is_evolution)
+                                and (civ_filter is None or any(cv in civ for civ in c.civilizations for cv in civ_filter))
+                            ]
                             if not candidates:
                                 break
                             target = max(candidates, key=lambda c: (c.cost, c.power))
                             graveyard.remove(target)
                             _arrive(target, depth)
                     elif action["op"] == "summon_from_mana":
+                        if action.get("scope") == "opponent":
+                            continue  # 相手依存の効果は一人回しでは実行しない(父なる大地型)
+                        exclude_evo = bool(action.get("exclude_evolution"))
                         for _ in range(count):
-                            candidates = [m for m in mana_zone if m.card.is_creature and (max_cost is None or m.card.cost <= max_cost)]
+                            candidates = [
+                                m for m in mana_zone
+                                if m.card.is_creature
+                                and (max_cost is None or m.card.cost <= max_cost)
+                                and not (exclude_evo and m.card.is_evolution)
+                            ]
                             if not candidates:
                                 break
                             target = max(candidates, key=lambda m: (m.card.cost, m.card.power))

@@ -371,6 +371,45 @@
     "note": "通常詠唱面のみ: 闇コスト8以下・進化でない1枚蘇生。SSTモードは省略(exact-safe)"
   },
   {
+    "name": "父なる大地",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "send_creature_to_mana",
+            "count": 1,
+            "scope": "opponent"
+          },
+          {
+            "op": "summon_from_mana",
+            "count": 1,
+            "scope": "opponent",
+            "exclude_evolution": true
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "send_creature_to_mana",
+            "count": 1,
+            "scope": "opponent"
+          },
+          {
+            "op": "summon_from_mana",
+            "count": 1,
+            "scope": "opponent",
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 相手1体をマナへ→相手のマナから進化でない1体を相手のバトルゾーンへ(使用者選択=最弱)。旧approxはscope欠落で「自分のマナから踏み倒す」と誤読しid=23の捏造コンボを生んだ"
+  },
+  {
     "name": "魔法特区 クジルマギカ",
     "fidelity": "exact",
     "abilities": [

@@ -10,8 +10,9 @@ from src.battle.kernel.cards import BattleCard, battle_deck_from_dicts
 from src.battle.kernel.engine import DEFAULT_MAX_TURNS, DuelEngine
 from src.battle.kernel.policy import GreedyPolicy, Policy
 
-# 「エンジンが回った」とみなす効果op(墓地エンジン系。発火率の観測対象)
-ENGINE_OPS = ("cast_from_grave", "summon_from_grave")
+# 「エンジンが回った」とみなす効果op(踏み倒し系。発火率の観測対象)
+# 墓地エンジン(MRC型)に加え、マナ踏み倒し型(父なる大地型)も対象にする
+ENGINE_OPS = ("cast_from_grave", "summon_from_grave", "summon_from_mana")
 
 
 @dataclass

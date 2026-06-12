@@ -251,10 +251,14 @@ def apply_curated_scripts(
                         "abilities": entry.get("abilities", []),
                         "notes": [f"キュレーション適用: {entry.get('note', '')}".rstrip(": ")],
                     }
-                    if not upsert_effect_script(
+                    errors = upsert_effect_script(
                         script, review_status="approved", db_path=db_path,
                         fidelity=entry.get("fidelity", "approx"),
-                    ):
+                    )
+                    if errors:
+                        # 検証エラーは黙殺せず警告として返す(スキーマ未対応キー等の検知)
+                        missing.append(f"{name}: {' / '.join(errors)}")
+                    else:
                         applied += 1
     return applied, missing
 

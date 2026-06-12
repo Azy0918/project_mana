@@ -26,14 +26,21 @@ def _initial_deck(
     rng: random.Random,
     max_card_types: int,
 ) -> list[dict[str, Any]]:
-    """少数のカード種に複数枚ずつ割り当てた、人間のデッキに近い初期個体を作る。"""
+    """少数のカード種に複数枚ずつ割り当てた、人間のデッキに近い初期個体を作る。
+
+    max_card_types >= デッキ枚数 のときは1枚刺し主体で生成する(ハイランダー型探索モード)。
+    """
     counter: Counter[str] = Counter()
-    candidates = rng.sample(pool, min(max(1, max_card_types), len(pool)))
-    for card in candidates:
-        if sum(counter.values()) >= DECK_SIZE:
-            break
-        quantity = min(rng.choice([2, 3, 4, 4]), DECK_SIZE - sum(counter.values()))
-        counter[card["card_id"]] = quantity
+    if max_card_types >= DECK_SIZE:
+        for card in rng.sample(pool, min(DECK_SIZE, len(pool))):
+            counter[card["card_id"]] = 1
+    else:
+        candidates = rng.sample(pool, min(max(1, max_card_types), len(pool)))
+        for card in candidates:
+            if sum(counter.values()) >= DECK_SIZE:
+                break
+            quantity = min(rng.choice([2, 3, 4, 4]), DECK_SIZE - sum(counter.values()))
+            counter[card["card_id"]] = quantity
     repaired = _repair(counter, pool, cards_by_id, rng)
     return _group_deck(repaired, cards_by_id)
 

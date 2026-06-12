@@ -185,6 +185,9 @@ def main(argv: list[str] | None = None) -> int:
     mine_parser.add_argument("--rate-top", type=int, default=3, help="メタ判定まで行う上位件数")
     mine_parser.add_argument("--evolve", action="store_true", help="最良コンボをシードにハイブリッド探索で周辺を最適化")
 
+    loop_parser = sub.add_parser("loop-find", help="サガ型(相互/自己蘇生)ループの静的検出+動的検証")
+    loop_parser.add_argument("--verify-top", type=int, default=20, help="動的検証する候補数")
+
     sub.add_parser("sanity-check", help="実戦ログなしでシミュレーターの方向性妥当性を検証")
 
     sub.add_parser("validate-ratings", help="実戦ログの勝率とシミュレーション強さの相関を検証")
@@ -493,6 +496,23 @@ def main(argv: list[str] | None = None) -> int:
                     db_path=args.db,
                 )
                 print(f"generated_decksに保存: id={deck_id}")
+        return 0
+
+    if args.command == "loop-find":
+        from src.battle.loop_finder import mine_loops
+
+        result = mine_loops(db_path=args.db, verify_top=args.verify_top)
+        print(f'静的候補: {result["static_candidates"]}件 / 動的検証: {len(result["verified"])}件\n')
+        for entry in result["verified"][:12]:
+            mark = "★ループ署名" if entry["hits_cap"] else f'蘇生{entry["revive_count"]}回'
+            print(f'[{entry["kind"]}] {" + ".join(entry["names"])}: {mark}')
+            if entry["revived_names"]:
+                print(f'    連鎖: {" → ".join(str(n) for n in entry["revived_names"][:6])}')
+        path = write_report(
+            {"static_candidates": result["static_candidates"], "verified": result["verified"]},
+            "loop_find", args.report_dir,
+        )
+        print(f"\nreport: {path}")
         return 0
 
     if args.command == "sanity-check":

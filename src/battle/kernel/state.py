@@ -69,6 +69,8 @@ class GameState:
     winner: int | None = None
     finished: bool = False
     extra_turn_pending: bool = False
+    # (controller_index, 発生源カード, action) のターン終了時遅延効果
+    deferred_end_of_turn: list[Any] = field(default_factory=list)
     finish_reason: str = ""
     log: list[dict[str, Any]] = field(default_factory=list)
 

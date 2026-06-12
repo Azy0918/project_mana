@@ -24,7 +24,7 @@ KNOWN_OPS: dict[str, set[str]] = {
     # 第1弾(v1.2)
     "draw": {"count"},
     "deck_top_to_mana": {"count"},
-    "destroy_creature": {"count", "scope", "max_power"},
+    "destroy_creature": {"count", "scope", "max_power", "timing"},  # timing="end_of_turn"で遅延破壊
     "bounce_creature": {"count", "scope"},
     "tap_creature": {"count", "scope"},
     # 第2弾
@@ -36,13 +36,15 @@ KNOWN_OPS: dict[str, set[str]] = {
     "untap_creature": {"count", "scope"},         # クリーチャーをアンタップ
     "send_creature_to_mana": {"count", "scope"},  # クリーチャーをマナゾーンへ送る(マナ送り除去)
     "summon_from_mana": {"count", "max_cost"},    # 自分のマナゾーンからバトルゾーンに出す
-    "summon_from_grave": {"count", "max_cost"},   # 自分の墓地からバトルゾーンに出す(リアニメイト)
+    "summon_from_grave": {"count", "max_cost", "exclude_self", "race", "exclude_evolution"},  # 精密蘇生
     "burn_opponent_shield": {"count"},            # 相手のシールドを墓地に置く(トリガーさせない)
     "extra_turn": set(),                          # このターンの後に自分のターンを追加する
     "discard_own_hand": {"count"},                # 自分の手札をランダムに捨てる(コスト・代償)
     "own_shield_to_hand": {"count"},              # 自分のシールドを手札に加える
     "hand_to_mana": {"count"},                    # 自分の手札をマナゾーンに置く
     "mana_to_hand": {"count"},                    # 自分のマナゾーンから手札に回収する
+    "grave_to_mana": {"count"},                   # 自分の墓地からマナゾーンに置く
+    "grave_to_deck": {"count"},                   # 自分の墓地を山札に戻す(count=99で全部)
 }
 
 KNOWN_SCOPES = {"opponent", "self"}

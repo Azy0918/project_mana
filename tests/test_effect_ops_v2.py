@@ -279,6 +279,50 @@ class NewOpsTest(unittest.TestCase):
         # 成立率はBが墓地に落ちる確率に依存する。0より明確に大きければ観測成功
         self.assertGreater(result["success_rate"], 0.02)
 
+    def test_precise_revive_filters_and_deferred_destroy(self) -> None:
+        # exclude_self / exclude_evolution / timing=end_of_turn の精密セマンティクス
+        effects = {
+            "ムカデ風": [{
+                "trigger": "on_play",
+                "actions": [
+                    {"op": "summon_from_grave", "count": 2, "exclude_self": True, "exclude_evolution": True},
+                    {"op": "destroy_creature", "count": 1, "scope": "self", "timing": "end_of_turn"},
+                ],
+            }]
+        }
+        engine = make_engine(effects)
+        player = engine.state.players[0]
+        source = make_card("ムカデ風", cost=8, power=8000)
+        player.graveyard.extend([
+            make_card("ムカデ風", cost=8, power=8000),          # 同名→exclude_selfで除外
+            make_card("進化獣", cost=5, power=5000, text="進化-闇のクリーチャー"),  # 進化→除外
+            make_card("普通の獣", cost=4, power=4000),
+        ])
+        player.battle_zone.append(CreatureInstance(card=source, summoned_turn=engine.state.turn))
+        engine.executor.run(engine, 0, "on_play", source)
+        names = [c.card.name for c in player.battle_zone]
+        self.assertIn("普通の獣", names)
+        self.assertEqual(names.count("ムカデ風"), 1)  # 同名は蘇生されない
+        self.assertNotIn("進化獣", names)
+        # 即時破壊ではなく遅延キューに積まれている
+        self.assertEqual(len(engine.state.deferred_end_of_turn), 1)
+
+    def test_grave_to_mana_and_grave_to_deck(self) -> None:
+        effects = {
+            "回収M": [{"trigger": "on_cast", "actions": [{"op": "grave_to_mana", "count": 1}]}],
+            "戻しD": [{"trigger": "on_cast", "actions": [{"op": "grave_to_deck", "count": 99}]}],
+        }
+        engine = make_engine(effects)
+        player = engine.state.players[0]
+        player.graveyard.extend([make_card(f"墓{i}", cost=i + 1) for i in range(3)])
+        mana_before = len(player.mana_zone)
+        engine.executor.run(engine, 0, "on_cast", make_card("回収M", card_type="呪文"))
+        self.assertEqual(len(player.mana_zone), mana_before + 1)
+        deck_before = len(player.deck)
+        engine.executor.run(engine, 0, "on_cast", make_card("戻しD", card_type="呪文"))
+        self.assertEqual(len(player.graveyard), 0)
+        self.assertEqual(len(player.deck), deck_before + 2)
+
     def test_untap_creature_self(self) -> None:
         effects = {"再起": [{"trigger": "on_cast", "actions": [{"op": "untap_creature", "count": 1, "scope": "self"}]}]}
         engine = make_engine(effects)

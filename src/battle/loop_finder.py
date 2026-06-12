@@ -32,15 +32,19 @@ class _NullPolicy(Policy):
         return None
 
 
-def _revive_limit(abilities: list[dict[str, Any]]) -> tuple[bool, int | None]:
-    """on_playの蘇生(summon_from_grave)を持つか、その蘇生コスト上限を返す。"""
+def _revive_spec(abilities: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """on_playの蘇生(summon_from_grave)仕様を返す(なければNone)。"""
     for ability in abilities:
         if ability.get("trigger") != "on_play":
             continue
         for action in ability.get("actions", []):
             if action.get("op") == "summon_from_grave":
-                return True, action.get("max_cost")
-    return False, None
+                return {
+                    "max_cost": action.get("max_cost"),
+                    "exclude_self": bool(action.get("exclude_self")),
+                    "race": action.get("race"),
+                }
+    return None
 
 
 def _has_self_destroy(abilities: list[dict[str, Any]]) -> bool:
@@ -60,10 +64,11 @@ def find_loop_candidates(db_path: Path = DEFAULT_DB_PATH) -> list[dict[str, Any]
     - 相互型: AがBを蘇生でき、BがAを蘇生できる
     自壊(destroy scope self)を併せ持つものは「無限型候補」、なければ「有限増殖型」。
     """
-    effects = load_approved_effects_map(db_path)
+    # ループ探索は近似禁止: 精密変換(fidelity='exact')のみを対象とする
+    effects = load_approved_effects_map(db_path, exact_only=True)
     cards = _load_cards(db_path)
 
-    revivers: list[tuple[str, int | None, bool]] = []  # (card_id, max_cost, self_destroy)
+    revivers: list[tuple[str, dict[str, Any], bool]] = []  # (card_id, 蘇生仕様, self_destroy)
     for card_id, abilities in effects.items():
         card = cards.get(card_id)
         if card is None:
@@ -71,20 +76,23 @@ def find_loop_candidates(db_path: Path = DEFAULT_DB_PATH) -> list[dict[str, Any]
         is_creature = "クリーチャー" in str(card["card_type"]) or "ツインパクト" in str(card["card_type"])
         if not is_creature:
             continue
-        has_revive, max_cost = _revive_limit(abilities)
-        if has_revive:
-            revivers.append((card_id, max_cost, _has_self_destroy(abilities)))
+        spec = _revive_spec(abilities)
+        if spec is not None:
+            revivers.append((card_id, spec, _has_self_destroy(abilities)))
 
-    def fits(max_cost: int | None, cost: int) -> bool:
-        return max_cost is None or cost <= max_cost
+    def fits(spec: dict[str, Any], target: dict[str, Any]) -> bool:
+        if spec["max_cost"] is not None and int(target["cost"] or 0) > spec["max_cost"]:
+            return False
+        if spec["race"] is not None and spec["race"] not in str(target.get("race") or ""):
+            return False
+        return True
 
     candidates: list[dict[str, Any]] = []
     seen: set[tuple[str, ...]] = set()
 
-    for a_id, a_limit, a_sd in revivers:
-        a_cost = int(cards[a_id]["cost"] or 0)
-        # 自己型: 自分自身(同名の別コピー)を釣れる
-        if fits(a_limit, a_cost):
+    for a_id, a_spec, a_sd in revivers:
+        # 自己型: 自分自身(同名の別コピー)を釣れる(exclude_selfなら不可)
+        if not a_spec["exclude_self"] and fits(a_spec, cards[a_id]):
             key = (a_id,)
             if key not in seen:
                 seen.add(key)
@@ -96,12 +104,11 @@ def find_loop_candidates(db_path: Path = DEFAULT_DB_PATH) -> list[dict[str, Any]
                         "infinite_candidate": a_sd,
                     }
                 )
-        # 相互型
-        for b_id, b_limit, b_sd in revivers:
-            if b_id <= a_id:
+        # 相互型(別名カード同士ならexclude_selfは妨げにならない)
+        for b_id, b_spec, b_sd in revivers:
+            if b_id <= a_id or cards[b_id]["name"] == cards[a_id]["name"]:
                 continue
-            b_cost = int(cards[b_id]["cost"] or 0)
-            if fits(a_limit, b_cost) and fits(b_limit, a_cost):
+            if fits(a_spec, cards[b_id]) and fits(b_spec, cards[a_id]):
                 key = (a_id, b_id)
                 if key in seen:
                     continue
@@ -127,7 +134,7 @@ def verify_loop_candidate(
 
     実行器の連鎖上限(MAX_RESOLUTIONS_PER_CHAIN)に到達したら「ループ署名あり」。
     """
-    effects = load_approved_effects_map(db_path)
+    effects = load_approved_effects_map(db_path, exact_only=True)
     cards = _load_cards(db_path)
     loop_cards = [battle_card_from_dict(cards[cid]) for cid in chain_ids]
 

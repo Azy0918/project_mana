@@ -41,6 +41,7 @@ class BattleCard:
     power: int
     text: str = ""
     tags: tuple[str, ...] = field(default_factory=tuple)
+    race: str = ""
 
     @property
     def is_creature(self) -> bool:
@@ -187,6 +188,7 @@ def battle_card_from_dict(card: dict[str, Any]) -> BattleCard:
         power=power,
         text=str(card.get("text", "") or ""),
         tags=_split_tags(card.get("tags")),
+        race=str(card.get("race", "") or ""),
     )
 
 

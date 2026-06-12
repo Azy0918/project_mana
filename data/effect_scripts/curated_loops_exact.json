@@ -1,0 +1,85 @@
+[
+  {
+    "name": "インフェルノ・サイン",
+    "fidelity": "exact",
+    "abilities": [
+      {"trigger": "on_cast", "actions": [{"op": "summon_from_grave", "count": 1, "max_cost": 7, "exclude_evolution": true}]},
+      {"trigger": "s_trigger", "actions": [{"op": "summon_from_grave", "count": 1, "max_cost": 7, "exclude_evolution": true}]}
+    ],
+    "note": "原文どおり: コスト7以下・進化でない・1枚"
+  },
+  {
+    "name": "ビシャモンス・デーケン/「深淵より来たれ、魂よ」",
+    "fidelity": "exact",
+    "abilities": [
+      {"trigger": "on_cast", "actions": [{"op": "summon_from_grave", "count": 99, "exclude_evolution": true}]}
+    ],
+    "note": "呪文面(墓地から進化でないクリーチャーを好きな数)。クリーチャー面の任意自壊効果は省略(過小評価側=exact-safe)"
+  },
+  {
+    "name": "パーリ騎士",
+    "fidelity": "exact",
+    "abilities": [{"trigger": "on_play", "actions": [{"op": "grave_to_mana", "count": 1}]}],
+    "note": "原文どおり: 墓地からカード1枚をマナへ"
+  },
+  {
+    "name": "埋没のカルマ オリーブオイル",
+    "fidelity": "exact",
+    "abilities": [
+      {"trigger": "on_play", "actions": [{"op": "grave_to_deck", "count": 99}]},
+      {"trigger": "s_trigger", "actions": [{"op": "grave_to_deck", "count": 99}]}
+    ],
+    "note": "「いずれかの墓地」は自分側選択で表現(選択肢の部分集合=exact-safe)"
+  },
+  {
+    "name": "堕魔 ヴォジャワ",
+    "fidelity": "exact",
+    "abilities": [{"trigger": "on_play", "actions": [{"op": "deck_top_to_grave", "count": 2}]}],
+    "note": "魔導具回収は種族データ欠落のため省略(過小評価側=exact-safe)"
+  },
+  {
+    "name": "ソー☆ギョッ",
+    "fidelity": "exact",
+    "abilities": [{"trigger": "on_play", "actions": [{"op": "draw", "count": 1}, {"op": "discard_own_hand", "count": 1}]}],
+    "note": "無月の門条件の自己蘇生は条件未対応のため省略(exact-safe)。蘇生能力なし扱い"
+  },
+  {
+    "name": "ティン★ビン",
+    "fidelity": "exact",
+    "abilities": [{"trigger": "on_play", "actions": [{"op": "discard_opponent_hand", "count": 1}]}],
+    "note": "無月の門条件の自己蘇生は省略(exact-safe)"
+  },
+  {
+    "name": "堕魔 ジグス★ガルビ",
+    "fidelity": "exact",
+    "abilities": [],
+    "note": "能力は無月の門条件の自己蘇生のみ→条件未対応のためバニラ扱い(exact-safe)"
+  },
+  {
+    "name": "偽りの名 ドレッド・ブラッド",
+    "fidelity": "exact",
+    "abilities": [],
+    "note": "ターン開始時・墓地条件の自己蘇生は未対応→バニラ扱い(exact-safe)"
+  },
+  {
+    "name": "ビクトリー・アップル",
+    "fidelity": "exact",
+    "abilities": [],
+    "note": "マナゾーンの種族条件付き効果2種は条件未対応→バニラ扱い(exact-safe)"
+  },
+  {
+    "name": "阿修羅サソリムカデ",
+    "fidelity": "approx",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {"op": "deck_top_to_grave", "count": 3},
+          {"op": "summon_from_grave", "count": 2, "exclude_self": true},
+          {"op": "destroy_creature", "count": 2, "scope": "self", "timing": "end_of_turn"}
+        ]
+      }
+    ],
+    "note": "自身以外・ターン終了時破壊は精密化済み。マフィ・ギャング種族限定はDBの種族データ欠落のため未表現→approx"
+  }
+]

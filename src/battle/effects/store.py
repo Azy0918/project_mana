@@ -30,16 +30,21 @@ def ensure_card_effects_table(db_path: Path = DEFAULT_DB_PATH) -> None:
                 effect_json TEXT NOT NULL,
                 review_status TEXT NOT NULL DEFAULT 'draft',
                 notes TEXT,
+                fidelity TEXT NOT NULL DEFAULT 'approx',
                 updated_at TEXT NOT NULL
             )
             """
         )
+        columns = {row[1] for row in conn.execute("PRAGMA table_info(card_effects)").fetchall()}
+        if "fidelity" not in columns:
+            conn.execute("ALTER TABLE card_effects ADD COLUMN fidelity TEXT NOT NULL DEFAULT 'approx'")
 
 
 def upsert_effect_script(
     script: dict[str, Any],
     review_status: str = "draft",
     db_path: Path = DEFAULT_DB_PATH,
+    fidelity: str = "approx",
 ) -> list[str]:
     """EffectScriptを保存する。検証エラーがあれば保存せずエラー一覧を返す。"""
     if review_status not in REVIEW_STATUSES:
@@ -51,13 +56,14 @@ def upsert_effect_script(
     with sqlite3.connect(db_path) as conn:
         conn.execute(
             """
-            INSERT INTO card_effects (card_id, name, effect_json, review_status, notes, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO card_effects (card_id, name, effect_json, review_status, notes, fidelity, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(card_id) DO UPDATE SET
                 name = excluded.name,
                 effect_json = excluded.effect_json,
                 review_status = excluded.review_status,
                 notes = excluded.notes,
+                fidelity = excluded.fidelity,
                 updated_at = excluded.updated_at
             """,
             (
@@ -66,6 +72,7 @@ def upsert_effect_script(
                 json.dumps(script, ensure_ascii=False),
                 review_status,
                 "\n".join(script.get("notes", [])),
+                fidelity if fidelity in ("exact", "approx") else "approx",
                 datetime.now().isoformat(timespec="seconds"),
             ),
         )
@@ -119,13 +126,21 @@ def list_effect_scripts(
     return results
 
 
-def load_approved_effects_map(db_path: Path = DEFAULT_DB_PATH) -> dict[str, list[dict[str, Any]]]:
-    """承認済みEffectScriptを card_id -> abilities のマップで返す(カーネル実行用)。"""
+def load_approved_effects_map(
+    db_path: Path = DEFAULT_DB_PATH,
+    exact_only: bool = False,
+) -> dict[str, list[dict[str, Any]]]:
+    """承認済みEffectScriptを card_id -> abilities のマップで返す(カーネル実行用)。
+
+    exact_only=True で精密変換(fidelity='exact')のみに限定する。
+    ループ探索など近似が許されない用途で使う(自動下書きは常にapprox)。
+    """
     ensure_card_effects_table(db_path)
+    query = "SELECT card_id, effect_json FROM card_effects WHERE review_status = 'approved'"
+    if exact_only:
+        query += " AND fidelity = 'exact'"
     with sqlite3.connect(db_path) as conn:
-        rows = conn.execute(
-            "SELECT card_id, effect_json FROM card_effects WHERE review_status = 'approved'"
-        ).fetchall()
+        rows = conn.execute(query).fetchall()
     effects: dict[str, list[dict[str, Any]]] = {}
     for card_id, effect_json in rows:
         abilities = json.loads(effect_json).get("abilities", [])
@@ -236,7 +251,10 @@ def apply_curated_scripts(
                         "abilities": entry.get("abilities", []),
                         "notes": [f"キュレーション適用: {entry.get('note', '')}".rstrip(": ")],
                     }
-                    if not upsert_effect_script(script, review_status="approved", db_path=db_path):
+                    if not upsert_effect_script(
+                        script, review_status="approved", db_path=db_path,
+                        fidelity=entry.get("fidelity", "approx"),
+                    ):
                         applied += 1
     return applied, missing
 

@@ -189,6 +189,14 @@ class DuelEngine:
                 self._record("end_of_turn_destroy", card=creature.card.name)
                 self.destroy_creature(state.active_index, creature)
 
+        # timing="end_of_turn" の遅延効果を解決する
+        if not state.finished and state.deferred_end_of_turn:
+            deferred, state.deferred_end_of_turn = state.deferred_end_of_turn, []
+            for controller_index, source_card, action in deferred:
+                if state.finished:
+                    break
+                self.executor._execute_action(self, controller_index, "end_of_turn", source_card, action)
+
     def _draw(self, player: PlayerState) -> bool:
         return self.draw_for(self.state.players.index(player))
 

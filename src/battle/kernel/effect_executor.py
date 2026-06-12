@@ -62,6 +62,13 @@ class EffectExecutor:
         controller = engine.state.players[controller_index]
         engine.record_effect(trigger=trigger, card=card.name, op=op, count=count)
 
+        # ターン終了時タイミングの効果はエンジンの遅延キューに積む(阿修羅型の正確な再現)
+        if action.get("timing") == "end_of_turn":
+            deferred = dict(action)
+            deferred.pop("timing")
+            engine.state.deferred_end_of_turn.append((controller_index, card, deferred))
+            return
+
         if op == "draw":
             for _ in range(count):
                 if not engine.draw_for(controller_index):
@@ -169,11 +176,18 @@ class EffectExecutor:
                     return
         elif op == "summon_from_grave":
             max_cost = action.get("max_cost")
+            exclude_self = bool(action.get("exclude_self"))
+            exclude_evolution = bool(action.get("exclude_evolution"))
+            race_filter = action.get("race")
             for _ in range(count):
                 candidates = [
                     entry
                     for entry in controller.graveyard
-                    if entry.is_creature and (max_cost is None or entry.cost <= max_cost)
+                    if entry.is_creature
+                    and (max_cost is None or entry.cost <= max_cost)
+                    and not (exclude_self and entry.name == card.name)
+                    and not (exclude_evolution and entry.is_evolution)
+                    and (race_filter is None or race_filter in entry.race)
                 ]
                 if not candidates:
                     return
@@ -213,6 +227,20 @@ class EffectExecutor:
                 target_card = max(controller.hand, key=lambda entry: entry.cost)
                 controller.hand.remove(target_card)
                 controller.mana_zone.append(make_mana_card(target_card))
+        elif op == "grave_to_mana":
+            for _ in range(count):
+                if not controller.graveyard:
+                    return
+                target_card = max(controller.graveyard, key=lambda entry: entry.cost)
+                controller.graveyard.remove(target_card)
+                controller.mana_zone.append(make_mana_card(target_card))
+        elif op == "grave_to_deck":
+            moved = 0
+            while controller.graveyard and moved < count:
+                controller.deck.append(controller.graveyard.pop())
+                moved += 1
+            if moved:
+                engine.rng.shuffle(controller.deck)
         elif op == "mana_to_hand":
             for _ in range(count):
                 untapped = [mana for mana in controller.mana_zone if not mana.tapped]

@@ -40,6 +40,7 @@ class LoopFinderTest(unittest.TestCase):
             },
             review_status="approved",
             db_path=self.db_path,
+            fidelity="exact",
         )
         # 自壊なしの単純蘇生(有限増殖型)
         upsert_effect_script(
@@ -51,6 +52,7 @@ class LoopFinderTest(unittest.TestCase):
             },
             review_status="approved",
             db_path=self.db_path,
+            fidelity="exact",
         )
 
     def tearDown(self) -> None:

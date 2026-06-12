@@ -8,7 +8,9 @@ id=20「黒単ロマノフサイン・再誕」をメタ全デッキ相手に回
   combo_old(G・ゼロのみ)       43.0
   combo_discard_only             41.2
   combo_charge_only(全保護)    28.4  ← 選択効果でマナ詰まり
-  combo_mrc(エンジン限定保護)  45.8  ← 採用
+  エンジン限定保護               45.8  ← 採用
+  +蘇生呪文優先                  47.5  ← 採用(combo_mrc最終形)
+  +エンジン先制攻撃              40.8  ← 不採用(貪欲の戦闘判断を潰す)
 """
 from __future__ import annotations
 
@@ -52,6 +54,13 @@ class ComboChargeOnly(ComboPolicy):
         return None
 
 
+class ComboNoRevivePriority(ComboPolicy):
+    """蘇生呪文優先を無効化した比較用。"""
+
+    def _engine_assembly_action(self, player, playable):
+        return None
+
+
 def main() -> None:
     with sqlite3.connect(DEFAULT_DB_PATH) as conn:
         conn.row_factory = sqlite3.Row
@@ -66,7 +75,6 @@ def main() -> None:
     print(f'deck: {row["deck_name"]} (id={DECK_ID}) / opponents: {len(meta_decks)} / games/pair: {GAMES_PER_PAIR}')
 
     policies = {
-        "greedy": GreedyPolicy,
         "combo_mrc": ComboPolicy,
     }
     results: dict[str, dict] = {}

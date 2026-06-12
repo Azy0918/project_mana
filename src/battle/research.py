@@ -234,7 +234,8 @@ def main(argv: list[str] | None = None) -> int:
         deck = _load_deck_file(args.deck_file)
         deck_name = args.name or args.deck_file.stem
         result = rate_deck_against_meta(
-            deck, deck_name, db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects
+            deck, deck_name, db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects,
+            policy_factory=POLICY_FACTORIES[args.policy], policy_name=args.policy,
         )
         path = write_report(result, f"rate_{deck_name}", args.report_dir)
         print(f"report: {path}")
@@ -272,11 +273,12 @@ def main(argv: list[str] | None = None) -> int:
             print(f"id={args.id} のデッキリストが空です。")
             return 1
         result = rate_deck_against_meta(
-            deck, row["deck_name"], db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects
+            deck, row["deck_name"], db_path=args.db, games_per_pair=args.games, seed=args.seed, effects=effects,
+            policy_factory=POLICY_FACTORIES[args.policy], policy_name=args.policy,
         )
         path = write_report(result, f'rate_generated_{args.id}', args.report_dir)
         print(f"report: {path}")
-        print(f'絶対強さスコア: {result["strength_score"]}')
+        print(f'絶対強さスコア: {result["strength_score"]}(方策: {args.policy})')
         for detail in result["details"]:
             print(f'  vs {detail["opponent"]}: {detail["win_rate"]:.1%}')
         for warning in result["warnings"]:

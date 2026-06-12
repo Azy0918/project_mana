@@ -131,5 +131,10 @@ python -m src.battle.research --games 100 --seed 5 meta-tournament
   なる選択効果でマナが止まり43.0→29.4に暴落。保護をエンジン限定+全保護時は貪欲退避に
   絞ると**43.0→45.8**(id=20黒単ロマノフサイン、各100試合×8相手・同一シード)。
   詳細は docs/loop_research.md 第七弾、測定は scripts/measure_combo_mrc.py。
-- 注意: `rate_deck_against_meta` はGreedy固定のため、方策込みの強さは
-  `simulate_matches(policy_a=ComboPolicy())` で測ること(カタログの43.6はGreedy操作時の値)。
+- `rate_deck_against_meta` に `policy_factory` 引数を追加済み。CLIは
+  `python -m src.battle.research --policy combo rate-generated --id 20` で方策込み判定できる
+  (相手側は比較可能性のため常にGreedy固定)。
+- エンジン組立規則のアブレーション(第八弾): 蘇生呪文優先は45.8→47.5で採用、
+  エンジン先制攻撃は40.8に悪化(貪欲の有利交換判断を潰す)ため不採用。
+  累計でGreedy 43.0→コンボ方策47.5(+4.5)。コンボデッキの絶対強さは
+  操作方策ぶん過小評価される点に注意。

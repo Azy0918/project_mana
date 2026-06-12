@@ -2,10 +2,13 @@ from __future__ import annotations
 
 import sqlite3
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any, Callable
 
 from src.battle.rating.store import DEFAULT_DB_PATH, save_sim_battle_log, save_sim_rating
 from src.battle.sim.runner import simulate_matches
+
+if TYPE_CHECKING:
+    from src.battle.kernel.policy import Policy
 
 # メタデッキのカード名がカードDBと一致した割合がこれ未満のデッキは対戦相手から除外する
 DEFAULT_MIN_COVERAGE = 0.6
@@ -105,10 +108,14 @@ def rate_deck_against_meta(
     effects: dict[str, list[dict[str, Any]]] | None = None,
     min_coverage: float = DEFAULT_MIN_COVERAGE,
     save: bool = True,
+    policy_factory: Callable[[], "Policy"] | None = None,
+    policy_name: str = "greedy",
 ) -> dict[str, Any]:
     """メタデッキ総当たりで絶対強さスコア(平均勝率×100)を算出する。
 
     対戦結果は sim_battle_logs、集計は sim_ratings に保存する。
+    policy_factory を渡すと判定対象デッキ側の操作方策を差し替えられる
+    (相手側は常にGreedy。コンボデッキはGreedy操作だと過小評価される)。
     """
     meta_decks, warnings = load_meta_battle_decks(db_path, min_coverage=min_coverage)
     if not meta_decks:
@@ -129,6 +136,7 @@ def rate_deck_against_meta(
             games=games_per_pair,
             seed=pair_seed,
             effects=effects,
+            policy_a=policy_factory() if policy_factory else None,
         )
         if save:
             save_sim_battle_log(deck_name, meta_deck["deck_name"], summary, pair_seed, db_path=db_path)
@@ -153,6 +161,7 @@ def rate_deck_against_meta(
 
     return {
         "deck_name": deck_name,
+        "policy": policy_name,
         "strength_score": round(win_rate * 100, 1),
         "win_rate": win_rate,
         "games_total": games_total,

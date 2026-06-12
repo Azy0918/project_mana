@@ -124,6 +124,24 @@ class ComboPolicyTest(unittest.TestCase):
         self.assertEqual([card.name for card in player.hand], ["普通"])
         self.assertEqual(player.graveyard[-1].name, "サイン")
 
+    def test_prefers_revive_spell_when_engine_in_grave(self) -> None:
+        # 墓地にエンジンが落ちていれば、蘇生呪文をクリーチャー召喚より先に唱える
+        engine = self._engine(effects=MRC_EFFECTS)
+        player = engine.state.players[0]
+        player.hand = [make_card("大型", cost=5, power=5000), make_card("サイン", cost=5, card_type="呪文")]
+        player.graveyard = [make_card("ロマノフ", cost=6, power=6000)]
+        choice = engine.policies[0].choose_main_action(engine.state, player, [0, 1])
+        self.assertEqual(player.hand[choice].name, "サイン")
+
+    def test_no_revive_priority_without_engine_in_grave(self) -> None:
+        # 墓地にエンジンがなければ貪欲どおりクリーチャーを優先する
+        engine = self._engine(effects=MRC_EFFECTS)
+        player = engine.state.players[0]
+        player.hand = [make_card("大型", cost=5, power=5000), make_card("サイン", cost=5, card_type="呪文")]
+        player.graveyard = [make_card("普通", cost=3)]
+        choice = engine.policies[0].choose_main_action(engine.state, player, [0, 1])
+        self.assertEqual(player.hand[choice].name, "大型")
+
     def test_falls_back_to_greedy_without_g_zero(self) -> None:
         engine = self._engine()
         player = engine.state.players[0]

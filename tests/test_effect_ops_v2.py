@@ -287,6 +287,27 @@ class NewOpsTest(unittest.TestCase):
         engine.executor.run(engine, 0, "on_play", source)
         self.assertEqual([c.card.name for c in player.battle_zone], ["獲物"])
 
+    def test_source_tapped_condition_on_destroy(self) -> None:
+        # クラッシュ覇道型: タップ状態で破壊→追加ターン、アンタップ破壊→不発
+        effects = {
+            "覇道": [
+                {"trigger": "on_destroyed", "actions": [
+                    {"op": "extra_turn", "condition": {"kind": "source_tapped"}}
+                ]}
+            ]
+        }
+        engine = make_engine(effects)
+        player = engine.state.players[0]
+        card = make_card("覇道", cost=10, power=11000)
+        untapped = CreatureInstance(card=card, summoned_turn=1)
+        player.battle_zone.append(untapped)
+        engine.destroy_creature(0, untapped)
+        self.assertFalse(engine.state.extra_turn_pending)
+        tapped = CreatureInstance(card=card, summoned_turn=1, tapped=True)
+        player.battle_zone.append(tapped)
+        engine.destroy_creature(0, tapped)
+        self.assertTrue(engine.state.extra_turn_pending)
+
     def test_burn_opponent_shield_skips_trigger(self) -> None:
         effects = {
             "焼却": [{"trigger": "on_play", "actions": [{"op": "burn_opponent_shield", "count": 1}]}],

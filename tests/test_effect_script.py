@@ -209,6 +209,46 @@ class DraftGeneratorTest(unittest.TestCase):
         self.assertEqual(draws[0]["condition"], {"kind": "mana_civ_at_least", "civilization": "闇", "count": 5})
         self.assertEqual(draws[0]["count"], 1)
 
+    def test_tapped_destroyed_condition_extracted(self) -> None:
+        # クラッシュ覇道型: 「タップ状態で破壊された時」がsource_tapped条件になる
+        # (extra_turnはキュレーション専用opのため、ドロー効果で条件抽出を検証)
+        card = {
+            "card_id": "DMPC-0022",
+            "name": "覇道獣",
+            "card_type": "クリーチャー",
+            "text": "■タップ状態で破壊された時、カードを1枚引く。",
+        }
+        script = generate_draft_effect_script(card)
+        draws = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "draw"]
+        self.assertEqual(draws[0]["condition"], {"kind": "source_tapped"})
+
+    def test_evolution_base_summon_not_converted(self) -> None:
+        # レッド・エンド型: 「進化元であったクリーチャーを墓地から出す」は表現不可→見送り
+        card = {
+            "card_id": "DMPC-0023",
+            "name": "進化元蘇生獣",
+            "card_type": "進化クリーチャー",
+            "text": "■破壊された時、このクリーチャーの進化元であったクリーチャー1枚を、墓地からバトルゾーンに出してもよい。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertNotIn("summon_from_grave", ops)
+
+    def test_cross_clause_mana_send_not_misread(self) -> None:
+        # ウインドアックス型: 「相手を破壊し、山札からマナへ」が相手マナ送りに化けない
+        card = {
+            "card_id": "DMPC-0024",
+            "name": "斧獣",
+            "card_type": "クリーチャー",
+            "text": "■バトルゾーンに出た時、「ブロッカー」を持つ相手のクリーチャー1体を破壊し、自分の山札の上から1枚目をマナゾーンに置く。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        # 捏造マナ送りが消えることが本質。マナ加速は「相手」を含む文の既存ガードにより
+        # 落ちる(過小評価側で許容)
+        self.assertNotIn("send_creature_to_mana", ops)
+        self.assertIn("destroy_creature", ops)
+
     def test_race_limited_summon_not_converted(self) -> None:
         # Kサイズ型: 「イニシャルズ1枚を出す」の種族限定は表現不可→変換を見送る
         card = {

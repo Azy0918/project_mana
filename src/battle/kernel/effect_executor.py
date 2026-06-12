@@ -33,7 +33,14 @@ class EffectExecutor:
     def has_trigger(self, card: BattleCard, trigger: str) -> bool:
         return bool(self.abilities_for(card, trigger))
 
-    def run(self, engine: "DuelEngine", controller_index: int, trigger: str, card: BattleCard) -> None:
+    def run(
+        self,
+        engine: "DuelEngine",
+        controller_index: int,
+        trigger: str,
+        card: BattleCard,
+        context: dict[str, Any] | None = None,
+    ) -> None:
         abilities = self.abilities_for(card, trigger)
         if not abilities:
             return
@@ -44,7 +51,7 @@ class EffectExecutor:
                     if engine.state.finished or self._chain_depth >= MAX_RESOLUTIONS_PER_CHAIN:
                         return
                     self._chain_depth += 1
-                    self._execute_action(engine, controller_index, trigger, card, action)
+                    self._execute_action(engine, controller_index, trigger, card, action, context)
         finally:
             if is_chain_root:
                 self._chain_depth = 0
@@ -56,6 +63,7 @@ class EffectExecutor:
         trigger: str,
         card: BattleCard,
         action: dict[str, Any],
+        context: dict[str, Any] | None = None,
     ) -> None:
         op = action.get("op")
         count = int(action.get("count", 1))
@@ -68,7 +76,7 @@ class EffectExecutor:
 
         # 数えて判定できる条件(マナ武装・墓地枚数・革命など)
         condition = action.get("condition")
-        if condition is not None and not self._condition_met(controller, condition):
+        if condition is not None and not self._condition_met(controller, condition, context):
             return
 
         # ターン終了時タイミングの効果はエンジンの遅延キューに積む(阿修羅型の正確な再現)
@@ -323,9 +331,16 @@ class EffectExecutor:
                 target.tapped = False
 
     @staticmethod
-    def _condition_met(controller: PlayerState, condition: dict[str, Any]) -> bool:
-        """数えるだけで判定できる発動条件(マナ武装・墓地枚数・革命)を評価する。"""
+    def _condition_met(
+        controller: PlayerState,
+        condition: dict[str, Any],
+        context: dict[str, Any] | None = None,
+    ) -> bool:
+        """数えるだけで判定できる発動条件(マナ武装・墓地枚数・革命・タップ状態)を評価する。"""
         kind = condition.get("kind")
+        if kind == "source_tapped":
+            # 「タップ状態で破壊された時」(クラッシュ覇道型)。文脈がなければ不発
+            return bool((context or {}).get("tapped"))
         count = int(condition.get("count", 0))
         if kind == "mana_civ_at_least":
             civ = condition.get("civilization", "")

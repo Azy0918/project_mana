@@ -57,7 +57,11 @@ KNOWN_CONDITION_KINDS = {
     "mana_at_least",       # 自分のマナゾーンのカードがN枚以上
     "grave_at_least",      # 自分の墓地のカードがN枚以上
     "shields_at_most",     # 自分のシールドがN枚以下(革命系)
+    "source_tapped",       # 発生源がタップ状態だった(「タップ状態で破壊された時」)
 }
+
+# countパラメータが不要な条件(文脈で判定する)
+CONTEXT_CONDITION_KINDS = {"source_tapped"}
 
 
 def validate_effect_script(script: dict[str, Any]) -> list[str]:
@@ -104,7 +108,9 @@ def _validate_action(action: Any, prefix: str) -> list[str]:
             errors.append(
                 f"{prefix}: conditionは kind in {sorted(KNOWN_CONDITION_KINDS)} のdictで指定してください"
             )
-        elif not isinstance(condition.get("count"), int) or condition["count"] < 0:
+        elif condition["kind"] not in CONTEXT_CONDITION_KINDS and (
+            not isinstance(condition.get("count"), int) or condition["count"] < 0
+        ):
             errors.append(f"{prefix}: condition.countは0以上の整数で指定してください")
     count = action.get("count", 1)
     if not isinstance(count, int) or count < 1:

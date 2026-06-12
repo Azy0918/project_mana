@@ -397,4 +397,5 @@ class DuelEngine:
         if creature in owner.battle_zone:
             owner.battle_zone.remove(creature)
             owner.graveyard.append(creature.card)
-            self.executor.run(self, owner_index, "on_destroyed", creature.card)
+            # 破壊時のタップ状態をコンテキストとして渡す(「タップ状態で破壊された時」条件用)
+            self.executor.run(self, owner_index, "on_destroyed", creature.card, context={"tapped": creature.tapped})

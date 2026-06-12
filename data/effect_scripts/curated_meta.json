@@ -361,12 +361,15 @@
         "trigger": "on_destroyed",
         "actions": [
           {
-            "op": "extra_turn"
+            "op": "extra_turn",
+            "condition": {
+              "kind": "source_tapped"
+            }
           }
         ]
       }
     ],
-    "note": "「タップ状態で破壊された時」を破壊された時全般で近似。バトル中パワー加算は未対応。B・A・Dはカーネルが処理(軽減+ターン終了時破壊)"
+    "note": "B・A・Dはカーネル対応済み。追加ターンはsource_tapped条件付き(原文「タップ状態で破壊された時」)。攻撃→タップ→B・A・D自壊→追加ターンの実機エンジンを正確に再現"
   },
   {
     "name": "機術士ディール/「本日のラッキーナンバー！」",

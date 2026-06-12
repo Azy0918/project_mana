@@ -29,6 +29,10 @@ def _summon_filters(sentence: str, zone_word: str) -> dict[str, Any] | None:
     (exact-safe方向。Kサイズ事件: 「イニシャルズ1枚」の種族限定が落ちて
     何でも蘇生する捏造エンジンになった)。
     """
+    # 進化元の追跡はカーネル未対応(レッド・エンド事件: 無制限蘇生への化けを防ぐ)。
+    # 対象記述がゾーン語の前に来る語順(「Xを、墓地から出す」)があるため文全体で判定
+    if "進化元" in sentence:
+        return None
     filters: dict[str, Any] = {}
     cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
     if cost_match:
@@ -138,6 +142,9 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
     # 【LINE】はテキスト段階で分離済みのため、ここに残る【】はモード指定
     if re.search(r"【[^】]*】", sentence):
         return []
+    # 条件はトリガー句剥がしの前に原文から拾う(「タップ状態で破壊された時」は
+    # トリガー句側に条件が埋まっているため)
+    original_sentence = sentence
     sentence = _strip_trigger_clause(sentence)
     actions: list[dict[str, Any]] = []
     count = _extract_count(sentence)
@@ -145,7 +152,9 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "draw", "count": count})
     if "山札" in sentence and "マナゾーンに置" in sentence and "相手" not in sentence:
         actions.append({"op": "deck_top_to_mana", "count": count})
-    if "相手のクリーチャー" in sentence and "マナゾーンに置" in sentence:
+    if "相手のクリーチャー" in sentence and "マナゾーンに置" in sentence and "山札" not in sentence:
+        # 山札を含む文の「マナゾーンに置く」は山札からのマナ加速(deck_top_to_mana)であり、
+        # 節跨ぎで相手マナ送りに誤結合させない(ウインドアックス事件)
         actions.append({"op": "send_creature_to_mana", "count": count, "scope": "opponent"})
     # 「バトルゾーンに出す/出し」(他動詞)のみ。「出た時」はトリガー句であり
     # 「出た時、マナから手札に戻す」をsummon_from_manaと誤読する(ストーム・クロウラー事件)
@@ -218,9 +227,10 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
     if "マナゾーンから" in sentence and re.search(r"手札に(戻|加え)", sentence):
         actions.append({"op": "mana_to_hand", "count": count})
 
-    # 数えて判定できる発動条件(マナ武装・墓地枚数・革命)を文の全アクションに付与する。
-    # 条件を落とすと無条件発動の捏造(過大評価)になる(ウラミハデス型)
-    condition = _extract_condition(sentence)
+    # 数えて判定できる発動条件(マナ武装・墓地枚数・革命・タップ状態)を
+    # 文の全アクションに付与する。条件を落とすと無条件発動の捏造になる(ウラミハデス型)。
+    # トリガー句側の条件(タップ状態)を逃さないよう原文から抽出する
+    condition = _extract_condition(original_sentence)
     if condition is not None:
         for action in actions:
             action["condition"] = condition
@@ -228,6 +238,8 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
 
 
 def _extract_condition(sentence: str) -> dict[str, Any] | None:
+    if "タップ状態で破壊された時" in sentence:
+        return {"kind": "source_tapped"}
     match = re.search(r"マナゾーンに(光|水|闇|火|自然)のカードが(\d+)枚以上あれば", sentence)
     if match:
         return {"kind": "mana_civ_at_least", "civilization": match.group(1), "count": int(match.group(2))}

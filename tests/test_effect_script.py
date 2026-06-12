@@ -249,6 +249,22 @@ class DraftGeneratorTest(unittest.TestCase):
         self.assertNotIn("send_creature_to_mana", ops)
         self.assertIn("destroy_creature", ops)
 
+    def test_revolution_bounce_not_misread_as_shield_pickup(self) -> None:
+        # ペニシリン型: 「自分のシールドが2つ以下なら、相手のクリーチャーをすべて手札に戻す」が
+        # own_shield_to_hand(自分の盾回収)に誤結合しない
+        card = {
+            "card_id": "DMPC-0025",
+            "name": "革命獣",
+            "card_type": "クリーチャー",
+            "text": "■革命2：バトルゾーンに出た時、自分のシールドが2つ以下なら、相手のクリーチャーをすべて手札に戻す。",
+        }
+        script = generate_draft_effect_script(card)
+        actions = [a for ab in script["abilities"] for a in ab["actions"]]
+        ops = {a["op"] for a in actions}
+        self.assertNotIn("own_shield_to_hand", ops)
+        bounce = next(a for a in actions if a["op"] == "bounce_creature")
+        self.assertEqual(bounce["condition"], {"kind": "shields_at_most", "count": 2})
+
     def test_race_limited_summon_not_converted(self) -> None:
         # Kサイズ型: 「イニシャルズ1枚を出す」の種族限定は表現不可→変換を見送る
         card = {

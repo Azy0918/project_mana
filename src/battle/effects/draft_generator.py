@@ -220,7 +220,13 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "burn_opponent_shield", "count": count})
     if re.search(r"自分の手札を(\d+枚)?捨てる", sentence):
         actions.append({"op": "discard_own_hand", "count": count})
-    if "自分のシールド" in sentence and re.search(r"手札に(戻|加え)", sentence):
+    if (
+        "自分のシールド" in sentence
+        and re.search(r"手札に(戻|加え)", sentence)
+        and "相手のクリーチャー" not in sentence
+    ):
+        # 「自分のシールドが2つ以下なら、相手のクリーチャーを手札に戻す」(ペニシリン型)の
+        # 条件節との誤結合を防ぐ。手札に戻すのは相手クリーチャーでありシールドではない
         actions.append({"op": "own_shield_to_hand", "count": count})
     if re.search(r"自分の手札.*マナゾーンに置", sentence):
         actions.append({"op": "hand_to_mana", "count": count})

@@ -55,6 +55,20 @@ def _charge_index(
     return max(pool, key=lambda i: hand[i].cost)
 
 
+def _solo_condition_met(condition: dict[str, Any], mana_zone: list[ManaCard], graveyard: list) -> bool:
+    """一人回しで判定できる発動条件。シールド系は判定不能のため不発(過小評価側)。"""
+    kind = condition.get("kind")
+    count = int(condition.get("count", 0))
+    if kind == "mana_civ_at_least":
+        civ = condition.get("civilization", "")
+        return sum(1 for m in mana_zone if any(civ in c for c in m.card.civilizations)) >= count
+    if kind == "mana_at_least":
+        return len(mana_zone) >= count
+    if kind == "grave_at_least":
+        return len(graveyard) >= count
+    return False
+
+
 def _simulate_once(
     deck: list[BattleCard],
     max_turns: int,
@@ -121,6 +135,9 @@ def _simulate_once(
 
             def _apply(source, depth: int = 0) -> None:
                 for action in _solo_effects(source, effects):
+                    condition = action.get("condition")
+                    if condition is not None and not _solo_condition_met(condition, mana_zone, graveyard):
+                        continue
                     count = int(action.get("count", 1))
                     max_cost = action.get("max_cost")
                     if action["op"] == "draw":

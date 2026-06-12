@@ -217,7 +217,27 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "hand_to_mana", "count": count})
     if "マナゾーンから" in sentence and re.search(r"手札に(戻|加え)", sentence):
         actions.append({"op": "mana_to_hand", "count": count})
+
+    # 数えて判定できる発動条件(マナ武装・墓地枚数・革命)を文の全アクションに付与する。
+    # 条件を落とすと無条件発動の捏造(過大評価)になる(ウラミハデス型)
+    condition = _extract_condition(sentence)
+    if condition is not None:
+        for action in actions:
+            action["condition"] = condition
     return actions
+
+
+def _extract_condition(sentence: str) -> dict[str, Any] | None:
+    match = re.search(r"マナゾーンに(光|水|闇|火|自然)のカードが(\d+)枚以上あれば", sentence)
+    if match:
+        return {"kind": "mana_civ_at_least", "civilization": match.group(1), "count": int(match.group(2))}
+    match = re.search(r"自分の墓地に(?:カード|クリーチャー)が(\d+)枚以上あれば", sentence)
+    if match:
+        return {"kind": "grave_at_least", "count": int(match.group(1))}
+    match = re.search(r"自分のシールドが(\d+)(?:つ|枚)以下なら", sentence)
+    if match:
+        return {"kind": "shields_at_most", "count": int(match.group(1))}
+    return None
 
 
 def _infer_trigger(card: dict[str, Any], text: str) -> str:

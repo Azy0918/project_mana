@@ -128,7 +128,9 @@ class DraftGeneratorTest(unittest.TestCase):
         }
         script = generate_draft_effect_script(card)
         draws = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "draw"]
-        self.assertEqual(draws, [{"op": "draw", "count": 1}])
+        # countは1(閾値の5を拾わない)。第七波以降はマナ武装条件も正しく付与される
+        self.assertEqual(draws[0]["count"], 1)
+        self.assertEqual(draws[0]["condition"], {"kind": "mana_civ_at_least", "civilization": "光", "count": 5})
 
     def test_summon_filters_extract_civ_and_evolution(self) -> None:
         # 「マナゾーンから自然の進化でないクリーチャーを出す」から文明と進化除外を拾う
@@ -193,6 +195,19 @@ class DraftGeneratorTest(unittest.TestCase):
         ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
         self.assertIn("draw", ops)
         self.assertNotIn("destroy_creature", ops)
+
+    def test_mana_buso_condition_extracted(self) -> None:
+        # マナ武装の条件が抽出され、無条件発動の捏造にならない
+        card = {
+            "card_id": "DMPC-0021",
+            "name": "マナ武装獣",
+            "card_type": "クリーチャー",
+            "text": "■マナ武装 5：バトルゾーンに出た時、自分のマナゾーンに闇のカードが5枚以上あれば、カードを1枚引く。",
+        }
+        script = generate_draft_effect_script(card)
+        draws = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "draw"]
+        self.assertEqual(draws[0]["condition"], {"kind": "mana_civ_at_least", "civilization": "闇", "count": 5})
+        self.assertEqual(draws[0]["count"], 1)
 
     def test_race_limited_summon_not_converted(self) -> None:
         # Kサイズ型: 「イニシャルズ1枚を出す」の種族限定は表現不可→変換を見送る

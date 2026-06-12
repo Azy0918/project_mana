@@ -66,6 +66,11 @@ class EffectExecutor:
         if action.get("own_turn_only") and engine.state.active_index != controller_index:
             return
 
+        # 数えて判定できる条件(マナ武装・墓地枚数・革命など)
+        condition = action.get("condition")
+        if condition is not None and not self._condition_met(controller, condition):
+            return
+
         # ターン終了時タイミングの効果はエンジンの遅延キューに積む(阿修羅型の正確な再現)
         if action.get("timing") == "end_of_turn":
             deferred = dict(action)
@@ -316,6 +321,26 @@ class EffectExecutor:
                 if target is None:
                     return
                 target.tapped = False
+
+    @staticmethod
+    def _condition_met(controller: PlayerState, condition: dict[str, Any]) -> bool:
+        """数えるだけで判定できる発動条件(マナ武装・墓地枚数・革命)を評価する。"""
+        kind = condition.get("kind")
+        count = int(condition.get("count", 0))
+        if kind == "mana_civ_at_least":
+            civ = condition.get("civilization", "")
+            matched = sum(
+                1 for mana in controller.mana_zone
+                if any(civ in c for c in mana.card.civilizations)
+            )
+            return matched >= count
+        if kind == "mana_at_least":
+            return len(controller.mana_zone) >= count
+        if kind == "grave_at_least":
+            return len(controller.graveyard) >= count
+        if kind == "shields_at_most":
+            return len(controller.shields) <= count
+        return False  # 未知の条件は不発(過小評価側)
 
     def _select_target(
         self,

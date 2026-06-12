@@ -50,6 +50,15 @@ KNOWN_OPS: dict[str, set[str]] = {
 
 KNOWN_SCOPES = {"opponent", "self"}
 
+# 実行時に数えて判定できる条件(conditionキーは全opに付与可)
+# {"kind": "mana_civ_at_least", "civilization": "闇", "count": 5} 等
+KNOWN_CONDITION_KINDS = {
+    "mana_civ_at_least",   # 自分のマナゾーンに指定文明のカードがN枚以上
+    "mana_at_least",       # 自分のマナゾーンのカードがN枚以上
+    "grave_at_least",      # 自分の墓地のカードがN枚以上
+    "shields_at_most",     # 自分のシールドがN枚以下(革命系)
+}
+
 
 def validate_effect_script(script: dict[str, Any]) -> list[str]:
     """EffectScriptを検証し、エラーメッセージの一覧を返す。空なら妥当。"""
@@ -85,10 +94,18 @@ def _validate_action(action: Any, prefix: str) -> list[str]:
     op = action.get("op")
     if op not in KNOWN_OPS:
         return [f"{prefix}: 未知のop '{op}' (対応: {sorted(KNOWN_OPS)})"]
-    allowed = KNOWN_OPS[op] | {"op"}
+    allowed = KNOWN_OPS[op] | {"op", "condition"}
     for key in action:
         if key not in allowed:
             errors.append(f"{prefix}: op '{op}' に不要なパラメータ '{key}'")
+    condition = action.get("condition")
+    if condition is not None:
+        if not isinstance(condition, dict) or condition.get("kind") not in KNOWN_CONDITION_KINDS:
+            errors.append(
+                f"{prefix}: conditionは kind in {sorted(KNOWN_CONDITION_KINDS)} のdictで指定してください"
+            )
+        elif not isinstance(condition.get("count"), int) or condition["count"] < 0:
+            errors.append(f"{prefix}: condition.countは0以上の整数で指定してください")
     count = action.get("count", 1)
     if not isinstance(count, int) or count < 1:
         errors.append(f"{prefix}: countは1以上の整数で指定してください")

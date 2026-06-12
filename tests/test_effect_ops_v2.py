@@ -263,6 +263,30 @@ class NewOpsTest(unittest.TestCase):
         engine.executor.run(engine, 0, "on_destroyed", source)
         self.assertFalse(player.battle_zone)
 
+    def test_condition_mana_civ_gates_action(self) -> None:
+        # マナ武装: 闇マナ5枚未満では不発、5枚以上で発動
+        effects = {
+            "ウラミハデス": [
+                {
+                    "trigger": "on_play",
+                    "actions": [
+                        {"op": "summon_from_grave", "count": 1, "exclude_self": True,
+                         "condition": {"kind": "mana_civ_at_least", "civilization": "闇", "count": 5}}
+                    ],
+                }
+            ]
+        }
+        engine = make_engine(effects)
+        player = engine.state.players[0]
+        player.graveyard.append(make_card("獲物", cost=5, civilization="闇", power=5000))
+        source = make_card("ウラミハデス", cost=7, civilization="闇", power=7000)
+        player.mana_zone = [make_mana_card(make_card(f"闇マナ{i}", civilization="闇")) for i in range(4)]
+        engine.executor.run(engine, 0, "on_play", source)
+        self.assertFalse(player.battle_zone)  # 4枚では不発
+        player.mana_zone.append(make_mana_card(make_card("闇マナ5", civilization="闇")))
+        engine.executor.run(engine, 0, "on_play", source)
+        self.assertEqual([c.card.name for c in player.battle_zone], ["獲物"])
+
     def test_burn_opponent_shield_skips_trigger(self) -> None:
         effects = {
             "焼却": [{"trigger": "on_play", "actions": [{"op": "burn_opponent_shield", "count": 1}]}],

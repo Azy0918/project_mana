@@ -35,7 +35,7 @@ KNOWN_OPS: dict[str, set[str]] = {
     "summon_from_hand": {"count", "max_cost"},    # 手札からコストを支払わずに出す(踏み倒し)
     "untap_creature": {"count", "scope"},         # クリーチャーをアンタップ
     "send_creature_to_mana": {"count", "scope"},  # クリーチャーをマナゾーンへ送る(マナ送り除去)
-    "summon_from_mana": {"count", "max_cost", "scope", "exclude_evolution"},  # マナからバトルゾーンへ(scope=opponentは父なる大地型の妨害)
+    "summon_from_mana": {"count", "max_cost", "scope", "exclude_evolution", "civilizations"},  # マナからバトルゾーンへ(scope=opponentは父なる大地型の妨害)
     "summon_from_grave": {"count", "max_cost", "exclude_self", "race", "exclude_evolution", "civilizations", "speed_attacker"},  # 精密蘇生(SA付与可)
     "burn_opponent_shield": {"count"},            # 相手のシールドを墓地に置く(トリガーさせない)
     "extra_turn": set(),                          # このターンの後に自分のターンを追加する

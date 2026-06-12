@@ -130,6 +130,21 @@ class DraftGeneratorTest(unittest.TestCase):
         draws = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "draw"]
         self.assertEqual(draws, [{"op": "draw", "count": 1}])
 
+    def test_summon_filters_extract_civ_and_evolution(self) -> None:
+        # 鬼流院 刃型: 「マナゾーンから自然の進化でないハンターを…出す」から
+        # 文明フィルタと進化除外を拾う(種族はデータ欠落のため落ちる=既知の近似)
+        card = {
+            "card_id": "DMPC-0015",
+            "name": "踏み倒し獣",
+            "card_type": "クリーチャー",
+            "text": "■バトルゾーンに出た時、自分のマナゾーンから自然の進化でないハンターを好きな数、タップしてバトルゾーンに出す。",
+        }
+        script = generate_draft_effect_script(card)
+        summons = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "summon_from_mana"]
+        self.assertTrue(summons)
+        self.assertEqual(summons[0].get("civilizations"), ["自然"])
+        self.assertTrue(summons[0].get("exclude_evolution"))
+
     def test_transitive_summon_from_mana_still_detected(self) -> None:
         card = {
             "card_id": "DMPC-0011",

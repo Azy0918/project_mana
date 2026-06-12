@@ -166,6 +166,7 @@ class EffectExecutor:
             target_player = engine.state.players[target_player_index]
             max_cost = action.get("max_cost")
             exclude_evolution = bool(action.get("exclude_evolution"))
+            civ_filter = action.get("civilizations")
             for _ in range(count):
                 candidates = [
                     mana
@@ -173,6 +174,7 @@ class EffectExecutor:
                     if mana.card.is_creature
                     and (max_cost is None or mana.card.cost <= max_cost)
                     and not (exclude_evolution and mana.card.is_evolution)
+                    and (civ_filter is None or any(c in civ for civ in mana.card.civilizations for c in civ_filter))
                 ]
                 if not candidates:
                     return

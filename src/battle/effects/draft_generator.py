@@ -13,6 +13,29 @@ _COUNT_PATTERN = re.compile(r"(\d+)\s*(?:枚|体)")
 # 数の抽出前に取り除く(サスペーガの「draw 5」捏造の対策)
 _THRESHOLD_PATTERN = re.compile(r"\d+\s*(?:枚|体)\s*(?:以下|以上)")
 
+_CIVILIZATIONS = ("光", "水", "闇", "火", "自然")
+
+
+def _summon_filters(sentence: str, zone_word: str) -> dict[str, Any]:
+    """踏み倒し文(「<ゾーン>から…バトルゾーンに出す」)からフィルタを抽出する。
+
+    コスト上限・文明・進化除外を拾う。種族(ハンター等)はDBに種族データがなく
+    表現できないため落ちる(過大評価側の近似。鬼流院 刃事件: 無フィルタだと
+    任意の大型を踏み倒す捏造になるため、文明だけでも拾う)。
+    """
+    filters: dict[str, Any] = {}
+    cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
+    if cost_match:
+        filters["max_cost"] = int(cost_match.group(1))
+    segment_match = re.search(zone_word + r"(.*?)バトルゾーンに出", sentence)
+    segment = segment_match.group(1) if segment_match else ""
+    civs = [civ for civ in _CIVILIZATIONS if f"{civ}の" in segment]
+    if civs:
+        filters["civilizations"] = civs
+    if "進化でない" in segment:
+        filters["exclude_evolution"] = True
+    return filters
+
 # 注釈テキスト(全角/半角括弧内のリマインダ)。変換対象から除外する
 _REMINDER_PATTERN = re.compile(r"（[^）]*）|\([^)]*\)")
 
@@ -109,9 +132,7 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
     # 「出た時、マナから手札に戻す」をsummon_from_manaと誤読する(ストーム・クロウラー事件)
     if "マナゾーンから" in sentence and re.search(r"バトルゾーンに出[すし]", sentence):
         action = {"op": "summon_from_mana", "count": count}
-        cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
-        if cost_match:
-            action["max_cost"] = int(cost_match.group(1))
+        action.update(_summon_filters(sentence, "マナゾーンから"))
         actions.append(action)
     if "破壊" in sentence and "相手" in sentence:
         action: dict[str, Any] = {"op": "destroy_creature", "count": count, "scope": "opponent"}
@@ -141,9 +162,7 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "deck_top_to_grave", "count": count})
     if "墓地から" in sentence and re.search(r"バトルゾーンに出[すし]", sentence):
         action = {"op": "summon_from_grave", "count": count}
-        cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
-        if cost_match:
-            action["max_cost"] = int(cost_match.group(1))
+        action.update(_summon_filters(sentence, "墓地から"))
         actions.append(action)
     elif "墓地から" in sentence and re.search(r"手札に(戻|加え)", sentence):
         actions.append({"op": "grave_to_hand", "count": count})

@@ -155,12 +155,14 @@ def _simulate_once(
                         if action.get("scope") == "opponent":
                             continue  # 相手依存の効果は一人回しでは実行しない(父なる大地型)
                         exclude_evo = bool(action.get("exclude_evolution"))
+                        mana_civ_filter = action.get("civilizations")
                         for _ in range(count):
                             candidates = [
                                 m for m in mana_zone
                                 if m.card.is_creature
                                 and (max_cost is None or m.card.cost <= max_cost)
                                 and not (exclude_evo and m.card.is_evolution)
+                                and (mana_civ_filter is None or any(cv in civ for civ in m.card.civilizations for cv in mana_civ_filter))
                             ]
                             if not candidates:
                                 break

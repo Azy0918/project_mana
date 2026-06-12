@@ -28,7 +28,6 @@ from src.battle.rating.meta_rating import load_meta_battle_decks
 from src.battle.rating.store import DEFAULT_DB_PATH
 from src.battle.sim.runner import simulate_matches
 
-DECK_ID = 20
 GAMES_PER_PAIR = 100
 SEED = 20260612
 
@@ -61,21 +60,45 @@ class ComboNoRevivePriority(ComboPolicy):
         return None
 
 
+class ComboReviveValue(ComboPolicy):
+    """蘇生呪文の発動条件を一般化した試作: 墓地に蘇生対象(進化でないクリーチャー)が
+    いれば、エンジン不在でも蘇生呪文を優先して唱える。"""
+
+    def _engine_assembly_action(self, player, playable):
+        base = super()._engine_assembly_action(player, playable)
+        if base is not None:
+            return base
+        if not self._revive_spells:
+            return None
+        if not any(card.is_creature and not card.is_evolution for card in player.graveyard):
+            return None
+        revives = [i for i in playable if player.hand[i].card_id in self._revive_spells]
+        if revives:
+            return max(revives, key=lambda i: player.hand[i].cost)
+        return None
+
+
 def main() -> None:
+    import argparse
+
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument("--deck-id", type=int, default=20)
+    args = arg_parser.parse_args()
     with sqlite3.connect(DEFAULT_DB_PATH) as conn:
         conn.row_factory = sqlite3.Row
         row = conn.execute(
-            "SELECT deck_name, deck_cards_json FROM generated_decks WHERE id = ?", (DECK_ID,)
+            "SELECT deck_name, deck_cards_json FROM generated_decks WHERE id = ?", (args.deck_id,)
         ).fetchone()
     deck = json.loads(row["deck_cards_json"])
     effects = load_approved_effects_map(DEFAULT_DB_PATH)
     meta_decks, warnings = load_meta_battle_decks(DEFAULT_DB_PATH)
     for warning in warnings:
         print(f"warning: {warning}")
-    print(f'deck: {row["deck_name"]} (id={DECK_ID}) / opponents: {len(meta_decks)} / games/pair: {GAMES_PER_PAIR}')
+    print(f'deck: {row["deck_name"]} (id={args.deck_id}) / opponents: {len(meta_decks)} / games/pair: {GAMES_PER_PAIR}')
 
     policies = {
         "combo_mrc": ComboPolicy,
+        "combo_revive_value": ComboReviveValue,
     }
     results: dict[str, dict] = {}
     for label, policy_cls in policies.items():

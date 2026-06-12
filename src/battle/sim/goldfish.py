@@ -137,6 +137,7 @@ def _simulate_once(
                                 graveyard.append(library.pop(0))
                     elif action["op"] == "summon_from_grave":
                         exclude_evo = bool(action.get("exclude_evolution"))
+                        name_self = bool(action.get("name_self"))
                         civ_filter = action.get("civilizations")
                         for _ in range(count):
                             candidates = [
@@ -144,6 +145,7 @@ def _simulate_once(
                                 if c.is_creature
                                 and (max_cost is None or c.cost <= max_cost)
                                 and not (exclude_evo and c.is_evolution)
+                                and not (name_self and c.name != source.name)
                                 and (civ_filter is None or any(cv in civ for civ in c.civilizations for cv in civ_filter))
                             ]
                             if not candidates:

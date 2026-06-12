@@ -425,5 +425,177 @@
       }
     ],
     "note": "「自分のNEOが攻撃する時」を自身の攻撃時に限定+「墓地または手札」を墓地のみに限定(部分集合=exact-safe)"
+  },
+  {
+    "name": "インフェルノ・ゲート",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 墓地から進化でないクリーチャー1枚(コスト制限なし)。探索=自分最適選択は最大コスト選択で表現(部分集合=exact-safe)"
+  },
+  {
+    "name": "復活のトリプル・リバイブ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 3,
+            "max_cost": 3,
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: コスト3以下・進化でないクリーチャーを3枚まで"
+  },
+  {
+    "name": "守護炎龍 レヴィヤ・ターン",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "summon_from_mana",
+            "count": 1,
+            "max_cost": 3
+          }
+        ]
+      },
+      {
+        "trigger": "on_destroyed",
+        "actions": [
+          {
+            "op": "summon_from_mana",
+            "count": 1,
+            "max_cost": 3
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時または破壊された時、マナからコスト3以下を1体"
+  },
+  {
+    "name": "冥王の牙",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent"
+          },
+          {
+            "op": "deck_top_to_grave",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent"
+          },
+          {
+            "op": "deck_top_to_grave",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "note": "通常面のみ: 破壊1+3枚肥やし。SSTモードの蘇生は条件未対応のため省略(exact-safe)"
+  },
+  {
+    "name": "堕魔 ドゥリケン",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_destroyed",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "name_self": true,
+            "own_turn_only": true,
+            "timing": "end_of_turn"
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 自分のターン中に破壊された時、そのターン終了時に墓地から自身を出す(own_turn_only+name_self+end_of_turn)"
+  },
+  {
+    "name": "シモーヌ・ペトル",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "deck_top_to_grave",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "trigger": "on_destroyed",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "name_self": true,
+            "own_turn_only": true,
+            "timing": "end_of_turn"
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時2枚肥やし+自ターン破壊時のターン終了時自己蘇生"
+  },
+  {
+    "name": "亡禍医 ヘモグロ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "discard_opponent_hand",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "trigger": "on_destroyed",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "name_self": true,
+            "own_turn_only": true,
+            "timing": "end_of_turn"
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時ハンデス1+自ターン破壊時のターン終了時自己蘇生"
   }
 ]

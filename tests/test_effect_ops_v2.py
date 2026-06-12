@@ -215,6 +215,54 @@ class NewOpsTest(unittest.TestCase):
         engine.executor.run(engine, 0, "on_cast", make_card("マナ展開", card_type="呪文"))
         self.assertEqual(engine.op_success_counts[0]["summon_from_mana"], 1)
 
+    def test_self_revive_own_turn_only_end_of_turn(self) -> None:
+        # ドゥリケン型: 自ターン破壊→ターン終了時に同名のみ自己蘇生
+        effects = {
+            "ドゥリケン": [
+                {
+                    "trigger": "on_destroyed",
+                    "actions": [
+                        {"op": "summon_from_grave", "count": 1, "name_self": True, "own_turn_only": True, "timing": "end_of_turn"}
+                    ],
+                }
+            ]
+        }
+        engine = make_engine(effects)
+        player = engine.state.players[0]
+        engine.state.active_index = 0
+        big = make_card("大型", cost=9, power=9000)
+        source = make_card("ドゥリケン", cost=2, power=1000)
+        player.graveyard.append(big)
+        player.graveyard.append(source)
+        engine.executor.run(engine, 0, "on_destroyed", source)
+        # ターン終了時キューに積まれ、即時には出ない
+        self.assertFalse(player.battle_zone)
+        self.assertEqual(len(engine.state.deferred_end_of_turn), 1)
+        # キューを解決すると同名のみ蘇生(大型は出ない)
+        idx, card, action = engine.state.deferred_end_of_turn.pop(0)
+        engine.executor._execute_action(engine, idx, "end_of_turn", card, action)
+        self.assertEqual([c.card.name for c in player.battle_zone], ["ドゥリケン"])
+        self.assertIn(big, player.graveyard)
+
+    def test_own_turn_only_blocked_on_opponent_turn(self) -> None:
+        effects = {
+            "ドゥリケン": [
+                {
+                    "trigger": "on_destroyed",
+                    "actions": [
+                        {"op": "summon_from_grave", "count": 1, "name_self": True, "own_turn_only": True}
+                    ],
+                }
+            ]
+        }
+        engine = make_engine(effects)
+        player = engine.state.players[0]
+        engine.state.active_index = 1  # 相手ターン中
+        source = make_card("ドゥリケン", cost=2, power=1000)
+        player.graveyard.append(source)
+        engine.executor.run(engine, 0, "on_destroyed", source)
+        self.assertFalse(player.battle_zone)
+
     def test_burn_opponent_shield_skips_trigger(self) -> None:
         effects = {
             "焼却": [{"trigger": "on_play", "actions": [{"op": "burn_opponent_shield", "count": 1}]}],

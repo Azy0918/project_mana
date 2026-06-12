@@ -62,6 +62,10 @@ class EffectExecutor:
         controller = engine.state.players[controller_index]
         engine.record_effect(trigger=trigger, card=card.name, op=op, count=count)
 
+        # 自ターン限定の効果(ドゥリケン型「自分のターン中に破壊された時」)
+        if action.get("own_turn_only") and engine.state.active_index != controller_index:
+            return
+
         # ターン終了時タイミングの効果はエンジンの遅延キューに積む(阿修羅型の正確な再現)
         if action.get("timing") == "end_of_turn":
             deferred = dict(action)
@@ -196,6 +200,7 @@ class EffectExecutor:
         elif op == "summon_from_grave":
             max_cost = action.get("max_cost")
             exclude_self = bool(action.get("exclude_self"))
+            name_self = bool(action.get("name_self"))
             exclude_evolution = bool(action.get("exclude_evolution"))
             race_filter = action.get("race")
             civ_filter = action.get("civilizations")
@@ -207,6 +212,7 @@ class EffectExecutor:
                     if entry.is_creature
                     and (max_cost is None or entry.cost <= max_cost)
                     and not (exclude_self and entry.name == card.name)
+                    and not (name_self and entry.name != card.name)
                     and not (exclude_evolution and entry.is_evolution)
                     and (race_filter is None or race_filter in entry.race)
                     and (civ_filter is None or any(c in civ for civ in entry.civilizations for c in civ_filter))

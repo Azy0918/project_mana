@@ -81,6 +81,28 @@ def _civ_match(civ_filter: list[str] | None, card: dict[str, Any]) -> bool:
     return any(c in civ for c in civ_filter)
 
 
+def _self_revive_on_destroyed(abilities: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """破壊時の自己再生(不死型: on_destroyed + name_self)仕様を返す。"""
+    for ability in abilities:
+        if ability.get("trigger") != "on_destroyed":
+            continue
+        for action in ability.get("actions", []):
+            if action.get("op") == "summon_from_grave" and action.get("name_self"):
+                return {"own_turn_only": bool(action.get("own_turn_only"))}
+    return None
+
+
+def _sac_outlet_spec(abilities: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """自壊出口(on_playで自分のクリーチャーを破壊する)仕様を返す。"""
+    for ability in abilities:
+        if ability.get("trigger") != "on_play":
+            continue
+        for action in ability.get("actions", []):
+            if action.get("op") == "destroy_creature" and action.get("scope") == "self":
+                return {"count": int(action.get("count", 1))}
+    return None
+
+
 def _has_self_destroy(abilities: list[dict[str, Any]]) -> bool:
     for ability in abilities:
         if ability.get("trigger") != "on_play":
@@ -155,6 +177,37 @@ def find_loop_candidates(db_path: Path = DEFAULT_DB_PATH) -> list[dict[str, Any]
                         "infinite_candidate": a_sd or b_sd,
                     }
                 )
+
+    # 自壊シナジー型(不死): 自壊出口O × 破壊時自己再生クリーチャーR
+    # Oの自壊コストをRが踏み倒す(死んでもターン終了時に戻る=毎ターン無料の生贄)
+    immortals = []
+    outlets = []
+    for card_id, abilities in effects.items():
+        card = cards.get(card_id)
+        if card is None:
+            continue
+        if "クリーチャー" not in str(card["card_type"]) and "ツインパクト" not in str(card["card_type"]):
+            continue
+        if _self_revive_on_destroyed(abilities) is not None:
+            immortals.append(card_id)
+        if _sac_outlet_spec(abilities) is not None:
+            outlets.append(card_id)
+    for o_id in outlets:
+        for r_id in immortals:
+            if cards[o_id]["name"] == cards[r_id]["name"]:
+                continue
+            key = (o_id, r_id)
+            if key in seen:
+                continue
+            seen.add(key)
+            candidates.append(
+                {
+                    "kind": "自壊シナジー型(不死)",
+                    "chain": [o_id, r_id],
+                    "names": [cards[o_id]["name"], cards[r_id]["name"]],
+                    "infinite_candidate": False,
+                }
+            )
 
     # 呪文再装填型(MRC族): 攻撃時詠唱エンジンE ↔ Eを蘇生できる呪文S
     from src.battle.kernel.cards import battle_card_from_dict
@@ -300,6 +353,60 @@ def verify_engine_candidate(
     }
 
 
+def verify_immortal_candidate(
+    chain_ids: list[str],
+    db_path: Path = DEFAULT_DB_PATH,
+    seed: int = 1,
+) -> dict[str, Any]:
+    """自壊シナジー型の動的検証: 不死2体を並べて自壊出口を着地→ターン終了処理を実走。
+
+    自壊した不死クリーチャーがターン終了時に全て戻れば「無料の生贄」が成立。
+    """
+    effects = load_approved_effects_map(db_path, exact_only=True)
+    cards = _load_cards(db_path)
+    outlet_card = battle_card_from_dict(cards[chain_ids[0]])
+    immortal_card = battle_card_from_dict(cards[chain_ids[1]])
+
+    filler = [
+        battle_card_from_dict(
+            {"card_id": f"F{i}", "name": f"埋め{i}", "civilization": "闇", "cost": 2,
+             "card_type": "クリーチャー", "power": "2000", "text": ""}
+        )
+        for i in range(40)
+    ]
+    engine = DuelEngine(filler, filler, _NullPolicy(), _NullPolicy(),
+                        rng=random.Random(seed), effects=effects)
+    state = engine.state
+    state.turn = 5
+    state.active_index = 0
+    player, opponent = state.players
+    for _ in range(2):
+        player.battle_zone.append(CreatureInstance(card=immortal_card, summoned_turn=state.turn - 1))
+    opponent.battle_zone.append(CreatureInstance(card=filler[0], summoned_turn=1))
+    board_before = len(player.battle_zone)
+    opp_before = len(opponent.battle_zone)
+
+    player.battle_zone.append(CreatureInstance(card=outlet_card, summoned_turn=state.turn))
+    engine.executor.run(engine, 0, "on_play", outlet_card)
+    destroyed_self = board_before + 1 - len(player.battle_zone)
+    # ターン終了時の遅延キュー(自己再生)を解決する
+    deferred = list(state.deferred_end_of_turn)
+    state.deferred_end_of_turn.clear()
+    for controller_index, source_card, action in deferred:
+        engine.executor._execute_action(engine, controller_index, "end_of_turn", source_card, action)
+
+    revived = [e for e in state.log if e.get("op") == "summon_from_grave" and "target" in e]
+    return {
+        "chain": chain_ids,
+        "destroyed_self": destroyed_self,
+        "revive_count": len(revived),
+        "opponent_losses": opp_before - len(opponent.battle_zone),
+        "free_sacrifice": len(revived) >= destroyed_self - 1 and len(revived) > 0,
+        "hits_cap": False,
+        "revived_names": [e.get("target") for e in revived][:6],
+    }
+
+
 def mine_loops(db_path: Path = DEFAULT_DB_PATH, verify_top: int = 20) -> dict[str, Any]:
     """静的候補の列挙と動的検証をまとめて実行する。"""
     candidates = find_loop_candidates(db_path)
@@ -309,6 +416,8 @@ def mine_loops(db_path: Path = DEFAULT_DB_PATH, verify_top: int = 20) -> dict[st
     for candidate in candidates[:verify_top]:
         if candidate["kind"].startswith("呪文再装填型"):
             verification = verify_engine_candidate(candidate["chain"], db_path=db_path)
+        elif candidate["kind"].startswith("自壊シナジー型"):
+            verification = verify_immortal_candidate(candidate["chain"], db_path=db_path)
         else:
             verification = verify_loop_candidate(candidate["chain"], db_path=db_path)
         results.append({**candidate, **verification})

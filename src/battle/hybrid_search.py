@@ -46,8 +46,12 @@ def _consolidating_mutate(
     max_card_types: int,
 ) -> list[dict[str, Any]]:
     """通常変異に「集約」を加える: 1枚刺しを既存カードの追加コピーへ置き換え、
-    種類数が上限を超えたら最少枚数の種類を他へ吸収する(ソフト制約)。"""
+    種類数が上限を超えたら最少枚数の種類を他へ吸収する(ソフト制約)。
+
+    max_card_types >= デッキ枚数 のときは集約を行わない(ハイランダー型探索モード)。"""
     mutated = _mutate(deck, pool, cards_by_id, rng)
+    if max_card_types >= DECK_SIZE:
+        return mutated
     counter = _deck_counter(mutated)
 
     for _ in range(rng.randint(0, 2)):

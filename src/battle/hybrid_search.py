@@ -13,10 +13,67 @@ from src.battle.rating.meta_rating import load_meta_battle_decks
 from src.battle.rating.store import DEFAULT_DB_PATH
 from src.battle.sim.runner import simulate_matches
 from src.evaluate_deck import evaluate_deck
-from src.evolutionary_search import _civilization_matches, _group_deck, _mutate, _repair
+from src.evolutionary_search import _civilization_matches, _deck_counter, _group_deck, _mutate, _repair
+from src.generate_deck import DECK_SIZE, MAX_COPIES
 from src.search_cards import search_cards
 
 from collections import Counter
+
+
+def _initial_deck(
+    pool: list[dict[str, Any]],
+    cards_by_id: dict[str, dict[str, Any]],
+    rng: random.Random,
+    max_card_types: int,
+) -> list[dict[str, Any]]:
+    """少数のカード種に複数枚ずつ割り当てた、人間のデッキに近い初期個体を作る。"""
+    counter: Counter[str] = Counter()
+    candidates = rng.sample(pool, min(max(1, max_card_types), len(pool)))
+    for card in candidates:
+        if sum(counter.values()) >= DECK_SIZE:
+            break
+        quantity = min(rng.choice([2, 3, 4, 4]), DECK_SIZE - sum(counter.values()))
+        counter[card["card_id"]] = quantity
+    repaired = _repair(counter, pool, cards_by_id, rng)
+    return _group_deck(repaired, cards_by_id)
+
+
+def _consolidating_mutate(
+    deck: list[dict[str, Any]],
+    pool: list[dict[str, Any]],
+    cards_by_id: dict[str, dict[str, Any]],
+    rng: random.Random,
+    max_card_types: int,
+) -> list[dict[str, Any]]:
+    """通常変異に「集約」を加える: 1枚刺しを既存カードの追加コピーへ置き換え、
+    種類数が上限を超えたら最少枚数の種類を他へ吸収する(ソフト制約)。"""
+    mutated = _mutate(deck, pool, cards_by_id, rng)
+    counter = _deck_counter(mutated)
+
+    for _ in range(rng.randint(0, 2)):
+        singles = [card_id for card_id, count in counter.items() if count == 1]
+        if not singles:
+            break
+        remove_id = rng.choice(singles)
+        targets = [
+            card_id for card_id, count in counter.items() if card_id != remove_id and count < MAX_COPIES
+        ]
+        if not targets:
+            break
+        del counter[remove_id]
+        counter[rng.choice(targets)] += 1
+
+    while len(counter) > max_card_types:
+        smallest = min(counter, key=lambda card_id: counter[card_id])
+        moved = counter.pop(smallest)
+        for _ in range(moved):
+            targets = [card_id for card_id, count in counter.items() if count < MAX_COPIES]
+            if not targets:
+                break
+            counter[rng.choice(targets)] += 1
+
+    repaired = _repair(counter, pool, cards_by_id, rng)
+    return _group_deck(repaired, cards_by_id)
 
 
 def _simulated_win_rate(
@@ -160,6 +217,7 @@ def run_hybrid_search(
     sim_weight: float = 0.7,
     rotate_opponents: bool = True,
     rotation_period: int = 3,
+    max_card_types: int = 16,
 ) -> dict[str, Any]:
     """世代内選別に厳密シミュレーション勝率を使う進化探索。
 
@@ -188,7 +246,7 @@ def run_hybrid_search(
     effects = load_approved_effects_map(db_path)
 
     population = [
-        _group_deck(_repair(Counter(), pool, cards_by_id, rng), cards_by_id)
+        _initial_deck(pool, cards_by_id, rng, max_card_types)
         for _ in range(max(2, population_size))
     ]
 
@@ -232,7 +290,7 @@ def run_hybrid_search(
         next_population = elites[:]
         while len(next_population) < len(population):
             parent = rng.choice(elites)
-            next_population.append(_mutate(parent, pool, cards_by_id, rng))
+            next_population.append(_consolidating_mutate(parent, pool, cards_by_id, rng, max_card_types))
         population = next_population
 
     return {

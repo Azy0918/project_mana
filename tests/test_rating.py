@@ -153,6 +153,45 @@ class MetaPoolExpansionTest(MetaRatingTest):
         self.assertEqual(promoted["total_cards"], 40)
 
 
+class ConsolidationTest(unittest.TestCase):
+    def _pool(self) -> tuple[list[dict], dict]:
+        pool = [
+            {"card_id": f"P{i}", "name": f"カード{i}", "civilization": "火", "cost": (i % 5) + 1,
+             "card_type": "クリーチャー", "power": 1000, "tags": ""}
+            for i in range(60)
+        ]
+        return pool, {c["card_id"]: c for c in pool}
+
+    def test_initial_deck_is_consolidated(self) -> None:
+        import random as random_module
+
+        from src.battle.hybrid_search import _initial_deck
+
+        pool, by_id = self._pool()
+        deck = _initial_deck(pool, by_id, random_module.Random(1), max_card_types=16)
+        total = sum(int(c.get("quantity", 1)) for c in deck)
+        self.assertEqual(total, 40)
+        # 種類数が上限近辺に収まり、複数枚積みが主体になる
+        self.assertLessEqual(len(deck), 20)
+        multi = sum(1 for c in deck if int(c.get("quantity", 1)) >= 2)
+        self.assertGreater(multi, len(deck) // 2)
+
+    def test_consolidating_mutate_respects_cap_and_size(self) -> None:
+        import random as random_module
+
+        from src.battle.hybrid_search import _consolidating_mutate, _initial_deck
+
+        pool, by_id = self._pool()
+        rng = random_module.Random(2)
+        deck = _initial_deck(pool, by_id, rng, max_card_types=12)
+        for _ in range(20):
+            deck = _consolidating_mutate(deck, pool, by_id, rng, max_card_types=12)
+            total = sum(int(c.get("quantity", 1)) for c in deck)
+            self.assertEqual(total, 40)
+            for c in deck:
+                self.assertLessEqual(int(c.get("quantity", 1)), 4)
+
+
 class OpponentRotationTest(unittest.TestCase):
     def test_sliding_window_covers_all_decks(self) -> None:
         from src.battle.hybrid_search import _opponents_for_generation

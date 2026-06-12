@@ -170,6 +170,7 @@ def main(argv: list[str] | None = None) -> int:
     hybrid_parser.add_argument("--no-rotate", action="store_true", help="選別相手の世代ローテーションを無効化(固定相手)")
     hybrid_parser.add_argument("--rotation-period", type=int, default=3, help="選別相手を入れ替える世代間隔")
     hybrid_parser.add_argument("--no-save", action="store_true", help="成果デッキをgenerated_decksに保存しない")
+    hybrid_parser.add_argument("--max-card-types", type=int, default=16, help="デッキ内カード種類数のソフト上限")
 
     expand_parser = sub.add_parser("meta-expand", help="探索勝者を相手プールへ昇格させる自己対戦型メタ拡充(PSRO方式)")
     expand_parser.add_argument("--rounds", type=int, default=3, help="拡充ラウンド数")
@@ -331,6 +332,7 @@ def main(argv: list[str] | None = None) -> int:
             sim_weight=args.sim_weight,
             rotate_opponents=not args.no_rotate,
             rotation_period=args.rotation_period,
+            max_card_types=args.max_card_types,
         )
         for warning in search.get("warnings", []):
             print(f"warning: {warning}")

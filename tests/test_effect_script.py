@@ -118,6 +118,18 @@ class DraftGeneratorTest(unittest.TestCase):
         script = generate_draft_effect_script(card)
         self.assertEqual(script["abilities"][0]["actions"], [{"op": "draw", "count": 1}])
 
+    def test_threshold_numbers_not_polluting_count(self) -> None:
+        # 条件句の閾値(「5枚以下」「5枚以上」)が効果のcountに混入しない(サスペーガ事件)
+        card = {
+            "card_id": "DMPC-0014",
+            "name": "条件ドロー獣",
+            "card_type": "クリーチャー",
+            "text": "■バトルゾーンに出た時、自分の手札が5枚以下で、自分のマナゾーンに光のカードが5枚以上あれば、カードを1枚引く。",
+        }
+        script = generate_draft_effect_script(card)
+        draws = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "draw"]
+        self.assertEqual(draws, [{"op": "draw", "count": 1}])
+
     def test_transitive_summon_from_mana_still_detected(self) -> None:
         card = {
             "card_id": "DMPC-0011",

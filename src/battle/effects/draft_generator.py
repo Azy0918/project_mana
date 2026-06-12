@@ -9,6 +9,10 @@ from typing import Any
 
 _COUNT_PATTERN = re.compile(r"(\d+)\s*(?:枚|体)")
 
+# 条件句の閾値数(「5枚以下で」「5枚以上あれば」)。効果のcountではないため
+# 数の抽出前に取り除く(サスペーガの「draw 5」捏造の対策)
+_THRESHOLD_PATTERN = re.compile(r"\d+\s*(?:枚|体)\s*(?:以下|以上)")
+
 # 注釈テキスト(全角/半角括弧内のリマインダ)。変換対象から除外する
 _REMINDER_PATTERN = re.compile(r"（[^）]*）|\([^)]*\)")
 
@@ -85,7 +89,7 @@ def _strip_trigger_clause(sentence: str) -> str:
 def _extract_count(sentence: str) -> int:
     if "すべて" in sentence or "全て" in sentence:
         return ALL_COUNT
-    match = _COUNT_PATTERN.search(sentence)
+    match = _COUNT_PATTERN.search(_THRESHOLD_PATTERN.sub("", sentence))
     if match:
         return max(1, min(10, int(match.group(1))))
     return 1

@@ -241,7 +241,10 @@ class EffectExecutor:
             for _ in range(count):
                 if not controller.hand:
                     return
-                index = engine.rng.randrange(len(controller.hand))
+                policy = engine.policies[controller_index]
+                index = policy.choose_discard(engine.state, controller, controller.hand)
+                if index is None or not (0 <= index < len(controller.hand)):
+                    index = engine.rng.randrange(len(controller.hand))
                 controller.graveyard.append(controller.hand.pop(index))
         elif op == "own_shield_to_hand":
             for _ in range(count):

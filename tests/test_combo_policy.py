@@ -33,9 +33,19 @@ class StubPolicy(Policy):
         return None
 
 
+MRC_EFFECTS = {
+    "ロマノフ": [
+        {"trigger": "on_attack", "actions": [{"op": "cast_from_grave", "count": 1, "max_cost": 7}]}
+    ],
+    "サイン": [
+        {"trigger": "on_cast", "actions": [{"op": "summon_from_grave", "count": 1, "max_cost": 7}]}
+    ],
+}
+
+
 class ComboPolicyTest(unittest.TestCase):
-    def _engine(self) -> DuelEngine:
-        return DuelEngine(make_deck(), make_deck(), ComboPolicy(), StubPolicy())
+    def _engine(self, effects: dict | None = None) -> DuelEngine:
+        return DuelEngine(make_deck(), make_deck(), ComboPolicy(), StubPolicy(), effects=effects)
 
     def test_chains_spells_into_g_zero_summon(self) -> None:
         engine = self._engine()
@@ -64,6 +74,55 @@ class ComboPolicyTest(unittest.TestCase):
         player.hand = [g_zero, make_card("普通", cost=9)]
         choice = engine.policies[0].choose_charge(engine.state, player)
         self.assertEqual(player.hand[choice].name, "普通")
+
+    def test_discards_grave_good_card_for_engine(self) -> None:
+        # エンジン(攻撃時墓地詠唱)が存在する世界では、蘇生呪文を選んで捨てる
+        engine = self._engine(effects=MRC_EFFECTS)
+        player = engine.state.players[0]
+        hand = [
+            make_card("普通", cost=9),
+            make_card("サイン", cost=5, card_type="呪文"),
+            make_card("小型", cost=1),
+        ]
+        choice = engine.policies[0].choose_discard(engine.state, player, hand)
+        self.assertEqual(hand[choice].name, "サイン")
+
+    def test_discard_defaults_to_none_without_engine(self) -> None:
+        # エンジン不在ならMRC型の墓地適性は無効(ランダム捨てに任せる)
+        effects = {"サイン": MRC_EFFECTS["サイン"]}
+        engine = self._engine(effects=effects)
+        player = engine.state.players[0]
+        hand = [make_card("サイン", cost=5, card_type="呪文"), make_card("普通", cost=9)]
+        self.assertIsNone(engine.policies[0].choose_discard(engine.state, player, hand))
+
+    def test_does_not_charge_engine(self) -> None:
+        # エンジン本体はマナチャージから保護される(弾の蘇生呪文は保護しない)
+        engine = self._engine(effects=MRC_EFFECTS)
+        player = engine.state.players[0]
+        player.hand = [
+            make_card("ロマノフ", cost=6, power=6000),
+            make_card("普通", cost=2),
+        ]
+        choice = engine.policies[0].choose_charge(engine.state, player)
+        self.assertEqual(player.hand[choice].name, "普通")
+
+    def test_charges_greedily_when_all_protected(self) -> None:
+        # 手札が保護対象だけのときはマナ詰まり回避を優先してチャージする
+        engine = self._engine(effects=MRC_EFFECTS)
+        player = engine.state.players[0]
+        player.hand = [make_card("ロマノフ", cost=6, power=6000)]
+        choice = engine.policies[0].choose_charge(engine.state, player)
+        self.assertEqual(choice, 0)
+
+    def test_executor_routes_discard_to_policy(self) -> None:
+        # discard_own_hand実行時に方策のchoose_discardが反映される
+        engine = self._engine(effects=MRC_EFFECTS)
+        player = engine.state.players[0]
+        player.hand = [make_card("普通", cost=9), make_card("サイン", cost=5, card_type="呪文")]
+        source = make_card("ソー☆ギョッ", cost=2)
+        engine.executor._execute_action(engine, 0, "on_play", source, {"op": "discard_own_hand", "count": 1})
+        self.assertEqual([card.name for card in player.hand], ["普通"])
+        self.assertEqual(player.graveyard[-1].name, "サイン")
 
     def test_falls_back_to_greedy_without_g_zero(self) -> None:
         engine = self._engine()

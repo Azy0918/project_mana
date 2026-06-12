@@ -20,6 +20,15 @@ class Policy:
     def bind(self, engine: object) -> None:
         """エンジン構築時に呼ばれる。先読み方策が状態複製に使う(既定は何もしない)。"""
 
+    def choose_discard(
+        self,
+        state: "GameState",
+        player: "PlayerState",
+        hand: list,
+    ) -> int | None:
+        """自分の手札から捨てるカードを選ぶ。Noneなら実行器の既定(ランダム)。"""
+        return None
+
     def choose_effect_target(
         self,
         state: "GameState",

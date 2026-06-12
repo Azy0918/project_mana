@@ -121,3 +121,15 @@ python -m src.battle.research --games 100 --seed 5 meta-tournament
    (コスト0のツインパクトはパワー/1000、下限2でコスト推定)
 5. ~~生成デッキ(generated_decks)を research CLI から直接レーティングする入口~~
    → 実装済み: `python -m src.battle.research rate-generated`(一覧)、`--id N` で判定実行
+
+## 方策のMRC型対応(2026-06)
+
+- `Policy.choose_discard` フックを追加(実行器の `discard_own_hand` が方策に問い合わせ、
+  Noneならランダム)。`ComboPolicy` は効果マップからエンジン(攻撃時墓地詠唱)と
+  蘇生呪文を抽出し、墓地適性カードを選んで捨て、エンジン本体をチャージから保護する。
+- **アブレーション必須の教訓**: 墓地適性「全体」をチャージ保護すると手札が保護カードだけに
+  なる選択効果でマナが止まり43.0→29.4に暴落。保護をエンジン限定+全保護時は貪欲退避に
+  絞ると**43.0→45.8**(id=20黒単ロマノフサイン、各100試合×8相手・同一シード)。
+  詳細は docs/loop_research.md 第七弾、測定は scripts/measure_combo_mrc.py。
+- 注意: `rate_deck_against_meta` はGreedy固定のため、方策込みの強さは
+  `simulate_matches(policy_a=ComboPolicy())` で測ること(カタログの43.6はGreedy操作時の値)。

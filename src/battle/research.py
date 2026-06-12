@@ -475,9 +475,11 @@ def main(argv: list[str] | None = None) -> int:
             search = run_hybrid_search(
                 db_path=args.db, generations=10, population_size=14,
                 seed=args.seed, seed_deck=best_combo["deck"],
-                locked_card_ids=best_combo["chain"],
+                locked_card_ids=best_combo["chain"], chain=best_combo["chain"],
             )
             if search.get("best"):
+                final_assembly = search["best"].get("assembly_rate", 0.0)
+                print(f'進化後のコンボ成立率: {final_assembly:.1%}(発掘時 {best_combo["success_rate"]:.1%})')
                 rating = rate_deck_against_meta(
                     search["best"]["deck"], "コンボ進化", db_path=args.db,
                     games_per_pair=args.games, seed=args.seed, effects=effects,

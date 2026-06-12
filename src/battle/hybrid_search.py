@@ -11,6 +11,7 @@ from src.battle.effects.store import load_approved_effects_map
 from src.battle.kernel.combo import ComboPolicy
 from src.battle.rating.meta_rating import load_meta_battle_decks
 from src.battle.rating.store import DEFAULT_DB_PATH
+from src.battle.sim.chain_validator import validate_chain_playable
 from src.battle.sim.runner import simulate_matches
 from src.evaluate_deck import evaluate_deck
 from src.evolutionary_search import _civilization_matches, _deck_counter, _group_deck, _mutate, _repair
@@ -257,6 +258,8 @@ def run_hybrid_search(
     max_card_types: int = 16,
     seed_deck: list[dict[str, Any]] | None = None,
     locked_card_ids: list[str] | None = None,
+    chain: list[str] | None = None,
+    chain_weight: float = 0.3,
 ) -> dict[str, Any]:
     """世代内選別に厳密シミュレーション勝率を使う進化探索。
 
@@ -310,12 +313,26 @@ def run_hybrid_search(
         for deck in population:
             heuristic = float(evaluate_deck(deck)["score"])
             win_rate = _simulated_win_rate(deck, opponents, sim_games, rng.random(), effects)
-            combined = round(win_rate * 100 * sim_weight + heuristic * (1 - sim_weight), 2)
+            assembly = 0.0
+            if chain:
+                # コンボ成立率を選別関数に組み込み、安定性を上げる方向の進化圧をかける
+                assembly = validate_chain_playable(
+                    chain, deck, trials=60, max_turns=8,
+                    seed=int(rng.random() * 100000), effects=effects,
+                )["success_rate"]
+                win_share = max(0.0, sim_weight - chain_weight)
+                combined = round(
+                    win_rate * 100 * win_share + assembly * 100 * chain_weight
+                    + heuristic * (1 - win_share - chain_weight), 2,
+                )
+            else:
+                combined = round(win_rate * 100 * sim_weight + heuristic * (1 - sim_weight), 2)
             evaluated.append(
                 {
                     "deck": deck,
                     "heuristic_score": heuristic,
                     "sim_win_rate": round(win_rate, 4),
+                    "assembly_rate": round(assembly, 4),
                     "combined_score": combined,
                 }
             )
@@ -328,6 +345,7 @@ def run_hybrid_search(
                 "generation": generation,
                 "best_combined": top["combined_score"],
                 "best_sim_win_rate": top["sim_win_rate"],
+                "best_assembly_rate": top.get("assembly_rate", 0.0),
                 "best_heuristic": top["heuristic_score"],
                 "opponents": [deck["deck_name"] for deck in opponents],
             }

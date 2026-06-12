@@ -306,5 +306,85 @@
       }
     ],
     "note": "呪文面: コスト7以下のクリーチャー1枚を蘇生(進化制限なし)。クリーチャー面の任意ハンデスは省略(exact-safe)"
+  },
+  {
+    "name": "邪眼皇ロマノフI世",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "cast_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "civilizations": [
+              "闇"
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "出た時の探索墓地置きは省略(exact-safe)。攻撃時: 闇コスト7以下の墓地呪文を無償詠唱→山札下"
+  },
+  {
+    "name": "狂気と凶器の墓場",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "deck_top_to_grave",
+            "count": 2
+          },
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 6,
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 2枚肥やし→コスト6以下・進化でない1枚蘇生(完全無条件)"
+  },
+  {
+    "name": "戒王の封",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 8,
+            "exclude_evolution": true,
+            "civilizations": [
+              "闇"
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "通常詠唱面のみ: 闇コスト8以下・進化でない1枚蘇生。SSTモードは省略(exact-safe)"
+  },
+  {
+    "name": "魔法特区 クジルマギカ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "cast_from_grave",
+            "count": 1,
+            "max_cost": 5
+          }
+        ]
+      }
+    ],
+    "note": "「自分のNEOが攻撃する時」を自身の攻撃時に限定+「墓地または手札」を墓地のみに限定(部分集合=exact-safe)"
   }
 ]

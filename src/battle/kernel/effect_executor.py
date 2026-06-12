@@ -167,6 +167,25 @@ class EffectExecutor:
                 self.run(engine, controller_index, "on_play", target_mana.card)
                 if engine.state.finished:
                     return
+        elif op == "summon_from_grave":
+            max_cost = action.get("max_cost")
+            for _ in range(count):
+                candidates = [
+                    entry
+                    for entry in controller.graveyard
+                    if entry.is_creature and (max_cost is None or entry.cost <= max_cost)
+                ]
+                if not candidates:
+                    return
+                target_card = max(candidates, key=lambda entry: (entry.cost, entry.power))
+                controller.graveyard.remove(target_card)
+                controller.battle_zone.append(
+                    CreatureInstance(card=target_card, summoned_turn=engine.state.turn)
+                )
+                engine.record_effect(trigger=trigger, card=card.name, op=op, target=target_card.name)
+                self.run(engine, controller_index, "on_play", target_card)
+                if engine.state.finished:
+                    return
         elif op == "burn_opponent_shield":
             opponent = engine.state.players[1 - controller_index]
             for _ in range(count):

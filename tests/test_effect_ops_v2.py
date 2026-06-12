@@ -249,6 +249,36 @@ class NewOpsTest(unittest.TestCase):
         engine.executor.run(engine, 0, "on_cast", make_card("埋め", card_type="呪文"))
         self.assertEqual(len(player.mana_zone), mana_before + 1)
 
+    def test_summon_from_grave(self) -> None:
+        effects = {"蘇生": [{"trigger": "on_cast", "actions": [{"op": "summon_from_grave", "count": 1, "max_cost": 7}]}]}
+        engine = make_engine(effects)
+        player = engine.state.players[0]
+        big = make_card("大型獣", cost=7, power=9000)
+        too_big = make_card("規格外", cost=9, power=12000)
+        player.graveyard.extend([big, too_big])
+        engine.executor.run(engine, 0, "on_cast", make_card("蘇生", card_type="呪文"))
+        self.assertTrue(any(c.card.name == "大型獣" for c in player.battle_zone))
+        self.assertIn(too_big, player.graveyard)
+
+    def test_reanimate_chain_observed_in_goldfish(self) -> None:
+        # 墓地肥やし → 蘇生 → 大型 のチェーンが一人回しのプレイ列に現れる
+        from src.battle.sim.chain_validator import validate_chain_playable
+
+        mill = {"card_id": "M", "name": "肥やし", "civilization": "闇", "cost": 2, "card_type": "呪文", "power": "", "quantity": 4}
+        rean = {"card_id": "R", "name": "蘇生", "civilization": "闇", "cost": 4, "card_type": "呪文", "power": "", "quantity": 4}
+        big = {"card_id": "B", "name": "大型", "civilization": "闇", "cost": 9, "card_type": "クリーチャー", "power": "11000", "quantity": 4}
+        filler = [
+            {"card_id": f"F{i}", "name": f"埋め{i}", "civilization": "闇", "cost": 2, "card_type": "クリーチャー", "power": "2000", "quantity": 4}
+            for i in range(7)
+        ]
+        effects = {
+            "M": [{"trigger": "on_cast", "actions": [{"op": "deck_top_to_grave", "count": 4}]}],
+            "R": [{"trigger": "on_cast", "actions": [{"op": "summon_from_grave", "count": 1}]}],
+        }
+        result = validate_chain_playable(["M", "R", "B"], [mill, rean, big] + filler, trials=200, max_turns=6, seed=3, effects=effects)
+        # 成立率はBが墓地に落ちる確率に依存する。0より明確に大きければ観測成功
+        self.assertGreater(result["success_rate"], 0.02)
+
     def test_untap_creature_self(self) -> None:
         effects = {"再起": [{"trigger": "on_cast", "actions": [{"op": "untap_creature", "count": 1, "scope": "self"}]}]}
         engine = make_engine(effects)

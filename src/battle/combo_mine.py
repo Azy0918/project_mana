@@ -1,0 +1,208 @@
+from __future__ import annotations
+
+import sqlite3
+from pathlib import Path
+from typing import Any
+
+from src.battle.effects.store import load_approved_effects_map
+from src.battle.rating.meta_rating import rate_deck_against_meta
+from src.battle.rating.store import DEFAULT_DB_PATH
+from src.battle.sim.chain_validator import validate_chain_playable
+
+# コンボ発掘: 承認済みEffectScriptの命令の組み合わせから「イネーブラー→ペイオフ」
+# のチェーン候補を機械的に提案し、一人回し(実コスト+効果再生)で成立率を検証する。
+# 役割構成レベルではなくカード固有の相互作用レベルの探索器(docs/sim_findings参照)。
+
+
+def _ops_of(abilities: list[dict[str, Any]]) -> set[str]:
+    return {action.get("op") for ability in abilities for action in ability.get("actions", [])}
+
+
+def _action_param(abilities: list[dict[str, Any]], op: str, key: str) -> Any:
+    for ability in abilities:
+        for action in ability.get("actions", []):
+            if action.get("op") == op:
+                return action.get(key)
+    return None
+
+
+def _load_cards(db_path: Path) -> dict[str, dict[str, Any]]:
+    with sqlite3.connect(db_path) as conn:
+        conn.row_factory = sqlite3.Row
+        rows = conn.execute(
+            "SELECT card_id, name, civilization, cost, card_type, power, text FROM cards"
+        ).fetchall()
+    return {row["card_id"]: dict(row) for row in rows}
+
+
+def _civ_overlap(*cards: dict[str, Any]) -> bool:
+    """チェーンの全カードを1〜3文明で運用できるか(支払い現実性の粗いチェック)。"""
+    civs = set()
+    for card in cards:
+        civs.update(c.strip() for c in str(card.get("civilization", "")).split("/") if c.strip())
+    return len(civs) <= 3
+
+
+def propose_chains(
+    db_path: Path = DEFAULT_DB_PATH,
+    max_proposals: int = 30,
+) -> list[dict[str, Any]]:
+    """イネーブラー×ペイオフのチェーン候補を提案する(検証前の仮説リスト)。"""
+    effects = load_approved_effects_map(db_path)
+    cards = _load_cards(db_path)
+
+    mills: list[tuple[str, int]] = []        # (card_id, 落とす枚数)
+    reanimators: list[tuple[str, int | None]] = []  # (card_id, max_cost)
+    mana_cheats: list[tuple[str, int | None]] = []
+    ramps: list[str] = []
+    payoffs: list[str] = []
+
+    for card_id, abilities in effects.items():
+        card = cards.get(card_id)
+        if card is None:
+            continue
+        ops = _ops_of(abilities)
+        cost = int(card["cost"] or 0)
+        if "deck_top_to_grave" in ops and cost <= 5:
+            count = _action_param(abilities, "deck_top_to_grave", "count") or 1
+            if int(count) >= 2:
+                mills.append((card_id, int(count)))
+        if "summon_from_grave" in ops and cost <= 7:
+            reanimators.append((card_id, _action_param(abilities, "summon_from_grave", "max_cost")))
+        if "summon_from_mana" in ops and cost <= 7:
+            mana_cheats.append((card_id, _action_param(abilities, "summon_from_mana", "max_cost")))
+        if "deck_top_to_mana" in ops and cost <= 4:
+            ramps.append(card_id)
+
+    # ペイオフ: 高コストかつ承認済み効果(または複数ブレイク)を持つクリーチャー
+    for card_id, card in cards.items():
+        cost = int(card["cost"] or 0)
+        text = str(card["text"] or "")
+        is_creature = "クリーチャー" in str(card["card_type"]) or "ツインパクト" in str(card["card_type"])
+        if not is_creature or cost < 7:
+            continue
+        if card_id in effects or "ブレイカー" in text:
+            payoffs.append(card_id)
+    payoffs.sort(key=lambda cid: -int(cards[cid]["cost"] or 0))
+
+    proposals: list[dict[str, Any]] = []
+    seen: set[tuple[str, ...]] = set()
+
+    def add(kind: str, enabler_ids: list[str], payoff_id: str) -> None:
+        key = tuple(enabler_ids + [payoff_id])
+        if key in seen or len(proposals) >= max_proposals:
+            return
+        chain_cards = [cards[cid] for cid in enabler_ids + [payoff_id]]
+        if not _civ_overlap(*chain_cards):
+            return
+        seen.add(key)
+        proposals.append(
+            {
+                "kind": kind,
+                "chain": list(key),
+                "names": [cards[cid]["name"] for cid in key],
+            }
+        )
+
+    # リアニメイト型: 墓地肥やし → 蘇生 → 大型(蘇生のmax_cost制約を満たすもの)
+    for mill_id, _count in mills:
+        for rean_id, max_cost in reanimators:
+            for payoff_id in payoffs:
+                if max_cost is not None and int(cards[payoff_id]["cost"] or 0) > max_cost:
+                    continue
+                add("リアニメイト", [mill_id, rean_id], payoff_id)
+                break
+
+    # マナ踏み倒し型: マナ加速 → マナから展開 → 大型
+    for ramp_id in ramps[:10]:
+        for cheat_id, max_cost in mana_cheats:
+            for payoff_id in payoffs:
+                if max_cost is not None and int(cards[payoff_id]["cost"] or 0) > max_cost:
+                    continue
+                add("マナ踏み倒し", [ramp_id, cheat_id], payoff_id)
+                break
+
+    return proposals
+
+
+def _build_combo_deck(
+    chain_ids: list[str],
+    cards: dict[str, dict[str, Any]],
+    effects: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+    """コンボ3種×4枚+同文明の承認済みドロー/ランプで40枚の検証用デッキを組む。"""
+    deck: list[dict[str, Any]] = []
+    civs: set[str] = set()
+    for card_id in chain_ids:
+        card = dict(cards[card_id])
+        card["quantity"] = 4
+        deck.append(card)
+        civs.update(c.strip() for c in str(card["civilization"]).split("/") if c.strip())
+
+    fillers = []
+    for card_id, abilities in effects.items():
+        if card_id in chain_ids or card_id not in cards:
+            continue
+        card = cards[card_id]
+        card_civs = {c.strip() for c in str(card["civilization"]).split("/") if c.strip()}
+        if not card_civs.issubset(civs):
+            continue
+        cost = int(card["cost"] or 0)
+        ops = _ops_of(abilities)
+        if cost <= 4 and ({"draw", "deck_top_to_mana", "deck_top_to_grave"} & ops):
+            fillers.append((cost, card_id))
+    fillers.sort()
+    total = 12
+    for _cost, card_id in fillers:
+        if total >= 40:
+            break
+        card = dict(cards[card_id])
+        card["quantity"] = min(4, 40 - total)
+        deck.append(card)
+        total += card["quantity"]
+    return deck if total >= 40 else []
+
+
+def mine_combos(
+    db_path: Path = DEFAULT_DB_PATH,
+    max_proposals: int = 30,
+    trials: int = 300,
+    max_turns: int = 8,
+    games: int = 60,
+    seed: int | None = None,
+    rate_top: int = 3,
+) -> dict[str, Any]:
+    """チェーン提案→一人回し成立検証→上位のみメタ判定、の発掘パイプライン。"""
+    effects = load_approved_effects_map(db_path)
+    cards = _load_cards(db_path)
+    proposals = propose_chains(db_path, max_proposals=max_proposals)
+
+    validated: list[dict[str, Any]] = []
+    for proposal in proposals:
+        deck = _build_combo_deck(proposal["chain"], cards, effects)
+        if not deck:
+            continue
+        result = validate_chain_playable(
+            proposal["chain"], deck, trials=trials, max_turns=max_turns, seed=seed, effects=effects
+        )
+        validated.append(
+            {
+                **proposal,
+                "success_rate": result["success_rate"],
+                "completion_turns": result["completion_turn_distribution"],
+                "deck": deck,
+            }
+        )
+    validated.sort(key=lambda entry: -entry["success_rate"])
+
+    for entry in validated[:rate_top]:
+        if entry["success_rate"] <= 0:
+            break
+        rating = rate_deck_against_meta(
+            entry["deck"], f'コンボ検証_{entry["names"][-1]}', db_path=db_path,
+            games_per_pair=games, seed=seed, effects=effects, save=False,
+        )
+        entry["strength_score"] = rating["strength_score"]
+        entry["matchups"] = rating["details"]
+
+    return {"proposals": len(proposals), "validated": validated}

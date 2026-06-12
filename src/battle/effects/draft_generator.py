@@ -116,7 +116,13 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         actions.append({"op": "deck_top_to_grave", "count": count})
     elif re.search(r"その中から\d*枚?を?墓地に置", sentence):
         actions.append({"op": "deck_top_to_grave", "count": count})
-    if "墓地から" in sentence and re.search(r"手札に(戻|加え)", sentence):
+    if "墓地から" in sentence and "バトルゾーンに出" in sentence:
+        action = {"op": "summon_from_grave", "count": count}
+        cost_match = re.search(r"コスト\s*(\d+)\s*以下", sentence)
+        if cost_match:
+            action["max_cost"] = int(cost_match.group(1))
+        actions.append(action)
+    elif "墓地から" in sentence and re.search(r"手札に(戻|加え)", sentence):
         actions.append({"op": "grave_to_hand", "count": count})
     elif (
         "手札に加え" in sentence

@@ -178,6 +178,12 @@ def main(argv: list[str] | None = None) -> int:
     expand_parser.add_argument("--generations", type=int, default=10)
     expand_parser.add_argument("--population", type=int, default=14)
 
+    mine_parser = sub.add_parser("combo-mine", help="カード固有の相互作用からコンボ候補を発掘・検証")
+    mine_parser.add_argument("--max-proposals", type=int, default=30)
+    mine_parser.add_argument("--trials", type=int, default=300, help="チェーン成立検証の一人回し試行数")
+    mine_parser.add_argument("--max-turns", type=int, default=8, help="成立期限ターン")
+    mine_parser.add_argument("--rate-top", type=int, default=3, help="メタ判定まで行う上位件数")
+
     sub.add_parser("sanity-check", help="実戦ログなしでシミュレーターの方向性妥当性を検証")
 
     sub.add_parser("validate-ratings", help="実戦ログの勝率とシミュレーション強さの相関を検証")
@@ -425,6 +431,40 @@ def main(argv: list[str] | None = None) -> int:
             print(f"相手プールへ昇格: {deck_name}({added}種)")
         pool, _w = load_meta_battle_decks(args.db)
         print(f"\n最終的な相手プール: {len(pool)}デッキ: {', '.join(d['deck_name'] for d in pool)}")
+        return 0
+
+    if args.command == "combo-mine":
+        from src.battle.combo_mine import mine_combos
+
+        result = mine_combos(
+            db_path=args.db,
+            max_proposals=args.max_proposals,
+            trials=args.trials,
+            max_turns=args.max_turns,
+            games=args.games,
+            seed=args.seed,
+            rate_top=args.rate_top,
+        )
+        print(f'チェーン提案: {result["proposals"]}件 / デッキ構築・検証済み: {len(result["validated"])}件\n')
+        for entry in result["validated"][:10]:
+            line = (
+                f'[{entry["kind"]}] {" → ".join(entry["names"])}: '
+                f'成立率 {entry["success_rate"]:.1%}'
+            )
+            if "strength_score" in entry:
+                line += f' / 対メタ強さ {entry["strength_score"]}'
+            print(line)
+            if entry.get("completion_turns"):
+                print(f'    成立ターン分布: {entry["completion_turns"]}')
+        payload = {
+            "proposals": result["proposals"],
+            "validated": [
+                {key: value for key, value in entry.items() if key != "deck"}
+                for entry in result["validated"]
+            ],
+        }
+        path = write_report(payload, "combo_mine", args.report_dir)
+        print(f"\nreport: {path}")
         return 0
 
     if args.command == "sanity-check":

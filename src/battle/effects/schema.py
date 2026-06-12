@@ -36,6 +36,7 @@ KNOWN_OPS: dict[str, set[str]] = {
     "untap_creature": {"count", "scope"},         # クリーチャーをアンタップ
     "send_creature_to_mana": {"count", "scope"},  # クリーチャーをマナゾーンへ送る(マナ送り除去)
     "summon_from_mana": {"count", "max_cost"},    # 自分のマナゾーンからバトルゾーンに出す
+    "summon_from_grave": {"count", "max_cost"},   # 自分の墓地からバトルゾーンに出す(リアニメイト)
     "burn_opponent_shield": {"count"},            # 相手のシールドを墓地に置く(トリガーさせない)
     "extra_turn": set(),                          # このターンの後に自分のターンを追加する
     "discard_own_hand": {"count"},                # 自分の手札をランダムに捨てる(コスト・代償)

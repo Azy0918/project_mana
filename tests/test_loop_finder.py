@@ -88,3 +88,48 @@ class LoopFinderTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class MRCEngineReproductionTest(unittest.TestCase):
+    """歴史上のMRC型ワンショット(攻撃→墓地詠唱→SA蘇生→連続攻撃)の再現回帰テスト。
+
+    合成カードでcast_from_grave + speed_attacker付与の連鎖を検証する。
+    """
+
+    def test_attack_cast_revive_chain_one_shots(self) -> None:
+        import random
+
+        from src.battle.kernel.cards import BattleCard
+        from src.battle.kernel.engine import DuelEngine
+        from src.battle.kernel.policy import GreedyPolicy
+        from src.battle.kernel.state import CreatureInstance
+
+        def card(cid, name, cost, ctype, power, civ="闇"):
+            return BattleCard(card_id=cid, name=name, civilizations=(civ,), cost=cost,
+                              card_type=ctype, power=power, text="W・ブレイカー" if ctype == "クリーチャー" else "")
+
+        romanov = card("ROM", "ロマノフ風", 7, "クリーチャー", 7000)
+        sign = card("SIGN", "魔弾風", 6, "呪文", 0)
+        effects = {
+            "ROM": [{"trigger": "on_attack", "actions": [{"op": "cast_from_grave", "count": 1, "max_cost": 7}]}],
+            "SIGN": [{"trigger": "on_cast", "actions": [
+                {"op": "summon_from_grave", "count": 1, "max_cost": 7, "speed_attacker": True}]}],
+        }
+        filler = [card(f"F{i}", f"埋め{i}", 2, "クリーチャー", 2000) for i in range(40)]
+        engine = DuelEngine(filler, filler, GreedyPolicy(), GreedyPolicy(),
+                            rng=random.Random(1), effects=effects)
+        state = engine.state
+        state.turn = 8
+        player = state.players[0]
+        player.battle_zone.append(CreatureInstance(card=romanov, summoned_turn=7))
+        player.graveyard.extend([sign] * 4 + [romanov] * 3)
+
+        engine._attack_phase(player, engine.policies[0])
+
+        casts = [e for e in state.log if e.get("op") == "cast_from_grave" and "target" in e]
+        revives = [e for e in state.log if e.get("op") == "summon_from_grave" and "target" in e]
+        self.assertGreaterEqual(len(casts), 2)
+        self.assertGreaterEqual(len(revives), 2)
+        # 連続攻撃でシールドを削り切りダイレクトアタックに到達する
+        self.assertTrue(state.finished)
+        self.assertEqual(state.finish_reason, "direct_attack")

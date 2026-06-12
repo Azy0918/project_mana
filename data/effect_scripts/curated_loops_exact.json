@@ -3,8 +3,28 @@
     "name": "インフェルノ・サイン",
     "fidelity": "exact",
     "abilities": [
-      {"trigger": "on_cast", "actions": [{"op": "summon_from_grave", "count": 1, "max_cost": 7, "exclude_evolution": true}]},
-      {"trigger": "s_trigger", "actions": [{"op": "summon_from_grave", "count": 1, "max_cost": 7, "exclude_evolution": true}]}
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "exclude_evolution": true
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "exclude_evolution": true
+          }
+        ]
+      }
     ],
     "note": "原文どおり: コスト7以下・進化でない・1枚"
   },
@@ -12,41 +32,110 @@
     "name": "ビシャモンス・デーケン/「深淵より来たれ、魂よ」",
     "fidelity": "exact",
     "abilities": [
-      {"trigger": "on_cast", "actions": [{"op": "summon_from_grave", "count": 99, "exclude_evolution": true}]}
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 99,
+            "exclude_evolution": true
+          }
+        ]
+      }
     ],
     "note": "呪文面(墓地から進化でないクリーチャーを好きな数)。クリーチャー面の任意自壊効果は省略(過小評価側=exact-safe)"
   },
   {
     "name": "パーリ騎士",
     "fidelity": "exact",
-    "abilities": [{"trigger": "on_play", "actions": [{"op": "grave_to_mana", "count": 1}]}],
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "grave_to_mana",
+            "count": 1
+          }
+        ]
+      }
+    ],
     "note": "原文どおり: 墓地からカード1枚をマナへ"
   },
   {
     "name": "埋没のカルマ オリーブオイル",
     "fidelity": "exact",
     "abilities": [
-      {"trigger": "on_play", "actions": [{"op": "grave_to_deck", "count": 99}]},
-      {"trigger": "s_trigger", "actions": [{"op": "grave_to_deck", "count": 99}]}
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "grave_to_deck",
+            "count": 99
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "grave_to_deck",
+            "count": 99
+          }
+        ]
+      }
     ],
     "note": "「いずれかの墓地」は自分側選択で表現(選択肢の部分集合=exact-safe)"
   },
   {
     "name": "堕魔 ヴォジャワ",
     "fidelity": "exact",
-    "abilities": [{"trigger": "on_play", "actions": [{"op": "deck_top_to_grave", "count": 2}]}],
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "deck_top_to_grave",
+            "count": 2
+          }
+        ]
+      }
+    ],
     "note": "魔導具回収は種族データ欠落のため省略(過小評価側=exact-safe)"
   },
   {
     "name": "ソー☆ギョッ",
     "fidelity": "exact",
-    "abilities": [{"trigger": "on_play", "actions": [{"op": "draw", "count": 1}, {"op": "discard_own_hand", "count": 1}]}],
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          },
+          {
+            "op": "discard_own_hand",
+            "count": 1
+          }
+        ]
+      }
+    ],
     "note": "無月の門条件の自己蘇生は条件未対応のため省略(exact-safe)。蘇生能力なし扱い"
   },
   {
     "name": "ティン★ビン",
     "fidelity": "exact",
-    "abilities": [{"trigger": "on_play", "actions": [{"op": "discard_opponent_hand", "count": 1}]}],
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "discard_opponent_hand",
+            "count": 1
+          }
+        ]
+      }
+    ],
     "note": "無月の門条件の自己蘇生は省略(exact-safe)"
   },
   {
@@ -74,12 +163,148 @@
       {
         "trigger": "on_play",
         "actions": [
-          {"op": "deck_top_to_grave", "count": 3},
-          {"op": "summon_from_grave", "count": 2, "exclude_self": true},
-          {"op": "destroy_creature", "count": 2, "scope": "self", "timing": "end_of_turn"}
+          {
+            "op": "deck_top_to_grave",
+            "count": 3
+          },
+          {
+            "op": "summon_from_grave",
+            "count": 2,
+            "exclude_self": true
+          },
+          {
+            "op": "destroy_creature",
+            "count": 2,
+            "scope": "self",
+            "timing": "end_of_turn"
+          }
         ]
       }
     ],
     "note": "自身以外・ターン終了時破壊は精密化済み。マフィ・ギャング種族限定はDBの種族データ欠落のため未表現→approx"
+  },
+  {
+    "name": "邪眼大帝 ラスト・ロマノフ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "deck_top_to_grave",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "cast_from_grave",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時5枚墓地、攻撃時に墓地呪文1枚を無償詠唱→山札下"
+  },
+  {
+    "name": "暗黒GUY・ゼロ・ロマノフ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "cast_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "civilizations": [
+              "闇"
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "出た時の探索墓地置きは省略(exact-safe)。攻撃時: 闇コスト7以下の墓地呪文を無償詠唱→山札下"
+  },
+  {
+    "name": "煉獄と魔弾の印",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "exclude_evolution": true,
+            "civilizations": [
+              "闇",
+              "火"
+            ],
+            "speed_attacker": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 闇/火・コスト7以下・進化でない1枚を蘇生しSA付与"
+  },
+  {
+    "name": "冥府の覇者ガジラビュート",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "burn_opponent_shield",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時、相手シールド1つを墓地へ"
+  },
+  {
+    "name": "学校男",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 2,
+            "scope": "self"
+          },
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent",
+            "chooser": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 自分2体破壊→相手は自身の1体を破壊(相手選択=最弱)"
+  },
+  {
+    "name": "ルソー・モンテス/法と契約の秤",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 7
+          }
+        ]
+      }
+    ],
+    "note": "呪文面: コスト7以下のクリーチャー1枚を蘇生(進化制限なし)。クリーチャー面の任意ハンデスは省略(exact-safe)"
   }
 ]

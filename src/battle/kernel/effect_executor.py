@@ -83,7 +83,11 @@ class EffectExecutor:
             target_player = engine.state.players[target_player_index]
             max_power = action.get("max_power")
             for _ in range(count):
-                target = self._select_target(engine, controller_index, op, target_player.battle_zone, max_power=max_power)
+                if action.get("chooser") == "opponent" and target_player.battle_zone:
+                    # 「相手は自身のクリーチャーを破壊する」= 相手の最適行動(最弱を差し出す)
+                    target = min(target_player.battle_zone, key=lambda c: c.card.power)
+                else:
+                    target = self._select_target(engine, controller_index, op, target_player.battle_zone, max_power=max_power)
                 if target is None:
                     return
                 engine.destroy_creature(target_player_index, target)
@@ -179,6 +183,8 @@ class EffectExecutor:
             exclude_self = bool(action.get("exclude_self"))
             exclude_evolution = bool(action.get("exclude_evolution"))
             race_filter = action.get("race")
+            civ_filter = action.get("civilizations")
+            grant_speed = bool(action.get("speed_attacker"))
             for _ in range(count):
                 candidates = [
                     entry
@@ -188,13 +194,14 @@ class EffectExecutor:
                     and not (exclude_self and entry.name == card.name)
                     and not (exclude_evolution and entry.is_evolution)
                     and (race_filter is None or race_filter in entry.race)
+                    and (civ_filter is None or any(c in civ for civ in entry.civilizations for c in civ_filter))
                 ]
                 if not candidates:
                     return
                 target_card = max(candidates, key=lambda entry: (entry.cost, entry.power))
                 controller.graveyard.remove(target_card)
                 controller.battle_zone.append(
-                    CreatureInstance(card=target_card, summoned_turn=engine.state.turn)
+                    CreatureInstance(card=target_card, summoned_turn=engine.state.turn, granted_speed=grant_speed)
                 )
                 engine.record_effect(trigger=trigger, card=card.name, op=op, target=target_card.name)
                 self.run(engine, controller_index, "on_play", target_card)
@@ -207,6 +214,27 @@ class EffectExecutor:
                     return
                 # 墓地に置く=手札に加えずS・トリガーも使わせない
                 opponent.graveyard.append(opponent.shields.pop())
+        elif op == "cast_from_grave":
+            # MRC型: 墓地の呪文を無償で唱え、解決後は山札の一番下へ置く
+            max_cost = action.get("max_cost")
+            civ_filter = action.get("civilizations")
+            for _ in range(count):
+                spells = [
+                    entry for entry in controller.graveyard
+                    if entry.is_spell
+                    and (max_cost is None or entry.cost <= max_cost)
+                    and (civ_filter is None or any(c in civ for civ in entry.civilizations for c in civ_filter))
+                    and self.has_trigger(entry, "on_cast")
+                ]
+                if not spells:
+                    return
+                spell = max(spells, key=lambda entry: entry.cost)
+                controller.graveyard.remove(spell)
+                engine.record_effect(trigger=trigger, card=card.name, op=op, target=spell.name)
+                self.run(engine, controller_index, "on_cast", spell)
+                controller.deck.append(spell)
+                if engine.state.finished:
+                    return
         elif op == "extra_turn":
             engine.state.extra_turn_pending = True
         elif op == "discard_own_hand":

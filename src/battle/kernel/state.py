@@ -23,13 +23,14 @@ class CreatureInstance:
     tapped: bool = False
     summoned_turn: int = 0
     temporary: bool = False  # B・A・D等: ターン終了時に破壊される
+    granted_speed: bool = False  # 効果による一時的なスピードアタッカー付与
 
     def can_attack(self, current_turn: int) -> bool:
         if self.tapped:
             return False
         if self.summoned_turn < current_turn:
             return True
-        return self.card.is_speed_attacker or self.card.is_evolution
+        return self.card.is_speed_attacker or self.card.is_evolution or self.granted_speed
 
     def can_attack_creature(self, current_turn: int) -> bool:
         # マッハファイターは出たターンでもクリーチャーには攻撃できる

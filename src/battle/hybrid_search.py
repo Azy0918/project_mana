@@ -88,15 +88,17 @@ def _consolidating_mutate(
     return _group_deck(repaired, cards_by_id)
 
 
-def _simulated_win_rate(
+def _simulated_metrics(
     deck: list[dict[str, Any]],
     opponents: list[dict[str, Any]],
     games: int,
     seed: float,
     effects: dict[str, list[dict[str, Any]]] | None,
-) -> float:
+) -> tuple[float, float]:
+    """対メタ勝率と、エンジン系効果(墓地詠唱・蘇生)が成立した試合の割合を返す。"""
     wins = 0
     total = 0
+    fired = 0.0
     for index, opponent in enumerate(opponents):
         summary = simulate_matches(
             deck,
@@ -109,7 +111,10 @@ def _simulated_win_rate(
         )
         wins += summary.wins_a
         total += summary.games
-    return wins / total if total else 0.0
+        fired += summary.engine_fire_rate_a * summary.games
+    if not total:
+        return 0.0, 0.0
+    return wins / total, fired / total
 
 
 def _opponents_for_generation(
@@ -260,6 +265,7 @@ def run_hybrid_search(
     locked_card_ids: list[str] | None = None,
     chain: list[str] | None = None,
     chain_weight: float = 0.3,
+    engine_weight: float = 0.0,
 ) -> dict[str, Any]:
     """世代内選別に厳密シミュレーション勝率を使う進化探索。
 
@@ -269,6 +275,11 @@ def run_hybrid_search(
 
     rotate_opponents=True(既定)では選別相手を世代ごとにローテーションし、
     特定の相手への過適合を抑える。Falseは固定相手(従来動作)。
+
+    engine_weight > 0 のときは「エンジン発火率(墓地詠唱・蘇生が成立した試合の割合)」を
+    適応度に加え、勝ちながらエンジンも回る方向の進化圧をかける。背景:
+    ロックだけでは進化がコンボ部品を荷物にしたままアグロ化する
+    (docs/loop_research.md 第九弾)。
     """
     rng = random.Random(seed)
     sim_weight = max(0.0, min(1.0, sim_weight))
@@ -312,7 +323,7 @@ def run_hybrid_search(
         evaluated = []
         for deck in population:
             heuristic = float(evaluate_deck(deck)["score"])
-            win_rate = _simulated_win_rate(deck, opponents, sim_games, rng.random(), effects)
+            win_rate, fire_rate = _simulated_metrics(deck, opponents, sim_games, rng.random(), effects)
             assembly = 0.0
             if chain:
                 # コンボ成立率を選別関数に組み込み、安定性を上げる方向の進化圧をかける
@@ -325,6 +336,13 @@ def run_hybrid_search(
                     win_rate * 100 * win_share + assembly * 100 * chain_weight
                     + heuristic * (1 - win_share - chain_weight), 2,
                 )
+            elif engine_weight > 0:
+                # エンジン発火率を適応度に加える(勝ちながら回るデッキを選ぶ)
+                win_share = max(0.0, sim_weight - engine_weight)
+                combined = round(
+                    win_rate * 100 * win_share + fire_rate * 100 * engine_weight
+                    + heuristic * (1 - win_share - engine_weight), 2,
+                )
             else:
                 combined = round(win_rate * 100 * sim_weight + heuristic * (1 - sim_weight), 2)
             evaluated.append(
@@ -332,6 +350,7 @@ def run_hybrid_search(
                     "deck": deck,
                     "heuristic_score": heuristic,
                     "sim_win_rate": round(win_rate, 4),
+                    "engine_fire_rate": round(fire_rate, 4),
                     "assembly_rate": round(assembly, 4),
                     "combined_score": combined,
                 }
@@ -345,6 +364,7 @@ def run_hybrid_search(
                 "generation": generation,
                 "best_combined": top["combined_score"],
                 "best_sim_win_rate": top["sim_win_rate"],
+                "best_engine_fire_rate": top.get("engine_fire_rate", 0.0),
                 "best_assembly_rate": top.get("assembly_rate", 0.0),
                 "best_heuristic": top["heuristic_score"],
                 "opponents": [deck["deck_name"] for deck in opponents],

@@ -173,6 +173,7 @@ def main(argv: list[str] | None = None) -> int:
     hybrid_parser.add_argument("--max-card-types", type=int, default=16, help="デッキ内カード種類数のソフト上限")
     hybrid_parser.add_argument("--seed-deck-id", type=int, default=None, help="generated_decksのIDを進化の起点(シード)にする")
     hybrid_parser.add_argument("--lock", default=None, help="カンマ区切りのカード名。4枚固定して進化が骨格を淘汰しないようにする")
+    hybrid_parser.add_argument("--engine-weight", type=float, default=0.0, help="エンジン発火率の適応度比重(0-1)。コンボの荷物化を防ぐ")
 
     expand_parser = sub.add_parser("meta-expand", help="探索勝者を相手プールへ昇格させる自己対戦型メタ拡充(PSRO方式)")
     expand_parser.add_argument("--rounds", type=int, default=3, help="拡充ラウンド数")
@@ -374,6 +375,7 @@ def main(argv: list[str] | None = None) -> int:
             max_card_types=args.max_card_types,
             seed_deck=seed_deck or None,
             locked_card_ids=locked_card_ids or None,
+            engine_weight=args.engine_weight,
         )
         for warning in search.get("warnings", []):
             print(f"warning: {warning}")
@@ -381,9 +383,10 @@ def main(argv: list[str] | None = None) -> int:
         if best is None:
             return 1
         for entry in search["history"]:
+            fire = f' / 発火率 {entry["best_engine_fire_rate"]:.1%}' if args.engine_weight > 0 else ""
             print(
                 f'世代{entry["generation"]}: 合成 {entry["best_combined"]} '
-                f'(勝率 {entry["best_sim_win_rate"]:.1%} / ヒューリスティック {entry["best_heuristic"]}) '
+                f'(勝率 {entry["best_sim_win_rate"]:.1%}{fire} / ヒューリスティック {entry["best_heuristic"]}) '
                 f'相手: {", ".join(entry["opponents"])}'
             )
         rotation_label = "ローテーション" if search.get("rotate_opponents") else "固定"

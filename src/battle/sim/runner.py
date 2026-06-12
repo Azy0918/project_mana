@@ -10,6 +10,9 @@ from src.battle.kernel.cards import BattleCard, battle_deck_from_dicts
 from src.battle.kernel.engine import DEFAULT_MAX_TURNS, DuelEngine
 from src.battle.kernel.policy import GreedyPolicy, Policy
 
+# 「エンジンが回った」とみなす効果op(墓地エンジン系。発火率の観測対象)
+ENGINE_OPS = ("cast_from_grave", "summon_from_grave")
+
 
 @dataclass
 class SimulationSummary:
@@ -23,6 +26,7 @@ class SimulationSummary:
     ci95_high_a: float
     average_turns: float
     finish_reasons: dict[str, int]
+    engine_fire_rate_a: float = 0.0  # デッキAのエンジン系効果が1回以上成立した試合の割合
     sample_log: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
@@ -37,6 +41,7 @@ class SimulationSummary:
             "ci95_high_a": self.ci95_high_a,
             "average_turns": self.average_turns,
             "finish_reasons": dict(self.finish_reasons),
+            "engine_fire_rate_a": self.engine_fire_rate_a,
         }
 
 
@@ -76,6 +81,7 @@ def simulate_matches(
     wins_b = 0
     draws = 0
     total_turns = 0
+    engine_fired_games = 0
     finish_reasons: Counter[str] = Counter()
     sample_log: list[dict[str, Any]] = []
 
@@ -96,6 +102,9 @@ def simulate_matches(
         result = engine.run()
         total_turns += result.turns
         finish_reasons[result.reason] += 1
+        a_index = 0 if a_first else 1
+        if any(engine.op_success_counts[a_index][op] for op in ENGINE_OPS):
+            engine_fired_games += 1
         if game_index == 0:
             sample_log = result.log
 
@@ -118,5 +127,6 @@ def simulate_matches(
         ci95_high_a=ci_high,
         average_turns=total_turns / games if games else 0.0,
         finish_reasons=dict(finish_reasons),
+        engine_fire_rate_a=engine_fired_games / games if games else 0.0,
         sample_log=sample_log,
     )

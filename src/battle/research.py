@@ -455,6 +455,7 @@ def main(argv: list[str] | None = None) -> int:
             rating = rate_deck_against_meta(
                 best["deck"], f"自己対戦R{round_index}", db_path=args.db,
                 games_per_pair=args.games, seed=round_seed, effects=effects, save=False,
+                policy_factory=POLICY_FACTORIES[args.policy], policy_name=args.policy,
             )
             score = rating["strength_score"]
             print(f"勝者の絶対強さスコア: {score}(昇格閾値 {args.threshold})")

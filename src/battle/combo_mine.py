@@ -69,6 +69,7 @@ def propose_chains(
 
     mills: list[tuple[str, int]] = []        # (card_id, 落とす枚数)
     reanimators: list[tuple[str, int | None]] = []  # (card_id, max_cost)
+    creature_reanimators: list[tuple[str, int | None]] = []  # 蘇生能力持ちクリーチャー(2段目の中継ぎ)
     mana_cheats: list[tuple[str, int | None]] = []
     ramps: list[str] = []
     payoffs: list[str] = []
@@ -79,12 +80,15 @@ def propose_chains(
             continue
         ops = _ops_of(abilities)
         cost = int(card["cost"] or 0)
+        is_creature = "クリーチャー" in str(card["card_type"]) or "ツインパクト" in str(card["card_type"])
         if "deck_top_to_grave" in ops and cost <= 5:
             count = _action_param(abilities, "deck_top_to_grave", "count") or 1
             if int(count) >= 2:
                 mills.append((card_id, int(count)))
         if "summon_from_grave" in ops and cost <= 7:
             reanimators.append((card_id, _action_param(abilities, "summon_from_grave", "max_cost")))
+        if "summon_from_grave" in ops and is_creature:
+            creature_reanimators.append((card_id, _action_param(abilities, "summon_from_grave", "max_cost")))
         if "summon_from_mana" in ops and cost <= 7:
             mana_cheats.append((card_id, _action_param(abilities, "summon_from_mana", "max_cost")))
         if "deck_top_to_mana" in ops and cost <= 4:
@@ -103,15 +107,19 @@ def propose_chains(
 
     proposals: list[dict[str, Any]] = []
     seen: set[tuple[str, ...]] = set()
+    # 種類別クォータ: 1段型が枠を使い切って多段型が提案されない事態を防ぐ
+    quota = max(1, max_proposals // 3)
+    kind_counts: dict[str, int] = {}
 
     def add(kind: str, enabler_ids: list[str], payoff_id: str) -> None:
         key = tuple(enabler_ids + [payoff_id])
-        if key in seen or len(proposals) >= max_proposals:
+        if key in seen or len(proposals) >= max_proposals or kind_counts.get(kind, 0) >= quota:
             return
         chain_cards = [cards[cid] for cid in enabler_ids + [payoff_id]]
         if not _civ_overlap(*chain_cards):
             return
         seen.add(key)
+        kind_counts[kind] = kind_counts.get(kind, 0) + 1
         proposals.append(
             {
                 "kind": kind,
@@ -137,6 +145,28 @@ def propose_chains(
                     continue
                 add("マナ踏み倒し", [ramp_id, cheat_id], payoff_id)
                 break
+
+    # 二段リアニメイト型: 肥やし → 蘇生呪文 → 蘇生能力持ちクリーチャー(中継ぎ) → 超大型
+    # 1段目の蘇生制限内に収まる中継ぎが、自身の蘇生でさらに大きいペイオフを釣り上げる
+    for mill_id, _count in mills[:5]:
+        for rean_id, max_cost1 in reanimators[:8]:
+            for mid_id, max_cost2 in creature_reanimators:
+                mid_cost = int(cards[mid_id]["cost"] or 0)
+                if max_cost1 is not None and mid_cost > max_cost1:
+                    continue
+                if mid_id in (mill_id, rean_id):
+                    continue
+                for payoff_id in payoffs:
+                    payoff_cost = int(cards[payoff_id]["cost"] or 0)
+                    if max_cost2 is not None and payoff_cost > max_cost2:
+                        continue
+                    # 中継ぎより重いペイオフが釣れる場合のみ二段の意味がある
+                    if payoff_cost <= mid_cost:
+                        continue
+                    before = len(proposals)
+                    add("二段リアニメイト", [mill_id, rean_id, mid_id], payoff_id)
+                    if len(proposals) > before:
+                        break
 
     return proposals
 
@@ -168,7 +198,7 @@ def _build_combo_deck(
         if cost <= 4 and ({"draw", "deck_top_to_mana", "deck_top_to_grave"} & ops):
             fillers.append((cost, card_id))
     fillers.sort()
-    total = 12
+    total = 4 * len(chain_ids)
     for _cost, card_id in fillers:
         if total >= 40:
             break

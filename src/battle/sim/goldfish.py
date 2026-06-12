@@ -101,52 +101,58 @@ def _simulate_once(
             if card.is_spell:
                 graveyard.append(card)
 
-            def _arrive(summoned) -> None:
+            def _arrive(summoned, depth: int) -> None:
                 # 効果による着地もプレイ列に記録する(コンボ成立検証の観測点)
                 nonlocal total_plays
                 total_plays += 1
                 plays_by_turn[turn] = plays_by_turn.get(turn, 0) + 1
                 play_sequence.append(summoned.card_id)
+                # 着地したカード自身の効果も連鎖実行する(二段コンボの観測に必要)
+                if depth < 5:
+                    _apply(summoned, depth + 1)
 
-            for action in _solo_effects(card, effects):
-                count = int(action.get("count", 1))
-                max_cost = action.get("max_cost")
-                if action["op"] == "draw":
-                    for _ in range(count):
-                        if library:
-                            hand.append(library.pop(0))
-                elif action["op"] == "deck_top_to_mana":
-                    for _ in range(count):
-                        if library:
-                            mana_zone.append(make_mana_card(library.pop(0)))
-                elif action["op"] == "deck_top_to_grave":
-                    for _ in range(count):
-                        if library:
-                            graveyard.append(library.pop(0))
-                elif action["op"] == "summon_from_grave":
-                    for _ in range(count):
-                        candidates = [c for c in graveyard if c.is_creature and (max_cost is None or c.cost <= max_cost)]
-                        if not candidates:
-                            break
-                        target = max(candidates, key=lambda c: (c.cost, c.power))
-                        graveyard.remove(target)
-                        _arrive(target)
-                elif action["op"] == "summon_from_mana":
-                    for _ in range(count):
-                        candidates = [m for m in mana_zone if m.card.is_creature and (max_cost is None or m.card.cost <= max_cost)]
-                        if not candidates:
-                            break
-                        target = max(candidates, key=lambda m: (m.card.cost, m.card.power))
-                        mana_zone.remove(target)
-                        _arrive(target.card)
-                elif action["op"] == "summon_from_hand":
-                    for _ in range(count):
-                        candidates = [c for c in hand if c.is_creature and (max_cost is None or c.cost <= max_cost)]
-                        if not candidates:
-                            break
-                        target = max(candidates, key=lambda c: (c.cost, c.power))
-                        hand.remove(target)
-                        _arrive(target)
+            def _apply(source, depth: int = 0) -> None:
+                for action in _solo_effects(source, effects):
+                    count = int(action.get("count", 1))
+                    max_cost = action.get("max_cost")
+                    if action["op"] == "draw":
+                        for _ in range(count):
+                            if library:
+                                hand.append(library.pop(0))
+                    elif action["op"] == "deck_top_to_mana":
+                        for _ in range(count):
+                            if library:
+                                mana_zone.append(make_mana_card(library.pop(0)))
+                    elif action["op"] == "deck_top_to_grave":
+                        for _ in range(count):
+                            if library:
+                                graveyard.append(library.pop(0))
+                    elif action["op"] == "summon_from_grave":
+                        for _ in range(count):
+                            candidates = [c for c in graveyard if c.is_creature and (max_cost is None or c.cost <= max_cost)]
+                            if not candidates:
+                                break
+                            target = max(candidates, key=lambda c: (c.cost, c.power))
+                            graveyard.remove(target)
+                            _arrive(target, depth)
+                    elif action["op"] == "summon_from_mana":
+                        for _ in range(count):
+                            candidates = [m for m in mana_zone if m.card.is_creature and (max_cost is None or m.card.cost <= max_cost)]
+                            if not candidates:
+                                break
+                            target = max(candidates, key=lambda m: (m.card.cost, m.card.power))
+                            mana_zone.remove(target)
+                            _arrive(target.card, depth)
+                    elif action["op"] == "summon_from_hand":
+                        for _ in range(count):
+                            candidates = [c for c in hand if c.is_creature and (max_cost is None or c.cost <= max_cost)]
+                            if not candidates:
+                                break
+                            target = max(candidates, key=lambda c: (c.cost, c.power))
+                            hand.remove(target)
+                            _arrive(target, depth)
+
+            _apply(card)
 
     return {
         "first_play_turn": first_play_turn,

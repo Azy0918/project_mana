@@ -167,8 +167,13 @@ class BattleCard:
 
     @property
     def is_evolution(self) -> bool:
-        """進化クリーチャー: 召喚酔いしない(進化元の条件は無視する近似)。"""
-        return "進化" in self.card_type or bool(re.search(r"進化\s*[:：]", self.text))
+        """進化クリーチャー: 召喚酔いしない(進化元の条件は無視する近似)。
+
+        表記ゆれ対応: 「進化:」「進化-」「進化V-」「墓地進化-」等。
+        """
+        if "進化" in self.card_type:
+            return True
+        return bool(re.search(r"進化(V|GV)?\s*[:：\-−–-]", self.text))
 
 
 def battle_card_from_dict(card: dict[str, Any]) -> BattleCard:

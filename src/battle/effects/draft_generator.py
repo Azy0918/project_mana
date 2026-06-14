@@ -162,7 +162,8 @@ def _sentence_actions(sentence: str) -> list[dict[str, Any]]:
         filters = _summon_filters(sentence, "マナゾーンから")
         if filters is not None:
             actions.append({"op": "summon_from_mana", "count": count, **filters})
-    if "破壊" in sentence and "相手" in sentence:
+    if "破壊" in sentence and "相手" in sentence and not re.search(r"破壊され(ない|ません|なくなる)", sentence):
+        # 「破壊されない」(防御テキスト)を除去と誤読しないよう否定形を除外
         # 「最もパワーが大きい〜をすべて破壊」は最大1体の破壊で近似
         # (countのすべて=99だと全滅除去を捏造する。1体⊆実際の対象=exact-safe方向)
         destroy_count = 1 if "最もパワーが大きい" in sentence or "いちばんパワーの大きい" in sentence else count

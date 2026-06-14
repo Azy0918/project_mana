@@ -265,6 +265,18 @@ class DraftGeneratorTest(unittest.TestCase):
         bounce = next(a for a in actions if a["op"] == "bounce_creature")
         self.assertEqual(bounce["condition"], {"kind": "shields_at_most", "count": 2})
 
+    def test_destroy_negation_not_misread(self) -> None:
+        # 「相手クリーチャーは破壊されない」(防御)を除去と誤読しない
+        card = {
+            "card_id": "DMPC-0026",
+            "name": "鉄壁獣",
+            "card_type": "クリーチャー",
+            "text": "■バトル中、バトルしている相手クリーチャーは、パワーが0より大きければ破壊されない。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertNotIn("destroy_creature", ops)
+
     def test_race_limited_summon_not_converted(self) -> None:
         # Kサイズ型: 「イニシャルズ1枚を出す」の種族限定は表現不可→変換を見送る
         card = {

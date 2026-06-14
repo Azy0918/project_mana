@@ -74,9 +74,22 @@ def effective_cost(player: PlayerState, card: BattleCard) -> int:
     return cost
 
 
+def can_play_evolution(player: PlayerState, card: BattleCard) -> bool:
+    """進化クリーチャーは場に進化元(味方クリーチャー)が必要。
+
+    進化元の種族・文明条件はデータ不足で厳密判定できないため、「味方クリーチャーが
+    1体以上いること」で近似する(無条件の踏み倒しを防ぐ過小評価側=exact-safe)。
+    """
+    if not card.is_evolution:
+        return True
+    return any(creature.card.is_creature for creature in player.battle_zone)
+
+
 def playable_hand_indexes(player: PlayerState) -> list[int]:
     indexes = []
     for index, card in enumerate(player.hand):
+        if not can_play_evolution(player, card):
+            continue
         if select_mana_payment(player.mana_zone, card, cost=effective_cost(player, card)) is not None:
             indexes.append(index)
     return indexes
@@ -258,6 +271,12 @@ class DuelEngine:
             for mana in payment:
                 mana.tapped = True
             if card.is_creature:
+                # 進化クリーチャーは進化元の上に乗る: 味方1体を消費する(ボディの格上げ)
+                if card.is_evolution:
+                    bases = [c for c in player.battle_zone if c.card.is_creature]
+                    if bases:
+                        base = min(bases, key=lambda c: c.card.power)
+                        player.battle_zone.remove(base)
                 instance = CreatureInstance(
                     card=card,
                     summoned_turn=state.turn,

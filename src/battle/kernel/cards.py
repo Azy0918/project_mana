@@ -7,7 +7,19 @@ from typing import Any
 
 _G_ZERO_PATTERN = re.compile(r"G・ゼロ\s*[:：]\s*.*?呪文を(\d+)枚以上唱えたターン")
 _G_ZERO_GRAVE_PATTERN = re.compile(r"G・ゼロ\s*[:：]\s*.*?墓地に.*?(\d+)枚以上")
+# 「自分のクリーチャー(全体)の召喚コストをN少なくする」無条件オーラだけを拾う。
+# 種族・条件・呪文の軽減は適用範囲を検証できないため除外する(exact-safe)。
+# 「自分の」の直後がクリーチャーで始まること(=種族プレフィックスなし)を要求し、
+# 「魔導具クリーチャー」「NEOクリーチャー」「グランセクトの召喚」等を弾く。
+_UNCONDITIONAL_REDUCTION_PATTERN = re.compile(
+    r"自分のクリーチャー(?:を|の)召喚(?:する)?コストを(\d+)少なくする"
+)
 _COST_REDUCTION_PATTERN = re.compile(r"コストを(\d+)少なくする")
+# 「なら/あれば/初めて」等の条件付きは無条件オーラと表現が両立しないため除外
+_CONDITIONAL_REDUCTION_MARKERS = (
+    "なら", "あれば", "初めて", "ごとに", "につき", "数だけ", "枚以上", "枚以下",
+    "番目", "能力が書かれていない", "以上で", "以下で", "ターン中",
+)
 _BAD_PATTERN = re.compile(r"B・A・D(?:・S)?\s*(\d+)")
 
 
@@ -111,16 +123,21 @@ class BattleCard:
 
     @property
     def summon_cost_reduction(self) -> int:
-        """バトルゾーンにいる間、自分のクリーチャー召喚コストを下げる量(近似)。
+        """バトルゾーンにいる間、全クリーチャーの召喚コストを下げる量(常時オーラ近似)。
 
-        種族・条件指定は無視した常時オーラとして扱う。
+        種族限定・条件付き・呪文専用の軽減は適用範囲を検証できないため除外する
+        (exact-safe: 条件を確認できない軽減は省略して過小評価側に倒す。第二十七弾)。
         """
         if not self.is_creature:
             return 0
-        match = _COST_REDUCTION_PATTERN.search(self.text)
-        if match:
-            return int(match.group(1))
-        return 0
+        match = _UNCONDITIONAL_REDUCTION_PATTERN.search(self.text)
+        if not match:
+            return 0
+        # 同じ文(直前30字)に条件語があれば常時オーラとは扱わない
+        clause = self.text[max(0, match.start() - 30):match.start()]
+        if any(marker in clause for marker in _CONDITIONAL_REDUCTION_MARKERS):
+            return 0
+        return int(match.group(1))
 
     @property
     def power_attacker_bonus(self) -> int:

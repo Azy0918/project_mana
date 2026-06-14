@@ -88,10 +88,10 @@ class GZeroGraveTest(unittest.TestCase):
 
 
 class CostReductionTest(unittest.TestCase):
-    def test_reduction_parsed_and_applied(self) -> None:
+    def test_unconditional_reduction_parsed_and_applied(self) -> None:
         engine = make_engine()
         player = engine.state.players[0]
-        reducer = make_card("軽減獣", text="■自分のビートジョッキーの召喚コストを1少なくする。ただし、0以下にならない。")
+        reducer = make_card("軽減獣", text="■自分のクリーチャーの召喚コストを1少なくする。ただし、0以下にならない。")
         self.assertEqual(reducer.summon_cost_reduction, 1)
         player.battle_zone.append(CreatureInstance(card=reducer, summoned_turn=0))
         target = make_card("対象獣", cost=4)
@@ -99,6 +99,16 @@ class CostReductionTest(unittest.TestCase):
         # 1未満にはならない
         cheap = make_card("最軽量", cost=1)
         self.assertEqual(effective_cost(player, cheap), 1)
+
+    def test_race_restricted_reduction_not_applied(self) -> None:
+        # 種族限定の軽減(全クリーチャーに効かない)は常時オーラ近似から除外(exact-safe)
+        reducer = make_card("軽減獣", text="■自分のビートジョッキーの召喚コストを1少なくする。")
+        self.assertEqual(reducer.summon_cost_reduction, 0)
+
+    def test_conditional_reduction_not_applied(self) -> None:
+        # 「N番目に召喚する」等の条件付き軽減も除外
+        reducer = make_card("軽減獣", text="■自分のターン中、3番目に召喚する自分のクリーチャーの召喚コストを3少なくする。")
+        self.assertEqual(reducer.summon_cost_reduction, 0)
 
     def test_spell_not_reduced(self) -> None:
         engine = make_engine()

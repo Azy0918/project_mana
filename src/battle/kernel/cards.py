@@ -89,15 +89,16 @@ class BattleCard:
 
     @property
     def is_blocker(self) -> bool:
-        return "ブロッカー" in self.tags or "ブロッカー" in self.text
+        # 他者付与・条件付きブロッカーは自身の常時能力ではないため除外(exact-safe)
+        return "ブロッカー" in self.tags or _keyword_is_static(self.text, "ブロッカー")
 
     @property
     def is_speed_attacker(self) -> bool:
-        return "スピードアタッカー" in self.tags or "スピードアタッカー" in self.text
+        return "スピードアタッカー" in self.tags or _keyword_is_static(self.text, "スピードアタッカー")
 
     @property
     def is_mach_fighter(self) -> bool:
-        return "マッハファイター" in self.tags or "マッハファイター" in self.text
+        return "マッハファイター" in self.tags or _keyword_is_static(self.text, "マッハファイター")
 
     @property
     def cannot_attack_player(self) -> bool:
@@ -112,7 +113,8 @@ class BattleCard:
 
     @property
     def is_unblockable(self) -> bool:
-        return "ブロックされない" in self.text
+        # 他者付与・条件付きの「ブロックされない」は自身の常時能力でないため除外
+        return _keyword_is_static(self.text, "ブロックされない")
 
     @property
     def is_multicolor(self) -> bool:
@@ -162,6 +164,9 @@ class BattleCard:
 
     @property
     def power_attacker_bonus(self) -> int:
+        # 条件付き・他者付与のパワーアタッカーは常時ボーナスとして扱わない(exact-safe)
+        if not _keyword_is_static(self.text, "パワーアタッカー"):
+            return 0
         match = re.search(r"パワーアタッカー\s*\+\s*(\d+)", self.text)
         if match:
             return int(match.group(1))

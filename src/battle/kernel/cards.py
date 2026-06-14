@@ -20,6 +20,27 @@ _CONDITIONAL_REDUCTION_MARKERS = (
     "なら", "あれば", "初めて", "ごとに", "につき", "数だけ", "枚以上", "枚以下",
     "番目", "能力が書かれていない", "以上で", "以下で", "ターン中",
 )
+
+# キーワードが「他者への付与」や「条件付きで得る」文脈のみに現れる場合、
+# 自前の無条件静的能力ではないため発動扱いしない(exact-safe)。
+_GRANT_CONDITION_MARKERS = (
+    "与える", "を得", "を持", "すべて", "なら", "あれば", "以上", "以下",
+    "初めて", "ターン", "相手の",
+)
+
+
+def _keyword_is_static(text: str, keyword: str) -> bool:
+    """キーワードが「自前の無条件静的能力」として書かれているかを判定する。
+
+    付与(与える/すべて)・条件(なら/あれば/以上)の文脈にしか現れない場合はFalse。
+    これにより「クリーチャーにW・ブレイカーを与える」小型カードが自身を
+    W・ブレイカー扱いする等の偽陽性を防ぐ(過大評価を避ける=exact-safe)。
+    """
+    clauses = re.split(r"[。\n]|■|◇", text)
+    for clause in clauses:
+        if keyword in clause and not any(m in clause for m in _GRANT_CONDITION_MARKERS):
+            return True
+    return False
 _BAD_PATTERN = re.compile(r"B・A・D(?:・S)?\s*(\d+)")
 
 
@@ -154,9 +175,10 @@ class BattleCard:
     @property
     def breaker_count(self) -> int:
         haystack = self.text + ";".join(self.tags)
-        if "T・ブレイカー" in haystack:
+        # タグは静的能力の確定情報として扱う。テキストは付与/条件文脈を除外する
+        if "T・ブレイカー" in self.tags or _keyword_is_static(self.text, "T・ブレイカー"):
             return 3
-        if "W・ブレイカー" in haystack:
+        if "W・ブレイカー" in self.tags or _keyword_is_static(self.text, "W・ブレイカー"):
             return 2
         if "パワード・ブレイカー" in haystack:
             # パワー6000につき1枚ブレイク(切り上げ)の近似
@@ -170,8 +192,12 @@ class BattleCard:
 
     @property
     def is_slayer(self) -> bool:
-        """スレイヤー: バトルした相手クリーチャーをパワーに関係なく破壊する。"""
-        return "スレイヤー" in self.text or "スレイヤー" in self.tags
+        """スレイヤー: バトルした相手クリーチャーをパワーに関係なく破壊する。
+
+        他者付与(「クリーチャーにスレイヤーを与える」)や条件付きは除外する
+        (自身が常時スレイヤーである場合のみ=exact-safe)。
+        """
+        return "スレイヤー" in self.tags or _keyword_is_static(self.text, "スレイヤー")
 
     @property
     def enters_tapped(self) -> bool:

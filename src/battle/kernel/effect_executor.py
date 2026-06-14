@@ -115,8 +115,12 @@ class EffectExecutor:
         elif op == "bounce_creature":
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]
+            max_cost = action.get("max_cost")
             for _ in range(count):
-                target = self._select_target(engine, controller_index, op, target_player.battle_zone)
+                pool = target_player.battle_zone
+                if max_cost is not None:
+                    pool = [c for c in pool if c.card.cost <= max_cost]
+                target = self._select_target(engine, controller_index, op, pool)
                 if target is None:
                     return
                 target_player.battle_zone.remove(target)

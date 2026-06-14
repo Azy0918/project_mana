@@ -25,7 +25,7 @@ KNOWN_OPS: dict[str, set[str]] = {
     "draw": {"count"},
     "deck_top_to_mana": {"count"},
     "destroy_creature": {"count", "scope", "max_power", "max_cost", "timing", "chooser"},  # chooser="opponent"=相手が選ぶ(最弱)
-    "bounce_creature": {"count", "scope"},
+    "bounce_creature": {"count", "scope", "max_cost"},
     "tap_creature": {"count", "scope"},
     # 第2弾
     "add_shield": {"count"},                      # 山札の上をシールドゾーンへ

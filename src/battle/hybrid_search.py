@@ -95,15 +95,17 @@ def _simulated_metrics(
     seed: float,
     effects: dict[str, list[dict[str, Any]]] | None,
     fire_source_ids: set[str] | None = None,
-) -> tuple[float, float]:
-    """対メタ勝率と、エンジン系効果(墓地詠唱・蘇生・マナ踏み倒し)が成立した試合の割合を返す。
+) -> tuple[float, float, float]:
+    """対メタ勝率・エンジン発火率・最悪マッチアップ勝率を返す。
 
     発火率はexactスクリプト由来に限定する(fire_source_ids)。approxの誤読が
     発火指標を荒稼ぎし、進化が誤読カードを集める事故を防ぐ(ストーム・クロウラー事件)。
+    最悪マッチアップ勝率は頑健性の指標(弱者狩りで平均を稼ぐデッキを抑制する)。
     """
     wins = 0
     total = 0
     fired = 0.0
+    worst = 1.0
     for index, opponent in enumerate(opponents):
         summary = simulate_matches(
             deck,
@@ -118,9 +120,10 @@ def _simulated_metrics(
         wins += summary.wins_a
         total += summary.games
         fired += summary.engine_fire_rate_a * summary.games
+        worst = min(worst, summary.win_rate_a)
     if not total:
-        return 0.0, 0.0
-    return wins / total, fired / total
+        return 0.0, 0.0, 0.0
+    return wins / total, fired / total, worst
 
 
 def _opponents_for_generation(
@@ -272,6 +275,7 @@ def run_hybrid_search(
     chain: list[str] | None = None,
     chain_weight: float = 0.3,
     engine_weight: float = 0.0,
+    robustness_weight: float = 0.0,
 ) -> dict[str, Any]:
     """世代内選別に厳密シミュレーション勝率を使う進化探索。
 
@@ -331,7 +335,7 @@ def run_hybrid_search(
         evaluated = []
         for deck in population:
             heuristic = float(evaluate_deck(deck)["score"])
-            win_rate, fire_rate = _simulated_metrics(
+            win_rate, fire_rate, worst_rate = _simulated_metrics(
                 deck, opponents, sim_games, rng.random(), effects, fire_source_ids=exact_source_ids
             )
             assembly = 0.0
@@ -341,16 +345,18 @@ def run_hybrid_search(
                     chain, deck, trials=60, max_turns=8,
                     seed=int(rng.random() * 100000), effects=effects,
                 )["success_rate"]
-            # 適応度 = 勝率 + chain成立率 + エンジン発火率 + ヒューリスティックの加重合成。
-            # chain/engineの比重はsim_weightから差し引く(勝率と同じ「実走シグナル」のため)
+            # 適応度 = 勝率 + chain成立率 + エンジン発火率 + 最悪マッチ + ヒューリスティックの加重合成。
+            # chain/engine/robustnessの比重はsim_weightから差し引く(勝率と同じ実走シグナルのため)
             chain_share = chain_weight if chain else 0.0
             engine_share = max(0.0, engine_weight)
-            win_share = max(0.0, sim_weight - chain_share - engine_share)
-            heuristic_share = max(0.0, 1 - win_share - chain_share - engine_share)
+            robust_share = max(0.0, robustness_weight)
+            win_share = max(0.0, sim_weight - chain_share - engine_share - robust_share)
+            heuristic_share = max(0.0, 1 - win_share - chain_share - engine_share - robust_share)
             combined = round(
                 win_rate * 100 * win_share
                 + assembly * 100 * chain_share
                 + fire_rate * 100 * engine_share
+                + worst_rate * 100 * robust_share
                 + heuristic * heuristic_share,
                 2,
             )
@@ -360,6 +366,7 @@ def run_hybrid_search(
                     "heuristic_score": heuristic,
                     "sim_win_rate": round(win_rate, 4),
                     "engine_fire_rate": round(fire_rate, 4),
+                    "worst_matchup": round(worst_rate, 4),
                     "assembly_rate": round(assembly, 4),
                     "combined_score": combined,
                 }
@@ -374,6 +381,7 @@ def run_hybrid_search(
                 "best_combined": top["combined_score"],
                 "best_sim_win_rate": top["sim_win_rate"],
                 "best_engine_fire_rate": top.get("engine_fire_rate", 0.0),
+                "best_worst_matchup": top.get("worst_matchup", 0.0),
                 "best_assembly_rate": top.get("assembly_rate", 0.0),
                 "best_heuristic": top["heuristic_score"],
                 "opponents": [deck["deck_name"] for deck in opponents],

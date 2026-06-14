@@ -174,6 +174,7 @@ def main(argv: list[str] | None = None) -> int:
     hybrid_parser.add_argument("--seed-deck-id", type=int, default=None, help="generated_decksのIDを進化の起点(シード)にする")
     hybrid_parser.add_argument("--lock", default=None, help="カンマ区切りのカード名。4枚固定して進化が骨格を淘汰しないようにする")
     hybrid_parser.add_argument("--engine-weight", type=float, default=0.0, help="エンジン発火率の適応度比重(0-1)。コンボの荷物化を防ぐ")
+    hybrid_parser.add_argument("--robustness-weight", type=float, default=0.0, help="最悪マッチアップ勝率の適応度比重(0-1)。弱者狩りを抑え頑健なデッキを選ぶ")
 
     expand_parser = sub.add_parser("meta-expand", help="探索勝者を相手プールへ昇格させる自己対戦型メタ拡充(PSRO方式)")
     expand_parser.add_argument("--rounds", type=int, default=3, help="拡充ラウンド数")
@@ -377,6 +378,7 @@ def main(argv: list[str] | None = None) -> int:
             seed_deck=seed_deck or None,
             locked_card_ids=locked_card_ids or None,
             engine_weight=args.engine_weight,
+            robustness_weight=args.robustness_weight,
         )
         for warning in search.get("warnings", []):
             print(f"warning: {warning}")

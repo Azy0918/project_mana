@@ -135,7 +135,11 @@ class GreedyPolicy(Policy):
         # シールドが少ないときのみ、生き残れる(または相打ちの)最大パワーのブロッカーで守る
         if len(player.shields) > 2:
             return None
-        attacker_power = state.active_player.battle_zone[attack.attacker_index].card.power
+        bz = state.active_player.battle_zone
+        if attack.attacker_index >= len(bz):
+            # bounce/destroyでattacker_indexがstaleになった場合はブロックしない
+            return None
+        attacker_power = bz[attack.attacker_index].card.power
         survivors = [i for i, blocker in enumerate(blockers) if blocker.card.power >= attacker_power]
         if survivors:
             return max(survivors, key=lambda i: blockers[i].card.power)

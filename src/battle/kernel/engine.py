@@ -335,6 +335,17 @@ class DuelEngine:
         if state.finished or attacker not in player.battle_zone:
             return
 
+        # on_attack が他のクリーチャーを除去してインデックスがずれた場合に再計算する
+        try:
+            current_attacker_index = player.battle_zone.index(attacker)
+        except ValueError:
+            return
+        if current_attacker_index != attack.attacker_index:
+            attack = AttackChoice(
+                attacker_index=current_attacker_index,
+                target_creature_index=attack.target_creature_index,
+            )
+
         blockers = [] if attacker.card.is_unblockable else opponent.untapped_blockers()
         if blockers:
             blocker_choice = opponent_policy.choose_blocker(state, opponent, attack, blockers)

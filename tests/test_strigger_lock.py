@@ -30,7 +30,7 @@ class StriggerLockDetectionTest(unittest.TestCase):
         self.assertEqual(giga.strigger_lock_civs, ("光",))
 
     def test_per_break_and_conditional_excluded(self) -> None:
-        # per-break型(自分がブレイクしたシールド限定)は範囲を静的確定できないため除外
+        # per-break型は静的civロックではない(別途 disables_broken_strigger で扱う)
         dorza = _mk("111700", "ドルザバード", "闇", 6, "進化クリーチャー", 11000,
                     "■相手はこのクリーチャーがブレイクしたシールドの「S・トリガー」を使えない。")
         # 条件付き(5文明なら)も除外
@@ -40,6 +40,16 @@ class StriggerLockDetectionTest(unittest.TestCase):
         self.assertEqual(dorza.strigger_lock_civs, ())
         self.assertEqual(cond.strigger_lock_civs, ())
         self.assertEqual(normal.strigger_lock_civs, ())
+
+    def test_per_break_disable_detection(self) -> None:
+        dorza = _mk("111700", "ドルザバード", "闇", 6, "進化クリーチャー", 11000,
+                    "■相手はこのクリーチャーがブレイクしたシールドの「S・トリガー」を使えない。")
+        normal = _mk("x", "通常", "火", 3, "クリーチャー", 3000, "■W・ブレイカー")
+        furail = _mk("141200", "フ・レイル", "光", 6, "クリーチャー", 5000,
+                     "■誰も闇のカードの「S・トリガー」を使えない。")
+        self.assertTrue(dorza.disables_broken_strigger)
+        self.assertFalse(normal.disables_broken_strigger)
+        self.assertFalse(furail.disables_broken_strigger)  # 静的civロックはper-breakではない
 
 
 class StriggerLockEngineTest(unittest.TestCase):

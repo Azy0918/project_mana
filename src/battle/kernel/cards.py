@@ -214,6 +214,24 @@ class BattleCard:
         return "手札に加えるかわりに墓地に置く" in self.text
 
     @property
+    def disables_broken_strigger(self) -> bool:
+        """このクリーチャーがブレイクしたシールドのS・トリガーを相手が使えなくする。
+
+        「(相手は)このクリーチャーがブレイクしたシールドの『S・トリガー』を使えない」型
+        (per-break・攻撃者依存)を検出する。生き残らずとも攻撃時に受けを無効化する
+        ため、静的ロックより反S・トリガー性能が高い。種族トーテム限定や条件付きは
+        範囲を静的確定できないため除外(exact-safe)。
+        """
+        if "ブレイク" not in self.text or "S・トリガー" not in self.text:
+            return False
+        return bool(
+            re.search(
+                r"この(?:クリーチャー)?がブレイクしたシールドの「?S・トリガー」?[^。]*?使えない",
+                self.text,
+            )
+        )
+
+    @property
     def strigger_lock_civs(self) -> tuple[str, ...]:
         """このクリーチャーがいる間、指定文明のS・トリガーを誰も使えなくする文明の一覧。
 

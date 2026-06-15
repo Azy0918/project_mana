@@ -403,7 +403,9 @@ class DuelEngine:
                 opponent.graveyard.append(shield)
                 continue
             # S・トリガー持ちは即時使用する(現状の命令セットは有利効果のみのため常に使用)
-            if self.executor.has_trigger(shield, "s_trigger") and not self._strigger_locked(shield):
+            # ただし、文明ロックまたは攻撃者のper-break無効化が掛かっていれば発動しない
+            strigger_blocked = self._strigger_locked(shield) or attacker.card.disables_broken_strigger
+            if self.executor.has_trigger(shield, "s_trigger") and not strigger_blocked:
                 self._record("s_trigger", card=shield.name)
                 if shield.is_creature:
                     opponent.battle_zone.append(CreatureInstance(card=shield, summoned_turn=state.turn))

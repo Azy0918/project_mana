@@ -373,6 +373,20 @@ class DuelEngine:
         state.finish_reason = "direct_attack"
         self._record("direct_attack", attacker=attacker.card.name)
 
+    def _strigger_locked(self, shield: BattleCard) -> bool:
+        """シールドのS・トリガーが、場の「誰も〜のS・トリガーを使えない」でロックされているか。
+
+        ロックは「誰も」=全体に及ぶため、両プレイヤーの場のクリーチャーを走査する。
+        シールドの文明のいずれかがロック対象文明に含まれれば発動不可(手札に加わる)。
+        """
+        locked: set[str] = set()
+        for player in self.state.players:
+            for creature in player.battle_zone:
+                locked.update(creature.card.strigger_lock_civs)
+        if not locked:
+            return False
+        return any(civ in locked for civ in shield.civilizations)
+
     def _break_shields(self, opponent: PlayerState, attacker: CreatureInstance) -> None:
         state = self.state
         opponent_index = state.players.index(opponent)
@@ -389,7 +403,7 @@ class DuelEngine:
                 opponent.graveyard.append(shield)
                 continue
             # S・トリガー持ちは即時使用する(現状の命令セットは有利効果のみのため常に使用)
-            if self.executor.has_trigger(shield, "s_trigger"):
+            if self.executor.has_trigger(shield, "s_trigger") and not self._strigger_locked(shield):
                 self._record("s_trigger", card=shield.name)
                 if shield.is_creature:
                     opponent.battle_zone.append(CreatureInstance(card=shield, summoned_turn=state.turn))
@@ -397,6 +411,7 @@ class DuelEngine:
                     opponent.graveyard.append(shield)
                 self.executor.run(self, opponent_index, "s_trigger", shield)
             else:
+                # S・トリガー不所持、またはロック(「誰も〜のS・トリガーを使えない」)で手札へ
                 opponent.hand.append(shield)
         self._record("break_shield", attacker=attacker.card.name, broken=broken)
 

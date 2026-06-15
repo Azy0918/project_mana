@@ -214,6 +214,29 @@ class BattleCard:
         return "手札に加えるかわりに墓地に置く" in self.text
 
     @property
+    def strigger_lock_civs(self) -> tuple[str, ...]:
+        """このクリーチャーがいる間、指定文明のS・トリガーを誰も使えなくする文明の一覧。
+
+        「誰も(の)〜のカードの『S・トリガー』を使えない」の無条件・全体ロックのみを
+        拾う(exact-safe)。条件付き(「〜なら/あれば」)や、自分の攻撃でブレイクした
+        シールド限定の per-break 型(「このクリーチャーがブレイクした〜」)は、適用
+        範囲を静的に確定できないため除外し、過大評価を避ける。
+        """
+        if "S・トリガー" not in self.text or "使えない" not in self.text:
+            return ()
+        civs: list[str] = []
+        for match in re.finditer(
+            r"誰も[^。]{0,4}(光|水|火|闇|自然)のカード[^。]*?S・トリガー[^。]*?使えない",
+            self.text,
+        ):
+            clause_start = self.text.rfind("。", 0, match.start()) + 1
+            clause = self.text[clause_start : match.end()]
+            if any(marker in clause for marker in ("なら", "あれば", "以上", "以下", "ブレイクした")):
+                continue
+            civs.append(match.group(1))
+        return tuple(dict.fromkeys(civs))
+
+    @property
     def is_evolution(self) -> bool:
         """進化クリーチャー: 召喚酔いしない。
 

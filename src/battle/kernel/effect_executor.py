@@ -333,6 +333,34 @@ class EffectExecutor:
                 if target is None:
                     return
                 target.tapped = False
+        elif op == "destroy_mana":
+            # マナゾーン破壊(ドルバロム型)。keep_civ指定時はその文明を持つカードを残し、
+            # それ以外を墓地へ。scope="both"で両者に適用(対称効果)。exact-safe。
+            keep_civ = action.get("keep_civ")
+            for pidx in self._scope_player_indices(controller_index, action):
+                player = engine.state.players[pidx]
+                kept, removed = [], []
+                for mana in player.mana_zone:
+                    if keep_civ is not None and keep_civ in mana.card.civilizations:
+                        kept.append(mana)
+                    else:
+                        removed.append(mana)
+                player.mana_zone = kept
+                player.graveyard.extend(m.card for m in removed)
+        elif op == "destroy_creatures_nonciv":
+            # 指定文明を持たないクリーチャーをすべて破壊(ドルバロム後段)。scope="both"対応。
+            keep_civ = action.get("keep_civ")
+            for pidx in self._scope_player_indices(controller_index, action):
+                player = engine.state.players[pidx]
+                doomed = [
+                    cr for cr in list(player.battle_zone)
+                    if keep_civ is None or keep_civ not in cr.card.civilizations
+                ]
+                for cr in doomed:
+                    if cr in player.battle_zone:
+                        engine.destroy_creature(pidx, cr)
+                    if engine.state.finished:
+                        return
 
     @staticmethod
     def _condition_met(
@@ -387,6 +415,16 @@ class EffectExecutor:
     def _target_player_index(controller_index: int, action: dict[str, Any]) -> int:
         scope = action.get("scope", "opponent")
         return controller_index if scope == "self" else 1 - controller_index
+
+    @staticmethod
+    def _scope_player_indices(controller_index: int, action: dict[str, Any]) -> list[int]:
+        """scope="both"/"all"なら両者、"self"なら自分、その他は相手のindex列を返す。"""
+        scope = action.get("scope", "opponent")
+        if scope in ("both", "all", "all_players"):
+            return [controller_index, 1 - controller_index]
+        if scope == "self":
+            return [controller_index]
+        return [1 - controller_index]
 
     @staticmethod
     def _pick_strongest(

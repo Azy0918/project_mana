@@ -214,6 +214,40 @@ class BattleCard:
         return "手札に加えるかわりに墓地に置く" in self.text
 
     @property
+    def spell_lock(self) -> tuple[str | None, int | None, bool] | None:
+        """このクリーチャーがいる間、「誰も」呪文を唱えられなくする静的ロックの仕様。
+
+        戻り値 (civ_keep, max_cost, requires_tapped) または None。
+        - civ_keep: この文明の呪文は許可(「光以外」→'光')。Noneなら全文明を禁止
+        - max_cost: このコスト以下の呪文のみ禁止。Noneなら全コスト
+        - requires_tapped: このクリーチャーがタップ状態のときのみ有効(お騒がせチューザ)
+
+        exact-safe: 「誰も〜呪文を唱えられない」の無条件/タップ条件のみを拾う。
+        タイミング限定(「そのターン」「次の…ターン」)・回数制限(「一度しか」)・
+        条件付き(「ラビリンス」「〜なら」)・「相手は」限定の一時効果は、静的な範囲を
+        確定できないため除外する。
+        """
+        text = self.text
+        if "呪文を唱えられない" not in text:
+            return None
+        for clause in re.split(r"[。\n]|■|◇", text):
+            if "呪文を唱えられない" not in clause or "誰も" not in clause:
+                continue
+            if any(m in clause for m in ("そのターン", "次の", "ターン中", "一度", "ラビリンス", "なら", "あれば")):
+                continue
+            civ_keep = None
+            m = re.search(r"(光|水|火|闇|自然)以外の呪文", clause)
+            if m:
+                civ_keep = m.group(1)
+            max_cost = None
+            mc = re.search(r"コスト(\d+)以下の呪文", clause)
+            if mc:
+                max_cost = int(mc.group(1))
+            requires_tapped = "タップしている時" in clause or "タップしているとき" in clause
+            return (civ_keep, max_cost, requires_tapped)
+        return None
+
+    @property
     def disables_broken_strigger(self) -> bool:
         """このクリーチャーがブレイクしたシールドのS・トリガーを相手が使えなくする。
 

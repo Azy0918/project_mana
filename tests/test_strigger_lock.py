@@ -82,3 +82,36 @@ class StriggerLockEngineTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SpellLockTest(unittest.TestCase):
+    def test_spell_lock_detection(self) -> None:
+        chuza = _mk("354900", "お騒がせチューザ", "火", 4, "クリーチャー", 2000,
+                    "■可能なら毎ターン攻撃する。\n■このクリーチャーがタップしている時、誰も呪文を唱えられない。")
+        arca = _mk("6400", "聖霊王アルカディアス", "光", 6, "進化クリーチャー", 12500,
+                   "■T・ブレイカー\n■誰も光以外の呪文を唱えられない。")
+        rafu = _mk("700600", "音精 ラフルル", "光", 5, "クリーチャー", 5000,
+                   "■バトルゾーンに出た時、そのターン、相手はコスト6以下の呪文を唱えられない。")
+        self.assertEqual(chuza.spell_lock, (None, None, True))
+        self.assertEqual(arca.spell_lock, ("光", None, False))
+        self.assertIsNone(rafu.spell_lock)  # タイミング限定は除外
+
+    def test_tapped_spell_lock_suppresses_spell_strigger(self) -> None:
+        effects = {"STRIG": [{"trigger": "s_trigger",
+                             "actions": [{"op": "destroy_creature", "count": 99, "scope": "opponent"}]}]}
+        strig = _mk("STRIG", "闇除去", "闇", 3, "呪文", 0, "◇S・トリガー\n■相手のクリーチャーをすべて破壊する。")
+        chuza = _mk("354900", "お騒がせチューザ", "火", 2, "クリーチャー", 2000,
+                    "■このクリーチャーがタップしている時、誰も呪文を唱えられない。")
+        filler = _mk("F", "f", "火", 5, "クリーチャー", 1000)
+        import random as _r
+        def fires(use):
+            t = 0
+            for s in range(30):
+                d = [strig]*20 + [filler]*20
+                a = ([chuza]*10 + [filler]*30) if use else [_mk("B","殴","火",2,"クリーチャー",4000,"■W・ブレイカー")]*10+[filler]*30
+                e = DuelEngine(a, d, GreedyPolicy(), GreedyPolicy(), rng=_r.Random(s), effects=effects)
+                e.run()
+                t += sum(1 for x in e.state.log if x.get("action") == "s_trigger")
+            return t/30
+        self.assertGreater(fires(False), 0.5)
+        self.assertLess(fires(True), fires(False) * 0.3)

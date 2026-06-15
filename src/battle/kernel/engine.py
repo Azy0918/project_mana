@@ -253,10 +253,34 @@ class DuelEngine:
         if self.keep_log:
             self.state.record("effect", **detail)
 
+    def _spell_cast_blocked(self, card: BattleCard) -> bool:
+        """この呪文(またはS・トリガー呪文)が、場の「誰も呪文を唱えられない」系で封じられているか。
+
+        ロックは「誰も」=両プレイヤーに及ぶため、両者の場のクリーチャーを走査する。
+        お騒がせチューザ型はタップ状態のときのみ有効。アルカディアス型は文明例外、
+        その他はコスト上限を考慮する。
+        """
+        if not card.is_spell:
+            return False
+        for owner in self.state.players:
+            for creature in owner.battle_zone:
+                spec = creature.card.spell_lock
+                if spec is None:
+                    continue
+                civ_keep, max_cost, requires_tapped = spec
+                if requires_tapped and not creature.tapped:
+                    continue
+                if max_cost is not None and card.cost > max_cost:
+                    continue
+                if civ_keep is not None and civ_keep in card.civilizations:
+                    continue
+                return True
+        return False
+
     def _main_phase(self, player: PlayerState, policy: Policy) -> None:
         state = self.state
         while True:
-            playable = playable_hand_indexes(player)
+            playable = [i for i in playable_hand_indexes(player) if not self._spell_cast_blocked(player.hand[i])]
             if not playable:
                 return
             choice = policy.choose_main_action(state, player, playable)
@@ -403,8 +427,13 @@ class DuelEngine:
                 opponent.graveyard.append(shield)
                 continue
             # S・トリガー持ちは即時使用する(現状の命令セットは有利効果のみのため常に使用)
-            # ただし、文明ロックまたは攻撃者のper-break無効化が掛かっていれば発動しない
-            strigger_blocked = self._strigger_locked(shield) or attacker.card.disables_broken_strigger
+            # ただし、文明ロック・攻撃者のper-break無効化・呪文ロックが掛かっていれば発動しない
+            # (S・トリガー呪文の発動は「唱える」ため、呪文ロック下では不発=手札へ)
+            strigger_blocked = (
+                self._strigger_locked(shield)
+                or attacker.card.disables_broken_strigger
+                or self._spell_cast_blocked(shield)
+            )
             if self.executor.has_trigger(shield, "s_trigger") and not strigger_blocked:
                 self._record("s_trigger", card=shield.name)
                 if shield.is_creature:

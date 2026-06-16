@@ -509,6 +509,10 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     cl = clause.strip().rstrip("。")
     # 「そうした場合、」は前段アクション実行後の逐次効果。reject前に除去して逐次化。
     cl = cl.replace("そうした場合、", "").replace("そうしたら、", "").replace("そうした場合は、", "")
+    # エレメント(=クリーチャー/城/タマシード等の総称)はクリーチャーとして近似する。
+    # engine はクリーチャーのみ模擬するため、非クリーチャーのエレメントには作用しない
+    # =実際より対象が少ない=under-model(安全)。
+    cl = cl.replace("エレメント", "クリーチャー")
     # pre-reject ハンドラのために「してもよい/出す」を正規化(正規化本体は reject 後)
     cl = cl.replace("バトルゾーンに出してもよい", "バトルゾーンに出す")
 
@@ -697,6 +701,11 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     # --- 自己ディスカード(相手指定なし=自分) ---
     m = re.search(r"(?:自分の)?手札を(\d+)枚捨てる", cl)
     if m and "選" not in cl and "相手" not in cl:
+        return [{"op": "discard_own_hand", "count": int(m.group(1))}]
+    # 「自分の手札から(種別)?N枚を捨てる」語順。任意(てもよい)は強制化済み=under-model。
+    # engine の discard_own_hand は方策選択なので種別フィルタは無視(=任意の1枚を捨てる近似)。
+    m = re.search(r"自分の手札から(?:[^。]{0,12}?)(\d+)枚(?:を)?捨てる", cl)
+    if m and "相手" not in cl:
         return [{"op": "discard_own_hand", "count": int(m.group(1))}]
     if "自分の手札をすべて捨てる" in cl:
         return [{"op": "discard_own_hand", "count": 99}]

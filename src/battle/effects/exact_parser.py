@@ -91,6 +91,9 @@ def _scope_for(clause: str) -> tuple[str, str | None] | None:
         return ("opponent", None)
     if has_jibun and not has_aite:
         return ("self", None)
+    # 「このクリーチャー」=効果元自身(=自分側)。相手指定がなければ self。
+    if "このクリーチャー" in clause and not has_aite:
+        return ("self", None)
     return None  # 曖昧 → reject
 
 
@@ -124,14 +127,12 @@ _ACTION_FAMILIES = [
 
 
 def _family_count(cl: str) -> int:
-    # 「アンタップ」を別記号化して「タップ」系との誤検出を防ぐ
-    s = cl.replace("アンタップ", "\x01")
-    n = 0
-    for fam in _ACTION_FAMILIES:
-        words = ["\x01" if w == "アンタップ" else w for w in fam]
-        if any(w in s for w in words):
-            n += 1
-    return n
+    # 「アンタップする」=動作、「アンタップしている」=対象記述(数えない)。
+    s = cl.replace("アンタップする", "\x01").replace("アンタップ", "")
+    fams = [("引く", "引き"), ("捨て",), ("破壊",), ("タップする",), ("\x01",),
+            ("手札に戻",), ("マナゾーンに置く",), ("墓地に置く",),
+            ("シールド化", "シールドゾーンに置く", "シールドを")]
+    return sum(1 for fam in fams if any(w in s for w in fam))
 
 
 def _split_compound(cl: str) -> list[str]:
@@ -192,6 +193,8 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
 
 def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     cl = clause.strip().rstrip("。")
+    # 「そうした場合、」は前段アクション実行後の逐次効果。reject前に除去して逐次化。
+    cl = cl.replace("そうした場合、", "").replace("そうしたら、", "").replace("そうした場合は、", "")
 
     # --- マナゾーン召喚(summon_from_mana): 種別/コスト以外の絞り込みは reject ---
     if "マナゾーンから" in cl and "バトルゾーンに出す" in cl and "相手" not in cl:
@@ -484,36 +487,38 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
     if lat is not None:
         return lat
 
-    # マーカー行を除去しつつ節分割
-    raw_clauses = re.split(r"[\n。]", t)
-    clauses: list[str] = []
-    for rc in raw_clauses:
-        for part in re.split(r"[■◇]", rc):
+    # ■◇と改行でアビリティ単位に分割(各アビリティ内の。区切りはトリガーを共有する継続節)
+    ability_chunks: list[str] = []
+    for line in re.split(r"[\n]", t):
+        for part in re.split(r"[■◇]", line):
             p = part.strip()
             if p:
-                clauses.append(p)
+                ability_chunks.append(p)
 
     by_trigger: dict[str, list[dict[str, Any]]] = {}
 
-    for cl in clauses:
-        # マーカー語のみの節は静的扱い
-        if cl in ("S・トリガー", "シールド・トリガー"):
+    for chunk in ability_chunks:
+        if chunk in ("S・トリガー", "シールド・トリガー") or _is_static(chunk):
             continue
-        if _is_static(cl):
-            continue
-
-        if is_spell:
-            trigger, body = "on_cast", cl
-        else:
-            trigger, body = _detect_trigger(cl)
-            if trigger is None:
-                # クリーチャーでトリガー前置詞なしの効果文 → タイミング不明、保守的に弾く
+        sentences = [s.strip() for s in chunk.split("。") if s.strip()]
+        chunk_trigger: str | None = None
+        for si, sent in enumerate(sentences):
+            if _is_static(sent):
+                continue
+            if is_spell:
+                trigger, body = "on_cast", sent
+            else:
+                trigger, body = _detect_trigger(sent)
+                if trigger is None:
+                    if chunk_trigger is not None:
+                        trigger, body = chunk_trigger, sent  # 継続節はトリガー継承
+                    else:
+                        return None  # トリガー不明 → exact化不可
+            chunk_trigger = trigger
+            acts = _parse_action_clause(body)
+            if acts is None:
                 return None
-
-        acts = _parse_action_clause(body)
-        if acts is None:
-            return None  # 未知の節 → exact化不可
-        by_trigger.setdefault(trigger, []).extend(acts)
+            by_trigger.setdefault(trigger, []).extend(acts)
 
     abilities: list[dict[str, Any]] = []
     # S・トリガーは cast/ETB 効果にのみ適用される(攻撃時/破壊時は対象外)

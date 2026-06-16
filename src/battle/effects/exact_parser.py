@@ -275,8 +275,8 @@ _STATIC_CLAUSE = [
     r"^クリーチャーを攻撃できない$",
     # モーダル選択ヘッダ: 「次のうちいずれかひとつを選ぶ」。各▶選択肢は静的スキップ済み。
     # プレイヤーは有利な1つを選ぶ→engine何もしない=doing nothing≤best option=under-model(安全)
-    r"^(?:そうした場合[、,])?次のうちいずれか(?:ひとつ|1つ|2つ|つ)?を選(?:ぶ|んでもよい)$",
-    r"^(?:そうした場合[、,])?次のうち(?:から)?\d+つを選(?:ぶ|んでもよい)$",
+    r"^(?:そうした場合[、,])?次の(?:うち)?いずれか(?:ひとつ|1つ|2つ|つ)?を選(?:ぶ|んでもよい)$",
+    r"^(?:そうした場合[、,])?次の(?:うち)?(?:から)?\d+つを選(?:ぶ|んでもよい)$",
     # スーパー龍解後注記: パーレン内形態注記=ゲームプレイに影響なし
     r"^（スーパー龍解後[：:][^）]+）$",
     # P'S覚醒リンク: 複数体結合キーワード。engine未対応=under-model(安全)
@@ -457,6 +457,10 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
             return None
         r = _parse_action_clause_raw(rest)
         if r is None:
+            # 条件付きの有益効果(超次元/踏み倒し/チューター等の safe-skip 対象)は、条件
+            # 成否に関わらず効果を飛ばしても under-model(発動しても得しないだけ)で安全。
+            if any(re.match(p, rest.rstrip("。")) for p in _SAFE_BODY_PATTERNS):
+                continue
             return None
         if condition:
             for a in r:
@@ -1131,7 +1135,7 @@ def _try_look_and_take(t: str, is_spell: bool, s_trigger: bool) -> list[dict[str
 
 
 _MODAL_HEADER_RE = re.compile(
-    r"次のうち(?:から)?(?:いずれか(?:ひとつ|1つ|2つ|つ)?|\d+つ)を選(?:ぶ|んでもよい)"
+    r"次の(?:うち)?(?:から)?(?:いずれか(?:ひとつ|1つ|2つ|つ)?|\d+つ)を選(?:ぶ|んでもよい)"
 )
 
 

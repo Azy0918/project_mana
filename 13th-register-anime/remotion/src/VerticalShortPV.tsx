@@ -207,17 +207,6 @@ const Register: React.FC<{ shot: Shot; progress: number; frame: number }> = ({
         src={staticFile(`${assetBase}/props/${shot.prop}`)}
         style={{ width: "100%", height: "100%", objectFit: "contain" }}
       />
-      <div
-        style={{
-          position: "absolute",
-          left: "27%",
-          top: "22%",
-          width: "46%",
-          height: "25%",
-          border: `3px solid rgba(${shot.accent},${0.28 + pulse * 0.34})`,
-          boxShadow: `inset 0 0 24px rgba(${shot.accent},0.32), 0 0 34px rgba(${shot.accent},0.42)`,
-        }}
-      />
     </div>
   );
 };

@@ -504,6 +504,17 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     # pre-reject ハンドラのために「してもよい/出す」を正規化(正規化本体は reject 後)
     cl = cl.replace("バトルゾーンに出してもよい", "バトルゾーンに出す")
 
+    # --- 文明指定の全体破壊((civ)以外のクリーチャーをすべて破壊する) ---
+    # engine: destroy_creatures_nonciv(keep_civ)。デフォルトは両者(自分/相手指定で限定)。
+    m = re.match(r"^(自分の|相手の)?(自然|[光水火闇])以外のクリーチャーをすべて破壊する$", cl)
+    if m:
+        scope = "both"
+        if m.group(1) == "自分の":
+            scope = "self"
+        elif m.group(1) == "相手の":
+            scope = "opponent"
+        return [{"op": "destroy_creatures_nonciv", "keep_civ": m.group(2), "scope": scope}]
+
     # --- マナゾーン召喚(summon_from_mana) ---
     # コスト/パワー/文明/進化でない の組み合わせフィルタに対応。未知修飾語があれば reject。
     if "マナゾーンから" in cl and "バトルゾーンに出す" in cl and "相手" not in cl:
@@ -852,6 +863,17 @@ _SAFE_BODY_PATTERNS = [
     r"^(?:その後[、,])?残りをランダムな順番で山札の一番下に置く$",
     # 山札シャッフル: engine未対応=under-model=安全
     r"^(?:その後[、,])?(?:自分の)?山札をシャッフルする$",
+    # 超次元ゾーンからの召喚: engine未対応=under-model=安全
+    r"^自分の超次元ゾーンから.{1,80}バトルゾーンに出す(?:てもよい)?$",
+    # 墓地/手札からコストを支払わず唱える(任意・有益): engine未対応=under-model=安全
+    r"^自分の(?:墓地|手札)から[、,]?.{1,80}コストを支払わずに唱えてもよい$",
+    # 墓地からの任意召喚(種族/動的フィルタで通常パーサが拾えない): engine未対応=under-model=安全
+    r"^自分の墓地から[、,]?.{1,80}バトルゾーンに出してもよい$",
+    # 手札からの踏み倒し召喚(種族フィルタ): engine未対応=under-model=安全
+    r"^自分の手札から[、,]?.{1,80}バトルゾーンに出す(?:てもよい)?$",
+    # ガチンコ・ジャッジ: 山札トップのコスト比較。engine未対応=勝てない=under-model=安全
+    r"^相手とガチンコ・ジャッジする$",
+    r"^自分が勝(?:ったら|てば)[、,].*$",
 ]
 
 

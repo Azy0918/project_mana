@@ -40,7 +40,7 @@ def _is_static(clause: str) -> bool:
 # 「条件付き効果を無条件適用」する過大評価を構造的に防ぐ。
 _REJECT_TOKENS = [
     "マナ武装", "革命", "シンパシー", "ラビリンス", "あれば", "なら", "以上", "以下なら",
-    "一度", "そのターン", "次の", "ターン中", "ターンの間", "ＧＲ", "GR", "超次元", "墓地",
+    "一度", "そのターン", "次の", "ターン中", "ターンの間", "ＧＲ", "GR", "超次元",
     "シールドが", "場合", "ごとに", "につき", "だけ", "選んでもよい", "見て", "公開",
     "コストを支払", "踏み倒", "山札を見", "から探", "進化", "EXライフ", "封印", "侵略",
     "革命チェンジ", "ニンジャ", "メクレイド", "までの数", "数だけ", "枚以上", "体以上",
@@ -106,7 +106,27 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
     if "相手は" in cl and "手札を1枚捨てる" in cl:
         return [{"op": "discard_opponent_hand", "count": 1}]
 
-    # 以下はクリーチャー対象。所有者(scope)を厳密判定、曖昧なら reject。
+    # --- 自己リソース(マナ加速/シールド追加/自己ミル): 相手対象でないもののみ ---
+    if "相手" not in cl:
+        # マナ加速: 山札の上からN枚をマナゾーンに置く
+        m = re.search(r"山札の上から(\d+)枚を[、,]?(?:自分の)?マナゾーンに置く", cl)
+        if m and "墓地" not in cl:
+            return [{"op": "deck_top_to_mana", "count": int(m.group(1))}]
+        # シールド追加: 山札の上からN枚をシールド化 / シールドゾーンに置く / シールドをN追加
+        m = re.search(r"山札の上から(\d+)枚を[、,]?(?:自分の)?シールド(?:化|ゾーンに置く)", cl)
+        if m:
+            return [{"op": "add_shield", "count": int(m.group(1))}]
+        m = re.search(r"自分のシールドを(\d+)つ追加", cl)
+        if m:
+            return [{"op": "add_shield", "count": int(m.group(1))}]
+        # 自己ミル: 自分の山札の上からN枚を墓地に置く
+        m = re.search(r"山札の上から(\d+)枚を[、,]?(?:自分の)?墓地に置く", cl)
+        if m:
+            return [{"op": "deck_top_to_grave", "count": int(m.group(1))}]
+
+    # 以下はクリーチャー対象(戦場)。墓地が絡む節は別機構なので除外(墓地戻し等の誤認防止)。
+    if "墓地" in cl:
+        return None
     needs_target = ("クリーチャー" in cl)
 
     # --- 破壊 ---

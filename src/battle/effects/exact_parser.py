@@ -426,6 +426,9 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^自分のターン(?:の)?終(?:わり|了時)に?[、,]?(.+)$", cl)
     if m:
         return ("on_turn_end", m.group(1))
+    m = re.match(r"^(?:このクリーチャーが)?バトルに勝った時[、,]?(.+)$", cl)
+    if m:
+        return ("on_win", m.group(1))
     return (None, cl)
 
 

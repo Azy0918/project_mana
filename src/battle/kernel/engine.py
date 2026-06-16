@@ -484,11 +484,22 @@ class DuelEngine:
     ) -> None:
         attacker_power = attacker.current_attack_power
         defender_power = defender.current_power
+        atk_idx = self.state.players.index(attacking_player)
+        def_idx = self.state.players.index(defending_player)
         # スレイヤーはパワーに関係なくバトル相手を破壊する(オーラ付与も考慮)
-        if attacker_power >= defender_power or attacking_player.has_keyword(attacker, "スレイヤー"):
-            self.destroy_creature(self.state.players.index(defending_player), defender)
-        if defender_power >= attacker_power or defending_player.has_keyword(defender, "スレイヤー"):
-            self.destroy_creature(self.state.players.index(attacking_player), attacker)
+        atk_wins = attacker_power >= defender_power or attacking_player.has_keyword(attacker, "スレイヤー")
+        def_wins = defender_power >= attacker_power or defending_player.has_keyword(defender, "スレイヤー")
+        if atk_wins:
+            self.destroy_creature(def_idx, defender)
+        if def_wins:
+            self.destroy_creature(atk_idx, attacker)
+        # 「バトルに勝った時」誘発(相手を破壊し自身は生存)
+        if atk_wins and not def_wins and attacker in attacking_player.battle_zone:
+            if self.executor.has_trigger(attacker.card, "on_win"):
+                self.executor.run(self, atk_idx, "on_win", attacker.card)
+        if def_wins and not atk_wins and defender in defending_player.battle_zone:
+            if self.executor.has_trigger(defender.card, "on_win"):
+                self.executor.run(self, def_idx, "on_win", defender.card)
         self._record(
             "battle",
             attacker=attacker.card.name,

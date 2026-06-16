@@ -44,11 +44,20 @@ def _is_aura_clause(cl: str) -> bool:
     return any(kw in cl for kw in _AURA_KW)
 
 
+def _is_replacement_clause(cl: str) -> bool:
+    """「破壊されるかわりに(マナ/手札/山札の下)」=destroy_replacementで模擬済みの置換効果。"""
+    if "かわりに" not in cl or "破壊さ" not in cl:
+        return False
+    if any(t in cl for t in ("ターン", "なら", "あれば", "次の")):
+        return False
+    return any(z in cl for z in ("マナゾーンに置く", "手札に戻す", "手札に加える", "山札の一番下"))
+
+
 def _is_static(clause: str) -> bool:
     c = clause.strip().rstrip("。").strip()
     if not c:
         return True
-    if _is_aura_clause(c):
+    if _is_aura_clause(c) or _is_replacement_clause(c):
         return True
     return any(re.match(p, c) for p in _STATIC_CLAUSE)
 

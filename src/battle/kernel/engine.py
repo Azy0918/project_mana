@@ -478,8 +478,20 @@ class DuelEngine:
 
     def destroy_creature(self, owner_index: int, creature: CreatureInstance) -> None:
         owner = self.state.players[owner_index]
-        if creature in owner.battle_zone:
+        if creature not in owner.battle_zone:
+            return
+        # 置換効果: 破壊されるかわりにマナ/手札へ(=破壊扱いにならず、on_destroyedも誘発しない)
+        replacement = creature.card.destroy_replacement
+        if replacement is not None:
             owner.battle_zone.remove(creature)
-            owner.graveyard.append(creature.card)
-            # 破壊時のタップ状態をコンテキストとして渡す(「タップ状態で破壊された時」条件用)
-            self.executor.run(self, owner_index, "on_destroyed", creature.card, context={"tapped": creature.tapped})
+            if replacement == "mana":
+                owner.mana_zone.append(make_mana_card(creature.card))
+            elif replacement == "hand":
+                owner.hand.append(creature.card)
+            elif replacement == "deck_bottom":
+                owner.deck.append(creature.card)
+            return
+        owner.battle_zone.remove(creature)
+        owner.graveyard.append(creature.card)
+        # 破壊時のタップ状態をコンテキストとして渡す(「タップ状態で破壊された時」条件用)
+        self.executor.run(self, owner_index, "on_destroyed", creature.card, context={"tapped": creature.tapped})

@@ -205,6 +205,28 @@ class BattleCard:
         return "スレイヤー" in self.tags or _keyword_is_static(self.text, "スレイヤー")
 
     @property
+    def destroy_replacement(self) -> str | None:
+        """「破壊されるかわりに〜」の置換先。'mana'/'hand'/'deck_bottom' または None。
+
+        exact-safe: 無条件の置換のみ。条件付き(「自分のターン中」等)は除外。
+        """
+        text = self.text
+        if "かわりに" not in text or ("破壊される" not in text and "破壊された" not in text):
+            return None
+        for clause in re.split(r"[。\n]|■|◇", text):
+            if "かわりに" not in clause or "破壊さ" not in clause:
+                continue
+            if any(t in clause for t in ("ターン", "なら", "あれば", "次の")):
+                continue
+            if "マナゾーンに置く" in clause:
+                return "mana"
+            if "手札に戻す" in clause or "手札に加える" in clause:
+                return "hand"
+            if "山札の一番下" in clause:
+                return "deck_bottom"
+        return None
+
+    @property
     def keyword_grants(self) -> tuple[tuple[str, str | None], ...]:
         """自分のクリーチャー群に常時付与するキーワードのリスト。
 

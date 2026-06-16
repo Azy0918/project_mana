@@ -129,6 +129,8 @@ class EffectExecutor:
                     controller.graveyard.append(c)
                 elif rest_zone == "mana":
                     controller.mana_zone.append(make_mana_card(c))
+                elif rest_zone == "deck_top":
+                    controller.deck.insert(0, c)
                 else:  # deck_bottom
                     controller.deck.append(c)
         elif op == "destroy_creature":

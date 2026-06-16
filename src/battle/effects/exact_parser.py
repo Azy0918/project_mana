@@ -836,6 +836,39 @@ _SAFE_BODY_PATTERNS = [
 ]
 
 
+# 自分の山札を見る/表向き/公開する起点文(枚数指定の有無・「上から」省略の有無に対応)。
+_LOOK_OWN_DECK_RE = re.compile(
+    r"^(?:自分の)?山札(?:を(?:シャッフルし、?)?)?(?:の上)?から\d*枚?(?:目)?を?(?:見る|表向きにする|公開する)"
+)
+# look-resolution の継続文に現れる、見たカードの行き先キーワード。
+_LOOK_RESOLUTION_KEYWORDS = (
+    "バトルゾーンに出", "山札の一番下", "山札の一番上", "山札の下", "山札の上",
+    "シールド化", "シールドの上", "シールド1つ", "手札に加え", "手札に戻",
+    "マナゾーンに置", "墓地に置", "公開", "タップしてバトルゾーン",
+)
+
+
+def _is_look_resolution_sent(s: str) -> bool:
+    """「自分の山札を見た後の解決文」かどうか(=engine未対応で under-model 安全に飛ばせる)。
+
+    見たカードの選別・配置(出す/手札/マナ/墓地/シールド/山札へ戻す)や、それに付随する
+    注記・静的・安全本体を解決文として認める。これらは engine が何もしない=過小評価=安全。
+    """
+    c = s.strip().rstrip("。")
+    if not c:
+        return True
+    if _is_static(c) or any(re.match(p, c) for p in _SAFE_BODY_PATTERNS):
+        return True
+    if _LOOK_OWN_DECK_RE.match(c):
+        return True
+    if c.startswith(("その", "それ", "残り", "そうした", "それら", "この")):
+        if any(k in c for k in _LOOK_RESOLUTION_KEYWORDS):
+            return True
+    if any(k in c for k in _LOOK_RESOLUTION_KEYWORDS) and "相手" not in c:
+        return True
+    return False
+
+
 def _detect_trigger(clause: str) -> tuple[str | None, str]:
     """節の先頭からトリガーを判定し (trigger, 本体) を返す。
 
@@ -1060,6 +1093,13 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                     skip_until = j - 1
                     continue
                 # 複文 LAT 失敗 → 通常の action_clause で試みる(失敗なら reject)
+            # look-resolution スキップ: 自分の山札を見た解決(出す/配置)が modellable でない場合、
+            # 残りの解決文がすべて解決型なら、その効果群を under-model(安全)として丸ごと飛ばす。
+            if _LOOK_OWN_DECK_RE.match(body) and "相手" not in body:
+                tail = [body] + [sentences[k].strip() for k in range(si + 1, len(sentences))]
+                if all(_is_look_resolution_sent(s) for s in tail):
+                    skip_until = len(sentences) - 1
+                    continue
             acts = _parse_action_clause(body)
             if acts is None:
                 # 既知のunder-model安全な効果本体ならスキップ(exact-safe)

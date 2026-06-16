@@ -356,7 +356,15 @@ class DuelEngine:
                 return
             attack = policy.choose_attack(state, player, choices)
             if attack is None:
-                return
+                # 「可能なら毎ターン攻撃する」クリーチャーは攻撃を強制(デメリットの忠実化)
+                forced = next(
+                    (ch for ch in choices
+                     if "可能なら毎ターン攻撃" in player.battle_zone[ch.attacker_index].card.text),
+                    None,
+                )
+                if forced is None:
+                    return
+                attack = forced
             self._resolve_attack(player, attack)
 
     def _legal_attacks(self, player: PlayerState) -> list[AttackChoice]:

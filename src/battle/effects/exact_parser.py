@@ -24,6 +24,7 @@ _STATIC_CLAUSE = [
     r"^(?:相手)?プレイヤーを攻撃できない$",  # engine: cannot_attack_player で模擬済み
     r"^攻撃できない$",  # engine: cannot_attack で模擬済み
     r"^ブロックされない$",  # engine: is_unblockable で模擬済み
+    r"^B・A・D(?:・S)?\s*\d+$",  # engine: bad_discount+temporary で模擬済み
     # 注: 進化(簡略模擬)・ニンジャストライク/侵略/革命チェンジ(未模擬)・ワールドブレイカー
     #     (未模擬)は静的扱いにしない=厳密exactを守る
 ]

@@ -26,6 +26,15 @@ _STATIC_CLAUSE = [
     r"^ブロックされない$",  # engine: is_unblockable で模擬済み
     r"^B・A・D(?:・S)?\s*\d+$",  # engine: bad_discount+temporary で模擬済み
     r"^可能(?:なら|であれば)毎ターン攻撃する$",  # engine: 攻撃フェーズで強制
+    r"^ガードマン$",  # engine: _legal_attacks でガードマン優先攻撃強制
+    r"^相手のクリーチャーが攻撃する場合[、,]?可能なら(?:このクリーチャーを)?攻撃する$",  # ガードマン説明文
+    # 進化条件: 単なる召喚条件であり、engineは is_evolution で簡略模擬済み
+    r"^(?:NEO)?進化(?:クリーチャー)?[：:－-][^\n]+のクリーチャー(?:または.+)?$",
+    r"^進化[：:－-].{1,30}$",  # 進化－種族 等の短い進化宣言
+    r"^NEO進化[：:－-].{1,30}$",
+    r"^究極進化[：:－-].{1,50}$",
+    r"^墓地進化[：:－-].{1,50}$",
+    r"^マナ進化[：:－-].{1,50}$",
     # 注: 進化(簡略模擬)・ニンジャストライク/侵略/革命チェンジ(未模擬)・ワールドブレイカー
     #     (未模擬)は静的扱いにしない=厳密exactを守る
 ]
@@ -225,6 +234,14 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
             act["max_cost"] = int(mm.group(1))
         return [act]
 
+    # --- マナ→手札(mana_to_hand): カード/クリーチャー/呪文をマナゾーンから手札に戻す ---
+    if "マナゾーンから" in cl and ("手札に戻す" in cl or "手札に加える" in cl) and "相手" not in cl:
+        mm = re.search(r"マナゾーンから[^。]*?(?:カード|クリーチャー|呪文)(\d+)?枚?を?(?:手札に戻す|手札に加える)", cl)
+        if not mm:
+            return None
+        cnt = int(mm.group(1)) if mm.group(1) else 1
+        return [{"op": "mana_to_hand", "count": cnt}]
+
     # --- パワー修整(「そのターン」限定。engineのpower_modifierはターン終了でリセット=一致) ---
     if "パワー" in cl and "クリーチャー" in cl and "アタッカー" not in cl and "得る" not in cl:
         mm = re.search(r"パワー(?:を|は|が)?\s*([+＋\-－‐])\s*(\d+)", cl)
@@ -237,6 +254,39 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
             delta = sign * int(mm.group(2))
             act = {"op": "modify_power", "scope": sc[0], "delta": delta, "count": _count_all(cl)}
             return [act]
+
+    # --- 蘇生(墓地からバトルゾーンへ) - reject前に処理(進化でないを含むため) ---
+    if "墓地から" in cl and "バトルゾーンに出す" in cl and "相手" not in cl:
+        # 文明とコストの順序は両方対応。種族限定(ハンター等)は reject。
+        _ZONE_COND = r"(?:(?:([光水火闇自然])の)?(?:コスト(\d+)以下の)?(?:進化でない)?|(?:コスト(\d+)以下の)?(?:([光水火闇自然])の)?(?:進化でない)?)"
+        mm = re.fullmatch(
+            r"(?:自分の)?墓地から、?" + _ZONE_COND +
+            r"、?(?:クリーチャー|カード)(?:(\d+)(?:枚|体)(?:まで)?)?を?(?:(\d+)(?:枚|体)(?:まで)?)?、?バトルゾーンに出す",
+            cl)
+        if not mm:
+            return None
+        max_cost_s = mm.group(2) or mm.group(3)
+        cnt_raw = mm.group(5) or mm.group(6)
+        act: dict[str, Any] = {"op": "summon_from_grave", "count": int(cnt_raw) if cnt_raw else 1}
+        if max_cost_s:
+            act["max_cost"] = int(max_cost_s)
+        return [act]
+
+    # --- 手札召喚(自分の手札からクリーチャーを出す) - reject前に処理(進化でないを含むため) ---
+    if "手札から" in cl and "バトルゾーンに出す" in cl and "相手" not in cl and "墓地" not in cl:
+        _HAND_COND = r"(?:(?:([光水火闇自然])の)?(?:コスト(\d+)以下の)?(?:進化でない)?|(?:コスト(\d+)以下の)?(?:([光水火闇自然])の)?(?:進化でない)?)"
+        mm = re.fullmatch(
+            r"(?:自分の)?手札から、?" + _HAND_COND +
+            r"、?クリーチャー(?:(\d+)体(?:まで)?)?を?(?:(\d+)体(?:まで)?)?、?バトルゾーンに出す",
+            cl)
+        if not mm:
+            return None
+        max_cost_s = mm.group(2) or mm.group(3)
+        cnt_raw = mm.group(5) or mm.group(6)
+        act: dict[str, Any] = {"op": "summon_from_hand", "count": int(cnt_raw) if cnt_raw else 1}
+        if max_cost_s:
+            act["max_cost"] = int(max_cost_s)
+        return [act]
 
     # 条件・未模擬要素を含む節は exact化しない(過大評価防止の要)
     if any(tok in cl for tok in _REJECT_TOKENS):
@@ -307,26 +357,6 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     m = re.search(r"相手の山札の上から(\d+)枚を[、,]?墓地に置く", cl)
     if m:
         return [{"op": "deck_top_to_grave", "count": int(m.group(1)), "scope": "opponent"}]
-
-    # --- 蘇生(墓地からバトルゾーンへ): 自分の墓地から…クリーチャー…出す(強制のみ) ---
-    if "墓地から" in cl and "バトルゾーンに出す" in cl and "相手" not in cl:
-        act: dict[str, Any] = {"op": "summon_from_grave", "count": 1}
-        mc = re.search(r"コスト(\d+)以下", cl)
-        if mc:
-            act["max_cost"] = int(mc.group(1))
-        return [act]
-
-    # --- 手札召喚(自分の手札からクリーチャーを出す): 種別/コスト以外の絞り込みは reject ---
-    if "手札から" in cl and "バトルゾーンに出す" in cl and "相手" not in cl and "墓地" not in cl:
-        mm = re.fullmatch(
-            r"(?:自分の)?手札から、?(?:コスト(\d+)以下の、?)?(?:進化でない、?)?クリーチャーを?"
-            r"(?:、?(\d+)体(?:まで)?)?、?バトルゾーンに出す", cl)
-        if not mm:
-            return None
-        act: dict[str, Any] = {"op": "summon_from_hand", "count": int(mm.group(2)) if mm.group(2) else 1}
-        if mm.group(1):
-            act["max_cost"] = int(mm.group(1))
-        return [act]
 
     # --- シールドブレイク(相手のシールドを墓地へ) ---
     m = re.search(r"相手のシールドを(\d+)つ(?:、|を)?(?:墓地に置く|ブレイクする)", cl)
@@ -440,6 +470,9 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^(?:このクリーチャーが)?バトルに勝った時[、,]?(.+)$", cl)
     if m:
         return ("on_win", m.group(1))
+    m = re.match(r"^(?:この)?攻撃の終わりに[、,]?(.+)$", cl)
+    if m:
+        return ("on_attack_end", m.group(1))
     return (None, cl)
 
 
@@ -530,12 +563,18 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                 ability_chunks.append(p)
 
     by_trigger: dict[str, list[dict[str, Any]]] = {}
+    prev_chunk_trigger: str | None = None
 
     for chunk in ability_chunks:
         if chunk in ("S・トリガー", "シールド・トリガー") or _is_static(chunk):
             continue
+        # 「その後、」で始まるチャンクは直前チャンクのトリガーを引き継ぐ
+        inherited_trigger: str | None = None
+        if chunk.startswith("その後、") or chunk.startswith("その後,"):
+            inherited_trigger = prev_chunk_trigger
+            chunk = chunk[4:].lstrip("、,")
         sentences = [s.strip() for s in chunk.split("。") if s.strip()]
-        chunk_trigger: str | None = None
+        chunk_trigger: str | None = inherited_trigger
         for si, sent in enumerate(sentences):
             # キーワードラベル(条件が後段に明記される型)を除去
             sent = re.sub(r"^(?:マスター)?G・G・G[：:]", "", sent).strip()
@@ -555,6 +594,7 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
             if acts is None:
                 return None
             by_trigger.setdefault(trigger, []).extend(acts)
+        prev_chunk_trigger = chunk_trigger
 
     abilities: list[dict[str, Any]] = []
     # S・トリガーは cast/ETB 効果にのみ適用される(攻撃時/破壊時は対象外)

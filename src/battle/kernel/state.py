@@ -88,6 +88,9 @@ class PlayerState:
     def untapped_blockers(self) -> list[CreatureInstance]:
         return [c for c in self.battle_zone if self.has_keyword(c, "ブロッカー") and not c.tapped]
 
+    def guardman_creatures(self) -> list[CreatureInstance]:
+        return [c for c in self.battle_zone if c.card.is_guardman and not c.tapped]
+
 
 @dataclass
 class GameState:

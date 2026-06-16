@@ -365,24 +365,37 @@ class DuelEngine:
                 if forced is None:
                     return
                 attack = forced
+            attacker_card = player.battle_zone[attack.attacker_index].card
             self._resolve_attack(player, attack)
+            if state.finished:
+                return
+            # 攻撃の終わりに発動するトリガー(自己破壊等)
+            self.executor.run(self, state.active_index, "on_attack_end", attacker_card)
 
     def _legal_attacks(self, player: PlayerState) -> list[AttackChoice]:
         state = self.state
         choices: list[AttackChoice] = []
         opponent = state.opponent
+        guardmen = opponent.guardman_creatures()
         for index, creature in enumerate(player.battle_zone):
             if creature.card.cannot_attack:
                 continue
             # SA付与オーラ: 召喚酔いでも攻撃可能(タップ済みは不可)
             sa_aura = (not creature.tapped) and player.has_keyword(creature, "スピードアタッカー")
             can_atk = creature.can_attack(state.turn) or sa_aura
-            if can_atk and not creature.card.cannot_attack_player:
-                choices.append(AttackChoice(attacker_index=index, target_creature_index=None))
-            if creature.can_attack_creature(state.turn) or sa_aura:
-                for target_index, target in enumerate(opponent.battle_zone):
-                    if target.tapped:
-                        choices.append(AttackChoice(attacker_index=index, target_creature_index=target_index))
+            can_atk_cr = creature.can_attack_creature(state.turn) or sa_aura
+            if guardmen:
+                # ガードマンが存在する場合、必ずそちらを攻撃しなければならない
+                for gm_index, gm in enumerate(opponent.battle_zone):
+                    if gm in guardmen and can_atk_cr:
+                        choices.append(AttackChoice(attacker_index=index, target_creature_index=gm_index))
+            else:
+                if can_atk and not creature.card.cannot_attack_player:
+                    choices.append(AttackChoice(attacker_index=index, target_creature_index=None))
+                if can_atk_cr:
+                    for target_index, target in enumerate(opponent.battle_zone):
+                        if target.tapped:
+                            choices.append(AttackChoice(attacker_index=index, target_creature_index=target_index))
         return choices
 
     def _resolve_attack(self, player: PlayerState, attack: AttackChoice) -> None:

@@ -101,6 +101,10 @@ class BattleCard:
         return "マッハファイター" in self.tags or _keyword_is_static(self.text, "マッハファイター")
 
     @property
+    def is_guardman(self) -> bool:
+        return "ガードマン" in self.tags or _keyword_is_static(self.text, "ガードマン")
+
+    @property
     def cannot_attack_player(self) -> bool:
         return "プレイヤーを攻撃できない" in self.text
 

@@ -193,6 +193,18 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
 def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     cl = clause.strip().rstrip("。")
 
+    # --- マナゾーン召喚(summon_from_mana): 種別/コスト以外の絞り込みは reject ---
+    if "マナゾーンから" in cl and "バトルゾーンに出す" in cl and "相手" not in cl:
+        mm = re.fullmatch(
+            r"(?:自分の)?マナゾーンから、?(?:コスト(\d+)以下の、?)?(?:進化でない、?)?クリーチャーを?"
+            r"(?:、?(\d+)体(?:まで)?)?、?バトルゾーンに出す", cl)
+        if not mm:
+            return None
+        act: dict[str, Any] = {"op": "summon_from_mana", "count": int(mm.group(2)) if mm.group(2) else 1}
+        if mm.group(1):
+            act["max_cost"] = int(mm.group(1))
+        return [act]
+
     # --- パワー修整(「そのターン」限定。engineのpower_modifierはターン終了でリセット=一致) ---
     if "パワー" in cl and "クリーチャー" in cl and "アタッカー" not in cl and "得る" not in cl:
         mm = re.search(r"パワー(?:を|は|が)?\s*([+＋\-－‐])\s*(\d+)", cl)

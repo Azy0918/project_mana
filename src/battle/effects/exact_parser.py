@@ -21,6 +21,9 @@ _STATIC_CLAUSE = [
     r"^パワーアタッカー\s*\+?\d+$",
     r"^このクリーチャーは、?タップしてバトルゾーンに出る$",
     r"^多色$", r"^チャージャー$",
+    r"^(?:相手)?プレイヤーを攻撃できない$",  # engine: cannot_attack_player で模擬済み
+    r"^攻撃できない$",  # engine: cannot_attack で模擬済み
+    r"^ブロックされない$",  # engine: is_unblockable で模擬済み
     # 注: 進化(簡略模擬)・ニンジャストライク/侵略/革命チェンジ(未模擬)・ワールドブレイカー
     #     (未模擬)は静的扱いにしない=厳密exactを守る
 ]
@@ -42,7 +45,7 @@ _REJECT_TOKENS = [
     "シンパシー", "ラビリンス", "革命チェンジ", "革命0",
     "一度", "そのターン", "次の", "ターン中", "ターンの間", "ＧＲ", "GR", "超次元",
     "シールドが", "場合", "ごとに", "につき", "だけ", "選んでもよい", "見て", "公開",
-    "または", "探索", "マナゾーンから", "山札から", "それより", "大きい", "ランダム",
+    "または", "探索", "マナゾーンから", "山札から", "それより", "大きい",
     "コストを支払", "踏み倒", "山札を見", "から探", "進化", "EXライフ", "封印", "侵略",
     "革命チェンジ", "ニンジャ", "メクレイド", "までの数", "数だけ", "枚以上", "体以上",
     "選び、", "選んで", "バトルする", "バトルさせ", "持つ",
@@ -171,27 +174,33 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         return [{"op": "draw", "count": 1}]
 
     # --- ハンデス(相手の手札を捨てさせる) ---
+    # engineのdiscard_opponent_handはランダム選択なので「ランダムに捨てさせる」と一致=忠実。
     m = re.search(r"相手は(?:自身の)?手札を(\d+)枚捨てる", cl)
     if m:
         return [{"op": "discard_opponent_hand", "count": int(m.group(1))}]
     if "相手は" in cl and "手札を1枚捨てる" in cl:
         return [{"op": "discard_opponent_hand", "count": 1}]
+    m = re.search(r"相手の手札を(?:ランダムに)?(\d+)枚捨てさせる", cl)
+    if m:
+        return [{"op": "discard_opponent_hand", "count": int(m.group(1))}]
+    if "相手の手札をランダムに1枚捨てさせる" in cl or "相手の手札を1枚捨てさせる" in cl:
+        return [{"op": "discard_opponent_hand", "count": 1}]
 
     # --- 自己リソース(マナ加速/シールド追加/自己ミル): 相手対象でないもののみ ---
     if "相手" not in cl:
-        # マナ加速: 山札の上からN枚をマナゾーンに置く
-        m = re.search(r"山札の上から(\d+)枚を[、,]?(?:自分の)?マナゾーンに置く", cl)
+        # マナ加速: 山札の上からN枚(目)をマナゾーンに置く
+        m = re.search(r"山札の上から(\d+)枚目?を[、,]?(?:自分の)?マナゾーンに置く", cl)
         if m and "墓地" not in cl:
             return [{"op": "deck_top_to_mana", "count": int(m.group(1))}]
-        # シールド追加: 山札の上からN枚をシールド化 / シールドゾーンに置く / シールドをN追加
-        m = re.search(r"山札の上から(\d+)枚を[、,]?(?:自分の)?シールド(?:化|ゾーンに置く)", cl)
+        # シールド追加: 山札の上からN枚(目)をシールド化 / シールドゾーンに置く / シールドをN追加
+        m = re.search(r"山札の上から(\d+)枚目?を[、,]?(?:自分の)?シールド(?:化|ゾーンに置く)", cl)
         if m:
             return [{"op": "add_shield", "count": int(m.group(1))}]
         m = re.search(r"自分のシールドを(\d+)つ追加", cl)
         if m:
             return [{"op": "add_shield", "count": int(m.group(1))}]
-        # 自己ミル: 自分の山札の上からN枚を墓地に置く
-        m = re.search(r"山札の上から(\d+)枚を[、,]?(?:自分の)?墓地に置く", cl)
+        # 自己ミル: 自分の山札の上からN枚(目)を墓地に置く
+        m = re.search(r"山札の上から(\d+)枚目?を[、,]?(?:自分の)?墓地に置く", cl)
         if m:
             return [{"op": "deck_top_to_grave", "count": int(m.group(1))}]
 
@@ -210,8 +219,9 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if "相手のシールド1つを墓地に置く" in cl or "相手のシールドを1つブレイクする" in cl:
         return [{"op": "burn_opponent_shield", "count": 1}]
 
-    # 以下はクリーチャー対象(戦場)。墓地が絡む節は別機構なので除外(墓地戻し等の誤認防止)。
-    if "墓地" in cl:
+    # 以下はクリーチャー対象(戦場)。墓地・ランダム指定は別機構/未模擬なので除外。
+    # (engineはクリーチャーを方策で選ぶため、テキストの「ランダムな1体」とは一致しない)
+    if "墓地" in cl or "ランダム" in cl:
         return None
     needs_target = ("クリーチャー" in cl)
 

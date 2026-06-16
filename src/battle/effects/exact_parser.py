@@ -195,6 +195,9 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     m = re.search(r"自分のシールドが(\d+)つ?以上(?:あれば|なら)[、,]?(.+)$", cl)
     if m:
         return ({"kind": "shields_at_least", "count": int(m.group(1))}, m.group(2), True)
+    m = re.search(r"自分の(?:最大)?マナが(\d+)以下(?:なら|であれば)[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "mana_at_most", "count": int(m.group(1))}, m.group(2), True)
     m = re.search(r"自分の手札が(\d+)枚以下(?:なら|であれば)[、,]?(.+)$", cl)
     if m:
         return ({"kind": "hand_at_most", "count": int(m.group(1))}, m.group(2), True)

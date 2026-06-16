@@ -91,7 +91,7 @@ def _restrictions(clause: str) -> dict[str, Any]:
 # アクション動詞の系統(取りこぼし検出用)。節内に複数系統あれば単一パターンでは不足。
 _ACTION_FAMILIES = [
     ("引く", "引き"), ("捨てる", "捨て"), ("破壊",), ("タップする",), ("アンタップ",),
-    ("手札に戻す",), ("マナゾーンに置く",), ("墓地に置く",), ("シールド化", "シールドゾーンに置く", "シールドを"),
+    ("手札に戻",), ("マナゾーンに置く",), ("墓地に置く",), ("シールド化", "シールドゾーンに置く", "シールドを"),
 ]
 
 
@@ -224,6 +224,33 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if "相手のシールド1つを墓地に置く" in cl or "相手のシールドを1つブレイクする" in cl:
         return [{"op": "burn_opponent_shield", "count": 1}]
 
+    # --- 墓地回収/墓地→マナ/手札→マナ(種別フィルタ付き) ---
+    def _cardfilter(s: str) -> str | None:
+        if "クリーチャー" in s:
+            return "creature"
+        if "呪文" in s:
+            return "spell"
+        return None
+
+    if "墓地から" in cl and "手札に戻" in cl and "相手" not in cl:
+        m = re.search(r"墓地から(?:.{0,12}?)(\d+)?枚", cl)
+        cnt = int(m.group(1)) if (m and m.group(1)) else 1
+        act = {"op": "grave_to_hand", "count": cnt}
+        cf = _cardfilter(cl)
+        if cf:
+            act["card_filter"] = cf
+        return [act]
+    if "墓地から" in cl and "マナゾーンに置く" in cl and "相手" not in cl:
+        act = {"op": "grave_to_mana", "count": 1}
+        cf = _cardfilter(cl)
+        if cf:
+            act["card_filter"] = cf
+        return [act]
+    if "手札から" in cl and "マナゾーンに置く" in cl and "相手" not in cl:
+        m = re.search(r"手札から(?:.{0,12}?)(\d+)枚", cl)
+        cnt = int(m.group(1)) if m else 1
+        return [{"op": "hand_to_mana", "count": cnt}]
+
     # 以下はクリーチャー対象(戦場)。墓地・ランダム指定は別機構/未模擬なので除外。
     # (engineはクリーチャーを方策で選ぶため、テキストの「ランダムな1体」とは一致しない)
     if "墓地" in cl or "ランダム" in cl:
@@ -251,7 +278,7 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         return [act]
 
     # --- バウンス(手札に戻す) ---
-    if "手札に戻す" in cl and needs_target:
+    if "手札に戻" in cl and needs_target:
         sc = _scope_for(cl)
         if sc is None:
             return None

@@ -155,10 +155,16 @@ class EffectExecutor:
                     return
                 controller.graveyard.append(controller.deck.pop(0))
         elif op == "grave_to_hand":
+            card_filter = action.get("card_filter")
             for _ in range(count):
-                if not controller.graveyard:
+                pool = controller.graveyard
+                if card_filter == "creature":
+                    pool = [e for e in pool if e.is_creature]
+                elif card_filter == "spell":
+                    pool = [e for e in pool if e.is_spell]
+                if not pool:
                     return
-                target_card = max(controller.graveyard, key=lambda entry: entry.cost)
+                target_card = max(pool, key=lambda entry: entry.cost)
                 controller.graveyard.remove(target_card)
                 controller.hand.append(target_card)
         elif op == "summon_from_hand":
@@ -306,10 +312,16 @@ class EffectExecutor:
                 controller.hand.remove(target_card)
                 controller.mana_zone.append(make_mana_card(target_card))
         elif op == "grave_to_mana":
+            card_filter = action.get("card_filter")
             for _ in range(count):
-                if not controller.graveyard:
+                pool = controller.graveyard
+                if card_filter == "creature":
+                    pool = [e for e in pool if e.is_creature]
+                elif card_filter == "spell":
+                    pool = [e for e in pool if e.is_spell]
+                if not pool:
                     return
-                target_card = max(controller.graveyard, key=lambda entry: entry.cost)
+                target_card = max(pool, key=lambda entry: entry.cost)
                 controller.graveyard.remove(target_card)
                 controller.mana_zone.append(make_mana_card(target_card))
         elif op == "grave_to_deck":

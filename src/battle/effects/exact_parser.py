@@ -269,7 +269,10 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         return [{"op": "discard_opponent_hand", "count": 99}]
 
     # --- アンタップ ---
-    if "アンタップする" in cl and "クリーチャー" in cl:
+    if "アンタップする" in cl:
+        # 対象記述なし or 「このクリーチャー」= 効果元自身をアンタップ
+        if "クリーチャー" not in cl or ("このクリーチャー" in cl and "相手" not in cl):
+            return [{"op": "untap_creature", "target": "source"}]
         sc = _scope_for(cl)
         if sc is None:
             return None

@@ -406,6 +406,12 @@ class EffectExecutor:
                 controller.mana_zone.remove(target_mana)
                 controller.hand.append(target_mana.card)
         elif op == "untap_creature":
+            if action.get("target") == "source":
+                src = next((c for c in controller.battle_zone if c.card is card), None) \
+                    or next((c for c in controller.battle_zone if c.card.card_id == card.card_id), None)
+                if src is not None:
+                    src.tapped = False
+                return
             target_player_index = self._target_player_index(controller_index, {"scope": action.get("scope", "self")})
             target_player = engine.state.players[target_player_index]
             for _ in range(count):

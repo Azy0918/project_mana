@@ -180,6 +180,9 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     m = re.search(r"自分のマナゾーンに([" + _CIV + r"])のカードが(\d+)枚以上あれば[、,]?(.+)$", cl)
     if m:
         return ({"kind": "mana_civ_at_least", "civilization": m.group(1), "count": int(m.group(2))}, m.group(3), True)
+    m = re.search(r"自分のマナゾーンに多色(?:の)?カードが(\d+)枚以上あれば[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "mana_multicolor_at_least", "count": int(m.group(1))}, m.group(2), True)
     m = re.search(r"自分のマナゾーンにカードが(\d+)枚以上あれば[、,]?(.+)$", cl)
     if m:
         return ({"kind": "mana_at_least", "count": int(m.group(1))}, m.group(2), True)

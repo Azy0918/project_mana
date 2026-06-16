@@ -470,6 +470,8 @@ class EffectExecutor:
             return matched >= count
         if kind == "mana_at_least":
             return len(controller.mana_zone) >= count
+        if kind == "mana_multicolor_at_least":
+            return sum(1 for m in controller.mana_zone if m.card.is_multicolor) >= count
         if kind == "grave_at_least":
             return len(controller.graveyard) >= count
         if kind == "shields_at_most":

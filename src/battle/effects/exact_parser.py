@@ -249,6 +249,18 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
             act["max_cost"] = int(mc.group(1))
         return [act]
 
+    # --- 手札召喚(自分の手札からクリーチャーを出す): 種別/コスト以外の絞り込みは reject ---
+    if "手札から" in cl and "バトルゾーンに出す" in cl and "相手" not in cl and "墓地" not in cl:
+        mm = re.fullmatch(
+            r"(?:自分の)?手札から、?(?:コスト(\d+)以下の、?)?(?:進化でない、?)?クリーチャーを?"
+            r"(?:、?(\d+)体(?:まで)?)?、?バトルゾーンに出す", cl)
+        if not mm:
+            return None
+        act: dict[str, Any] = {"op": "summon_from_hand", "count": int(mm.group(2)) if mm.group(2) else 1}
+        if mm.group(1):
+            act["max_cost"] = int(mm.group(1))
+        return [act]
+
     # --- シールドブレイク(相手のシールドを墓地へ) ---
     m = re.search(r"相手のシールドを(\d+)つ(?:、|を)?(?:墓地に置く|ブレイクする)", cl)
     if m:

@@ -415,6 +415,9 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^(?:このクリーチャーが)?(?:破壊された時|バトルゾーンを離れた時)[、,]?(.+)$", cl)
     if m and "相手" not in cl[:8]:
         return ("on_destroyed", m.group(1))
+    m = re.match(r"^自分が呪文を唱えた時[、,]?(.+)$", cl)
+    if m:
+        return ("on_spell_cast", m.group(1))
     return (None, cl)
 
 

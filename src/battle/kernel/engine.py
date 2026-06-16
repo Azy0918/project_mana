@@ -320,6 +320,12 @@ class DuelEngine:
                 player.spells_cast_this_turn += 1
                 self._record("cast_spell", card=card.name, cost=pay_cost)
                 self.executor.run(self, state.active_index, "on_cast", card)
+                # 「自分が呪文を唱えた時」誘発: 自分のバトルゾーンのクリーチャーを通知
+                for creature in list(player.battle_zone):
+                    if self.executor.has_trigger(creature.card, "on_spell_cast"):
+                        self.executor.run(self, state.active_index, "on_spell_cast", creature.card)
+                    if state.finished:
+                        break
                 # チャージャー: 解決後、墓地ではなくマナゾーンへ
                 if card.is_charger and card in player.graveyard:
                     player.graveyard.remove(card)

@@ -48,3 +48,25 @@ grave_to_hand/grave_to_mana(card_filter), cannot_attack(_player)静的化。
 
 これらは「DMルールエンジンの作り込み」であり、1機構ずつエンジン実装+テストを積む
 長期作業。本セッションで土台(exact-safeパーサ+主要op+12.4%)を構築した。
+
+## セッション到達点(追記): exact 838 (16.2%)
+
+このセッションで 0.9%→**16.2%**(45→838枚)。実装した engine 機構/トリガー:
+- op: destroy_mana, destroy_creatures_nonciv, look_and_take, modify_power,
+  target_filter(blocker), source-target(このクリーチャー), deck_top_to_grave(opponent),
+  grave_to_hand/mana(card_filter), summon_from_mana/hand。
+- トリガー: on_play/on_cast/on_attack/on_destroyed/s_trigger に加え、
+  **on_spell_cast(呪文を唱えた時)/on_turn_start(ターン開始時)/on_turn_end(ターン終了時)/
+  on_win(バトルに勝った時)** を追加。
+- 機構: キーワード付与オーラ(SA/ブロッカー/スレイヤー)、置換効果(破壊されるかわりに〜)、
+  一時パワー修整(ターン終了リセット・0以下破壊)、ブロッカー限定除去。
+- 条件: マナ武装/革命/墓地枚数/シールド数(以上・以下)/手札枚数。
+- 構文: 複文の継続節トリガー継承、任意形(してもよい)正規化、「そうした場合」逐次化、
+  G・G・Gラベル除去、複合節分解、取りこぼし検出(残余アクション)。
+
+## 残り(約4,340枚)= 個別実装が必要な裾野
+特殊キーワード(無月の門/侵略/革命チェンジ/ニンジャ/B・A・D/連鎖/メクレイド/
+ナイト・マジック)、相対条件(最大マナ/シールド数 vs 相手)、群パワーオーラ、強制バトル、
+固有複合効果。各々が固有ルールで、1機構ずつエンジン実装+テストの長期作業。
+exact-safe原則(全節カバー・過大評価排除)は厳守しており、未対応カードは approx/draft の
+ままで「偽exact」は生んでいない。

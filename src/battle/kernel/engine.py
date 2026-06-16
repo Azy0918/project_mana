@@ -210,6 +210,14 @@ class DuelEngine:
         self._main_phase(player, policy)
         self._attack_phase(player, policy)
 
+        # 「自分のターン終了時」誘発
+        if not state.finished:
+            for creature in list(player.battle_zone):
+                if self.executor.has_trigger(creature.card, "on_turn_end"):
+                    self.executor.run(self, state.active_index, "on_turn_end", creature.card)
+                if state.finished:
+                    break
+
         # B・A・D等のターン終了時破壊
         if not state.finished:
             for creature in [c for c in player.battle_zone if c.temporary]:

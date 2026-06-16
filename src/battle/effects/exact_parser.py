@@ -49,6 +49,10 @@ _STATIC_CLAUSE = [
     r"^究極進化[：:－-].{1,50}$",
     r"^墓地進化[：:－-].{1,50}$",
     r"^マナ進化[：:－-].{1,50}$",
+    # ハンティング: 攻撃時にクリーチャーを強制攻撃させる戦略制約。engineは無視(under-model=安全)
+    r"^ハンティング$",
+    # G・ゼロ: 無料召喚コスト条件。engineは通常コストで召喚(under-model=安全)
+    r"^(?:マスター)?G・ゼロ[：:].{1,80}$",
     # 注: 進化(簡略模擬)・ニンジャストライク/侵略/革命チェンジ(未模擬)・ワールドブレイカー
     #     (未模擬)は静的扱いにしない=厳密exactを守る
 ]
@@ -596,9 +600,11 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
 
 
 _LAT_RE = re.compile(
-    r"^(?:バトルゾーンに出た時、)?(?:自分の)?山札の上から(\d+)枚を見る。?"
+    r"^(?:(?:バトルゾーンに出た時|攻撃する時|バトルに勝った時|自分のターン(?:の)?(?:はじめ|始め)に?)"
+    r"[、,])?"
+    r"(?:自分の)?山札の上から(\d+)枚(?:目)?を(?:見る|表向きにする)[。、]?"
     r"その中から(.*?)(?:を)?(\d+)?枚?(?:まで)?手札に(?:加え|加える)(?:る|てもよい)?(?:。|、)?"
-    r"(?:残りを(.*?)(?:に|へ)[^。]*置く)?。?$"
+    r"(?:(?:その後、)?残りを(.*?)(?:に|へ)[^。]*置く)?。?$"
 )
 
 
@@ -622,8 +628,14 @@ def _try_look_and_take(t: str, is_spell: bool, s_trigger: bool) -> list[dict[str
     filt = m.group(2) or ""
     take = int(m.group(3)) if m.group(3) else 1
     rest = m.group(4) or ""
-    # 認識できない絞り込み(種族/完全コスト/以上/探索等)は取りこぼし防止のため reject
-    if any(tok in filt for tok in ("探索", "見", "または", "ランダム", "以上")):
+    # フィルタ末尾の「N枚」は枚数指定でありフィルタではないので抽出する
+    # 例: "1枚" → filt="", take=1 / "ドラゴン1枚" → filt="ドラゴン", take=1
+    _cnt_in_filt = re.search(r'(\d+)枚?$', filt)
+    if _cnt_in_filt:
+        take = int(_cnt_in_filt.group(1))
+        filt = filt[:_cnt_in_filt.start()].strip("、,の を")
+    # 認識できない絞り込み(種族/名前/コスト以上/探索等)は取りこぼし防止のため reject
+    if any(tok in filt for tok in ("探索", "見", "または", "ランダム", "以上", "名前に")):
         return None
     if "コスト" in filt and "以下" not in filt:
         return None
@@ -700,6 +712,10 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
         for si, sent in enumerate(sentences):
             # キーワードラベル(条件が後段に明記される型)を除去
             sent = re.sub(r"^(?:マスター)?G・G・G[：:]", "", sent).strip()
+            # マナ武装 N：は条件が本文中に記載されるので接頭語のみ除去
+            sent = re.sub(r"^(?:多色)?マナ武装\s*\d+[：:]", "", sent).strip()
+            # 革命N：は革命シールド条件の接頭語。本文中の「シールドが...以下なら」で処理
+            sent = re.sub(r"^革命[0-9][：:]", "", sent).strip()
             # 【SST】行はスーパーSトリガーの追加効果(under-model=安全方向)として無視
             if re.match(r"^【[^】]+】", sent):
                 continue

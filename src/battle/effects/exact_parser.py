@@ -509,6 +509,16 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     m = re.search(r"自分のバトルゾーンにクリーチャーが(\d+)体以上(?:あれば|いれば)[、,]?(.+)$", cl)
     if m:
         return ({"kind": "self_bz_creature_at_least", "count": int(m.group(1))}, m.group(2), True)
+    # 相手の最大マナが自分より多ければ: engine未知条件(=Falseで不発=under-model=安全)。
+    # 通常ランプ等の有益効果を後段に持つ
+    m = re.search(r"相手の(?:最大)?マナが自分(?:のマナ)?より多ければ[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "opponent_mana_greater"}, m.group(1), True)
+    # 自分の<種族/属性>が N体/枚以上あれば: engine未知条件=Falseで不発=under-model=安全。
+    # マナ/墓地/シールド/手札は上の専用ハンドラで処理済みなので、ここは主に種族カウント。
+    m = re.search(r"自分の([^。、]{1,16})が(\d+)(?:体|枚)以上(?:あれば|なら)[、,]?(.+)$", cl)
+    if m and not any(z in m.group(1) for z in ("マナ", "墓地", "シールド", "手札", "山札")):
+        return ({"kind": "self_named_count_at_least", "count": int(m.group(2))}, m.group(3), True)
     had = any(w in cl for w in ("あれば", "なら", "マナ武装", "革命"))
     return (None, cl, had)
 

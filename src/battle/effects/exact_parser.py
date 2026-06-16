@@ -48,7 +48,7 @@ _REJECT_TOKENS = [
     "または", "探索", "マナゾーンから", "山札から", "それより", "大きい",
     "コストを支払", "踏み倒", "山札を見", "から探", "進化", "EXライフ", "封印", "侵略",
     "革命チェンジ", "ニンジャ", "メクレイド", "までの数", "数だけ", "枚以上", "体以上",
-    "選び、", "選んで", "バトルする", "バトルさせ", "持つ",
+    "選び、", "選んで", "バトルする", "バトルさせ",
     "与える", "得る", "パワーを", "になる", "扱う", "代わりに", "かわりに",
     "アンタップしない", "攻撃する", "攻撃できない", "ブロックされない", "出さない",
 ]
@@ -186,6 +186,11 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if "相手の手札をランダムに1枚捨てさせる" in cl or "相手の手札を1枚捨てさせる" in cl:
         return [{"op": "discard_opponent_hand", "count": 1}]
 
+    # --- 自己ディスカード ---
+    m = re.search(r"自分の手札を(\d+)枚捨てる", cl)
+    if m and "選" not in cl:
+        return [{"op": "discard_own_hand", "count": int(m.group(1))}]
+
     # --- 自己リソース(マナ加速/シールド追加/自己ミル): 相手対象でないもののみ ---
     if "相手" not in cl:
         # マナ加速: 山札の上からN枚(目)をマナゾーンに置く
@@ -277,8 +282,8 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^(?:このクリーチャーが)?(?:バトルゾーンに)?出た時[、,]?(.+)$", cl)
     if m:
         return ("on_play", m.group(1))
-    m = re.match(r"^このクリーチャーが攻撃する時[、,]?(.+)$", cl)
-    if m:
+    m = re.match(r"^(?:このクリーチャーが)?攻撃する時[、,]?(.+)$", cl)
+    if m and "相手" not in cl[:6]:
         return ("on_attack", m.group(1))
     m = re.match(r"^(?:このクリーチャーが)?(?:破壊された時|バトルゾーンを離れた時)[、,]?(.+)$", cl)
     if m and "相手" not in cl[:8]:

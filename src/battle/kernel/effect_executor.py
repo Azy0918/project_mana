@@ -135,6 +135,14 @@ class EffectExecutor:
             max_power = action.get("max_power")
             max_cost = action.get("max_cost")
             target_filter = action.get("target_filter")
+            if action.get("target") == "source":
+                # 「このクリーチャー(自身)を破壊する」= 効果元の実体を破壊
+                src = next((c for c in controller.battle_zone if c.card is card), None)
+                if src is None:
+                    src = next((c for c in controller.battle_zone if c.card.card_id == card.card_id), None)
+                if src is not None:
+                    engine.destroy_creature(controller_index, src)
+                return
             for _ in range(count):
                 pool = target_player.battle_zone
                 if max_cost is not None:

@@ -189,6 +189,13 @@ class DuelEngine:
         player.untap_all()
         player.spells_cast_this_turn = 0
 
+        # 「自分のターン開始時」誘発(自壊デメリット等)
+        for creature in list(player.battle_zone):
+            if self.executor.has_trigger(creature.card, "on_turn_start"):
+                self.executor.run(self, state.active_index, "on_turn_start", creature.card)
+            if state.finished:
+                return
+
         # 先攻1ターン目はドローなし
         if not (state.turn == 1 and state.active_index == 0):
             if not self._draw(player):

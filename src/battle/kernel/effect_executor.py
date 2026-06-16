@@ -100,10 +100,13 @@ class EffectExecutor:
             target_player = engine.state.players[target_player_index]
             max_power = action.get("max_power")
             max_cost = action.get("max_cost")
+            target_filter = action.get("target_filter")
             for _ in range(count):
                 pool = target_player.battle_zone
                 if max_cost is not None:
                     pool = [creature for creature in pool if creature.card.cost <= max_cost]
+                if target_filter == "blocker":
+                    pool = [creature for creature in pool if creature.card.is_blocker]
                 if action.get("chooser") == "opponent" and pool:
                     # 「相手は自身のクリーチャーを破壊する」= 相手の最適行動(最弱を差し出す)
                     target = min(pool, key=lambda c: c.card.power)

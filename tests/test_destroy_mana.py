@@ -67,3 +67,23 @@ class DestroyManaTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class BlockerFilterTest(unittest.TestCase):
+    def test_destroy_only_blockers(self):
+        from src.battle.kernel.effect_executor import EffectExecutor
+        a = [_mk("a", "火") for _ in range(40)]
+        b = [_mk("b", "光") for _ in range(40)]
+        e = DuelEngine(a, b, GreedyPolicy(), GreedyPolicy(), rng=random.Random(0))
+        blocker = BattleCard(card_id="blk", name="blk", civilizations=("光",), cost=3,
+                             card_type="クリーチャー", power=2000, text="■ブロッカー")
+        normal = BattleCard(card_id="nrm", name="nrm", civilizations=("光",), cost=3,
+                            card_type="クリーチャー", power=5000, text="")
+        self.assertTrue(blocker.is_blocker)
+        e.state.players[1].battle_zone = [CreatureInstance(card=blocker), CreatureInstance(card=normal)]
+        EffectExecutor(effects={})._execute_action(
+            e, 0, "on_play", _mk("x", "火"),
+            {"op": "destroy_creature", "count": 99, "scope": "opponent", "target_filter": "blocker"})
+        bz = e.state.players[1].battle_zone
+        self.assertEqual(len(bz), 1)
+        self.assertEqual(bz[0].card.name, "nrm")  # 非ブロッカーは残る

@@ -1,6 +1,5 @@
 import {
   AbsoluteFill,
-  Audio,
   Img,
   interpolate,
   staticFile,
@@ -119,7 +118,6 @@ const Character: React.FC<{ shot: Shot; progress: number; frame: number }> = ({
   const bob = Math.sin(frame * (tired ? 0.045 : calm ? 0.032 : 0.062)) * (tired ? 8 : calm ? 3 : 6);
   const tilt = Math.sin(frame * (calm ? 0.025 : 0.043)) * (active ? 1.2 : calm ? 0.35 : 0.75);
   const blink = progress > 0.44 && progress < 0.50;
-  const talk = Math.sin(frame * 0.7) > 0.18;
   const width = active ? 1080 : tired ? 980 : 1000;
   const left = active ? -130 : calm ? 20 : 54;
   const bottom = active ? 235 : tired ? 185 : 220;
@@ -165,19 +163,6 @@ const Character: React.FC<{ shot: Shot; progress: number; frame: number }> = ({
       <div
         style={{
           position: "absolute",
-          left: tired ? "46%" : calm ? "48%" : "47%",
-          top: tired ? "34%" : "35%",
-          width: active ? "10%" : "8%",
-          height: active ? "2.8%" : "2.1%",
-          borderRadius: 999,
-          background: talk ? "rgba(28,12,16,0.65)" : "rgba(28,12,16,0.28)",
-          transform: `scaleY(${talk ? 1.45 : 0.35})`,
-          opacity: active ? 0.72 : 0.48,
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
           left: "34%",
           top: "23%",
           width: "30%",
@@ -204,7 +189,7 @@ const Register: React.FC<{ shot: Shot; progress: number; frame: number }> = ({
   const x = main ? 235 : 600;
   const y = main ? 360 : 470;
   const size = main ? 620 : 440;
-  const glitch = main ? Math.sin(frame * 1.6) * 8 : 0;
+  const glitch = main ? Math.sin(frame * 1.2) * 3 : 0;
   return (
     <div
       style={{
@@ -283,7 +268,7 @@ const GlobalEffects: React.FC<{ shot: Shot; progress: number; frame: number }> =
               position: "absolute",
               inset: 0,
               background:
-                "repeating-linear-gradient(0deg, rgba(112,255,225,0.13) 0 1px, transparent 1px 15px)",
+                "repeating-linear-gradient(0deg, rgba(112,255,225,0.075) 0 1px, transparent 1px 17px)",
               mixBlendMode: "screen",
             }}
           />
@@ -295,7 +280,7 @@ const GlobalEffects: React.FC<{ shot: Shot; progress: number; frame: number }> =
               width: 160,
               height: 1280,
               transform: "skewX(-12deg)",
-              background: "linear-gradient(90deg, transparent, rgba(112,255,225,0.24), transparent)",
+              background: "linear-gradient(90deg, transparent, rgba(112,255,225,0.15), transparent)",
               mixBlendMode: "screen",
             }}
           />
@@ -321,7 +306,7 @@ export const VerticalShortPV: React.FC = () => {
   const shot = shots[shotIndex];
   const local = frame - shotIndex * framesPerShot;
   const progress = local / framesPerShot;
-  const shake = shot.mood === "glitch" ? Math.sin(frame * 1.7) * 5 : 0;
+  const shake = shot.mood === "glitch" ? Math.sin(frame * 1.35) * 2 : 0;
 
   return (
     <AbsoluteFill
@@ -331,7 +316,6 @@ export const VerticalShortPV: React.FC = () => {
         transform: `translate(${shake}px, ${-shake * 0.35}px)`,
       }}
     >
-      <Audio src={staticFile(`${assetBase}/audio/trailer_voice.wav`)} volume={0.88} />
       <Background shot={shot} progress={progress} index={shotIndex} />
       <Register shot={shot} progress={progress} frame={frame} />
       <Character shot={shot} progress={progress} frame={frame} />

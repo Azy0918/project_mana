@@ -207,9 +207,9 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if "相手の手札をランダムに1枚捨てさせる" in cl or "相手の手札を1枚捨てさせる" in cl:
         return [{"op": "discard_opponent_hand", "count": 1}]
 
-    # --- 自己ディスカード ---
-    m = re.search(r"自分の手札を(\d+)枚捨てる", cl)
-    if m and "選" not in cl:
+    # --- 自己ディスカード(相手指定なし=自分) ---
+    m = re.search(r"(?:自分の)?手札を(\d+)枚捨てる", cl)
+    if m and "選" not in cl and "相手" not in cl:
         return [{"op": "discard_own_hand", "count": int(m.group(1))}]
     if "自分の手札をすべて捨てる" in cl:
         return [{"op": "discard_own_hand", "count": 99}]

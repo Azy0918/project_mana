@@ -55,6 +55,8 @@ _STATIC_CLAUSE = [
 
 # 各文明
 _CIV = "光水火闇自然"
+# 「自然」は2文字なので文字クラスではなく交替で一致させる
+_CIV_PAT = r"(?:自然|[光水火闇])"
 
 
 _AURA_KW = ("スピードアタッカー", "ブロッカー", "スレイヤー", "マッハファイター")
@@ -205,7 +207,7 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     既知形に合致しなければ (None, cl, True) を返し、呼び出し側で reject させる。
     """
     # マナ武装N：自分のマナゾーンに<civ>のカードがN枚以上あれば、…
-    m = re.search(r"自分のマナゾーンに([" + _CIV + r"])のカードが(\d+)枚以上あれば[、,]?(.+)$", cl)
+    m = re.search(r"自分のマナゾーンに(自然|[光水火闇])のカードが(\d+)枚以上あれば[、,]?(.+)$", cl)
     if m:
         return ({"kind": "mana_civ_at_least", "civilization": m.group(1), "count": int(m.group(2))}, m.group(3), True)
     m = re.search(r"自分のマナゾーンに多色(?:の)?カードが(\d+)枚以上あれば[、,]?(.+)$", cl)
@@ -276,7 +278,7 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         if m_power:
             act["max_power"] = int(m_power.group(1))
             mana_rest = mana_rest.replace(m_power.group(0), "")
-        m_civ = re.search(r"([光水火闇自然])の", mana_rest)
+        m_civ = re.search(r"(自然|[光水火闇])の", mana_rest)
         if m_civ:
             act["civilizations"] = [m_civ.group(1)]
             mana_rest = mana_rest.replace(m_civ.group(0), "")
@@ -333,7 +335,7 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     # --- 蘇生(墓地からバトルゾーンへ) - reject前に処理(進化でないを含むため) ---
     if "墓地から" in cl and "バトルゾーンに出す" in cl and "相手" not in cl:
         # 文明とコストの順序は両方対応。種族限定(ハンター等)は reject。
-        _ZONE_COND = r"(?:(?:([光水火闇自然])の)?(?:コスト(\d+)以下の)?(?:進化でない)?|(?:コスト(\d+)以下の)?(?:([光水火闇自然])の)?(?:進化でない)?)"
+        _ZONE_COND = r"(?:(?:(自然|[光水火闇])の)?(?:コスト(\d+)以下の)?(?:進化でない)?|(?:コスト(\d+)以下の)?(?:(自然|[光水火闇])の)?(?:進化でない)?)"
         mm = re.fullmatch(
             r"(?:自分の)?墓地から、?" + _ZONE_COND +
             r"、?(?:クリーチャー|カード)(?:(\d+)(?:枚|体)(?:まで)?)?を?(?:(\d+)(?:枚|体)(?:まで)?)?、?バトルゾーンに出す",
@@ -365,7 +367,7 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         if m_cost:
             act["max_cost"] = int(m_cost.group(1))
             hand_rest = hand_rest.replace(m_cost.group(0), "")
-        m_civ = re.search(r"([光水火闇自然])の", hand_rest)
+        m_civ = re.search(r"(自然|[光水火闇])の", hand_rest)
         if m_civ:
             act["civilizations"] = [m_civ.group(1)]
             hand_rest = hand_rest.replace(m_civ.group(0), "")
@@ -637,7 +639,7 @@ def _try_look_and_take(t: str, is_spell: bool, s_trigger: bool) -> list[dict[str
     mc = re.search(r"コスト(\d+)以下", filt)
     if mc:
         act["max_cost"] = int(mc.group(1))
-    mciv = re.search(r"([" + _CIV + r"])(?:の|文明)", filt)
+    mciv = re.search(r"(自然|[光水火闇])(?:の|文明)", filt)
     if mciv:
         act["civilization"] = mciv.group(1)
     if "墓地" in rest:

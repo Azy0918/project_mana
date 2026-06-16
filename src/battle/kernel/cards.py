@@ -205,6 +205,32 @@ class BattleCard:
         return "スレイヤー" in self.tags or _keyword_is_static(self.text, "スレイヤー")
 
     @property
+    def keyword_grants(self) -> tuple[tuple[str, str | None], ...]:
+        """自分のクリーチャー群に常時付与するキーワードのリスト。
+
+        「自分の(すべての)?(<種族>)?クリーチャーは『X』を得る/与える」の無条件オーラのみ。
+        戻り: ((keyword, race_filter or None), ...)。exact-safe: 条件付き(なら/あれば/
+        ターン/数/につき)は範囲を確定できないため除外する。
+        """
+        text = self.text
+        if "得る" not in text and "与える" not in text:
+            return ()
+        grants: list[tuple[str, str | None]] = []
+        for clause in re.split(r"[。\n]|■|◇", text):
+            if "自分の" not in clause or ("得る" not in clause and "与える" not in clause):
+                continue
+            if any(t in clause for t in ("なら", "あれば", "ターン", "につき", "数だけ", "ごとに", "以上", "以下")):
+                continue
+            for kw in ("スピードアタッカー", "ブロッカー", "スレイヤー", "マッハファイター"):
+                if f"「{kw}」" in clause or kw in clause:
+                    m = re.search(r"自分の(?:すべての)?(?:([ァ-ヶ・ー一-龠]+?)(?:の|は|に))", clause)
+                    race = None
+                    if m and m.group(1) not in ("クリーチャー", "すべて"):
+                        race = m.group(1)
+                    grants.append((kw, race))
+        return tuple(dict.fromkeys(grants))
+
+    @property
     def enters_tapped(self) -> bool:
         return "タップしてバトルゾーンに出る" in self.text
 

@@ -32,9 +32,23 @@ _STATIC_CLAUSE = [
 _CIV = "光水火闇自然"
 
 
+_AURA_KW = ("スピードアタッカー", "ブロッカー", "スレイヤー", "マッハファイター")
+
+
+def _is_aura_clause(cl: str) -> bool:
+    """「自分の(種族)は『X』を得る/与える」の無条件キーワード付与オーラ(=keyword_grantsで模擬済み)。"""
+    if "自分の" not in cl or ("得る" not in cl and "与える" not in cl):
+        return False
+    if any(t in cl for t in ("なら", "あれば", "ターン", "につき", "数だけ", "ごとに", "以上", "以下")):
+        return False
+    return any(kw in cl for kw in _AURA_KW)
+
+
 def _is_static(clause: str) -> bool:
     c = clause.strip().rstrip("。").strip()
     if not c:
+        return True
+    if _is_aura_clause(c):
         return True
     return any(re.match(p, c) for p in _STATIC_CLAUSE)
 

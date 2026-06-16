@@ -68,8 +68,25 @@ class PlayerState:
         for creature in self.battle_zone:
             creature.tapped = False
 
+    def has_keyword(self, creature: CreatureInstance, keyword: str) -> bool:
+        """静的キーワード or 自分のバトルゾーンのオーラ付与で、creatureがkeywordを持つか。"""
+        card = creature.card
+        if keyword == "ブロッカー" and card.is_blocker:
+            return True
+        if keyword == "スピードアタッカー" and card.is_speed_attacker:
+            return True
+        if keyword == "スレイヤー" and card.is_slayer:
+            return True
+        if keyword == "マッハファイター" and card.is_mach_fighter:
+            return True
+        for src in self.battle_zone:
+            for kw, race in src.card.keyword_grants:
+                if kw == keyword and (race is None or (race and race in card.race)):
+                    return True
+        return False
+
     def untapped_blockers(self) -> list[CreatureInstance]:
-        return [creature for creature in self.battle_zone if creature.card.is_blocker and not creature.tapped]
+        return [c for c in self.battle_zone if self.has_keyword(c, "ブロッカー") and not c.tapped]
 
 
 @dataclass

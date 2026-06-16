@@ -345,9 +345,12 @@ class DuelEngine:
         for index, creature in enumerate(player.battle_zone):
             if creature.card.cannot_attack:
                 continue
-            if creature.can_attack(state.turn) and not creature.card.cannot_attack_player:
+            # SA付与オーラ: 召喚酔いでも攻撃可能(タップ済みは不可)
+            sa_aura = (not creature.tapped) and player.has_keyword(creature, "スピードアタッカー")
+            can_atk = creature.can_attack(state.turn) or sa_aura
+            if can_atk and not creature.card.cannot_attack_player:
                 choices.append(AttackChoice(attacker_index=index, target_creature_index=None))
-            if creature.can_attack_creature(state.turn):
+            if creature.can_attack_creature(state.turn) or sa_aura:
                 for target_index, target in enumerate(opponent.battle_zone):
                     if target.tapped:
                         choices.append(AttackChoice(attacker_index=index, target_creature_index=target_index))
@@ -460,10 +463,10 @@ class DuelEngine:
     ) -> None:
         attacker_power = attacker.current_attack_power
         defender_power = defender.current_power
-        # スレイヤーはパワーに関係なくバトル相手を破壊する
-        if attacker_power >= defender_power or attacker.card.is_slayer:
+        # スレイヤーはパワーに関係なくバトル相手を破壊する(オーラ付与も考慮)
+        if attacker_power >= defender_power or attacking_player.has_keyword(attacker, "スレイヤー"):
             self.destroy_creature(self.state.players.index(defending_player), defender)
-        if defender_power >= attacker_power or defender.card.is_slayer:
+        if defender_power >= attacker_power or defending_player.has_keyword(defender, "スレイヤー"):
             self.destroy_creature(self.state.players.index(attacking_player), attacker)
         self._record(
             "battle",

@@ -858,10 +858,17 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         return None
     needs_target = ("クリーチャー" in cl)
 
+    # スコープ省略の全体効果(すべて/全て)は両者対象。省略すると自軍分が消えて over-model に
+    # なるため、両者(self+opponent)に展開する。「他の」=自身除外は未対応なので除く。
+    _is_mass_both = ("すべて" in cl or "全て" in cl) and "他の" not in cl
+
     # --- 破壊 ---
     if "破壊する" in cl and needs_target:
         sc = _scope_for(cl)
         if sc is None:
+            if _is_mass_both:
+                r = _restrictions(cl)
+                return [{"op": "destroy_creature", "count": 99, "scope": s, **r} for s in ("self", "opponent")]
             return None
         scope, chooser = sc
         act = {"op": "destroy_creature", "count": _count_all(cl), "scope": scope}
@@ -876,6 +883,8 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if "タップする" in cl and needs_target:
         sc = _scope_for(cl)
         if sc is None:
+            if _is_mass_both:
+                return [{"op": "tap_creature", "count": 99, "scope": s} for s in ("self", "opponent")]
             return None
         act = {"op": "tap_creature", "count": _count_all(cl), "scope": sc[0]}
         return [act]
@@ -884,6 +893,9 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if "手札に戻" in cl and needs_target:
         sc = _scope_for(cl)
         if sc is None:
+            if _is_mass_both:
+                r = {k: v for k, v in _restrictions(cl).items() if k != "target_filter"}
+                return [{"op": "bounce_creature", "count": 99, "scope": s, **r} for s in ("self", "opponent")]
             return None
         act = {"op": "bounce_creature", "count": _count_all(cl), "scope": sc[0]}
         act.update({k: v for k, v in _restrictions(cl).items() if k != "target_filter"})
@@ -895,6 +907,9 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if "マナゾーンに置く" in cl and needs_target:
         sc = _scope_for(cl)
         if sc is None:
+            if _is_mass_both:
+                r = {k: v for k, v in _restrictions(cl).items() if k != "target_filter"}
+                return [{"op": "send_creature_to_mana", "count": 99, "scope": s, **r} for s in ("self", "opponent")]
             return None
         act = {"op": "send_creature_to_mana", "count": _count_all(cl), "scope": sc[0]}
         act.update({k: v for k, v in _restrictions(cl).items() if k != "target_filter"})

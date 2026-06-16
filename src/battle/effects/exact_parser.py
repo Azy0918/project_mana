@@ -27,6 +27,8 @@ _STATIC_CLAUSE = [
     r"^B・A・D(?:・S)?\s*\d+$",  # engine: bad_discount+temporary で模擬済み
     r"^可能(?:なら|であれば)毎ターン攻撃する$",  # engine: 攻撃フェーズで強制
     r"^ガードマン$",  # engine: _legal_attacks でガードマン優先攻撃強制
+    r"^スーパー・S・トリガー$",  # SST: 通常S・トリガーとして近似(発動条件の差は簡略化)
+    r"^ただし、その「S・トリガー」は使えない$",  # シールド手札戻し時の注記(engine自然満足)
     r"^相手のクリーチャーが攻撃する場合[、,]?可能なら(?:このクリーチャーを)?攻撃する$",  # ガードマン説明文
     # 進化条件: 単なる召喚条件であり、engineは is_evolution で簡略模擬済み
     r"^(?:NEO)?進化(?:クリーチャー)?[：:－-][^\n]+のクリーチャー(?:または.+)?$",
@@ -140,9 +142,12 @@ _ACTION_FAMILIES = [
 def _family_count(cl: str) -> int:
     # 「アンタップする」=動作、「アンタップしている」=対象記述(数えない)。
     s = cl.replace("アンタップする", "\x01").replace("アンタップ", "")
+    # 「シールドを手札に戻す/追加する」を own_shield 系として一時マーク
+    # 「シールドを破壊」等と区別するため「シールドを」全体を一時置換
+    s = re.sub(r"シールドを(\d+つ?(?:まで)?)(手札に戻|追加)", "シールド\x02", s)
     fams = [("引く", "引き"), ("捨て",), ("破壊",), ("タップする",), ("\x01",),
             ("手札に戻",), ("マナゾーンに置く",), ("墓地に置く",),
-            ("シールド化", "シールドゾーンに置く", "シールドを")]
+            ("シールド化", "シールドゾーンに置く", "\x02")]
     return sum(1 for fam in fams if any(w in s for w in fam))
 
 
@@ -335,7 +340,7 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
             return None
         return [{"op": "untap_creature", "count": _count_all(cl), "scope": sc[0]}]
 
-    # --- 自己リソース(マナ加速/シールド追加/自己ミル): 相手対象でないもののみ ---
+    # --- 自己リソース(マナ加速/シールド追加/シールド手札/自己ミル): 相手対象でないもののみ ---
     if "相手" not in cl:
         # マナ加速: 山札の上からN枚(目)をマナゾーンに置く
         m = re.search(r"山札の上から(\d+)枚目?を[、,]?(?:自分の)?マナゾーンに置く", cl)
@@ -348,6 +353,16 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         m = re.search(r"自分のシールドを(\d+)つ追加", cl)
         if m:
             return [{"op": "add_shield", "count": int(m.group(1))}]
+        # シールド→手札: 自分のシールドをNつ手札に戻す(S・トリガーなし=under-model側で安全)
+        m = re.search(r"自分のシールドを(\d+)つ?(?:まで)?手札に戻す", cl)
+        if m:
+            return [{"op": "own_shield_to_hand", "count": int(m.group(1))}]
+        if "自分のシールドをすべて手札に戻す" in cl:
+            return [{"op": "own_shield_to_hand", "count": 99}]
+        # 手札→マナ: 自分の手札からN枚をマナゾーンに置く
+        m = re.search(r"自分の手札から(\d+)枚をマナゾーンに置く", cl)
+        if m:
+            return [{"op": "hand_to_mana", "count": int(m.group(1))}]
         # 自己ミル: 自分の山札の上からN枚(目)を墓地に置く
         m = re.search(r"山札の上から(\d+)枚目?を[、,]?(?:自分の)?墓地に置く", cl)
         if m:
@@ -548,7 +563,10 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
         return []  # バニラ=空abilityが忠実
 
     is_spell = "呪文" in (card_type or "")
-    s_trigger = "S・トリガー" in t and "スーパー" not in t  # 通常S・トリガーのみ
+    # S・トリガー: 「使えない」文脈(シールド手戻し注記)を除外、スーパーST除外
+    s_trigger = bool(
+        re.search(r"[◇◆]S・トリガー|^S・トリガー$|シールド・トリガー", t, re.MULTILINE)
+    ) and "スーパー" not in t
 
     lat = _try_look_and_take(t, is_spell, s_trigger)
     if lat is not None:
@@ -578,6 +596,9 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
         for si, sent in enumerate(sentences):
             # キーワードラベル(条件が後段に明記される型)を除去
             sent = re.sub(r"^(?:マスター)?G・G・G[：:]", "", sent).strip()
+            # 【SST】行はスーパーSトリガーの追加効果(under-model=安全方向)として無視
+            if re.match(r"^【[^】]+】", sent):
+                continue
             if _is_static(sent):
                 continue
             if is_spell:

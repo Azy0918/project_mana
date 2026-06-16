@@ -1268,6 +1268,14 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                     else:
                         return None  # トリガー不明 → exact化不可
             chunk_trigger = trigger
+            # デュアルトリガー(「Aする時、またはBする時、効果」)の検出。本体を両トリガーに登録。
+            extra_triggers: list[str] = []
+            mdt = re.match(r"^または(.+?[時に])[、,](.+)$", body)
+            if mdt:
+                t2, _b2 = _detect_trigger(mdt.group(1) + "、_")
+                if t2 is not None:
+                    extra_triggers.append(t2)
+                    body = mdt.group(2)
             # 文頭の逐次マーカー「その後、」を除去(トリガーは継承済み)。安全節/通常解析の
             # マッチを揃える。
             body = re.sub(r"^その後[、,]", "", body).strip()
@@ -1312,7 +1320,8 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                 if any(re.match(p, body_c) for p in _SAFE_BODY_PATTERNS):
                     continue
                 return None
-            by_trigger.setdefault(trigger, []).extend(acts)
+            for trg in (trigger, *extra_triggers):
+                by_trigger.setdefault(trg, []).extend([dict(a) for a in acts])
         prev_chunk_trigger = chunk_trigger
 
     abilities: list[dict[str, Any]] = []

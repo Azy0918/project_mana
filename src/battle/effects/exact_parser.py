@@ -72,7 +72,12 @@ def _scope_for(clause: str) -> tuple[str, str | None] | None:
 
 
 def _count_all(clause: str) -> int:
-    return 99 if ("すべて" in clause or "全て" in clause) else 1
+    if "すべて" in clause or "全て" in clause:
+        return 99
+    m = re.search(r"(\d+)体(?:まで)?", clause)
+    if m:
+        return int(m.group(1))
+    return 1
 
 
 def _restrictions(clause: str) -> dict[str, Any]:
@@ -96,9 +101,12 @@ _ACTION_FAMILIES = [
 
 
 def _family_count(cl: str) -> int:
+    # 「アンタップ」を別記号化して「タップ」系との誤検出を防ぐ
+    s = cl.replace("アンタップ", "\x01")
     n = 0
     for fam in _ACTION_FAMILIES:
-        if any(w in cl for w in fam):
+        words = ["\x01" if w == "アンタップ" else w for w in fam]
+        if any(w in s for w in words):
             n += 1
     return n
 
@@ -190,6 +198,17 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     m = re.search(r"自分の手札を(\d+)枚捨てる", cl)
     if m and "選" not in cl:
         return [{"op": "discard_own_hand", "count": int(m.group(1))}]
+    if "自分の手札をすべて捨てる" in cl:
+        return [{"op": "discard_own_hand", "count": 99}]
+    if ("相手は手札をすべて捨てる" in cl) or ("相手は自身の手札をすべて捨てる" in cl):
+        return [{"op": "discard_opponent_hand", "count": 99}]
+
+    # --- アンタップ ---
+    if "アンタップする" in cl and "クリーチャー" in cl:
+        sc = _scope_for(cl)
+        if sc is None:
+            return None
+        return [{"op": "untap_creature", "count": _count_all(cl), "scope": sc[0]}]
 
     # --- 自己リソース(マナ加速/シールド追加/自己ミル): 相手対象でないもののみ ---
     if "相手" not in cl:

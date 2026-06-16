@@ -163,6 +163,15 @@ class EffectExecutor:
                     return
                 engine.destroy_creature(target_player_index, target)
         elif op == "bounce_creature":
+            if action.get("target") == "source":
+                # 「バトルゾーンから手札に戻す」= 効果元自身を手札に戻す
+                src = next((c for c in controller.battle_zone if c.card is card), None)
+                if src is None:
+                    src = next((c for c in controller.battle_zone if c.card.card_id == card.card_id), None)
+                if src is not None:
+                    controller.battle_zone.remove(src)
+                    controller.hand.append(src.card)
+                return
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]
             max_cost = action.get("max_cost")

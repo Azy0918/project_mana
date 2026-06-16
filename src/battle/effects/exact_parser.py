@@ -53,6 +53,35 @@ _STATIC_CLAUSE = [
     r"^ハンティング$",
     # G・ゼロ: 無料召喚コスト条件。engineは通常コストで召喚(under-model=安全)
     r"^(?:マスター)?G・ゼロ[：:].{1,80}$",
+    # J・O・E N: 相手の攻撃時に手札から無料召喚できる条件。engine無視=under-model(安全)
+    r"^J・O・E\s*\d+$",
+    # ラスト・バースト: ツインパクト墓地誘発。engine無視=under-model(安全)
+    r"^ラスト・バースト$",
+    # サバキZ: シールド3以下なら無料唱え。engine無視=under-model(安全)
+    r"^サバキZ$",
+    # Jチェンジ N: ジョーカーズの変身コスト軽減。engine無視=under-model(安全)
+    r"^Jチェンジ\d+$",
+    # エターナル・Ω: バトルゾーンを離れない。engine無視=クリーチャーが離れやすくunder-model(安全)
+    r"^エターナル・Ω$",
+    # マスターB・A・D: B・A・D上位版。engine無視(通常コスト召喚のみ)=under-model(安全)
+    r"^マスターB・A・D$",
+    # 攻撃されない: 攻撃対象にならない。engine無視=クリーチャーが攻撃されやすくunder-model(安全)
+    r"^攻撃されない$",
+    # アンタップしているクリーチャーを攻撃できる: engine無視=タップのみ攻撃=under-model(安全)
+    r"^アンタップしているクリーチャーを攻撃できる$",
+    # 選べない(保護): 相手が選べない → engine無視=対象にされやすくunder-model(安全)
+    r"^相手はこのクリーチャーを選べない$",
+    r"^相手の呪文によって[、,]?相手がクリーチャーを選ぶ時[、,]?このクリーチャーは選べない$",
+    r"^相手が自分のクリーチャーを選ぶ時[、,]?このクリーチャーは選べない$",
+    # バトル中のパワー増減: バトル限定なのでengineの常時パワーと異なるが無視=under-model(安全)
+    r"^バトル中[、,]?(?:このクリーチャーの)?パワーを?[+＋]?\d+(?:する|される)$",
+    r"^バトル中[、,]?(?:このクリーチャーの)?パワーを\+\d+する$",
+    # ブロック後アンタップ(ビジランスに相当): engine無視=ブロック後タップ=under-model(安全)
+    r"^ブロックした時[、,]?バトルの後でアンタップする$",
+    # D2フィールド置き換えルール注記: engine未対応field=under-model(安全)
+    r"^（他のD2フィールドがバトルゾーンに出た時[、,]?このD2フィールドを破壊する）$",
+    # ホーリー・フィールド/D2フィールド等のフィールド系キーワード注記
+    r"^（このD2フィールドが使われているとき.{1,80}）$",
     # 注: 進化(簡略模擬)・ニンジャストライク/侵略/革命チェンジ(未模擬)・ワールドブレイカー
     #     (未模擬)は静的扱いにしない=厳密exactを守る
 ]
@@ -323,6 +352,11 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         cnt = int(cnt_raw) if cnt_raw else 1
         return [{"op": "mana_to_hand", "count": cnt}]
 
+    # --- 自己バウンス(このクリーチャーを手札に戻す) ---
+    # 「バトルゾーンから手札に戻す」= subject省略型の自己bounce。ターン終了時効果として多い。
+    if cl == "バトルゾーンから手札に戻す" or cl == "このクリーチャーを手札に戻す":
+        return [{"op": "bounce_creature", "target": "source"}]
+
     # --- パワー修整(「そのターン」限定。engineのpower_modifierはターン終了でリセット=一致) ---
     if "パワー" in cl and "クリーチャー" in cl and "アタッカー" not in cl and "得る" not in cl:
         mm = re.search(r"パワー(?:を|は|が)?\s*([+＋\-－‐])\s*(\d+)", cl)
@@ -414,7 +448,8 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         return [{"op": "discard_opponent_hand", "count": int(m.group(1))}]
     if "相手は" in cl and "手札を1枚捨てる" in cl:
         return [{"op": "discard_opponent_hand", "count": 1}]
-    m = re.search(r"相手の手札を(?:ランダムに)?(\d+)枚捨てさせる", cl)
+    # 「相手のランダムな手札を1枚捨てさせる」語順にも対応
+    m = re.search(r"相手の(?:ランダムな)?手札を?(?:ランダムに)?(\d+)枚(?:を)?捨てさせる", cl)
     if m:
         return [{"op": "discard_opponent_hand", "count": int(m.group(1))}]
     if "相手の手札をランダムに1枚捨てさせる" in cl or "相手の手札を1枚捨てさせる" in cl:
@@ -452,12 +487,13 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         m = re.search(r"自分のシールドを(\d+)つ追加", cl)
         if m:
             return [{"op": "add_shield", "count": int(m.group(1))}]
-        # シールド→手札: 自分のシールドをNつ手札に戻す(S・トリガーなし=under-model側で安全)
+        # シールド→手札: 自分のシールドをNつ手札に戻す/加える(S・トリガーなし=under-model側で安全)
         # 「シールドを1つ」「シールド1つを」の両語順に対応
-        m = re.search(r"自分のシールド(?:を)?(\d+)つ?(?:を)?(?:まで)?手札に戻す", cl)
+        m = re.search(r"自分のシールド(?:を)?(\d+)つ?(?:を)?(?:まで)?手札に(?:戻す|加える)", cl)
         if m:
             return [{"op": "own_shield_to_hand", "count": int(m.group(1))}]
-        if "自分のシールドをすべて手札に戻す" in cl or "自分のシールドを好きな数手札に戻す" in cl:
+        if any(p in cl for p in ("自分のシールドをすべて手札に戻す", "自分のシールドをすべて手札に加える",
+                                   "自分のシールドを好きな数手札に戻す", "自分のシールドを好きな数手札に加える")):
             return [{"op": "own_shield_to_hand", "count": 99}]
         # 手札→シールド: 自分の手札N枚をシールド化する
         if "シールド化" in cl and "相手" not in cl:
@@ -698,8 +734,14 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
 
     by_trigger: dict[str, list[dict[str, Any]]] = {}
     prev_chunk_trigger: str | None = None
+    # ツインパクト: 【LINE】以降の節はスペル側(呪文)扱い→on_cast をデフォルトトリガーに使う
+    after_line = False
 
     for chunk in ability_chunks:
+        # 【LINE】はツインパクトのクリーチャー/スペル境界マーカー
+        if re.fullmatch(r"【LINE】", chunk):
+            after_line = True
+            continue
         if chunk in ("S・トリガー", "シールド・トリガー") or _is_static(chunk):
             continue
         # 「その後、」で始まるチャンクは直前チャンクのトリガーを引き継ぐ
@@ -721,8 +763,13 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                 continue
             if _is_static(sent):
                 continue
-            if is_spell:
-                trigger, body = "on_cast", sent
+            if is_spell or after_line:
+                # 呪文側またはツインパクトスペル側: on_cast をデフォルトに
+                trig_d, body_d = _detect_trigger(sent)
+                if trig_d is not None:
+                    trigger, body = trig_d, body_d
+                else:
+                    trigger, body = "on_cast", sent
             else:
                 trigger, body = _detect_trigger(sent)
                 if trigger is None:

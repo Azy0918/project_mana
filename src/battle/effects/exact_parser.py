@@ -201,6 +201,10 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if any(tok in cl for tok in _REJECT_TOKENS):
         return None
 
+    # 任意形(してもよい)は最適プレイで常に実行=engineの有利効果常時使用と一致。
+    # 強制形に正規化して既存パターンに載せる。
+    cl = cl.replace("してもよい", "する").replace("置いてもよい", "置く")
+
     # --- 自分ドロー(対象なし) ---
     m = re.search(r"カードを(\d+)枚引く", cl)
     if m and "捨て" not in cl and "相手" not in cl:

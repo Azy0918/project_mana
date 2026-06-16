@@ -526,6 +526,8 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
         sentences = [s.strip() for s in chunk.split("。") if s.strip()]
         chunk_trigger: str | None = None
         for si, sent in enumerate(sentences):
+            # キーワードラベル(条件が後段に明記される型)を除去
+            sent = re.sub(r"^(?:マスター)?G・G・G[：:]", "", sent).strip()
             if _is_static(sent):
                 continue
             if is_spell:

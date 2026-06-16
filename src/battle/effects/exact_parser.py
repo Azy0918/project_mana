@@ -84,8 +84,48 @@ def _restrictions(clause: str) -> dict[str, Any]:
     return r
 
 
+# アクション動詞の系統(取りこぼし検出用)。節内に複数系統あれば単一パターンでは不足。
+_ACTION_FAMILIES = [
+    ("引く", "引き"), ("捨てる", "捨て"), ("破壊",), ("タップする",), ("アンタップ",),
+    ("手札に戻す",), ("マナゾーンに置く",), ("墓地に置く",), ("シールド化", "シールドゾーンに置く", "シールドを"),
+]
+
+
+def _family_count(cl: str) -> int:
+    n = 0
+    for fam in _ACTION_FAMILIES:
+        if any(w in cl for w in fam):
+            n += 1
+    return n
+
+
+def _split_compound(cl: str) -> list[str]:
+    """連用中止「引き、」や接続「その後、」「した後、」で結ばれた複合節を分解する。"""
+    s = cl
+    s = s.replace("引き、", "引く\x00")
+    s = s.replace("、その後、", "\x00").replace("その後、", "\x00")
+    s = s.replace("した後に、", "\x00").replace("した後、", "\x00").replace("した後に", "\x00")
+    return [p.strip("、 ") for p in s.split("\x00") if p.strip("、 ")]
+
+
 def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
-    """1つの効果節を action のリストに変換。未知・条件付き・曖昧なら None(=reject)。"""
+    """1つの効果節を action のリストに変換。未知・条件付き・曖昧・取りこぼしなら None。"""
+    body = clause.rstrip("。")
+    all_acts: list[dict[str, Any]] = []
+    for part in _split_compound(body):
+        r = _parse_action_clause_raw(part)
+        if r is None:
+            return None
+        all_acts.extend(r)
+    if not all_acts:
+        return None
+    # 節全体のアクション系統数 > 生成アクション数 なら取りこぼし → exact化しない
+    if _family_count(body) > len(all_acts):
+        return None
+    return all_acts
+
+
+def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     cl = clause.strip().rstrip("。")
 
     # 条件・未模擬要素を含む節は exact化しない(過大評価防止の要)
@@ -172,6 +212,24 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
     return None
 
 
+def _detect_trigger(clause: str) -> tuple[str | None, str]:
+    """節の先頭からトリガーを判定し (trigger, 本体) を返す。
+
+    トリガー前置詞がなければ (None, clause)。相手起点の時制は曖昧なので拾わない。
+    """
+    cl = clause
+    m = re.match(r"^(?:このクリーチャーが)?(?:バトルゾーンに)?出た時[、,]?(.+)$", cl)
+    if m:
+        return ("on_play", m.group(1))
+    m = re.match(r"^このクリーチャーが攻撃する時[、,]?(.+)$", cl)
+    if m:
+        return ("on_attack", m.group(1))
+    m = re.match(r"^(?:このクリーチャーが)?(?:破壊された時|バトルゾーンを離れた時)[、,]?(.+)$", cl)
+    if m and "相手" not in cl[:8]:
+        return ("on_destroyed", m.group(1))
+    return (None, cl)
+
+
 def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
     """カード全文を exact abilities に変換。全節カバーできなければ None。
 
@@ -195,8 +253,7 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
             if p:
                 clauses.append(p)
 
-    cast_actions: list[dict[str, Any]] = []
-    on_play_actions: list[dict[str, Any]] = []
+    by_trigger: dict[str, list[dict[str, Any]]] = {}
 
     for cl in clauses:
         # マーカー語のみの節は静的扱い
@@ -205,31 +262,24 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
         if _is_static(cl):
             continue
 
-        # ETB(バトルゾーンに出た時)プレフィックスを剥がす
-        m = re.match(r"^(?:バトルゾーンに出た時|出た時)[、,]?(.+)$", cl)
-        body = m.group(1) if m else cl
+        if is_spell:
+            trigger, body = "on_cast", cl
+        else:
+            trigger, body = _detect_trigger(cl)
+            if trigger is None:
+                # クリーチャーでトリガー前置詞なしの効果文 → タイミング不明、保守的に弾く
+                return None
 
         acts = _parse_action_clause(body)
         if acts is None:
             return None  # 未知の節 → exact化不可
-
-        if is_spell:
-            cast_actions.extend(acts)
-        else:
-            if m or is_spell:  # ETB明示 or 呪文
-                on_play_actions.extend(acts)
-            else:
-                # クリーチャーで「出た時」明示なしの効果文 → タイミング不明、保守的に弾く
-                return None
+        by_trigger.setdefault(trigger, []).extend(acts)
 
     abilities: list[dict[str, Any]] = []
-    if is_spell and cast_actions:
-        trig = "s_trigger" if s_trigger else "on_cast"
-        abilities.append({"trigger": "on_cast", "actions": cast_actions})
-        if s_trigger:
-            abilities.append({"trigger": "s_trigger", "actions": [dict(a) for a in cast_actions]})
-    if on_play_actions:
-        abilities.append({"trigger": "on_play", "actions": on_play_actions})
-        if s_trigger:  # クリーチャーS・トリガー
-            abilities.append({"trigger": "s_trigger", "actions": [dict(a) for a in on_play_actions]})
+    # S・トリガーは cast/ETB 効果にのみ適用される(攻撃時/破壊時は対象外)
+    main_trigger = "on_cast" if is_spell else "on_play"
+    for trig, acts in by_trigger.items():
+        abilities.append({"trigger": trig, "actions": acts})
+        if s_trigger and trig == main_trigger:
+            abilities.append({"trigger": "s_trigger", "actions": [dict(a) for a in acts]})
     return abilities

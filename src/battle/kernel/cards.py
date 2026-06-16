@@ -109,11 +109,30 @@ class BattleCard:
         return "プレイヤーを攻撃できない" in self.text
 
     @property
+    def cannot_attack_creature(self) -> bool:
+        """クリーチャーへの攻撃不可(プレイヤーのみ攻撃可)。
+
+        「自分のクリーチャーは〜」の全体付与はグローバル効果で engine が
+        モデル外のため除外(exact-safe: 全体付与カードは static 扱いしない)。
+        """
+        if "クリーチャーを攻撃できない" not in self.text:
+            return False
+        for clause in re.split(r"[。\n]|■|◇", self.text):
+            if "クリーチャーを攻撃できない" not in clause:
+                continue
+            if any(m in clause for m in _GRANT_CONDITION_MARKERS):
+                continue
+            if "自分のクリーチャーは" in clause:
+                continue
+            return True
+        return False
+
+    @property
     def cannot_attack(self) -> bool:
         # 「相手プレイヤーを攻撃できない」は部分制限なので全面攻撃禁止とは区別する
         if self.cannot_attack_player:
             return False
-        return "攻撃できない" in self.text
+        return "攻撃できない" in self.text and "クリーチャーを攻撃できない" not in self.text
 
     @property
     def is_unblockable(self) -> bool:

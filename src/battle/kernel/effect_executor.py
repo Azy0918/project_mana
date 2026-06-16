@@ -95,6 +95,40 @@ class EffectExecutor:
                 if not controller.deck:
                     return
                 controller.mana_zone.append(make_mana_card(controller.deck.pop(0)))
+        elif op == "look_and_take":
+            # 山札の上からlook枚を見て、条件に合うものをtake枚まで手札に加え、残りをrest_zoneへ。
+            # 探索/インパルス系の忠実模擬。選択は貪欲(高コスト優先)で最適プレイを近似する。
+            look = int(action.get("look", 1))
+            take = int(action.get("take", 1))
+            card_filter = action.get("card_filter")
+            civ = action.get("civilization")
+            max_cost = action.get("max_cost")
+            rest_zone = action.get("rest_zone", "deck_bottom")
+            revealed = [controller.deck.pop(0) for _ in range(min(look, len(controller.deck)))]
+
+            def _matches(card: BattleCard) -> bool:
+                if card_filter == "creature" and not card.is_creature:
+                    return False
+                if card_filter == "spell" and not card.is_spell:
+                    return False
+                if civ is not None and civ not in card.civilizations:
+                    return False
+                if max_cost is not None and card.cost > max_cost:
+                    return False
+                return True
+
+            candidates = sorted([c for c in revealed if _matches(c)], key=lambda c: c.cost, reverse=True)
+            taken = candidates[:take]
+            for c in taken:
+                controller.hand.append(c)
+                revealed.remove(c)
+            for c in revealed:
+                if rest_zone == "grave":
+                    controller.graveyard.append(c)
+                elif rest_zone == "mana":
+                    controller.mana_zone.append(make_mana_card(c))
+                else:  # deck_bottom
+                    controller.deck.append(c)
         elif op == "destroy_creature":
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]

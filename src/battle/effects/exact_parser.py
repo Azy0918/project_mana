@@ -318,6 +318,66 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     return (None, cl)
 
 
+_LAT_RE = re.compile(
+    r"^(?:バトルゾーンに出た時、)?(?:自分の)?山札の上から(\d+)枚を見る。?"
+    r"その中から(.*?)(?:を)?(\d+)?枚?(?:まで)?手札に(?:加え|加える)(?:る|てもよい)?(?:。|、)?"
+    r"(?:残りを(.*?)(?:に|へ)[^。]*置く)?。?$"
+)
+
+
+def _try_look_and_take(t: str, is_spell: bool, s_trigger: bool) -> list[dict[str, Any]] | None:
+    """純粋な「山札の上からN枚を見て選ぶ」カードを look_and_take に変換。"""
+    # 正規化: マーカー除去・S・トリガー/静的節を除去して残りを連結
+    norm = re.sub(r"[■◇]", "", t)
+    kept = []
+    for cl in re.split(r"\n", norm):
+        cl = cl.strip()
+        if not cl or cl in ("S・トリガー", "シールド・トリガー") or _is_static(cl):
+            continue
+        kept.append(cl)
+    joined = "".join(kept)
+    # 「公開してから」等は描写なので除去(枚数捕捉を保つ)
+    joined = joined.replace("を公開してから", "を").replace("公開してから", "").replace("を公開し、", "を")
+    m = _LAT_RE.match(joined)
+    if not m:
+        return None
+    look = int(m.group(1))
+    filt = m.group(2) or ""
+    take = int(m.group(3)) if m.group(3) else 1
+    rest = m.group(4) or ""
+    # 認識できない絞り込み(種族/完全コスト/以上/探索等)は取りこぼし防止のため reject
+    if any(tok in filt for tok in ("探索", "見", "または", "ランダム", "以上")):
+        return None
+    if "コスト" in filt and "以下" not in filt:
+        return None
+    recognized = ("クリーチャー" in filt or "呪文" in filt or "カード" in filt
+                  or any(cv in filt for cv in _CIV))
+    if filt.strip() and not recognized:
+        return None
+    act: dict[str, Any] = {"op": "look_and_take", "look": look, "take": take}
+    if "クリーチャー" in filt:
+        act["card_filter"] = "creature"
+    elif "呪文" in filt:
+        act["card_filter"] = "spell"
+    mc = re.search(r"コスト(\d+)以下", filt)
+    if mc:
+        act["max_cost"] = int(mc.group(1))
+    mciv = re.search(r"([" + _CIV + r"])(?:の|文明)", filt)
+    if mciv:
+        act["civilization"] = mciv.group(1)
+    if "墓地" in rest:
+        act["rest_zone"] = "grave"
+    elif "マナ" in rest:
+        act["rest_zone"] = "mana"
+    else:
+        act["rest_zone"] = "deck_bottom"
+    trig = "on_cast" if is_spell else "on_play"
+    abilities = [{"trigger": trig, "actions": [act]}]
+    if s_trigger:
+        abilities.append({"trigger": "s_trigger", "actions": [dict(act)]})
+    return abilities
+
+
 def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
     """カード全文を exact abilities に変換。全節カバーできなければ None。
 
@@ -331,6 +391,10 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
 
     is_spell = "呪文" in (card_type or "")
     s_trigger = "S・トリガー" in t and "スーパー" not in t  # 通常S・トリガーのみ
+
+    lat = _try_look_and_take(t, is_spell, s_trigger)
+    if lat is not None:
+        return lat
 
     # マーカー行を除去しつつ節分割
     raw_clauses = re.split(r"[\n。]", t)

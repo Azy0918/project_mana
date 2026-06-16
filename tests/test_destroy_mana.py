@@ -87,3 +87,20 @@ class BlockerFilterTest(unittest.TestCase):
         bz = e.state.players[1].battle_zone
         self.assertEqual(len(bz), 1)
         self.assertEqual(bz[0].card.name, "nrm")  # 非ブロッカーは残る
+
+
+class LookAndTakeTest(unittest.TestCase):
+    def test_look_and_take_creature(self):
+        from src.battle.kernel.effect_executor import EffectExecutor
+        deck = [_mk("spell", "火", ct="呪文")] * 2 + [_mk("crea", "火")] * 2 + [_mk("x", "火")] * 36
+        e = DuelEngine(deck, [_mk("b", "光")] * 40, GreedyPolicy(), GreedyPolicy(), rng=random.Random(0))
+        p = e.state.players[0]
+        p.deck = [BattleCard(card_id="c1", name="c1", civilizations=("火",), cost=5, card_type="クリーチャー", power=5000, text=""),
+                  BattleCard(card_id="s1", name="s1", civilizations=("火",), cost=3, card_type="呪文", power=0, text=""),
+                  BattleCard(card_id="c2", name="c2", civilizations=("火",), cost=2, card_type="クリーチャー", power=2000, text="")]
+        hand0 = len(p.hand)
+        EffectExecutor(effects={})._execute_action(e, 0, "on_play", _mk("g", "火"),
+            {"op": "look_and_take", "look": 3, "take": 1, "card_filter": "creature", "rest_zone": "deck_bottom"})
+        self.assertEqual(len(p.hand), hand0 + 1)
+        self.assertEqual(p.hand[-1].name, "c1")  # 高コストのクリーチャーを取る
+        self.assertTrue(all(c.is_creature is False or c.name != "c1" for c in p.deck[-2:]))

@@ -241,6 +241,11 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         if m:
             return [{"op": "deck_top_to_grave", "count": int(m.group(1))}]
 
+    # 相手ミル: 相手の山札の上からN枚を墓地に置く
+    m = re.search(r"相手の山札の上から(\d+)枚を[、,]?墓地に置く", cl)
+    if m:
+        return [{"op": "deck_top_to_grave", "count": int(m.group(1)), "scope": "opponent"}]
+
     # --- 蘇生(墓地からバトルゾーンへ): 自分の墓地から…クリーチャー…出す(強制のみ) ---
     if "墓地から" in cl and "バトルゾーンに出す" in cl and "相手" not in cl:
         act: dict[str, Any] = {"op": "summon_from_grave", "count": 1}

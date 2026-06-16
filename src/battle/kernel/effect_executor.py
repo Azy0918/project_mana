@@ -205,10 +205,13 @@ class EffectExecutor:
                 index = engine.rng.randrange(len(opponent.hand))
                 opponent.graveyard.append(opponent.hand.pop(index))
         elif op == "deck_top_to_grave":
+            # scope="opponent" で相手の山札を削る(山札切れ=敗北の誘発)
+            tp = engine.state.players[self._target_player_index(controller_index, action)] \
+                if action.get("scope") == "opponent" else controller
             for _ in range(count):
-                if not controller.deck:
+                if not tp.deck:
                     return
-                controller.graveyard.append(controller.deck.pop(0))
+                tp.graveyard.append(tp.deck.pop(0))
         elif op == "grave_to_hand":
             card_filter = action.get("card_filter")
             for _ in range(count):

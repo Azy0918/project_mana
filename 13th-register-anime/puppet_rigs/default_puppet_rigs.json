@@ -1,0 +1,450 @@
+{
+  "version": 1,
+  "scene_rigs": [
+    {
+      "image_name": "pv_cut_07_takumi_closeup.png",
+      "patches": [
+        {
+          "name": "takumi_face",
+          "box": [
+            315,
+            58,
+            690,
+            382
+          ],
+          "dx": {
+            "base": 0.0,
+            "sway": 1.6,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "dy": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": 0.9,
+            "positive_secondary": 0.0
+          },
+          "angle": {
+            "base": 0.0,
+            "sway": 0.28,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "scale": {
+            "base": 1.003,
+            "sway": 0.0,
+            "secondary": 0.002,
+            "positive_secondary": 0.0
+          },
+          "opacity": 118,
+          "feather": 28,
+          "radius": 70,
+          "motion_scale": 0.35
+        },
+        {
+          "name": "takumi_hand",
+          "box": [
+            70,
+            458,
+            300,
+            690
+          ],
+          "dx": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": -1.2,
+            "positive_secondary": 0.0
+          },
+          "dy": {
+            "base": 0.0,
+            "sway": 2.0,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "angle": {
+            "base": 0.0,
+            "sway": -0.55,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "scale": {
+            "base": 1.002,
+            "sway": 0.0,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "opacity": 122,
+          "feather": 24,
+          "radius": 42,
+          "motion_scale": 0.55
+        }
+      ]
+    },
+    {
+      "image_name": "pv_cut_08_mina_button.png",
+      "patches": [
+        {
+          "name": "mina_upper",
+          "box": [
+            600,
+            54,
+            950,
+            430
+          ],
+          "dx": {
+            "base": 0.0,
+            "sway": 0.8,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "dy": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": 0.8,
+            "positive_secondary": 0.0
+          },
+          "angle": {
+            "base": 0.0,
+            "sway": -0.18,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "scale": {
+            "base": 1.002,
+            "sway": 0.0,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "opacity": 110,
+          "feather": 30,
+          "radius": 76,
+          "motion_scale": 0.25
+        },
+        {
+          "name": "mina_hand",
+          "box": [
+            500,
+            420,
+            820,
+            660
+          ],
+          "dx": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": 1.2,
+            "positive_secondary": 0.0
+          },
+          "dy": {
+            "base": 0.0,
+            "sway": 0.8,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "angle": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": 0.24,
+            "positive_secondary": 0.0
+          },
+          "scale": {
+            "base": 1.002,
+            "sway": 0.0,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "opacity": 92,
+          "feather": 24,
+          "radius": 46,
+          "motion_scale": 0.45
+        }
+      ]
+    },
+    {
+      "image_name": "pv_cut_03_takumi_mina_register.png",
+      "patches": [
+        {
+          "name": "takumi_pair",
+          "box": [
+            180,
+            86,
+            520,
+            650
+          ],
+          "dx": {
+            "base": 0.0,
+            "sway": 1.0,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "dy": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": 0.9,
+            "positive_secondary": 0.0
+          },
+          "angle": {
+            "base": 0.0,
+            "sway": 0.18,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "scale": {
+            "base": 1.002,
+            "sway": 0.0,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "opacity": 92,
+          "feather": 34,
+          "radius": 74,
+          "motion_scale": 0.25
+        },
+        {
+          "name": "mina_pair",
+          "box": [
+            690,
+            70,
+            1080,
+            660
+          ],
+          "dx": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": -0.8,
+            "positive_secondary": 0.0
+          },
+          "dy": {
+            "base": 0.0,
+            "sway": 0.7,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "angle": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": -0.15,
+            "positive_secondary": 0.0
+          },
+          "scale": {
+            "base": 1.0015,
+            "sway": 0.0,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "opacity": 88,
+          "feather": 34,
+          "radius": 74,
+          "motion_scale": 0.25
+        }
+      ]
+    },
+    {
+      "image_name": "pv_cut_04_future_salaryman.png",
+      "patches": [
+        {
+          "name": "salaryman_body",
+          "box": [
+            420,
+            54,
+            850,
+            650
+          ],
+          "dx": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": 1.0,
+            "positive_secondary": 0.0
+          },
+          "dy": {
+            "base": 0.0,
+            "sway": 1.5,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "angle": {
+            "base": 0.0,
+            "sway": -0.22,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "scale": {
+            "base": 1.002,
+            "sway": 0.0,
+            "secondary": 0.0,
+            "positive_secondary": 0.002
+          },
+          "opacity": 118,
+          "feather": 34,
+          "radius": 82,
+          "motion_scale": 0.22
+        },
+        {
+          "name": "salaryman_lower",
+          "box": [
+            330,
+            300,
+            930,
+            695
+          ],
+          "dx": {
+            "base": 0.0,
+            "sway": 0.6,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "dy": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": 1.2,
+            "positive_secondary": 0.0
+          },
+          "angle": {
+            "base": 0.0,
+            "sway": 0.0,
+            "secondary": 0.12,
+            "positive_secondary": 0.0
+          },
+          "scale": {
+            "base": 1.001,
+            "sway": 0.0,
+            "secondary": 0.0,
+            "positive_secondary": 0.0
+          },
+          "opacity": 78,
+          "feather": 40,
+          "radius": 72,
+          "motion_scale": 0.12
+        }
+      ]
+    }
+  ],
+  "face_rigs": [
+    {
+      "image_name": "pv_cut_07_takumi_closeup.png",
+      "left_eye": [
+        421,
+        197,
+        495,
+        222
+      ],
+      "right_eye": [
+        532,
+        173,
+        606,
+        199
+      ],
+      "mouth": [
+        478,
+        276,
+        552,
+        304
+      ],
+      "color": [
+        190,
+        128,
+        100
+      ],
+      "blink_times": [
+        0.22,
+        0.58,
+        0.82
+      ],
+      "talk_start": 0.12,
+      "talk_end": 0.88,
+      "mouth_strength": 1.18,
+      "highlight_box": [
+        374,
+        116,
+        640,
+        328
+      ],
+      "gaze_strength": 1.1,
+      "breath_strength": 0.85,
+      "eye_light_strength": 1.1
+    },
+    {
+      "image_name": "pv_cut_08_mina_button.png",
+      "left_eye": [
+        415,
+        176,
+        470,
+        198
+      ],
+      "right_eye": [
+        500,
+        176,
+        552,
+        198
+      ],
+      "mouth": [
+        456,
+        278,
+        516,
+        296
+      ],
+      "color": [
+        184,
+        142,
+        122
+      ],
+      "blink_times": [
+        0.3,
+        0.74
+      ],
+      "talk_start": 0.12,
+      "talk_end": 0.88,
+      "mouth_strength": 0.52,
+      "highlight_box": [
+        350,
+        92,
+        610,
+        334
+      ],
+      "gaze_strength": 0.45,
+      "breath_strength": 0.55,
+      "eye_light_strength": 0.72
+    },
+    {
+      "image_name": "pv_cut_04_future_salaryman.png",
+      "left_eye": [
+        565,
+        210,
+        628,
+        230
+      ],
+      "right_eye": [
+        672,
+        212,
+        733,
+        232
+      ],
+      "mouth": [
+        620,
+        320,
+        697,
+        346
+      ],
+      "color": [
+        155,
+        112,
+        96
+      ],
+      "blink_times": [
+        0.36,
+        0.7
+      ],
+      "talk_start": 0.12,
+      "talk_end": 0.88,
+      "mouth_strength": 0.82,
+      "highlight_box": [
+        500,
+        120,
+        790,
+        390
+      ],
+      "gaze_strength": 0.35,
+      "breath_strength": 0.72,
+      "eye_light_strength": 0.56
+    }
+  ]
+}

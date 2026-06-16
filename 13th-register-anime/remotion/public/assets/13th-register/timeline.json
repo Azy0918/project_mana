@@ -1,0 +1,214 @@
+{
+  "fps": 30,
+  "durationMs": 60000,
+  "events": [
+    {
+      "number": "002",
+      "cast": "ナレーション",
+      "text": "午前2時3分。",
+      "direction": "静かに、深夜の空気を作る。",
+      "startMs": 0,
+      "durationMs": 1425
+    },
+    {
+      "number": "003",
+      "cast": "ナレーション",
+      "text": "国道沿いのコンビニは、眠そうなトラックがたまに前を通るだけで、ほとんど海の底みたいに静かだった。",
+      "direction": "落ち着いた中低音。少し文学的に。",
+      "startMs": 1425,
+      "durationMs": 6418
+    },
+    {
+      "number": "005",
+      "cast": "タクミ",
+      "text": "ミナさん、廃棄のおにぎりって、何分前から食べていいんですか。",
+      "direction": "素朴に、少し期待して。",
+      "startMs": 7843,
+      "durationMs": 4225
+    },
+    {
+      "number": "006",
+      "cast": "ミナ",
+      "text": "食べていいとは誰も言ってない。",
+      "direction": "淡々と即答。",
+      "startMs": 12068,
+      "durationMs": 2257
+    },
+    {
+      "number": "007",
+      "cast": "タクミ",
+      "text": "でも、捨てるんですよね。",
+      "direction": "小声で食い下がる。",
+      "startMs": 14325,
+      "durationMs": 1721
+    },
+    {
+      "number": "008",
+      "cast": "ミナ",
+      "text": "捨てるものと、食べていいものの間には、店長という深い谷がある。",
+      "direction": "業務説明のように淡々と。",
+      "startMs": 16046,
+      "durationMs": 5696
+    },
+    {
+      "number": "009",
+      "cast": "タクミ",
+      "text": "深いですね。",
+      "direction": "妙に納得して。",
+      "startMs": 21742,
+      "durationMs": 845
+    },
+    {
+      "number": "010",
+      "cast": "ミナ",
+      "text": "落ちるとシフトが減る。",
+      "direction": "無表情で。",
+      "startMs": 22587,
+      "durationMs": 1759
+    },
+    {
+      "number": "011",
+      "cast": "タクミ",
+      "text": "現実的な地獄だ。",
+      "direction": "ぼそっとツッコミ。",
+      "startMs": 24346,
+      "durationMs": 1346
+    },
+    {
+      "number": "012",
+      "cast": "間",
+      "text": "",
+      "direction": "",
+      "startMs": 25692,
+      "durationMs": 500
+    },
+    {
+      "number": "013",
+      "cast": "ナレーション",
+      "text": "新人夜勤バイト三週間目のタクミは、おにぎり棚の前で、廃棄時間のシールを見比べていた。",
+      "direction": "状況説明。テンポはゆっくり。",
+      "startMs": 26192,
+      "durationMs": 6075
+    },
+    {
+      "number": "014",
+      "cast": "ナレーション",
+      "text": "先輩バイトのミナは、眠そうでもなく、元気そうでもなく、ただそこにいるだけの顔をしていた。",
+      "direction": "ミナの無表情さを淡々と。",
+      "startMs": 32267,
+      "durationMs": 5885
+    },
+    {
+      "number": "015",
+      "cast": "ミナ",
+      "text": "タクミくん、二時十分になったら床清掃。",
+      "direction": "淡々と指示。",
+      "startMs": 38152,
+      "durationMs": 3738
+    },
+    {
+      "number": "016",
+      "cast": "タクミ",
+      "text": "はい。",
+      "direction": "素直に。",
+      "startMs": 41890,
+      "durationMs": 489
+    },
+    {
+      "number": "017",
+      "cast": "ミナ",
+      "text": "二時十五分に雑誌返品。",
+      "direction": "淡々と。",
+      "startMs": 42379,
+      "durationMs": 2280
+    },
+    {
+      "number": "018",
+      "cast": "タクミ",
+      "text": "はい。",
+      "direction": "素直に。",
+      "startMs": 44659,
+      "durationMs": 490
+    },
+    {
+      "number": "019",
+      "cast": "ミナ",
+      "text": "2時17分にだいじゅうさんレジ。",
+      "direction": "何でもないことのように。",
+      "startMs": 45149,
+      "durationMs": 2630
+    },
+    {
+      "number": "020",
+      "cast": "タクミ",
+      "text": "はい……はい？",
+      "direction": "一拍遅れて違和感に気づく。",
+      "startMs": 47779,
+      "durationMs": 1353
+    },
+    {
+      "number": "021",
+      "cast": "間",
+      "text": "",
+      "direction": "",
+      "startMs": 49132,
+      "durationMs": 500
+    },
+    {
+      "number": "022",
+      "cast": "タクミ",
+      "text": "今、なんて言いました？",
+      "direction": "困惑。",
+      "startMs": 49632,
+      "durationMs": 1604
+    },
+    {
+      "number": "023",
+      "cast": "ミナ",
+      "text": "だいじゅうさんレジ。",
+      "direction": "平然と。",
+      "startMs": 51236,
+      "durationMs": 1307
+    },
+    {
+      "number": "024",
+      "cast": "タクミ",
+      "text": "この店、レジ二つしかないですよね。",
+      "direction": "確認するように。",
+      "startMs": 52543,
+      "durationMs": 2442
+    },
+    {
+      "number": "025",
+      "cast": "ミナ",
+      "text": "昼間はね。",
+      "direction": "さらっと。",
+      "startMs": 54985,
+      "durationMs": 1026
+    },
+    {
+      "number": "026",
+      "cast": "タクミ",
+      "text": "夜になると増えるんですか。",
+      "direction": "半信半疑。",
+      "startMs": 56011,
+      "durationMs": 1631
+    },
+    {
+      "number": "027",
+      "cast": "ミナ",
+      "text": "2時17分だけ。",
+      "direction": "淡々と。",
+      "startMs": 57642,
+      "durationMs": 1826
+    },
+    {
+      "number": "028",
+      "cast": "タクミ",
+      "text": "それ、シフト表に書いてなかったです。",
+      "direction": "不安げに。",
+      "startMs": 59468,
+      "durationMs": 532
+    }
+  ]
+}

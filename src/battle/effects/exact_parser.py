@@ -558,6 +558,18 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
             scope = "opponent"
         return [{"op": "destroy_creatures_nonciv", "keep_civ": m.group(2), "scope": scope}]
 
+    # --- パワーN以下の全クリーチャー破壊(スコープ省略=両者) ---
+    m = re.match(r"^(自分の|相手の)?パワー(\d+)以下のクリーチャーをすべて破壊する$", cl)
+    if m:
+        mp = int(m.group(2))
+        scopes = ["self"] if m.group(1) == "自分の" else (["opponent"] if m.group(1) == "相手の" else ["self", "opponent"])
+        return [{"op": "destroy_creature", "count": 99, "max_power": mp, "scope": s} for s in scopes]
+    # --- ブロッカーを持つ全クリーチャー破壊(スコープ省略=両者) ---
+    m = re.match(r"^(自分の|相手の)?[「『]?ブロッカー[」』]?を持つクリーチャーをすべて破壊する$", cl)
+    if m:
+        scopes = ["self"] if m.group(1) == "自分の" else (["opponent"] if m.group(1) == "相手の" else ["self", "opponent"])
+        return [{"op": "destroy_creature", "count": 99, "target_filter": "blocker", "scope": s} for s in scopes]
+
     # --- マナゾーン召喚(summon_from_mana) ---
     # コスト/パワー/文明/進化でない の組み合わせフィルタに対応。未知修飾語があれば reject。
     if "マナゾーンから" in cl and "バトルゾーンに出す" in cl and "相手" not in cl:
@@ -776,10 +788,14 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         if any(p in cl for p in ("自分のシールドをすべて手札に戻す", "自分のシールドをすべて手札に加える",
                                    "自分のシールドを好きな数手札に戻す", "自分のシールドを好きな数手札に加える")):
             return [{"op": "own_shield_to_hand", "count": 99}]
-        # シールド→墓地: 自分のシールドをN枚墓地に置く
-        m = re.search(r"自分のシールド(?:を)?(\d+)つ?(?:を)?墓地に置く", cl)
+        # シールド→墓地: 自分の(ランダムな)?シールドをN枚墓地に置く(コスト=必ず模擬する)
+        m = re.search(r"自分の(?:ランダムな)?シールド(?:を)?(\d+)つ?(?:を)?墓地に置く", cl)
         if m and "相手" not in cl:
             return [{"op": "own_shield_to_grave", "count": int(m.group(1))}]
+        # 自己シールドブレイク: 手札に入る近似(S・トリガー無視=under-model)
+        m = re.search(r"自分の(?:ランダムな)?シールド(?:を)?(\d+)つ?(?:を)?ブレイクする", cl)
+        if m and "相手" not in cl:
+            return [{"op": "own_shield_to_hand", "count": int(m.group(1))}]
         # 手札→シールド: 自分の手札N枚をシールド化する
         if "シールド化" in cl and "相手" not in cl:
             m = re.search(r"(?:自分の)?手札(\d+)?枚?をシールド化", cl)
@@ -925,6 +941,9 @@ _SAFE_BODY_PATTERNS = [
     # 除去されない=under-model=安全
     r"^相手の.{0,30}(?:クリーチャー|エレメント)\d*[体つ]?を?シールド化する$",
     r"^相手の(?:クリーチャー|エレメント)\d*[体つ]?を?表向きにしてシールド\d*つ?の上に置く$",
+    # 探索(墓地/マナ/山札からの種別タッチ・サーチ)=有益チューター。engine未対応=
+    # under-model=安全
+    r"^自分の(?:墓地|マナゾーン|山札)から.{0,30}探索し.{0,30}手札に(?:戻す|加える|戻し|加え)(?:てもよい)?$",
     # ガチンコ・ジャッジ: 山札トップのコスト比較。engine未対応=勝てない=under-model=安全
     r"^相手とガチンコ・ジャッジする$",
     r"^自分が勝(?:ったら|てば)[、,].*$",

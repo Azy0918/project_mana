@@ -273,6 +273,25 @@ _STATIC_CLAUSE = [
     r"^メテオバーンX[：:].{1,250}$",
     # クリーチャーを攻撃できない: cannot_attack_creature で模擬済み(安全)
     r"^クリーチャーを攻撃できない$",
+    # モーダル選択ヘッダ: 「次のうちいずれかひとつを選ぶ」。各▶選択肢は静的スキップ済み。
+    # プレイヤーは有利な1つを選ぶ→engine何もしない=doing nothing≤best option=under-model(安全)
+    r"^(?:そうした場合[、,])?次のうちいずれか(?:ひとつ|1つ|2つ|つ)?を選(?:ぶ|んでもよい)$",
+    r"^(?:そうした場合[、,])?次のうち(?:から)?\d+つを選(?:ぶ|んでもよい)$",
+    # スーパー龍解後注記: パーレン内形態注記=ゲームプレイに影響なし
+    r"^（スーパー龍解後[：:][^）]+）$",
+    # P'S覚醒リンク: 複数体結合キーワード。engine未対応=under-model(安全)
+    r"^P'S覚醒リンク[：:].{1,250}$",
+    # 超無限進化/超無限GV等の進化宣言: engine は is_evolution で簡略模擬済み
+    r"^超無限進化[：:－\-].{1,40}$",
+    r"^無限進化[：:－\-].{1,40}$",
+    # シールド・フォース: シールド下付与キーワード。engine未対応=under-model(安全)
+    r"^シールド・フォース[：:].{1,250}$",
+    # マスター・W・メラビート等の召喚誘発キーワード: engine未対応=under-model(安全)
+    r"^マスター・[WＷ]・メラビート[：:].{1,250}$",
+    # ガチンコ・ジャッジ系: 山札トップ比較。engine未対応=under-model(安全)
+    r"^ガチンコ・ジャッジ(?:でこのクリーチャーを見せた時)?.{0,200}$",
+    # 召喚時手札戻し(コスト): engine未対応=under-model(安全)
+    r"^このクリーチャーを召喚する時[、,].{1,120}$",
 ]
 
 # 各文明
@@ -990,6 +1009,85 @@ def _try_look_and_take(t: str, is_spell: bool, s_trigger: bool) -> list[dict[str
     return abilities
 
 
+_MODAL_HEADER_RE = re.compile(
+    r"次のうち(?:から)?(?:いずれか(?:ひとつ|1つ|2つ|つ)?|\d+つ)を選(?:ぶ|んでもよい)"
+)
+
+
+def _parse_modal_option(body: str) -> list[dict[str, Any]] | None:
+    """モーダル選択肢1つ(複数文可)を actions に変換。未知ならNone、全静的なら空リスト。"""
+    acts: list[dict[str, Any]] = []
+    for sent in body.split("。"):
+        sent = sent.strip()
+        if not sent or _is_static(sent):
+            continue
+        if any(re.match(p, sent.rstrip("。")) for p in _SAFE_BODY_PATTERNS):
+            continue
+        r = _parse_action_clause(sent)
+        if r is None:
+            return None
+        acts.extend(r)
+    return acts
+
+
+def _try_modal(t: str, is_spell: bool, s_trigger: bool) -> list[dict[str, Any]] | None:
+    """「次のうちいずれかひとつを選ぶ」型の純粋モーダルカードを modal_choice に変換。
+
+    全選択肢(▶)が既知アクションに解析できる場合のみ成功。モーダル以外の本体が
+    静的キーワードだけで構成される純粋モーダルカードを対象とする。
+    """
+    if not _MODAL_HEADER_RE.search(t):
+        return None
+    # ▶選択肢の本体を抽出
+    raw_options = re.findall(r"▶([^▶\n]+)", t)
+    if len(raw_options) < 2:
+        return None
+    # ▶部分を除去した残りを行に分割し、トリガー付きヘッダ行を探す
+    remainder = re.sub(r"▶[^▶\n]+", "", t)
+    lines: list[str] = []
+    for line in re.split(r"[\n]", remainder):
+        for part in re.split(r"[■◇]", line):
+            p = part.strip()
+            if p:
+                lines.append(p)
+    header_line = None
+    for ln in lines:
+        if _MODAL_HEADER_RE.search(ln):
+            header_line = ln
+            continue
+        if ln in ("S・トリガー", "シールド・トリガー") or _is_static(ln):
+            continue
+        # ヘッダ・静的・S・トリガー以外の本体があれば純粋モーダルでない → 諦める
+        return None
+    if header_line is None:
+        return None
+    # ヘッダのトリガーを判定
+    head = re.sub(r"(?:そうした場合[、,])?" + _MODAL_HEADER_RE.pattern + r"。?$", "", header_line).strip("、, ")
+    if head:
+        trig, _ = _detect_trigger(header_line)
+        trigger = trig
+    else:
+        trigger = None
+    if trigger is None:
+        if is_spell:
+            trigger = "on_cast"
+        else:
+            return None
+    # 各選択肢を解析
+    options: list[list[dict[str, Any]]] = []
+    for opt in raw_options:
+        acts = _parse_modal_option(opt.strip().rstrip("。"))
+        if acts is None:
+            return None
+        options.append(acts)
+    modal_act = {"op": "modal_choice", "options": options}
+    abilities = [{"trigger": trigger, "actions": [modal_act]}]
+    main_trigger = "on_cast" if is_spell else "on_play"
+    if s_trigger and trigger == main_trigger:
+        abilities.append({"trigger": "s_trigger", "actions": [dict(modal_act)]})
+    return abilities
+
+
 def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
     """カード全文を exact abilities に変換。全節カバーできなければ None。
 
@@ -1010,6 +1108,10 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
     lat = _try_look_and_take(t, is_spell, s_trigger)
     if lat is not None:
         return lat
+
+    modal = _try_modal(t, is_spell, s_trigger)
+    if modal is not None:
+        return modal
 
     # ■◇と改行でアビリティ単位に分割(各アビリティ内の。区切りはトリガーを共有する継続節)
     ability_chunks: list[str] = []

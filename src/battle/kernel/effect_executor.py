@@ -490,6 +490,33 @@ class EffectExecutor:
                         removed.append(mana)
                 player.mana_zone = kept
                 player.graveyard.extend(m.card for m in removed)
+        elif op == "modal_choice":
+            # 「次のうちいずれかひとつを選ぶ」: 各選択肢を簡易スコアリングして最良を実行する。
+            # look_and_take 同様、合理的プレイをヒューリスティックで近似(=exact 扱い)。
+            options = action.get("options", [])
+            if not options:
+                return
+
+            def _score(acts: list[dict[str, Any]]) -> int:
+                s = 0
+                for a in acts:
+                    o = a.get("op", "")
+                    if o in ("destroy_creature", "send_creature_to_mana", "burn_opponent_shield",
+                             "bounce_creature", "discard_opponent_hand", "destroy_mana"):
+                        s += 3
+                    elif o in ("tap_creature",):
+                        s += 2
+                    elif o in ("draw", "summon_from_hand", "summon_from_grave", "summon_from_mana",
+                               "add_shield", "deck_top_to_mana", "look_and_take", "untap_creature"):
+                        s += 1
+                return s
+
+            best = max(options, key=_score)
+            for a in best:
+                if engine.state.finished or self._chain_depth >= MAX_RESOLUTIONS_PER_CHAIN:
+                    return
+                self._chain_depth += 1
+                self._execute_action(engine, controller_index, trigger, card, a, context)
         elif op == "destroy_creatures_nonciv":
             # 指定文明を持たないクリーチャーをすべて破壊(ドルバロム後段)。scope="both"対応。
             keep_civ = action.get("keep_civ")

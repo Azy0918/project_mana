@@ -872,13 +872,13 @@ _SAFE_BODY_PATTERNS = [
     # 山札シャッフル: engine未対応=under-model=安全
     r"^(?:その後[、,])?(?:自分の)?山札をシャッフルする$",
     # 超次元ゾーンからの召喚: engine未対応=under-model=安全
-    r"^自分の超次元ゾーンから.{1,80}バトルゾーンに出す(?:てもよい)?$",
+    r"^自分の超次元ゾーンから.{1,80}バトルゾーンに出(?:す|してもよい)$",
     # 墓地/手札からコストを支払わず唱える(任意・有益): engine未対応=under-model=安全
     r"^自分の(?:墓地|手札)から[、,]?.{1,80}コストを支払わずに唱えてもよい$",
     # 墓地からの任意召喚(種族/動的フィルタで通常パーサが拾えない): engine未対応=under-model=安全
-    r"^自分の墓地から[、,]?.{1,80}バトルゾーンに出してもよい$",
+    r"^自分の墓地から[、,]?.{1,80}バトルゾーンに出(?:す|してもよい)$",
     # 手札からの踏み倒し召喚(種族フィルタ): engine未対応=under-model=安全
-    r"^自分の手札から[、,]?.{1,80}バトルゾーンに出す(?:てもよい)?$",
+    r"^自分の手札から[、,]?.{1,80}バトルゾーンに出(?:す|してもよい)$",
     # ガチンコ・ジャッジ: 山札トップのコスト比較。engine未対応=勝てない=under-model=安全
     r"^相手とガチンコ・ジャッジする$",
     r"^自分が勝(?:ったら|てば)[、,].*$",
@@ -891,7 +891,7 @@ _SAFE_BODY_PATTERNS = [
 
 # 自分の山札を見る/表向き/公開する起点文(枚数指定の有無・「上から」省略の有無に対応)。
 _LOOK_OWN_DECK_RE = re.compile(
-    r"^(?:自分の)?山札(?:を(?:シャッフルし、?)?)?(?:の上)?から\d*枚?(?:目)?を?(?:見る|表向きにする|公開する)"
+    r"^(?:自分の)?山札(?:を(?:シャッフルし、?)?)?(?:の?上)?から\d*枚?(?:目)?を?(?:見る|表向きにする|公開する)"
 )
 # look-resolution の継続文に現れる、見たカードの行き先キーワード。
 _LOOK_RESOLUTION_KEYWORDS = (
@@ -1159,6 +1159,8 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
     prev_chunk_trigger: str | None = None
     # ツインパクト: 【LINE】以降の節はスペル側(呪文)扱い→on_cast をデフォルトトリガーに使う
     after_line = False
+    # 別チャンクに分かれた look-resolution(「見る」の解決が次の■にある)を飛ばすための状態。
+    look_skip_active = False
 
     for chunk in ability_chunks:
         # 【LINE】はツインパクトのクリーチャー/スペル境界マーカー
@@ -1167,6 +1169,13 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
             continue
         if chunk in ("S・トリガー", "シールド・トリガー") or _is_static(chunk):
             continue
+        # 直前チャンクが「自分の山札を見る」だけだった場合、その解決(その中から…/残り…)が
+        # 別の■チャンクに続くことがある。純粋な解決チャンクなら under-model で飛ばす。
+        if look_skip_active:
+            res_sents = [s.strip() for s in chunk.split("。") if s.strip()]
+            if res_sents and all(_is_look_resolution_sent(s) for s in res_sents):
+                continue
+            look_skip_active = False
         # 「その後、」で始まるチャンクは直前チャンクのトリガーを引き継ぐ
         inherited_trigger: str | None = None
         if chunk.startswith("その後、") or chunk.startswith("その後,"):
@@ -1237,6 +1246,8 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                 tail = [body] + [sentences[k].strip() for k in range(si + 1, len(sentences))]
                 if all(_is_look_resolution_sent(s) for s in tail):
                     skip_until = len(sentences) - 1
+                    # 解決がこのチャンク内で完結せず次の■に続く場合に備え状態を立てる
+                    look_skip_active = True
                     continue
             acts = _parse_action_clause(body)
             if acts is None:

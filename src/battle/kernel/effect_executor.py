@@ -76,7 +76,9 @@ class EffectExecutor:
 
         # 数えて判定できる条件(マナ武装・墓地枚数・革命など)
         condition = action.get("condition")
-        if condition is not None and not self._condition_met(controller, condition, context):
+        if condition is not None and not self._condition_met(
+            controller, condition, context, engine.state.players[1 - controller_index]
+        ):
             return
 
         # ターン終了時タイミングの効果はエンジンの遅延キューに積む(阿修羅型の正確な再現)
@@ -135,6 +137,7 @@ class EffectExecutor:
             max_power = action.get("max_power")
             max_cost = action.get("max_cost")
             target_filter = action.get("target_filter")
+            exclude_evolution = action.get("exclude_evolution", False)
             if action.get("target") == "source":
                 # 「このクリーチャー(自身)を破壊する」= 効果元の実体を破壊
                 src = next((c for c in controller.battle_zone if c.card is card), None)
@@ -149,6 +152,8 @@ class EffectExecutor:
                     pool = [creature for creature in pool if creature.card.cost <= max_cost]
                 if target_filter == "blocker":
                     pool = [creature for creature in pool if creature.card.is_blocker]
+                if exclude_evolution:
+                    pool = [creature for creature in pool if not creature.card.is_evolution]
                 if action.get("chooser") == "opponent" and pool:
                     # 「相手は自身のクリーチャーを破壊する」= 相手の最適行動(最弱を差し出す)
                     target = min(pool, key=lambda c: c.card.power)
@@ -161,10 +166,13 @@ class EffectExecutor:
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]
             max_cost = action.get("max_cost")
+            exclude_evolution = action.get("exclude_evolution", False)
             for _ in range(count):
                 pool = target_player.battle_zone
                 if max_cost is not None:
                     pool = [c for c in pool if c.card.cost <= max_cost]
+                if exclude_evolution:
+                    pool = [c for c in pool if not c.card.is_evolution]
                 target = self._select_target(engine, controller_index, op, pool)
                 if target is None:
                     return
@@ -194,8 +202,11 @@ class EffectExecutor:
         elif op == "tap_creature":
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]
+            exclude_evolution = action.get("exclude_evolution", False)
             for _ in range(count):
                 candidates = [creature for creature in target_player.battle_zone if not creature.tapped]
+                if exclude_evolution:
+                    candidates = [c for c in candidates if not c.card.is_evolution]
                 target = self._select_target(engine, controller_index, op, candidates)
                 if target is None:
                     return
@@ -235,11 +246,18 @@ class EffectExecutor:
                 controller.hand.append(target_card)
         elif op == "summon_from_hand":
             max_cost = action.get("max_cost")
+            exclude_evolution = bool(action.get("exclude_evolution"))
+            civ_filter = action.get("civilizations")
+            target_filter = action.get("target_filter")
             for _ in range(count):
                 candidates = [
                     entry
                     for entry in controller.hand
-                    if entry.is_creature and (max_cost is None or entry.cost <= max_cost)
+                    if entry.is_creature
+                    and (max_cost is None or entry.cost <= max_cost)
+                    and not (exclude_evolution and entry.is_evolution)
+                    and (civ_filter is None or any(c in civ for civ in entry.civilizations for c in civ_filter))
+                    and (target_filter != "blocker" or entry.is_blocker)
                 ]
                 if not candidates:
                     return
@@ -254,8 +272,12 @@ class EffectExecutor:
         elif op == "send_creature_to_mana":
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]
+            exclude_evolution = action.get("exclude_evolution", False)
             for _ in range(count):
-                target = self._select_target(engine, controller_index, op, target_player.battle_zone)
+                pool = target_player.battle_zone
+                if exclude_evolution:
+                    pool = [c for c in pool if not c.card.is_evolution]
+                target = self._select_target(engine, controller_index, op, pool)
                 if target is None:
                     return
                 target_player.battle_zone.remove(target)
@@ -265,6 +287,7 @@ class EffectExecutor:
             target_player_index = self._target_player_index(controller_index, {"scope": action.get("scope", "self")})
             target_player = engine.state.players[target_player_index]
             max_cost = action.get("max_cost")
+            max_power = action.get("max_power")
             exclude_evolution = bool(action.get("exclude_evolution"))
             name_self = bool(action.get("name_self"))
             civ_filter = action.get("civilizations")
@@ -274,6 +297,7 @@ class EffectExecutor:
                     for mana in target_player.mana_zone
                     if mana.card.is_creature
                     and (max_cost is None or mana.card.cost <= max_cost)
+                    and (max_power is None or mana.card.power <= max_power)
                     and not (exclude_evolution and mana.card.is_evolution)
                     and not (name_self and mana.card.name != card.name)
                     and (civ_filter is None or any(c in civ for civ in mana.card.civilizations for c in civ_filter))
@@ -370,6 +394,13 @@ class EffectExecutor:
                 if not controller.shields:
                     return
                 controller.hand.append(controller.shields.pop())
+        elif op == "hand_to_shield":
+            for _ in range(count):
+                if not controller.hand:
+                    return
+                target_card = max(controller.hand, key=lambda c: c.cost)
+                controller.hand.remove(target_card)
+                controller.shields.append(target_card)
         elif op == "hand_to_mana":
             for _ in range(count):
                 if not controller.hand:
@@ -405,6 +436,15 @@ class EffectExecutor:
                 target_mana = max(untapped, key=lambda mana: (mana.card.cost, mana.card.power))
                 controller.mana_zone.remove(target_mana)
                 controller.hand.append(target_mana.card)
+        elif op == "mana_to_grave":
+            tp_index = self._target_player_index(controller_index, action)
+            tp = engine.state.players[tp_index]
+            for _ in range(count):
+                if not tp.mana_zone:
+                    return
+                target_mana = min(tp.mana_zone, key=lambda m: m.card.cost)
+                tp.mana_zone.remove(target_mana)
+                tp.graveyard.append(target_mana.card)
         elif op == "untap_creature":
             if action.get("target") == "source":
                 src = next((c for c in controller.battle_zone if c.card is card), None) \
@@ -454,6 +494,7 @@ class EffectExecutor:
         controller: PlayerState,
         condition: dict[str, Any],
         context: dict[str, Any] | None = None,
+        opponent: PlayerState | None = None,
     ) -> bool:
         """数えるだけで判定できる発動条件(マナ武装・墓地枚数・革命・タップ状態)を評価する。"""
         kind = condition.get("kind")
@@ -480,6 +521,10 @@ class EffectExecutor:
             return len(controller.shields) <= count
         if kind == "shields_at_least":
             return len(controller.shields) >= count
+        if kind == "opponent_shields_at_most":
+            return len(opponent.shields) <= count if opponent is not None else False
+        if kind == "opponent_shields_at_least":
+            return len(opponent.shields) >= count if opponent is not None else False
         if kind == "hand_at_most":
             return len(controller.hand) <= count
         if kind == "hand_at_least":

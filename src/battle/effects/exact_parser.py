@@ -27,9 +27,21 @@ _STATIC_CLAUSE = [
     r"^B・A・D(?:・S)?\s*\d+$",  # engine: bad_discount+temporary で模擬済み
     r"^可能(?:なら|であれば)毎ターン攻撃する$",  # engine: 攻撃フェーズで強制
     r"^ガードマン$",  # engine: _legal_attacks でガードマン優先攻撃強制
+    r"^パワード・ブレイカー$",  # engine: breaker_count で power/6000 として模擬済み
     r"^スーパー・S・トリガー$",  # SST: 通常S・トリガーとして近似(発動条件の差は簡略化)
     r"^ただし、その「S・トリガー」は使えない$",  # シールド手札戻し時の注記(engine自然満足)
     r"^相手のクリーチャーが攻撃する場合[、,]?可能なら(?:このクリーチャーを)?攻撃する$",  # ガードマン説明文
+    # デッキ構築専用ルール: ゲームプレイに影響なし
+    r"^このカードは[、,]?\d+枚より多くデッキに入れることができる$",
+    # 注釈テキスト(マナ増加しない/制限注記): engine は自然に満足
+    r"^（ただし、使用可能マナは増えない）$",
+    r"^（ただし、このマナゾーンのカードは[^）]*使えない）$",
+    # 呪文着地置換: engine は常に墓地行き = under-model(安全方向)
+    # 「この呪文を[自分の手札から]唱えた後、墓地に置くかわりに...」パターン
+    r"^この呪文を(?:自分の手札から)?唱えた後[、,]?(?:自分の)?墓地に置くかわりに(?:自分の)?山札(?:に加えてシャッフル|の一番下に置く).*$",
+    r"^この呪文を(?:自分の手札から)?唱えた後[、,]?(?:自分の)?墓地に置くかわりに(?:、?表向きのまま)?自分のシールド\d+つの上に(?:表向きにして)?置く$",
+    r"^この呪文を(?:自分の手札から)?唱えた後[、,]?(?:自分の)?墓地に置くかわりに(?:自分の)?マナゾーンに置く.*$",
+    r"^この呪文を(?:自分の手札から)?唱えた後[、,]?(?:自分の)?墓地に置くかわりに(?:自分の)?手札に戻す$",
     # 進化条件: 単なる召喚条件であり、engineは is_evolution で簡略模擬済み
     r"^(?:NEO)?進化(?:クリーチャー)?[：:－-][^\n]+のクリーチャー(?:または.+)?$",
     r"^進化[：:－-].{1,30}$",  # 進化－種族 等の短い進化宣言
@@ -129,6 +141,8 @@ def _restrictions(clause: str) -> dict[str, Any]:
         r["max_power"] = int(m.group(1))
     if "ブロッカー" in clause:
         r["target_filter"] = "blocker"
+    if "進化でない" in clause or "進化ではない" in clause:
+        r["exclude_evolution"] = True
     return r
 
 
@@ -203,12 +217,18 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     m = re.search(r"自分の墓地に(?:カード|クリーチャー)が(\d+)枚以上あれば[、,]?(.+)$", cl)
     if m:
         return ({"kind": "grave_at_least", "count": int(m.group(1))}, m.group(2), True)
-    m = re.search(r"自分のシールドが(\d+)つ?以下なら[、,]?(.+)$", cl)
+    m = re.search(r"自分のシールドが(\d+)つ?以下(?:なら|であれば)[、,]?(.+)$", cl)
     if m:
         return ({"kind": "shields_at_most", "count": int(m.group(1))}, m.group(2), True)
-    m = re.search(r"自分のシールドが(\d+)つ?以上(?:あれば|なら)[、,]?(.+)$", cl)
+    m = re.search(r"自分のシールドが(\d+)つ?以上(?:あれば|なら|であれば)[、,]?(.+)$", cl)
     if m:
         return ({"kind": "shields_at_least", "count": int(m.group(1))}, m.group(2), True)
+    m = re.search(r"相手のシールドが(\d+)つ?以下(?:なら|であれば)[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "opponent_shields_at_most", "count": int(m.group(1))}, m.group(2), True)
+    m = re.search(r"相手のシールドが(\d+)つ?以上(?:あれば|なら|であれば)[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "opponent_shields_at_least", "count": int(m.group(1))}, m.group(2), True)
     m = re.search(r"自分の(?:最大)?マナが(\d+)以下(?:なら|であれば)[、,]?(.+)$", cl)
     if m:
         return ({"kind": "mana_at_most", "count": int(m.group(1))}, m.group(2), True)
@@ -226,25 +246,75 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     cl = clause.strip().rstrip("。")
     # 「そうした場合、」は前段アクション実行後の逐次効果。reject前に除去して逐次化。
     cl = cl.replace("そうした場合、", "").replace("そうしたら、", "").replace("そうした場合は、", "")
+    # pre-reject ハンドラのために「してもよい/出す」を正規化(正規化本体は reject 後)
+    cl = cl.replace("バトルゾーンに出してもよい", "バトルゾーンに出す")
 
-    # --- マナゾーン召喚(summon_from_mana): 種別/コスト以外の絞り込みは reject ---
+    # --- マナゾーン召喚(summon_from_mana) ---
+    # コスト/パワー/文明/進化でない の組み合わせフィルタに対応。未知修飾語があれば reject。
     if "マナゾーンから" in cl and "バトルゾーンに出す" in cl and "相手" not in cl:
-        mm = re.fullmatch(
-            r"(?:自分の)?マナゾーンから、?(?:コスト(\d+)以下の、?)?(?:進化でない、?)?クリーチャーを?"
-            r"(?:、?(\d+)体(?:まで)?)?、?バトルゾーンに出す", cl)
-        if not mm:
+        act: dict[str, Any] = {"op": "summon_from_mana", "count": 1}
+        mana_rest = re.sub(r"^(?:自分の)?マナゾーンから[、,]?", "", cl)
+        mana_rest = re.sub(r"[、,]?バトルゾーンに出す$", "", mana_rest)
+
+        if "好きな数" in mana_rest:
+            mana_rest = re.sub(r"[、,]?クリーチャーを[、,]?好きな数[、,]?$", "", mana_rest)
+            act["count"] = 99
+        else:
+            # extract count ("クリーチャーN体/枚まで")
+            m_cnt = re.search(r"クリーチャーを?(\d+)(?:体|枚)(?:まで)?を?(?:[、,]|$)", mana_rest)
+            if m_cnt:
+                act["count"] = int(m_cnt.group(1))
+                mana_rest = mana_rest[:m_cnt.start()] + mana_rest[m_cnt.end():]
+            # strip bare "クリーチャーを?"
+            mana_rest = re.sub(r"[、,]?クリーチャーを?[、,]?$", "", mana_rest)
+
+        m_cost = re.search(r"コスト(\d+)以下", mana_rest)
+        if m_cost:
+            act["max_cost"] = int(m_cost.group(1))
+            mana_rest = mana_rest.replace(m_cost.group(0), "")
+        m_power = re.search(r"パワー(\d+)以下", mana_rest)
+        if m_power:
+            act["max_power"] = int(m_power.group(1))
+            mana_rest = mana_rest.replace(m_power.group(0), "")
+        m_civ = re.search(r"([光水火闇自然])の", mana_rest)
+        if m_civ:
+            act["civilizations"] = [m_civ.group(1)]
+            mana_rest = mana_rest.replace(m_civ.group(0), "")
+        if "進化でない" in mana_rest or "進化ではない" in mana_rest:
+            act["exclude_evolution"] = True
+            mana_rest = mana_rest.replace("進化でない", "").replace("進化ではない", "")
+        mana_rest = re.sub(r"[、,の を]+", "", mana_rest).strip()
+        if mana_rest:
             return None
-        act: dict[str, Any] = {"op": "summon_from_mana", "count": int(mm.group(2)) if mm.group(2) else 1}
-        if mm.group(1):
-            act["max_cost"] = int(mm.group(1))
         return [act]
 
-    # --- マナ→手札(mana_to_hand): カード/クリーチャー/呪文をマナゾーンから手札に戻す ---
-    if "マナゾーンから" in cl and ("手札に戻す" in cl or "手札に加える" in cl) and "相手" not in cl:
-        mm = re.search(r"マナゾーンから[^。]*?(?:カード|クリーチャー|呪文)(\d+)?枚?を?(?:手札に戻す|手札に加える)", cl)
+    # --- マナ→墓地(mana_to_grave): マナゾーンからカードを墓地に置く ---
+    # 「ランダムな」= engine は最小コスト選択で近似(under-model=安全)
+    if "マナゾーンから" in cl and ("墓地に置く" in cl or "墓地に置き" in cl):
+        sc = _scope_for(cl) if ("相手" in cl or "自分" in cl) else ("self", None)
+        if sc is None:
+            return None
+        mm = re.search(r"マナゾーンから(?:ランダムな)?(?:カード|クリーチャー)?(\d+)?枚?を?墓地に置(?:く|き)", cl)
         if not mm:
             return None
         cnt = int(mm.group(1)) if mm.group(1) else 1
+        scope = "opponent" if sc[0] == "opponent" else "self"
+        return [{"op": "mana_to_grave", "count": cnt, "scope": scope}]
+
+    # --- マナ→手札(mana_to_hand): カード/クリーチャー/呪文をマナゾーンから手札に戻す ---
+    # 「戻してもよい」(て形)も含めて検出(正規化前なので te-form は raw で確認)
+    if "マナゾーンから" in cl and any(p in cl for p in ("手札に戻す", "手札に戻し", "手札に加える")) and "相手" not in cl:
+        if "好きな数" in cl:
+            return [{"op": "mana_to_hand", "count": 99}]
+        # count の位置は「カード1枚を」「カードを1枚」「カードを1枚まで」の3パターン
+        mm = re.search(
+            r"マナゾーンから[^。]*?(?:カード|クリーチャー|呪文)"
+            r"(?:(\d+)枚?を?|を(\d+)枚(?:まで)?)?"
+            r"(?:手札に戻す|手札に戻し|手札に加える)", cl)
+        if not mm:
+            return None
+        cnt_raw = mm.group(1) or mm.group(2)
+        cnt = int(cnt_raw) if cnt_raw else 1
         return [{"op": "mana_to_hand", "count": cnt}]
 
     # --- パワー修整(「そのターン」限定。engineのpower_modifierはターン終了でリセット=一致) ---
@@ -277,29 +347,52 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
             act["max_cost"] = int(max_cost_s)
         return [act]
 
-    # --- 手札召喚(自分の手札からクリーチャーを出す) - reject前に処理(進化でないを含むため) ---
+    # --- 手札召喚(自分の手札からクリーチャーを出す) ---
+    # コスト/文明/ブロッカー/進化でない の組み合わせフィルタに対応。未知修飾語があれば reject。
     if "手札から" in cl and "バトルゾーンに出す" in cl and "相手" not in cl and "墓地" not in cl:
-        _HAND_COND = r"(?:(?:([光水火闇自然])の)?(?:コスト(\d+)以下の)?(?:進化でない)?|(?:コスト(\d+)以下の)?(?:([光水火闇自然])の)?(?:進化でない)?)"
-        mm = re.fullmatch(
-            r"(?:自分の)?手札から、?" + _HAND_COND +
-            r"、?クリーチャー(?:(\d+)体(?:まで)?)?を?(?:(\d+)体(?:まで)?)?、?バトルゾーンに出す",
-            cl)
-        if not mm:
+        act: dict[str, Any] = {"op": "summon_from_hand", "count": 1}
+        hand_rest = re.sub(r"[、,]?(?:自分の)?手札から[、,]?", "", cl)
+        hand_rest = re.sub(r"[、,]?バトルゾーンに出す$", "", hand_rest)
+        # extract count ("クリーチャーN体/枚まで")
+        m_cnt = re.search(r"クリーチャーを?(?:(\d+)(?:体|枚)(?:まで)?を?)?(?=[、,]|$)", hand_rest)
+        if not m_cnt:
             return None
-        max_cost_s = mm.group(2) or mm.group(3)
-        cnt_raw = mm.group(5) or mm.group(6)
-        act: dict[str, Any] = {"op": "summon_from_hand", "count": int(cnt_raw) if cnt_raw else 1}
-        if max_cost_s:
-            act["max_cost"] = int(max_cost_s)
+        if m_cnt.group(1):
+            act["count"] = int(m_cnt.group(1))
+        hand_rest = hand_rest[:m_cnt.start()].rstrip("、, ")
+        # extract filters
+        m_cost = re.search(r"コスト(\d+)以下", hand_rest)
+        if m_cost:
+            act["max_cost"] = int(m_cost.group(1))
+            hand_rest = hand_rest.replace(m_cost.group(0), "")
+        m_civ = re.search(r"([光水火闇自然])の", hand_rest)
+        if m_civ:
+            act["civilizations"] = [m_civ.group(1)]
+            hand_rest = hand_rest.replace(m_civ.group(0), "")
+        if re.search(r'[「“]?ブロッカー[」”]?を持つ', hand_rest):
+            act["target_filter"] = "blocker"
+            hand_rest = re.sub(r'[「“]?ブロッカー[」”]?を持つ', "", hand_rest)
+        if "進化でない" in hand_rest or "進化ではない" in hand_rest:
+            act["exclude_evolution"] = True
+            hand_rest = hand_rest.replace("進化でない", "").replace("進化ではない", "")
+        hand_rest = re.sub(r"[、,のを ]+", "", hand_rest).strip()
+        if hand_rest:
+            return None
         return [act]
 
     # 条件・未模擬要素を含む節は exact化しない(過大評価防止の要)
-    if any(tok in cl for tok in _REJECT_TOKENS):
+    # 「進化でない/ではない」はフィルタ修飾語(解析可能)なので reject判定から除外する
+    _reject_cl = cl.replace("進化でない", "").replace("進化ではない", "")
+    if any(tok in _reject_cl for tok in _REJECT_TOKENS):
         return None
 
-    # 任意形(してもよい)は最適プレイで常に実行=engineの有利効果常時使用と一致。
-    # 強制形に正規化して既存パターンに載せる。
-    cl = cl.replace("してもよい", "する").replace("置いてもよい", "置く")
+    # 任意形(てもよい)は最適プレイで常に実行=engineの有利効果常時使用と一致。
+    # 強制形に正規化して既存パターンに載せる。順序重要: 長い形から先に置換。
+    cl = cl.replace("捨ててもよい", "捨てる")
+    cl = cl.replace("引いてもよい", "引く")
+    cl = cl.replace("加えてもよい", "加える")
+    cl = cl.replace("置いてもよい", "置く")
+    cl = cl.replace("してもよい", "する")
 
     # --- 自分ドロー(対象なし) ---
     m = re.search(r"カードを(\d+)枚引く", cl)
@@ -354,15 +447,24 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         if m:
             return [{"op": "add_shield", "count": int(m.group(1))}]
         # シールド→手札: 自分のシールドをNつ手札に戻す(S・トリガーなし=under-model側で安全)
-        m = re.search(r"自分のシールドを(\d+)つ?(?:まで)?手札に戻す", cl)
+        # 「シールドを1つ」「シールド1つを」の両語順に対応
+        m = re.search(r"自分のシールド(?:を)?(\d+)つ?(?:を)?(?:まで)?手札に戻す", cl)
         if m:
             return [{"op": "own_shield_to_hand", "count": int(m.group(1))}]
-        if "自分のシールドをすべて手札に戻す" in cl:
+        if "自分のシールドをすべて手札に戻す" in cl or "自分のシールドを好きな数手札に戻す" in cl:
             return [{"op": "own_shield_to_hand", "count": 99}]
-        # 手札→マナ: 自分の手札からN枚をマナゾーンに置く
-        m = re.search(r"自分の手札から(\d+)枚をマナゾーンに置く", cl)
+        # 手札→シールド: 自分の手札N枚をシールド化する
+        if "シールド化" in cl and "相手" not in cl:
+            m = re.search(r"(?:自分の)?手札(\d+)?枚?をシールド化", cl)
+            if m:
+                cnt = int(m.group(1)) if m.group(1) else 1
+                return [{"op": "hand_to_shield", "count": cnt}]
+        # 手札→マナ: 「手札からN枚」「手札N枚」「手札をN枚」いずれも対応
+        m = re.search(r"(?:自分の)?手札(?:から|を)?(\d+)枚(?:を)?マナゾーンに置く", cl)
         if m:
             return [{"op": "hand_to_mana", "count": int(m.group(1))}]
+        if "手札を好きな数マナゾーンに置く" in cl or "手札を好きな数マナゾーンに置いて" in cl:
+            return [{"op": "hand_to_mana", "count": 99}]
         # 自己ミル: 自分の山札の上からN枚(目)を墓地に置く
         m = re.search(r"山札の上から(\d+)枚目?を[、,]?(?:自分の)?墓地に置く", cl)
         if m:

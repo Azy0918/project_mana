@@ -487,6 +487,10 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     m = re.search(r"自分のマナゾーンに多色(?:の)?カードが(\d+)枚以上あれば[、,]?(.+)$", cl)
     if m:
         return ({"kind": "mana_multicolor_at_least", "count": int(m.group(1))}, m.group(2), True)
+    # 自分のマナゾーンに<civ>のカードがあれば(枚数省略=1枚以上): engine の mana_civ_at_least で模擬
+    m = re.search(r"自分のマナゾーンに(自然|[光水火闇])のカードがあれば[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "mana_civ_at_least", "civilization": m.group(1), "count": 1}, m.group(2), True)
     m = re.search(r"自分のマナゾーンにカードが(\d+)枚以上あれば[、,]?(.+)$", cl)
     if m:
         return ({"kind": "mana_at_least", "count": int(m.group(1))}, m.group(2), True)
@@ -531,6 +535,10 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     m = re.search(r"相手の(?:最大)?マナが自分(?:のマナ)?より多ければ[、,]?(.+)$", cl)
     if m:
         return ({"kind": "opponent_mana_greater"}, m.group(1), True)
+    # 相手のシールドが自分より多ければ: engine未知条件=Falseで不発=under-model=安全
+    m = re.search(r"相手のシールドが自分(?:のシールド)?より多ければ[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "opponent_shields_greater"}, m.group(1), True)
     # 自分の<種族/属性>が N体/枚以上あれば: engine未知条件=Falseで不発=under-model=安全。
     # マナ/墓地/シールド/手札は上の専用ハンドラで処理済みなので、ここは主に種族カウント。
     m = re.search(r"自分の([^。、]{1,16})が(\d+)(?:体|枚)以上(?:あれば|なら)[、,]?(.+)$", cl)
@@ -978,6 +986,15 @@ _SAFE_BODY_PATTERNS = [
     # カードを参照できない=条件不成立=under-model=安全
     r"^(?:このようにして)?公開したカードが.{1,50}であれば[、,].*$",
     r"^(?:この|その)カードが.{1,40}なら[、,]相手の.{1,80}$",
+    # 公開/表向きカードの山札置き直し(look解決の一部): 中立=under-model
+    r"^(?:自分の)?山札をシャッフルし[、,]?公開したカードを.{1,20}(?:置く|戻す|加える)$",
+    r"^公開したカードを.{1,25}(?:置く|戻す|加える)$",
+    # 公開カードの種別条件で相手対象/自軍ランプ等の有益効果(それが…なら、相手の…/自分の山札…):
+    # engine は公開カードを参照不可=条件不成立=under-model=安全。対象が相手/自分の山札に
+    # 限定して self-restriction の取りこぼしを避ける
+    r"^それが.{1,40}(?:なら|であれば)[、,]相手の.{1,80}$",
+    r"^それが.{1,40}(?:なら|であれば)[、,]自分の山札.{1,60}$",
+    r"^そのカードが.{1,30}(?:なら|であれば)[、,](?:相手の|自分の山札).{1,60}$",
     # 一時的キーワード付与(次のターンまで「X」を得る): 有益付与=skip=under-model=安全
     r"^次の(?:自分の|相手の)?ターン開始時まで[、,]そのクリーチャーは[「『].{1,20}[」』]を得る$",
     # NOTE: 「パワー+N され、相手プレイヤーを攻撃できない」型は攻撃制限の省略が自軍

@@ -403,6 +403,11 @@ class EffectExecutor:
                 if not controller.shields:
                     return
                 controller.hand.append(controller.shields.pop())
+        elif op == "own_shield_to_grave":
+            for _ in range(count):
+                if not controller.shields:
+                    return
+                controller.graveyard.append(controller.shields.pop())
         elif op == "hand_to_shield":
             for _ in range(count):
                 if not controller.hand:

@@ -82,6 +82,24 @@ _STATIC_CLAUSE = [
     r"^（他のD2フィールドがバトルゾーンに出た時[、,]?このD2フィールドを破壊する）$",
     # ホーリー・フィールド/D2フィールド等のフィールド系キーワード注記
     r"^（このD2フィールドが使われているとき.{1,80}）$",
+    # キズナ/キズナプラス: チーム攻撃補助。engine無視=under-model(安全)
+    r"^キズナ(?:プラスP'S)?$",
+    # 連鎖: 呪文チェーン連続詠唱。engine無視=under-model(安全)
+    r"^連鎖$",
+    # ナイト・マジック: ナイト強化呪文キーワード。engine無視=under-model(安全)
+    r"^ナイト・マジック$",
+    # マーシャル・タッチ: サムライ支援キーワード。engine無視=under-model(安全)
+    r"^マーシャル・タッチ$",
+    # 侍流ジェネレート: サムライキーワード。engine無視=under-model(安全)
+    r"^侍流ジェネレート$",
+    # ホーリー・フィールド: フィールドキーワード。engine未対応=under-model(安全)
+    r"^ホーリー・フィールド$",
+    # 龍解: ドラグハート変形条件。engine未対応=変形しない=under-model(安全)
+    r"^龍解[：:].{1,80}$",
+    # 自分の種族/タイプの召喚コスト軽減: engine無視=より多く払う=under-model(安全)
+    # "少なくする" 系のみ追加(多くする系はself-penaltyで別途)
+    r"^自分の.{1,30}(?:召喚|使用)コストを\d+少なくする(?:[。]ただし.{1,50})?$",
+    r"^自分の.{1,30}(?:召喚|使用)コストを、?.{1,10}につき\d+少なくする(?:[。]ただし.{1,50})?$",
     # 注: 進化(簡略模擬)・ニンジャストライク/侵略/革命チェンジ(未模擬)・ワールドブレイカー
     #     (未模擬)は静的扱いにしない=厳密exactを守る
 ]
@@ -495,6 +513,10 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         if any(p in cl for p in ("自分のシールドをすべて手札に戻す", "自分のシールドをすべて手札に加える",
                                    "自分のシールドを好きな数手札に戻す", "自分のシールドを好きな数手札に加える")):
             return [{"op": "own_shield_to_hand", "count": 99}]
+        # シールド→墓地: 自分のシールドをN枚墓地に置く
+        m = re.search(r"自分のシールド(?:を)?(\d+)つ?(?:を)?墓地に置く", cl)
+        if m and "相手" not in cl:
+            return [{"op": "own_shield_to_grave", "count": int(m.group(1))}]
         # 手札→シールド: 自分の手札N枚をシールド化する
         if "シールド化" in cl and "相手" not in cl:
             m = re.search(r"(?:自分の)?手札(\d+)?枚?をシールド化", cl)
@@ -643,6 +665,17 @@ _LAT_RE = re.compile(
     r"(?:(?:その後、)?残りを(.*?)(?:に|へ)[^。]*置く)?。?$"
 )
 
+# アクション節内での look_and_take 複文パターン(「見る。その中から...加える。残りを...置く」)
+_LAT_MULTI_RE = re.compile(
+    r"^(?:自分の)?山札の上から(\d+)枚(?:目)?を(?:見る|表向きにする)$"
+)
+_LAT_TAKE_RE = re.compile(
+    r"^その中から(.*?)(?:を)?(\d+)?枚?(?:まで)?手札に(?:加え|加える)(?:る|てもよい)?$"
+)
+_LAT_REST_RE = re.compile(
+    r"^(?:その後[、,]?)?残りを?(.*?)(?:に|へ)?[^。]*置く$"
+)
+
 
 def _try_look_and_take(t: str, is_spell: bool, s_trigger: bool) -> list[dict[str, Any]] | None:
     """純粋な「山札の上からN枚を見て選ぶ」カードを look_and_take に変換。"""
@@ -751,7 +784,10 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
             chunk = chunk[4:].lstrip("、,")
         sentences = [s.strip() for s in chunk.split("。") if s.strip()]
         chunk_trigger: str | None = inherited_trigger
+        skip_until: int = -1  # LAT複文処理でスキップする文インデックス上限
         for si, sent in enumerate(sentences):
+            if si <= skip_until:
+                continue
             # キーワードラベル(条件が後段に明記される型)を除去
             sent = re.sub(r"^(?:マスター)?G・G・G[：:]", "", sent).strip()
             # マナ武装 N：は条件が本文中に記載されるので接頭語のみ除去
@@ -778,6 +814,31 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                     else:
                         return None  # トリガー不明 → exact化不可
             chunk_trigger = trigger
+            # LAT複文検出: 「山札の上からN枚を見る/表向きにする」の後続文を結合して look_and_take に変換
+            if _LAT_MULTI_RE.match(body):
+                lat_sents = [body]
+                j = si + 1
+                while j < len(sentences):
+                    ns = sentences[j].strip()
+                    ns = re.sub(r"^その後[、,]", "", ns).strip()
+                    # 注釈は除外
+                    if re.match(r"^（", ns):
+                        j += 1
+                        continue
+                    if _LAT_TAKE_RE.match(ns) or _LAT_REST_RE.match(ns) or _is_static(ns):
+                        lat_sents.append(ns)
+                        j += 1
+                    else:
+                        break
+                lat_joined = "。".join(lat_sents)
+                lat_result = _try_look_and_take(lat_joined, is_spell or after_line, False)
+                if lat_result is not None and len(lat_result) == 1:
+                    # 複文 LAT として処理成功 → actions を trigger で登録してスキップ
+                    for act in lat_result[0]["actions"]:
+                        by_trigger.setdefault(trigger, []).append(act)
+                    skip_until = j - 1
+                    continue
+                # 複文 LAT 失敗 → 通常の action_clause で試みる(失敗なら reject)
             acts = _parse_action_clause(body)
             if acts is None:
                 return None

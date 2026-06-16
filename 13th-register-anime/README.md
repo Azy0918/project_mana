@@ -62,6 +62,21 @@ python .\tools\preview_puppet_engine.py --rig-json .\puppet_rigs\default_puppet_
 - ソース、リグ、軽量プレビュー、必要素材だけを管理します。
 - 音声や画像で100MBを超えるファイルが出た場合は、Git LFSか外部配布を検討します。
 
+## Bing Video Creator向け縦動画パック
+
+`bing_video_creator/` に、Bing Video Creatorへ投入しやすい縦9:16用プロンプトと参考画像を用意しています。
+
+- `bing_video_creator/bing_vertical_prompts.md`
+- `bing_video_creator/bing_vertical_prompts.txt`
+- `bing_video_creator/vertical_refs/*.jpg`
+
+想定運用:
+
+1. `bing_vertical_prompts.txt` から1カット分のプロンプトをコピーする
+2. Bing Video Creatorに貼り付ける
+3. 5秒程度の縦動画として生成する
+4. 生成した動画をRemotionでつないでショートPVにする
+
 ## 現在の主な成果
 
 - Remotionによる1分PV構成

@@ -1,5 +1,6 @@
 import {
   AbsoluteFill,
+  Audio,
   Img,
   interpolate,
   staticFile,
@@ -115,8 +116,6 @@ const Character: React.FC<{ shot: Shot; progress: number; frame: number }> = ({
   const calm = shot.mood === "calm";
   const tired = shot.mood === "tired";
   const enter = interpolate(progress, [0, 0.2, 1], [80, 0, -10], clamp);
-  const bob = Math.sin(frame * (tired ? 0.045 : calm ? 0.032 : 0.062)) * (tired ? 8 : calm ? 3 : 6);
-  const tilt = Math.sin(frame * (calm ? 0.025 : 0.043)) * (active ? 1.2 : calm ? 0.35 : 0.75);
   const blink = progress > 0.44 && progress < 0.50;
   const width = active ? 1080 : tired ? 980 : 1000;
   const left = active ? -130 : calm ? 20 : 54;
@@ -130,7 +129,7 @@ const Character: React.FC<{ shot: Shot; progress: number; frame: number }> = ({
         bottom,
         width,
         height: 1420,
-        transform: `translateY(${enter + bob}px) rotate(${tilt}deg) scale(${1 + progress * 0.035})`,
+        transform: `translateY(${enter}px) scale(${1 + progress * 0.025})`,
         transformOrigin: "50% 82%",
         filter: "drop-shadow(0 42px 42px rgba(0,0,0,0.66))",
         WebkitMaskImage: "linear-gradient(to bottom, #000 0%, #000 78%, transparent 98%)",
@@ -305,6 +304,7 @@ export const VerticalShortPV: React.FC = () => {
         transform: `translate(${shake}px, ${-shake * 0.35}px)`,
       }}
     >
+      <Audio src={staticFile(`${assetBase}/audio/pv_short_narration_bgm_sfx.wav`)} volume={1} />
       <Background shot={shot} progress={progress} index={shotIndex} />
       <Register shot={shot} progress={progress} frame={frame} />
       <Character shot={shot} progress={progress} frame={frame} />

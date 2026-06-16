@@ -460,6 +460,12 @@ class EffectExecutor:
             return len(controller.graveyard) >= count
         if kind == "shields_at_most":
             return len(controller.shields) <= count
+        if kind == "shields_at_least":
+            return len(controller.shields) >= count
+        if kind == "hand_at_most":
+            return len(controller.hand) <= count
+        if kind == "hand_at_least":
+            return len(controller.hand) >= count
         return False  # 未知の条件は不発(過小評価側)
 
     def _select_target(

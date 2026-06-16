@@ -49,7 +49,7 @@ _REJECT_TOKENS = [
     "コストを支払", "踏み倒", "山札を見", "から探", "進化", "EXライフ", "封印", "侵略",
     "革命チェンジ", "ニンジャ", "メクレイド", "までの数", "数だけ", "枚以上", "体以上",
     "選び、", "選んで", "バトルする", "バトルさせ",
-    "与える", "得る", "パワーを", "になる", "扱う", "代わりに", "かわりに",
+    "与える", "得る", "になる", "扱う", "代わりに", "かわりに",
     "アンタップしない", "攻撃する", "攻撃できない", "ブロックされない", "出さない",
 ]
 
@@ -169,6 +169,19 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
 
 def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     cl = clause.strip().rstrip("。")
+
+    # --- パワー修整(「そのターン」限定。engineのpower_modifierはターン終了でリセット=一致) ---
+    if "パワー" in cl and "クリーチャー" in cl and "アタッカー" not in cl and "得る" not in cl:
+        mm = re.search(r"パワー(?:を|は|が)?\s*([+＋\-－‐])\s*(\d+)", cl)
+        # 「そのターン」以外の永続/条件は未対応なので、それ以外の条件語があれば後段rejectに委ねる
+        if mm and not any(t in cl for t in ("革命", "マナ武装", "あれば", "なら", "ごとに", "につき", "数だけ")):
+            sc = _scope_for(cl)
+            if sc is None:
+                return None
+            sign = -1 if mm.group(1) in "-－‐" else 1
+            delta = sign * int(mm.group(2))
+            act = {"op": "modify_power", "scope": sc[0], "delta": delta, "count": _count_all(cl)}
+            return [act]
 
     # 条件・未模擬要素を含む節は exact化しない(過大評価防止の要)
     if any(tok in cl for tok in _REJECT_TOKENS):

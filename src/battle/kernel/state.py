@@ -24,6 +24,16 @@ class CreatureInstance:
     summoned_turn: int = 0
     temporary: bool = False  # B・A・D等: ターン終了時に破壊される
     granted_speed: bool = False  # 効果による一時的なスピードアタッカー付与
+    power_modifier: int = 0  # 効果による一時的なパワー増減(ターン終了時リセット)
+
+    @property
+    def current_power(self) -> int:
+        """一時修整込みの現在パワー(戦闘・破壊判定用)。"""
+        return self.card.power + self.power_modifier
+
+    @property
+    def current_attack_power(self) -> int:
+        return self.card.attack_power + self.power_modifier
 
     def can_attack(self, current_turn: int) -> bool:
         if self.tapped:

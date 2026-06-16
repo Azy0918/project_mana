@@ -104,3 +104,18 @@ class LookAndTakeTest(unittest.TestCase):
         self.assertEqual(len(p.hand), hand0 + 1)
         self.assertEqual(p.hand[-1].name, "c1")  # 高コストのクリーチャーを取る
         self.assertTrue(all(c.is_creature is False or c.name != "c1" for c in p.deck[-2:]))
+
+
+class ModifyPowerTest(unittest.TestCase):
+    def test_negative_power_destroys(self):
+        from src.battle.kernel.effect_executor import EffectExecutor
+        e = DuelEngine([_mk("a", "火")] * 40, [_mk("b", "光")] * 40, GreedyPolicy(), GreedyPolicy(), rng=random.Random(0))
+        weak = CreatureInstance(card=_mk("w", "光", power=2000))
+        strong = CreatureInstance(card=_mk("s", "光", power=8000))
+        e.state.players[1].battle_zone = [weak, strong]
+        EffectExecutor(effects={})._execute_action(e, 0, "on_play", _mk("x", "火"),
+            {"op": "modify_power", "scope": "opponent", "delta": -3000, "count": 1})
+        # 弱い方(2000-3000<=0)が破壊される
+        names = [c.card.name for c in e.state.players[1].battle_zone]
+        self.assertNotIn("w", names)
+        self.assertIn("s", names)

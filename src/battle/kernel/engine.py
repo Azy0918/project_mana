@@ -209,6 +209,11 @@ class DuelEngine:
                 self._record("end_of_turn_destroy", card=creature.card.name)
                 self.destroy_creature(state.active_index, creature)
 
+        # 一時パワー修整をリセット(「そのターン」の効果はターン終了で消える)
+        for pl in state.players:
+            for creature in pl.battle_zone:
+                creature.power_modifier = 0
+
         # timing="end_of_turn" の遅延効果を解決する
         if not state.finished and state.deferred_end_of_turn:
             deferred, state.deferred_end_of_turn = state.deferred_end_of_turn, []
@@ -453,8 +458,8 @@ class DuelEngine:
         defending_player: PlayerState,
         defender: CreatureInstance,
     ) -> None:
-        attacker_power = attacker.card.attack_power
-        defender_power = defender.card.power
+        attacker_power = attacker.current_attack_power
+        defender_power = defender.current_power
         # スレイヤーはパワーに関係なくバトル相手を破壊する
         if attacker_power >= defender_power or attacker.card.is_slayer:
             self.destroy_creature(self.state.players.index(defending_player), defender)

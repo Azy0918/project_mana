@@ -162,6 +162,27 @@ class EffectExecutor:
                     return
                 target_player.battle_zone.remove(target)
                 target_player.hand.append(target.card)
+        elif op == "modify_power":
+            # 一時パワー増減。結果が0以下になったクリーチャーは破壊(DM裁定)。
+            target_player_index = self._target_player_index(controller_index, action)
+            target_player = engine.state.players[target_player_index]
+            delta = int(action.get("delta", 0))
+            max_power = action.get("max_power")
+            for _ in range(count):
+                pool = list(target_player.battle_zone)
+                if max_power is not None:
+                    pool = [c for c in pool if c.card.power <= max_power]
+                if not pool:
+                    return
+                if delta < 0:
+                    # 除去できる(現パワー≤|delta|)クリーチャーを優先、その中で最大パワーを狙う
+                    killable = [c for c in pool if c.current_power + delta <= 0]
+                    target = max(killable or pool, key=lambda c: c.current_power)
+                else:
+                    target = max(pool, key=lambda c: c.current_power)
+                target.power_modifier += delta
+                if target.current_power <= 0 and target in target_player.battle_zone:
+                    engine.destroy_creature(target_player_index, target)
         elif op == "tap_creature":
             target_player_index = self._target_player_index(controller_index, action)
             target_player = engine.state.players[target_player_index]

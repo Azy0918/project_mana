@@ -39,7 +39,7 @@ def _is_static(clause: str) -> bool:
 # 条件・未模擬要素を示す語。効果節にこれらが含まれたら exact化しない(reject)。
 # 「条件付き効果を無条件適用」する過大評価を構造的に防ぐ。
 _REJECT_TOKENS = [
-    "マナ武装", "革命", "シンパシー", "ラビリンス", "あれば", "なら", "以上", "以下なら",
+    "シンパシー", "ラビリンス", "革命チェンジ", "革命0",
     "一度", "そのターン", "次の", "ターン中", "ターンの間", "ＧＲ", "GR", "超次元",
     "シールドが", "場合", "ごとに", "につき", "だけ", "選んでもよい", "見て", "公開",
     "コストを支払", "踏み倒", "山札を見", "から探", "進化", "EXライフ", "封印", "侵略",
@@ -113,9 +113,16 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
     body = clause.rstrip("。")
     all_acts: list[dict[str, Any]] = []
     for part in _split_compound(body):
-        r = _parse_action_clause_raw(part)
+        # 先頭の条件句(マナ武装/革命/墓地枚数等)を抽出。未知条件キーワードがあれば reject。
+        condition, rest, had_cond = _extract_condition(part)
+        if condition is None and had_cond:
+            return None
+        r = _parse_action_clause_raw(rest)
         if r is None:
             return None
+        if condition:
+            for a in r:
+                a["condition"] = condition
         all_acts.extend(r)
     if not all_acts:
         return None
@@ -123,6 +130,29 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
     if _family_count(body) > len(all_acts):
         return None
     return all_acts
+
+
+def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
+    """先頭の条件句を抽出。(condition, 残り節, 条件キーワード検出) を返す。
+
+    engine._condition_met が対応する条件のみ厳密に拾う。条件キーワードがあるのに
+    既知形に合致しなければ (None, cl, True) を返し、呼び出し側で reject させる。
+    """
+    # マナ武装N：自分のマナゾーンに<civ>のカードがN枚以上あれば、…
+    m = re.search(r"自分のマナゾーンに([" + _CIV + r"])のカードが(\d+)枚以上あれば[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "mana_civ_at_least", "civilization": m.group(1), "count": int(m.group(2))}, m.group(3), True)
+    m = re.search(r"自分のマナゾーンにカードが(\d+)枚以上あれば[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "mana_at_least", "count": int(m.group(1))}, m.group(2), True)
+    m = re.search(r"自分の墓地に(?:カード|クリーチャー)が(\d+)枚以上あれば[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "grave_at_least", "count": int(m.group(1))}, m.group(2), True)
+    m = re.search(r"自分のシールドが(\d+)つ?以下なら[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "shields_at_most", "count": int(m.group(1))}, m.group(2), True)
+    had = any(w in cl for w in ("あれば", "なら", "マナ武装", "革命"))
+    return (None, cl, had)
 
 
 def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:

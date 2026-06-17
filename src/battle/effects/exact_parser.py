@@ -1111,6 +1111,15 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^(?:このクリーチャーが)?(?:破壊された時|バトルゾーンを離れた時)[、,]?(.+)$", cl)
     if m and "相手" not in cl[:8]:
         return ("on_destroyed", m.group(1))
+    # 「自分のクリーチャーが…時」(「他の」なし)= 自身を含む全味方イベント。自身の on_play/
+    # on_destroyed だけ拾えば発火は実際の部分集合=under-model(安全)。「他の」版は自身を
+    # 除外するため対象外(自然に不一致)。
+    m = re.match(r"^自分のクリーチャーが(?:バトルゾーンに)?出た時[、,]?(.+)$", cl)
+    if m:
+        return ("on_play", m.group(1))
+    m = re.match(r"^自分のクリーチャーが(?:破壊された時|バトルゾーンを離れた時)[、,]?(.+)$", cl)
+    if m:
+        return ("on_destroyed", m.group(1))
     m = re.match(r"^自分が呪文を唱えた時[、,]?(.+)$", cl)
     if m:
         return ("on_spell_cast", m.group(1))

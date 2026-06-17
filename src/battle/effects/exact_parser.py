@@ -663,6 +663,10 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     # pre-reject ハンドラのために「してもよい/出す」を正規化(正規化本体は reject 後)
     cl = cl.replace("バトルゾーンに出してもよい", "バトルゾーンに出す")
 
+    # --- 追加ターン(このターンの後に自分のターンを追加する) ---
+    if re.search(r"(?:この)?ターンの後に(?:自分の)?ターンを追加する", cl) and "相手のターンを追加" not in cl:
+        return [{"op": "extra_turn"}]
+
     # --- 文明指定の全体破壊((civ)以外のクリーチャーをすべて破壊する) ---
     # engine: destroy_creatures_nonciv(keep_civ)。デフォルトは両者(自分/相手指定で限定)。
     m = re.match(r"^(自分の|相手の)?(自然|[光水火闇])以外の(?:クリーチャー|カード|エレメント)をすべて破壊する$", cl)
@@ -1336,6 +1340,9 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^(?:このクリーチャーが)?バトルに勝った時[、,]?(.+)$", cl)
     if m:
         return ("on_win", m.group(1))
+    m = re.match(r"^(?:このクリーチャーが)?ブロックした時[、,]?(.+)$", cl)
+    if m and "相手" not in cl[:8]:
+        return ("on_block", m.group(1))
     m = re.match(r"^(?:この)?攻撃の終わりに[、,]?(.+)$", cl)
     if m:
         return ("on_attack_end", m.group(1))

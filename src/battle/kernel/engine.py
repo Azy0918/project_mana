@@ -427,6 +427,9 @@ class DuelEngine:
                 blocker = blockers[blocker_choice]
                 blocker.tapped = True
                 self._record("block", attacker=attacker.card.name, blocker=blocker.card.name)
+                def_idx = state.players.index(opponent)
+                if self.executor.has_trigger(blocker.card, "on_block"):
+                    self.executor.run(self, def_idx, "on_block", blocker.card)
                 self._battle(player, attacker, opponent, blocker)
                 return
 

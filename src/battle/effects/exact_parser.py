@@ -271,6 +271,8 @@ _STATIC_CLAUSE = [
     r"^それらは[、,]次の(?:自分|相手)のターン開始時にアンタップしない$",
     # 次回召喚のコスト軽減(主語: 自分が召喚する): engine未対応=より多く払う=under-model(安全)
     r"^このターン[、,]次に自分が召喚する[^。]{1,34}のコストを\d+少なくする$",
+    # ターン数比例の召喚コスト軽減(自身): engine未対応=より多く払う=under-model(安全)
+    r"^このターン数だけ[、,]?(?:このクリーチャーの)?召喚コストを\d+少なくする$",
     # ▶起動能力: タップ起動型。engine未対応=under-model(安全)
     r"^▶.{1,300}$",
     # 相手呪文コスト増加: engine未対応=under-model(安全)
@@ -1382,6 +1384,9 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^自分のターン(?:の)?終(?:わり|了時)に?[、,]?(.+)$", cl)
     if m:
         return ("on_turn_end", m.group(1))
+    m = re.match(r"^相手のターン(?:の)?終(?:わり|了時)に?[、,]?(.+)$", cl)
+    if m:
+        return ("on_opponent_turn_end", m.group(1))
     m = re.match(r"^(?:このクリーチャーが)?バトルに勝った時[、,]?(.+)$", cl)
     if m:
         return ("on_win", m.group(1))

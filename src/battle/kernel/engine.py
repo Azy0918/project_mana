@@ -217,6 +217,14 @@ class DuelEngine:
                     self.executor.run(self, state.active_index, "on_turn_end", creature.card)
                 if state.finished:
                     break
+        # 「相手のターン終了時」誘発: 非アクティブ側のクリーチャーを通知
+        if not state.finished:
+            opp_idx = state.opponent_index
+            for creature in list(state.players[opp_idx].battle_zone):
+                if self.executor.has_trigger(creature.card, "on_opponent_turn_end"):
+                    self.executor.run(self, opp_idx, "on_opponent_turn_end", creature.card)
+                if state.finished:
+                    break
 
         # B・A・D等のターン終了時破壊
         if not state.finished:

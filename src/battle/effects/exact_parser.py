@@ -918,13 +918,17 @@ def _is_replacement_clause(cl: str) -> bool:
                                   "シールド化", "シールドゾーンに置く", "山札に加え"))
 
 
+# 起動時に一度だけコンパイル(re 内部キャッシュ枯渇による再コンパイルを回避)。
+_STATIC_CLAUSE_RE = [re.compile(p) for p in _STATIC_CLAUSE]
+
+
 def _is_static(clause: str) -> bool:
     c = clause.strip().rstrip("。").strip()
     if not c:
         return True
     if _is_aura_clause(c) or _is_replacement_clause(c):
         return True
-    return any(re.match(p, c) for p in _STATIC_CLAUSE)
+    return any(r.match(c) for r in _STATIC_CLAUSE_RE)
 
 
 # 条件・未模擬要素を示す語。効果節にこれらが含まれたら exact化しない(reject)。
@@ -1033,7 +1037,7 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
         condition, rest, had_cond = _extract_condition(part)
         if condition is None and had_cond:
             # 条件形式が未知でも、節全体(条件込み)がSAFE_BODYに合致するならunder-modelで安全にスキップ。
-            if any(re.match(p, part.rstrip("。")) for p in _SAFE_BODY_PATTERNS):
+            if _is_safe_body(part.rstrip("。")):
                 safe_skipped = True
                 continue
             return None
@@ -1041,7 +1045,7 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
         if r is None:
             # 条件付きの有益効果(超次元/踏み倒し/チューター等の safe-skip 対象)は、条件
             # 成否に関わらず効果を飛ばしても under-model(発動しても得しないだけ)で安全。
-            if any(re.match(p, rest.rstrip("。")) for p in _SAFE_BODY_PATTERNS):
+            if _is_safe_body(rest.rstrip("。")):
                 safe_skipped = True
                 continue
             return None
@@ -2542,6 +2546,15 @@ _SAFE_BODY_PATTERNS = [
     r"^それが.{1,30}ならバトルゾーンに出し[、,]それ以外なら手札に(?:加える|戻す)$",
 ]
 
+# パターン総数が re モジュールの内部キャッシュ(512)を超えるため、毎回の re.match で
+# 再コンパイルが発生し parse_card が大幅に遅くなる。起動時に一度だけコンパイルしておく。
+_SAFE_BODY_RE = [re.compile(p) for p in _SAFE_BODY_PATTERNS]
+
+
+def _is_safe_body(c: str) -> bool:
+    """節 c が under-model 安全にスキップできる SAFE_BODY パターンに合致するか。"""
+    return any(r.match(c) for r in _SAFE_BODY_RE)
+
 
 # 自分の山札を見る/表向き/公開する起点文(枚数指定の有無・「上から」省略の有無に対応)。
 _LOOK_OWN_DECK_RE = re.compile(
@@ -2564,7 +2577,7 @@ def _is_look_resolution_sent(s: str) -> bool:
     c = s.strip().rstrip("。")
     if not c:
         return True
-    if _is_static(c) or any(re.match(p, c) for p in _SAFE_BODY_PATTERNS):
+    if _is_static(c) or _is_safe_body(c):
         return True
     if _LOOK_OWN_DECK_RE.match(c):
         return True
@@ -2854,7 +2867,7 @@ def _parse_modal_option(body: str) -> list[dict[str, Any]] | None:
         sent = sent.strip()
         if not sent or _is_static(sent):
             continue
-        if any(re.match(p, sent.rstrip("。")) for p in _SAFE_BODY_PATTERNS):
+        if _is_safe_body(sent.rstrip("。")):
             continue
         r = _parse_action_clause(sent)
         if r is None:
@@ -2989,7 +3002,7 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
             if inherited_trigger is None:
                 _scheck = [s.strip() for s in chunk.split("。") if s.strip()]
                 if _scheck and all(
-                    _is_static(s) or any(re.match(p, s.rstrip("。")) for p in _SAFE_BODY_PATTERNS)
+                    _is_static(s) or _is_safe_body(s.rstrip("。"))
                     for s in _scheck
                 ):
                     continue
@@ -3024,7 +3037,7 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                 if trigger is None:
                     if chunk_trigger is not None:
                         trigger, body = chunk_trigger, sent  # 継続節はトリガー継承
-                    elif any(re.match(p, sent.rstrip("。")) for p in _SAFE_BODY_PATTERNS):
+                    elif _is_safe_body(sent.rstrip("。")):
                         # トリガー不明でも、節が既知の under-model 安全(SAFE_BODY)なら
                         # トリガーごとスキップ(効果が発火しない=より保守的)。curate 済み
                         # パターンのみ適用するので over-model 化しない。
@@ -3087,7 +3100,7 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
             if acts is None:
                 # 既知のunder-model安全な効果本体ならスキップ(exact-safe)
                 body_c = body.rstrip("。")
-                if any(re.match(p, body_c) for p in _SAFE_BODY_PATTERNS):
+                if _is_safe_body(body_c):
                     continue
                 return None
             for trg in (trigger, *extra_triggers):

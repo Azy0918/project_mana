@@ -1305,6 +1305,9 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^このクリーチャーが(?:どこからでも)?(?:自分の)?墓地に置かれた時[、,]?(.+)$", cl)
     if m and "相手" not in cl[:6]:
         return ("on_destroyed", m.group(1))
+    m = re.match(r"^(?:このクリーチャーが)?相手プレイヤーを攻撃する時[、,]?(.+)$", cl)
+    if m:
+        return ("on_attack_player", m.group(1))
     m = re.match(r"^(?:このクリーチャーが)?攻撃する時[、,]?(.+)$", cl)
     if m and "相手" not in cl[:6]:
         return ("on_attack", m.group(1))

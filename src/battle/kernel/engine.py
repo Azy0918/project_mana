@@ -406,6 +406,11 @@ class DuelEngine:
         attacker.tapped = True
 
         self.executor.run(self, state.active_index, "on_attack", attacker.card)
+        # プレイヤーへの攻撃宣言時の追加誘発(「相手プレイヤーを攻撃する時」)
+        if attack.target_creature_index is None and self.executor.has_trigger(
+            attacker.card, "on_attack_player"
+        ):
+            self.executor.run(self, state.active_index, "on_attack_player", attacker.card)
         if state.finished or attacker not in player.battle_zone:
             return
 

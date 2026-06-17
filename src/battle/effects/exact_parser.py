@@ -718,9 +718,13 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     # --- 強制バトル(このクリーチャー/自軍 vs 相手クリーチャー) ---
     # engine の戦闘解決で模擬。選択は近似。任意(てもよい)は最適プレイ=実行に正規化。
     if "バトルさせ" in cl and "相手" in cl:
+        cl_nb = cl.replace(" ", "").replace("　", "")  # データ揺れの空白除去
         # 自分と相手を1体ずつ選んでバトル
-        if re.search(r"自分と相手のクリーチャーを\d*体?ずつ選び", cl) and "その2体をバトルさせ" in cl:
+        if re.search(r"自分と相手のクリーチャーを\d*体?ずつ選び", cl_nb) and "その2体をバトルさせ" in cl_nb:
             return [{"op": "force_battle", "attacker": "own"}]
+        # 相手クリーチャー1体を選び、その2体(=自身+選んだ相手)をバトル
+        if re.search(r"相手の[^。]{0,24}?クリーチャー(?:を)?\d*体?(?:を)?選(?:び|んで)[、,]?その2体をバトルさせ", cl_nb):
+            return [{"op": "force_battle", "attacker": "source"}]
         # 相手クリーチャー1体を選び、このクリーチャーとバトル
         m = re.search(r"相手の(.{0,24}?)クリーチャー\d*体?を(?:選び|選んで)[、,]?このクリーチャーとバトルさせ", cl)
         if m:

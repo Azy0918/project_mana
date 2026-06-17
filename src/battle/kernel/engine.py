@@ -330,6 +330,13 @@ class DuelEngine:
                 player.battle_zone.append(instance)
                 self._record("summon", card=card.name, cost=pay_cost)
                 self.executor.run(self, state.active_index, "on_play", card)
+                # 「相手のクリーチャーがバトルゾーンに出た時」誘発: 相手側のクリーチャーを通知
+                opp_idx = state.opponent_index
+                for watcher in list(state.players[opp_idx].battle_zone):
+                    if self.executor.has_trigger(watcher.card, "on_opponent_creature_enter"):
+                        self.executor.run(self, opp_idx, "on_opponent_creature_enter", watcher.card)
+                    if state.finished:
+                        break
             else:
                 player.graveyard.append(card)
                 player.spells_cast_this_turn += 1

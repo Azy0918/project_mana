@@ -521,6 +521,30 @@ class EffectExecutor:
                     return
                 self._chain_depth += 1
                 self._execute_action(engine, controller_index, trigger, card, a, context)
+        elif op == "force_battle":
+            # 「(自分の)クリーチャーと相手のクリーチャーをバトルさせる」を engine の戦闘解決で模擬。
+            # 対象選択は方策/最大パワーで近似(look_and_take 等と同じ exact 扱い)。
+            opp_idx = 1 - controller_index
+            opponent = engine.state.players[opp_idx]
+            max_power = action.get("max_power")
+            max_cost = action.get("max_cost")
+            defender_pool = opponent.battle_zone
+            if max_cost is not None:
+                defender_pool = [c for c in defender_pool if c.card.cost <= max_cost]
+            defender = self._select_target(engine, controller_index, op, defender_pool, max_power=max_power)
+            if defender is None:
+                return
+            if action.get("attacker") == "source":
+                attacker = next((c for c in controller.battle_zone if c.card is card), None)
+                if attacker is None:
+                    attacker = next(
+                        (c for c in controller.battle_zone if c.card.card_id == card.card_id), None
+                    )
+            else:
+                attacker = self._pick_strongest(controller.battle_zone)
+            if attacker is None:
+                return
+            engine._battle(controller, attacker, opponent, defender)
         elif op == "destroy_creatures_nonciv":
             # 指定文明を持たないクリーチャーをすべて破壊(ドルバロム後段)。scope="both"対応。
             keep_civ = action.get("keep_civ")

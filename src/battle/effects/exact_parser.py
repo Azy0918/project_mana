@@ -685,6 +685,24 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if m:
         scopes = ["self"] if m.group(1) == "自分の" else (["opponent"] if m.group(1) == "相手の" else ["self", "opponent"])
         return [{"op": "destroy_creature", "count": 99, "target_filter": "blocker", "scope": s} for s in scopes]
+    # --- 強制バトル(このクリーチャー/自軍 vs 相手クリーチャー) ---
+    # engine の戦闘解決で模擬。選択は近似。任意(てもよい)は最適プレイ=実行に正規化。
+    if "バトルさせ" in cl and "相手" in cl:
+        # 自分と相手を1体ずつ選んでバトル
+        if re.search(r"自分と相手のクリーチャーを\d*体?ずつ選び", cl) and "その2体をバトルさせ" in cl:
+            return [{"op": "force_battle", "attacker": "own"}]
+        # 相手クリーチャー1体を選び、このクリーチャーとバトル
+        m = re.search(r"相手の(.{0,24}?)クリーチャー\d*体?を(?:選び|選んで)[、,]?このクリーチャーとバトルさせ", cl)
+        if m:
+            act: dict[str, Any] = {"op": "force_battle", "attacker": "source"}
+            mp = re.search(r"パワー(\d+)以下", m.group(1))
+            if mp:
+                act["max_power"] = int(mp.group(1))
+            mc = re.search(r"コスト(\d+)以下", m.group(1))
+            if mc:
+                act["max_cost"] = int(mc.group(1))
+            return [act]
+
     # --- 最大パワーのクリーチャー破壊(engine の対象選択は最強優先=一致) ---
     # 「すべて」(同値タイ複数)でも1体のみ=under-model(安全)。"大きい"は reject 語のため先に処理。
     m = re.match(r"^(自分の|相手の)?最も(?:パワーが大きい|パワーの大きい)クリーチャー(?:をすべて)?を?破壊する$", cl)

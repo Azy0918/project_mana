@@ -26,6 +26,10 @@ _STATIC_CLAUSE = [
     r"^ブロックされない$",  # engine: is_unblockable で模擬済み
     r"^B・A・D(?:・S)?\s*\d+$",  # engine: bad_discount+temporary で模擬済み
     r"^可能(?:なら|であれば)毎ターン攻撃する$",  # engine: 攻撃フェーズで強制
+    r"^可能(?:なら|であれば)毎ターン[、,]?(?:相手プレイヤーを|このクリーチャーは)?攻撃する$",
+    r"^このクリーチャーは可能なら(?:毎ターン)?攻撃する$",
+    # 自分のシールドがブレイクされる時の確認(情報のみ): neutral=安全
+    r"^自分のシールドがブレイクされる時[、,]そのシールドを見る$",
     r"^ガードマン$",  # engine: _legal_attacks でガードマン優先攻撃強制
     r"^パワード・ブレイカー$",  # engine: breaker_count で power/6000 として模擬済み
     r"^スーパー・S・トリガー$",  # SST: 通常S・トリガーとして近似(発動条件の差は簡略化)
@@ -1630,13 +1634,15 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                         return None  # トリガー不明 → exact化不可
             chunk_trigger = trigger
             # デュアルトリガー(「Aする時、またはBする時、効果」)の検出。本体を両トリガーに登録。
+            # 第2トリガーが未知でも prefix を除去して本体を第1トリガーのみに登録する。発火機会が
+            # 減るだけで over-model にならない(=under-model 安全)。
             extra_triggers: list[str] = []
             mdt = re.match(r"^または(.+?[時に])[、,](.+)$", body)
             if mdt:
                 t2, _b2 = _detect_trigger(mdt.group(1) + "、_")
                 if t2 is not None:
                     extra_triggers.append(t2)
-                    body = mdt.group(2)
+                body = mdt.group(2)
             # 文頭の逐次マーカー「その後、」を除去(トリガーは継承済み)。安全節/通常解析の
             # マッチを揃える。
             body = re.sub(r"^その後[、,]", "", body).strip()

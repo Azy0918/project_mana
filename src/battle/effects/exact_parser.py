@@ -36,6 +36,7 @@ _STATIC_CLAUSE = [
     # 注釈テキスト(マナ増加しない/制限注記): engine は自然に満足
     r"^（ただし、使用可能マナは増えない）$",
     r"^（この効果によって使用可能マナは増えない）$",
+    r"^（これらの効果によって使用可能マナは増えない）$",
     r"^（ただし、このマナゾーンのカードは[^）]*使えない）$",
     # 呪文着地置換: engine は常に墓地行き = under-model(安全方向)
     # 「この呪文を[自分の手札から]唱えた後、墓地に置くかわりに...」パターン
@@ -780,8 +781,9 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         return [{"op": "discard_opponent_hand", "count": 1}]
     # ピーピング選択ハンデス(相手手札を見せ→「その中からN枚を捨てさせる」)。engine の
     # ランダム選択は最適選択より弱い=under-model(安全)。
+    # 「捨てさせる」(使役)は相手に捨てさせる=ハンデス。「その中から」は直前の相手手札公開を指す。
     m = re.search(r"その中から(\d+)枚を?捨てさせる", cl)
-    if m and "相手" in cl:
+    if m:
         return [{"op": "discard_opponent_hand", "count": int(m.group(1))}]
 
     # --- 自己ディスカード(相手指定なし=自分) ---

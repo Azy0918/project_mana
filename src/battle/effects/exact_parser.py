@@ -354,7 +354,10 @@ def _is_replacement_clause(cl: str) -> bool:
         return False
     if any(t in cl for t in ("ターン", "なら", "あれば", "次の")):
         return False
-    return any(z in cl for z in ("マナゾーンに置く", "手札に戻す", "手札に加える", "山札の一番下"))
+    # シールド化/山札置換は destroy_replacement(mana/hand/deck)が拾わないが、置換先保護を
+    # 省略=クリーチャーがそのまま死ぬ=under-model(安全)として静的消費する
+    return any(z in cl for z in ("マナゾーンに置く", "手札に戻す", "手札に加える", "山札の一番下",
+                                  "シールド化", "シールドゾーンに置く", "山札に加え"))
 
 
 def _is_static(clause: str) -> bool:

@@ -1,0 +1,89 @@
+[
+  {
+    "id": "scene_01_opening",
+    "start": 0,
+    "end": 36,
+    "image": "assets/scenes/scene_01_opening.png",
+    "speaker": "ナレーション",
+    "dialogue": "午前二時三分。国道沿いのコンビニは、冷蔵ケースの低い音だけでできているみたいに静かだった。",
+    "log": ["深夜帯　静寂モード", "冷蔵ケース　低音稼働中", "本日の営業　継続中"],
+    "progressLabel": "現在：プロローグ"
+  },
+  {
+    "id": "scene_02_onigiri_shelf",
+    "start": 36,
+    "end": 72,
+    "image": "assets/scenes/scene_02_onigiri_shelf.png",
+    "speaker": "タクミ",
+    "dialogue": "ミナさん。廃棄のおにぎりって、何分前から食べていいんですか。",
+    "subDialogue": "ミナ：食べていいとは言ってない。",
+    "log": ["廃棄確認　未了", "おにぎり棚　確認中", "店長確認　未了"],
+    "progressLabel": "現在：おにぎり棚"
+  },
+  {
+    "id": "scene_03_register_appears",
+    "start": 72,
+    "end": 109,
+    "image": "assets/scenes/scene_03_register.png",
+    "speaker": "ミナ",
+    "dialogue": "二時十七分、第十三レジ。",
+    "subDialogue": "タクミ：はい。……はい？",
+    "log": ["第十三レジ　出現", "時空返品　待機中", "本日の営業　継続中"],
+    "progressLabel": "現在：第十三レジ出現"
+  },
+  {
+    "id": "scene_04_future_worker_enters",
+    "start": 109,
+    "end": 148,
+    "image": "assets/scenes/scene_04_future_worker_enters.png",
+    "speaker": "未来の会社員",
+    "dialogue": "二〇四一年十一月三日の、おにぎりを返品しに来ました。",
+    "subDialogue": "タクミ：時間のレシート持ってる人だ。",
+    "log": ["来店者　未来時刻", "返品理由　時間差", "本人確認　保留"],
+    "progressLabel": "現在：未来の会社員"
+  },
+  {
+    "id": "scene_05_future_onigiri_scan",
+    "start": 148,
+    "end": 187,
+    "image": "assets/scenes/scene_05_future_onigiri_scan.png",
+    "speaker": "第十三レジ",
+    "dialogue": "未来おにぎり、スキャンします。",
+    "subDialogue": "ミナ：バーコードを未来側に向けて。",
+    "log": ["未来おにぎり　読取中", "時空JAN　照合中", "レジ袋　有料"],
+    "progressLabel": "現在：未来おにぎりスキャン"
+  },
+  {
+    "id": "scene_06_microwave",
+    "start": 187,
+    "end": 226,
+    "image": "assets/scenes/scene_06_microwave.png",
+    "speaker": "タクミ",
+    "dialogue": "未来のおにぎりって、電子レンジで温めていいんですか。",
+    "subDialogue": "ミナ：表示時間より三年短めで。",
+    "log": ["電子レンジ　使用中", "加熱時間　三年短縮", "庫内時空　要注意"],
+    "progressLabel": "現在：電子レンジ"
+  },
+  {
+    "id": "scene_07_receipt",
+    "start": 226,
+    "end": 267,
+    "image": "assets/scenes/scene_07_receipt.png",
+    "speaker": "第十三レジ",
+    "dialogue": "レシートをお取りください。",
+    "subDialogue": "タクミ：長い。人生の注意書きが長い。",
+    "log": ["時空返品　1件", "人類生存率　微増", "店長確認　未了"],
+    "progressLabel": "現在：レシート発行"
+  },
+  {
+    "id": "scene_08_back_to_normal",
+    "start": 267,
+    "end": 309.1,
+    "image": "assets/scenes/scene_08_back_to_normal.png",
+    "speaker": "ナレーション",
+    "dialogue": "第十三レジは、何事もなかったように深夜の店内へ溶けていった。",
+    "subDialogue": "ミナ：次、雑誌返品。",
+    "log": ["異常現象　処理済", "深夜帯　通常運用", "本日の営業　継続中"],
+    "progressLabel": "現在：普通の夜勤に戻る"
+  }
+]

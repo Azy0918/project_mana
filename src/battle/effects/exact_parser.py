@@ -1306,6 +1306,9 @@ def _is_look_resolution_sent(s: str) -> bool:
     if c.startswith(("その", "それ", "残り", "そうした", "それら", "この")):
         if any(k in c for k in _LOOK_RESOLUTION_KEYWORDS):
             return True
+        # 公開カード基準の相手除去(破壊/バトル/タップ): 有益除去の省略=under-model(安全)
+        if "相手" in c and any(k in c for k in ("破壊する", "バトルさせ", "タップする")):
+            return True
     if any(k in c for k in _LOOK_RESOLUTION_KEYWORDS) and "相手" not in c:
         return True
     return False

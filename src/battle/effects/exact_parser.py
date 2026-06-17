@@ -1346,6 +1346,12 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^(?:このクリーチャーが)?ブロックした時[、,]?(.+)$", cl)
     if m and "相手" not in cl[:8]:
         return ("on_block", m.group(1))
+    m = re.match(r"^(?:このクリーチャーが)?(?:相手の)?シールドをブレイクした時[、,]?(.+)$", cl)
+    if m:
+        return ("on_shield_break", m.group(1))
+    m = re.match(r"^(?:このクリーチャーが)?攻撃された時[、,]?(.+)$", cl)
+    if m and "相手" not in cl[:8]:
+        return ("on_attacked", m.group(1))
     m = re.match(r"^(?:この)?攻撃の終わりに[、,]?(.+)$", cl)
     if m:
         return ("on_attack_end", m.group(1))

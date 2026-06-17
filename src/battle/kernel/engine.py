@@ -443,6 +443,15 @@ class DuelEngine:
                 return
             target = opponent.battle_zone[attack.target_creature_index]
             self._record("attack_creature", attacker=attacker.card.name, target=target.card.name)
+            # 「このクリーチャーが攻撃された時」誘発(攻撃対象になった防御側)
+            if self.executor.has_trigger(target.card, "on_attacked"):
+                self.executor.run(self, state.opponent_index, "on_attacked", target.card)
+                if (
+                    state.finished
+                    or target not in opponent.battle_zone
+                    or attacker not in player.battle_zone
+                ):
+                    return
             self._battle(player, attacker, opponent, target)
             return
 
@@ -503,6 +512,9 @@ class DuelEngine:
                 # S・トリガー不所持、またはロック(「誰も〜のS・トリガーを使えない」)で手札へ
                 opponent.hand.append(shield)
         self._record("break_shield", attacker=attacker.card.name, broken=broken)
+        # 「このクリーチャーがシールドをブレイクした時」誘発(1回以上ブレイクした攻撃で1回)
+        if broken and self.executor.has_trigger(attacker.card, "on_shield_break"):
+            self.executor.run(self, state.active_index, "on_shield_break", attacker.card)
 
     def _battle(
         self,

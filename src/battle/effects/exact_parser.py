@@ -1370,6 +1370,9 @@ def _detect_trigger(clause: str) -> tuple[str | None, str]:
     m = re.match(r"^自分が呪文を唱えた時[、,]?(.+)$", cl)
     if m:
         return ("on_spell_cast", m.group(1))
+    m = re.match(r"^相手が呪文を唱えた時[、,]?(.+)$", cl)
+    if m:
+        return ("on_opponent_spell_cast", m.group(1))
     m = re.match(r"^自分のターン(?:の)?(?:はじめ|始め|開始時)に?[、,]?(.+)$", cl)
     if m:
         return ("on_turn_start", m.group(1))

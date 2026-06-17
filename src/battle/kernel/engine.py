@@ -341,6 +341,13 @@ class DuelEngine:
                         self.executor.run(self, state.active_index, "on_spell_cast", creature.card)
                     if state.finished:
                         break
+                # 「相手が呪文を唱えた時」誘発: 非詠唱側(相手)のクリーチャーを通知
+                opp_idx = state.opponent_index
+                for creature in list(state.players[opp_idx].battle_zone):
+                    if self.executor.has_trigger(creature.card, "on_opponent_spell_cast"):
+                        self.executor.run(self, opp_idx, "on_opponent_spell_cast", creature.card)
+                    if state.finished:
+                        break
                 # チャージャー: 解決後、墓地ではなくマナゾーンへ
                 if card.is_charger and card in player.graveyard:
                     player.graveyard.remove(card)

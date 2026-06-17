@@ -279,6 +279,9 @@ _STATIC_CLAUSE = [
     # プレイヤーは有利な1つを選ぶ→engine何もしない=doing nothing≤best option=under-model(安全)
     r"^(?:そうした場合[、,])?次の(?:うち)?いずれか(?:ひとつ|1つ|2つ|つ)?を選(?:ぶ|んでもよい)$",
     r"^(?:そうした場合[、,])?次の(?:うち)?(?:から)?\d+つを選(?:ぶ|んでもよい)$",
+    # モーダル「両方を選ぶ」修飾(条件付きで両選択肢実行): engine は1つだけ選ぶ近似=
+    # under-model(条件達成時の上振れを取りこぼす)=安全
+    r"^自分の.{1,30}が(?:あれば|\d+(?:体|枚)以上あれば)[、,]両方を選ぶ$",
     # スーパー龍解後注記: パーレン内形態注記=ゲームプレイに影響なし
     r"^（スーパー龍解後[：:][^）]+）$",
     # P'S覚醒リンク: 複数体結合キーワード。engine未対応=under-model(安全)
@@ -467,6 +470,7 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
     """1つの効果節を action のリストに変換。未知・条件付き・曖昧・取りこぼしなら None。"""
     body = clause.rstrip("。")
     all_acts: list[dict[str, Any]] = []
+    safe_skipped = False  # safe-body として消費した節があるか(全節 safe-skip なら [] を返す)
     for part in _split_compound(body):
         # 先頭の条件句(マナ武装/革命/墓地枚数等)を抽出。未知条件キーワードがあれば reject。
         condition, rest, had_cond = _extract_condition(part)
@@ -477,6 +481,7 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
             # 条件付きの有益効果(超次元/踏み倒し/チューター等の safe-skip 対象)は、条件
             # 成否に関わらず効果を飛ばしても under-model(発動しても得しないだけ)で安全。
             if any(re.match(p, rest.rstrip("。")) for p in _SAFE_BODY_PATTERNS):
+                safe_skipped = True
                 continue
             return None
         if condition:
@@ -484,7 +489,8 @@ def _parse_action_clause(clause: str) -> list[dict[str, Any]] | None:
                 a["condition"] = condition
         all_acts.extend(r)
     if not all_acts:
-        return None
+        # 全節を safe-skip した場合は「解析成功・アクションなし」(=under-model)として [] を返す
+        return [] if safe_skipped else None
     # 節全体のアクション系統数 > 生成アクション数 なら取りこぼし → exact化しない
     if _family_count(body) > len(all_acts):
         return None

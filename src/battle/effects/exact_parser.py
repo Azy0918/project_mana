@@ -35,6 +35,7 @@ _STATIC_CLAUSE = [
     r"^このカードは[、,]?\d+枚より多くデッキに入れることができる$",
     # 注釈テキスト(マナ増加しない/制限注記): engine は自然に満足
     r"^（ただし、使用可能マナは増えない）$",
+    r"^（この効果によって使用可能マナは増えない）$",
     r"^（ただし、このマナゾーンのカードは[^）]*使えない）$",
     # 呪文着地置換: engine は常に墓地行き = under-model(安全方向)
     # 「この呪文を[自分の手札から]唱えた後、墓地に置くかわりに...」パターン
@@ -591,6 +592,12 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if m:
         scopes = ["self"] if m.group(1) == "自分の" else (["opponent"] if m.group(1) == "相手の" else ["self", "opponent"])
         return [{"op": "destroy_creature", "count": 99, "target_filter": "blocker", "scope": s} for s in scopes]
+    # --- 最大パワーのクリーチャー破壊(engine の対象選択は最強優先=一致) ---
+    # 「すべて」(同値タイ複数)でも1体のみ=under-model(安全)。"大きい"は reject 語のため先に処理。
+    m = re.match(r"^(自分の|相手の)?最も(?:パワーが大きい|パワーの大きい)クリーチャー(?:をすべて)?を?破壊する$", cl)
+    if m:
+        scope = "self" if m.group(1) == "自分の" else "opponent"
+        return [{"op": "destroy_creature", "count": 1, "scope": scope}]
 
     # --- マナゾーン召喚(summon_from_mana) ---
     # コスト/パワー/文明/進化でない の組み合わせフィルタに対応。未知修飾語があれば reject。
@@ -1024,6 +1031,9 @@ _SAFE_BODY_PATTERNS = [
     # 任意枚数の自己ディスカード(好きな枚数捨ててもよい): 0枚も選択可=捨てない=
     # under-model(安全)。墓地肥やし用途を取りこぼすが過小評価側
     r"^自分の手札を好きな枚数捨ててもよい$",
+    # 相手手札の公開/見せる(情報のみ、ゾーン移動なし): engine 状態に影響なし=neutral=安全
+    r"^相手の手札から最も.{1,60}公開させる$",
+    r"^相手は自身の手札を(?:すべて)?見せる$",
     # P'S封印(相手クリーチャーへの封印=ソフトロック除去): engine未対応=付けない=
     # under-model(安全)
     r"^.{0,40}相手はそれにP'S封印を\d+つ付ける$",

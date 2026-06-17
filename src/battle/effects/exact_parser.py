@@ -13,6 +13,10 @@ from __future__ import annotations
 import re
 from typing import Any
 
+# デバッグ補助: parse_card がメインループで None を返す直前の阻害節を記録する。
+# 解析失敗の真因(=次に対応すべき節)を特定するための計測専用。挙動には影響しない。
+_LAST_REJECT: list[str | None] = [None]
+
 # エンジンが静的プロパティとして忠実に扱うキーワード節(=空ability側で表現済み)。
 # これらの節は「アクション不要・既に忠実」として消費する。
 _STATIC_CLAUSE = [
@@ -2561,6 +2565,10 @@ _SAFE_BODY_PATTERNS = [
     r"^自分のクロスギア\d+枚を[、,]コストを支払わずにこのクリーチャーにクロスしてもよい$",
     # 任意の手札選択(配置/廃棄は別節): 選択のみ=効果なし=under-model=安全
     r"^自分の手札を\d+枚選んでもよい$",
+    # 能力の2回トリガー→1回に格下げ: skip=1度のみ=under-model=安全
+    r"^その能力は1度のかわりに2度トリガーする$",
+    # 破壊数に応じた有益ドロー: skip=引かない=under-model=安全
+    r"^こうして破壊したクリーチャー\d+体につき\d+枚[、,]カードを引く$",
 ]
 
 # パターン総数が re モジュールの内部キャッシュ(512)を超えるため、毎回の re.match で
@@ -3060,6 +3068,7 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                         # パターンのみ適用するので over-model 化しない。
                         continue
                     else:
+                        _LAST_REJECT[0] = "NO_TRIGGER:" + sent
                         return None  # トリガー不明 → exact化不可
             chunk_trigger = trigger
             # デュアルトリガー(「Aする時、またはBする時、効果」)の検出。本体を両トリガーに登録。
@@ -3119,6 +3128,7 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                 body_c = body.rstrip("。")
                 if _is_safe_body(body_c):
                     continue
+                _LAST_REJECT[0] = body_c
                 return None
             for trg in (trigger, *extra_triggers):
                 by_trigger.setdefault(trg, []).extend([dict(a) for a in acts])

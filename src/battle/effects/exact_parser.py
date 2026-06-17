@@ -227,6 +227,9 @@ _STATIC_CLAUSE = [
     r"^自分のバトルゾーンにある.{1,30}につきパワーを?[+＋\-－‐]\d+する$",
     # ニンジャストライク: 相手攻撃時手札から無料召喚。engine未対応=under-model(安全)
     r"^ニンジャストライク\s*\d+$",
+    # 爆進ダブル等の攻撃キーワード: engine未対応=under-model(安全)
+    r"^爆進ダブル$",
+    r"^爆進[A-ZＡ-Ｚ]*$",
     # ゴッドリンク詳細テキスト(括弧注記)
     r"^（このカードは[^）]*ゴッド[^）]*）$",
     # サバキZ詳細
@@ -535,6 +538,9 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     m = re.search(r"自分のシールドが(\d+)つ?以下(?:なら|であれば)[、,]?(.+)$", cl)
     if m:
         return ({"kind": "shields_at_most", "count": int(m.group(1))}, m.group(2), True)
+    m = re.search(r"自分のシールドが(?:1つも|まったく)なければ[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "shields_at_most", "count": 0}, m.group(1), True)
     m = re.search(r"自分のシールドが(\d+)つ?以上(?:あれば|なら|であれば)[、,]?(.+)$", cl)
     if m:
         return ({"kind": "shields_at_least", "count": int(m.group(1))}, m.group(2), True)
@@ -1067,6 +1073,8 @@ _SAFE_BODY_PATTERNS = [
     # 任意枚数の自己ディスカード(好きな枚数捨ててもよい): 0枚も選択可=捨てない=
     # under-model(安全)。墓地肥やし用途を取りこぼすが過小評価側
     r"^自分の手札を好きな枚数捨ててもよい$",
+    # ゲーム外(超GR/サイドボード等)からの獲得: engine未対応=得られない=under-model(安全)
+    r"^ゲーム外から.{1,80}(?:手札に加える|バトルゾーンに出す|手札に加えてもよい|バトルゾーンに出してもよい)$",
     # 相手手札の公開/見せる(情報のみ、ゾーン移動なし): engine 状態に影響なし=neutral=安全
     r"^相手の手札から最も.{1,60}公開させる$",
     r"^相手は自身の手札を(?:すべて)?見せる$",

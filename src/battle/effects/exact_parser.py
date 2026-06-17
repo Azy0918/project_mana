@@ -1337,11 +1337,14 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
 
     # --- マナ→墓地(mana_to_grave): マナゾーンからカードを墓地に置く ---
     # 「ランダムな」= engine は最小コスト選択で近似(under-model=安全)
-    if "マナゾーンから" in cl and ("墓地に置く" in cl or "墓地に置き" in cl):
+    # 「マナゾーンから〜」「マナゾーンのカードN枚を〜」の両表記に対応。
+    if ("マナゾーンから" in cl or "マナゾーンの" in cl) and ("墓地に置く" in cl or "墓地に置き" in cl):
         sc = _scope_for(cl) if ("相手" in cl or "自分" in cl) else ("self", None)
         if sc is None:
             return None
         mm = re.search(r"マナゾーンから(?:ランダムな)?(?:カード|クリーチャー)?(\d+)?枚?を?墓地に置(?:く|き)", cl)
+        if not mm:
+            mm = re.search(r"マナゾーンの(?:ランダムな)?(?:カード|クリーチャー)?を?(\d+)?枚?を?墓地に置(?:く|き)", cl)
         if not mm:
             return None
         cnt = int(mm.group(1)) if mm.group(1) else 1

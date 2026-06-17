@@ -47,13 +47,13 @@ python .\tools\preview_puppet_engine.py --rig-json .\puppet_rigs\default_puppet_
 
 ## GitHubで見られるプレビュー
 
-このフォルダを `Azy0918/project_mana` にpushした場合、以下のリンクでGIFを確認できます。
+このリポジトリを `Azy0918/13th-register-anime` としてGitHubへpushした場合、以下のリンクでGIFを確認できます。
 
-- [タクミ Vtuber motion](https://github.com/Azy0918/project_mana/blob/add-13th-register-anime-previews/13th-register-anime/previews/takumi_vtuber_motion.gif)
-- [ミナ Vtuber motion](https://github.com/Azy0918/project_mana/blob/add-13th-register-anime-previews/13th-register-anime/previews/mina_vtuber_motion.gif)
-- [未来の会社員 Vtuber motion](https://github.com/Azy0918/project_mana/blob/add-13th-register-anime-previews/13th-register-anime/previews/salaryman_vtuber_motion.gif)
+- [タクミ Vtuber motion](https://github.com/Azy0918/13th-register-anime/blob/main/previews/takumi_vtuber_motion.gif)
+- [ミナ Vtuber motion](https://github.com/Azy0918/13th-register-anime/blob/main/previews/mina_vtuber_motion.gif)
+- [未来の会社員 Vtuber motion](https://github.com/Azy0918/13th-register-anime/blob/main/previews/salaryman_vtuber_motion.gif)
 
-`main` にマージした後は、URL内の `add-13th-register-anime-previews` を `main` に置き換えます。
+リポジトリ名を変える場合は、URL内の `13th-register-anime` を実際のリポジトリ名に置き換えます。
 
 ## GitHub運用方針
 
@@ -83,3 +83,12 @@ python .\tools\preview_puppet_engine.py --rig-json .\puppet_rigs\default_puppet_
 - タクミ、ミナ、未来の会社員、第十三レジの表示制御
 - Vtuber風の目パチ、視線揺れ、口パク、呼吸ハイライト
 - JSONリグによる動き調整
+
+## 現在の制作方針: 紙芝居風リアルイラスト版
+
+人物アニメーションはいったん止め、リアル寄りのイラストを多数並べる紙芝居・ビジュアルノベル風の方向へ移行します。
+
+- 設計書: `docs/KAMISHIBAI_REAL_ILLUSTRATION_PLAN.md`
+- 画像生成用カットCSV: `tools/kamishibai_real_cut_prompts.csv`
+- 目標: 1分で36カット前後
+- 方針: 口パクや不自然な身体揺れを使わず、カット数、構図、音声演出で見せる

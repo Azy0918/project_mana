@@ -970,6 +970,12 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
             if _is_mass_both:
                 r = _restrictions(cl)
                 return [{"op": "destroy_creature", "count": 99, "scope": s, **r} for s in ("self", "opponent")]
+            # 「他のクリーチャーをすべて破壊する」(スコープ省略)= 両者、自軍は自身除外
+            if ("すべて" in cl or "全て" in cl) and "他の" in cl:
+                return [
+                    {"op": "destroy_creature", "count": 99, "scope": "opponent"},
+                    {"op": "destroy_creature", "count": 99, "scope": "self", "exclude_source": True},
+                ]
             return None
         scope, chooser = sc
         act = {"op": "destroy_creature", "count": _count_all(cl), "scope": scope}
@@ -978,6 +984,8 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
             act["chooser"] = chooser
         if "このクリーチャー" in cl and "相手" not in cl:
             act["target"] = "source"  # 効果元自身を破壊
+        elif "他の" in cl and scope == "self":
+            act["exclude_source"] = True  # 「自分の他の…」=自身を除外
         return [act]
 
     # --- タップ ---

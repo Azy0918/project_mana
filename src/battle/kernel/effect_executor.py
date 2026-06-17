@@ -148,6 +148,7 @@ class EffectExecutor:
                 if src is not None:
                     engine.destroy_creature(controller_index, src)
                 return
+            exclude_source = action.get("exclude_source", False)
             for _ in range(count):
                 pool = target_player.battle_zone
                 if max_cost is not None:
@@ -156,6 +157,9 @@ class EffectExecutor:
                     pool = [creature for creature in pool if creature.card.is_blocker]
                 if exclude_evolution:
                     pool = [creature for creature in pool if not creature.card.is_evolution]
+                if exclude_source:
+                    # 「他の」=効果元自身(同一カードオブジェクト)を対象から除外
+                    pool = [creature for creature in pool if creature.card is not card]
                 if action.get("chooser") == "opponent" and pool:
                     # 「相手は自身のクリーチャーを破壊する」= 相手の最適行動(最弱を差し出す)
                     target = min(pool, key=lambda c: c.card.power)

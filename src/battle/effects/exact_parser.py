@@ -1646,6 +1646,10 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
             # 文頭の逐次マーカー「その後、」を除去(トリガーは継承済み)。安全節/通常解析の
             # マッチを揃える。
             body = re.sub(r"^その後[、,]", "", body).strip()
+            # トリガー除去後の本体が静的節(モーダルヘッダ等)なら消費する。トリガー前置の
+            # 「出た時、次のうちいずれかひとつを選ぶ」型を正しくスキップするため。
+            if _is_static(body):
+                continue
             # LAT複文検出: 「山札の上からN枚を見る/表向きにする」の後続文を結合して look_and_take に変換
             if _LAT_MULTI_RE.match(body):
                 lat_sents = [body]

@@ -2531,6 +2531,11 @@ _SAFE_BODY_PATTERNS = [
     r"^相手のシールドを\d+枚ブレイクする$",
     # 墓地から蘇生する(条件付き): engine未対応=under-model=安全
     r"^その持ち主の墓地から.{1,150}$",
+    # 手札から捨てられる時の置換自己召喚(相手ターンの手札離脱を踏み倒し): 有益=under-model=安全
+    r"^相手のターン中に(?:このクリーチャーが)?自分の手札から捨てられる時[、,]かわりにバトルゾーンに出す$",
+    # 任意タップ/アンタップ(コスト/有益いずれもskip=under-model=安全)
+    r"^アンタップしているクリーチャー\d*体?を?タップしてもよい$",
+    r"^タップしているクリーチャー\d*体?を?アンタップしてもよい$",
 ]
 
 
@@ -3015,6 +3020,11 @@ def parse_card(text: str, card_type: str) -> list[dict[str, Any]] | None:
                 if trigger is None:
                     if chunk_trigger is not None:
                         trigger, body = chunk_trigger, sent  # 継続節はトリガー継承
+                    elif any(re.match(p, sent.rstrip("。")) for p in _SAFE_BODY_PATTERNS):
+                        # トリガー不明でも、節が既知の under-model 安全(SAFE_BODY)なら
+                        # トリガーごとスキップ(効果が発火しない=より保守的)。curate 済み
+                        # パターンのみ適用するので over-model 化しない。
+                        continue
                     else:
                         return None  # トリガー不明 → exact化不可
             chunk_trigger = trigger

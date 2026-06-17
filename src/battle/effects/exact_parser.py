@@ -772,6 +772,11 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         return [{"op": "discard_opponent_hand", "count": int(m.group(1))}]
     if "相手の手札をランダムに1枚捨てさせる" in cl or "相手の手札を1枚捨てさせる" in cl:
         return [{"op": "discard_opponent_hand", "count": 1}]
+    # ピーピング選択ハンデス(相手手札を見せ→「その中からN枚を捨てさせる」)。engine の
+    # ランダム選択は最適選択より弱い=under-model(安全)。
+    m = re.search(r"その中から(\d+)枚を?捨てさせる", cl)
+    if m and "相手" in cl:
+        return [{"op": "discard_opponent_hand", "count": int(m.group(1))}]
 
     # --- 自己ディスカード(相手指定なし=自分) ---
     m = re.search(r"(?:自分の)?手札を(\d+)枚捨てる", cl)
@@ -812,6 +817,12 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         m = re.search(r"自分のシールドを(\d+)つ追加", cl)
         if m:
             return [{"op": "add_shield", "count": int(m.group(1))}]
+        # 「(更に)もうN枚をシールド化する」= 山札の上をシールド追加(source省略)
+        m = re.search(r"(?:更に)?もう(\d+)枚を?シールド化する", cl)
+        if m:
+            return [{"op": "add_shield", "count": int(m.group(1))}]
+        if re.search(r"(?:更に)?もう1枚を?シールド化する", cl):
+            return [{"op": "add_shield", "count": 1}]
         # シールド→手札: 自分のシールドをNつ手札に戻す/加える(S・トリガーなし=under-model側で安全)
         # 「シールドを1つ」「シールド1つを」の両語順に対応
         m = re.search(r"自分のシールド(?:を)?(\d+)つ?(?:を)?(?:まで)?手札に(?:戻す|加える)", cl)
@@ -1037,6 +1048,9 @@ _SAFE_BODY_PATTERNS = [
     # 相手手札の公開/見せる(情報のみ、ゾーン移動なし): engine 状態に影響なし=neutral=安全
     r"^相手の手札から最も.{1,60}公開させる$",
     r"^相手は自身の手札を(?:すべて)?見せる$",
+    # 動的ランプ(マナの枚数に比例して山札からマナ加速): engine の固定枚数では再現不能の
+    # ため省略=ランプしない=under-model(安全)
+    r"^自分のマナゾーンにある.{1,30}と同じ枚数のカードを[、,]自分の山札の上からマナゾーンに置く$",
     # P'S封印(相手クリーチャーへの封印=ソフトロック除去): engine未対応=付けない=
     # under-model(安全)
     r"^.{0,40}相手はそれにP'S封印を\d+つ付ける$",

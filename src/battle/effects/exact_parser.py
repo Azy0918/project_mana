@@ -841,15 +841,15 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         return [{"op": "discard_opponent_hand", "count": int(m.group(1))}]
 
     # --- 自己ディスカード(相手指定なし=自分) ---
-    m = re.search(r"(?:自分の)?手札を(\d+)枚捨てる", cl)
+    m = re.search(r"(?:自分の)?手札を(\d+)枚捨て(?:る)?", cl)
     if m and "選" not in cl and "相手" not in cl:
         return [{"op": "discard_own_hand", "count": int(m.group(1))}]
     # 「自分の手札から(種別)?N枚を捨てる」語順。任意(てもよい)は強制化済み=under-model。
     # engine の discard_own_hand は方策選択なので種別フィルタは無視(=任意の1枚を捨てる近似)。
-    m = re.search(r"自分の手札から(?:[^。]{0,12}?)(\d+)枚(?:を)?捨てる", cl)
+    m = re.search(r"自分の手札から(?:[^。]{0,12}?)(\d+)枚(?:を)?捨て(?:る)?", cl)
     if m and "相手" not in cl:
         return [{"op": "discard_own_hand", "count": int(m.group(1))}]
-    if "自分の手札をすべて捨てる" in cl:
+    if re.search(r"自分の手札をすべて捨て(?:る)?", cl) and "相手" not in cl:
         return [{"op": "discard_own_hand", "count": 99}]
     if ("相手は手札をすべて捨てる" in cl) or ("相手は自身の手札をすべて捨てる" in cl):
         return [{"op": "discard_opponent_hand", "count": 99}]
@@ -1142,9 +1142,14 @@ _SAFE_BODY_PATTERNS = [
     # 動的ランプ(マナの枚数に比例して山札からマナ加速): engine の固定枚数では再現不能の
     # ため省略=ランプしない=under-model(安全)
     r"^自分のマナゾーンにある.{1,30}と同じ枚数のカードを[、,]自分の山札の上からマナゾーンに置く$",
-    # 動的ドロー(文明数/枚数に比例): engine の固定枚数では再現不能=省略=引かない=under-model
+    # 動的ドロー(文明数/枚数/体数に比例): engine の固定枚数では再現不能=省略=引かない=under-model
     r"^自分のマナゾーンにある(?:文明1つ|.{1,16}の数)につき[、,]?カードを\d+枚引く$",
     r"^自分のマナゾーンにある.{1,20}の数だけ[、,]?カードを引く$",
+    r"^自分の.{1,30}\d+体につき[、,]?カードを\d+枚引く$",
+    r"^自分の.{1,30}の数だけ[、,]?カードを引く$",
+    # クロスギア/P'S封印の墓地送り(engine未対応の要素): under-model(安全)
+    r"^相手のクロスギア\d*枚?を?墓地に置く$",
+    r"^自分のP'S封印\d*つ?を?墓地に置く$",
     # 任意の手札シャッフル戻し(0枚も選べる): 任意=捨てない選択可=under-model(安全)
     r"^自分の手札をすべて[、,]?ランダムな順番で自分の山札の一番下に置いてもよい$",
     # 敗北回避/勝利阻止(サバイバルロック): engine未対応の保護=付与しない=under-model(安全)

@@ -197,6 +197,30 @@ class EffectExecutor:
                     return
                 target_player.battle_zone.remove(target)
                 target_player.hand.append(target.card)
+        elif op == "keep_one_rest_bounce":
+            # 「(対象側)クリーチャー1体を残し、それ以外を手札/マナに戻す」。
+            # 対象側がそれぞれ最強1体を残す前提(=各プレイヤーの最適選択=忠実)。
+            tp_index = self._target_player_index(controller_index, action)
+            tp = engine.state.players[tp_index]
+            zone = action.get("zone", "hand")
+            pool = list(tp.battle_zone)
+            if action.get("exclude_self"):
+                # 効果元自身(1体)は選択にも移動にも関与しない
+                for i, c in enumerate(pool):
+                    if c.card.card_id == card.card_id:
+                        pool.pop(i)
+                        break
+            if len(pool) <= 1:
+                return
+            keep = self._pick_strongest(pool)
+            for c in pool:
+                if c is keep or c not in tp.battle_zone:
+                    continue
+                tp.battle_zone.remove(c)
+                if zone == "mana":
+                    tp.mana_zone.append(make_mana_card(c.card))
+                else:
+                    tp.hand.append(c.card)
         elif op == "modify_power":
             # 一時パワー増減。結果が0以下になったクリーチャーは破壊(DM裁定)。
             target_player_index = self._target_player_index(controller_index, action)

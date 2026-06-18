@@ -1771,6 +1771,18 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
             {"op": "bounce_creature", "count": 99, "scope": "self", "exclude_source": True},
         ]
 
+    # --- 1体残し他バウンス(各プレイヤーが1体残し、残りを手札/マナへ) ---
+    # 深海の伝道師アトランティス型(手札)・大宇宙シンラ型(マナ)。対象側が最強1体を
+    # 残す前提=各プレイヤーの最適選択=忠実。シンラは自身(他の)を選択・移動から除外。
+    if re.match(r"^自分のクリーチャー1体を選び[、,]残りを手札に戻す$", cl):
+        return [{"op": "keep_one_rest_bounce", "scope": "self", "zone": "hand"}]
+    if re.match(r"^相手は自身のクリーチャー1体を選び[、,]残りを手札に戻す$", cl):
+        return [{"op": "keep_one_rest_bounce", "scope": "opponent", "zone": "hand"}]
+    if re.match(r"^自分の他のクリーチャーを1体選び[、,]それ以外の自分の他のクリーチャーをすべてマナゾーンに置く$", cl):
+        return [{"op": "keep_one_rest_bounce", "scope": "self", "zone": "mana", "exclude_self": True}]
+    if re.match(r"^相手は自身のクリーチャーを1体選び[、,]それ以外の自身のクリーチャーをすべてマナゾーンに置く$", cl):
+        return [{"op": "keep_one_rest_bounce", "scope": "opponent", "zone": "mana"}]
+
     # --- ターン終了時の自軍クリーチャー破壊(そのターン終了時、自分のクリーチャーN体を破壊する) ---
     # timing="end_of_turn" で遅延キューに積み、ターン終了時に解決(阿修羅サソリムカデ型)。
     m = re.match(r"^そのターン終了時[、,]自分のクリーチャー(\d+)体を破壊する$", cl)

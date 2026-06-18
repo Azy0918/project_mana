@@ -56,8 +56,38 @@ def select_mana_payment(
     return payment[:required]
 
 
-def effective_cost(player: PlayerState, card: BattleCard) -> int:
-    """軽減オーラとG・ゼロを考慮した実支払いコスト。"""
+def _cost_increase(card: BattleCard, sources: list[CreatureInstance]) -> tuple[int, int]:
+    """場のクリーチャー由来の静的コスト増加(倍率, 加算)を集計する。"""
+    mult, add = 1, 0
+    for inst in sources:
+        rule = inst.card.cost_modifier_rule
+        if rule is None:
+            continue
+        if rule["target"] == "spell" and not card.is_spell:
+            continue
+        if rule["target"] == "creature" and not card.is_creature:
+            continue
+        if rule["exclude"] is not None:
+            if rule["exclude"] in card.civilizations:
+                continue
+        elif rule["include"] is not None:
+            if not any(c in card.civilizations for c in rule["include"]):
+                continue
+        mult *= rule["mult"]
+        add += rule["add"]
+    return mult, add
+
+
+def effective_cost(
+    player: PlayerState,
+    card: BattleCard,
+    modifier_sources: list[CreatureInstance] | None = None,
+) -> int:
+    """軽減オーラとG・ゼロ、静的コスト増加を考慮した実支払いコスト。
+
+    modifier_sources: コスト増加静的を持ちうる全クリーチャー(両者の場)。
+    省略時は player.battle_zone のみを走査する。
+    """
     g_zero = card.g_zero_spell_count
     if g_zero is not None and player.spells_cast_this_turn >= g_zero:
         return 0
@@ -65,6 +95,12 @@ def effective_cost(player: PlayerState, card: BattleCard) -> int:
     if g_zero_grave is not None and len(player.graveyard) >= g_zero_grave:
         return 0
     cost = card.cost
+    # 静的コスト増加(倍→加算の順に適用)
+    sources = modifier_sources if modifier_sources is not None else player.battle_zone
+    mult, add = _cost_increase(card, sources)
+    if mult != 1:
+        cost *= mult
+    cost += add
     if card.is_creature:
         reduction = sum(creature.card.summon_cost_reduction for creature in player.battle_zone)
         # B・A・D: 常に軽減を使う前提(代償のターン終了時破壊は召喚時にフラグ付与)
@@ -85,14 +121,18 @@ def can_play_evolution(player: PlayerState, card: BattleCard) -> bool:
     return any(creature.card.is_creature for creature in player.battle_zone)
 
 
-def playable_hand_indexes(player: PlayerState) -> list[int]:
+def playable_hand_indexes(
+    player: PlayerState,
+    modifier_sources: list[CreatureInstance] | None = None,
+) -> list[int]:
     indexes = []
     for index, card in enumerate(player.hand):
         if card.cannot_summon_from_hand and card.is_creature:
             continue
         if not can_play_evolution(player, card):
             continue
-        if select_mana_payment(player.mana_zone, card, cost=effective_cost(player, card)) is not None:
+        cost = effective_cost(player, card, modifier_sources)
+        if select_mana_payment(player.mana_zone, card, cost=cost) is not None:
             indexes.append(index)
     return indexes
 
@@ -314,14 +354,18 @@ class DuelEngine:
         while True:
             if state.skip_active_turn:  # 「ターンの残りをとばす」発動済み
                 return
-            playable = [i for i in playable_hand_indexes(player) if not self._spell_cast_blocked(player.hand[i])]
+            all_creatures = [c for p in state.players for c in p.battle_zone]
+            playable = [
+                i for i in playable_hand_indexes(player, all_creatures)
+                if not self._spell_cast_blocked(player.hand[i])
+            ]
             if not playable:
                 return
             choice = policy.choose_main_action(state, player, playable)
             if choice is None or choice not in playable:
                 return
             card = player.hand.pop(choice)
-            pay_cost = effective_cost(player, card)
+            pay_cost = effective_cost(player, card, all_creatures)
             payment = select_mana_payment(player.mana_zone, card, cost=pay_cost)
             if payment is None:
                 player.hand.insert(choice, card)

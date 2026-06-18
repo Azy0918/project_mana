@@ -299,6 +299,42 @@ class BattleCard:
         return "自分は「S・トリガー」能力を使えない" in self.text
 
     @property
+    def cost_modifier_rule(self) -> dict[str, Any] | None:
+        """場にいる間、全プレイヤーの呪文/召喚コストを増やす静的ルール。
+
+        戻り値 dict または None:
+          {target: 'spell'|'creature', exclude: civ|None, include: (civ,...)|None,
+           mult: int, add: int}
+        コスト増加(倍/多くなる)のみ対象。減少は既存の軽減系で扱う。
+        コストを増やす方向のみ模擬するため、誤検出しても overcharge=under-model 安全。
+        """
+        civ = r"(?:光|水|火|闇|自然|無色)"
+        for clause in re.split(r"[。\n]|■|◇", self.text):
+            if "コストは" not in clause or ("倍" not in clause and "多く" not in clause):
+                continue
+            obj = r"(呪文を唱える|クリーチャーを召喚する)"
+            tail = rf"{obj}コストは(\d+)(倍|多く)"
+            exclude = None
+            include = None
+            m = re.search(rf"({civ})以外の{tail}", clause)
+            if m:
+                exclude = m.group(1)
+                target = "spell" if "呪文" in m.group(2) else "creature"
+                n, kind = int(m.group(3)), m.group(4)
+            else:
+                m = re.search(rf"((?:{civ})(?:または{civ})*)の{tail}", clause)
+                if not m:
+                    continue
+                include = tuple(re.findall(civ, m.group(1)))
+                target = "spell" if "呪文" in m.group(2) else "creature"
+                n, kind = int(m.group(3)), m.group(4)
+            mult = n if kind == "倍" else 1
+            add = n if kind == "多く" else 0
+            return {"target": target, "exclude": exclude, "include": include,
+                    "mult": mult, "add": add}
+        return None
+
+    @property
     def enters_tapped(self) -> bool:
         return (
             "タップしてバトルゾーンに出る" in self.text

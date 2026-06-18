@@ -1521,6 +1521,9 @@ def _family_count(cl: str) -> int:
     # 「シールドを手札に戻す/追加する」を own_shield 系として一時マーク
     # 「シールドを破壊」等と区別するため「シールドを」全体を一時置換
     s = re.sub(r"シールドを(\d+つ?(?:まで)?)(手札に戻|追加)", "シールド\x02", s)
+    # 否定形の条件句(「捨てなかった場合、」「捨てられない場合、」等)はアクション動詞でなく条件
+    # → 除去してアクション系統を正しく数える
+    s = re.sub(r"\w+(?:なかった|られない|できない)(?:場合|ら)?[、,]", "", s)
     fams = [("引く", "引き"), ("捨て",), ("破壊",), ("タップする",), ("\x01",),
             ("手札に戻",), ("マナゾーンに置く",), ("墓地に置く",),
             ("シールド化", "シールドゾーンに置く", "\x02")]
@@ -1665,6 +1668,10 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     m = re.search(r"自分の([^。、]{1,16})が(\d+)(?:体|枚)以上(?:あれば|なら)[、,]?(.+)$", cl)
     if m and not any(z in m.group(1) for z in ("マナ", "墓地", "シールド", "手札", "山札")):
         return ({"kind": "self_named_count_at_least", "count": int(m.group(2))}, m.group(3), True)
+    # なければ否定条件: マナ枚数がN以上なければ = マナ < N でトリガー
+    m = re.search(r"自分のマナゾーンにカードが(\d+)枚以上なければ[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "mana_lt", "count": int(m.group(1))}, m.group(2), True)
     had = any(w in cl for w in ("あれば", "なら", "マナ武装", "革命"))
     return (None, cl, had)
 
@@ -1743,6 +1750,17 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         return [{"op": "hand_to_deck_shuffle", "count": int(m.group(1))}]
     if re.match(r"^自分の手札から1枚を山札に加えてシャッフルする$", cl):
         return [{"op": "hand_to_deck_shuffle", "count": 1}]
+
+    # --- 手札すべてデッキ底(ニンプウ・タイフーン型: 直後の動的ドロー枚数は別clause) ---
+    # 「ランダムな順番で山札の一番下に置く」= すべての手札カードをシャッフルしてデッキ底へ。
+    # 後続の「その枚数より1枚多くカードを引く」は_SAFE_BODY_PATTERNSでunder-model省略=安全。
+    if re.match(r"^自分の手札をすべて[、,]?ランダムな順番で自分の山札の一番下に置く$", cl):
+        return [{"op": "all_hand_to_deck_bottom"}]
+
+    # --- 手札を捨てられなかった場合の自己破壊(ゴルドノフV世・ヒャックメー型) ---
+    # effect_tracking["discards"]が0なら自己破壊(手札が空で捨てられなかった状況のみ発火)。
+    if re.match(r"^(?:捨てなかった|こうして手札を1枚も捨てられない)場合[、,]?このクリーチャーを破壊する$", cl):
+        return [{"op": "destroy_self_if_no_effect_discard"}]
 
     # --- 文明指定の全体破壊((civ)以外のクリーチャーをすべて破壊する) ---
     # engine: destroy_creatures_nonciv(keep_civ)。デフォルトは両者(自分/相手指定で限定)。
@@ -2329,6 +2347,9 @@ _SAFE_BODY_PATTERNS = [
     r"^(?:この|その)ターン[、,]自分の[^。]{1,30}(?:すべて)?に[、,]?[「『][^。]{1,90}を(?:得る|与える)$",
     # 任意の手札シャッフル戻し(0枚も選べる): 任意=捨てない選択可=under-model(安全)
     r"^自分の手札をすべて[、,]?ランダムな順番で自分の山札の一番下に置いてもよい$",
+    # 動的ドロー(その枚数より1枚多くカードを引く): ニンプウ・タイフーン型。前段のall_hand_to_deck_bottom
+    # で移動枚数を追跡しないため動的枚数を計算できない=省略=引かない=under-model(安全)
+    r"^(?:その後[、,])?その枚数より\d+枚多くカードを引く$",
     # 敗北回避/勝利阻止(サバイバルロック): engine未対応の保護=付与しない=under-model(安全)
     r"^(?:次の自分のターン開始時まで[、,])?自分はゲームに負けず[、,]相手はゲームに勝てない$",
     r"^(?:次の自分のターン開始時まで[、,])?自分はゲームに負けない$",

@@ -47,11 +47,12 @@ class EffectExecutor:
         is_chain_root = self._chain_depth == 0
         try:
             for ability in abilities:
+                effect_tracking: dict[str, Any] = {}
                 for action in ability.get("actions", []):
                     if engine.state.finished or self._chain_depth >= MAX_RESOLUTIONS_PER_CHAIN:
                         return
                     self._chain_depth += 1
-                    self._execute_action(engine, controller_index, trigger, card, action, context)
+                    self._execute_action(engine, controller_index, trigger, card, action, context, effect_tracking)
         finally:
             if is_chain_root:
                 self._chain_depth = 0
@@ -64,6 +65,7 @@ class EffectExecutor:
         card: BattleCard,
         action: dict[str, Any],
         context: dict[str, Any] | None = None,
+        effect_tracking: dict[str, Any] | None = None,
     ) -> None:
         op = action.get("op")
         count = int(action.get("count", 1))
@@ -407,14 +409,18 @@ class EffectExecutor:
             # 「ターンの残りをとばす」: 現在のアクティブプレイヤーの残りフェイズを中断。
             engine.state.skip_active_turn = True
         elif op == "discard_own_hand":
+            discarded = 0
             for _ in range(count):
                 if not controller.hand:
-                    return
+                    break
                 policy = engine.policies[controller_index]
                 index = policy.choose_discard(engine.state, controller, controller.hand)
                 if index is None or not (0 <= index < len(controller.hand)):
                     index = engine.rng.randrange(len(controller.hand))
                 controller.graveyard.append(controller.hand.pop(index))
+                discarded += 1
+            if effect_tracking is not None:
+                effect_tracking["discards"] = effect_tracking.get("discards", 0) + discarded
         elif op == "own_shield_to_hand":
             for _ in range(count):
                 if not controller.shields:
@@ -433,6 +439,21 @@ class EffectExecutor:
                 moved += 1
             if moved:
                 engine.rng.shuffle(controller.deck)
+        elif op == "all_hand_to_deck_bottom":
+            # 全手札をランダムな順番でデッキ底へ(ニンプウ・タイフーン型)
+            cards = list(controller.hand)
+            controller.hand.clear()
+            engine.rng.shuffle(cards)
+            controller.deck.extend(cards)
+        elif op == "destroy_self_if_no_effect_discard":
+            # effect_tracking で今回効果中に捨てたカードが0枚なら自己破壊
+            # (手札が空で捨てられなかった = ゴルドノフV世・ヒャックメー型)
+            if (effect_tracking or {}).get("discards", 0) == 0:
+                src = next((c for c in controller.battle_zone if c.card is card), None)
+                if src is None:
+                    src = next((c for c in controller.battle_zone if c.card.card_id == card.card_id), None)
+                if src is not None:
+                    engine.destroy_creature(controller_index, src)
         elif op == "own_shield_to_grave":
             for _ in range(count):
                 if not controller.shields:
@@ -544,7 +565,7 @@ class EffectExecutor:
                 if engine.state.finished or self._chain_depth >= MAX_RESOLUTIONS_PER_CHAIN:
                     return
                 self._chain_depth += 1
-                self._execute_action(engine, controller_index, trigger, card, a, context)
+                self._execute_action(engine, controller_index, trigger, card, a, context, effect_tracking)
         elif op == "force_battle":
             # 「(自分の)クリーチャーと相手のクリーチャーをバトルさせる」を engine の戦闘解決で模擬。
             # 対象選択は方策/最大パワーで近似(look_and_take 等と同じ exact 扱い)。
@@ -606,6 +627,8 @@ class EffectExecutor:
             return matched >= count
         if kind == "mana_at_least":
             return len(controller.mana_zone) >= count
+        if kind == "mana_lt":
+            return len(controller.mana_zone) < count
         if kind == "mana_multicolor_at_least":
             return sum(1 for m in controller.mana_zone if m.card.is_multicolor) >= count
         if kind == "mana_at_most":

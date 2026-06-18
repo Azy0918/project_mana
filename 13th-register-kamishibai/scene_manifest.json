@@ -1,90 +1,1330 @@
 [
   {
-    "id": "scene_01_opening",
-    "start": 0,
-    "end": 36,
+    "id": "ep01_v001",
+    "cut": "ep01_001",
+    "start": 0.0,
+    "end": 1.659,
     "image": "assets/scenes/scene_03_register.jpg",
     "speaker": "ナレーション",
-    "dialogue": "午前二時三分。国道沿いのコンビニは、冷蔵ケースの低い音だけでできているみたいに静かだった。",
-    "log": ["深夜帯　静寂モード", "冷蔵ケース　低音稼働中", "本日の営業　継続中"],
-    "progressLabel": "現在：プロローグ"
+    "dialogue": "午前二時三分。",
+    "reading": "ごぜんにじさんぷん。",
+    "log": [
+      "発話ログ　01/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "01/83　ナレーション"
   },
   {
-    "id": "scene_02_onigiri_shelf",
-    "start": 36,
-    "end": 72,
+    "id": "ep01_v002",
+    "cut": "ep01_002",
+    "start": 2.159,
+    "end": 8.245,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "国道沿いのコンビニは、冷蔵ケースの低い音だけでできているみたいに静かだった。",
+    "reading": "こくどうぞいのこんびには、れいぞうけーすのひくいおとだけでできているみたいにしずかだった。",
+    "log": [
+      "発話ログ　02/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "02/83　ナレーション"
+  },
+  {
+    "id": "ep01_v003",
+    "cut": "ep01_004",
+    "start": 9.045,
+    "end": 15.525,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "新人夜勤バイトのタクミは、おにぎり棚の前で廃棄時間のシールを見比べていた。",
+    "reading": "しんじんやきんばいとのたくみは、おにぎりだなのまえではいきじかんのしーるをみくらべていた。",
+    "log": [
+      "発話ログ　03/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "03/83　ナレーション"
+  },
+  {
+    "id": "ep01_v004",
+    "cut": "ep01_005",
+    "start": 16.025,
+    "end": 20.621,
     "image": "assets/scenes/scene_03_register.jpg",
     "speaker": "タクミ",
     "dialogue": "ミナさん。廃棄のおにぎりって、何分前から食べていいんですか。",
-    "subDialogue": "ミナ：食べていいとは言ってない。",
-    "log": ["廃棄確認　未了", "おにぎり棚　確認中", "店長確認　未了"],
-    "progressLabel": "現在：おにぎり棚"
+    "reading": "みなさん。はいきのおにぎりって、なんぷんまえからたべていいんですか。",
+    "log": [
+      "発話ログ　04/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "04/83　タクミ"
   },
   {
-    "id": "scene_03_register_appears",
-    "start": 72,
-    "end": 109,
+    "id": "ep01_v005",
+    "cut": "ep01_006",
+    "start": 20.921,
+    "end": 22.952,
     "image": "assets/scenes/scene_03_register.jpg",
     "speaker": "ミナ",
-    "dialogue": "二時十七分、第十三レジ。",
-    "subDialogue": "タクミ：はい。……はい？",
-    "log": ["第十三レジ　出現", "時空返品　待機中", "本日の営業　継続中"],
-    "progressLabel": "現在：第十三レジ出現"
+    "dialogue": "食べていいとは言ってない。",
+    "reading": "たべていいとはいってない。",
+    "log": [
+      "発話ログ　05/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "05/83　ミナ"
   },
   {
-    "id": "scene_04_future_worker_enters",
-    "start": 109,
-    "end": 148,
-    "image": "assets/scenes/scene_03_register.jpg",
-    "speaker": "未来の会社員",
-    "dialogue": "二〇四一年十一月三日の、おにぎりを返品しに来ました。",
-    "subDialogue": "タクミ：時間のレシート持ってる人だ。",
-    "log": ["来店者　未来時刻", "返品理由　時間差", "本人確認　保留"],
-    "progressLabel": "現在：未来の会社員"
-  },
-  {
-    "id": "scene_05_future_onigiri_scan",
-    "start": 148,
-    "end": 187,
-    "image": "assets/scenes/scene_03_register.jpg",
-    "speaker": "第十三レジ",
-    "dialogue": "未来おにぎり、スキャンします。",
-    "subDialogue": "ミナ：バーコードを未来側に向けて。",
-    "log": ["未来おにぎり　読取中", "時空JAN　照合中", "レジ袋　有料"],
-    "progressLabel": "現在：未来おにぎりスキャン"
-  },
-  {
-    "id": "scene_06_microwave",
-    "start": 187,
-    "end": 226,
+    "id": "ep01_v006",
+    "cut": "ep01_007",
+    "start": 23.302,
+    "end": 25.119,
     "image": "assets/scenes/scene_03_register.jpg",
     "speaker": "タクミ",
-    "dialogue": "未来のおにぎりって、電子レンジで温めていいんですか。",
-    "subDialogue": "ミナ：表示時間より三年短めで。",
-    "log": ["電子レンジ　使用中", "加熱時間　三年短縮", "庫内時空　要注意"],
-    "progressLabel": "現在：電子レンジ"
+    "dialogue": "でも捨てるんですよね。",
+    "reading": "でもすてるんですよね。",
+    "log": [
+      "発話ログ　06/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "06/83　タクミ"
   },
   {
-    "id": "scene_07_receipt",
-    "start": 226,
-    "end": 267,
+    "id": "ep01_v007",
+    "cut": "ep01_008",
+    "start": 25.369,
+    "end": 30.922,
     "image": "assets/scenes/scene_03_register.jpg",
-    "speaker": "第十三レジ",
-    "dialogue": "レシートをお取りください。",
-    "subDialogue": "タクミ：長い。人生の注意書きが長い。",
-    "log": ["時空返品　1件", "人類生存率　微増", "店長確認　未了"],
-    "progressLabel": "現在：レシート発行"
+    "speaker": "ミナ",
+    "dialogue": "捨てるものと食べていいものの間には、店長という深い谷がある。",
+    "reading": "すてるものとたべていいもののあいだには、てんちょうというふかいたにがある。",
+    "log": [
+      "発話ログ　07/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "07/83　ミナ"
   },
   {
-    "id": "scene_08_back_to_normal",
-    "start": 267,
-    "end": 309.1,
+    "id": "ep01_v008",
+    "cut": "ep01_009",
+    "start": 31.222,
+    "end": 33.132,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "現実的に深いですね。",
+    "reading": "げんじつてきにふかいですね。",
+    "log": [
+      "発話ログ　08/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "08/83　タクミ"
+  },
+  {
+    "id": "ep01_v009",
+    "cut": "ep01_008",
+    "start": 33.382,
+    "end": 35.47,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "落ちるとシフトが減る。",
+    "reading": "おちるとしふとがへる。",
+    "log": [
+      "発話ログ　09/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "09/83　ミナ"
+  },
+  {
+    "id": "ep01_v010",
+    "cut": "ep01_009",
+    "start": 35.77,
+    "end": 38.515,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "地獄が給与明細に出るタイプだ。",
+    "reading": "じごくがきゅうよめいさいにでるたいぷだ。",
+    "log": [
+      "発話ログ　10/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "10/83　タクミ"
+  },
+  {
+    "id": "ep01_v011",
+    "cut": "ep01_010",
+    "start": 39.115,
+    "end": 45.15,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "二時十五分、雑誌返品。二時十七分、第十三レジ。",
+    "reading": "にじじゅうごふん、ざっしへんぴん。にじじゅうななふん、だいじゅうさんれじ。",
+    "log": [
+      "発話ログ　11/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "11/83　ミナ"
+  },
+  {
+    "id": "ep01_v012",
+    "cut": "ep01_011",
+    "start": 45.5,
+    "end": 47.069,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "はい。……はい？",
+    "reading": "はい。。。はい？",
+    "log": [
+      "発話ログ　12/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "12/83　タクミ"
+  },
+  {
+    "id": "ep01_v014",
+    "cut": "ep01_014",
+    "start": 47.969,
+    "end": 54.722,
     "image": "assets/scenes/scene_03_register.jpg",
     "speaker": "ナレーション",
-    "dialogue": "第十三レジは、何事もなかったように深夜の店内へ溶けていった。",
-    "subDialogue": "ミナ：次、雑誌返品。",
-    "log": ["異常現象　処理済", "深夜帯　通常運用", "本日の営業　継続中"],
-    "progressLabel": "現在：普通の夜勤に戻る"
+    "dialogue": "タクミが聞き返した瞬間、雑誌棚とコピー機の間に、銀色の古いレジが現れた。",
+    "reading": "たくみがききかえしたしゅんかん、ざっしだなとこぴーきのあいだに、ぎんいろのふるいれじがあらわれた。",
+    "log": [
+      "発話ログ　13/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "13/83　ナレーション"
+  },
+  {
+    "id": "ep01_v015",
+    "cut": "ep01_015",
+    "start": 55.222,
+    "end": 58.086,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "第十三レジ。ただいま営業中。",
+    "reading": "だいじゅうさんれじ。ただいまえいぎょうちゅう。",
+    "log": [
+      "発話ログ　14/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "14/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v016",
+    "cut": "ep01_016",
+    "start": 58.586,
+    "end": 59.604,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "増えた……。",
+    "reading": "ふえた。",
+    "log": [
+      "発話ログ　15/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "15/83　タクミ"
+  },
+  {
+    "id": "ep01_v017",
+    "cut": "ep01_017",
+    "start": 59.954,
+    "end": 61.139,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "増えるよ。",
+    "reading": "ふえるよ。",
+    "log": [
+      "発話ログ　16/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "16/83　ミナ"
+  },
+  {
+    "id": "ep01_v018",
+    "cut": "ep01_018",
+    "start": 61.439,
+    "end": 64.411,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "コンビニって夜になるとレジが増えるんですか。",
+    "reading": "こんびにってよるになるとれじがふえるんですか。",
+    "log": [
+      "発話ログ　17/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "17/83　タクミ"
+  },
+  {
+    "id": "ep01_v019",
+    "cut": "ep01_019",
+    "start": 64.661,
+    "end": 67.115,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "夜勤はだいたいそう。",
+    "reading": "やきんは、だいたいそう。",
+    "log": [
+      "発話ログ　18/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "18/83　ミナ"
+  },
+  {
+    "id": "ep01_v020",
+    "cut": "ep01_018",
+    "start": 67.365,
+    "end": 68.727,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "絶対違う。",
+    "reading": "ぜったいちがう。",
+    "log": [
+      "発話ログ　19/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "19/83　タクミ"
+  },
+  {
+    "id": "ep01_v022",
+    "cut": "ep01_021",
+    "start": 69.677,
+    "end": 73.587,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "入ってきたのは、くたびれたスーツ姿の男だった。",
+    "reading": "はいってきたのは、くたびれたすーつすがたのおとこだった。",
+    "log": [
+      "発話ログ　20/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "20/83　ナレーション"
+  },
+  {
+    "id": "ep01_v023",
+    "cut": "ep01_021",
+    "start": 73.837,
+    "end": 80.624,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "肩の小さな液晶には、残業時間二百七十六時間、と表示されている。",
+    "reading": "かたのちいさなえきしょうには、ざんぎょうじかん、にひゃくななじゅうろくじかん、とひょうじされている。",
+    "log": [
+      "発話ログ　21/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "21/83　ナレーション"
+  },
+  {
+    "id": "ep01_v024",
+    "cut": "ep01_021",
+    "start": 80.874,
+    "end": 87.047,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "首元の透明なパッチが、レジの電子音に合わせて一度だけ銀色に光った。",
+    "reading": "くびもとのとうめいなぱっちが、れじのでんしおんにあわせていちどだけぎんいろにひかった。",
+    "log": [
+      "発話ログ　22/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "22/83　ナレーション"
+  },
+  {
+    "id": "ep01_v025",
+    "cut": "ep01_022",
+    "start": 87.547,
+    "end": 89.924,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "未来の会社員",
+    "dialogue": "返品、お願いします。",
+    "reading": "へんぴん、おねがいします。",
+    "log": [
+      "発話ログ　23/83",
+      "担当　未来の会社員",
+      "未来案件　処理中"
+    ],
+    "progressLabel": "23/83　未来の会社員"
+  },
+  {
+    "id": "ep01_v026",
+    "cut": "ep01_023",
+    "start": 90.274,
+    "end": 92.425,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "レシートはお持ちですか。",
+    "reading": "れしーとはおもちですか。",
+    "log": [
+      "発話ログ　24/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "24/83　ミナ"
+  },
+  {
+    "id": "ep01_v027",
+    "cut": "ep01_024",
+    "start": 92.675,
+    "end": 95.218,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "未来の会社員",
+    "dialogue": "五十年後に発行されます。",
+    "reading": "ごじゅうねんごにはっこうされます。",
+    "log": [
+      "発話ログ　25/83",
+      "担当　未来の会社員",
+      "未来案件　処理中"
+    ],
+    "progressLabel": "25/83　未来の会社員"
+  },
+  {
+    "id": "ep01_v028",
+    "cut": "ep01_025",
+    "start": 95.668,
+    "end": 98.43,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "ミナさん。対応マニュアルあります？",
+    "reading": "みなさん。たいおうまにゅあるあります？",
+    "log": [
+      "発話ログ　26/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "26/83　タクミ"
+  },
+  {
+    "id": "ep01_v029",
+    "cut": "ep01_026",
+    "start": 98.68,
+    "end": 100.926,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "まず、いらっしゃいませ。",
+    "reading": "まず、いらっしゃいませ。",
+    "log": [
+      "発話ログ　27/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "27/83　ミナ"
+  },
+  {
+    "id": "ep01_v030",
+    "cut": "ep01_025",
+    "start": 101.176,
+    "end": 102.991,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "そこからなんですね。",
+    "reading": "そこからなんですね。",
+    "log": [
+      "発話ログ　28/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "28/83　タクミ"
+  },
+  {
+    "id": "ep01_v031",
+    "cut": "ep01_027",
+    "start": 103.491,
+    "end": 106.056,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "男は袋からおにぎりを出した。",
+    "reading": "おとこはふくろからおにぎりをだした。",
+    "log": [
+      "発話ログ　29/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "29/83　ナレーション"
+  },
+  {
+    "id": "ep01_v032",
+    "cut": "ep01_028",
+    "start": 106.256,
+    "end": 110.621,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "パッケージには、完全栄養おにぎり・思い出の鮭。",
+    "reading": "ぱっけーじには、かんぜんえいようおにぎり、おもいでのしゃけ。",
+    "log": [
+      "発話ログ　30/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "30/83　ナレーション"
+  },
+  {
+    "id": "ep01_v033",
+    "cut": "ep01_028",
+    "start": 110.871,
+    "end": 115.184,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "製造年月日、二〇七四年六月十二日。",
+    "reading": "せいぞうねんがっぴ、にせんななじゅうよねんろくがつじゅうににち。",
+    "log": [
+      "発話ログ　31/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "31/83　ナレーション"
+  },
+  {
+    "id": "ep01_v034",
+    "cut": "ep01_029",
+    "start": 115.684,
+    "end": 120.514,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "警告。この商品は未来の食糧危機解決候補です。",
+    "reading": "けいこく。このしょうひんは、みらいのしょくりょうきき、かいけつこうほです。",
+    "log": [
+      "発話ログ　32/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "32/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v035",
+    "cut": "ep01_030",
+    "start": 120.714,
+    "end": 127.049,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "誤返品により人類生存率が三・二パーセント低下します。",
+    "reading": "ごへんぴんにより、じんるいせいぞんりつが、さんてん、にぱーせんと、ていかします。",
+    "log": [
+      "発話ログ　33/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "33/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v036",
+    "cut": "ep01_031",
+    "start": 127.499,
+    "end": 130.856,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "ミナさん、僕の時給で扱っていい数字じゃないです。",
+    "reading": "みなさん、ぼくのじきゅうであつかっていいすうじじゃないです。",
+    "log": [
+      "発話ログ　34/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "34/83　タクミ"
+  },
+  {
+    "id": "ep01_v037",
+    "cut": "ep01_032",
+    "start": 131.306,
+    "end": 136.335,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "未来の会社員",
+    "dialogue": "うちの課が試験販売前の商品を過去へ誤配送しまして。",
+    "reading": "うちのかが、しけんはんばいまえのしょうひんを、かこへ、ごはいそうしまして。",
+    "log": [
+      "発話ログ　35/83",
+      "担当　未来の会社員",
+      "未来案件　処理中"
+    ],
+    "progressLabel": "35/83　未来の会社員"
+  },
+  {
+    "id": "ep01_v038",
+    "cut": "ep01_033",
+    "start": 136.585,
+    "end": 139.331,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "未来の会社員",
+    "dialogue": "返品しないと始末書が増えます。",
+    "reading": "へんぴんしないと、しまつしょがふえます。",
+    "log": [
+      "発話ログ　36/83",
+      "担当　未来の会社員",
+      "未来案件　処理中"
+    ],
+    "progressLabel": "36/83　未来の会社員"
+  },
+  {
+    "id": "ep01_v039",
+    "cut": "ep01_034",
+    "start": 139.631,
+    "end": 142.044,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "人類より始末書を気にしてる。",
+    "reading": "じんるいより、しまつしょをきにしてる。",
+    "log": [
+      "発話ログ　37/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "37/83　タクミ"
+  },
+  {
+    "id": "ep01_v040",
+    "cut": "ep01_035",
+    "start": 142.294,
+    "end": 144.195,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "未来の会社員",
+    "dialogue": "会社員なので。",
+    "reading": "かいしゃいんなので。",
+    "log": [
+      "発話ログ　38/83",
+      "担当　未来の会社員",
+      "未来案件　処理中"
+    ],
+    "progressLabel": "38/83　未来の会社員"
+  },
+  {
+    "id": "ep01_v041",
+    "cut": "ep01_034",
+    "start": 144.445,
+    "end": 146.332,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "説得力が嫌だ。",
+    "reading": "せっとくりょくがいやだ。",
+    "log": [
+      "発話ログ　39/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "39/83　タクミ"
+  },
+  {
+    "id": "ep01_v042",
+    "cut": "ep01_036",
+    "start": 146.882,
+    "end": 156.136,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "第十三レジの画面には、通常返品、時空返品、存在取消、温める、店長呼出、と並んでいた。",
+    "reading": "だいじゅうさんれじのがめんには、つうじょうへんぴん、じくうへんぴん、そんざいとりけし、あたためる、てんちょうよびだし、とならんでいた。",
+    "log": [
+      "発話ログ　40/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "40/83　ナレーション"
+  },
+  {
+    "id": "ep01_v043",
+    "cut": "ep01_037",
+    "start": 156.486,
+    "end": 158.224,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "店長呼出があります。",
+    "reading": "てんちょうよびだしがあります。",
+    "log": [
+      "発話ログ　41/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "41/83　タクミ"
+  },
+  {
+    "id": "ep01_v044",
+    "cut": "ep01_038",
+    "start": 158.424,
+    "end": 159.569,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "押さない。",
+    "reading": "おさない。",
+    "log": [
+      "発話ログ　42/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "42/83　ミナ"
+  },
+  {
+    "id": "ep01_v045",
+    "cut": "ep01_037",
+    "start": 159.769,
+    "end": 160.856,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "なぜ。",
+    "reading": "なぜ。",
+    "log": [
+      "発話ログ　43/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "43/83　タクミ"
+  },
+  {
+    "id": "ep01_v046",
+    "cut": "ep01_038",
+    "start": 161.006,
+    "end": 163.19,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "二時以降は出ない。",
+    "reading": "にじいこうは、でない。",
+    "log": [
+      "発話ログ　44/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "44/83　ミナ"
+  },
+  {
+    "id": "ep01_v047",
+    "cut": "ep01_037",
+    "start": 163.39,
+    "end": 165.632,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "店長呼出の存在意義。",
+    "reading": "てんちょうよびだしのそんざいいぎ。",
+    "log": [
+      "発話ログ　45/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "45/83　タクミ"
+  },
+  {
+    "id": "ep01_v048",
+    "cut": "ep01_039",
+    "start": 166.082,
+    "end": 167.99,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "残り時間、三分。",
+    "reading": "のこりじかん、さんぷん。",
+    "log": [
+      "発話ログ　46/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "46/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v049",
+    "cut": "ep01_040",
+    "start": 168.19,
+    "end": 175.016,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "二時二十分を過ぎると、この商品は現代店舗の新商品として定着します。",
+    "reading": "にじにじゅっぷんをすぎると、このしょうひんは、げんだいてんぽのしんしょうひんとして、ていちゃくします。",
+    "log": [
+      "発話ログ　47/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "47/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v050",
+    "cut": "ep01_040",
+    "start": 175.216,
+    "end": 178.007,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "仕入れ原価、一個七万二千円。",
+    "reading": "しいれげんか、いっこななまんにせんえん。",
+    "log": [
+      "発話ログ　48/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "48/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v051",
+    "cut": "ep01_041",
+    "start": 178.357,
+    "end": 179.633,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "返品しましょう。",
+    "reading": "へんぴんしましょう。",
+    "log": [
+      "発話ログ　49/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "49/83　タクミ"
+  },
+  {
+    "id": "ep01_v052",
+    "cut": "ep01_042",
+    "start": 179.983,
+    "end": 183.112,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "こちらの商品、温めますか。",
+    "reading": "こちらのしょうひん、あたためますか。",
+    "log": [
+      "発話ログ　50/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "50/83　ミナ"
+  },
+  {
+    "id": "ep01_v053",
+    "cut": "ep01_043",
+    "start": 183.362,
+    "end": 184.641,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "この状況で！？",
+    "reading": "このじょうきょうで？",
+    "log": [
+      "発話ログ　51/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "51/83　タクミ"
+  },
+  {
+    "id": "ep01_v054",
+    "cut": "ep01_044",
+    "start": 184.891,
+    "end": 186.498,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "未来の会社員",
+    "dialogue": "お願いします。",
+    "reading": "おねがいします。",
+    "log": [
+      "発話ログ　52/83",
+      "担当　未来の会社員",
+      "未来案件　処理中"
+    ],
+    "progressLabel": "52/83　未来の会社員"
+  },
+  {
+    "id": "ep01_v055",
+    "cut": "ep01_045",
+    "start": 186.748,
+    "end": 188.587,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "お願いしますじゃないですよ。",
+    "reading": "おねがいしますじゃないですよ。",
+    "log": [
+      "発話ログ　53/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "53/83　タクミ"
+  },
+  {
+    "id": "ep01_v056",
+    "cut": "ep01_045",
+    "start": 188.737,
+    "end": 191.739,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "世界の分岐を電子レンジに入れないでください。",
+    "reading": "せかいのぶんきを、でんしれんじにいれないでください。",
+    "log": [
+      "発話ログ　54/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "54/83　タクミ"
+  },
+  {
+    "id": "ep01_v058",
+    "cut": "ep01_047",
+    "start": 192.489,
+    "end": 196.227,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "おにぎりが淡く光り、未来の食堂が映った。",
+    "reading": "おにぎりがあわくひかり、みらいのしょくどうがうつった。",
+    "log": [
+      "発話ログ　55/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "55/83　ナレーション"
+  },
+  {
+    "id": "ep01_v059",
+    "cut": "ep01_048",
+    "start": 196.577,
+    "end": 199.279,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "空っぽの棚。長い列。",
+    "reading": "からっぽのたな。ながいれつ。",
+    "log": [
+      "発話ログ　56/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "56/83　ナレーション"
+  },
+  {
+    "id": "ep01_v060",
+    "cut": "ep01_049",
+    "start": 199.579,
+    "end": 204.152,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "小さな子どもが、そのおにぎりを両手で持って笑っている。",
+    "reading": "ちいさなこどもが、そのおにぎりをりょうてでもってわらっている。",
+    "log": [
+      "発話ログ　57/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "57/83　ナレーション"
+  },
+  {
+    "id": "ep01_v061",
+    "cut": "ep01_050",
+    "start": 204.752,
+    "end": 207.411,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "未来の会社員は息を呑んだ。",
+    "reading": "みらいのかいしゃいんは、いきをのんだ。",
+    "log": [
+      "発話ログ　58/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "58/83　ナレーション"
+  },
+  {
+    "id": "ep01_v062",
+    "cut": "ep01_050",
+    "start": 207.611,
+    "end": 211.505,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "未来の会社員",
+    "dialogue": "開発記録です。これが、ちゃんと届けば……。",
+    "reading": "かいはつきろくです。これが、ちゃんととどけば。",
+    "log": [
+      "発話ログ　59/83",
+      "担当　未来の会社員",
+      "未来案件　処理中"
+    ],
+    "progressLabel": "59/83　未来の会社員"
+  },
+  {
+    "id": "ep01_v063",
+    "cut": "ep01_051",
+    "start": 212.105,
+    "end": 215.294,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "加熱により時空状態が安定しました。",
+    "reading": "かねつによりじくうじょうたいがあんていしました。",
+    "log": [
+      "発話ログ　60/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "60/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v064",
+    "cut": "ep01_052",
+    "start": 215.494,
+    "end": 218.098,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "履歴メモを入力してください。",
+    "reading": "りれきめもを、にゅうりょくしてください。",
+    "log": [
+      "発話ログ　61/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "61/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v065",
+    "cut": "ep01_053",
+    "start": 218.448,
+    "end": 222.281,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "このおにぎりは、ちゃんと作った方がいいです。",
+    "reading": "このおにぎりは、ちゃんとつくったほうがいいです。",
+    "log": [
+      "発話ログ　62/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "62/83　ミナ"
+  },
+  {
+    "id": "ep01_v066",
+    "cut": "ep01_054",
+    "start": 222.631,
+    "end": 223.743,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "ざっくり！",
+    "reading": "ざっくり！",
+    "log": [
+      "発話ログ　63/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "63/83　タクミ"
+  },
+  {
+    "id": "ep01_v067",
+    "cut": "ep01_055",
+    "start": 223.943,
+    "end": 225.754,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "記録しました。",
+    "reading": "きろくしました。",
+    "log": [
+      "発話ログ　64/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "64/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v068",
+    "cut": "ep01_056",
+    "start": 225.954,
+    "end": 226.839,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "通るんだ！",
+    "reading": "とおるんだ！",
+    "log": [
+      "発話ログ　65/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "65/83　タクミ"
+  },
+  {
+    "id": "ep01_v069",
+    "cut": "ep01_057",
+    "start": 227.089,
+    "end": 231.717,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "第十三レジ",
+    "dialogue": "未来とは、だいたい雑なメモの積み重ねです。",
+    "reading": "みらいとは、だいたい、ざつな、めものつみかさねです。",
+    "log": [
+      "発話ログ　66/83",
+      "担当　第十三レジ",
+      "第十三レジ　応答中"
+    ],
+    "progressLabel": "66/83　第十三レジ"
+  },
+  {
+    "id": "ep01_v070",
+    "cut": "ep01_058",
+    "start": 232.317,
+    "end": 237.004,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "時空返品が完了し、返金額は百六十八円。",
+    "reading": "じくうへんぴんがかんりょうし、へんきんがくは、ひゃくろくじゅうはちえん。",
+    "log": [
+      "発話ログ　67/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "67/83　ナレーション"
+  },
+  {
+    "id": "ep01_v071",
+    "cut": "ep01_059",
+    "start": 237.254,
+    "end": 242.652,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "未来の会社員は現金で受け取り、さらにホットコーヒーを買った。",
+    "reading": "みらいのかいしゃいんは、げんきんでうけとり、さらに、ほっとこーひーをかった。",
+    "log": [
+      "発話ログ　68/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "68/83　ナレーション"
+  },
+  {
+    "id": "ep01_v072",
+    "cut": "ep01_060",
+    "start": 242.952,
+    "end": 245.603,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "未来の会社員",
+    "dialogue": "未来のコーヒー、高いので。",
+    "reading": "みらいのこーひー、たかいので。",
+    "log": [
+      "発話ログ　69/83",
+      "担当　未来の会社員",
+      "未来案件　処理中"
+    ],
+    "progressLabel": "69/83　未来の会社員"
+  },
+  {
+    "id": "ep01_v073",
+    "cut": "ep01_061",
+    "start": 245.853,
+    "end": 248.252,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "未来、行きたくないな。",
+    "reading": "みらい、いきたくないな。",
+    "log": [
+      "発話ログ　70/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "70/83　タクミ"
+  },
+  {
+    "id": "ep01_v074",
+    "cut": "ep01_062",
+    "start": 248.852,
+    "end": 252.838,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "午前二時二十分。第十三レジは消えた。",
+    "reading": "ごぜんにじにじゅっぷん。だいじゅうさんれじはきえた。",
+    "log": [
+      "発話ログ　71/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "71/83　ナレーション"
+  },
+  {
+    "id": "ep01_v075",
+    "cut": "ep01_064",
+    "start": 253.238,
+    "end": 256.431,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "残ったレシートには、こう印字されていた。",
+    "reading": "のこったれしーとには、こういんじされていた。",
+    "log": [
+      "発話ログ　72/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "72/83　ナレーション"
+  },
+  {
+    "id": "ep01_v076",
+    "cut": "ep01_064",
+    "start": 256.731,
+    "end": 263.264,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "時空返品、一件。歴史メモ、一件。完全栄養おにぎり、開発継続。",
+    "reading": "じくうへんぴん、いっけん。れきしめも、いっけん。かんぜんえいようおにぎり、かいはつけいぞく。",
+    "log": [
+      "発話ログ　73/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "73/83　ナレーション"
+  },
+  {
+    "id": "ep01_v077",
+    "cut": "ep01_064",
+    "start": 263.464,
+    "end": 267.876,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "人類生存率、微増。ホットコーヒー、レギュラー、一件。",
+    "reading": "じんるいせいぞんりつ、びぞう。ほっとこーひー、れぎゅらー、いっけん。",
+    "log": [
+      "発話ログ　74/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "74/83　ナレーション"
+  },
+  {
+    "id": "ep01_v078",
+    "cut": "ep01_065",
+    "start": 268.076,
+    "end": 270.522,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "スタッフ割引、対象外。",
+    "reading": "すたっふわりびき、たいしょうがい。",
+    "log": [
+      "発話ログ　75/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "75/83　ナレーション"
+  },
+  {
+    "id": "ep01_v079",
+    "cut": "ep01_065",
+    "start": 270.872,
+    "end": 273.765,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "最後が一番現実的だ。",
+    "reading": "さいごがいちばん、げんじつてきだ。",
+    "log": [
+      "発話ログ　76/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "76/83　タクミ"
+  },
+  {
+    "id": "ep01_v081",
+    "cut": "ep01_067",
+    "start": 274.665,
+    "end": 279.308,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "近所の常連らしい男がコピー機へ向かった。",
+    "reading": "きんじょの、じょうれんらしいおとこが、こぴーきへ、むかった。",
+    "log": [
+      "発話ログ　77/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "77/83　ナレーション"
+  },
+  {
+    "id": "ep01_v082",
+    "cut": "ep01_067",
+    "start": 279.558,
+    "end": 285.661,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "座木山辰哉、五十五歳。眠そうな顔で、古いツーリング地図を抱えている。",
+    "reading": "ざきやまたつや、ごじゅうごさい。ねむそうなかおで、ふるいつーりんぐちずをかかえている。",
+    "log": [
+      "発話ログ　78/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "78/83　ナレーション"
+  },
+  {
+    "id": "ep01_v083",
+    "cut": "ep01_068",
+    "start": 286.061,
+    "end": 290.862,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "座木山辰哉",
+    "dialogue": "コピー、白黒でいいよ。色がつくと記憶が増えるから。",
+    "reading": "こぴー、しろくろでいいよ。いろがつくと、きおくがふえるから。",
+    "log": [
+      "発話ログ　79/83",
+      "担当　座木山辰哉",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "79/83　座木山辰哉"
+  },
+  {
+    "id": "ep01_v084",
+    "cut": "ep01_069",
+    "start": 291.362,
+    "end": 294.542,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "タクミ",
+    "dialogue": "この店、普通のお客さんも変なんですか。",
+    "reading": "このみせ、ふつうのおきゃくさんもへんなんですか。",
+    "log": [
+      "発話ログ　80/83",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "progressLabel": "80/83　タクミ"
+  },
+  {
+    "id": "ep01_v085",
+    "cut": "ep01_070",
+    "start": 294.792,
+    "end": 296.427,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ミナ",
+    "dialogue": "夜勤だから。",
+    "reading": "やきんだから。",
+    "log": [
+      "発話ログ　81/83",
+      "担当　ミナ",
+      "声　まお / ふつー"
+    ],
+    "progressLabel": "81/83　ミナ"
+  },
+  {
+    "id": "ep01_v086",
+    "cut": "ep01_071",
+    "start": 297.127,
+    "end": 301.725,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "世界が少しだけ救われても、夜勤は終わらない。",
+    "reading": "せかいがすこしだけ、すくわれても、やきんはおわらない。",
+    "log": [
+      "発話ログ　82/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "82/83　ナレーション"
+  },
+  {
+    "id": "ep01_v087",
+    "cut": "ep01_071",
+    "start": 302.075,
+    "end": 307.826,
+    "image": "assets/scenes/scene_03_register.jpg",
+    "speaker": "ナレーション",
+    "dialogue": "床清掃も、雑誌返品も、廃棄登録も、まだ残っている。",
+    "reading": "ゆかせいそうも、ざっしへんぴんも、はいきとうろくも、まだのこっている。",
+    "log": [
+      "発話ログ　83/83",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "progressLabel": "83/83　ナレーション"
   }
 ]
-

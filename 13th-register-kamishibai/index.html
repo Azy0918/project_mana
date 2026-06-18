@@ -92,8 +92,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      padding: 92px 14px 14px;
-      background: linear-gradient(180deg, transparent, rgba(2, 5, 10, 0.76) 26%, rgba(2, 5, 10, 0.96));
+      padding: 126px 14px 14px;
+      background: linear-gradient(180deg, transparent, rgba(2, 5, 10, 0.88) 22%, rgba(2, 5, 10, 0.98));
       pointer-events: none;
     }
 
@@ -356,7 +356,7 @@
       }
 
       .caption-dock {
-        padding: 82px 11px 12px;
+        padding: 116px 11px 12px;
       }
 
       .vn-dialogue {
@@ -389,13 +389,13 @@
 
       <div class="controls">
         <h1>深夜二時の第十三レジ</h1>
-        <p class="sub">scene_manifest.json に沿って、音声位置と台本行クリックで左の紙芝居プレビューが切り替わります。</p>
+        <p class="sub">音声の発話単位に合わせて、左の字幕・ログと右の台本ハイライトが切り替わります。</p>
 
         <audio id="audio" controls preload="metadata" src="./assets/ep01_full_voice_reading_hiragana_mina_mao.wav"></audio>
 
         <div class="meta">
           <div class="metric"><b id="duration">--:--</b><span>音声尺</span></div>
-          <div class="metric"><b id="sceneCount">--</b><span>scene数</span></div>
+          <div class="metric"><b id="sceneCount">--</b><span>発話数</span></div>
           <div class="metric"><b id="currentTime">0:00</b><span>再生位置</span></div>
           <div class="metric"><b id="currentLabel">--</b><span>現在の場面</span></div>
         </div>
@@ -406,7 +406,7 @@
           <a href="./assets/ep01_full_voice_reading_hiragana_mina_mao.wav" download>音声を保存</a>
           <a href="./assets/scenes/scene_03_register.jpg" download>画像を保存</a>
           <a href="./assets/manifest_reading_hiragana_mina_mao.json">manifest</a>
-          <a href="./scene_manifest.json" download>scene_manifest</a>
+          <a href="./scene_manifest.json" download>line_manifest</a>
         </div>
       </div>
     </section>

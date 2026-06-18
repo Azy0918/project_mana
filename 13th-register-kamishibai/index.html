@@ -65,21 +65,7 @@
       transition: opacity 180ms ease;
     }
 
-    .top-ui {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      top: 14px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      pointer-events: none;
-    }
-
-    .title-chip,
-    .time-chip,
-    .scene-chip,
+    .scene-badge,
     .play-state {
       border: 1px solid rgba(83, 229, 255, 0.38);
       background: rgba(5, 7, 11, 0.68);
@@ -87,45 +73,31 @@
       text-shadow: 0 0 12px rgba(83, 229, 255, 0.32);
     }
 
-    .title-chip {
-      max-width: 58%;
-      padding: 8px 10px;
-      border-radius: 8px;
-      color: #f6fbff;
-      font-size: 17px;
-      font-weight: 900;
-      line-height: 1.24;
-    }
-
-    .time-stack {
-      display: grid;
-      gap: 6px;
-      justify-items: end;
-    }
-
-    .time-chip {
-      padding: 7px 9px;
-      border-radius: 8px;
-      color: var(--cyan);
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .scene-chip {
-      max-width: 150px;
+    .scene-badge {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      max-width: calc(100% - 94px);
       padding: 6px 8px;
       border-radius: 7px;
-      color: #d9eaff;
+      color: var(--cyan);
       font-size: 11px;
+      font-weight: 900;
       line-height: 1.35;
-      text-align: right;
+      pointer-events: none;
+    }
+
+    .caption-dock {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 92px 14px 14px;
+      background: linear-gradient(180deg, transparent, rgba(2, 5, 10, 0.76) 26%, rgba(2, 5, 10, 0.96));
+      pointer-events: none;
     }
 
     .vn-box {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 54px;
       padding: 12px 13px 13px;
       border: 1px solid rgba(83, 229, 255, 0.52);
       border-radius: 10px;
@@ -148,7 +120,7 @@
 
     .vn-dialogue {
       color: #fbfdff;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 800;
       line-height: 1.46;
     }
@@ -162,25 +134,28 @@
     }
 
     .receipt {
-      position: absolute;
-      left: 14px;
-      bottom: 142px;
-      width: min(48%, 190px);
-      padding: 10px 10px 9px;
-      border-radius: 6px;
-      background: rgba(238, 229, 212, 0.92);
-      color: var(--ink);
-      font-size: 11px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+      color: #d9eaff;
+      font-size: 10px;
       font-weight: 800;
-      line-height: 1.55;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+      line-height: 1.4;
+    }
+
+    .receipt div {
+      padding: 3px 6px;
+      border: 1px solid rgba(238, 229, 212, 0.24);
+      border-radius: 999px;
+      background: rgba(238, 229, 212, 0.12);
     }
 
     .progress-bar {
       position: absolute;
       left: 14px;
       right: 14px;
-      bottom: 26px;
+      bottom: 8px;
       height: 6px;
       overflow: hidden;
       border-radius: 999px;
@@ -198,12 +173,13 @@
     .play-state {
       position: absolute;
       right: 14px;
-      bottom: 16px;
+      top: 14px;
       padding: 7px 10px;
       border-radius: 999px;
       color: var(--cyan);
       font-size: 12px;
       font-weight: 800;
+      pointer-events: none;
     }
 
     .controls {
@@ -379,8 +355,12 @@
         max-height: 34vh;
       }
 
+      .caption-dock {
+        padding: 82px 11px 12px;
+      }
+
       .vn-dialogue {
-        font-size: 16px;
+        font-size: 17px;
       }
     }
   </style>
@@ -391,20 +371,16 @@
       <div class="phone">
         <img id="sceneImage" src="./assets/scenes/scene_03_register.png" alt="深夜二時の第十三レジ 第1話の縦型ビジュアル">
 
-        <div class="top-ui">
-          <div class="title-chip">深夜二時の第十三レジ</div>
-          <div class="time-stack">
-            <div class="time-chip">AM 2:17</div>
-            <div class="scene-chip">第1話『第十三レジ』</div>
+        <div class="scene-badge" id="sceneBadge">第1話『第十三レジ』</div>
+
+        <div class="caption-dock">
+          <div class="receipt" id="operationLog"></div>
+
+          <div class="vn-box">
+            <div class="vn-speaker" id="sceneSpeaker">READY</div>
+            <div class="vn-dialogue" id="sceneDialogue">再生すると場面に合わせて字幕とログが切り替わります。</div>
+            <div class="vn-sub" id="sceneSubDialogue"></div>
           </div>
-        </div>
-
-        <div class="receipt" id="operationLog"></div>
-
-        <div class="vn-box">
-          <div class="vn-speaker" id="sceneSpeaker">READY</div>
-          <div class="vn-dialogue" id="sceneDialogue">再生すると場面に合わせて字幕とログが切り替わります。</div>
-          <div class="vn-sub" id="sceneSubDialogue"></div>
         </div>
 
         <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
@@ -449,11 +425,13 @@
     const sceneSpeaker = document.getElementById("sceneSpeaker");
     const sceneDialogue = document.getElementById("sceneDialogue");
     const sceneSubDialogue = document.getElementById("sceneSubDialogue");
+    const sceneBadge = document.getElementById("sceneBadge");
     const operationLog = document.getElementById("operationLog");
     const progressFill = document.getElementById("progressFill");
 
     let scenes = [];
     let activeSceneId = "";
+    let rafId = 0;
 
     const formatTime = seconds => {
       if (!Number.isFinite(seconds)) return "--:--";
@@ -499,6 +477,7 @@
       sceneSubDialogue.textContent = scene.subDialogue || "";
       sceneSubDialogue.hidden = !scene.subDialogue;
       operationLog.innerHTML = (scene.log || []).map(item => `<div>${item}</div>`).join("");
+      sceneBadge.textContent = scene.progressLabel || scene.id;
       currentLabel.textContent = scene.progressLabel || scene.id;
       document.querySelectorAll(".scene-row").forEach(row => {
         const isActive = row.dataset.sceneId === scene.id;
@@ -515,6 +494,22 @@
       const total = Number.isFinite(audio.duration) ? audio.duration : scenes.at(-1)?.end || 1;
       progressFill.style.width = `${Math.min(100, Math.max(0, (seconds / total) * 100))}%`;
       if (!audio.paused && !audio.ended) playState.textContent = "PLAYING";
+    };
+
+    const stopLoop = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = 0;
+    };
+
+    const startLoop = () => {
+      stopLoop();
+      const tick = () => {
+        syncFromAudio();
+        if (!audio.paused && !audio.ended) {
+          rafId = requestAnimationFrame(tick);
+        }
+      };
+      rafId = requestAnimationFrame(tick);
     };
 
     const renderSceneList = () => {
@@ -543,13 +538,17 @@
     audio.addEventListener("play", () => {
       playState.textContent = "PLAYING";
       syncFromAudio();
+      startLoop();
     });
 
     audio.addEventListener("pause", () => {
+      stopLoop();
       playState.textContent = audio.currentTime > 0 && audio.currentTime < audio.duration ? "PAUSED" : "READY";
+      syncFromAudio();
     });
 
     audio.addEventListener("ended", () => {
+      stopLoop();
       playState.textContent = "ENDED";
       syncFromAudio();
     });

@@ -60,6 +60,7 @@ class PlayerState:
     graveyard: list[BattleCard] = field(default_factory=list)
     spells_cast_this_turn: int = 0
     extra_turns_taken: int = 0
+    strigger_disabled: bool = False
 
     def untapped_mana(self) -> list[ManaCard]:
         return [mana for mana in self.mana_zone if not mana.tapped]

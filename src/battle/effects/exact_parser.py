@@ -33,6 +33,10 @@ _STATIC_CLAUSE = [
     r"^このクリーチャーは手札から召喚できない$",
     # 進化ブロック不可: engine の cannot_block_evolution で正確に模擬済み
     r"^進化クリーチャーをブロックできない$",
+    # シールドブレイク不可: engine の cannot_break_shields で模擬済み(プレイヤー攻撃不発)
+    r"^このクリーチャーはシールドをブレイクできない$",
+    # 持ち主のS・トリガー封印: engine の blocks_owner_strigger で模擬済み
+    r"^自分は「S・トリガー」能力を使えない$",
     r"^B・A・D(?:・S)?\s*\d+$",  # engine: bad_discount+temporary で模擬済み
     r"^可能(?:なら|であれば)毎ターン攻撃する$",  # engine: 攻撃フェーズで強制
     r"^可能(?:なら|であれば)毎ターン[、,]?(?:相手プレイヤーを|このクリーチャーは)?攻撃する$",

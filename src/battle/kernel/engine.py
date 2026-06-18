@@ -487,6 +487,11 @@ class DuelEngine:
             self._battle(player, attacker, opponent, target)
             return
 
+        if attacker.card.cannot_break_shields:
+            # シールドをブレイクできないクリーチャーのプレイヤー攻撃は不発。
+            # ブレイクも勝利もしない(=現実より弱く動く=under-model 安全)。
+            return
+
         if opponent.shields:
             self._break_shields(opponent, attacker)
             return
@@ -533,6 +538,8 @@ class DuelEngine:
                 or attacker.card.disables_broken_strigger
                 or self._spell_cast_blocked(shield)
                 or opponent.strigger_disabled  # ボルバルザーク等のS・トリガー封印
+                # はずれポンの助等: 持ち主自身が「S・トリガー」能力を使えない
+                or any(c.card.blocks_owner_strigger for c in opponent.battle_zone)
             )
             if self.executor.has_trigger(shield, "s_trigger") and not strigger_blocked:
                 self._record("s_trigger", card=shield.name)

@@ -289,6 +289,16 @@ class BattleCard:
         return "進化クリーチャーをブロックできない" in self.text
 
     @property
+    def cannot_break_shields(self) -> bool:
+        """このクリーチャーは攻撃してもシールドをブレイクできない。"""
+        return "このクリーチャーはシールドをブレイクできない" in self.text
+
+    @property
+    def blocks_owner_strigger(self) -> bool:
+        """このクリーチャーの持ち主は「S・トリガー」能力を使えない。"""
+        return "自分は「S・トリガー」能力を使えない" in self.text
+
+    @property
     def enters_tapped(self) -> bool:
         return (
             "タップしてバトルゾーンに出る" in self.text

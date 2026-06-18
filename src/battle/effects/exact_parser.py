@@ -1697,6 +1697,53 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if re.fullmatch(r"(?:そのターンの残りをとばす|(?:相手|自分)は?ターンの残りをとばす|ターンの残りをとばす)", cl):
         return [{"op": "skip_turn"}]
 
+    # --- S・トリガー封印(次の自分のターン開始時まで自分はS・トリガーを使えない) ---
+    # 無双竜機ボルバルザーク等。自ターン開始時に解除する。
+    if re.search(r"次の自分のターン開始時まで[、,]自分は[「『]?S・トリガー[」』]?を使えない", cl):
+        return [{"op": "disable_own_strigger"}]
+
+    # --- 相手ドロー(相手はカードをN枚引く) ---
+    # engine の draw_for を相手に適用。自分の draw と対称的に扱う(exact-safe)。
+    m = re.search(r"相手はカードを(\d+)枚引く", cl)
+    if m and "自分" not in cl:
+        return [{"op": "draw", "scope": "opponent", "count": int(m.group(1))}]
+    if re.search(r"相手はカードを1枚引く", cl) and "自分" not in cl:
+        return [{"op": "draw", "scope": "opponent", "count": 1}]
+
+    # --- 相手シールド追加(相手は自身の山札の上からN枚をシールド化) ---
+    # engine の add_shield を相手プレイヤーに適用(scope="opponent")。
+    m = re.search(r"相手は自身の山札の上から(\d+)枚(?:目)?をシールド化", cl)
+    if m:
+        return [{"op": "add_shield", "scope": "opponent", "count": int(m.group(1))}]
+
+    # --- 自己シールド→マナ(自分のシールドNつをマナゾーンに置く) ---
+    # シールドをコストとしてマナゾーンへ移す(リブロッコ・タンク型)。
+    m = re.search(r"自分の(?:ランダムな)?シールド(?:を)?(\d+)つ?(?:を)?マナゾーンに置く", cl)
+    if m and "相手" not in cl:
+        return [{"op": "own_shield_to_mana", "count": int(m.group(1))}]
+
+    # --- 全他クリーチャーバウンス(他のクリーチャーすべてを手札に戻す) ---
+    # 自身以外の両者クリーチャーを手札に戻す(キング・アトランティス型)。
+    if re.match(r"^他のクリーチャーすべてを手札に戻す$", cl):
+        return [
+            {"op": "bounce_creature", "count": 99, "scope": "opponent"},
+            {"op": "bounce_creature", "count": 99, "scope": "self", "exclude_source": True},
+        ]
+
+    # --- ターン終了時の自軍クリーチャー破壊(そのターン終了時、自分のクリーチャーN体を破壊する) ---
+    # timing="end_of_turn" で遅延キューに積み、ターン終了時に解決(阿修羅サソリムカデ型)。
+    m = re.match(r"^そのターン終了時[、,]自分のクリーチャー(\d+)体を破壊する$", cl)
+    if m:
+        return [{"op": "destroy_creature", "scope": "self", "count": int(m.group(1)), "timing": "end_of_turn"}]
+
+    # --- 手札→山札底シャッフル(自分の手札からN枚を山札に加えてシャッフルする) ---
+    # ドロー後の手札調整(策略と魅和の花籠・アクア・トランサー型)。
+    m = re.match(r"^自分の手札から(\d+)枚を山札に加えてシャッフルする$", cl)
+    if m:
+        return [{"op": "hand_to_deck_shuffle", "count": int(m.group(1))}]
+    if re.match(r"^自分の手札から1枚を山札に加えてシャッフルする$", cl):
+        return [{"op": "hand_to_deck_shuffle", "count": 1}]
+
     # --- 文明指定の全体破壊((civ)以外のクリーチャーをすべて破壊する) ---
     # engine: destroy_creatures_nonciv(keep_civ)。デフォルトは両者(自分/相手指定で限定)。
     m = re.match(r"^(自分の|相手の)?(自然|[光水火闇])以外の(?:クリーチャー|カード|エレメント)をすべて破壊する$", cl)
@@ -4055,6 +4102,11 @@ _SAFE_BODY_PATTERNS = [
     r"^相手は自身の手札から最もコストの大きい[、,]進化でないクリーチャー\d+枚をバトルゾーンに出す$",
     # バトルの後、攻撃しているクリーチャーを手札に戻す: engine無視=攻撃クリがBZに留まる=under-model(安全)
     r"^バトルの後[、,]攻撃しているクリーチャーを手札に戻す$",
+    # Nターン目以降なら追加ターン条件: engine無視=追加ターンなし=under-model(安全)
+    r"^それが自分の\d+ターン目以降なら[、,]このターンの後に自分のターンを追加する$",
+    # 代替勝利条件(そうした場合、自分はゲームに勝つ): 発動しないことは過小評価=under-model(安全)
+    r"^そうした場合[、,]自分はゲームに勝つ$",
+    r"^自分はゲームに勝つ$",
 ]
 
 # パターン総数が re モジュールの内部キャッシュ(512)を超えるため、毎回の re.match で

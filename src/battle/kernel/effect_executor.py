@@ -89,8 +89,10 @@ class EffectExecutor:
             return
 
         if op == "draw":
+            scope = action.get("scope", "self")
+            draw_idx = controller_index if scope == "self" else 1 - controller_index
             for _ in range(count):
-                if not engine.draw_for(controller_index):
+                if not engine.draw_for(draw_idx):
                     return
         elif op == "deck_top_to_mana":
             for _ in range(count):
@@ -227,10 +229,13 @@ class EffectExecutor:
                     return
                 target.tapped = True
         elif op == "add_shield":
+            scope = action.get("scope", "self")
+            shield_player_index = controller_index if scope == "self" else 1 - controller_index
+            shield_player = engine.state.players[shield_player_index]
             for _ in range(count):
-                if not controller.deck:
+                if not shield_player.deck:
                     return
-                controller.shields.append(controller.deck.pop(0))
+                shield_player.shields.append(shield_player.deck.pop(0))
         elif op == "discard_opponent_hand":
             opponent = engine.state.players[1 - controller_index]
             for _ in range(count):
@@ -395,6 +400,9 @@ class EffectExecutor:
                     return
         elif op == "extra_turn":
             engine.state.extra_turn_pending = True
+        elif op == "disable_own_strigger":
+            # 次の自分のターン開始時まで自分のS・トリガーを使えない(ボルバルザーク等)
+            controller.strigger_disabled = True
         elif op == "skip_turn":
             # 「ターンの残りをとばす」: 現在のアクティブプレイヤーの残りフェイズを中断。
             engine.state.skip_active_turn = True
@@ -412,6 +420,19 @@ class EffectExecutor:
                 if not controller.shields:
                     return
                 controller.hand.append(controller.shields.pop())
+        elif op == "own_shield_to_mana":
+            for _ in range(count):
+                if not controller.shields:
+                    return
+                controller.mana_zone.append(make_mana_card(controller.shields.pop()))
+        elif op == "hand_to_deck_shuffle":
+            moved = 0
+            while controller.hand and moved < count:
+                index = engine.rng.randrange(len(controller.hand))
+                controller.deck.append(controller.hand.pop(index))
+                moved += 1
+            if moved:
+                engine.rng.shuffle(controller.deck)
         elif op == "own_shield_to_grave":
             for _ in range(count):
                 if not controller.shields:

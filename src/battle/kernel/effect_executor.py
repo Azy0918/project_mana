@@ -379,6 +379,14 @@ class EffectExecutor:
                     return
                 # 墓地に置く=手札に加えずS・トリガーも使わせない
                 opponent.graveyard.append(opponent.shields.pop())
+        elif op == "bounce_shield_to_deck":
+            # 相手のシールドを山札の一番下に戻す(TOYザマス型)
+            target_player_idx = self._target_player_index(controller_index, action)
+            target_player = engine.state.players[target_player_idx]
+            for _ in range(count):
+                if not target_player.shields:
+                    return
+                target_player.deck.append(target_player.shields.pop())
         elif op == "cast_from_grave":
             # MRC型: 墓地の呪文を無償で唱え、解決後は山札の一番下へ置く
             max_cost = action.get("max_cost")
@@ -629,6 +637,12 @@ class EffectExecutor:
             return len(controller.mana_zone) >= count
         if kind == "mana_lt":
             return len(controller.mana_zone) < count
+        if kind == "hand_has_nonevolution_race":
+            race = condition.get("race", "")
+            return any(
+                c.is_creature and not c.is_evolution and race in (c.race or "")
+                for c in controller.hand
+            )
         if kind == "mana_multicolor_at_least":
             return sum(1 for m in controller.mana_zone if m.card.is_multicolor) >= count
         if kind == "mana_at_most":

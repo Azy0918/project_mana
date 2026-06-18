@@ -608,6 +608,8 @@ _STATIC_CLAUSE = [
     r"^マナ進化V[：:ー－\-].{0,80}$",
     # 自分のシールドゾーンにカードが置かれた時の誘発: engine未対応=under-model(安全)
     r"^自分のシールドゾーンにカードが置かれた時[、,].{1,200}$",
+    # 相手のシールドゾーンにカードが置かれた時の観察誘発: 自分へのドロー=有益=under-model(安全)
+    r"^相手のシールドゾーンにカードが置かれた時[、,].{1,200}$",
     # 自分の他のクリーチャーがあれば攻撃されない条件付き保護: engine未対応=under-model(安全)
     r"^自分の他のクリーチャーがあれば[、,]攻撃されない$",
     # クロスギア装備クリーチャーの攻撃時誘発: クロスギア未対応=under-model(安全)
@@ -1672,6 +1674,10 @@ def _extract_condition(cl: str) -> tuple[dict[str, Any] | None, str, bool]:
     m = re.search(r"自分のマナゾーンにカードが(\d+)枚以上なければ[、,]?(.+)$", cl)
     if m:
         return ({"kind": "mana_lt", "count": int(m.group(1))}, m.group(2), True)
+    # 手札に進化でない[種族]がある条件(ドラゴンの執事ニャンパッタ型)
+    m = re.search(r"自分の手札に進化でない([^が、。\s]+)があるなら[、,]?(.+)$", cl)
+    if m:
+        return ({"kind": "hand_has_nonevolution_race", "race": m.group(1)}, m.group(2), True)
     had = any(w in cl for w in ("あれば", "なら", "マナ武装", "革命"))
     return (None, cl, had)
 
@@ -1722,6 +1728,12 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     m = re.search(r"相手は自身の山札の上から(\d+)枚(?:目)?をシールド化", cl)
     if m:
         return [{"op": "add_shield", "scope": "opponent", "count": int(m.group(1))}]
+
+    # --- 相手シールドを山札底に戻す(TOYザマス型) ---
+    # 相手のシールドN+つを山札の一番下に置く = bounce_shield_to_deck。
+    m = re.search(r"相手のシールド(\d+)つを山札の(?:一番下|下)に置く", cl)
+    if m and "シールド化" not in cl:
+        return [{"op": "bounce_shield_to_deck", "count": int(m.group(1)), "scope": "opponent"}]
 
     # --- 自己シールド→マナ(自分のシールドNつをマナゾーンに置く) ---
     # シールドをコストとしてマナゾーンへ移す(リブロッコ・タンク型)。
@@ -3183,8 +3195,8 @@ _SAFE_BODY_PATTERNS = [
     r"^そうした場合[、,]その持ち主の墓地から.{1,150}$",
     # 破壊数に応じた有益ドロー: skip=引かない=under-model=安全
     r"^こうして破壊したクリーチャー\d+体につき\d+枚[、,]カードを引く$",
-    # 相手シールドの山札送り(妨害=利益): skip=送らない=under-model=安全
-    r"^相手のシールド\d+つを山札の(?:一番下|下)に置く$",
+    # そうした場合+進化でない[種族]を手札からBZ展開: 条件付き踏み倒し=有益=under-model=安全
+    r"^そうした場合[、,]進化でない.{1,50}バトルゾーンに出す$",
     # 自軍数に応じた追加ブレイク(妨害=利益): skip=ブレイクしない=under-model=安全
     r"^自分の[^。]{1,20}\d+体につき相手のシールドを\d+つブレイクする$",
     # 条件付き有益ドロー(捨てたカードがXなら引く): skip=引かない=under-model=安全

@@ -12,6 +12,13 @@ CSV_PATHS = [
     Path("site/assets/ep01_visual_cut_plan.csv"),
 ]
 
+REGISTER_FACE_STYLE = (
+    "第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、"
+    "ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。"
+    "かわいくしすぎず、眠そうで機械的、でも妙に意思がある。"
+    "本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。"
+)
+
 
 VISUAL_CUTS = [
     {
@@ -48,7 +55,7 @@ VISUAL_CUTS = [
         "title": "第十三レジ出現前兆",
         "plannedImage": "assets/scenes/planned/ep01_vc04_register_appears.jpg",
         "fallbackImage": "assets/scenes/scene_03_register.jpg",
-        "prompt": "雑誌棚とコピー機の間に銀色の古いレジが現れる瞬間。空間が少し歪み、タクミが固まる。",
+        "prompt": f"雑誌棚とコピー機の間に第十三レジが現れる瞬間。空間が少し歪み、タクミが固まる。{REGISTER_FACE_STYLE}",
     },
     {
         "visualCutId": "vc05",
@@ -57,7 +64,7 @@ VISUAL_CUTS = [
         "title": "営業中の第十三レジ",
         "plannedImage": "assets/scenes/planned/ep01_vc05_register_talks.jpg",
         "fallbackImage": "assets/scenes/scene_03_register.jpg",
-        "prompt": "第十三レジが営業中表示を出す。タクミは驚き、ミナは当然のように無表情。ネオンシアンの発光。",
+        "prompt": f"第十三レジが営業中表示を出す。タクミは驚き、ミナは当然のように無表情。{REGISTER_FACE_STYLE}",
     },
     {
         "visualCutId": "vc06",
@@ -84,7 +91,7 @@ VISUAL_CUTS = [
         "title": "未来おにぎりスキャン",
         "plannedImage": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg",
         "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
-        "prompt": "完全栄養おにぎり・思い出の鮭を第十三レジでスキャン。警告表示、人類生存率、タクミの焦り。",
+        "prompt": f"完全栄養おにぎり・思い出の鮭を第十三レジでスキャン。警告表示、人類生存率、タクミの焦り。{REGISTER_FACE_STYLE}",
     },
     {
         "visualCutId": "vc09",
@@ -102,7 +109,7 @@ VISUAL_CUTS = [
         "title": "時空返品メニュー",
         "plannedImage": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg",
         "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
-        "prompt": "第十三レジの画面に、通常返品、時空返品、存在取消、温める、店長呼出のメニューが並ぶ。",
+        "prompt": f"第十三レジの画面に、通常返品、時空返品、存在取消、温める、店長呼出のメニューが並ぶ。{REGISTER_FACE_STYLE}",
     },
     {
         "visualCutId": "vc11",
@@ -111,7 +118,7 @@ VISUAL_CUTS = [
         "title": "残り三分と七万二千円",
         "plannedImage": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg",
         "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
-        "prompt": "第十三レジのカウントダウン、仕入れ原価七万二千円表示。タクミが即座に返品を決意する。",
+        "prompt": f"第十三レジのカウントダウン、仕入れ原価七万二千円表示。タクミが即座に返品を決意する。{REGISTER_FACE_STYLE}",
     },
     {
         "visualCutId": "vc12",
@@ -138,7 +145,7 @@ VISUAL_CUTS = [
         "title": "履歴メモ入力",
         "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg",
         "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
-        "prompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。",
+        "prompt": f"第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。{REGISTER_FACE_STYLE}",
     },
     {
         "visualCutId": "vc15",
@@ -147,7 +154,7 @@ VISUAL_CUTS = [
         "title": "時空返品完了とコーヒー",
         "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg",
         "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
-        "prompt": "返品完了、返金百六十八円。未来の会社員がホットコーヒーを買い、タクミが未来に行きたくなくなる。",
+        "prompt": f"返品完了、返金百六十八円。未来の会社員がホットコーヒーを買い、タクミが未来に行きたくなくなる。背景に第十三レジ。{REGISTER_FACE_STYLE}",
     },
     {
         "visualCutId": "vc16",
@@ -156,7 +163,7 @@ VISUAL_CUTS = [
         "title": "第十三レジ消滅とレシート",
         "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg",
         "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
-        "prompt": "午前二時二十分、第十三レジが消え、長いレシートだけが残る。人類生存率微増、スタッフ割引対象外。",
+        "prompt": f"午前二時二十分、第十三レジが消えかけ、長いレシートだけが残る。人類生存率微増、スタッフ割引対象外。{REGISTER_FACE_STYLE}",
     },
     {
         "visualCutId": "vc17",

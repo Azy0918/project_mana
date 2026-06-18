@@ -50,6 +50,7 @@
       position: relative;
       width: min(100%, 420px);
       aspect-ratio: 9 / 16;
+      justify-self: center;
       overflow: hidden;
       border: 1px solid rgba(83, 229, 255, 0.34);
       border-radius: 22px;
@@ -399,6 +400,8 @@
 
       .preview {
         display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
         place-items: center;
         width: 100%;
         height: 100svh;

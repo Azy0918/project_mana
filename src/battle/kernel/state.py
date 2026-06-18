@@ -68,6 +68,9 @@ class PlayerState:
         for mana in self.mana_zone:
             mana.tapped = False
         for creature in self.battle_zone:
+            # 「アンタップしない」弱点を持つクリーチャーはタップしたまま(text 由来・常時)
+            if creature.card.no_untap:
+                continue
             creature.tapped = False
 
     def has_keyword(self, creature: CreatureInstance, keyword: str) -> bool:

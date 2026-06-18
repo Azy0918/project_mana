@@ -99,6 +99,37 @@ class SummoningSicknessTest(unittest.TestCase):
         self.assertTrue(creature.can_attack(4))
 
 
+class StaticRestrictionTest(unittest.TestCase):
+    def test_no_untap_stays_tapped_through_untap_step(self) -> None:
+        engine = make_engine()
+        player = engine.state.players[0]
+        locked = CreatureInstance(
+            card=make_card("不眠獣", text="このクリーチャーはアンタップしない"),
+            summoned_turn=1, tapped=True,
+        )
+        normal = CreatureInstance(card=make_card("普通獣"), summoned_turn=1, tapped=True)
+        player.battle_zone.extend([locked, normal])
+        player.untap_all()
+        self.assertTrue(locked.tapped, "no_untap creature must stay tapped")
+        self.assertFalse(normal.tapped, "normal creature must untap")
+
+    def test_cannot_attack_excluded_from_legal_attacks(self) -> None:
+        engine = make_engine()
+        engine.state.turn = 5
+        player = engine.state.players[0]
+        restricted = CreatureInstance(
+            card=make_card("番人", text="このクリーチャーは攻撃できない"), summoned_turn=1,
+        )
+        normal = CreatureInstance(card=make_card("戦士"), summoned_turn=1)
+        player.battle_zone.extend([restricted, normal])
+        attackers = {
+            player.battle_zone[ch.attacker_index].card.name
+            for ch in engine._legal_attacks(player)
+        }
+        self.assertNotIn("番人", attackers)
+        self.assertIn("戦士", attackers)
+
+
 class AttackResolutionTest(unittest.TestCase):
     def test_shield_break_goes_to_hand(self) -> None:
         engine = make_engine()

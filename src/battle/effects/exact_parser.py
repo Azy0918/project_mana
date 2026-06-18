@@ -1000,7 +1000,9 @@ _STATIC_CLAUSE_RE = [re.compile(p) for p in _STATIC_CLAUSE]
 # enters_tapped)として常に保守的(=過剰に制限する方向)に適用される。よってパーサは
 # この種の節を「エンジン処理済み」として消費してよい。制限の付与は card を弱くする
 # 方向にしか働かず、over-model を生まない(under-model 側=安全)。
-_ENGINE_RESTRICTION_KW = ("攻撃できない", "タップしてバトルゾーンに出る")
+_ENGINE_RESTRICTION_KW = (
+    "攻撃できない", "タップしてバトルゾーンに出る", "アンタップしない", "アンタップされない",
+)
 
 
 def _is_engine_restriction(c: str) -> bool:

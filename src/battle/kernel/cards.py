@@ -280,6 +280,16 @@ class BattleCard:
         return "タップしてバトルゾーンに出る" in self.text
 
     @property
+    def no_untap(self) -> bool:
+        """アンタップ・ステップでアンタップしない常時の弱点能力。
+
+        text に「アンタップしない / アンタップされない」を含めば真。条件付き・他者付与・
+        一時的な「アンタップしない」も保守的に常時アンタップ不可として扱う(=実際より
+        強く動くことはない=under-model 安全)。タップしたまま=攻撃もブロックも不可。
+        """
+        return "アンタップしない" in self.text or "アンタップされない" in self.text
+
+    @property
     def is_shield_burner(self) -> bool:
         """ブレイクしたシールドを手札に加えさせず墓地に置かせる。"""
         return "手札に加えるかわりに墓地に置く" in self.text

@@ -88,6 +88,8 @@ def can_play_evolution(player: PlayerState, card: BattleCard) -> bool:
 def playable_hand_indexes(player: PlayerState) -> list[int]:
     indexes = []
     for index, card in enumerate(player.hand):
+        if card.cannot_summon_from_hand and card.is_creature:
+            continue
         if not can_play_evolution(player, card):
             continue
         if select_mana_payment(player.mana_zone, card, cost=effective_cost(player, card)) is not None:
@@ -189,6 +191,7 @@ class DuelEngine:
         player.untap_all()
         player.spells_cast_this_turn = 0
         state.skip_active_turn = False  # 前ターンの「とばす」を持ち越さない
+        player.strigger_disabled = False  # S・トリガー封印を自ターン開始時に解除
 
         # 「自分のターン開始時」誘発(自壊デメリット等)
         for creature in list(player.battle_zone):
@@ -453,6 +456,8 @@ class DuelEngine:
             )
 
         blockers = [] if attacker.card.is_unblockable else opponent.untapped_blockers()
+        if blockers and attacker.card.is_evolution:
+            blockers = [b for b in blockers if not b.card.cannot_block_evolution]
         if blockers:
             blocker_choice = opponent_policy.choose_blocker(state, opponent, attack, blockers)
             if blocker_choice is not None and 0 <= blocker_choice < len(blockers):
@@ -527,6 +532,7 @@ class DuelEngine:
                 self._strigger_locked(shield)
                 or attacker.card.disables_broken_strigger
                 or self._spell_cast_blocked(shield)
+                or opponent.strigger_disabled  # ボルバルザーク等のS・トリガー封印
             )
             if self.executor.has_trigger(shield, "s_trigger") and not strigger_blocked:
                 self._record("s_trigger", card=shield.name)

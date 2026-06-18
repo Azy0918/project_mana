@@ -276,6 +276,19 @@ class BattleCard:
         return tuple(dict.fromkeys(grants))
 
     @property
+    def cannot_summon_from_hand(self) -> bool:
+        """手札からの召喚が禁止されているクリーチャー(他手段でのみBZ入場可)。"""
+        return (
+            "このクリーチャーは召喚できない" in self.text
+            or "このクリーチャーは手札から召喚できない" in self.text
+        )
+
+    @property
+    def cannot_block_evolution(self) -> bool:
+        """進化クリーチャーをブロックできない制限。"""
+        return "進化クリーチャーをブロックできない" in self.text
+
+    @property
     def enters_tapped(self) -> bool:
         return (
             "タップしてバトルゾーンに出る" in self.text

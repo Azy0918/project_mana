@@ -28,6 +28,11 @@ _STATIC_CLAUSE = [
     r"^(?:相手)?プレイヤーを攻撃できない$",  # engine: cannot_attack_player で模擬済み
     r"^攻撃できない$",  # engine: cannot_attack で模擬済み
     r"^ブロックされない$",  # engine: is_unblockable で模擬済み
+    # 召喚禁止: engine の cannot_summon_from_hand で正確に模擬済み
+    r"^このクリーチャーは召喚できない$",
+    r"^このクリーチャーは手札から召喚できない$",
+    # 進化ブロック不可: engine の cannot_block_evolution で正確に模擬済み
+    r"^進化クリーチャーをブロックできない$",
     r"^B・A・D(?:・S)?\s*\d+$",  # engine: bad_discount+temporary で模擬済み
     r"^可能(?:なら|であれば)毎ターン攻撃する$",  # engine: 攻撃フェーズで強制
     r"^可能(?:なら|であれば)毎ターン[、,]?(?:相手プレイヤーを|このクリーチャーは)?攻撃する$",
@@ -4172,6 +4177,9 @@ _SAFE_BODY_PATTERNS = [
     r"^置けない場合[、,]このクリーチャーを破壊する$",
     # マーシャル・クイーン型: 手札シールド化がsafe-body済(0枚)→「同じ数=0」のシールドブレイクも不発=under-model(安全)
     r"^同じ数の自分のシールドをブレイクする$",
+    # 「黒幕」型: G・リンクトリガーがstatic-skip済→続き節「自分のシールドをすべてブレイクする」も不発=under-model(安全)
+    # 前節(G・リンクN枚でリンクした時～相手シールドブレイク)がstatic-skip済→本節のNO_TRIGGER孤立継続節も不発
+    r"^その後[、,]自分のシールドをすべてブレイクする$",
     # サイバー・ハンド型: 「山札に加えてシャッフル」がsafe-body済→「加えられたなら」も不発=under-model(安全)
     # 前節(bounce_to_deck)が常にsafe-body済のため条件は成立しない
     r"^そのクリーチャーが山札に加えられたなら[、,].+$",

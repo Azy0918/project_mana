@@ -8,23 +8,23 @@ OUT_PATHS = [
     Path("13th-register-kamishibai/scene_manifest.json"),
     Path("site/scene_manifest.json"),
 ]
-SCENE_IMAGE_RANGES = [
-    (0, 36, "assets/scenes/scene_01_opening.jpg"),
-    (36, 72, "assets/scenes/scene_02_onigiri_shelf.jpg"),
-    (72, 109, "assets/scenes/scene_03_register.jpg"),
-    (109, 148, "assets/scenes/scene_04_future_worker_enters.jpg"),
-    (148, 187, "assets/scenes/scene_05_future_onigiri_scan.jpg"),
-    (187, 226, "assets/scenes/scene_06_microwave.jpg"),
-    (226, 267, "assets/scenes/scene_07_receipt.jpg"),
-    (267, 999, "assets/scenes/scene_08_back_to_normal.jpg"),
-]
-
-
-def image_for_time(seconds: float) -> str:
-    for start, end, image in SCENE_IMAGE_RANGES:
-        if start <= seconds < end:
-            return image
-    return SCENE_IMAGE_RANGES[-1][2]
+def image_for_row(row: dict) -> str:
+    number = int((row.get("id") or "ep01_v000").split("_v")[-1])
+    if number <= 3:
+        return "assets/scenes/scene_01_opening.jpg"
+    if number <= 10:
+        return "assets/scenes/scene_02_onigiri_shelf.jpg"
+    if number <= 20:
+        return "assets/scenes/scene_03_register.jpg"
+    if number <= 42:
+        return "assets/scenes/scene_04_future_worker_enters.jpg"
+    if number <= 55:
+        return "assets/scenes/scene_05_future_onigiri_scan.jpg"
+    if number <= 68:
+        return "assets/scenes/scene_06_microwave.jpg"
+    if number <= 77:
+        return "assets/scenes/scene_07_receipt.jpg"
+    return "assets/scenes/scene_08_back_to_normal.jpg"
 
 
 def wav_duration(path: Path) -> float:
@@ -72,7 +72,7 @@ def main() -> None:
                 "cut": row.get("cut"),
                 "start": round(start, 3),
                 "end": round(end, 3),
-                "image": image_for_time(start),
+                "image": image_for_row(row),
                 "speaker": character,
                 "dialogue": row.get("text") or "",
                 "reading": row.get("synthesis_text") or "",

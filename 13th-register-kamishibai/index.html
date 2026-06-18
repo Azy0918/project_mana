@@ -182,6 +182,28 @@
       pointer-events: none;
     }
 
+    .asset-links-mini {
+      position: absolute;
+      left: 14px;
+      top: 48px;
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .asset-links-mini a {
+      min-height: 28px;
+      padding: 5px 8px;
+      border: 1px solid rgba(83, 229, 255, 0.36);
+      border-radius: 999px;
+      background: rgba(5, 7, 11, 0.62);
+      color: #edf7ff;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      backdrop-filter: blur(8px);
+    }
+
     .hero-play {
       position: absolute;
       left: 50%;
@@ -423,6 +445,10 @@
         <img id="sceneImage" src="./assets/scenes/scene_03_register.jpg" alt="深夜二時の第十三レジ 第1話の縦型ビジュアル">
 
         <div class="scene-badge" id="sceneBadge">第1話『第十三レジ』</div>
+        <div class="asset-links-mini">
+          <a href="./assets/ep01_dialogue_edit.csv" download>CSV</a>
+          <a href="./assets/character_storyboard_sheet.jpg">キャラ表</a>
+        </div>
 
         <div class="caption-dock">
           <div class="receipt" id="operationLog"></div>
@@ -459,6 +485,8 @@
           <a href="./assets/scenes/scene_03_register.jpg" download>画像を保存</a>
           <a href="./assets/manifest_reading_hiragana_mina_mao.json">manifest</a>
           <a href="./scene_manifest.json" download>line_manifest</a>
+          <a href="./assets/ep01_dialogue_edit.csv" download>編集CSV</a>
+          <a href="./assets/character_storyboard_sheet.jpg">キャラ絵コンテ</a>
         </div>
       </div>
     </section>

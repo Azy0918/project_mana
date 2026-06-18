@@ -172,7 +172,7 @@ VISUAL_CUTS = [
         "title": "座木山辰哉、コピー機へ",
         "plannedImage": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg",
         "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
-        "prompt": "眠そうな常連、座木山辰哉が古いツーリング地図を抱えてコピー機へ。長めの黒髪、濃い髭、バイクジャケット。",
+        "prompt": "眠そうな常連、座木山辰哉が古いツーリング地図を抱えてコピー機へ。奥田民生を思わせる脱力した中年ロックミュージシャンの雰囲気。ただし本人そっくりにはしない。短めのラフな黒髪、丸みのある眼鏡、薄い無精髭、くたっとしたワークジャケット、自然体で飄々とした大人。汗田竜司のような長髪・濃い髭・スポーツサングラス・バイクジャケットにはしない。",
     },
     {
         "visualCutId": "vc18",

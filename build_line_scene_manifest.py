@@ -8,7 +8,23 @@ OUT_PATHS = [
     Path("13th-register-kamishibai/scene_manifest.json"),
     Path("site/scene_manifest.json"),
 ]
-IMAGE = "assets/scenes/scene_03_register.jpg"
+SCENE_IMAGE_RANGES = [
+    (0, 36, "assets/scenes/scene_01_opening.jpg"),
+    (36, 72, "assets/scenes/scene_02_onigiri_shelf.jpg"),
+    (72, 109, "assets/scenes/scene_03_register.jpg"),
+    (109, 148, "assets/scenes/scene_04_future_worker_enters.jpg"),
+    (148, 187, "assets/scenes/scene_05_future_onigiri_scan.jpg"),
+    (187, 226, "assets/scenes/scene_06_microwave.jpg"),
+    (226, 267, "assets/scenes/scene_07_receipt.jpg"),
+    (267, 999, "assets/scenes/scene_08_back_to_normal.jpg"),
+]
+
+
+def image_for_time(seconds: float) -> str:
+    for start, end, image in SCENE_IMAGE_RANGES:
+        if start <= seconds < end:
+            return image
+    return SCENE_IMAGE_RANGES[-1][2]
 
 
 def wav_duration(path: Path) -> float:
@@ -56,7 +72,7 @@ def main() -> None:
                 "cut": row.get("cut"),
                 "start": round(start, 3),
                 "end": round(end, 3),
-                "image": IMAGE,
+                "image": image_for_time(start),
                 "speaker": character,
                 "dialogue": row.get("text") or "",
                 "reading": row.get("synthesis_text") or "",

@@ -317,6 +317,19 @@ class BattleCard:
         return False
 
     @property
+    def block_restriction_race(self) -> str | None:
+        """「<種族>以外のクリーチャーはブロックできない」= その種族のみブロック可。
+
+        全プレイヤーに及ぶ静的制限。ブロック可能者が減る=守りが弱くなる方向のみで、
+        engine 模擬は安全側。該当しなければ None。
+        """
+        for clause in re.split(r"[。\n]|■|◇", self.text):
+            m = re.match(r"^([ァ-ヶ・ー一-龠]+?)以外のクリーチャーはブロックできない$", clause.strip())
+            if m:
+                return m.group(1)
+        return None
+
+    @property
     def cost_modifier_rule(self) -> dict[str, Any] | None:
         """場にいる間、全プレイヤーの呪文/召喚コストを増やす静的ルール。
 

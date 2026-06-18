@@ -506,6 +506,13 @@ class DuelEngine:
             blockers = [c for c in opponent.battle_zone if not c.tapped]
         else:
             blockers = opponent.untapped_blockers()
+        # 全体ブロック制限(種族限定): キャプテン・ミリオンパーツ等(両者の場を走査)
+        if blockers:
+            for p in state.players:
+                for c in p.battle_zone:
+                    req = c.card.block_restriction_race
+                    if req:
+                        blockers = [b for b in blockers if req in b.card.race]
         if blockers and attacker.card.is_evolution:
             blockers = [b for b in blockers if not b.card.cannot_block_evolution]
         if blockers:

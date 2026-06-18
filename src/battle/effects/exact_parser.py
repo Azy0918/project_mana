@@ -995,11 +995,25 @@ def _is_replacement_clause(cl: str) -> bool:
 _STATIC_CLAUSE_RE = [re.compile(p) for p in _STATIC_CLAUSE]
 
 
+# エンジンが card.text から静的に強制する制限。これらは effect_executor/engine 側で
+# text 由来プロパティ(cannot_attack / cannot_attack_player / cannot_attack_creature /
+# enters_tapped)として常に保守的(=過剰に制限する方向)に適用される。よってパーサは
+# この種の節を「エンジン処理済み」として消費してよい。制限の付与は card を弱くする
+# 方向にしか働かず、over-model を生まない(under-model 側=安全)。
+_ENGINE_RESTRICTION_KW = ("攻撃できない", "タップしてバトルゾーンに出る")
+
+
+def _is_engine_restriction(c: str) -> bool:
+    return any(kw in c for kw in _ENGINE_RESTRICTION_KW)
+
+
 def _is_static(clause: str) -> bool:
     c = clause.strip().rstrip("。").strip()
     if not c:
         return True
     if _is_aura_clause(c) or _is_replacement_clause(c):
+        return True
+    if _is_engine_restriction(c):
         return True
     return any(r.match(c) for r in _STATIC_CLAUSE_RE)
 

@@ -1631,6 +1631,25 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     # なるため、両者(self+opponent)に展開する。「他の」=自身除外は未対応なので除く。
     _is_mass_both = ("すべて" in cl or "全て" in cl) and "他の" not in cl
 
+    # --- 各プレイヤーが自身のクリーチャーを破壊(対称): 両者が自分の盤面をN体失う ---
+    # 自軍喪失(不利益)・敵軍喪失(利益)の両方を忠実にモデル化=exact(over-model でない)。
+    m = re.match(r"^各プレイヤーは[、,]自身のクリーチャー(?:を)?(\d+)体(?:を)?破壊する$", cl)
+    if m:
+        n = int(m.group(1))
+        return [
+            {"op": "destroy_creature", "count": n, "scope": "self"},
+            {"op": "destroy_creature", "count": n, "scope": "opponent"},
+        ]
+
+    # --- 各プレイヤーが自身の盤面をすべてマナゾーンへ(対称): 両者が盤面を失う ---
+    # engine はクリーチャーのみ模擬。非クリーチャーは元々不在=過小評価にも過大評価にも
+    # ならない。自軍喪失(不利益)・敵軍喪失(利益)の双方を忠実にモデル化する。
+    if re.match(r"^各プレイヤーは[、,]バトルゾーンにある自身のカードをすべてマナゾーンに置く$", cl):
+        return [
+            {"op": "send_creature_to_mana", "count": 99, "scope": "self"},
+            {"op": "send_creature_to_mana", "count": 99, "scope": "opponent"},
+        ]
+
     # --- 破壊 ---
     if "破壊する" in cl and needs_target:
         sc = _scope_for(cl)

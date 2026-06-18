@@ -19,6 +19,49 @@ REGISTER_FACE_STYLE = (
     "本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。"
 )
 
+TAKUMI_STYLE = (
+    "タクミは全カットで同一人物。20歳前後の新人夜勤バイト、短い黒髪、細身、少し猫背、"
+    "コンビニ制服と名札「タクミ」。驚き・困惑・ツッコミ顔が基本。"
+)
+
+MINA_STYLE = (
+    "ミナは全カットで同一人物。20代前半の先輩夜勤バイト、黒髪ボブまたは低いひとつ結び、"
+    "コンビニ制服と名札「ミナ」。淡々とした無表情、背筋がまっすぐ。"
+)
+
+FUTURE_WORKER_STYLE = (
+    "未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。"
+    "2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。"
+    "細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔。"
+    "くたびれた濃紺スーツ、緩んだネクタイ、白シャツ、肩の小型液晶に残業時間表示、"
+    "首元に透明な記憶返品タグ/絆創膏状パッチがあり中の銀色回路が淡く光る。"
+    "小道具は未来おにぎり、未来レシート、ホットコーヒー。"
+    "毎カットで顔立ち、髪型、体格、スーツ、首元タグを変えない。"
+    "別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。"
+    "座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。"
+)
+
+ZAKIYAMA_STYLE = (
+    "座木山辰哉は55歳の近所の常連客で、未来人ではない。コピー機と古いツーリング地図の人。"
+    "短めで寝ぐせ混じりの黒髪、丸い薄色レンズの眼鏡、片側だけ少しテープで補修された眼鏡、"
+    "薄い無精髭、眠そうで焦点が少しずれた目、肩の力が抜けた立ち姿。"
+    "服はくたっとした古いワークジャケット、色褪せたチェックシャツ、ゆるいカーディガン、"
+    "首から古いコピーカードや小さな方位磁石、ポケットから折れた地図と付箋が少しはみ出す。"
+    "古いツーリング地図を筒ではなく何度も折った状態で抱え、端に手書きの矢印や謎のメモがある。"
+    "普通の常連なのに、どこか変わりもの。本人は大事件に気づいていない穏やかな奇妙さ。"
+    "未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。"
+    "未来青年や汗田竜司に似せない。実在人物そっくりにしない。"
+)
+
+ANIME_STYLE_LOCK = (
+    "2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、"
+    "線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+)
+
+
+def prompt_with_locks(base: str, *locks: str) -> str:
+    return " ".join([base, *locks, ANIME_STYLE_LOCK])
+
 
 VISUAL_CUTS = [
     {
@@ -37,7 +80,11 @@ VISUAL_CUTS = [
         "title": "おにぎり棚の前のタクミ",
         "plannedImage": "assets/scenes/planned/ep01_vc02_takumi_onigiri_shelf.jpg",
         "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
-        "prompt": "おにぎり棚の前で廃棄シールを見比べるタクミ。新人夜勤バイト、困惑顔。横に冷静なミナ。",
+        "prompt": prompt_with_locks(
+            "おにぎり棚の前で廃棄シールを見比べるタクミ。横に冷静なミナ。",
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc03",
@@ -46,7 +93,11 @@ VISUAL_CUTS = [
         "title": "廃棄おにぎり問答",
         "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg",
         "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
-        "prompt": "ミナが淡々と注意し、タクミがツッコむ。おにぎり棚、値札、廃棄時間シール。静かな会話コメディ。",
+        "prompt": prompt_with_locks(
+            "ミナが淡々と注意し、タクミがツッコむ。おにぎり棚、値札、廃棄時間シール。静かな会話コメディ。",
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc04",
@@ -55,7 +106,10 @@ VISUAL_CUTS = [
         "title": "第十三レジ出現前兆",
         "plannedImage": "assets/scenes/planned/ep01_vc04_register_appears.jpg",
         "fallbackImage": "assets/scenes/scene_03_register.jpg",
-        "prompt": f"雑誌棚とコピー機の間に第十三レジが現れる瞬間。空間が少し歪み、タクミが固まる。{REGISTER_FACE_STYLE}",
+        "prompt": prompt_with_locks(
+            f"雑誌棚とコピー機の間に第十三レジが現れる瞬間。空間が少し歪み、タクミが固まる。{REGISTER_FACE_STYLE}",
+            TAKUMI_STYLE,
+        ),
     },
     {
         "visualCutId": "vc05",
@@ -64,7 +118,11 @@ VISUAL_CUTS = [
         "title": "営業中の第十三レジ",
         "plannedImage": "assets/scenes/planned/ep01_vc05_register_talks.jpg",
         "fallbackImage": "assets/scenes/scene_03_register.jpg",
-        "prompt": f"第十三レジが営業中表示を出す。タクミは驚き、ミナは当然のように無表情。{REGISTER_FACE_STYLE}",
+        "prompt": prompt_with_locks(
+            f"第十三レジが営業中表示を出す。タクミは驚き、ミナは当然のように無表情。{REGISTER_FACE_STYLE}",
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc06",
@@ -73,7 +131,12 @@ VISUAL_CUTS = [
         "title": "未来の会社員来店",
         "plannedImage": "assets/scenes/planned/ep01_vc06_future_worker_enters.jpg",
         "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
-        "prompt": "くたびれたスーツ姿の未来の会社員が入店。肩の小型液晶、首元の透明パッチ、疲労感。",
+        "prompt": prompt_with_locks(
+            "自動ドアから未来青年 / 未来の会社員が入店する。深夜コンビニ店内、タクミとミナが迎える。",
+            FUTURE_WORKER_STYLE,
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc07",
@@ -82,7 +145,12 @@ VISUAL_CUTS = [
         "title": "五十年後の返品相談",
         "plannedImage": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg",
         "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
-        "prompt": "レジ前で未来の会社員が返品を頼む。ミナは通常接客、タクミは対応マニュアルを探す。",
+        "prompt": prompt_with_locks(
+            "レジ前で未来青年 / 未来の会社員が返品を頼む。ミナは通常接客、タクミは対応マニュアルを探す。",
+            FUTURE_WORKER_STYLE,
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc08",
@@ -91,7 +159,12 @@ VISUAL_CUTS = [
         "title": "未来おにぎりスキャン",
         "plannedImage": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg",
         "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
-        "prompt": f"完全栄養おにぎり・思い出の鮭を第十三レジでスキャン。警告表示、人類生存率、タクミの焦り。{REGISTER_FACE_STYLE}",
+        "prompt": prompt_with_locks(
+            f"未来青年 / 未来の会社員が持参した完全栄養おにぎり・思い出の鮭を第十三レジでスキャン。警告表示、人類生存率、タクミの焦り。{REGISTER_FACE_STYLE}",
+            FUTURE_WORKER_STYLE,
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc09",
@@ -100,7 +173,12 @@ VISUAL_CUTS = [
         "title": "始末書を気にする未来人",
         "plannedImage": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg",
         "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
-        "prompt": "未来の会社員が始末書を気にしている。タクミが引き気味にツッコミ、ミナは静観。",
+        "prompt": prompt_with_locks(
+            "未来青年 / 未来の会社員が始末書を気にして深く頭を下げる。タクミが引き気味にツッコミ、ミナは静観。",
+            FUTURE_WORKER_STYLE,
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc10",
@@ -109,7 +187,12 @@ VISUAL_CUTS = [
         "title": "時空返品メニュー",
         "plannedImage": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg",
         "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
-        "prompt": f"第十三レジの画面に、通常返品、時空返品、存在取消、温める、店長呼出のメニューが並ぶ。{REGISTER_FACE_STYLE}",
+        "prompt": prompt_with_locks(
+            f"第十三レジの画面に、通常返品、時空返品、存在取消、温める、店長呼出のメニューが並ぶ。未来青年 / 未来の会社員は同じ顔で不安そうに見守る。{REGISTER_FACE_STYLE}",
+            FUTURE_WORKER_STYLE,
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc11",
@@ -118,7 +201,12 @@ VISUAL_CUTS = [
         "title": "残り三分と七万二千円",
         "plannedImage": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg",
         "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
-        "prompt": f"第十三レジのカウントダウン、仕入れ原価七万二千円表示。タクミが即座に返品を決意する。{REGISTER_FACE_STYLE}",
+        "prompt": prompt_with_locks(
+            f"第十三レジのカウントダウン、仕入れ原価七万二千円表示。タクミが即座に返品を決意し、未来青年 / 未来の会社員は同じ姿で気まずそうに立つ。{REGISTER_FACE_STYLE}",
+            FUTURE_WORKER_STYLE,
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc12",
@@ -127,7 +215,12 @@ VISUAL_CUTS = [
         "title": "世界の分岐をレンジへ",
         "plannedImage": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg",
         "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
-        "prompt": "ミナが温め確認をし、未来おにぎりが電子レンジへ。タクミが全力でツッコむ。",
+        "prompt": prompt_with_locks(
+            "ミナが温め確認をし、未来おにぎりが電子レンジへ。未来青年 / 未来の会社員は同じ顔でお願いしますと言い、タクミが全力でツッコむ。",
+            FUTURE_WORKER_STYLE,
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc13",
@@ -136,7 +229,10 @@ VISUAL_CUTS = [
         "title": "電子レンジ内の未来映像",
         "plannedImage": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg",
         "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
-        "prompt": "電子レンジの光の中に未来の食堂、空っぽの棚、長い列、子どもがおにぎりを持って笑う映像。",
+        "prompt": prompt_with_locks(
+            "電子レンジの光の中に未来の食堂、空っぽの棚、長い列、子どもがおにぎりを持って笑う映像。手前に同一人物の未来青年 / 未来の会社員が息を呑む。",
+            FUTURE_WORKER_STYLE,
+        ),
     },
     {
         "visualCutId": "vc14",
@@ -154,7 +250,12 @@ VISUAL_CUTS = [
         "title": "時空返品完了とコーヒー",
         "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg",
         "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
-        "prompt": f"返品完了、返金百六十八円。未来の会社員がホットコーヒーを買い、タクミが未来に行きたくなくなる。背景に第十三レジ。{REGISTER_FACE_STYLE}",
+        "prompt": prompt_with_locks(
+            f"返品完了、返金百六十八円。同一人物の未来青年 / 未来の会社員がホットコーヒーを買い、タクミが未来に行きたくなくなる。背景に第十三レジ。{REGISTER_FACE_STYLE}",
+            FUTURE_WORKER_STYLE,
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc16",
@@ -172,7 +273,12 @@ VISUAL_CUTS = [
         "title": "座木山辰哉、コピー機へ",
         "plannedImage": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg",
         "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
-        "prompt": "眠そうな常連、座木山辰哉が古いツーリング地図を抱えてコピー機へ。奥田民生を思わせる脱力した中年ロックミュージシャンの雰囲気。ただし本人そっくりにはしない。短めのラフな黒髪、丸みのある眼鏡、薄い無精髭、くたっとしたワークジャケット、自然体で飄々とした大人。汗田竜司のような長髪・濃い髭・スポーツサングラス・バイクジャケットにはしない。",
+        "prompt": prompt_with_locks(
+            "眠そうな常連、座木山辰哉が古いツーリング地図を抱えてコピー機へ向かう。コピー機の光、深夜コンビニ、タクミが固まる。",
+            ZAKIYAMA_STYLE,
+            TAKUMI_STYLE,
+            MINA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc18",
@@ -181,7 +287,12 @@ VISUAL_CUTS = [
         "title": "夜勤だから",
         "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg",
         "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
-        "prompt": "タクミが普通のお客も変なのかと聞き、ミナが『夜勤だから』と無表情で返す。店内は平常運転。",
+        "prompt": prompt_with_locks(
+            "タクミが普通のお客も変なのかと聞き、ミナが『夜勤だから』と無表情で返す。奥に座木山辰哉がコピー機で古い地図を白黒コピーしている。店内は平常運転。",
+            TAKUMI_STYLE,
+            MINA_STYLE,
+            ZAKIYAMA_STYLE,
+        ),
     },
     {
         "visualCutId": "vc19",

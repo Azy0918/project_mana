@@ -277,7 +277,10 @@ class BattleCard:
 
     @property
     def enters_tapped(self) -> bool:
-        return "タップしてバトルゾーンに出る" in self.text
+        return (
+            "タップしてバトルゾーンに出る" in self.text
+            or "バトルゾーンにタップして出る" in self.text
+        )
 
     @property
     def no_untap(self) -> bool:

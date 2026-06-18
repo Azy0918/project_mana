@@ -317,6 +317,14 @@ class BattleCard:
         return False
 
     @property
+    def self_to_mana_when_summoned_from_hand(self) -> bool:
+        """手札から召喚されてBZに出た時、自身をマナゾーンに置く(ルツパーフェ・パンツァー)。"""
+        return (
+            "自分の手札からバトルゾーンに出た時" in self.text
+            and "マナゾーンに置く" in self.text
+        )
+
+    @property
     def self_destroy_on_other_evolve(self) -> bool:
         """他のクリーチャーが進化した時、このクリーチャーを破壊する(シャムシャム・カブキリ)。"""
         return "他のクリーチャーが進化した時" in self.text and "このクリーチャーを破壊する" in self.text

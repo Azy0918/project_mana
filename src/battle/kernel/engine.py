@@ -401,6 +401,11 @@ class DuelEngine:
                         self.executor.run(self, opp_idx, "on_opponent_creature_enter", watcher.card)
                     if state.finished:
                         break
+                # 「自分の手札からバトルゾーンに出た時、マナゾーンに置く」(ルツパーフェ・パンツァー)。
+                # 手札からの召喚なので必ず発火。使用可能マナは増えないためタップ状態で置く。
+                if card.self_to_mana_when_summoned_from_hand and instance in player.battle_zone:
+                    player.battle_zone.remove(instance)
+                    player.mana_zone.append(ManaCard(card=card, tapped=True))
             else:
                 player.graveyard.append(card)
                 player.spells_cast_this_turn += 1

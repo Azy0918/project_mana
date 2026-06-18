@@ -2266,6 +2266,10 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
 # 効果本体が既知の「under-model=安全な無視可能効果」パターン。
 # _parse_action_clause が None を返す前にこれらをチェックしてスキップする。
 _SAFE_BODY_PATTERNS = [
+    # 手札召喚時に自身をマナへ: engine の self_to_mana_when_summoned_from_hand で模擬済み
+    r"^自分の手札からバトルゾーンに出た時[、,]マナゾーンに置く$",
+    # 手札以外から出た時の相手バウンス: 手札召喚が主経路で稀=engine未対応のまま under-model(安全)
+    r"^手札以外のゾーンから出た時[、,]相手のクリーチャー1体をマナゾーンに置く$",
     # 進化時の自壊: engine の self_destroy_on_other_evolve で模擬済み(シャムシャム・カブキリ)
     r"^他のクリーチャーが進化した時[、,]このクリーチャーを破壊する$",
     # バトル時に両者をマナへ: engine の battle_both_to_mana で模擬済み(剛勇傀儡ガシガシ)

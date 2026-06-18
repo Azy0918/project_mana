@@ -317,6 +317,19 @@ class BattleCard:
         return False
 
     @property
+    def self_destroy_on_other_evolve(self) -> bool:
+        """他のクリーチャーが進化した時、このクリーチャーを破壊する(シャムシャム・カブキリ)。"""
+        return "他のクリーチャーが進化した時" in self.text and "このクリーチャーを破壊する" in self.text
+
+    @property
+    def battle_both_to_mana(self) -> bool:
+        """このクリーチャーがバトルする時、バトル両者をマナに置く(剛勇傀儡ガシガシ)。"""
+        return (
+            "このクリーチャーがバトルする時" in self.text
+            and "バトルするクリーチャー2体をそれぞれマナゾーンに置く" in self.text
+        )
+
+    @property
     def block_restriction_race(self) -> str | None:
         """「<種族>以外のクリーチャーはブロックできない」= その種族のみブロック可。
 

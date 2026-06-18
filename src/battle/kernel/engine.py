@@ -387,6 +387,12 @@ class DuelEngine:
                 )
                 player.battle_zone.append(instance)
                 self._record("summon", card=card.name, cost=pay_cost)
+                # 「他のクリーチャーが進化した時、このクリーチャーを破壊する」(シャムシャム・カブキリ等)
+                if card.is_evolution:
+                    for p_idx, p in enumerate(state.players):
+                        for c in list(p.battle_zone):
+                            if c is not instance and c.card.self_destroy_on_other_evolve:
+                                self.destroy_creature(p_idx, c)
                 self.executor.run(self, state.active_index, "on_play", card)
                 # 「相手のクリーチャーがバトルゾーンに出た時」誘発: 相手側のクリーチャーを通知
                 opp_idx = state.opponent_index
@@ -620,10 +626,21 @@ class DuelEngine:
         defending_player: PlayerState,
         defender: CreatureInstance,
     ) -> None:
-        attacker_power = attacker.current_attack_power
-        defender_power = defender.current_power
         atk_idx = self.state.players.index(attacking_player)
         def_idx = self.state.players.index(defending_player)
+        # 「このクリーチャーがバトルする時、バトルするクリーチャー2体をそれぞれマナゾーンに
+        # 置く」(剛勇傀儡ガシガシ): 戦闘解決のかわりに両者をマナへ送る。
+        if attacker.card.battle_both_to_mana or defender.card.battle_both_to_mana:
+            if attacker in attacking_player.battle_zone:
+                attacking_player.battle_zone.remove(attacker)
+                attacking_player.mana_zone.append(make_mana_card(attacker.card))
+            if defender in defending_player.battle_zone:
+                defending_player.battle_zone.remove(defender)
+                defending_player.mana_zone.append(make_mana_card(defender.card))
+            self._record("battle_to_mana", attacker=attacker.card.name, defender=defender.card.name)
+            return
+        attacker_power = attacker.current_attack_power
+        defender_power = defender.current_power
         # スレイヤーはパワーに関係なくバトル相手を破壊する(オーラ付与も考慮)
         atk_wins = attacker_power >= defender_power or attacking_player.has_keyword(attacker, "スレイヤー")
         def_wins = defender_power >= attacker_power or defending_player.has_keyword(defender, "スレイヤー")

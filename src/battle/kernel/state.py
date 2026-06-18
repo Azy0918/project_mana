@@ -105,6 +105,9 @@ class GameState:
     winner: int | None = None
     finished: bool = False
     extra_turn_pending: bool = False
+    # 「ターンの残りをとばす」: アクティブプレイヤーの残りフェイズを中断する。
+    # 各ターン開始時に必ず False にリセットされ、当該ターン内でのみ有効。
+    skip_active_turn: bool = False
     # (controller_index, 発生源カード, action) のターン終了時遅延効果
     deferred_end_of_turn: list[Any] = field(default_factory=list)
     finish_reason: str = ""

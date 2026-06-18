@@ -1261,6 +1261,13 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
     if re.search(r"(?:この)?ターンの後に(?:自分の)?ターンを追加する", cl) and "相手のターンを追加" not in cl:
         return [{"op": "extra_turn"}]
 
+    # --- ターンの残りをとばす(現在のアクティブターンを中断) ---
+    # 「(その/相手は/自分は)?ターンの残りをとばす」。トリガー発火時のアクティブ
+    # プレイヤーのターンを終わらせる。発火タイミングが相手ターン中なら相手の、
+    # 自分ターン中なら自分のターンが終わる(skip_active_turn)。
+    if re.fullmatch(r"(?:そのターンの残りをとばす|(?:相手|自分)は?ターンの残りをとばす|ターンの残りをとばす)", cl):
+        return [{"op": "skip_turn"}]
+
     # --- 文明指定の全体破壊((civ)以外のクリーチャーをすべて破壊する) ---
     # engine: destroy_creatures_nonciv(keep_civ)。デフォルトは両者(自分/相手指定で限定)。
     m = re.match(r"^(自分の|相手の)?(自然|[光水火闇])以外の(?:クリーチャー|カード|エレメント)をすべて破壊する$", cl)

@@ -130,6 +130,53 @@ class StaticRestrictionTest(unittest.TestCase):
         self.assertIn("戦士", attackers)
 
 
+class SkipTurnTest(unittest.TestCase):
+    def _attacker_engine(self):
+        class Aggro(Policy):
+            def __init__(self):
+                self.attacks = 0
+
+            def choose_charge(self, state, player):
+                return None
+
+            def choose_main_action(self, state, player, playable):
+                return None
+
+            def choose_attack(self, state, player, choices):
+                self.attacks += 1
+                return choices[0] if choices else None
+
+            def choose_blocker(self, state, player, attack, blockers):
+                return None
+
+        pol = Aggro()
+        engine = DuelEngine(make_deck(), make_deck(civilization="水"), pol, pol, effects={})
+        engine.state.turn = 5
+        player = engine.state.players[0]
+        for k in range(2):
+            player.battle_zone.append(CreatureInstance(card=make_card(f"突撃{k}"), summoned_turn=1))
+        return engine, player, pol
+
+    def test_skip_turn_aborts_attack_phase(self) -> None:
+        engine, player, pol = self._attacker_engine()
+        engine.state.skip_active_turn = True
+        engine._attack_phase(player, pol)
+        self.assertEqual(pol.attacks, 0, "skip_active_turn must abort the attack phase")
+
+    def test_without_skip_attacks_proceed(self) -> None:
+        engine, player, pol = self._attacker_engine()
+        engine._attack_phase(player, pol)
+        self.assertGreaterEqual(pol.attacks, 2)
+
+    def test_skip_turn_op_sets_flag(self) -> None:
+        effects = {"時計": [{"trigger": "on_play", "actions": [{"op": "skip_turn"}]}]}
+        engine = DuelEngine(make_deck(), make_deck(civilization="水"), StubPolicy(), StubPolicy(), effects=effects)
+        card = make_card("時計", text="バトルゾーンに出た時、ターンの残りをとばす")
+        engine.state.players[0].battle_zone.append(CreatureInstance(card=card, summoned_turn=1))
+        engine.executor.run(engine, 0, "on_play", card)
+        self.assertTrue(engine.state.skip_active_turn)
+
+
 class AttackResolutionTest(unittest.TestCase):
     def test_shield_break_goes_to_hand(self) -> None:
         engine = make_engine()

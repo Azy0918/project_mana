@@ -395,6 +395,9 @@ class EffectExecutor:
                     return
         elif op == "extra_turn":
             engine.state.extra_turn_pending = True
+        elif op == "skip_turn":
+            # 「ターンの残りをとばす」: 現在のアクティブプレイヤーの残りフェイズを中断。
+            engine.state.skip_active_turn = True
         elif op == "discard_own_hand":
             for _ in range(count):
                 if not controller.hand:

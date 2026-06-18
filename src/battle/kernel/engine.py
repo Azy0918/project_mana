@@ -188,6 +188,7 @@ class DuelEngine:
 
         player.untap_all()
         player.spells_cast_this_turn = 0
+        state.skip_active_turn = False  # 前ターンの「とばす」を持ち越さない
 
         # 「自分のターン開始時」誘発(自壊デメリット等)
         for creature in list(player.battle_zone):
@@ -308,6 +309,8 @@ class DuelEngine:
     def _main_phase(self, player: PlayerState, policy: Policy) -> None:
         state = self.state
         while True:
+            if state.skip_active_turn:  # 「ターンの残りをとばす」発動済み
+                return
             playable = [i for i in playable_hand_indexes(player) if not self._spell_cast_blocked(player.hand[i])]
             if not playable:
                 return
@@ -373,6 +376,8 @@ class DuelEngine:
     def _attack_phase(self, player: PlayerState, policy: Policy) -> None:
         state = self.state
         while not state.finished:
+            if state.skip_active_turn:  # 「ターンの残りをとばす」発動済み
+                return
             choices = self._legal_attacks(player)
             if not choices:
                 return

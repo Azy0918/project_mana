@@ -32,6 +32,10 @@ def visual_cut_for_row(row: dict, cuts: list[dict]) -> dict:
     return cuts[-1]
 
 
+def public_asset_exists(asset_path: str) -> bool:
+    return Path("13th-register-kamishibai", asset_path).exists()
+
+
 def wav_duration(path: Path) -> float:
     with wave.open(str(path), "rb") as wav:
         return wav.getnframes() / wav.getframerate()
@@ -73,6 +77,11 @@ def main() -> None:
         character = row.get("character") or row.get("speaker_name") or ""
         visual_cut = visual_cut_for_row(row, visual_cuts)
         visual_label = f"{visual_cut['index']:02d}/{len(visual_cuts)}　{visual_cut['title']}"
+        image = (
+            visual_cut["plannedImage"]
+            if public_asset_exists(visual_cut["plannedImage"])
+            else visual_cut["fallbackImage"]
+        )
 
         scenes.append(
             {
@@ -83,7 +92,7 @@ def main() -> None:
                 "visualCutIndex": visual_cut["index"],
                 "start": round(start, 3),
                 "end": round(end, 3),
-                "image": visual_cut["fallbackImage"],
+                "image": image,
                 "plannedImage": visual_cut["plannedImage"],
                 "fallbackImage": visual_cut["fallbackImage"],
                 "imagePrompt": visual_cut["prompt"],

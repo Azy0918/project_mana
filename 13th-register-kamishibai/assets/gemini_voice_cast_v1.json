@@ -14,11 +14,12 @@
     "ミナ": "generated with Leda, preferred",
     "タクミ": "generated with Puck",
     "第十三レジ": "generated with Charon",
-    "未来の会社員": "queued, daily quota reached before sample",
-    "座木山辰哉": "queued, daily quota reached before sample"
+    "未来の会社員": "blocked, Gemini API prepayment credits depleted before sample",
+    "座木山辰哉": "blocked, Gemini API prepayment credits depleted before sample"
   },
   "notes": [
-    "Gemini TTS free tier reached the daily request quota during voice sampling.",
+    "Gemini TTS initially reached the daily request quota during voice sampling.",
+    "On the next run, Gemini returned RESOURCE_EXHAUSTED because prepayment credits were depleted.",
     "Use DelaySeconds for CSV batches and resume after quota reset.",
     "Mina is locked to Leda based on listening preference."
   ]

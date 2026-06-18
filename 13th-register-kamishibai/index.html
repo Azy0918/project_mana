@@ -236,6 +236,38 @@
       opacity: 0.86;
     }
 
+    .transport-bar {
+      position: absolute;
+      left: 50%;
+      bottom: 154px;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: repeat(4, 46px);
+      gap: 8px;
+      transform: translateX(-50%);
+    }
+
+    .transport-bar button {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 38px;
+      border: 1px solid rgba(83, 229, 255, 0.42);
+      border-radius: 999px;
+      background: rgba(5, 7, 11, 0.62);
+      color: #edf7ff;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+    }
+
+    .transport-bar button:active {
+      transform: translateY(1px);
+      background: rgba(83, 229, 255, 0.2);
+    }
+
     .controls {
       padding: 16px;
       border: 1px solid var(--line);
@@ -435,6 +467,17 @@
         padding: 116px 11px 12px;
       }
 
+      .transport-bar {
+        bottom: 150px;
+        grid-template-columns: repeat(4, 44px);
+        gap: 7px;
+      }
+
+      .transport-bar button {
+        width: 44px;
+        height: 38px;
+      }
+
       .vn-dialogue {
         font-size: 17px;
       }
@@ -467,6 +510,12 @@
         <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
         <div class="play-state" id="playState">READY</div>
         <button class="hero-play" id="heroPlay" type="button" aria-label="再生">▶</button>
+        <div class="transport-bar" aria-label="再生位置操作">
+          <button id="prevLine" type="button" aria-label="前のセリフへ">前</button>
+          <button id="rewind10" type="button" aria-label="10秒戻す">-10</button>
+          <button id="forward10" type="button" aria-label="10秒送る">+10</button>
+          <button id="nextLine" type="button" aria-label="次のセリフへ">次</button>
+        </div>
       </div>
 
       <div class="controls">
@@ -515,6 +564,10 @@
     const sceneBadge = document.getElementById("sceneBadge");
     const operationLog = document.getElementById("operationLog");
     const progressFill = document.getElementById("progressFill");
+    const prevLine = document.getElementById("prevLine");
+    const rewind10 = document.getElementById("rewind10");
+    const forward10 = document.getElementById("forward10");
+    const nextLine = document.getElementById("nextLine");
 
     let scenes = [];
     let activeSceneId = "";
@@ -537,6 +590,32 @@
       if (!scenes.length) return null;
       if (seconds < scenes[0].start) return scenes[0];
       return [...scenes].reverse().find(scene => seconds >= scene.start) || scenes[0];
+    };
+
+    const findSceneIndex = seconds => {
+      if (!scenes.length) return -1;
+      if (seconds < scenes[0].start) return 0;
+      for (let index = scenes.length - 1; index >= 0; index -= 1) {
+        if (seconds >= scenes[index].start) return index;
+      }
+      return 0;
+    };
+
+    const seekTo = seconds => {
+      const total = Number.isFinite(audio.duration) ? audio.duration : scenes.at(-1)?.end || 0;
+      audio.currentTime = Math.min(total, Math.max(0, seconds));
+      syncFromAudio();
+    };
+
+    const seekBy = delta => {
+      seekTo((audio.currentTime || 0) + delta);
+    };
+
+    const jumpLine = direction => {
+      if (!scenes.length) return;
+      const currentIndex = findSceneIndex(audio.currentTime || 0);
+      const targetIndex = Math.min(scenes.length - 1, Math.max(0, currentIndex + direction));
+      seekTo(scenes[targetIndex].start);
     };
 
     const setImage = (path, fallbackPath = FALLBACK_IMAGE) => {
@@ -665,6 +744,10 @@
         audio.pause();
       }
     });
+    rewind10.addEventListener("click", () => seekBy(-10));
+    forward10.addEventListener("click", () => seekBy(10));
+    prevLine.addEventListener("click", () => jumpLine(-1));
+    nextLine.addEventListener("click", () => jumpLine(1));
 
     fetch("./scene_manifest.json")
       .then(response => {

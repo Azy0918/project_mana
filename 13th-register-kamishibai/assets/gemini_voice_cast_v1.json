@@ -1,0 +1,25 @@
+{
+  "model": "gemini-3.1-flash-tts-preview",
+  "defaultVoice": "Kore",
+  "cast": {
+    "ナレーション": "Kore",
+    "ミナ": "Leda",
+    "タクミ": "Puck",
+    "第十三レジ": "Charon",
+    "未来の会社員": "Fenrir",
+    "座木山辰哉": "Orus"
+  },
+  "sampleStatus": {
+    "ナレーション": "generated with Kore",
+    "ミナ": "generated with Leda, preferred",
+    "タクミ": "generated with Puck",
+    "第十三レジ": "generated with Charon",
+    "未来の会社員": "queued, daily quota reached before sample",
+    "座木山辰哉": "queued, daily quota reached before sample"
+  },
+  "notes": [
+    "Gemini TTS free tier reached the daily request quota during voice sampling.",
+    "Use DelaySeconds for CSV batches and resume after quota reset.",
+    "Mina is locked to Leda based on listening preference."
+  ]
+}

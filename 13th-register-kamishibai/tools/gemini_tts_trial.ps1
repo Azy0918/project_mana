@@ -4,8 +4,10 @@ param(
   [string]$Csv = "13th-register-kamishibai/assets/ep01_dialogue_edit.csv",
   [int]$Limit = 1,
   [string]$Voice = "Kore",
+  [string]$VoiceMap = "13th-register-kamishibai/assets/gemini_voice_cast_v1.json",
   [string]$Model = "gemini-3.1-flash-tts-preview",
-  [string]$OutDir = "outputs/gemini_tts_trial"
+  [string]$OutDir = "outputs/gemini_tts_trial",
+  [int]$DelaySeconds = 0
 )
 
 $ErrorActionPreference = "Stop"
@@ -40,6 +42,26 @@ function Get-SpeakerStyle([string]$Name) {
   }
 }
 
+function Get-VoiceMap {
+  if (-not (Test-Path -LiteralPath $VoiceMap)) {
+    return $null
+  }
+  return Get-Content -LiteralPath $VoiceMap -Raw -Encoding UTF8 | ConvertFrom-Json
+}
+
+function Get-VoiceForSpeaker([string]$Name, $Map) {
+  if (-not $Map -or -not $Map.cast) {
+    return $Voice
+  }
+  if ($Map.cast.PSObject.Properties.Name -contains $Name) {
+    return [string]$Map.cast.$Name
+  }
+  if ($Map.defaultVoice) {
+    return [string]$Map.defaultVoice
+  }
+  return $Voice
+}
+
 function Convert-Pcm16ToWav([byte[]]$PcmBytes, [string]$OutPath, [int]$SampleRate, [int]$Channels) {
   $dataSize = $PcmBytes.Length
   $byteRate = $SampleRate * $Channels * 2
@@ -68,7 +90,7 @@ function Convert-Pcm16ToWav([byte[]]$PcmBytes, [string]$OutPath, [int]$SampleRat
   $stream.Dispose()
 }
 
-function Invoke-GeminiTts([string]$LineId, [string]$LineSpeaker, [string]$LineText) {
+function Invoke-GeminiTts([string]$LineId, [string]$LineSpeaker, [string]$LineText, [string]$LineVoice) {
   $key = Get-GeminiApiKey
   $uri = "https://generativelanguage.googleapis.com/v1beta/models/$($Model):generateContent"
   $style = Get-SpeakerStyle $LineSpeaker
@@ -80,7 +102,7 @@ function Invoke-GeminiTts([string]$LineId, [string]$LineSpeaker, [string]$LineTe
       speechConfig = @{
         voiceConfig = @{
           prebuiltVoiceConfig = @{
-            voiceName = $Voice
+            voiceName = $LineVoice
           }
         }
       }
@@ -106,14 +128,14 @@ function Invoke-GeminiTts([string]$LineId, [string]$LineSpeaker, [string]$LineTe
 
   New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
   $safeSpeaker = $LineSpeaker -replace '[\\/:*?"<>|]', "_"
-  $outPath = Join-Path $OutDir "$($LineId)_$($safeSpeaker)_$($Voice).wav"
+  $outPath = Join-Path $OutDir "$($LineId)_$($safeSpeaker)_$($LineVoice).wav"
   $bytes = [Convert]::FromBase64String($part.data)
   Convert-Pcm16ToWav -PcmBytes $bytes -OutPath $outPath -SampleRate $rate -Channels $channels
 
   [pscustomobject]@{
     id = $LineId
     speaker = $LineSpeaker
-    voice = $Voice
+    voice = $LineVoice
     model = $Model
     mimeType = $mime
     out = $outPath
@@ -145,10 +167,15 @@ if ($Text.Trim()) {
 }
 
 $manifest = @()
+$voiceMapData = Get-VoiceMap
 foreach ($job in $jobs) {
-  $result = Invoke-GeminiTts -LineId $job.id -LineSpeaker $job.speaker -LineText $job.text
+  $lineVoice = Get-VoiceForSpeaker -Name $job.speaker -Map $voiceMapData
+  $result = Invoke-GeminiTts -LineId $job.id -LineSpeaker $job.speaker -LineText $job.text -LineVoice $lineVoice
   $manifest += $result
   Write-Output $result.out
+  if ($DelaySeconds -gt 0) {
+    Start-Sleep -Seconds $DelaySeconds
+  }
 }
 
 New-Item -ItemType Directory -Force -Path $OutDir | Out-Null

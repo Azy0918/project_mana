@@ -1886,14 +1886,23 @@ def _parse_action_clause_raw(clause: str) -> list[dict[str, Any]] | None:
         sc = _scope_for(cl) if ("相手" in cl or "自分" in cl) else ("self", None)
         if sc is None:
             return None
-        mm = re.search(r"マナゾーンから(?:ランダムな)?(?:カード|クリーチャー)?(\d+)?枚?を?墓地に置(?:く|き)", cl)
+        # カラフル・ダンス型: 「コストの大きい順にN枚、カードを墓地に置く」
+        mm = re.search(r"マナゾーンからコストの大きい順に(\d+)枚[、,]?(?:カード)?を?墓地に置(?:く|き)", cl)
+        order = None
+        if mm:
+            order = "highest"
+        if not mm:
+            mm = re.search(r"マナゾーンから(?:ランダムな)?(?:カード|クリーチャー)?(\d+)?枚?を?墓地に置(?:く|き)", cl)
         if not mm:
             mm = re.search(r"マナゾーンの(?:ランダムな)?(?:カード|クリーチャー)?を?(\d+)?枚?を?墓地に置(?:く|き)", cl)
         if not mm:
             return None
         cnt = int(mm.group(1)) if mm.group(1) else 1
         scope = "opponent" if sc[0] == "opponent" else "self"
-        return [{"op": "mana_to_grave", "count": cnt, "scope": scope}]
+        act = {"op": "mana_to_grave", "count": cnt, "scope": scope}
+        if order:
+            act["order"] = order
+        return [act]
 
     # --- マナ→手札(mana_to_hand): カード/クリーチャー/呪文をマナゾーンから手札に戻す ---
     # 「戻してもよい」(て形)も含めて検出(正規化前なので te-form は raw で確認)

@@ -512,10 +512,13 @@ class EffectExecutor:
         elif op == "mana_to_grave":
             tp_index = self._target_player_index(controller_index, action)
             tp = engine.state.players[tp_index]
+            # order="highest": コストの大きい順(自分マナ除去では弱体側=exact)。
+            # 既定(min)は「ランダム」をコスト最小選択で近似(under-model=安全)。
+            pick = max if action.get("order") == "highest" else min
             for _ in range(count):
                 if not tp.mana_zone:
                     return
-                target_mana = min(tp.mana_zone, key=lambda m: m.card.cost)
+                target_mana = pick(tp.mana_zone, key=lambda m: m.card.cost)
                 tp.mana_zone.remove(target_mana)
                 tp.graveyard.append(target_mana.card)
         elif op == "untap_creature":

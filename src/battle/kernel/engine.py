@@ -499,7 +499,13 @@ class DuelEngine:
                 target_creature_index=attack.target_creature_index,
             )
 
-        blockers = [] if attacker.card.is_unblockable else opponent.untapped_blockers()
+        if attacker.card.is_unblockable:
+            blockers = []
+        elif any(c.card.grants_blocker_to_opponent for c in player.battle_zone):
+            # 蒼黒の知将ディアブロスト等: 攻撃側の静的で防御側の全クリーチャーがブロッカー化
+            blockers = [c for c in opponent.battle_zone if not c.tapped]
+        else:
+            blockers = opponent.untapped_blockers()
         if blockers and attacker.card.is_evolution:
             blockers = [b for b in blockers if not b.card.cannot_block_evolution]
         if blockers:

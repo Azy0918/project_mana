@@ -299,6 +299,24 @@ class BattleCard:
         return "自分は「S・トリガー」能力を使えない" in self.text
 
     @property
+    def grants_blocker_to_opponent(self) -> bool:
+        """相手のすべてのクリーチャーに無条件で「ブロッカー」を与える静的能力。
+
+        相手が多く守れる=このカードの持ち主にとって不利=engine 模擬は安全側。
+        条件付き(なら/につき/ターン等)は範囲を確定できないため除外する。
+        """
+        for clause in re.split(r"[。\n]|■|◇", self.text):
+            if "相手の" not in clause or "ブロッカー" not in clause:
+                continue
+            if "得る" not in clause and "与える" not in clause:
+                continue
+            if any(t in clause for t in ("なら", "あれば", "ターン", "につき", "数だけ", "ごとに", "以上", "以下")):
+                continue
+            if "クリーチャーはすべて" in clause or "すべてのクリーチャー" in clause:
+                return True
+        return False
+
+    @property
     def cost_modifier_rule(self) -> dict[str, Any] | None:
         """場にいる間、全プレイヤーの呪文/召喚コストを増やす静的ルール。
 

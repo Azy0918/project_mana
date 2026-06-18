@@ -450,6 +450,7 @@
         <div class="scene-badge" id="sceneBadge">第1話『第十三レジ』</div>
         <div class="asset-links-mini">
           <a href="./assets/ep01_dialogue_edit.csv" download>CSV</a>
+          <a href="./assets/ep01_visual_cut_plan.csv" download>絵コンテ</a>
           <a href="./assets/character_storyboard_sheet.jpg">キャラ表</a>
         </div>
 
@@ -488,7 +489,9 @@
           <a href="./assets/scenes/scene_03_register.jpg" download>画像を保存</a>
           <a href="./assets/manifest_reading_hiragana_mina_mao.json">manifest</a>
           <a href="./scene_manifest.json" download>line_manifest</a>
+          <a href="./visual_cut_plan.json" download>visual_plan</a>
           <a href="./assets/ep01_dialogue_edit.csv" download>編集CSV</a>
+          <a href="./assets/ep01_visual_cut_plan.csv" download>絵コンテCSV</a>
           <a href="./assets/character_storyboard_sheet.jpg">キャラ絵コンテ</a>
         </div>
       </div>
@@ -536,8 +539,9 @@
       return [...scenes].reverse().find(scene => seconds >= scene.start) || scenes[0];
     };
 
-    const setImage = path => {
+    const setImage = (path, fallbackPath = FALLBACK_IMAGE) => {
       const nextSrc = normalizeAssetPath(path);
+      const fallbackSrc = normalizeAssetPath(fallbackPath);
       if (sceneImage.dataset.src === nextSrc) return;
       sceneImage.dataset.src = nextSrc;
       sceneImage.style.opacity = "0.72";
@@ -545,9 +549,9 @@
         sceneImage.style.opacity = "1";
       };
       sceneImage.onerror = () => {
-        if (sceneImage.dataset.src !== FALLBACK_IMAGE) {
-          sceneImage.dataset.src = FALLBACK_IMAGE;
-          sceneImage.src = FALLBACK_IMAGE;
+        if (sceneImage.dataset.src !== fallbackSrc) {
+          sceneImage.dataset.src = fallbackSrc;
+          sceneImage.src = fallbackSrc;
         }
       };
       sceneImage.src = nextSrc;
@@ -556,13 +560,13 @@
     const renderScene = scene => {
       if (!scene || activeSceneId === scene.id) return;
       activeSceneId = scene.id;
-      setImage(scene.image);
+      setImage(scene.image, scene.fallbackImage);
       sceneSpeaker.textContent = scene.speaker || "";
       sceneDialogue.textContent = scene.dialogue || "";
       sceneSubDialogue.textContent = scene.subDialogue || "";
       sceneSubDialogue.hidden = !scene.subDialogue;
       operationLog.innerHTML = (scene.log || []).map(item => `<div>${item}</div>`).join("");
-      sceneBadge.textContent = scene.progressLabel || scene.id;
+      sceneBadge.textContent = scene.visualLabel || scene.progressLabel || scene.id;
       currentLabel.textContent = scene.progressLabel || scene.id;
       document.querySelectorAll(".scene-row").forEach(row => {
         const isActive = row.dataset.sceneId === scene.id;
@@ -607,7 +611,7 @@
         <button class="scene-row" type="button" data-scene-id="${scene.id}" data-start="${scene.start}">
           <div class="timecode">${formatTime(scene.start)}<br>${formatTime(scene.end)}</div>
           <div>
-            <div class="row-title">${scene.progressLabel || scene.id}</div>
+            <div class="row-title">${scene.progressLabel || scene.id}　${scene.visualCutId || ""}</div>
             <div class="row-dialogue">${scene.speaker || ""}：${scene.dialogue || ""}</div>
           </div>
         </button>

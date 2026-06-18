@@ -4,27 +4,32 @@ from pathlib import Path
 
 
 SOURCE_MANIFEST = Path("outputs/ep01_voice_reading_hiragana/manifest_reading_hiragana_mina_mao.json")
+VISUAL_CUT_PLAN = Path("13th-register-kamishibai/visual_cut_plan.json")
 OUT_PATHS = [
     Path("13th-register-kamishibai/scene_manifest.json"),
     Path("site/scene_manifest.json"),
 ]
-def image_for_row(row: dict) -> str:
-    number = int((row.get("id") or "ep01_v000").split("_v")[-1])
-    if number <= 3:
-        return "assets/scenes/scene_01_opening.jpg"
-    if number <= 10:
-        return "assets/scenes/scene_02_onigiri_shelf.jpg"
-    if number <= 20:
-        return "assets/scenes/scene_03_register.jpg"
-    if number <= 42:
-        return "assets/scenes/scene_04_future_worker_enters.jpg"
-    if number <= 55:
-        return "assets/scenes/scene_05_future_onigiri_scan.jpg"
-    if number <= 68:
-        return "assets/scenes/scene_06_microwave.jpg"
-    if number <= 77:
-        return "assets/scenes/scene_07_receipt.jpg"
-    return "assets/scenes/scene_08_back_to_normal.jpg"
+
+
+def line_number(line_id: str) -> int:
+    return int((line_id or "ep01_v000").split("_v")[-1])
+
+
+def load_visual_cuts() -> list[dict]:
+    cuts = json.loads(VISUAL_CUT_PLAN.read_text(encoding="utf-8"))
+    for index, cut in enumerate(cuts, start=1):
+        cut["index"] = index
+        cut["startNumber"] = line_number(cut["lineStart"])
+        cut["endNumber"] = line_number(cut["lineEnd"])
+    return cuts
+
+
+def visual_cut_for_row(row: dict, cuts: list[dict]) -> dict:
+    number = line_number(row.get("id"))
+    for cut in cuts:
+        if cut["startNumber"] <= number <= cut["endNumber"]:
+            return cut
+    return cuts[-1]
 
 
 def wav_duration(path: Path) -> float:
@@ -48,6 +53,7 @@ def log_for(row: dict, index: int) -> list[str]:
 
 def main() -> None:
     rows = json.loads(SOURCE_MANIFEST.read_text(encoding="utf-8"))
+    visual_cuts = load_visual_cuts()
     scenes = []
     cursor = 0.0
     voiced_index = 0
@@ -65,18 +71,27 @@ def main() -> None:
         end = cursor + duration
         voiced_index += 1
         character = row.get("character") or row.get("speaker_name") or ""
+        visual_cut = visual_cut_for_row(row, visual_cuts)
+        visual_label = f"{visual_cut['index']:02d}/{len(visual_cuts)}　{visual_cut['title']}"
 
         scenes.append(
             {
                 "id": row.get("id") or f"line_{voiced_index:03d}",
                 "cut": row.get("cut"),
+                "visualCutId": visual_cut["visualCutId"],
+                "visualCutTitle": visual_cut["title"],
+                "visualCutIndex": visual_cut["index"],
                 "start": round(start, 3),
                 "end": round(end, 3),
-                "image": image_for_row(row),
+                "image": visual_cut["fallbackImage"],
+                "plannedImage": visual_cut["plannedImage"],
+                "fallbackImage": visual_cut["fallbackImage"],
+                "imagePrompt": visual_cut["prompt"],
                 "speaker": character,
                 "dialogue": row.get("text") or "",
                 "reading": row.get("synthesis_text") or "",
                 "log": log_for(row, voiced_index),
+                "visualLabel": visual_label,
                 "progressLabel": f"{voiced_index:02d}/83　{character}",
             }
         )

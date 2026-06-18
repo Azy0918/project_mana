@@ -13,13 +13,20 @@ def main() -> None:
     fields = [
         "id",
         "cut",
+        "visualCutId",
+        "visualCutTitle",
+        "visualCutIndex",
         "start",
         "end",
         "speaker",
         "dialogue",
         "reading",
+        "visualLabel",
         "progressLabel",
         "image",
+        "plannedImage",
+        "fallbackImage",
+        "imagePrompt",
         "log",
     ]
 
@@ -35,13 +42,20 @@ def main() -> None:
                     {
                         "id": row.get("id", ""),
                         "cut": row.get("cut", ""),
+                        "visualCutId": row.get("visualCutId", ""),
+                        "visualCutTitle": row.get("visualCutTitle", ""),
+                        "visualCutIndex": row.get("visualCutIndex", ""),
                         "start": row.get("start", ""),
                         "end": row.get("end", ""),
                         "speaker": row.get("speaker", ""),
                         "dialogue": row.get("dialogue", ""),
                         "reading": row.get("reading", ""),
+                        "visualLabel": row.get("visualLabel", ""),
                         "progressLabel": row.get("progressLabel", ""),
                         "image": row.get("image", ""),
+                        "plannedImage": row.get("plannedImage", ""),
+                        "fallbackImage": row.get("fallbackImage", ""),
+                        "imagePrompt": row.get("imagePrompt", ""),
                         "log": " / ".join(row.get("log", [])),
                     }
                 )

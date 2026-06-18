@@ -10,11 +10,17 @@ from pathlib import Path
 
 import requests
 
+try:
+    import certifi
+except ImportError:  # pragma: no cover - optional local dependency
+    certifi = None
+
 
 DEFAULT_MODEL = "gemini-3.1-flash-tts-preview"
 DEFAULT_VOICE = "Kore"
 DEFAULT_CSV = Path("13th-register-kamishibai/assets/ep01_dialogue_edit.csv")
 DEFAULT_OUT_DIR = Path("outputs/gemini_tts_trial")
+ENV_FILES = (Path(".env.local"), Path(".env"))
 
 
 SPEAKER_STYLE = {
@@ -28,6 +34,18 @@ SPEAKER_STYLE = {
 
 
 def api_key() -> str:
+    for path in ENV_FILES:
+        if not path.exists():
+            continue
+        for line in path.read_text(encoding="utf-8-sig").splitlines():
+            if not line or line.lstrip().startswith("#") or "=" not in line:
+                continue
+            name, value = line.split("=", 1)
+            if name.strip().lstrip("\ufeff") in {"GEMINI_API_KEY", "GOOGLE_API_KEY"}:
+                key = value.strip().strip('"').strip("'")
+                if key:
+                    return key
+
     key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not key:
         raise SystemExit(
@@ -65,10 +83,11 @@ def build_prompt(text: str, speaker: str) -> str:
 
 
 def synthesize(text: str, speaker: str, out_path: Path, model: str, voice: str) -> dict:
-    endpoint = (
-        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-        f"?key={api_key()}"
-    )
+    endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+    headers = {
+        "Content-Type": "application/json",
+        "x-goog-api-key": api_key(),
+    }
     payload = {
         "contents": [{"parts": [{"text": build_prompt(text, speaker)}]}],
         "generationConfig": {
@@ -82,7 +101,8 @@ def synthesize(text: str, speaker: str, out_path: Path, model: str, voice: str) 
             },
         },
     }
-    response = requests.post(endpoint, json=payload, timeout=120)
+    verify = certifi.where() if certifi else True
+    response = requests.post(endpoint, headers=headers, json=payload, timeout=120, verify=verify)
     if response.status_code >= 400:
         raise RuntimeError(f"Gemini TTS failed: {response.status_code} {response.text}")
 
@@ -107,7 +127,7 @@ def rows_from_csv(path: Path, limit: int) -> list[dict]:
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         for row in reader:
-            text = (row.get("reading") or row.get("dialogue") or "").strip()
+            text = (row.get("reading_hiragana") or row.get("reading") or row.get("dialogue") or "").strip()
             if not text:
                 continue
             rows.append(

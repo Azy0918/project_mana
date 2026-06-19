@@ -1,0 +1,162 @@
+[
+  {
+    "id": "ep02_vc01_company_parking_asada",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc01_company_parking_asada.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc01_company_parking_asada.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc01_company_parking_asada.png",
+    "bytes": 2446042,
+    "lastWriteTime": "2026-06-19T16:17:46.6585342+09:00"
+  },
+  {
+    "id": "ep02_vc02_nav_lights_up",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc02_nav_lights_up.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc02_nav_lights_up.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc02_nav_lights_up.png",
+    "bytes": 2348791,
+    "lastWriteTime": "2026-06-19T16:21:26.9662254+09:00"
+  },
+  {
+    "id": "ep02_vc03_night_ride",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc03_night_ride.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc03_night_ride.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc03_night_ride.png",
+    "bytes": 2472628,
+    "lastWriteTime": "2026-06-19T16:22:40.6782158+09:00"
+  },
+  {
+    "id": "ep02_vc04_receipt_storage",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc04_receipt_storage.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc04_receipt_storage.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc04_receipt_storage.png",
+    "bytes": 2123411,
+    "lastWriteTime": "2026-06-19T16:23:56.1851908+09:00"
+  },
+  {
+    "id": "ep02_vc05_aseda_enters",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc05_aseda_enters.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc05_aseda_enters.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc05_aseda_enters.png",
+    "bytes": 2419816,
+    "lastWriteTime": "2026-06-19T16:25:12.0149695+09:00"
+  },
+  {
+    "id": "ep02_vc06_register_appears",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc06_register_appears.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc06_register_appears.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc06_register_appears.png",
+    "bytes": 2244332,
+    "lastWriteTime": "2026-06-19T17:02:24.6993658+09:00"
+  },
+  {
+    "id": "ep02_vc07_nav_scan",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc07_nav_scan.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc07_nav_scan.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc07_nav_scan.png",
+    "bytes": 2196953,
+    "lastWriteTime": "2026-06-19T16:29:05.8648505+09:00"
+  },
+  {
+    "id": "ep02_vc08_inventory_model",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc08_inventory_model.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc08_inventory_model.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc08_inventory_model.png",
+    "bytes": 2368707,
+    "lastWriteTime": "2026-06-19T17:05:13.6458168+09:00"
+  },
+  {
+    "id": "ep02_vc09_missing_conditions",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc09_missing_conditions.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc09_missing_conditions.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc09_missing_conditions.png",
+    "bytes": 2270171,
+    "lastWriteTime": "2026-06-19T16:33:22.1151529+09:00"
+  },
+  {
+    "id": "ep02_vc10_corrected_memo",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc10_corrected_memo.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc10_corrected_memo.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc10_corrected_memo.png",
+    "bytes": 2416732,
+    "lastWriteTime": "2026-06-19T16:34:57.3491831+09:00"
+  },
+  {
+    "id": "ep02_vc11_human_criterion",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc11_human_criterion.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc11_human_criterion.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc11_human_criterion.png",
+    "bytes": 2263777,
+    "lastWriteTime": "2026-06-19T17:08:03.2076800+09:00"
+  },
+  {
+    "id": "ep02_vc12_memo_accepted",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc12_memo_accepted.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc12_memo_accepted.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc12_memo_accepted.png",
+    "bytes": 2335030,
+    "lastWriteTime": "2026-06-19T16:41:20.4413650+09:00"
+  },
+  {
+    "id": "ep02_vc13_future_thanks",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc13_future_thanks.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc13_future_thanks.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc13_future_thanks.png",
+    "bytes": 2312944,
+    "lastWriteTime": "2026-06-19T16:43:51.1276573+09:00"
+  },
+  {
+    "id": "ep02_vc14_black_coffee",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc14_black_coffee.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc14_black_coffee.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc14_black_coffee.png",
+    "bytes": 2336172,
+    "lastWriteTime": "2026-06-19T16:45:13.0582356+09:00"
+  },
+  {
+    "id": "ep02_vc15_operation_log",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc15_operation_log.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc15_operation_log.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc15_operation_log.png",
+    "bytes": 2062438,
+    "lastWriteTime": "2026-06-19T16:46:59.6679669+09:00"
+  },
+  {
+    "id": "ep02_vc16_freezer_label",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc16_freezer_label.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc16_freezer_label.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc16_freezer_label.png",
+    "bytes": 1859689,
+    "lastWriteTime": "2026-06-19T16:48:57.3767507+09:00"
+  },
+  {
+    "id": "ep02_vc17_cleaning_first",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc17_cleaning_first.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc17_cleaning_first.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc17_cleaning_first.png",
+    "bytes": 2346356,
+    "lastWriteTime": "2026-06-19T16:50:17.1971904+09:00"
+  },
+  {
+    "id": "ep02_vc18_aseda_leaves",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc18_aseda_leaves.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc18_aseda_leaves.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc18_aseda_leaves.png",
+    "bytes": 2361519,
+    "lastWriteTime": "2026-06-19T16:51:40.1735493+09:00"
+  },
+  {
+    "id": "ep02_vc19_next_anomaly_nav",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc19_next_anomaly_nav.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc19_next_anomaly_nav.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc19_next_anomaly_nav.png",
+    "bytes": 2364774,
+    "lastWriteTime": "2026-06-19T16:53:34.0566120+09:00"
+  },
+  {
+    "id": "ep02_vc20_night_shift_continues",
+    "output": "outputs\\ep02_regenerated_20_20260619\\ep02_vc20_night_shift_continues.png",
+    "planned": "13th-register-kamishibai\\assets\\scenes\\planned\\ep02_vc20_night_shift_continues.png",
+    "site": "site\\assets\\scenes\\planned\\ep02_vc20_night_shift_continues.png",
+    "bytes": 2360623,
+    "lastWriteTime": "2026-06-19T16:56:28.7133089+09:00"
+  }
+]

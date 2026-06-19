@@ -1,0 +1,102 @@
+[
+  {
+    "id": "ep02_vc01_company_parking_asada",
+    "title": "会社駐輪場の汗田",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut for episode 2. Scene: late-night company bicycle parking lot after a failed presentation, wet asphalt, quiet office building lights. Subject: Aseda Ryuji, a 54-year-old modern former automotive R&D engineer, not a future person. He has long black hair swept back, a thick beard, sports sunglasses, a black motorcycle jacket, and holds the same purple full-face helmet. Beside him is the same black CB200X-style adventure motorcycle with a small navigation screen. Mood: tired but intellectual, responsible adult, quiet SF comedy. Style: 2D anime illustration, visual novel event CG, cel-look, clear line art, anime background art, non-photorealistic. Composition: medium full-body shot, Aseda and motorcycle both visible, no text, no speech bubbles. Character lock: keep Aseda's face, hair, beard, sunglasses, black jacket, purple helmet, and motorcycle design consistent in every episode 2 cut. Avoid: photorealism, realistic skin pores, chibi, fantasy costume, wrong helmet color, extra fingers, twisted hands, looking away from the bike or nav, young office worker, old map customer, subtitles, watermark."
+  },
+  {
+    "id": "ep02_vc02_nav_lights_up",
+    "title": "ナビが勝手に点灯",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: close view of Aseda's black adventure motorcycle cockpit in the company parking lot, the navigation monitor suddenly glowing cyan. Subject: Aseda Ryuji, 54, long black hair swept back, thick beard, sports sunglasses, black motorcycle jacket, same purple full-face helmet tucked under one arm. He leans toward the nav with a suspicious technical expression. The nav screen glows with abstract route lines, but no readable text. Style: 2D anime illustration, cel-look, clear line art, beautiful anime background, non-photorealistic. Composition: waist-up Aseda plus motorcycle handlebar and nav monitor, hands natural, one hand near ignition or handlebar. Mood: quiet strange SF at 2 AM. Character lock: keep same Aseda, same purple helmet, same black CB200X-style motorcycle. Avoid: photorealism, female face, young salaryman, old map customer, different helmet, extra fingers, distorted left hand, text, subtitles, watermark."
+  },
+  {
+    "id": "ep02_vc03_night_ride",
+    "title": "夜の国道へ",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: rainy Japanese national road at night, convenience store signs and streetlights in the distance. Subject: Aseda Ryuji riding the same black CB200X-style adventure motorcycle. He wears the same purple full-face helmet, black motorcycle jacket, gloves, sports sunglasses visible through the visor only subtly, long black hair tucked back, thick beard hinted under helmet opening. Both hands naturally grip the handlebars, eyes look forward down the road. Style: 2D anime illustration, cel-look, clear line art, dynamic but readable, non-photorealistic. Composition: three-quarter front riding shot, motorcycle and headlight prominent, helmet consistent purple. Mood: serious but odd route guidance. Avoid: changing helmet shape/color, open-face helmet, bare head, extra fingers, broken left hand, looking sideways, photorealism, cyberpunk armor, text, watermark."
+  },
+  {
+    "id": "ep02_vc04_receipt_storage",
+    "title": "レシート保管",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: deep-night Japanese convenience store counter, transparent storage bag for yesterday's receipt, register area, magazines and copy machine in background. Subjects: Takumi, young male night-shift worker with short black hair, slim build, convenience store uniform and name tag Takumi, confused tsukkomi face; Mina, young female senior worker with black bob or low ponytail, uniform and name tag Mina, calm expressionless face. No Aseda in this cut. Style: 2D anime illustration, visual novel event CG, cel-look, clear line art, non-photorealistic. Composition: Takumi holding transparent bag with receipt, Mina standing calmly beside counter. Avoid: photorealism, messy UI text, extra fingers, distorted hands, turning Mina into a fantasy character, subtitles, watermark."
+  },
+  {
+    "id": "ep02_vc05_aseda_enters",
+    "title": "汗田来店",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: automatic doors of a Japanese convenience store open at 2:16:50 AM, rainy night outside, fluorescent interior. Subject: Aseda Ryuji enters directly toward the register. He is 54, long black hair swept back, thick beard, sports sunglasses, black motorcycle jacket, holding the same purple full-face helmet under one arm and a small motorcycle navigation device or phone in the other. Takumi steps back in surprise, Mina remains calm at the counter. Style: 2D anime illustration, cel-look, clear line art, anime background, non-photorealistic. Composition: Aseda foreground entering, Takumi and Mina behind counter. Character lock: same Aseda, same helmet, same jacket. Avoid: old map customer, future salaryman, different helmet, extra fingers, left hand distortion, photorealism, text, watermark."
+  },
+  {
+    "id": "ep02_vc06_register_appears",
+    "title": "第十三レジ出現",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: between the magazine rack and copy machine in a Japanese convenience store, fluorescent lights flicker and a silver-black thirteenth register appears. Subject: the thirteenth register has a black heavy self-checkout body, angled screen, two short cyan horizontal eyes and one small cyan horizontal mouth, mechanical sleepy expression, card terminal and scanner. Aseda Ryuji watches with technical focus, holding his purple helmet; Takumi is startled, Mina calm. Style: 2D anime illustration, visual novel event CG, cel-look, clear line art, non-photorealistic. Composition: register center, characters around it, no readable text. Character lock: Aseda same 54-year-old bearded man with sports sunglasses and black jacket. Avoid: cute robot face, photorealism, extra fingers, broken hands, wrong helmet color, subtitles, watermark."
+  },
+  {
+    "id": "ep02_vc07_nav_scan",
+    "title": "ナビ読取",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: convenience store register counter with the thirteenth register scanning Aseda's motorcycle navigation device, cyan light beam and subtle data glow. Subject: Aseda Ryuji holds the nav device steadily with both hands natural, purple helmet tucked under arm or on counter, eyes behind sports sunglasses focused on the device. The thirteenth register screen shows cyan sleepy face, not readable text. Takumi and Mina observe. Style: 2D anime illustration, cel-look, clear line art, non-photorealistic. Composition: close-medium shot focused on nav device, register face, Aseda's hands. Avoid: distorted left hand, extra fingers, melted device, photorealism, future soldier, old map customer, readable text, watermark."
+  },
+  {
+    "id": "ep02_vc08_inventory_model",
+    "title": "在庫予測モデル",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: glowing projection above the register shows abstract inventory prediction model: shelves, onigiri icons, route lines, probability graph, no readable words. Subject: Aseda Ryuji points at the projection with one natural hand, explaining that it is not delivery record but inventory model. He remains same 54-year-old bearded man, sports sunglasses, black motorcycle jacket, purple helmet nearby. Takumi looks confused; Mina remains expressionless. Style: 2D anime illustration, cel-look, clear line art, non-photorealistic. Composition: Aseda three-quarter view pointing naturally, projection center, register below. Avoid: extra fingers, twisted pointing hand, photorealism, too much text, wrong character, fantasy magic, watermark."
+  },
+  {
+    "id": "ep02_vc09_missing_conditions",
+    "title": "条件が足りない",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: convenience store counter, screen shows Mina's vague memo as abstract glowing sticky note shapes without readable text. Subject: Aseda Ryuji freezes with a severe engineer expression, realizing the memo lacks purpose and criteria. He is same 54-year-old with swept-back black hair, thick beard, sports sunglasses, black jacket, purple helmet on counter. Takumi glances at Mina, Mina calm. Style: 2D anime illustration, visual novel event CG, cel-look, clear line art. Composition: Aseda center-left, Takumi and Mina reaction on right, register glow. Avoid: photorealism, readable text, extra fingers, wrong helmet, old map customer, future salaryman, watermark."
+  },
+  {
+    "id": "ep02_vc10_corrected_memo",
+    "title": "修正メモ記入",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: convenience store counter under fluorescent light, receipt paper extended from thirteenth register, pen moving. Subject: Aseda Ryuji writes a corrected memo on receipt paper with a natural right hand, purple helmet beside him, sports sunglasses low on his face, black jacket sleeves. Takumi reads over his shoulder, Mina watches calmly. Style: 2D anime illustration, cel-look, clear line art, non-photorealistic. Composition: close-up of hands, pen, receipt paper, Aseda face visible; no legible Japanese text needed. Character lock: same Aseda, same helmet. Avoid: broken fingers, extra fingers, left hand deformation, photorealism, fantasy parchment, subtitles, watermark."
+  },
+  {
+    "id": "ep02_vc11_human_criterion",
+    "title": "人間の表情",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: at the thirteenth register, corrected memo accepted. Subject: Aseda Ryuji gives a small restrained smile while saying food value is not decided by numbers alone. He is same 54-year-old bearded engineer with sports sunglasses, long black hair swept back, black motorcycle jacket, purple helmet on counter. Takumi is surprised by the human criterion, Mina quietly accepts it. The register glows cyan in background. Style: 2D anime illustration, visual novel event CG, cel-look, clear line art. Composition: emotional medium shot, Aseda's face and helmet visible. Avoid: photorealism, exaggerated smile, extra fingers, old map customer, future salaryman, text, watermark."
+  },
+  {
+    "id": "ep02_vc12_memo_accepted",
+    "title": "メモ受理",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: the thirteenth register prints a small receipt, cyan glow stabilizes, store shelves return to normal. Subject: Aseda Ryuji watches the register with relieved technical seriousness, purple helmet held against his side, sports sunglasses, black jacket, beard. Takumi reacts to 'ちょっと助かりました' energy with a tsukkomi pose; Mina is calm. Style: 2D anime illustration, cel-look, clear line art, non-photorealistic. Composition: register and receipt center, Aseda and Takumi reaction. Avoid: readable text, extra fingers, distorted hands, photorealism, wrong helmet, watermark."
+  },
+  {
+    "id": "ep02_vc13_future_thanks",
+    "title": "未来からの感謝",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: Aseda's motorcycle navigation device on the counter glows softly with future thanks shown as abstract cyan lines, no readable words. Subject: Aseda Ryuji stands silently, moved but not crying, sports sunglasses reflecting cyan light, thick beard, long black hair swept back, black jacket, purple helmet nearby. Takumi and Mina keep respectful distance. Style: 2D anime illustration, cinematic visual novel event CG, cel-look, clear line art. Composition: quiet close-medium shot, Aseda looking at the nav device naturally. Avoid: readable text, melodrama, photorealism, extra fingers, wrong character, watermark."
+  },
+  {
+    "id": "ep02_vc14_black_coffee",
+    "title": "ブラックコーヒー",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: convenience store coffee machine and register counter, late-night quiet. Subject: Mina offers coffee calmly, Takumi handles checkout, Aseda Ryuji orders black coffee. Aseda is same 54-year-old bearded man with sports sunglasses, black motorcycle jacket, purple helmet under arm, holding a small paper coffee cup. Style: 2D anime illustration, visual novel event CG, cel-look, clear line art, non-photorealistic. Composition: coffee machine foreground, three characters in balanced layout. Avoid: readable labels, extra fingers holding cup, wrong helmet, photorealism, future salaryman, old map customer, watermark."
+  },
+  {
+    "id": "ep02_vc15_operation_log",
+    "title": "運用ログレシート",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: thirteenth register outputs a long receipt log, cyan glow, quiet convenience store. Subject: close-up of black-silver register face with sleepy cyan eyes and small mouth, receipt curling out; Aseda's gloved hand and purple helmet visible at edge, Takumi and Mina blurred behind. Style: 2D anime illustration, cel-look, clear line art, non-photorealistic. Composition: receipt and register dominate, keep text as abstract line blocks instead of readable writing. Avoid: readable incorrect text, cute robot, photorealism, extra fingers, broken hand, watermark."
+  },
+  {
+    "id": "ep02_vc16_freezer_label",
+    "title": "冷凍庫の青いラベル",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: convenience store back-room freezer, dark shelves, frost, a blue label glowing deep inside. Subject: strange 2074 ice cream cup with cyan-blue label glow, no readable text, next anomaly hint. No Aseda in this cut. Style: 2D anime illustration, atmospheric anime background, cel-look, clear line art, non-photorealistic. Composition: freezer interior close-up, blue label as focal point, quiet suspense comedy. Avoid: photorealism, readable text, horror gore, fantasy monster, watermark."
+  },
+  {
+    "id": "ep02_vc17_cleaning_first",
+    "title": "未来より床",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: convenience store aisle after the anomaly, floor cleaning machine and cleaning tools. Subjects: Mina points calmly toward the floor cleaning machine, Takumi reacts with a tired tsukkomi face. The store is back to ordinary night shift. No Aseda foreground, maybe his back faintly in distance. Style: 2D anime illustration, visual novel event CG, cel-look, clear line art. Composition: Mina and Takumi near cleaning tools, clean readable layout. Avoid: photorealism, fantasy character, messy text, extra fingers, watermark."
+  },
+  {
+    "id": "ep02_vc18_aseda_leaves",
+    "title": "汗田退店",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: convenience store automatic doors at night, rain outside, bike visible beyond glass. Subject: Aseda Ryuji leaves with black coffee in one hand and same purple helmet in the other or tucked under arm. He is same 54-year-old with long black hair swept back, thick beard, sports sunglasses, black motorcycle jacket. He looks calm and quietly restored. Takumi and Mina remain inside. Style: 2D anime illustration, cel-look, clear line art, non-photorealistic. Composition: Aseda walking toward exit, natural hands holding cup and helmet, motorcycle silhouette outside. Avoid: broken hands, extra fingers, wrong helmet, old map customer, future salaryman, photorealism, watermark."
+  },
+  {
+    "id": "ep02_vc19_next_anomaly_nav",
+    "title": "次の異常地点",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: close-up of motorcycle navigation device mounted on the same black adventure bike outside the convenience store, rain droplets, cyan glow. Subject: the nav shows abstract route marker toward a freezer anomaly, no readable text. Aseda's purple helmet and black-gloved hand are near the handlebar, hand natural. Style: 2D anime illustration, cel-look, clear line art, non-photorealistic. Composition: nav device and handlebar close-up, convenience store lights behind. Avoid: readable text, extra fingers, distorted left hand, changing bike design, photorealism, watermark."
+  },
+  {
+    "id": "ep02_vc20_night_shift_continues",
+    "title": "夜勤は続く",
+    "prompt": "Use case: illustration-story. Asset type: vertical 9:16 visual novel / kamishibai cut. Scene: quiet deep-night Japanese convenience store interior, ordinary shelves, copy machine, register area, blue-black fluorescent mood. Subjects: Takumi folds the strange receipt with resigned confusion, Mina calmly starts ordinary work; faint cyan glow from the back-room freezer hints next episode. No Aseda foreground. Style: 2D anime illustration, visual novel event CG, cel-look, clear line art, anime background, non-photorealistic. Composition: wide final shot, store ordinary but slightly strange, no readable text. Avoid: photorealism, UI clutter, fantasy costume, extra fingers, watermark."
+  }
+]

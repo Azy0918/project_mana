@@ -3,3 +3,4 @@
 __pycache__/
 *.pyc
 _worktrees/
+outputs/aivis_speakers_current.json

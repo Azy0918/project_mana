@@ -19,8 +19,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "五十四歳。元・自動車研究開発者。その日の説明会も、いつものように終わった。",
-    "synthesis_text": "ごじゅうよんさい。もと・じどうしゃけんきゅうかいはつしゃ。そのひのせつめいかいも、いつものようにおわった。",
+    "text": "五十四歳。自動車研究開発者。その日の説明会も、いつものように終わった。",
+    "synthesis_text": "ごじゅうよんさい。じどうしゃけんきゅうかいはつしゃ。そのひのせつめいかいも、いつものようにおわった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v002_ナレーション.wav"

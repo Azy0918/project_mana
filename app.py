@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pandas as pd
@@ -24,6 +25,21 @@ from src.backup_manager import (
     read_backup_bytes,
     restore_guide,
 )
+from src.battle.effects import (
+    coverage_summary,
+    ensure_card_effects_table,
+    generate_drafts_for_missing_cards,
+    list_effect_scripts,
+    load_approved_effects_map,
+    upsert_effect_script,
+)
+from src.battle.rating import (
+    list_sim_ratings,
+    load_meta_battle_decks,
+    rate_deck_against_meta,
+)
+from src.battle.sim.goldfish import simulate_goldfish_strict
+from src.battle.sim.runner import simulate_matches
 from src.battle_simulator import simulate_battle
 from src.card_csv_validator import validate_cards_csv
 from src.card_db_completion_checker import check_completion, load_cards
@@ -679,10 +695,31 @@ def render_simulate_page() -> None:
         if errors:
             return
 
+    mode = st.radio(
+        "判定方式",
+        ["簡易(タグ判定)", "厳密(β・実コスト支払い)"],
+        horizontal=True,
+        help="厳密(β)は文明拘束込みの実コスト支払いで「実際にプレイできたか」を判定します。承認済みEffectScriptのドロー/マナ加速効果も再現します。",
+    )
+
     config_col1, config_col2, config_col3 = st.columns(3)
     trials = config_col1.number_input("試行回数", min_value=100, max_value=10000, value=1000, step=100)
     max_turns = config_col2.number_input("最大ターン", min_value=1, max_value=10, value=5, step=1)
     seed = config_col3.number_input("乱数シード", min_value=0, value=1, step=1)
+
+    if mode == "厳密(β・実コスト支払い)":
+        if st.button("シミュレーション実行", type="primary"):
+            st.session_state["strict_simulation_summary"] = simulate_goldfish_strict(
+                deck,
+                trials=int(trials),
+                max_turns=int(max_turns),
+                seed=int(seed),
+                effects=load_approved_effects_map(DEFAULT_DB_PATH),
+            )
+        strict_summary = st.session_state.get("strict_simulation_summary")
+        if strict_summary:
+            _render_strict_goldfish(strict_summary)
+        return
 
     if st.button("シミュレーション実行", type="primary"):
         summary = simulate_goldfish(deck, trials=int(trials), max_turns=int(max_turns), seed=int(seed))
@@ -691,6 +728,34 @@ def render_simulate_page() -> None:
     summary = st.session_state.get("simulation_summary")
     if summary:
         render_simulation(summary)
+
+
+def _render_strict_goldfish(summary: dict) -> None:
+    cols = st.columns(4)
+    cols[0].metric("初動成功率(実プレイ)", f'{summary["first_play_rate"]:.1%}')
+    cols[1].metric("平均プレイ枚数", f'{summary["average_plays"]:.1f}')
+    cols[2].metric("平均最終マナ", f'{summary["average_final_mana"]:.1f}')
+    cols[3].metric("試行回数", summary["trials"])
+
+    st.subheader("初プレイターン分布")
+    st.dataframe(
+        [
+            {"初プレイ": label, "回数": count}
+            for label, count in sorted(summary["first_play_turn_distribution"].items())
+        ],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    st.subheader("ターン別平均プレイ枚数")
+    st.dataframe(
+        [
+            {"ターン": turn, "平均プレイ枚数": round(value, 2)}
+            for turn, value in summary["average_plays_by_turn"].items()
+        ],
+        use_container_width=True,
+        hide_index=True,
+    )
 
 
 def render_ai_deck_page() -> None:
@@ -790,9 +855,20 @@ def render_battle_page() -> None:
     if errors_a or errors_b:
         return
 
+    mode = st.radio(
+        "シミュレーション方式",
+        ["簡易(タグ推定)", "厳密(β)"],
+        horizontal=True,
+        help="厳密(β)は最小ルールカーネルで実際に対戦を行います。承認済みEffectScriptのカードのみ効果を実行し、未定義カードはバニラ扱いです。",
+    )
+
     config_col1, config_col2 = st.columns(2)
     trials = config_col1.number_input("試行回数", min_value=100, max_value=1000, value=500, step=100)
     seed = config_col2.number_input("乱数シード", min_value=0, value=1, step=1)
+
+    if mode == "厳密(β)":
+        _render_strict_battle_section(deck_a, deck_b, int(trials), int(seed))
+        return
 
     if st.button("対戦シミュレーション実行", type="primary"):
         st.session_state["battle_result"] = simulate_battle(deck_a, deck_b, trials=int(trials), seed=int(seed))
@@ -852,6 +928,155 @@ def render_battle_page() -> None:
         deck_b_id = save_deck_log(name_b, "battle_b", st.session_state.get("battle_deck_b_text", ""), DEFAULT_DB_PATH)
         battle_id = save_battle_log(deck_a_id, deck_b_id, result, DEFAULT_DB_PATH)
         st.success(f"対戦ログを保存しました: {battle_id}")
+
+
+def render_strength_rating_page() -> None:
+    st.header("厳密強さ判定(β)")
+    st.caption("収集済みメタデッキと総当たりで厳密シミュレーションを行い、絶対強さスコア(平均勝率×100)を算出します。")
+
+    meta_decks, meta_warnings = load_meta_battle_decks(DEFAULT_DB_PATH)
+    for warning in meta_warnings:
+        st.warning(warning)
+    if not meta_decks:
+        st.info("対戦可能なメタデッキがありません。データ保守画面などからメタデッキを収集してください。")
+        return
+
+    st.dataframe(
+        [
+            {
+                "メタデッキ": deck["deck_name"],
+                "カードDB一致率": f'{deck["coverage"]:.0%}',
+                "枚数": deck["total_cards"],
+            }
+            for deck in meta_decks
+        ],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    cards = search_cards(DEFAULT_DB_PATH)
+    generated_deck = st.session_state.get("generated_deck", [])
+    if generated_deck and st.checkbox("生成デッキを使う", value=True):
+        deck = generated_deck
+        render_deck_table(deck)
+    else:
+        deck_text = st.text_area("デッキリスト", value=st.session_state.get("deck_text", ""), height=260)
+        if not deck_text.strip():
+            st.info("デッキリストを入力するか、先にデッキ生成画面で生成してください。")
+            return
+        deck, errors = parse_deck_text(deck_text, cards)
+        for error in errors:
+            st.error(error)
+        if errors:
+            return
+
+    config_col1, config_col2, config_col3 = st.columns(3)
+    deck_name = config_col1.text_input("デッキ名(保存用)", value="評価対象デッキ")
+    games_per_pair = config_col2.number_input("メタデッキごとの試合数", min_value=50, max_value=500, value=100, step=50)
+    seed = config_col3.number_input("乱数シード", min_value=0, value=1, step=1)
+
+    if st.button("強さ判定を実行", type="primary"):
+        with st.spinner(f"{len(meta_decks)}デッキ × {int(games_per_pair)}試合を実行中..."):
+            st.session_state["strength_rating_result"] = rate_deck_against_meta(
+                deck,
+                deck_name,
+                db_path=DEFAULT_DB_PATH,
+                games_per_pair=int(games_per_pair),
+                seed=int(seed),
+                effects=load_approved_effects_map(DEFAULT_DB_PATH),
+            )
+
+    result = st.session_state.get("strength_rating_result")
+    if result:
+        for warning in result["warnings"]:
+            st.warning(warning)
+        if result["strength_score"] is not None:
+            cols = st.columns(3)
+            cols[0].metric("絶対強さスコア", result["strength_score"])
+            cols[1].metric("総合勝率", f'{result["win_rate"]:.1%}')
+            cols[2].metric("総試合数", result["games_total"])
+            st.subheader("メタデッキ別相性")
+            st.dataframe(
+                [
+                    {
+                        "相手": detail["opponent"],
+                        "勝率": f'{detail["win_rate"]:.1%}',
+                        "95%信頼区間": f'{detail["ci95_low"]:.1%} 〜 {detail["ci95_high"]:.1%}',
+                        "平均決着ターン": round(detail["average_turns"], 1),
+                    }
+                    for detail in result["details"]
+                ],
+                use_container_width=True,
+                hide_index=True,
+            )
+
+    history = list_sim_ratings(DEFAULT_DB_PATH, limit=20)
+    if history:
+        st.subheader("判定履歴")
+        st.dataframe(
+            [
+                {
+                    "日時": record["created_at"],
+                    "デッキ": record["deck_name"],
+                    "強さスコア": record["strength_score"],
+                    "勝率": f'{record["win_rate"]:.1%}',
+                    "相手数": record["opponents"],
+                    "試合数": record["games_total"],
+                }
+                for record in history
+            ],
+            use_container_width=True,
+            hide_index=True,
+        )
+
+
+def _render_strict_battle_section(deck_a: list[dict], deck_b: list[dict], games: int, seed: int) -> None:
+    effects = load_approved_effects_map(DEFAULT_DB_PATH)
+
+    def scripted_count(deck: list[dict]) -> int:
+        return sum(1 for card in deck if str(card.get("card_id", "")) in effects)
+
+    st.info(
+        f"効果実行対象(承認済みEffectScript): デッキA {scripted_count(deck_a)}種 / "
+        f"デッキB {scripted_count(deck_b)}種。未定義カードはバニラとして扱います。"
+    )
+
+    if st.button("厳密シミュレーション実行", type="primary"):
+        st.session_state["strict_battle_result"] = simulate_matches(
+            deck_a,
+            deck_b,
+            games=games,
+            seed=seed,
+            effects=effects,
+        )
+
+    summary = st.session_state.get("strict_battle_result")
+    if not summary:
+        return
+
+    cols = st.columns(4)
+    cols[0].metric("デッキA勝率", f"{summary.win_rate_a:.1%}", f"{summary.wins_a}勝")
+    cols[1].metric("デッキB勝率", f"{summary.win_rate_b:.1%}", f"{summary.wins_b}勝")
+    cols[2].metric("引き分け", summary.draws)
+    cols[3].metric("平均決着ターン", f"{summary.average_turns:.1f}")
+    st.caption(
+        f"デッキA勝率の95%信頼区間: {summary.ci95_low_a:.1%} 〜 {summary.ci95_high_a:.1%}"
+        f"({summary.games}試合、試合ごとに先攻を交代)"
+    )
+
+    st.subheader("決着理由")
+    reason_labels = {"direct_attack": "ダイレクトアタック", "deckout": "山札切れ", "turn_limit": "ターン上限"}
+    st.dataframe(
+        [
+            {"決着理由": reason_labels.get(reason, reason), "試合数": count}
+            for reason, count in sorted(summary.finish_reasons.items(), key=lambda item: -item[1])
+        ],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    with st.expander("1試合目の行動ログ"):
+        st.dataframe(pd.DataFrame(summary.sample_log), use_container_width=True, hide_index=True)
 
 
 def _render_search_result_deck(title: str, result: dict | None) -> None:
@@ -2218,6 +2443,84 @@ def render_csv_management_page() -> None:
     render_completed_card_db_export_section()
 
 
+def render_effect_script_page() -> None:
+    st.subheader("効果スクリプト管理")
+    st.write(
+        "カードの能力テキストを、厳密対戦シミュレーション用の構造化効果(EffectScript)としてレビュー・管理します。"
+        "承認済み(approved)のスクリプトだけがシミュレーションで実行されます。"
+    )
+
+    ensure_card_effects_table(DEFAULT_DB_PATH)
+    summary = coverage_summary(DEFAULT_DB_PATH)
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("カード総数", summary["total_cards"])
+    col2.metric("スクリプト登録済み", summary["registered"])
+    col3.metric("登録率", f"{summary['registered_rate']:.1%}")
+    col4.metric("承認済み率", f"{summary['approved_rate']:.1%}")
+
+    if st.button("未登録カードの下書きを一括生成"):
+        created = generate_drafts_for_missing_cards(DEFAULT_DB_PATH)
+        st.success(f"{created}件の下書きを生成しました。")
+
+    status_filter = st.selectbox("レビュー状態で絞り込み", ["すべて", "draft", "approved", "rejected"])
+    scripts = list_effect_scripts(
+        DEFAULT_DB_PATH,
+        review_status=None if status_filter == "すべて" else status_filter,
+    )
+    if not scripts:
+        st.info("該当するEffectScriptがありません。下書きの一括生成を実行してください。")
+        return
+
+    overview = pd.DataFrame(
+        [
+            {
+                "card_id": script["card_id"],
+                "カード名": script["name"],
+                "効果数": len(script["abilities"]),
+                "レビュー状態": script["review_status"],
+                "メモ": script["notes"],
+                "更新日時": script["updated_at"],
+            }
+            for script in scripts
+        ]
+    )
+    st.dataframe(overview, use_container_width=True, hide_index=True)
+
+    st.markdown("### スクリプト編集")
+    options = {f"{script['card_id']} / {script['name']}": script for script in scripts}
+    selected_label = st.selectbox("編集するカード", list(options.keys()))
+    selected = options[selected_label]
+
+    editable = {
+        "card_id": selected["card_id"],
+        "name": selected["name"],
+        "abilities": selected["abilities"],
+    }
+    edited_json = st.text_area(
+        "EffectScript (JSON)",
+        json.dumps(editable, ensure_ascii=False, indent=2),
+        height=260,
+    )
+    status_options = ["draft", "approved", "rejected"]
+    new_status = st.selectbox(
+        "レビュー状態",
+        status_options,
+        index=status_options.index(selected["review_status"]),
+    )
+    if st.button("検証して保存"):
+        try:
+            parsed = json.loads(edited_json)
+        except json.JSONDecodeError as error:
+            st.error(f"JSONとして解釈できません: {error}")
+            return
+        errors = upsert_effect_script(parsed, review_status=new_status, db_path=DEFAULT_DB_PATH)
+        if errors:
+            for message in errors:
+                st.error(message)
+        else:
+            st.success(f"{parsed.get('card_id')} を {new_status} として保存しました。")
+
+
 def main() -> None:
     ensure_database()
 
@@ -2234,6 +2537,8 @@ def main() -> None:
             "一人回しシミュレーション",
             "AIデッキ生成",
             "簡易AI対戦",
+            "厳密強さ判定(β)",
+            "効果スクリプト管理",
             "進化探索",
             "研究ログ",
             "対戦ログ",
@@ -2263,6 +2568,10 @@ def main() -> None:
         render_ai_deck_page()
     elif page == "簡易AI対戦":
         render_battle_page()
+    elif page == "厳密強さ判定(β)":
+        render_strength_rating_page()
+    elif page == "効果スクリプト管理":
+        render_effect_script_page()
     elif page == "進化探索":
         render_evolution_page()
     elif page == "研究ログ":

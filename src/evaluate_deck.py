@@ -39,6 +39,21 @@ def _count_cards_with_tags(cards: list[dict[str, Any]], target_tags: set[str]) -
     return sum(1 for card in cards if target_tags.intersection(split_tags(card.get("tags"))))
 
 
+def _count_defense(cards: list[dict[str, Any]]) -> int:
+    """受け札タグに加え、ブロッカー(テキスト由来)を防御札として数える。
+
+    ブロッカーはタグ付けが不完全だが盤面防御の主柱であり、これを数えないと
+    評価関数が壁デッキを過小評価する(探索のブロッカー盲点。第二十五弾)。
+    """
+    count = 0
+    for card in cards:
+        if DEFENSE_TAGS.intersection(split_tags(card.get("tags"))):
+            count += 1
+        elif "ブロッカー" in str(card.get("text") or ""):
+            count += 1
+    return count
+
+
 def _score_range(value: int, low: int, high: int, max_points: int) -> int:
     if low <= value <= high:
         return max_points
@@ -64,7 +79,7 @@ def evaluate_deck(
 
     early_count = _count_cards_with_tags(expanded, EARLY_TAGS)
     ramp_count = _count_cards_with_tags(expanded, RAMP_TAGS)
-    defense_count = _count_cards_with_tags(expanded, DEFENSE_TAGS)
+    defense_count = _count_defense(expanded)
     finisher_count = _count_cards_with_tags(expanded, FINISHER_TAGS)
     low_cost_count = sum(count for cost, count in cost_curve.items() if cost <= 3)
 

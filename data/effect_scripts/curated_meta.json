@@ -1,0 +1,777 @@
+[
+  {
+    "name": "シンクロ・スパイラル",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "bounce_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "代替コスト(水2体タップ)は未対応"
+  },
+  {
+    "name": "“乱振”舞神 G・W・D",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent",
+            "max_power": 4000
+          }
+        ]
+      },
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent",
+            "max_power": 4000
+          }
+        ]
+      }
+    ],
+    "note": "バトル誘発をパワー4000以下破壊で近似。バトル勝利時ドローは未対応。B・A・Dはカーネルが処理(軽減+ターン終了時破壊)"
+  },
+  {
+    "name": "“必駆”蛮触礼亞",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_hand",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "ビートジョッキー限定とターン終了時破壊は未対応。B・A・Dはカーネルが処理(軽減+ターン終了時破壊)"
+  },
+  {
+    "name": "天ニ煌メク龍終ノ裁キ",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "tap_creature",
+            "count": 99,
+            "scope": "opponent"
+          },
+          {
+            "op": "untap_creature",
+            "count": 99,
+            "scope": "self"
+          }
+        ]
+      }
+    ],
+    "note": "アンタップ封じとシールド送りは未対応"
+  },
+  {
+    "name": "オリオティス・ジャッジ",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "bounce_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "bounce_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "山札下送りをバウンス1体で近似"
+  },
+  {
+    "name": "勇愛の天秤",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent",
+            "max_power": 2000
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent",
+            "max_power": 2000
+          }
+        ]
+      }
+    ],
+    "note": "選択式のうち除去モードで固定"
+  },
+  {
+    "name": "一番隊 チュチュリス",
+    "abilities": [],
+    "note": "コスト軽減は未対応(バニラ扱い)"
+  },
+  {
+    "name": "ダチッコ・チュリス",
+    "abilities": [],
+    "note": "コスト軽減は未対応(バニラ扱い)"
+  },
+  {
+    "name": "月光電人オボロカゲロウ",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "ドロー後の山札下戻しを差し引きドロー1で近似"
+  },
+  {
+    "name": "煌龍 サッヴァーク",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "シールド送り除去を破壊で近似。身代わり置換は未対応"
+  },
+  {
+    "name": "煌世主 サッヴァーク†",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "サバキZと表向きシールド機構は未対応"
+  },
+  {
+    "name": "トライガード・チャージャー",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "own_shield_to_hand",
+            "count": 1
+          },
+          {
+            "op": "deck_top_to_mana",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "シールド回収はown_shield_to_hand 1(再シールド化の選択肢は省略)、チャージャーはマナ加速1。旧近似のdraw 1は盾コストなしの捏造ドローだった"
+  },
+  {
+    "name": "ドンドン吸い込むナウ",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          },
+          {
+            "op": "bounce_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          },
+          {
+            "op": "bounce_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "5枚見て1枚を ドロー1で近似"
+  },
+  {
+    "name": "奇石 ミクセル/ジャミング・チャフ",
+    "abilities": [],
+    "note": "踏み倒しメタと呪文ロックは未対応(バニラ扱い)"
+  },
+  {
+    "name": "奇石 タスリク",
+    "abilities": [],
+    "note": "呪文コスト増は未対応(バニラ扱い)"
+  },
+  {
+    "name": "DNA・スパーク",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "tap_creature",
+            "count": 99,
+            "scope": "opponent"
+          },
+          {
+            "op": "add_shield",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "tap_creature",
+            "count": 99,
+            "scope": "opponent"
+          },
+          {
+            "op": "add_shield",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "シールド2以下条件は無条件で近似"
+  },
+  {
+    "name": "“B-零朱”レイド",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "burn_opponent_shield",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "G・G・G耐性は未対応。B・A・Dはカーネルが処理(軽減+ターン終了時破壊)"
+  },
+  {
+    "name": "キングダム・オウ禍武斗/轟破天九十九語",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "summon_from_mana",
+            "count": 99
+          }
+        ]
+      }
+    ],
+    "note": "呪文面の全展開をクリーチャー面の出た時に統合。相手側の展開は未対応"
+  },
+  {
+    "name": "ゴリガン砕車 ゴルドーザ/ダイナマウス・スクラッパー",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent",
+            "max_power": 6000
+          }
+        ]
+      }
+    ],
+    "note": "呪文面の合計6000以下破壊を1体で近似"
+  },
+  {
+    "name": "セイレーン・コンチェルト",
+    "abilities": [],
+    "note": "マナ入れ替えは盤面影響が小さいため未対応(バニラ扱い)"
+  },
+  {
+    "name": "ドルツヴァイ・アステリオ",
+    "abilities": [
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "deck_top_to_mana",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "パワー加算とバトル勝利時の大量ブーストは縮小して近似"
+  },
+  {
+    "name": "勝利龍装 クラッシュ“覇道”",
+    "abilities": [
+      {
+        "trigger": "on_destroyed",
+        "actions": [
+          {
+            "op": "extra_turn",
+            "condition": {
+              "kind": "source_tapped"
+            }
+          }
+        ]
+      }
+    ],
+    "note": "B・A・Dはカーネル対応済み。追加ターンはsource_tapped条件付き(原文「タップ状態で破壊された時」)。攻撃→タップ→B・A・D自壊→追加ターンの実機エンジンを正確に再現"
+  },
+  {
+    "name": "機術士ディール/「本日のラッキーナンバー！」",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "bounce_creature",
+            "count": 2,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "同コスト全バウンスを2体で近似。呪文面のロックは未対応"
+  },
+  {
+    "name": "次元の嵐 スコーラー",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "extra_turn"
+          }
+        ]
+      }
+    ],
+    "note": "G・ゼロはカーネルが処理。「ゲーム中1回のみ」の制限はターン上限(3回)で近似"
+  },
+  {
+    "name": "水上第九院 シャコガイル",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "note": "墓地リセットと特殊勝利は未対応"
+  },
+  {
+    "name": "異端流し オニカマス",
+    "abilities": [],
+    "note": "選ばれない・踏み倒しメタは未対応(バニラ扱い)"
+  },
+  {
+    "name": "終末の時計 ザ・クロック",
+    "abilities": [
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "tap_creature",
+            "count": 99,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "ターン飛ばしを相手全タップ(攻撃続行不可)で近似"
+  },
+  {
+    "name": "絶対の畏れ 防鎧",
+    "abilities": [],
+    "note": "踏み倒しメタとハンデス耐性は未対応(バニラ扱い)"
+  },
+  {
+    "name": "貪欲な若魔導士 ミノミー",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "山札3枚から呪文回収をドロー1で近似"
+  },
+  {
+    "name": "超宮兵 マノミ",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "note": "G・ゼロは未対応"
+  },
+  {
+    "name": "超宮城 コーラリアン",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "bounce_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "G・ゼロと破壊置換は未対応"
+  },
+  {
+    "name": "超次元サプライズ・ホール",
+    "abilities": [],
+    "note": "超次元ゾーンは未対応(バニラ扱い)"
+  },
+  {
+    "name": "“轟轟轟”ブランド",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          },
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent",
+            "max_power": 6000
+          }
+        ]
+      }
+    ],
+    "note": "マスターG・G・G(0コスト召喚)は未対応。手札捨て連動破壊を1体で近似"
+  },
+  {
+    "name": "憤怒スル破面ノ裁キ",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "シールド表向き設置(サバキZ連携)は未対応。サバキZはS・トリガー相当で近似"
+  },
+  {
+    "name": "剣参ノ裁キ",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "山札3枚からの回収をドロー1で近似。サバキZはS・トリガー相当で近似"
+  },
+  {
+    "name": "集結ノ正裁Z",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "山札2枚からの複数回収をドロー1で近似。サバキZはS・トリガー相当で近似"
+  },
+  {
+    "name": "転生ノ正裁Z",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "シールド回収をドロー1で近似。サバキZはS・トリガー相当で近似"
+  },
+  {
+    "name": "魂穿ツ煌世ノ正裁Z",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "シールド上設置除去を破壊で近似。サバキZはS・トリガー相当で近似"
+  },
+  {
+    "name": "堅珠ノ正裁Z",
+    "abilities": [],
+    "note": "踏み倒しメタ付与は未対応(バニラ扱い)"
+  },
+  {
+    "name": "煌メク聖戦 絶十",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "add_shield",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "コスト軽減とサバキZは未対応"
+  },
+  {
+    "name": "超機動罠 デンジャデオン/地獄極楽トラップ黙示録",
+    "abilities": [
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "send_creature_to_mana",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      },
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "send_creature_to_mana",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "罠金乱舞(トラップ呪文の踏み倒し)は未対応。呪文面の除去を両面に適用"
+  },
+  {
+    "name": "龍罠 エスカルデン/マクスカルゴ・トラップ",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          },
+          {
+            "op": "deck_top_to_mana",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "呪文面(マナ送り+マナからの展開)はクリーチャー面運用時には未使用"
+  },
+  {
+    "name": "コンダマ/魂フエミドロ",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "deck_top_to_mana",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "ツインパクト連鎖の追加マナは未対応"
+  },
+  {
+    "name": "レレディ・バ・グーバ/ツインパクト・マップ",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent",
+            "max_power": 900
+          }
+        ]
+      }
+    ],
+    "note": "バトル誘発(パワー1000)を小型破壊で近似。呪文面の回収は未対応"
+  },
+  {
+    "name": "龍装者 ヴィヌフィース/究めし優美のブレイン",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "bounce_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "bounce_creature",
+            "count": 1,
+            "scope": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "墓地条件のブロッカー付与と呪文面ドローは未対応"
+  },
+  {
+    "name": "虹出づる繭 ミノガミ/帝の目覚め",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "deck_top_to_mana",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "マナ召喚・ツインパクト回収・全文明付与は未対応。マナ加速1で近似"
+  }
+]

@@ -1,0 +1,627 @@
+[
+  {
+    "name": "インフェルノ・サイン",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "exclude_evolution": true
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: コスト7以下・進化でない・1枚"
+  },
+  {
+    "name": "ビシャモンス・デーケン/「深淵より来たれ、魂よ」",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 99,
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "呪文面(墓地から進化でないクリーチャーを好きな数)。クリーチャー面の任意自壊効果は省略(過小評価側=exact-safe)"
+  },
+  {
+    "name": "パーリ騎士",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "grave_to_mana",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 墓地からカード1枚をマナへ"
+  },
+  {
+    "name": "埋没のカルマ オリーブオイル",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "grave_to_deck",
+            "count": 99
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "grave_to_deck",
+            "count": 99
+          }
+        ]
+      }
+    ],
+    "note": "「いずれかの墓地」は自分側選択で表現(選択肢の部分集合=exact-safe)"
+  },
+  {
+    "name": "堕魔 ヴォジャワ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "deck_top_to_grave",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "note": "魔導具回収は種族データ欠落のため省略(過小評価側=exact-safe)"
+  },
+  {
+    "name": "ソー☆ギョッ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "draw",
+            "count": 1
+          },
+          {
+            "op": "discard_own_hand",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "無月の門条件の自己蘇生は条件未対応のため省略(exact-safe)。蘇生能力なし扱い"
+  },
+  {
+    "name": "ティン★ビン",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "discard_opponent_hand",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "無月の門条件の自己蘇生は省略(exact-safe)"
+  },
+  {
+    "name": "堕魔 ジグス★ガルビ",
+    "fidelity": "exact",
+    "abilities": [],
+    "note": "能力は無月の門条件の自己蘇生のみ→条件未対応のためバニラ扱い(exact-safe)"
+  },
+  {
+    "name": "偽りの名 ドレッド・ブラッド",
+    "fidelity": "exact",
+    "abilities": [],
+    "note": "ターン開始時・墓地条件の自己蘇生は未対応→バニラ扱い(exact-safe)"
+  },
+  {
+    "name": "ビクトリー・アップル",
+    "fidelity": "exact",
+    "abilities": [],
+    "note": "マナゾーンの種族条件付き効果2種は条件未対応→バニラ扱い(exact-safe)"
+  },
+  {
+    "name": "阿修羅サソリムカデ",
+    "fidelity": "approx",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "deck_top_to_grave",
+            "count": 3
+          },
+          {
+            "op": "summon_from_grave",
+            "count": 2,
+            "exclude_self": true
+          },
+          {
+            "op": "destroy_creature",
+            "count": 2,
+            "scope": "self",
+            "timing": "end_of_turn"
+          }
+        ]
+      }
+    ],
+    "note": "自身以外・ターン終了時破壊は精密化済み。マフィ・ギャング種族限定はDBの種族データ欠落のため未表現→approx"
+  },
+  {
+    "name": "邪眼大帝 ラスト・ロマノフ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "deck_top_to_grave",
+            "count": 5
+          }
+        ]
+      },
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "cast_from_grave",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時5枚墓地、攻撃時に墓地呪文1枚を無償詠唱→山札下"
+  },
+  {
+    "name": "暗黒GUY・ゼロ・ロマノフ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "cast_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "civilizations": [
+              "闇"
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "出た時の探索墓地置きは省略(exact-safe)。攻撃時: 闇コスト7以下の墓地呪文を無償詠唱→山札下"
+  },
+  {
+    "name": "煉獄と魔弾の印",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "exclude_evolution": true,
+            "civilizations": [
+              "闇",
+              "火"
+            ],
+            "speed_attacker": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 闇/火・コスト7以下・進化でない1枚を蘇生しSA付与"
+  },
+  {
+    "name": "冥府の覇者ガジラビュート",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "burn_opponent_shield",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時、相手シールド1つを墓地へ"
+  },
+  {
+    "name": "学校男",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 2,
+            "scope": "self"
+          },
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent",
+            "chooser": "opponent"
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 自分2体破壊→相手は自身の1体を破壊(相手選択=最弱)"
+  },
+  {
+    "name": "ルソー・モンテス/法と契約の秤",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 7
+          }
+        ]
+      }
+    ],
+    "note": "呪文面: コスト7以下のクリーチャー1枚を蘇生(進化制限なし)。クリーチャー面の任意ハンデスは省略(exact-safe)"
+  },
+  {
+    "name": "邪眼皇ロマノフI世",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "cast_from_grave",
+            "count": 1,
+            "max_cost": 7,
+            "civilizations": [
+              "闇"
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "出た時の探索墓地置きは省略(exact-safe)。攻撃時: 闇コスト7以下の墓地呪文を無償詠唱→山札下"
+  },
+  {
+    "name": "狂気と凶器の墓場",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "deck_top_to_grave",
+            "count": 2
+          },
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 6,
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 2枚肥やし→コスト6以下・進化でない1枚蘇生(完全無条件)"
+  },
+  {
+    "name": "戒王の封",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "max_cost": 8,
+            "exclude_evolution": true,
+            "civilizations": [
+              "闇"
+            ]
+          }
+        ]
+      }
+    ],
+    "note": "通常詠唱面のみ: 闇コスト8以下・進化でない1枚蘇生。SSTモードは省略(exact-safe)"
+  },
+  {
+    "name": "父なる大地",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "send_creature_to_mana",
+            "count": 1,
+            "scope": "opponent"
+          },
+          {
+            "op": "summon_from_mana",
+            "count": 1,
+            "scope": "opponent",
+            "exclude_evolution": true
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "send_creature_to_mana",
+            "count": 1,
+            "scope": "opponent"
+          },
+          {
+            "op": "summon_from_mana",
+            "count": 1,
+            "scope": "opponent",
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 相手1体をマナへ→相手のマナから進化でない1体を相手のバトルゾーンへ(使用者選択=最弱)。旧approxはscope欠落で「自分のマナから踏み倒す」と誤読しid=23の捏造コンボを生んだ"
+  },
+  {
+    "name": "魔法特区 クジルマギカ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_attack",
+        "actions": [
+          {
+            "op": "cast_from_grave",
+            "count": 1,
+            "max_cost": 5
+          }
+        ]
+      }
+    ],
+    "note": "「自分のNEOが攻撃する時」を自身の攻撃時に限定+「墓地または手札」を墓地のみに限定(部分集合=exact-safe)"
+  },
+  {
+    "name": "インフェルノ・ゲート",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 墓地から進化でないクリーチャー1枚(コスト制限なし)。探索=自分最適選択は最大コスト選択で表現(部分集合=exact-safe)"
+  },
+  {
+    "name": "復活のトリプル・リバイブ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 3,
+            "max_cost": 3,
+            "exclude_evolution": true
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: コスト3以下・進化でないクリーチャーを3枚まで"
+  },
+  {
+    "name": "守護炎龍 レヴィヤ・ターン",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "summon_from_mana",
+            "count": 1,
+            "max_cost": 3
+          }
+        ]
+      },
+      {
+        "trigger": "on_destroyed",
+        "actions": [
+          {
+            "op": "summon_from_mana",
+            "count": 1,
+            "max_cost": 3
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時または破壊された時、マナからコスト3以下を1体"
+  },
+  {
+    "name": "冥王の牙",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_cast",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent"
+          },
+          {
+            "op": "deck_top_to_grave",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "trigger": "s_trigger",
+        "actions": [
+          {
+            "op": "destroy_creature",
+            "count": 1,
+            "scope": "opponent"
+          },
+          {
+            "op": "deck_top_to_grave",
+            "count": 3
+          }
+        ]
+      }
+    ],
+    "note": "通常面のみ: 破壊1+3枚肥やし。SSTモードの蘇生は条件未対応のため省略(exact-safe)"
+  },
+  {
+    "name": "堕魔 ドゥリケン",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_destroyed",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "name_self": true,
+            "own_turn_only": true,
+            "timing": "end_of_turn"
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 自分のターン中に破壊された時、そのターン終了時に墓地から自身を出す(own_turn_only+name_self+end_of_turn)"
+  },
+  {
+    "name": "シモーヌ・ペトル",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "deck_top_to_grave",
+            "count": 2
+          }
+        ]
+      },
+      {
+        "trigger": "on_destroyed",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "name_self": true,
+            "own_turn_only": true,
+            "timing": "end_of_turn"
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時2枚肥やし+自ターン破壊時のターン終了時自己蘇生"
+  },
+  {
+    "name": "亡禍医 ヘモグロ",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "discard_opponent_hand",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "trigger": "on_destroyed",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "name_self": true,
+            "own_turn_only": true,
+            "timing": "end_of_turn"
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: 出た時ハンデス1+自ターン破壊時のターン終了時自己蘇生"
+  },
+  {
+    "name": "呪英雄 ウラミハデス",
+    "fidelity": "exact",
+    "abilities": [
+      {
+        "trigger": "on_play",
+        "actions": [
+          {
+            "op": "summon_from_grave",
+            "count": 1,
+            "exclude_self": true,
+            "exclude_evolution": true,
+            "civilizations": [
+              "闇"
+            ],
+            "condition": {
+              "kind": "mana_civ_at_least",
+              "civilization": "闇",
+              "count": 5
+            }
+          }
+        ]
+      }
+    ],
+    "note": "原文どおり: マナ武装5(闇)でウラミハデス以外の進化でない闇1枚を蘇生。条件モデル化(condition)の初のexact適用"
+  }
+]

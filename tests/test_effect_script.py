@@ -1,0 +1,430 @@
+from __future__ import annotations
+
+import sqlite3
+import tempfile
+import unittest
+from pathlib import Path
+
+from src.battle.effects.draft_generator import generate_draft_effect_script
+from src.battle.effects.schema import validate_effect_script
+from src.battle.effects.store import (
+    apply_curated_scripts,
+    approve_clean_drafts,
+    coverage_summary,
+    generate_drafts_for_missing_cards,
+    get_effect_script,
+    load_approved_effects_map,
+    upsert_effect_script,
+)
+
+
+class SchemaValidationTest(unittest.TestCase):
+    def test_valid_script(self) -> None:
+        script = {
+            "card_id": "DMPC-0001",
+            "abilities": [{"trigger": "on_cast", "actions": [{"op": "deck_top_to_mana", "count": 1}]}],
+        }
+        self.assertEqual(validate_effect_script(script), [])
+
+    def test_vanilla_script_is_valid(self) -> None:
+        self.assertEqual(validate_effect_script({"card_id": "X", "abilities": []}), [])
+
+    def test_unknown_trigger_and_op(self) -> None:
+        script = {
+            "card_id": "X",
+            "abilities": [{"trigger": "when_happy", "actions": [{"op": "win_game"}]}],
+        }
+        errors = validate_effect_script(script)
+        self.assertEqual(len(errors), 2)
+
+    def test_invalid_count_and_scope(self) -> None:
+        script = {
+            "card_id": "X",
+            "abilities": [
+                {"trigger": "on_play", "actions": [{"op": "draw", "count": 0}]},
+                {"trigger": "on_play", "actions": [{"op": "destroy_creature", "scope": "everyone"}]},
+            ],
+        }
+        errors = validate_effect_script(script)
+        self.assertEqual(len(errors), 2)
+
+    def test_unexpected_parameter(self) -> None:
+        script = {
+            "card_id": "X",
+            "abilities": [{"trigger": "on_play", "actions": [{"op": "draw", "count": 1, "target": "self"}]}],
+        }
+        self.assertEqual(len(validate_effect_script(script)), 1)
+
+
+class DraftGeneratorTest(unittest.TestCase):
+    def test_mana_acceleration_spell(self) -> None:
+        card = {
+            "card_id": "DMPC-0001",
+            "name": "マナ加速呪文",
+            "card_type": "呪文",
+            "text": "山札の上から1枚目をマナゾーンに置く。",
+        }
+        script = generate_draft_effect_script(card)
+        self.assertEqual(validate_effect_script(script), [])
+        self.assertEqual(script["abilities"][0]["trigger"], "on_cast")
+        self.assertEqual(script["abilities"][0]["actions"], [{"op": "deck_top_to_mana", "count": 1}])
+
+    def test_draw_creature_with_count(self) -> None:
+        card = {
+            "card_id": "DMPC-0002",
+            "name": "ドロークリーチャー",
+            "card_type": "クリーチャー",
+            "text": "このクリーチャーが出た時、カードを2枚引く。",
+        }
+        script = generate_draft_effect_script(card)
+        self.assertEqual(script["abilities"][0]["trigger"], "on_play")
+        self.assertEqual(script["abilities"][0]["actions"], [{"op": "draw", "count": 2}])
+
+    def test_trigger_clause_not_misread_as_summon(self) -> None:
+        # 「バトルゾーンに出た時」はトリガー句であり、マナ回収をsummon_from_manaと
+        # 誤読してはいけない(ストーム・クロウラー事件の回帰テスト)
+        card = {
+            "card_id": "DMPC-0010",
+            "name": "マナ回収獣",
+            "card_type": "クリーチャー",
+            "text": "バトルゾーンに出た時、自分のマナゾーンからカードを探索し、1枚を手札に戻す。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {action["op"] for ability in script["abilities"] for action in ability["actions"]}
+        self.assertNotIn("summon_from_mana", ops)
+        self.assertIn("mana_to_hand", ops)
+
+    def test_opponent_in_trigger_clause_not_misread(self) -> None:
+        # トリガー句の「相手のクリーチャーが攻撃する時」が効果側の「相手」と
+        # 誤結合してtap_creature(scope=opponent)等を生んではいけない
+        card = {
+            "card_id": "DMPC-0012",
+            "name": "自陣タップ獣",
+            "card_type": "クリーチャー",
+            "text": "相手のクリーチャーが攻撃する時、このクリーチャーをタップしてもよい。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {action["op"] for ability in script["abilities"] for action in ability["actions"]}
+        self.assertNotIn("tap_creature", ops)
+
+    def test_trigger_clause_count_not_polluting(self) -> None:
+        # トリガー句内の数値(「2体目が出た時」)が効果のcountに混入しない
+        card = {
+            "card_id": "DMPC-0013",
+            "name": "数え獣",
+            "card_type": "クリーチャー",
+            "text": "バトルゾーンに出た時、カードを1枚引く。",
+        }
+        script = generate_draft_effect_script(card)
+        self.assertEqual(script["abilities"][0]["actions"], [{"op": "draw", "count": 1}])
+
+    def test_threshold_numbers_not_polluting_count(self) -> None:
+        # 条件句の閾値(「5枚以下」「5枚以上」)が効果のcountに混入しない(サスペーガ事件)
+        card = {
+            "card_id": "DMPC-0014",
+            "name": "条件ドロー獣",
+            "card_type": "クリーチャー",
+            "text": "■バトルゾーンに出た時、自分の手札が5枚以下で、自分のマナゾーンに光のカードが5枚以上あれば、カードを1枚引く。",
+        }
+        script = generate_draft_effect_script(card)
+        draws = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "draw"]
+        # countは1(閾値の5を拾わない)。第七波以降はマナ武装条件も正しく付与される
+        self.assertEqual(draws[0]["count"], 1)
+        self.assertEqual(draws[0]["condition"], {"kind": "mana_civ_at_least", "civilization": "光", "count": 5})
+
+    def test_summon_filters_extract_civ_and_evolution(self) -> None:
+        # 「マナゾーンから自然の進化でないクリーチャーを出す」から文明と進化除外を拾う
+        # (種族語を含む場合はtest_race_limited_summon_not_convertedのとおり変換見送り)
+        card = {
+            "card_id": "DMPC-0015",
+            "name": "踏み倒し獣",
+            "card_type": "クリーチャー",
+            "text": "■バトルゾーンに出た時、自分のマナゾーンから自然の進化でないクリーチャーを1体、バトルゾーンに出す。",
+        }
+        script = generate_draft_effect_script(card)
+        summons = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "summon_from_mana"]
+        self.assertTrue(summons)
+        self.assertEqual(summons[0].get("civilizations"), ["自然"])
+        self.assertTrue(summons[0].get("exclude_evolution"))
+
+    def test_sst_mode_paragraph_not_converted(self) -> None:
+        # ゲドライド型: 【SST】段落の効果が通常時の効果として抽出されない
+        card = {
+            "card_id": "DMPC-0017",
+            "name": "SST獣",
+            "card_type": "クリーチャー",
+            "text": "◇スーパー・S・トリガー 【SST】バトルゾーンに出た時、相手のパワー5000以下のクリーチャーをすべて破壊する。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertNotIn("destroy_creature", ops)
+
+    def test_strongest_all_destroy_capped_to_one(self) -> None:
+        # 轟く侵略レッドゾーン型: 「最もパワーが大きい〜すべて破壊」は1体で近似(全滅化を防ぐ)
+        card = {
+            "card_id": "DMPC-0018",
+            "name": "最大破壊獣",
+            "card_type": "クリーチャー",
+            "text": "■バトルゾーンに出た時、相手の最もパワーが大きいクリーチャーをすべて破壊する。",
+        }
+        script = generate_draft_effect_script(card)
+        destroys = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "destroy_creature"]
+        self.assertEqual(destroys[0]["count"], 1)
+
+    def test_self_reference_revive_gets_name_self(self) -> None:
+        # フッシッシ型: 「墓地からこのクリーチャーを出す」は同名限定(無制限蘇生への化けを防ぐ)
+        card = {
+            "card_id": "DMPC-0019",
+            "name": "不死獣",
+            "card_type": "クリーチャー",
+            "text": "■破壊された時、自分の墓地からこのクリーチャーをバトルゾーンに出す。",
+        }
+        script = generate_draft_effect_script(card)
+        summons = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "summon_from_grave"]
+        self.assertTrue(summons[0].get("name_self"))
+
+    def test_twinpact_second_face_omitted(self) -> None:
+        # 【LINE】以降(呪文面)の効果がクリーチャー面のon_playに合成されない
+        card = {
+            "card_id": "DMPC-0020",
+            "name": "両面獣/両面呪文",
+            "card_type": "ツインパクト",
+            "text": "■バトルゾーンに出た時、カードを1枚引く。 【LINE】 ■相手のクリーチャー1体を破壊する。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertIn("draw", ops)
+        self.assertNotIn("destroy_creature", ops)
+
+    def test_mana_buso_condition_extracted(self) -> None:
+        # マナ武装の条件が抽出され、無条件発動の捏造にならない
+        card = {
+            "card_id": "DMPC-0021",
+            "name": "マナ武装獣",
+            "card_type": "クリーチャー",
+            "text": "■マナ武装 5：バトルゾーンに出た時、自分のマナゾーンに闇のカードが5枚以上あれば、カードを1枚引く。",
+        }
+        script = generate_draft_effect_script(card)
+        draws = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "draw"]
+        self.assertEqual(draws[0]["condition"], {"kind": "mana_civ_at_least", "civilization": "闇", "count": 5})
+        self.assertEqual(draws[0]["count"], 1)
+
+    def test_tapped_destroyed_condition_extracted(self) -> None:
+        # クラッシュ覇道型: 「タップ状態で破壊された時」がsource_tapped条件になる
+        # (extra_turnはキュレーション専用opのため、ドロー効果で条件抽出を検証)
+        card = {
+            "card_id": "DMPC-0022",
+            "name": "覇道獣",
+            "card_type": "クリーチャー",
+            "text": "■タップ状態で破壊された時、カードを1枚引く。",
+        }
+        script = generate_draft_effect_script(card)
+        draws = [a for ab in script["abilities"] for a in ab["actions"] if a["op"] == "draw"]
+        self.assertEqual(draws[0]["condition"], {"kind": "source_tapped"})
+
+    def test_evolution_base_summon_not_converted(self) -> None:
+        # レッド・エンド型: 「進化元であったクリーチャーを墓地から出す」は表現不可→見送り
+        card = {
+            "card_id": "DMPC-0023",
+            "name": "進化元蘇生獣",
+            "card_type": "進化クリーチャー",
+            "text": "■破壊された時、このクリーチャーの進化元であったクリーチャー1枚を、墓地からバトルゾーンに出してもよい。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertNotIn("summon_from_grave", ops)
+
+    def test_cross_clause_mana_send_not_misread(self) -> None:
+        # ウインドアックス型: 「相手を破壊し、山札からマナへ」が相手マナ送りに化けない
+        card = {
+            "card_id": "DMPC-0024",
+            "name": "斧獣",
+            "card_type": "クリーチャー",
+            "text": "■バトルゾーンに出た時、「ブロッカー」を持つ相手のクリーチャー1体を破壊し、自分の山札の上から1枚目をマナゾーンに置く。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        # 捏造マナ送りが消えることが本質。マナ加速は「相手」を含む文の既存ガードにより
+        # 落ちる(過小評価側で許容)
+        self.assertNotIn("send_creature_to_mana", ops)
+        self.assertIn("destroy_creature", ops)
+
+    def test_revolution_bounce_not_misread_as_shield_pickup(self) -> None:
+        # ペニシリン型: 「自分のシールドが2つ以下なら、相手のクリーチャーをすべて手札に戻す」が
+        # own_shield_to_hand(自分の盾回収)に誤結合しない
+        card = {
+            "card_id": "DMPC-0025",
+            "name": "革命獣",
+            "card_type": "クリーチャー",
+            "text": "■革命2：バトルゾーンに出た時、自分のシールドが2つ以下なら、相手のクリーチャーをすべて手札に戻す。",
+        }
+        script = generate_draft_effect_script(card)
+        actions = [a for ab in script["abilities"] for a in ab["actions"]]
+        ops = {a["op"] for a in actions}
+        self.assertNotIn("own_shield_to_hand", ops)
+        bounce = next(a for a in actions if a["op"] == "bounce_creature")
+        self.assertEqual(bounce["condition"], {"kind": "shields_at_most", "count": 2})
+
+    def test_destroy_negation_not_misread(self) -> None:
+        # 「相手クリーチャーは破壊されない」(防御)を除去と誤読しない
+        card = {
+            "card_id": "DMPC-0026",
+            "name": "鉄壁獣",
+            "card_type": "クリーチャー",
+            "text": "■バトル中、バトルしている相手クリーチャーは、パワーが0より大きければ破壊されない。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertNotIn("destroy_creature", ops)
+
+    def test_race_limited_summon_not_converted(self) -> None:
+        # Kサイズ型: 「イニシャルズ1枚を出す」の種族限定は表現不可→変換を見送る
+        card = {
+            "card_id": "DMPC-0016",
+            "name": "種族蘇生獣",
+            "card_type": "クリーチャー",
+            "text": "■破壊された時、自分の墓地から《種族蘇生獣》以外のイニシャルズ1枚をバトルゾーンに出してもよい。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {a["op"] for ab in script["abilities"] for a in ab["actions"]}
+        self.assertNotIn("summon_from_grave", ops)
+
+    def test_transitive_summon_from_mana_still_detected(self) -> None:
+        card = {
+            "card_id": "DMPC-0011",
+            "name": "マナ展開獣",
+            "card_type": "クリーチャー",
+            "text": "バトルゾーンに出た時、自分のマナゾーンからコスト3以下のクリーチャーを1体バトルゾーンに出す。",
+        }
+        script = generate_draft_effect_script(card)
+        ops = {action["op"] for ability in script["abilities"] for action in ability["actions"]}
+        self.assertIn("summon_from_mana", ops)
+
+    def test_removal_with_power_limit_and_s_trigger(self) -> None:
+        card = {
+            "card_id": "DMPC-0003",
+            "name": "除去呪文",
+            "card_type": "呪文",
+            "text": "S・トリガー\n相手のパワー3000以下のクリーチャーを1体破壊する。",
+        }
+        script = generate_draft_effect_script(card)
+        self.assertEqual(validate_effect_script(script), [])
+        triggers = [ability["trigger"] for ability in script["abilities"]]
+        self.assertIn("on_cast", triggers)
+        self.assertIn("s_trigger", triggers)
+        action = script["abilities"][0]["actions"][0]
+        self.assertEqual(action["op"], "destroy_creature")
+        self.assertEqual(action["max_power"], 3000)
+
+    def test_vanilla_card(self) -> None:
+        card = {"card_id": "DMPC-0004", "name": "バニラ", "card_type": "クリーチャー", "text": ""}
+        script = generate_draft_effect_script(card)
+        self.assertEqual(script["abilities"], [])
+        self.assertTrue(script["notes"])
+
+
+class StoreTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self._tmpdir = tempfile.TemporaryDirectory()
+        self.db_path = Path(self._tmpdir.name) / "cards.db"
+        with sqlite3.connect(self.db_path) as conn:
+            conn.execute(
+                "CREATE TABLE cards (card_id TEXT PRIMARY KEY, name TEXT, civilization TEXT,"
+                " cost INTEGER, card_type TEXT, power TEXT, race TEXT, text TEXT)"
+            )
+            conn.execute(
+                "INSERT INTO cards VALUES ('C1', 'マナ加速', '自然', 2, '呪文', '', '',"
+                " '山札の上から1枚目をマナゾーンに置く。')"
+            )
+            conn.execute("INSERT INTO cards VALUES ('C2', 'バニラ', '火', 1, 'クリーチャー', '1000', '', '')")
+
+    def tearDown(self) -> None:
+        self._tmpdir.cleanup()
+
+    def test_upsert_and_get_roundtrip(self) -> None:
+        script = {
+            "card_id": "C1",
+            "name": "マナ加速",
+            "abilities": [{"trigger": "on_cast", "actions": [{"op": "deck_top_to_mana", "count": 1}]}],
+        }
+        self.assertEqual(upsert_effect_script(script, db_path=self.db_path), [])
+        loaded = get_effect_script("C1", db_path=self.db_path)
+        self.assertIsNotNone(loaded)
+        self.assertEqual(loaded["abilities"], script["abilities"])
+        self.assertEqual(loaded["review_status"], "draft")
+
+    def test_invalid_script_not_saved(self) -> None:
+        errors = upsert_effect_script({"card_id": "C1", "abilities": [{"trigger": "bad", "actions": []}]}, db_path=self.db_path)
+        self.assertTrue(errors)
+        self.assertIsNone(get_effect_script("C1", db_path=self.db_path))
+
+    def test_approved_only_filter(self) -> None:
+        script = {"card_id": "C1", "abilities": []}
+        upsert_effect_script(script, db_path=self.db_path)
+        self.assertIsNone(get_effect_script("C1", db_path=self.db_path, approved_only=True))
+        upsert_effect_script(script, review_status="approved", db_path=self.db_path)
+        self.assertIsNotNone(get_effect_script("C1", db_path=self.db_path, approved_only=True))
+
+    def test_approve_clean_drafts(self) -> None:
+        with sqlite3.connect(self.db_path) as conn:
+            conn.execute(
+                "INSERT INTO cards VALUES ('C3', '部分変換', '水', 3, '呪文', '', '',"
+                " 'カードを1枚引く。その後、複雑な効果を解決する。')"
+            )
+        generate_drafts_for_missing_cards(db_path=self.db_path)
+        approved = approve_clean_drafts(db_path=self.db_path)
+        # C1(完全変換)とC2(バニラ)は承認、C3(部分変換の警告付き)はdraftのまま
+        self.assertEqual(approved, 2)
+        effects_map = load_approved_effects_map(db_path=self.db_path)
+        self.assertIn("C1", effects_map)
+        self.assertNotIn("C3", effects_map)
+        self.assertIsNone(get_effect_script("C3", db_path=self.db_path, approved_only=True))
+        # 再実行しても追加承認なし
+        self.assertEqual(approve_clean_drafts(db_path=self.db_path), 0)
+
+    def test_apply_curated_scripts(self) -> None:
+        import json as json_module
+
+        curated_dir = Path(self._tmpdir.name) / "effect_scripts"
+        curated_dir.mkdir()
+        (curated_dir / "test.json").write_text(
+            json_module.dumps(
+                [
+                    {
+                        "name": "マナ加速",
+                        "abilities": [{"trigger": "on_cast", "actions": [{"op": "draw", "count": 1}]}],
+                        "note": "テスト用近似",
+                    },
+                    {"name": "存在しない名前", "abilities": []},
+                ],
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+        applied, missing = apply_curated_scripts(curated_dir, db_path=self.db_path)
+        self.assertEqual(applied, 1)
+        self.assertEqual(missing, ["存在しない名前"])
+        # キュレーションは承認済みとして適用され、再生成でも上書きされない
+        script = get_effect_script("C1", db_path=self.db_path, approved_only=True)
+        self.assertIsNotNone(script)
+        self.assertEqual(script["abilities"][0]["actions"][0]["op"], "draw")
+        self.assertEqual(generate_drafts_for_missing_cards(db_path=self.db_path), 1)  # C2のみ
+        script_after = get_effect_script("C1", db_path=self.db_path, approved_only=True)
+        self.assertEqual(script_after["abilities"], script["abilities"])
+
+    def test_generate_drafts_and_coverage(self) -> None:
+        created = generate_drafts_for_missing_cards(db_path=self.db_path)
+        self.assertEqual(created, 2)
+        # 2回目は既存登録をスキップする
+        self.assertEqual(generate_drafts_for_missing_cards(db_path=self.db_path), 0)
+        summary = coverage_summary(db_path=self.db_path)
+        self.assertEqual(summary["total_cards"], 2)
+        self.assertEqual(summary["registered"], 2)
+        self.assertEqual(summary["registered_rate"], 1.0)
+        self.assertEqual(summary["approved_rate"], 0.0)
+        draft = get_effect_script("C1", db_path=self.db_path)
+        self.assertEqual(draft["abilities"][0]["actions"][0]["op"], "deck_top_to_mana")
+
+
+if __name__ == "__main__":
+    unittest.main()

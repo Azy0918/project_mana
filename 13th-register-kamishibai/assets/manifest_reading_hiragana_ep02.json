@@ -6,8 +6,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "汗田竜司は、会社の駐輪場で愛車のCB200X風アドベンチャーバイクにまたがった。",
-    "synthesis_text": "あせだりゅうじワ、かいしゃのちゅうりんじょうで、あいしゃのしーびーにひゃくえっくすふうあどべんちゃーばいくにまたがった。",
+    "text": "汗田竜司は、会社の駐輪場で愛車のCB200Xにまたがった。",
+    "synthesis_text": "あせだりゅうじワ、かいしゃのちゅうりんじょうで、あいしゃのしーびーにひゃくえっくすにまたがった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v001_ナレーション.wav"

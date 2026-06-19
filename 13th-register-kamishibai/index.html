@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>深夜二時の第十三レジ 第1話 紙芝居プレイヤー</title>
+  <title>深夜二時の第十三レジ 紙芝居プレイヤー</title>
   <style>
     :root {
       color-scheme: dark;
@@ -288,6 +288,31 @@
       line-height: 1.6;
     }
 
+    .episode-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 12px;
+    }
+
+    .episode-switch label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .episode-switch select {
+      flex: 1;
+      min-height: 38px;
+      padding: 7px 10px;
+      border: 1px solid rgba(83, 229, 255, 0.42);
+      border-radius: 8px;
+      background: rgba(5, 7, 11, 0.6);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
     audio {
       width: 100%;
       margin: 8px 0 14px;
@@ -491,10 +516,7 @@
         <img id="sceneImage" src="./assets/scenes/scene_03_register.jpg" alt="深夜二時の第十三レジ 第1話の縦型ビジュアル">
 
         <div class="scene-badge" id="sceneBadge">第1話『第十三レジ』</div>
-        <div class="asset-links-mini">
-          <a href="./assets/ep01_dialogue_edit.csv" download>CSV</a>
-          <a href="./assets/character_storyboard_sheet.jpg">キャラ表</a>
-        </div>
+        <div class="asset-links-mini" id="assetLinksMini"></div>
 
         <div class="caption-dock">
           <div class="receipt" id="operationLog"></div>
@@ -521,7 +543,12 @@
         <h1>深夜二時の第十三レジ</h1>
         <p class="sub">音声の発話単位に合わせて、左の字幕・ログと右の台本ハイライトが切り替わります。</p>
 
-        <audio id="audio" controls preload="metadata" src="./assets/ep01_full_voice_reading_hiragana_mina_mao.wav?v=15"></audio>
+        <div class="episode-switch">
+          <label for="episodeSelect">話数</label>
+          <select id="episodeSelect" aria-label="話数を選択"></select>
+        </div>
+
+        <audio id="audio" controls preload="metadata"></audio>
 
         <div class="meta">
           <div class="metric"><b id="duration">--:--</b><span>音声尺</span></div>
@@ -532,20 +559,13 @@
 
         <div class="script-list" id="scriptList" aria-label="シーン台本"></div>
 
-        <div class="links">
-          <a href="./assets/ep01_full_voice_reading_hiragana_mina_mao.wav" download>音声を保存</a>
-          <a href="./assets/scenes/scene_03_register.jpg" download>画像を保存</a>
-          <a href="./assets/manifest_reading_hiragana_mina_mao.json">manifest</a>
-          <a href="./scene_manifest.json" download>line_manifest</a>
-          <a href="./assets/ep01_dialogue_edit.csv" download>編集CSV</a>
-          <a href="./assets/character_storyboard_sheet.jpg">キャラ絵コンテ</a>
-        </div>
+        <div class="links" id="downloadLinks"></div>
       </div>
     </section>
   </main>
 
   <script>
-    const FALLBACK_IMAGE = "./assets/scenes/scene_03_register.jpg";
+    let FALLBACK_IMAGE = "./assets/scenes/scene_03_register.jpg";
     const audio = document.getElementById("audio");
     const playState = document.getElementById("playState");
     const heroPlay = document.getElementById("heroPlay");
@@ -565,6 +585,9 @@
     const rewind10 = document.getElementById("rewind10");
     const forward10 = document.getElementById("forward10");
     const nextLine = document.getElementById("nextLine");
+    const episodeSelect = document.getElementById("episodeSelect");
+    const downloadLinks = document.getElementById("downloadLinks");
+    const assetLinksMini = document.getElementById("assetLinksMini");
 
     let scenes = [];
     let activeSceneId = "";
@@ -637,6 +660,8 @@
       if (!scene || activeSceneId === scene.id) return;
       activeSceneId = scene.id;
       setImage(scene.image, scene.fallbackImage);
+      const imageSave = document.getElementById("imageSaveLink");
+      if (imageSave) imageSave.href = normalizeAssetPath(scene.image);
       sceneSpeaker.textContent = scene.speaker || "";
       sceneDialogue.textContent = scene.dialogue || "";
       sceneSubDialogue.textContent = scene.subDialogue || "";
@@ -746,32 +771,109 @@
     prevLine.addEventListener("click", () => jumpLine(-1));
     nextLine.addEventListener("click", () => jumpLine(1));
 
-    fetch("./scene_manifest.json")
-      .then(response => {
-        if (!response.ok) throw new Error("scene manifest load failed");
-        return response.json();
-      })
-      .then(data => {
-        scenes = data;
-        sceneCount.textContent = scenes.length;
-        renderSceneList();
-        renderScene(findScene(0));
-      })
-      .catch(() => {
-        scenes = [{
-          id: "fallback",
-          start: 0,
-          end: 9999,
-          image: FALLBACK_IMAGE,
-          speaker: "ナレーション",
-          dialogue: "scene_manifest.jsonを読み込めませんでした。",
-          log: ["フォールバック表示中", "本日の営業　継続中"],
-          progressLabel: "現在：フォールバック"
-        }];
-        sceneCount.textContent = "1";
-        renderSceneList();
-        renderScene(scenes[0]);
-      });
+    const EPISODES = [
+      {
+        id: "ep01",
+        label: "第1話 未来のおにぎり、温めますか",
+        title: "深夜二時の第十三レジ 第1話",
+        badge: "第1話『第十三レジ』",
+        audio: "./assets/ep01_full_voice_reading_hiragana_mina_mao.wav?v=15",
+        manifest: "./scene_manifest.json",
+        fallbackImage: "./assets/scenes/scene_03_register.jpg",
+        links: [
+          { href: "./assets/ep01_full_voice_reading_hiragana_mina_mao.wav", text: "音声を保存", download: true },
+          { id: "imageSaveLink", href: "./assets/scenes/scene_03_register.jpg", text: "画像を保存", download: true },
+          { href: "./assets/manifest_reading_hiragana_mina_mao.json", text: "manifest" },
+          { href: "./scene_manifest.json", text: "line_manifest", download: true },
+          { href: "./assets/ep01_dialogue_edit.csv", text: "編集CSV", download: true },
+          { href: "./assets/character_storyboard_sheet.jpg", text: "キャラ絵コンテ" }
+        ],
+        miniLinks: [
+          { href: "./assets/ep01_dialogue_edit.csv", text: "CSV", download: true },
+          { href: "./assets/character_storyboard_sheet.jpg", text: "キャラ表" }
+        ]
+      },
+      {
+        id: "ep02",
+        label: "第2話 ナビが未来を案内しました",
+        title: "深夜二時の第十三レジ 第2話",
+        badge: "第2話『ナビが未来を案内しました』",
+        audio: "./assets/ep02_full_voice_reading_hiragana.wav?v=2",
+        manifest: "./scene_manifest_ep02.json",
+        fallbackImage: "./assets/scenes/planned/ep02_vc01_company_parking_asada.png",
+        links: [
+          { href: "./assets/ep02_full_voice_reading_hiragana.wav", text: "音声を保存", download: true },
+          { id: "imageSaveLink", href: "./assets/scenes/planned/ep02_vc01_company_parking_asada.png", text: "画像を保存", download: true },
+          { href: "./assets/manifest_reading_hiragana_ep02.json", text: "manifest" },
+          { href: "./scene_manifest_ep02.json", text: "line_manifest", download: true }
+        ],
+        miniLinks: []
+      }
+    ];
+
+    const buildLinks = (container, items) => {
+      container.innerHTML = (items || []).map(item =>
+        `<a href="${item.href}"${item.id ? ` id="${item.id}"` : ""}${item.download ? " download" : ""}>${item.text}</a>`
+      ).join("");
+    };
+
+    const loadEpisode = episode => {
+      audio.pause();
+      activeSceneId = "";
+      scenes = [];
+      FALLBACK_IMAGE = episode.fallbackImage;
+      document.title = `${episode.title} 紙芝居プレイヤー`;
+      sceneBadge.textContent = episode.badge;
+      buildLinks(downloadLinks, episode.links);
+      buildLinks(assetLinksMini, episode.miniLinks);
+      progressFill.style.width = "0%";
+      playState.textContent = "READY";
+      heroPlay.textContent = "▶";
+      heroPlay.classList.remove("playing");
+      heroPlay.setAttribute("aria-label", "再生");
+      sceneImage.dataset.src = "";
+      setImage(episode.fallbackImage, episode.fallbackImage);
+      audio.src = episode.audio;
+      audio.load();
+      fetch(episode.manifest)
+        .then(response => {
+          if (!response.ok) throw new Error("scene manifest load failed");
+          return response.json();
+        })
+        .then(data => {
+          scenes = data;
+          sceneCount.textContent = scenes.length;
+          renderSceneList();
+          renderScene(findScene(0));
+        })
+        .catch(() => {
+          scenes = [{
+            id: "fallback",
+            start: 0,
+            end: 9999,
+            image: FALLBACK_IMAGE,
+            speaker: "ナレーション",
+            dialogue: "scene_manifestを読み込めませんでした。",
+            log: ["フォールバック表示中", "本日の営業　継続中"],
+            progressLabel: "現在：フォールバック"
+          }];
+          sceneCount.textContent = "1";
+          renderSceneList();
+          renderScene(scenes[0]);
+        });
+    };
+
+    EPISODES.forEach((episode, index) => {
+      const option = document.createElement("option");
+      option.value = String(index);
+      option.textContent = episode.label;
+      episodeSelect.appendChild(option);
+    });
+    episodeSelect.addEventListener("change", () => {
+      loadEpisode(EPISODES[Number(episodeSelect.value)] || EPISODES[0]);
+    });
+
+    loadEpisode(EPISODES[0]);
   </script>
 </body>
 </html>

@@ -93,6 +93,12 @@ def main() -> int:
     parser.add_argument("--full-name", default=FULL_NAME)
     parser.add_argument("--delay", type=float, default=0.3)
     parser.add_argument("--reuse-existing", action="store_true", help="Reuse existing non-empty clip WAVs.")
+    parser.add_argument(
+        "--force-character",
+        action="append",
+        default=[],
+        help="Regenerate this character even when --reuse-existing is set. Can be repeated.",
+    )
     args = parser.parse_args()
 
     out_dir: Path = args.out
@@ -125,12 +131,13 @@ def main() -> int:
         speaker_id = int(entry["style_id"])
         text = entry["synthesis_text"]  # reading-hiragana is what we voice
         pause_ms = int(entry.get("pause_after_ms") or 0)
+        force = character in set(args.force_character)
         # Honor the clip path declared in the manifest (repo-root relative, backslashes on Windows).
         clip_rel = str(entry.get("clip") or "").replace("\\", "/")
         clip_path = (REPO_ROOT / clip_rel) if clip_rel else (clips_dir / f"{line_id}_{character}.wav")
         clip_path.parent.mkdir(parents=True, exist_ok=True)
         try:
-            if args.reuse_existing and clip_path.exists() and clip_path.stat().st_size > 0:
+            if args.reuse_existing and not force and clip_path.exists() and clip_path.stat().st_size > 0:
                 print(f"reuse {clip_path.name}")
             else:
                 query = audio_query(text, speaker_id)

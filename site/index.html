@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>深夜二時の第十三レジ 第1話 紙芝居プレイヤー</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #05070b;
+      --panel: #101720;
+      --line: #26384a;
+      --text: #edf7ff;
+      --muted: #98a7b8;
+      --cyan: #53e5ff;
+      --violet: #b58cff;
+      --paper: #eee5d4;
+      --ink: #1f2730;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(83, 229, 255, 0.12), transparent 28rem),
+        radial-gradient(circle at 90% 12%, rgba(181, 140, 255, 0.12), transparent 24rem),
+        var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(100%, 980px);
+      margin: 0 auto;
+      padding: 18px 14px 28px;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: minmax(260px, 420px) minmax(260px, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .phone {
+      position: relative;
+      width: min(100%, 420px);
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border: 1px solid rgba(83, 229, 255, 0.34);
+      border-radius: 22px;
+      background: #02050a;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42), 0 0 32px rgba(83, 229, 255, 0.18);
+    }
+
+    .phone img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 180ms ease;
+    }
+
+    .scene-badge,
+    .play-state {
+      border: 1px solid rgba(83, 229, 255, 0.38);
+      background: rgba(5, 7, 11, 0.68);
+      backdrop-filter: blur(8px);
+      text-shadow: 0 0 12px rgba(83, 229, 255, 0.32);
+    }
+
+    .scene-badge {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      max-width: calc(100% - 94px);
+      padding: 6px 8px;
+      border-radius: 7px;
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1.35;
+      pointer-events: none;
+    }
+
+    .caption-dock {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 126px 14px 14px;
+      background: linear-gradient(180deg, transparent, rgba(2, 5, 10, 0.88) 22%, rgba(2, 5, 10, 0.98));
+      pointer-events: none;
+    }
+
+    .vn-box {
+      padding: 12px 13px 13px;
+      border: 1px solid rgba(83, 229, 255, 0.52);
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(5, 9, 16, 0.86), rgba(8, 15, 25, 0.93));
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(10px);
+    }
+
+    .vn-speaker {
+      display: inline-flex;
+      min-width: 76px;
+      margin-bottom: 7px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(83, 229, 255, 0.17);
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .vn-dialogue {
+      color: #fbfdff;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.46;
+    }
+
+    .vn-sub {
+      margin-top: 6px;
+      color: #d6e3f1;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.42;
+    }
+
+    .receipt {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+      color: #d9eaff;
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .receipt div {
+      padding: 3px 6px;
+      border: 1px solid rgba(238, 229, 212, 0.24);
+      border-radius: 999px;
+      background: rgba(238, 229, 212, 0.12);
+    }
+
+    .progress-bar {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 8px;
+      height: 6px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(237, 247, 255, 0.18);
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      transition: width 120ms linear;
+    }
+
+    .play-state {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 800;
+      pointer-events: none;
+    }
+
+    .hero-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: grid;
+      place-items: center;
+      width: 74px;
+      height: 74px;
+      border: 1px solid rgba(83, 229, 255, 0.58);
+      border-radius: 999px;
+      background: rgba(5, 7, 11, 0.52);
+      color: #f7fcff;
+      font-size: 24px;
+      font-weight: 900;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.4), 0 0 26px rgba(83, 229, 255, 0.22);
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+    }
+
+    .hero-play.playing {
+      width: 52px;
+      height: 52px;
+      top: 72px;
+      right: 14px;
+      left: auto;
+      font-size: 16px;
+      transform: none;
+      opacity: 0.86;
+    }
+
+    .controls {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 23, 32, 0.92);
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    audio {
+      width: 100%;
+      margin: 8px 0 14px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .metric {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(5, 7, 11, 0.34);
+    }
+
+    .metric b {
+      display: block;
+      color: var(--cyan);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .script-list {
+      max-height: 48vh;
+      overflow: auto;
+      border: 1px solid rgba(83, 229, 255, 0.22);
+      border-radius: 8px;
+      background: rgba(5, 7, 11, 0.28);
+    }
+
+    .scene-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 9px;
+      width: 100%;
+      padding: 10px 11px 10px 28px;
+      border: 0;
+      border-bottom: 1px solid rgba(83, 229, 255, 0.12);
+      background: transparent;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .scene-row:last-child {
+      border-bottom: 0;
+    }
+
+    .scene-row::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 18px;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 9px solid transparent;
+    }
+
+    .scene-row.active {
+      background: linear-gradient(90deg, rgba(83, 229, 255, 0.24), rgba(181, 140, 255, 0.11));
+      outline: 1px solid rgba(83, 229, 255, 0.42);
+      outline-offset: -1px;
+    }
+
+    .scene-row.active::before {
+      border-left-color: var(--cyan);
+    }
+
+    .timecode {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .row-title {
+      color: #f5fbff;
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .row-dialogue {
+      margin-top: 4px;
+      color: #c9d8e8;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 11px;
+      border: 1px solid rgba(83, 229, 255, 0.38);
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(83, 229, 255, 0.08);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      main {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100svh;
+        padding: 0;
+      }
+
+      .preview {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100svh;
+      }
+
+      .phone {
+        position: relative;
+        top: auto;
+        z-index: 5;
+        width: min(100vw, calc(100svh * 9 / 16));
+        height: min(100svh, calc(100vw * 16 / 9));
+        margin: 0;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .controls {
+        display: none;
+      }
+
+      h1 {
+        font-size: 21px;
+      }
+
+      .script-list {
+        max-height: 34vh;
+      }
+
+      .caption-dock {
+        padding: 116px 11px 12px;
+      }
+
+      .vn-dialogue {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="preview" aria-label="第1話紙芝居プレイヤー">
+      <div class="phone">
+        <img id="sceneImage" src="./assets/scenes/scene_03_register.jpg" alt="深夜二時の第十三レジ 第1話の縦型ビジュアル">
+
+        <div class="scene-badge" id="sceneBadge">第1話『第十三レジ』</div>
+
+        <div class="caption-dock">
+          <div class="receipt" id="operationLog"></div>
+
+          <div class="vn-box">
+            <div class="vn-speaker" id="sceneSpeaker">READY</div>
+            <div class="vn-dialogue" id="sceneDialogue">再生すると場面に合わせて字幕とログが切り替わります。</div>
+            <div class="vn-sub" id="sceneSubDialogue"></div>
+          </div>
+        </div>
+
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="play-state" id="playState">READY</div>
+        <button class="hero-play" id="heroPlay" type="button" aria-label="再生">▶</button>
+      </div>
+
+      <div class="controls">
+        <h1>深夜二時の第十三レジ</h1>
+        <p class="sub">音声の発話単位に合わせて、左の字幕・ログと右の台本ハイライトが切り替わります。</p>
+
+        <audio id="audio" controls preload="metadata" src="./assets/ep01_full_voice_reading_hiragana_mina_mao.wav"></audio>
+
+        <div class="meta">
+          <div class="metric"><b id="duration">--:--</b><span>音声尺</span></div>
+          <div class="metric"><b id="sceneCount">--</b><span>発話数</span></div>
+          <div class="metric"><b id="currentTime">0:00</b><span>再生位置</span></div>
+          <div class="metric"><b id="currentLabel">--</b><span>現在の場面</span></div>
+        </div>
+
+        <div class="script-list" id="scriptList" aria-label="シーン台本"></div>
+
+        <div class="links">
+          <a href="./assets/ep01_full_voice_reading_hiragana_mina_mao.wav" download>音声を保存</a>
+          <a href="./assets/scenes/scene_03_register.jpg" download>画像を保存</a>
+          <a href="./assets/manifest_reading_hiragana_mina_mao.json">manifest</a>
+          <a href="./scene_manifest.json" download>line_manifest</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const FALLBACK_IMAGE = "./assets/scenes/scene_03_register.jpg";
+    const audio = document.getElementById("audio");
+    const playState = document.getElementById("playState");
+    const heroPlay = document.getElementById("heroPlay");
+    const duration = document.getElementById("duration");
+    const sceneCount = document.getElementById("sceneCount");
+    const currentTimeLabel = document.getElementById("currentTime");
+    const currentLabel = document.getElementById("currentLabel");
+    const scriptList = document.getElementById("scriptList");
+    const sceneImage = document.getElementById("sceneImage");
+    const sceneSpeaker = document.getElementById("sceneSpeaker");
+    const sceneDialogue = document.getElementById("sceneDialogue");
+    const sceneSubDialogue = document.getElementById("sceneSubDialogue");
+    const sceneBadge = document.getElementById("sceneBadge");
+    const operationLog = document.getElementById("operationLog");
+    const progressFill = document.getElementById("progressFill");
+
+    let scenes = [];
+    let activeSceneId = "";
+    let rafId = 0;
+
+    const formatTime = seconds => {
+      if (!Number.isFinite(seconds)) return "--:--";
+      const min = Math.floor(seconds / 60);
+      const sec = Math.floor(seconds % 60).toString().padStart(2, "0");
+      return `${min}:${sec}`;
+    };
+
+    const normalizeAssetPath = path => {
+      if (!path) return FALLBACK_IMAGE;
+      if (path.startsWith("./") || path.startsWith("/") || path.startsWith("http")) return path;
+      return `./${path}`;
+    };
+
+    const findScene = seconds => {
+      if (!scenes.length) return null;
+      if (seconds < scenes[0].start) return scenes[0];
+      return [...scenes].reverse().find(scene => seconds >= scene.start) || scenes[0];
+    };
+
+    const setImage = path => {
+      const nextSrc = normalizeAssetPath(path);
+      if (sceneImage.dataset.src === nextSrc) return;
+      sceneImage.dataset.src = nextSrc;
+      sceneImage.style.opacity = "0.72";
+      sceneImage.onload = () => {
+        sceneImage.style.opacity = "1";
+      };
+      sceneImage.onerror = () => {
+        if (sceneImage.dataset.src !== FALLBACK_IMAGE) {
+          sceneImage.dataset.src = FALLBACK_IMAGE;
+          sceneImage.src = FALLBACK_IMAGE;
+        }
+      };
+      sceneImage.src = nextSrc;
+    };
+
+    const renderScene = scene => {
+      if (!scene || activeSceneId === scene.id) return;
+      activeSceneId = scene.id;
+      setImage(scene.image);
+      sceneSpeaker.textContent = scene.speaker || "";
+      sceneDialogue.textContent = scene.dialogue || "";
+      sceneSubDialogue.textContent = scene.subDialogue || "";
+      sceneSubDialogue.hidden = !scene.subDialogue;
+      operationLog.innerHTML = (scene.log || []).map(item => `<div>${item}</div>`).join("");
+      sceneBadge.textContent = scene.progressLabel || scene.id;
+      currentLabel.textContent = scene.progressLabel || scene.id;
+      document.querySelectorAll(".scene-row").forEach(row => {
+        const isActive = row.dataset.sceneId === scene.id;
+        row.classList.toggle("active", isActive);
+        if (isActive && window.matchMedia("(min-width: 761px)").matches) row.scrollIntoView({ block: "nearest" });
+      });
+    };
+
+    const syncFromAudio = () => {
+      const seconds = audio.currentTime || 0;
+      const scene = findScene(seconds);
+      renderScene(scene);
+      currentTimeLabel.textContent = formatTime(seconds);
+      const total = Number.isFinite(audio.duration) ? audio.duration : scenes.at(-1)?.end || 1;
+      progressFill.style.width = `${Math.min(100, Math.max(0, (seconds / total) * 100))}%`;
+      if (!audio.paused && !audio.ended) {
+        playState.textContent = "PLAYING";
+        heroPlay.textContent = "Ⅱ";
+        heroPlay.classList.add("playing");
+        heroPlay.setAttribute("aria-label", "一時停止");
+      }
+    };
+
+    const stopLoop = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = 0;
+    };
+
+    const startLoop = () => {
+      stopLoop();
+      const tick = () => {
+        syncFromAudio();
+        if (!audio.paused && !audio.ended) {
+          rafId = requestAnimationFrame(tick);
+        }
+      };
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const renderSceneList = () => {
+      scriptList.innerHTML = scenes.map(scene => `
+        <button class="scene-row" type="button" data-scene-id="${scene.id}" data-start="${scene.start}">
+          <div class="timecode">${formatTime(scene.start)}<br>${formatTime(scene.end)}</div>
+          <div>
+            <div class="row-title">${scene.progressLabel || scene.id}</div>
+            <div class="row-dialogue">${scene.speaker || ""}：${scene.dialogue || ""}</div>
+          </div>
+        </button>
+      `).join("");
+      scriptList.querySelectorAll(".scene-row").forEach(row => {
+        row.addEventListener("click", () => {
+          audio.currentTime = Number(row.dataset.start || 0);
+          syncFromAudio();
+        });
+      });
+    };
+
+    audio.addEventListener("loadedmetadata", () => {
+      duration.textContent = formatTime(audio.duration);
+      syncFromAudio();
+    });
+
+    audio.addEventListener("play", () => {
+      playState.textContent = "PLAYING";
+      heroPlay.textContent = "Ⅱ";
+      heroPlay.classList.add("playing");
+      heroPlay.setAttribute("aria-label", "一時停止");
+      syncFromAudio();
+      startLoop();
+    });
+
+    audio.addEventListener("pause", () => {
+      stopLoop();
+      playState.textContent = audio.currentTime > 0 && audio.currentTime < audio.duration ? "PAUSED" : "READY";
+      heroPlay.textContent = "▶";
+      heroPlay.classList.remove("playing");
+      heroPlay.setAttribute("aria-label", "再生");
+      syncFromAudio();
+    });
+
+    audio.addEventListener("ended", () => {
+      stopLoop();
+      playState.textContent = "ENDED";
+      heroPlay.textContent = "▶";
+      heroPlay.classList.remove("playing");
+      heroPlay.setAttribute("aria-label", "再生");
+      syncFromAudio();
+    });
+
+    audio.addEventListener("timeupdate", syncFromAudio);
+    audio.addEventListener("seeked", syncFromAudio);
+    heroPlay.addEventListener("click", () => {
+      if (audio.paused || audio.ended) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+
+    fetch("./scene_manifest.json")
+      .then(response => {
+        if (!response.ok) throw new Error("scene manifest load failed");
+        return response.json();
+      })
+      .then(data => {
+        scenes = data;
+        sceneCount.textContent = scenes.length;
+        renderSceneList();
+        renderScene(findScene(0));
+      })
+      .catch(() => {
+        scenes = [{
+          id: "fallback",
+          start: 0,
+          end: 9999,
+          image: FALLBACK_IMAGE,
+          speaker: "ナレーション",
+          dialogue: "scene_manifest.jsonを読み込めませんでした。",
+          log: ["フォールバック表示中", "本日の営業　継続中"],
+          progressLabel: "現在：フォールバック"
+        }];
+        sceneCount.textContent = "1";
+        renderSceneList();
+        renderScene(scenes[0]);
+      });
+  </script>
+</body>
+</html>
+

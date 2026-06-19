@@ -1,0 +1,9 @@
+{
+  "id": "sample",
+  "speaker": "ミナ",
+  "voice": "Leda",
+  "model": "gemini-3.1-flash-tts-preview",
+  "mimeType": "audio/l16; rate=24000; channels=1",
+  "out": "outputs\\gemini_tts_trial\\mina_voice_compare_Leda\\sample_ミナ_Leda.wav",
+  "text": "二時十七分、第十三レジ。返品処理を開始します。"
+}

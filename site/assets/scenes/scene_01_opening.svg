@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#26345b"/></linearGradient></defs>
+  <rect width="1080" height="1920" fill="url(#g)"/>
+  <rect x="90" y="520" width="900" height="520" rx="28" fill="#121a24" stroke="#53e5ff" stroke-width="6"/>
+  <rect x="130" y="600" width="820" height="210" fill="#dff8ff" opacity=".12"/>
+  <text x="540" y="210" text-anchor="middle" fill="#edf7ff" font-size="76" font-weight="800">深夜コンビニ全景</text>
+  <text x="540" y="340" text-anchor="middle" fill="#53e5ff" font-size="44" font-weight="700">scene_01_opening</text>
+  <text x="540" y="1220" text-anchor="middle" fill="#edf7ff" font-size="52">午前二時三分。</text>
+  <text x="540" y="1300" text-anchor="middle" fill="#98a7b8" font-size="38">深夜帯 静寂モード</text>
+</svg>

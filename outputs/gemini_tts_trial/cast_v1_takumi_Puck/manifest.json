@@ -1,9 +1,0 @@
-{
-  "id": "sample",
-  "speaker": "タクミ",
-  "voice": "Puck",
-  "model": "gemini-3.1-flash-tts-preview",
-  "mimeType": "audio/l16; rate=24000; channels=1",
-  "out": "outputs\\gemini_tts_trial\\cast_v1_takumi_Puck\\sample_タクミ_Puck.wav",
-  "text": "ミナさん。廃棄のおにぎりって、何分前から食べていいんですか。"
-}

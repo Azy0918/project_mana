@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <title>深夜二時の第十三レジ 紙芝居プレイヤー</title>
   <style>
     :root {
@@ -384,6 +384,35 @@
       font-weight: 700;
     }
 
+    .hero-play,
+    .episode-switch select,
+    .episode-switch-overlay select {
+      touch-action: manipulation;
+    }
+
+    .episode-switch-overlay {
+      position: absolute;
+      left: 50%;
+      top: 12px;
+      z-index: 6;
+      transform: translateX(-50%);
+      display: none;
+    }
+
+    .episode-switch-overlay select {
+      max-width: 62vw;
+      min-height: 34px;
+      padding: 5px 12px;
+      border: 1px solid rgba(83, 229, 255, 0.55);
+      border-radius: 999px;
+      background: rgba(5, 7, 11, 0.78);
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      backdrop-filter: blur(8px);
+      touch-action: manipulation;
+    }
+
     @media (max-width: 760px) {
       html,
       body {
@@ -423,6 +452,14 @@
         display: none;
       }
 
+      .episode-switch-overlay {
+        display: block;
+      }
+
+      .scene-badge {
+        display: none;
+      }
+
       h1 {
         font-size: 21px;
       }
@@ -448,6 +485,9 @@
         <img id="sceneImage" src="./assets/scenes/scene_03_register.jpg" alt="深夜二時の第十三レジ 第1話の縦型ビジュアル">
 
         <div class="scene-badge" id="sceneBadge">第1話『第十三レジ』</div>
+        <div class="episode-switch-overlay">
+          <select id="episodeSelectOverlay" aria-label="話数を選択（スマホ用）"></select>
+        </div>
 
         <div class="caption-dock">
           <div class="receipt" id="operationLog"></div>
@@ -507,6 +547,7 @@
     const operationLog = document.getElementById("operationLog");
     const progressFill = document.getElementById("progressFill");
     const episodeSelect = document.getElementById("episodeSelect");
+    const episodeSelectOverlay = document.getElementById("episodeSelectOverlay");
     const downloadLinks = document.getElementById("downloadLinks");
 
     let scenes = [];
@@ -700,6 +741,10 @@
     };
 
     const loadEpisode = episode => {
+      const episodeIndex = EPISODES.indexOf(episode);
+      [episodeSelect, episodeSelectOverlay].forEach(select => {
+        if (select && episodeIndex >= 0) select.value = String(episodeIndex);
+      });
       audio.pause();
       activeSceneId = "";
       scenes = [];
@@ -744,14 +789,16 @@
         });
     };
 
-    EPISODES.forEach((episode, index) => {
-      const option = document.createElement("option");
-      option.value = String(index);
-      option.textContent = episode.label;
-      episodeSelect.appendChild(option);
-    });
-    episodeSelect.addEventListener("change", () => {
-      loadEpisode(EPISODES[Number(episodeSelect.value)] || EPISODES[0]);
+    [episodeSelect, episodeSelectOverlay].filter(Boolean).forEach(select => {
+      EPISODES.forEach((episode, index) => {
+        const option = document.createElement("option");
+        option.value = String(index);
+        option.textContent = episode.label;
+        select.appendChild(option);
+      });
+      select.addEventListener("change", () => {
+        loadEpisode(EPISODES[Number(select.value)] || EPISODES[0]);
+      });
     });
 
     loadEpisode(EPISODES[0]);

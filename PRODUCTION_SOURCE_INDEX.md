@@ -99,6 +99,10 @@
 | 第1話音声生成スクリプト | `anime-github-project/tools/generate_ep01_full_voice.py` |
 | 第1話最新合成音声の公開先 | `13th-register-kamishibai/assets/ep01_full_voice_reading_hiragana_mina_mao.wav` |
 | 第1話最新合成音声の生成結果 | `outputs/ep01_voice_reading_hiragana_newcast_20260619/` |
+| 第2話読み・音声manifest | `13th-register-kamishibai/assets/manifest_reading_hiragana_ep02.json` |
+| 第2話音声生成スクリプト | `anime-github-project/tools/generate_ep02_full_voice.py`（manifest駆動・`synthesis_text`を合成。話者パラメータは `ep01_voice_cast_selected.csv` を `style_id` で参照） |
+| 第2話最新合成音声の公開先 | `13th-register-kamishibai/assets/ep02_full_voice_reading_hiragana.wav`（`site/assets/` にも同梱） |
+| 第2話最新合成音声の生成結果 | `outputs/ep02_voice_reading_hiragana/`（clips 63本＋連結wav＋timeline） |
 
 ## Git運用メモ
 

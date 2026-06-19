@@ -16,9 +16,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "国道沿いのコンビニは、冷蔵ケースの低い音だけでできているみたいに静かだった。",
-    "synthesis_text": "こくどうぞいのこんびには、れいぞうけーすのひくいおとだけでできているみたいにしずかだった。",
+    "synthesis_text": "こくどうぞいのこんびにワ、れいぞうけーすのひくいおとだけでできているみたいにしずかだった。",
     "start": 2.563,
-    "end": 8.282,
+    "end": 8.388,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v002_ナレーション.wav"
   },
   {
@@ -27,9 +27,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "新人夜勤バイトのタクミは、おにぎり棚の前で廃棄時間のシールを見比べていた。",
-    "synthesis_text": "しんじんやきんばいとのたくみは、おにぎりだなのまえではいきじかんのしーるをみくらべていた。",
-    "start": 9.082,
-    "end": 15.092,
+    "synthesis_text": "しんじんやきんばいとのたくみワ、おにぎりだなのまえで、はいきじかんのしーるをみくらべていた。",
+    "start": 9.188,
+    "end": 15.302,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v003_ナレーション.wav"
   },
   {
@@ -39,19 +39,19 @@
     "speaker": "にせ / ノーマル",
     "text": "ミナさん。廃棄のおにぎりって、何分前から食べていいんですか。",
     "synthesis_text": "みなさん。はいきのおにぎりって、なんぷんまえからたべていいんですか。",
-    "start": 15.592,
-    "end": 20.207,
+    "start": 15.802,
+    "end": 20.412,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v004_タクミ.wav"
   },
   {
     "id": "ep01_v005",
     "cut": "ep01_006",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "食べていいとは言ってない。",
-    "synthesis_text": "たべていいとはいってない。",
-    "start": 20.507,
-    "end": 22.251,
+    "synthesis_text": "たべていいとワいってない。",
+    "start": 20.712,
+    "end": 22.914,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v005_ミナ.wav"
   },
   {
@@ -61,19 +61,19 @@
     "speaker": "にせ / ノーマル",
     "text": "でも捨てるんですよね。",
     "synthesis_text": "でもすてるんですよね。",
-    "start": 22.601,
-    "end": 24.44,
+    "start": 23.264,
+    "end": 25.182,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v006_タクミ.wav"
   },
   {
     "id": "ep01_v007",
     "cut": "ep01_008",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "捨てるものと食べていいものの間には、店長という深い谷がある。",
-    "synthesis_text": "すてるものとたべていいもののあいだには、てんちょうというふかいたにがある。",
-    "start": 24.69,
-    "end": 29.232,
+    "synthesis_text": "すてるものとたべていいもののあいだにワ、てんちょうというふかいたにがある。",
+    "start": 25.432,
+    "end": 31.288,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v007_ミナ.wav"
   },
   {
@@ -83,19 +83,19 @@
     "speaker": "にせ / ノーマル",
     "text": "現実的に深いですね。",
     "synthesis_text": "げんじつてきにふかいですね。",
-    "start": 29.532,
-    "end": 31.613,
+    "start": 31.588,
+    "end": 33.605,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v008_タクミ.wav"
   },
   {
     "id": "ep01_v009",
     "cut": "ep01_008",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "落ちるとシフトが減る。",
     "synthesis_text": "おちるとしふとがへる。",
-    "start": 31.863,
-    "end": 33.607,
+    "start": 33.855,
+    "end": 35.817,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v009_ミナ.wav"
   },
   {
@@ -105,19 +105,19 @@
     "speaker": "にせ / ノーマル",
     "text": "シフト減るのが一番効くやつだ。",
     "synthesis_text": "しふとへるのがいちばんきくやつだ。",
-    "start": 33.907,
-    "end": 36.226,
+    "start": 36.117,
+    "end": 38.436,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v010_タクミ.wav"
   },
   {
     "id": "ep01_v011",
     "cut": "ep01_010",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "二時十五分、雑誌返品。二時十七分、第十三レジ。",
     "synthesis_text": "にじじゅうごふん、ざっしへんぴん。にじじゅうななふん、だいじゅうさんれじ。",
-    "start": 36.826,
-    "end": 41.136,
+    "start": 39.036,
+    "end": 45.069,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v011_ミナ.wav"
   },
   {
@@ -127,8 +127,8 @@
     "speaker": "にせ / ノーマル",
     "text": "はい。……はい？",
     "synthesis_text": "はい。はい？",
-    "start": 41.486,
-    "end": 42.813,
+    "start": 45.419,
+    "end": 46.819,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v012_タクミ.wav"
   },
   {
@@ -138,8 +138,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "タクミが聞き返した瞬間、雑誌棚とコピー機の間に、銀色の古いレジが現れた。",
     "synthesis_text": "たくみがききかえしたしゅんかん、ざっしだなとこぴーきのあいだに、ぎんいろのふるいれじがあらわれた。",
-    "start": 43.213,
-    "end": 49.353,
+    "start": 47.219,
+    "end": 53.359,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v014_ナレーション.wav"
   },
   {
@@ -149,8 +149,8 @@
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "第十三レジ。ただいま営業中。",
     "synthesis_text": "だいじゅうさんれじ。ただいまえいぎょうちゅう。",
-    "start": 49.853,
-    "end": 52.703,
+    "start": 53.859,
+    "end": 57.018,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v015_第十三レジ.wav"
   },
   {
@@ -160,19 +160,19 @@
     "speaker": "にせ / ノーマル",
     "text": "増えた……。",
     "synthesis_text": "ふえた。",
-    "start": 53.203,
-    "end": 54.205,
+    "start": 57.518,
+    "end": 58.52,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v016_タクミ.wav"
   },
   {
     "id": "ep01_v017",
     "cut": "ep01_017",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "増えるよ。",
     "synthesis_text": "ふえるよ。",
-    "start": 54.555,
-    "end": 55.672,
+    "start": 58.87,
+    "end": 60.276,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v017_ミナ.wav"
   },
   {
@@ -182,19 +182,19 @@
     "speaker": "にせ / ノーマル",
     "text": "コンビニって夜になるとレジが増えるんですか。",
     "synthesis_text": "こんびにってよるになるとれじがふえるんですか。",
-    "start": 55.972,
-    "end": 58.835,
+    "start": 60.576,
+    "end": 63.498,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v018_タクミ.wav"
   },
   {
     "id": "ep01_v019",
     "cut": "ep01_019",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "夜勤はだいたいそう。",
-    "synthesis_text": "やきんはだいたいそう。",
-    "start": 59.085,
-    "end": 60.794,
+    "synthesis_text": "やきんワだいたいそう。",
+    "start": 63.748,
+    "end": 65.731,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v019_ミナ.wav"
   },
   {
@@ -204,8 +204,8 @@
     "speaker": "にせ / ノーマル",
     "text": "絶対違う。",
     "synthesis_text": "ぜったいちがう。",
-    "start": 61.044,
-    "end": 62.378,
+    "start": 65.981,
+    "end": 67.393,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v020_タクミ.wav"
   },
   {
@@ -214,9 +214,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "入ってきたのは、くたびれたスーツ姿の男だった。",
-    "synthesis_text": "はいってきたのは、くたびれたすーつすがたのおとこだった。",
-    "start": 63.028,
-    "end": 67.078,
+    "synthesis_text": "はいってきたのワ、くたびれたすーつすがたのおとこだった。",
+    "start": 68.043,
+    "end": 72.102,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v022_ナレーション.wav"
   },
   {
@@ -225,9 +225,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "肩の小さな液晶には、残業時間二百七十六時間、と表示されている。",
-    "synthesis_text": "かたのちいさなえきしょうには、ざんぎょうじかんにひゃくななじゅうろくじかん、とひょうじされている。",
-    "start": 67.328,
-    "end": 73.313,
+    "synthesis_text": "かたのちいさなえきしょうにワ、ざんぎょうじかんにひゃくななじゅうろくじかん、とひょうじされている。",
+    "start": 72.352,
+    "end": 78.212,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v023_ナレーション.wav"
   },
   {
@@ -237,8 +237,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "首元の透明なパッチが、レジの電子音に合わせて一度だけ銀色に光った。",
     "synthesis_text": "くびもとのとうめいなぱっちが、れじのでんしおんにあわせていちどだけぎんいろにひかった。",
-    "start": 73.563,
-    "end": 79.203,
+    "start": 78.462,
+    "end": 84.102,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v024_ナレーション.wav"
   },
   {
@@ -248,19 +248,19 @@
     "speaker": "fumifumi / ノーマル",
     "text": "返品、お願いします。",
     "synthesis_text": "へんぴん、おねがいします。",
-    "start": 79.703,
-    "end": 81.764,
+    "start": 84.602,
+    "end": 86.663,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v025_未来の会社員.wav"
   },
   {
     "id": "ep01_v026",
     "cut": "ep01_023",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "レシートはお持ちですか。",
-    "synthesis_text": "れしーとはおもちですか。",
-    "start": 82.114,
-    "end": 83.893,
+    "synthesis_text": "れしーとワおもちですか。",
+    "start": 87.013,
+    "end": 89.352,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v026_ミナ.wav"
   },
   {
@@ -269,9 +269,9 @@
     "character": "未来の会社員",
     "speaker": "fumifumi / ノーマル",
     "text": "五十年後に発行されます。",
-    "synthesis_text": "ごじゅうねんごにはっこうされます。",
-    "start": 84.143,
-    "end": 86.292,
+    "synthesis_text": "ごじゅうねんごに、はっこうされます。",
+    "start": 89.602,
+    "end": 92.126,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v027_未来の会社員.wav"
   },
   {
@@ -281,19 +281,19 @@
     "speaker": "にせ / ノーマル",
     "text": "ミナさん。対応マニュアルあります？",
     "synthesis_text": "みなさん。たいおうまにゅあるあります？",
-    "start": 86.742,
-    "end": 89.559,
+    "start": 92.576,
+    "end": 95.367,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v028_タクミ.wav"
   },
   {
     "id": "ep01_v029",
     "cut": "ep01_026",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "まず、いらっしゃいませ。",
     "synthesis_text": "まず、いらっしゃいませ。",
-    "start": 89.809,
-    "end": 91.413,
+    "start": 95.617,
+    "end": 97.85,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v029_ミナ.wav"
   },
   {
@@ -303,8 +303,8 @@
     "speaker": "にせ / ノーマル",
     "text": "そこからなんですね。",
     "synthesis_text": "そこからなんですね。",
-    "start": 91.663,
-    "end": 93.375,
+    "start": 98.1,
+    "end": 99.829,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v030_タクミ.wav"
   },
   {
@@ -313,9 +313,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "男は袋からおにぎりを出した。",
-    "synthesis_text": "おとこはふくろからおにぎりをだした。",
-    "start": 93.875,
-    "end": 96.74,
+    "synthesis_text": "おとこワふくろからおにぎりをだした。",
+    "start": 100.329,
+    "end": 103.179,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v031_ナレーション.wav"
   },
   {
@@ -324,9 +324,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "パッケージには、完全栄養おにぎり・思い出の鮭。",
-    "synthesis_text": "ぱっけーじには、かんぜんえいようおにぎり、おもいでのしゃけ。",
-    "start": 96.94,
-    "end": 101.108,
+    "synthesis_text": "ぱっけーじにワ、かんぜんえいようおにぎり、おもいでのしゃけ。",
+    "start": 103.379,
+    "end": 107.54,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v032_ナレーション.wav"
   },
   {
@@ -336,8 +336,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "製造年月日、二〇七四年六月十二日。",
     "synthesis_text": "せいぞうねんがっぴ、にせんななじゅうよねんろくがつじゅうににち。",
-    "start": 101.358,
-    "end": 105.742,
+    "start": 107.79,
+    "end": 112.175,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v033_ナレーション.wav"
   },
   {
@@ -346,9 +346,9 @@
     "character": "第十三レジ",
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "警告。この商品は未来の食糧危機解決候補です。",
-    "synthesis_text": "けいこく。このしょうひんはみらいのしょくりょうききかいけつこうほです。",
-    "start": 106.242,
-    "end": 110.55,
+    "synthesis_text": "けいこく。このしょうひんワみらいのしょくりょうききかいけつこうほです。",
+    "start": 112.675,
+    "end": 116.943,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v034_第十三レジ.wav"
   },
   {
@@ -358,8 +358,8 @@
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "誤返品により人類生存率が三・二パーセント低下します。",
     "synthesis_text": "ごへんぴんによりじんるいせいぞんりつがさんてんにぱーせんとていかします。",
-    "start": 110.75,
-    "end": 115.201,
+    "start": 117.143,
+    "end": 121.635,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v035_第十三レジ.wav"
   },
   {
@@ -369,8 +369,8 @@
     "speaker": "にせ / ノーマル",
     "text": "ミナさん、僕の時給で扱っていい数字じゃないです。",
     "synthesis_text": "みなさん、ぼくのじきゅうであつかっていいすうじじゃないです。",
-    "start": 115.651,
-    "end": 119.199,
+    "start": 122.085,
+    "end": 125.61,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v036_タクミ.wav"
   },
   {
@@ -379,9 +379,9 @@
     "character": "未来の会社員",
     "speaker": "fumifumi / ノーマル",
     "text": "うちの課が試験販売前の商品を過去へ誤配送しまして。",
-    "synthesis_text": "うちのかがしけんはんばいまえのしょうひんをかこへごはいそうしまして。",
-    "start": 119.649,
-    "end": 123.82,
+    "synthesis_text": "うちのかがしけんはんばいまえのしょうひんをかこエごはいそうしまして。",
+    "start": 126.06,
+    "end": 129.966,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v037_未来の会社員.wav"
   },
   {
@@ -391,8 +391,8 @@
     "speaker": "fumifumi / ノーマル",
     "text": "返品しないと始末書が増えます。",
     "synthesis_text": "へんぴんしないとしまつしょがふえます。",
-    "start": 124.07,
-    "end": 126.524,
+    "start": 130.216,
+    "end": 132.67,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v038_未来の会社員.wav"
   },
   {
@@ -402,8 +402,8 @@
     "speaker": "にせ / ノーマル",
     "text": "人類より始末書を気にしてる。",
     "synthesis_text": "じんるいよりしまつしょをきにしてる。",
-    "start": 126.824,
-    "end": 129.068,
+    "start": 132.97,
+    "end": 135.307,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v039_タクミ.wav"
   },
   {
@@ -413,8 +413,8 @@
     "speaker": "fumifumi / ノーマル",
     "text": "会社員なので。",
     "synthesis_text": "かいしゃいんなので。",
-    "start": 129.318,
-    "end": 130.589,
+    "start": 135.557,
+    "end": 136.827,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v040_未来の会社員.wav"
   },
   {
@@ -424,8 +424,8 @@
     "speaker": "にせ / ノーマル",
     "text": "説得力が嫌だ。",
     "synthesis_text": "せっとくりょくがいやだ。",
-    "start": 130.839,
-    "end": 132.552,
+    "start": 137.077,
+    "end": 138.81,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v041_タクミ.wav"
   },
   {
@@ -434,9 +434,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "第十三レジの画面には、通常返品、時空返品、存在取消、温める、店長呼出、と並んでいた。",
-    "synthesis_text": "だいじゅうさんれじのがめんには、つうじょうへんぴん、じくうへんぴん、そんざいとりけし、あたためる、てんちょうよびだし、とならんでいた。",
-    "start": 133.102,
-    "end": 141.412,
+    "synthesis_text": "だいじゅうさんれじのがめんにワ、つうじょうへんぴん、じくうへんぴん、そんざいとりけし、あたためる、てんちょうよびだし、とならんでいた。",
+    "start": 139.36,
+    "end": 147.789,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v042_ナレーション.wav"
   },
   {
@@ -446,19 +446,19 @@
     "speaker": "にせ / ノーマル",
     "text": "店長呼出があります。",
     "synthesis_text": "てんちょうよびだしがあります。",
-    "start": 141.762,
-    "end": 143.476,
+    "start": 148.139,
+    "end": 149.881,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v043_タクミ.wav"
   },
   {
     "id": "ep01_v044",
     "cut": "ep01_038",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "押さない。",
     "synthesis_text": "おさない。",
-    "start": 143.676,
-    "end": 144.805,
+    "start": 150.081,
+    "end": 151.32,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v044_ミナ.wav"
   },
   {
@@ -468,19 +468,19 @@
     "speaker": "にせ / ノーマル",
     "text": "なぜ。",
     "synthesis_text": "なぜ。",
-    "start": 145.005,
-    "end": 146.042,
+    "start": 151.52,
+    "end": 152.595,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v045_タクミ.wav"
   },
   {
     "id": "ep01_v046",
     "cut": "ep01_038",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "二時以降は出ない。",
-    "synthesis_text": "にじいこうはでない。",
-    "start": 146.192,
-    "end": 147.657,
+    "synthesis_text": "にじいこうワでない。",
+    "start": 152.745,
+    "end": 154.542,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v046_ミナ.wav"
   },
   {
@@ -490,8 +490,8 @@
     "speaker": "にせ / ノーマル",
     "text": "店長呼出の存在意義。",
     "synthesis_text": "てんちょうよびだしのそんざいいぎ。",
-    "start": 147.857,
-    "end": 149.926,
+    "start": 154.742,
+    "end": 156.836,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v047_タクミ.wav"
   },
   {
@@ -501,8 +501,8 @@
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "残り時間、三分。",
     "synthesis_text": "のこりじかん、さんぷん。",
-    "start": 150.376,
-    "end": 152.338,
+    "start": 157.286,
+    "end": 159.271,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v048_第十三レジ.wav"
   },
   {
@@ -511,9 +511,9 @@
     "character": "第十三レジ",
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "二時二十分を過ぎると、この商品は現代店舗の新商品として定着します。",
-    "synthesis_text": "にじにじゅっぷんをすぎると、このしょうひんはげんだいてんぽのしんしょうひんとしてていちゃくします。",
-    "start": 152.538,
-    "end": 158.966,
+    "synthesis_text": "にじにじゅっぷんをすぎると、このしょうひんワげんだいてんぽのしんしょうひんとしてていちゃくします。",
+    "start": 159.471,
+    "end": 165.863,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v049_第十三レジ.wav"
   },
   {
@@ -523,8 +523,8 @@
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "仕入れ原価、一個七万二千円。",
     "synthesis_text": "しいれげんか、いっこななまんにせんえん。",
-    "start": 159.166,
-    "end": 161.895,
+    "start": 166.063,
+    "end": 168.823,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v050_第十三レジ.wav"
   },
   {
@@ -534,19 +534,19 @@
     "speaker": "にせ / ノーマル",
     "text": "返品しましょう。",
     "synthesis_text": "へんぴんしましょう。",
-    "start": 162.245,
-    "end": 163.61,
+    "start": 169.173,
+    "end": 170.555,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v051_タクミ.wav"
   },
   {
     "id": "ep01_v052",
     "cut": "ep01_042",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "こちらの商品、温めますか。",
     "synthesis_text": "こちらのしょうひん、あたためますか。",
-    "start": 163.96,
-    "end": 166.354,
+    "start": 170.905,
+    "end": 174.282,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v052_ミナ.wav"
   },
   {
@@ -556,8 +556,8 @@
     "speaker": "にせ / ノーマル",
     "text": "この状況で！？",
     "synthesis_text": "このじょうきょうで？",
-    "start": 166.604,
-    "end": 167.995,
+    "start": 174.532,
+    "end": 175.945,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v053_タクミ.wav"
   },
   {
@@ -567,8 +567,8 @@
     "speaker": "fumifumi / ノーマル",
     "text": "お願いします。",
     "synthesis_text": "おねがいします。",
-    "start": 168.245,
-    "end": 169.376,
+    "start": 176.195,
+    "end": 177.326,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v054_未来の会社員.wav"
   },
   {
@@ -578,8 +578,8 @@
     "speaker": "にせ / ノーマル",
     "text": "お願いしますじゃないですよ。",
     "synthesis_text": "おねがいしますじゃないですよ。",
-    "start": 169.626,
-    "end": 171.556,
+    "start": 177.576,
+    "end": 179.524,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v055_タクミ.wav"
   },
   {
@@ -589,8 +589,8 @@
     "speaker": "にせ / ノーマル",
     "text": "世界の分岐を電子レンジに入れないでください。",
     "synthesis_text": "せかいのぶんきをでんしれんじにいれないでください。",
-    "start": 171.706,
-    "end": 174.558,
+    "start": 179.674,
+    "end": 182.627,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v056_タクミ.wav"
   },
   {
@@ -600,8 +600,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "おにぎりが淡く光り、未来の食堂が映った。",
     "synthesis_text": "おにぎりがあわくひかり、みらいのしょくどうがうつった。",
-    "start": 174.958,
-    "end": 178.817,
+    "start": 183.027,
+    "end": 186.887,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v058_ナレーション.wav"
   },
   {
@@ -611,8 +611,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "空っぽの棚。長い列。",
     "synthesis_text": "からっぽのたな。ながいれつ。",
-    "start": 179.167,
-    "end": 181.787,
+    "start": 187.237,
+    "end": 189.856,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v059_ナレーション.wav"
   },
   {
@@ -622,8 +622,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "小さな子どもが、そのおにぎりを両手で持って笑っている。",
     "synthesis_text": "ちいさなこどもが、そのおにぎりをりょうてでもってわらっている。",
-    "start": 182.087,
-    "end": 186.412,
+    "start": 190.156,
+    "end": 194.481,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v060_ナレーション.wav"
   },
   {
@@ -632,9 +632,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "未来の会社員は息を呑んだ。",
-    "synthesis_text": "みらいのかいしゃいんはいきをのんだ。",
-    "start": 187.012,
-    "end": 189.782,
+    "synthesis_text": "みらいのかいしゃいんワいきをのんだ。",
+    "start": 195.081,
+    "end": 197.807,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v061_ナレーション.wav"
   },
   {
@@ -644,8 +644,8 @@
     "speaker": "fumifumi / ノーマル",
     "text": "開発記録です。これが、ちゃんと届けば……。",
     "synthesis_text": "かいはつきろくです。これが、ちゃんととどけば。",
-    "start": 189.982,
-    "end": 193.446,
+    "start": 198.007,
+    "end": 201.47,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v062_未来の会社員.wav"
   },
   {
@@ -655,8 +655,8 @@
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "加熱により時空状態が安定しました。",
     "synthesis_text": "かねつによりじくうじょうたいがあんていしました。",
-    "start": 194.046,
-    "end": 197.257,
+    "start": 202.07,
+    "end": 205.244,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v063_第十三レジ.wav"
   },
   {
@@ -666,19 +666,19 @@
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "履歴メモを入力してください。",
     "synthesis_text": "りれきめもをにゅうりょくしてください。",
-    "start": 197.457,
-    "end": 199.849,
+    "start": 205.444,
+    "end": 207.765,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v064_第十三レジ.wav"
   },
   {
     "id": "ep01_v065",
     "cut": "ep01_053",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "このおにぎりは、ちゃんと作った方がいいです。",
-    "synthesis_text": "このおにぎりは、ちゃんとつくったほうがいいです。",
-    "start": 200.199,
-    "end": 203.313,
+    "synthesis_text": "このおにぎりワ、ちゃんとつくったほうがいいです。",
+    "start": 208.115,
+    "end": 211.897,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v065_ミナ.wav"
   },
   {
@@ -688,8 +688,8 @@
     "speaker": "にせ / ノーマル",
     "text": "ざっくり！",
     "synthesis_text": "ざっくり！",
-    "start": 203.663,
-    "end": 204.831,
+    "start": 212.247,
+    "end": 213.448,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v066_タクミ.wav"
   },
   {
@@ -699,8 +699,8 @@
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "記録しました。",
     "synthesis_text": "きろくしました。",
-    "start": 205.031,
-    "end": 206.658,
+    "start": 213.648,
+    "end": 214.961,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v067_第十三レジ.wav"
   },
   {
@@ -710,8 +710,8 @@
     "speaker": "にせ / ノーマル",
     "text": "通るんだ！",
     "synthesis_text": "とおるんだ！",
-    "start": 206.858,
-    "end": 207.958,
+    "start": 215.161,
+    "end": 216.116,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v068_タクミ.wav"
   },
   {
@@ -720,9 +720,9 @@
     "character": "第十三レジ",
     "speaker": "ろてじん（匿名インタビュー風） / ノーマル",
     "text": "未来とは、だいたい雑なメモの積み重ねです。",
-    "synthesis_text": "みらいとは、だいたいざつなめものつみかさねです。",
-    "start": 208.208,
-    "end": 212.267,
+    "synthesis_text": "みらいとワ、だいたいざつなめものつみかさねです。",
+    "start": 216.366,
+    "end": 220.304,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v069_第十三レジ.wav"
   },
   {
@@ -731,9 +731,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "時空返品が完了し、返金額は百六十八円。",
-    "synthesis_text": "じくうへんぴんがかんりょうし、へんきんがくはひゃくろくじゅうはちえん。",
-    "start": 212.867,
-    "end": 217.552,
+    "synthesis_text": "じくうへんぴんがかんりょうし、へんきんがくワひゃくろくじゅうはちえん。",
+    "start": 220.904,
+    "end": 225.633,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v070_ナレーション.wav"
   },
   {
@@ -742,9 +742,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "未来の会社員は現金で受け取り、さらにホットコーヒーを買った。",
-    "synthesis_text": "みらいのかいしゃいんはげんきんでうけとり、さらにほっとこーひーをかった。",
-    "start": 217.802,
-    "end": 222.662,
+    "synthesis_text": "みらいのかいしゃいんワげんきんでうけとり、さらにほっとこーひーをかった。",
+    "start": 225.883,
+    "end": 230.663,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v071_ナレーション.wav"
   },
   {
@@ -754,8 +754,8 @@
     "speaker": "fumifumi / ノーマル",
     "text": "未来のコーヒー、高いので。",
     "synthesis_text": "みらいのこーひー、たかいので。",
-    "start": 222.962,
-    "end": 225.322,
+    "start": 230.963,
+    "end": 233.323,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v072_未来の会社員.wav"
   },
   {
@@ -765,8 +765,8 @@
     "speaker": "にせ / ノーマル",
     "text": "未来、行きたくないな。",
     "synthesis_text": "みらい、いきたくないな。",
-    "start": 225.572,
-    "end": 227.759,
+    "start": 233.573,
+    "end": 235.707,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v073_タクミ.wav"
   },
   {
@@ -775,9 +775,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "午前二時二十分。第十三レジは消えた。",
-    "synthesis_text": "ごぜんにじにじゅっぷん。だいじゅうさんれじはきえた。",
-    "start": 228.359,
-    "end": 232.218,
+    "synthesis_text": "ごぜんにじにじゅっぷん。だいじゅうさんれじワきえた。",
+    "start": 236.307,
+    "end": 239.865,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v074_ナレーション.wav"
   },
   {
@@ -786,9 +786,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "残ったレシートには、こう印字されていた。",
-    "synthesis_text": "のこったれしーとには、こういんじされていた。",
-    "start": 232.618,
-    "end": 236.238,
+    "synthesis_text": "のこったれしーとにワ、こういんじされていた。",
+    "start": 240.265,
+    "end": 243.815,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v075_ナレーション.wav"
   },
   {
@@ -798,8 +798,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "時空返品、一件。歴史メモ、一件。完全栄養おにぎり、開発継続。",
     "synthesis_text": "じくうへんぴん、いっけん。れきしめも、いっけん。かんぜんえいようおにぎり、かいはつけいぞく。",
-    "start": 236.538,
-    "end": 243.051,
+    "start": 244.115,
+    "end": 250.628,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v076_ナレーション.wav"
   },
   {
@@ -809,8 +809,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "人類生存率、微増。ホットコーヒー、レギュラー、一件。",
     "synthesis_text": "じんるいせいぞんりつ、びぞう。ほっとこーひー、れぎゅらー、いっけん。",
-    "start": 243.251,
-    "end": 248.021,
+    "start": 250.828,
+    "end": 255.598,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v077_ナレーション.wav"
   },
   {
@@ -820,8 +820,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "スタッフ割引、対象外。",
     "synthesis_text": "すたっふわりびき、たいしょうがい。",
-    "start": 248.221,
-    "end": 250.935,
+    "start": 255.798,
+    "end": 258.512,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v078_ナレーション.wav"
   },
   {
@@ -831,8 +831,8 @@
     "speaker": "にせ / ノーマル",
     "text": "最後が一番現実的だ。",
     "synthesis_text": "さいごがいちばんげんじつてきだ。",
-    "start": 251.285,
-    "end": 253.384,
+    "start": 258.862,
+    "end": 260.972,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v079_タクミ.wav"
   },
   {
@@ -842,8 +842,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "近所の常連らしい男がコピー機へ向かった。",
     "synthesis_text": "きんじょのじょうれんらしいおとこがこぴーきへむかった。",
-    "start": 254.034,
-    "end": 257.569,
+    "start": 261.622,
+    "end": 265.157,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v081_ナレーション.wav"
   },
   {
@@ -853,8 +853,8 @@
     "speaker": "猩々博士 (雑談ボイス) / ノーマル",
     "text": "コピー、白黒でいいよ。色がつくと記憶が増えるから。",
     "synthesis_text": "こぴー、しろくろでいいよ。いろがつくときおくがふえるから。",
-    "start": 257.819,
-    "end": 261.521,
+    "start": 265.407,
+    "end": 269.108,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v083_座木山辰哉.wav"
   },
   {
@@ -864,19 +864,19 @@
     "speaker": "にせ / ノーマル",
     "text": "この店、普通のお客さんも変なんですか。",
     "synthesis_text": "このみせ、ふつうのおきゃくさんもへんなんですか。",
-    "start": 262.021,
-    "end": 265.22,
+    "start": 269.608,
+    "end": 272.677,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v084_タクミ.wav"
   },
   {
     "id": "ep01_v085",
     "cut": "ep01_070",
     "character": "ミナ",
-    "speaker": "ほのか(~現実20代女子AIボイチェン~リアボVC公式モデル) / ノーマル",
+    "speaker": "中2 / ノーマル",
     "text": "夜勤だから。",
     "synthesis_text": "やきんだから。",
-    "start": 265.47,
-    "end": 266.819,
+    "start": 272.927,
+    "end": 274.507,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v085_ミナ.wav"
   },
   {
@@ -885,9 +885,9 @@
     "character": "ナレーション",
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "世界が少しだけ救われても、夜勤は終わらない。",
-    "synthesis_text": "せかいがすこしだけすくわれても、やきんはおわらない。",
-    "start": 267.519,
-    "end": 271.374,
+    "synthesis_text": "せかいがすこしだけすくわれても、やきんワおわらない。",
+    "start": 275.207,
+    "end": 279.117,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v086_ナレーション.wav"
   },
   {
@@ -897,8 +897,8 @@
     "speaker": "澤原 玄二郎 / ノーマル",
     "text": "床清掃も、雑誌返品も、廃棄登録も、まだ残っている。",
     "synthesis_text": "ゆかせいそうも、ざっしへんぴんも、はいきとうろくも、まだのこっている。",
-    "start": 271.724,
-    "end": 276.681,
+    "start": 279.467,
+    "end": 284.423,
     "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v087_ナレーション.wav"
   }
 ]

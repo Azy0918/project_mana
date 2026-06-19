@@ -99,6 +99,12 @@ def main() -> int:
         default=[],
         help="Regenerate this character even when --reuse-existing is set. Can be repeated.",
     )
+    parser.add_argument(
+        "--force-id",
+        action="append",
+        default=[],
+        help="Regenerate this manifest line id even when --reuse-existing is set. Can be repeated.",
+    )
     args = parser.parse_args()
 
     out_dir: Path = args.out
@@ -131,7 +137,7 @@ def main() -> int:
         speaker_id = int(entry["style_id"])
         text = entry["synthesis_text"]  # reading-hiragana is what we voice
         pause_ms = int(entry.get("pause_after_ms") or 0)
-        force = character in set(args.force_character)
+        force = character in set(args.force_character) or line_id in set(args.force_id)
         # Honor the clip path declared in the manifest (repo-root relative, backslashes on Windows).
         clip_rel = str(entry.get("clip") or "").replace("\\", "/")
         clip_path = (REPO_ROOT / clip_rel) if clip_rel else (clips_dir / f"{line_id}_{character}.wav")

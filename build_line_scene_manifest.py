@@ -41,11 +41,11 @@ def wav_duration(path: Path) -> float:
         return wav.getnframes() / wav.getframerate()
 
 
-def log_for(row: dict, index: int) -> list[str]:
+def log_for(row: dict, index: int, total: int) -> list[str]:
     character = row.get("character") or row.get("speaker_name") or ""
-    base = [f"発話ログ　{index:02d}/83", f"担当　{character}"]
+    base = [f"発話ログ　{index:02d}/{total:02d}", f"担当　{character}"]
     if character == "ミナ":
-        return base + ["声　まお / ふつー"]
+        return base + ["声　中2 / ノーマル"]
     if character == "第十三レジ":
         return base + ["第十三レジ　応答中"]
     if "未来" in character:
@@ -57,6 +57,7 @@ def log_for(row: dict, index: int) -> list[str]:
 
 def main() -> None:
     rows = json.loads(SOURCE_MANIFEST.read_text(encoding="utf-8"))
+    total = sum(1 for row in rows if row.get("clip"))
     visual_cuts = load_visual_cuts()
     scenes = []
     cursor = 0.0
@@ -99,9 +100,9 @@ def main() -> None:
                 "speaker": character,
                 "dialogue": row.get("text") or "",
                 "reading": row.get("synthesis_text") or "",
-                "log": log_for(row, voiced_index),
+                "log": log_for(row, voiced_index, total),
                 "visualLabel": visual_label,
-                "progressLabel": f"{voiced_index:02d}/83　{character}",
+                "progressLabel": f"{voiced_index:02d}/{total:02d}　{character}",
             }
         )
         cursor = end + pause

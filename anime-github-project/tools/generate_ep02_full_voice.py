@@ -92,6 +92,7 @@ def main() -> int:
     parser.add_argument("--out", type=Path, default=OUT_DIR)
     parser.add_argument("--full-name", default=FULL_NAME)
     parser.add_argument("--delay", type=float, default=0.3)
+    parser.add_argument("--reuse-existing", action="store_true", help="Reuse existing non-empty clip WAVs.")
     args = parser.parse_args()
 
     out_dir: Path = args.out
@@ -129,12 +130,15 @@ def main() -> int:
         clip_path = (REPO_ROOT / clip_rel) if clip_rel else (clips_dir / f"{line_id}_{character}.wav")
         clip_path.parent.mkdir(parents=True, exist_ok=True)
         try:
-            query = audio_query(text, speaker_id)
-            for key, value in params_by_style.get(speaker_id, {}).items():
-                query[key] = value
-            query["outputSamplingRate"] = RATE
-            query["outputStereo"] = False
-            clip_path.write_bytes(synthesize(query, speaker_id))
+            if args.reuse_existing and clip_path.exists() and clip_path.stat().st_size > 0:
+                print(f"reuse {clip_path.name}")
+            else:
+                query = audio_query(text, speaker_id)
+                for key, value in params_by_style.get(speaker_id, {}).items():
+                    query[key] = value
+                query["outputSamplingRate"] = RATE
+                query["outputStereo"] = False
+                clip_path.write_bytes(synthesize(query, speaker_id))
             with wave.open(str(clip_path), "rb") as wav_in:
                 frames = wav_in.getnframes()
                 framerate = wav_in.getframerate()

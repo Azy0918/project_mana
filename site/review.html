@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>深夜二時の第十三レジ 第2話 レビュー＆調整</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #05070b; --panel: #101720; --line: #26384a;
+      --text: #edf7ff; --muted: #98a7b8; --cyan: #53e5ff; --violet: #b58cff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; color: var(--text);
+      background: radial-gradient(circle at 20% 0%, rgba(83,229,255,.10), transparent 28rem), var(--bg);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    header { position: sticky; top: 0; z-index: 10; padding: 12px 14px;
+      background: rgba(5,7,11,.92); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
+    h1 { margin: 0 0 8px; font-size: 18px; }
+    .tabs { display: flex; gap: 8px; }
+    .tabs button { flex: 1; min-height: 40px; padding: 8px; border: 1px solid var(--line);
+      border-radius: 8px; background: rgba(16,23,32,.9); color: var(--muted); font-weight: 800; font-size: 14px; cursor: pointer; }
+    .tabs button.active { color: var(--cyan); border-color: rgba(83,229,255,.5); background: rgba(83,229,255,.10); }
+    main { width: min(100%, 1000px); margin: 0 auto; padding: 14px; }
+    .hint { margin: 0 0 12px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .status { color: var(--violet); font-size: 12px; }
+
+    .line { border: 1px solid var(--line); border-radius: 10px; background: rgba(16,23,32,.7); margin-bottom: 12px; overflow: hidden; }
+    .line.req-on { border-color: rgba(181,140,255,.6); }
+    .line .meta { padding: 7px 11px; font-size: 12px; font-weight: 800; color: var(--cyan);
+      background: rgba(83,229,255,.07); border-bottom: 1px solid var(--line); }
+    .line .body { display: grid; grid-template-columns: 96px 1fr; gap: 11px; padding: 11px; }
+    .thumb { width: 96px; aspect-ratio: 9/16; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); background: #02050a; }
+    .texts { min-width: 0; }
+    .speaker { display: inline-block; padding: 2px 8px; border-radius: 999px; background: rgba(83,229,255,.15);
+      color: var(--cyan); font-size: 12px; font-weight: 800; margin-bottom: 5px; }
+    .dialogue { font-size: 15px; font-weight: 700; line-height: 1.5; }
+    .reading { margin-top: 5px; color: #c9d8e8; font-size: 12px; line-height: 1.5; }
+    .imgname { margin-top: 5px; color: var(--muted); font-size: 11px; word-break: break-all; }
+    .req { width: 100%; margin: 0; border: 0; border-top: 1px solid var(--line); padding: 9px 11px;
+      background: rgba(5,7,11,.5); color: var(--text); font: inherit; font-size: 13px; resize: vertical; min-height: 38px; }
+    .req::placeholder { color: #5d6f83; }
+
+    .tline { border: 1px solid var(--line); border-radius: 10px; background: rgba(16,23,32,.7); margin-bottom: 8px; }
+    .tline.changed { border-color: rgba(83,229,255,.55); }
+    .theader { display: flex; align-items: center; gap: 9px; padding: 9px 11px; cursor: pointer; }
+    .theader .idx { color: var(--cyan); font-weight: 900; font-size: 12px; white-space: nowrap; }
+    .theader .sp { padding: 1px 7px; border-radius: 999px; background: rgba(83,229,255,.14); color: var(--cyan); font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .theader .dl { flex: 1; min-width: 0; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .theader .mark { color: var(--violet); font-size: 11px; font-weight: 800; }
+    .sliders { padding: 4px 11px 12px; border-top: 1px solid var(--line); }
+    .srow { display: grid; grid-template-columns: 120px 1fr 56px; gap: 9px; align-items: center; padding: 5px 0; }
+    .srow label { font-size: 12px; color: var(--muted); }
+    .srow input[type=range] { width: 100%; accent-color: var(--cyan); }
+    .srow .val { font-size: 12px; font-weight: 800; text-align: right; color: var(--text); }
+    .srow .val.diff { color: var(--cyan); }
+    .trow-actions { display: flex; gap: 8px; margin-top: 8px; }
+    .trow-actions button { min-height: 34px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 8px;
+      background: rgba(5,7,11,.6); color: var(--text); font-weight: 800; font-size: 12px; cursor: pointer; }
+
+    .bar { position: sticky; bottom: 0; display: flex; gap: 8px; padding: 12px 0; background: linear-gradient(180deg, transparent, var(--bg) 40%); }
+    .bar button { flex: 1; min-height: 44px; border: 1px solid rgba(83,229,255,.5); border-radius: 8px;
+      background: rgba(83,229,255,.12); color: var(--cyan); font-weight: 900; font-size: 14px; cursor: pointer; }
+    dialog { width: min(96vw, 760px); border: 1px solid rgba(83,229,255,.5); border-radius: 10px; background: var(--panel); color: var(--text); }
+    dialog::backdrop { background: rgba(0,0,0,.6); }
+    dialog h2 { margin: 0 0 8px; font-size: 15px; color: var(--cyan); }
+    dialog textarea { width: 100%; min-height: 46vh; border: 1px solid var(--line); border-radius: 8px;
+      background: #02050a; color: var(--text); font: 12px/1.6 ui-monospace, monospace; padding: 10px; resize: vertical; }
+    .dlg-actions { display: flex; gap: 8px; margin-top: 10px; }
+    .dlg-actions button { min-height: 40px; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line);
+      background: rgba(5,7,11,.6); color: var(--text); font-weight: 800; cursor: pointer; }
+    .dlg-actions .primary { border-color: rgba(83,229,255,.5); background: rgba(83,229,255,.14); color: var(--cyan); }
+    .hidden { display: none !important; }
+    @media (max-width: 560px) {
+      .srow { grid-template-columns: 92px 1fr 48px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>深夜二時の第十三レジ 第2話 ｜ レビュー＆調整</h1>
+    <div class="tabs">
+      <button id="tabReviewBtn" class="active" type="button">① 確認・変更依頼</button>
+      <button id="tabToneBtn" type="button">② トーン調整</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="tabReview">
+      <p class="hint">各セリフの内容・よみ・画像・タイミングを確認し、直したい行に「変更依頼」を書いてください。最後に下のボタンで依頼プロンプトを生成→コピーして私（Claude）に渡せます。<span id="reviewStatus" class="status"></span></p>
+      <div id="reviewList"></div>
+      <div class="bar"><button id="genReview" type="button">変更依頼プロンプトを生成</button></div>
+    </section>
+
+    <section id="tabTone" class="hidden">
+      <p class="hint">行を開いてスライダーでトーン/イントネーションを調整。「試聴」は<strong>ローカルでAivisSpeech起動中（localhost）</strong>のときのみ鳴ります（公開URLからはCORSで不可）。調整した行だけが依頼プロンプトに入ります。<span id="toneStatus" class="status"></span></p>
+      <div id="toneList"></div>
+      <div class="bar"><button id="genTone" type="button">トーン調整プロンプトを生成</button></div>
+    </section>
+  </main>
+
+  <dialog id="out">
+    <h2 id="outTitle">プロンプト</h2>
+    <textarea id="outText" readonly></textarea>
+    <div class="dlg-actions">
+      <button class="primary" id="copyBtn" type="button">コピー</button>
+      <button id="closeBtn" type="button">閉じる</button>
+    </div>
+  </dialog>
+
+  <script>
+    const ENGINE = "http://127.0.0.1:10101";
+    const SCENE_URL = "./scene_manifest_ep02.json";
+    const VOICE_URL = "./assets/manifest_reading_hiragana_ep02.json";
+
+    // 既定パラメータ（ep01_voice_cast_selected.csv 由来。style_id→値）。未登録話者はエンジン既定。
+    const PARAM_DEFAULTS = {
+      2029042368: { speedScale:0.92, intonationScale:0.85, tempoDynamicsScale:0.82, pitchScale:-0.02, volumeScale:1.0, prePhonemeLength:0.12, postPhonemeLength:0.25 }, // 澤原 玄二郎 / ナレーション
+      1310138976: { speedScale:0.93, intonationScale:0.8,  tempoDynamicsScale:0.8,  pitchScale:-0.03, volumeScale:1.0, prePhonemeLength:0.1,  postPhonemeLength:0.25 }, // 阿井田 茂 / 汗田竜司
+      1937616896: { speedScale:1.1,  intonationScale:1.05, tempoDynamicsScale:1.12, pitchScale:0.015, volumeScale:1.0, prePhonemeLength:0.06, postPhonemeLength:0.18 }, // にせ / タクミ
+      604166016:  { speedScale:0.96, intonationScale:0.75, tempoDynamicsScale:0.8,  pitchScale:-0.02, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.2  }, // 中2 / ミナ
+      1805828384: { speedScale:0.88, intonationScale:0.45, tempoDynamicsScale:0.5,  pitchScale:-0.04, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.25 }, // ろてじん / 第十三レジ
+    };
+    const ENGINE_DEFAULT = { speedScale:1.0, intonationScale:1.0, tempoDynamicsScale:1.0, pitchScale:0.0, volumeScale:1.0, prePhonemeLength:0.1, postPhonemeLength:0.1 };
+    const PARAMS = [
+      { key:"speedScale",         label:"話速 speed",        min:0.5,  max:2.0,  step:0.01 },
+      { key:"pitchScale",         label:"音高 pitch",        min:-0.15,max:0.15, step:0.01 },
+      { key:"intonationScale",    label:"抑揚 intonation",   min:0.0,  max:2.0,  step:0.01 },
+      { key:"tempoDynamicsScale", label:"緩急 tempoDyn",     min:0.0,  max:2.0,  step:0.01 },
+      { key:"volumeScale",        label:"音量 volume",       min:0.0,  max:2.0,  step:0.01 },
+      { key:"prePhonemeLength",   label:"前ポーズ pre",      min:0.0,  max:1.5,  step:0.01 },
+      { key:"postPhonemeLength",  label:"後ポーズ post",     min:0.0,  max:1.5,  step:0.01 },
+    ];
+
+    const $ = s => document.querySelector(s);
+    const mmss = s => { s = Number(s) || 0; return Math.floor(s/60) + ":" + String(Math.floor(s%60)).padStart(2,"0"); };
+    const base = p => String(p || "").split("/").pop();
+    const norm = p => !p ? "" : (/^(\.\/|\/|https?:)/.test(p) ? p : "./" + p);
+    const defFor = sid => PARAM_DEFAULTS[sid] || ENGINE_DEFAULT;
+    const r2 = n => Math.round(Number(n) * 100) / 100;
+
+    let LINES = [];          // merged, in play order
+    const tone = {};         // id -> {param: value}
+
+    async function load() {
+      try {
+        const [scenes, voice] = await Promise.all([
+          fetch(SCENE_URL).then(r => { if(!r.ok) throw new Error(SCENE_URL); return r.json(); }),
+          fetch(VOICE_URL).then(r => { if(!r.ok) throw new Error(VOICE_URL); return r.json(); }),
+        ]);
+        const sceneById = {}; scenes.forEach(s => sceneById[s.id] = s);
+        LINES = voice.map((v, i) => {
+          const sc = sceneById[v.id] || {};
+          return {
+            idx: i + 1, id: v.id, cut: v.cut || sc.cut || "",
+            visualCutId: sc.visualCutId || "", visualCutTitle: sc.visualCutTitle || "",
+            start: sc.start ?? 0, end: sc.end ?? 0,
+            image: sc.image || "", speaker: v.character || sc.speaker || "",
+            speakerName: v.speaker_name || "", styleId: Number(v.style_id) || 0,
+            dialogue: v.text || sc.dialogue || "", reading: v.synthesis_text || sc.reading || "",
+          };
+        });
+        LINES.forEach(l => { tone[l.id] = { ...defFor(l.styleId) }; });
+        renderReview(); renderTone();
+        $("#reviewStatus").textContent = "（" + LINES.length + "行 読込）";
+        $("#toneStatus").textContent = "（" + LINES.length + "行 読込）";
+      } catch (e) {
+        $("#reviewStatus").textContent = "読込失敗: " + e.message + "（ローカルHTTPサーバ or 公開URLで開いてください。file://は不可）";
+      }
+    }
+
+    function renderReview() {
+      $("#reviewList").innerHTML = LINES.map(l => `
+        <div class="line" data-id="${l.id}">
+          <div class="meta">#${l.idx} ・ ${mmss(l.start)}–${mmss(l.end)} ・ ${l.visualCutId} ${esc(l.visualCutTitle)}</div>
+          <div class="body">
+            <img class="thumb" loading="lazy" src="${esc(norm(l.image))}" alt="" onerror="this.style.opacity=.25">
+            <div class="texts">
+              <span class="speaker">${esc(l.speaker)}</span>
+              <div class="dialogue">${esc(l.dialogue)}</div>
+              <div class="reading">よみ：${esc(l.reading)}</div>
+              <div class="imgname">画像：${esc(base(l.image))}</div>
+            </div>
+          </div>
+          <textarea class="req" data-id="${l.id}" placeholder="このセリフへの変更依頼（セリフ／よみ／画像／タイミング 等）"></textarea>
+        </div>`).join("");
+      $("#reviewList").querySelectorAll(".req").forEach(t =>
+        t.addEventListener("input", () => t.closest(".line").classList.toggle("req-on", t.value.trim() !== "")));
+    }
+
+    function renderTone() {
+      $("#toneList").innerHTML = LINES.map(l => `
+        <div class="tline" data-id="${l.id}">
+          <div class="theader" data-id="${l.id}">
+            <span class="idx">#${l.idx}</span>
+            <span class="sp">${esc(l.speaker)}</span>
+            <span class="dl">${esc(l.dialogue)}</span>
+            <span class="mark hidden">調整あり</span>
+          </div>
+          <div class="sliders hidden" data-id="${l.id}"></div>
+        </div>`).join("");
+      $("#toneList").querySelectorAll(".theader").forEach(h =>
+        h.addEventListener("click", () => toggleTone(h.dataset.id)));
+    }
+
+    function toggleTone(id) {
+      const box = $(`.sliders[data-id="${id}"]`);
+      if (!box) return;
+      if (box.dataset.built !== "1") { buildSliders(id, box); box.dataset.built = "1"; }
+      box.classList.toggle("hidden");
+    }
+
+    function buildSliders(id, box) {
+      const l = LINES.find(x => x.id === id);
+      const def = defFor(l.styleId);
+      box.innerHTML = PARAMS.map(p => {
+        const v = tone[id][p.key];
+        return `<div class="srow">
+          <label>${p.label}</label>
+          <input type="range" min="${p.min}" max="${p.max}" step="${p.step}" value="${v}" data-id="${id}" data-key="${p.key}">
+          <span class="val" data-id="${id}" data-key="${p.key}">${v.toFixed(2)}</span>
+        </div>`;
+      }).join("") + `
+        <div class="trow-actions">
+          <button type="button" data-act="preview" data-id="${id}">試聴</button>
+          <button type="button" data-act="reset" data-id="${id}">リセット</button>
+          <span class="status" data-prev="${id}"></span>
+        </div>`;
+      box.querySelectorAll('input[type=range]').forEach(inp => inp.addEventListener("input", () => {
+        const key = inp.dataset.key; tone[id][key] = Number(inp.value);
+        const val = box.querySelector(`.val[data-key="${key}"]`);
+        val.textContent = Number(inp.value).toFixed(2);
+        val.classList.toggle("diff", r2(inp.value) !== r2(def[key]));
+        markChanged(id);
+      }));
+      box.querySelector('[data-act="reset"]').addEventListener("click", () => resetLine(id));
+      box.querySelector('[data-act="preview"]').addEventListener("click", () => preview(id));
+      // initial diff highlight
+      box.querySelectorAll('.val').forEach(v => v.classList.toggle("diff", r2(tone[id][v.dataset.key]) !== r2(def[v.dataset.key])));
+    }
+
+    function markChanged(id) {
+      const l = LINES.find(x => x.id === id), def = defFor(l.styleId);
+      const changed = PARAMS.some(p => r2(tone[id][p.key]) !== r2(def[p.key]));
+      const row = $(`.tline[data-id="${id}"]`);
+      row.classList.toggle("changed", changed);
+      row.querySelector(".mark").classList.toggle("hidden", !changed);
+    }
+
+    function resetLine(id) {
+      const l = LINES.find(x => x.id === id); tone[id] = { ...defFor(l.styleId) };
+      const box = $(`.sliders[data-id="${id}"]`); box.dataset.built = ""; box.innerHTML = ""; buildSliders(id, box); box.dataset.built = "1";
+      markChanged(id);
+    }
+
+    async function preview(id) {
+      const l = LINES.find(x => x.id === id);
+      const st = document.querySelector(`[data-prev="${id}"]`);
+      st.textContent = "合成中…";
+      try {
+        const q = await fetch(`${ENGINE}/audio_query?text=${encodeURIComponent(l.reading)}&speaker=${l.styleId}`, { method:"POST" }).then(r => r.json());
+        PARAMS.forEach(p => q[p.key] = tone[id][p.key]);
+        q.outputSamplingRate = 44100; q.outputStereo = false;
+        const blob = await fetch(`${ENGINE}/synthesis?speaker=${l.styleId}`, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(q) }).then(r => r.blob());
+        const a = new Audio(URL.createObjectURL(blob)); a.play();
+        st.textContent = "再生 ▶";
+      } catch (e) {
+        st.textContent = "エンジン未接続（localhost＋AivisSpeech起動時のみ）";
+      }
+    }
+
+    function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c])); }
+
+    function showOut(title, text) { $("#outTitle").textContent = title; $("#outText").value = text; $("#out").showModal(); $("#outText").focus(); $("#outText").select(); }
+
+    function genReview() {
+      const items = LINES.map(l => {
+        const t = (document.querySelector(`.req[data-id="${l.id}"]`)?.value || "").trim();
+        return t ? { l, t } : null;
+      }).filter(Boolean);
+      if (!items.length) { showOut("変更依頼プロンプト", "（変更依頼が入力された行がありません。直したい行の「変更依頼」欄に記入してください。）"); return; }
+      let out = "# 紙芝居 変更依頼（深夜二時の第十三レジ 第2話）\n";
+      out += "以下のセリフに変更をお願いします。各行は scene_manifest_ep02.json / manifest_reading_hiragana_ep02.json の該当 id です。\n\n";
+      items.forEach(({ l, t }) => {
+        out += `## #${l.idx}  id=${l.id}  cut=${l.visualCutId}(${l.visualCutTitle})  ${mmss(l.start)}–${mmss(l.end)}\n`;
+        out += `- 話者: ${l.speaker}（${l.speakerName} / style_id ${l.styleId}）\n`;
+        out += `- 現セリフ: ${l.dialogue}\n`;
+        out += `- 現よみ: ${l.reading}\n`;
+        out += `- 使用画像: ${base(l.image)}\n`;
+        out += `- 変更依頼: ${t}\n\n`;
+      });
+      out += "※ 反映時の手順: セリフ確定→reading_hiragana(発音優先)→scene_manifest再生成(--no-visual-plan)→音声再合成→UI同期確認。\n";
+      out += "※ 画像の差し替え・割り当て変更が必要な場合は Codex への画像依頼に回してください（Claudeは画像を生成・変更しない）。\n";
+      showOut("変更依頼プロンプト（" + items.length + "件）", out);
+    }
+
+    function genTone() {
+      const changed = LINES.map(l => {
+        const def = defFor(l.styleId);
+        const diffs = PARAMS.filter(p => r2(tone[l.id][p.key]) !== r2(def[p.key]))
+          .map(p => ({ key: p.key, from: r2(def[p.key]), to: r2(tone[l.id][p.key]) }));
+        return diffs.length ? { l, diffs } : null;
+      }).filter(Boolean);
+      if (!changed.length) { showOut("トーン調整プロンプト", "（既定値から変更された行がありません。行を開いてスライダーを動かしてください。）"); return; }
+      let out = "# 第2話 トーン/イントネーション調整依頼（AivisSpeech パラメータ）\n";
+      out += "以下の行に「行単位のパラメータ上書き」をお願いします（値は目標値）。\n";
+      out += "現状はキャスト単位の一律パラメータなので、manifest に per-line override を持たせ、generate_ep02_full_voice.py が行ごとに適用する形へ拡張→該当行のみ再合成→scene_manifest再生成(--no-visual-plan)→公開、まで想定。\n\n";
+      changed.forEach(({ l, diffs }) => {
+        out += `## #${l.idx}  id=${l.id}  ${l.speaker}（${l.speakerName} / style_id ${l.styleId}）\n`;
+        out += `- セリフ: ${l.dialogue}\n`;
+        diffs.forEach(d => { out += `- ${d.key}: ${d.from} → ${d.to}\n`; });
+        out += "\n";
+      });
+      out += "※ 変更のあるパラメータのみ記載（他は話者既定のまま）。\n";
+      showOut("トーン調整プロンプト（" + changed.length + "行）", out);
+    }
+
+    function copyOut() {
+      const t = $("#outText").value;
+      const done = () => { const b = $("#copyBtn"); const o = b.textContent; b.textContent = "コピーしました"; setTimeout(() => b.textContent = o, 1400); };
+      if (navigator.clipboard?.writeText) navigator.clipboard.writeText(t).then(done, () => { $("#outText").select(); document.execCommand("copy"); done(); });
+      else { $("#outText").select(); document.execCommand("copy"); done(); }
+    }
+
+    function switchTab(which) {
+      const r = which === "review";
+      $("#tabReview").classList.toggle("hidden", !r);
+      $("#tabTone").classList.toggle("hidden", r);
+      $("#tabReviewBtn").classList.toggle("active", r);
+      $("#tabToneBtn").classList.toggle("active", !r);
+    }
+
+    $("#tabReviewBtn").addEventListener("click", () => switchTab("review"));
+    $("#tabToneBtn").addEventListener("click", () => switchTab("tone"));
+    $("#genReview").addEventListener("click", genReview);
+    $("#genTone").addEventListener("click", genTone);
+    $("#copyBtn").addEventListener("click", copyOut);
+    $("#closeBtn").addEventListener("click", () => $("#out").close());
+    load();
+  </script>
+</body>
+</html>

@@ -6,7 +6,7 @@
     "visualCutTitle": "会社の駐輪場",
     "visualCutIndex": 1,
     "start": 0.0,
-    "end": 5.779,
+    "end": 5.744,
     "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -15,12 +15,12 @@
     "dialogue": "汗田竜司は、会社の駐輪場で愛車のCB200Xにまたがった。",
     "reading": "あせだりゅうじワ、かいしゃのちゅうりんじょうで、あいしゃのしーびーにひゃくえっくすにまたがった。",
     "log": [
-      "発話ログ　01/63",
+      "発話ログ　01/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　会社の駐輪場",
-    "progressLabel": "01/63　ナレーション"
+    "progressLabel": "01/65　ナレーション"
   },
   {
     "id": "ep02_v002",
@@ -28,7 +28,7 @@
     "visualCutId": "vc01",
     "visualCutTitle": "会社の駐輪場",
     "visualCutIndex": 1,
-    "start": 6.179,
+    "start": 6.144,
     "end": 12.373,
     "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -38,12 +38,35 @@
     "dialogue": "五十四歳。自動車研究開発者。その日の説明会も、いつものように終わった。",
     "reading": "ごじゅうよんさい。じどうしゃけんきゅうかいはつしゃ。そのひのせつめいかいも、いつものようにおわった。",
     "log": [
-      "発話ログ　02/63",
+      "発話ログ　02/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　会社の駐輪場",
-    "progressLabel": "02/63　ナレーション"
+    "progressLabel": "02/65　ナレーション"
+  },
+  {
+    "id": "ep02_v002b",
+    "cut": "ep02_vc01",
+    "visualCutId": "vc01",
+    "visualCutTitle": "会社の駐輪場",
+    "visualCutIndex": 1,
+    "start": 12.773,
+    "end": 16.368,
+    "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
+    "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
+    "imagePrompt": "会社の駐輪場。雨の夜、汗田が黒いCB200X風アドベンチャーバイクの横に立ち、紫のフルフェイスヘルメットを自然に持つ。ヘルメットを持つ手は外側から縁またはストラップをつかみ、指がめり込まない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような補修眼鏡や古い地図の常連にしない。未来青年のような疲弊した若い会社員にしない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "ナレーション",
+    "dialogue": "役員の言葉が、まだ耳に残っていた。",
+    "reading": "やくいんのことばが、まだみみにのこっていた。",
+    "log": [
+      "発話ログ　03/65",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "01/20　会社の駐輪場",
+    "progressLabel": "03/65　ナレーション"
   },
   {
     "id": "ep02_v003",
@@ -51,8 +74,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "会社の駐輪場",
     "visualCutIndex": 1,
-    "start": 12.773,
-    "end": 15.449,
+    "start": 16.818,
+    "end": 20.652,
     "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -61,12 +84,12 @@
     "dialogue": "「面白いけど、すぐ利益になるの？」……か。",
     "reading": "おもしろいけど、すぐりえきになるの？……か。",
     "log": [
-      "発話ログ　03/63",
+      "発話ログ　04/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　会社の駐輪場",
-    "progressLabel": "03/63　汗田竜司"
+    "progressLabel": "04/65　汗田竜司"
   },
   {
     "id": "ep02_v004",
@@ -74,8 +97,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "会社の駐輪場",
     "visualCutIndex": 1,
-    "start": 15.799,
-    "end": 21.764,
+    "start": 21.002,
+    "end": 27.142,
     "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -84,12 +107,12 @@
     "dialogue": "三十年以上積み上げたAI運行支援システムの提案は、また棚上げだった。",
     "reading": "さんじゅうねんいじょうつみあげたえーあいうんこうしえんしすてむのていあんワ、またたなあげだった。",
     "log": [
-      "発話ログ　04/63",
+      "発話ログ　05/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　会社の駐輪場",
-    "progressLabel": "04/63　ナレーション"
+    "progressLabel": "05/65　ナレーション"
   },
   {
     "id": "ep02_v005",
@@ -97,8 +120,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "ナビが点灯する",
     "visualCutIndex": 2,
-    "start": 22.264,
-    "end": 27.903,
+    "start": 27.642,
+    "end": 33.35,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -107,12 +130,12 @@
     "dialogue": "汗田がため息をついてキーを回すと、バイクのナビモニターが勝手に点灯した。",
     "reading": "あせだがためいきをついてきーをまわすと、ばいくのなびもにたーがかってにてんとうした。",
     "log": [
-      "発話ログ　05/63",
+      "発話ログ　06/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　ナビが点灯する",
-    "progressLabel": "05/63　ナレーション"
+    "progressLabel": "06/65　ナレーション"
   },
   {
     "id": "ep02_v006",
@@ -120,8 +143,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "ナビが点灯する",
     "visualCutIndex": 2,
-    "start": 28.303,
-    "end": 32.871,
+    "start": 33.75,
+    "end": 38.158,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -130,12 +153,12 @@
     "dialogue": "助けてください。第十三レジを探しています",
     "reading": "たすけてください。だいじゅうさんれじをさがしています。",
     "log": [
-      "発話ログ　06/63",
+      "発話ログ　07/65",
       "担当　ナビ",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　ナビが点灯する",
-    "progressLabel": "06/63　ナビ"
+    "progressLabel": "07/65　ナビ"
   },
   {
     "id": "ep02_v007",
@@ -143,8 +166,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "ナビが点灯する",
     "visualCutIndex": 2,
-    "start": 33.221,
-    "end": 36.75,
+    "start": 38.508,
+    "end": 42.087,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -153,12 +176,12 @@
     "dialogue": "……メーカー純正の音声案内ではないな",
     "reading": "……めーかーじゅんせいのおんせいあんないでワないな。",
     "log": [
-      "発話ログ　07/63",
+      "発話ログ　08/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　ナビが点灯する",
-    "progressLabel": "07/63　汗田竜司"
+    "progressLabel": "08/65　汗田竜司"
   },
   {
     "id": "ep02_v008",
@@ -166,8 +189,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "未来からの呼びかけ",
     "visualCutIndex": 3,
-    "start": 37.15,
-    "end": 49.318,
+    "start": 42.487,
+    "end": 54.551,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -176,12 +199,12 @@
     "dialogue": "私は二〇七四年の食品流通管理システムです。欠落した配送記録を回収するため、第十三レジへの接続が必要です",
     "reading": "わたしワにせんななじゅうよねんのしょくひんりゅうつうかんりしすてむです。けつらくしたはいそうきろくをかいしゅうするため、だいじゅうさんれじエのせつぞくがひつようです。",
     "log": [
-      "発話ログ　08/63",
+      "発話ログ　09/65",
       "担当　ナビ",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　未来からの呼びかけ",
-    "progressLabel": "08/63　ナビ"
+    "progressLabel": "09/65　ナビ"
   },
   {
     "id": "ep02_v009",
@@ -189,8 +212,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "未来からの呼びかけ",
     "visualCutIndex": 3,
-    "start": 49.718,
-    "end": 57.003,
+    "start": 54.951,
+    "end": 62.135,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -199,12 +222,12 @@
     "dialogue": "画面には、通勤路沿いのコンビニが表示されていた。到着予測、午前二時十六分五十秒。",
     "reading": "がめんにワ、つうきんろぞいのこんびにがひょうじされていた。とうちゃくよそく、ごぜんにじじゅうろっぷんごじゅうびょう。",
     "log": [
-      "発話ログ　09/63",
+      "発話ログ　10/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　未来からの呼びかけ",
-    "progressLabel": "09/63　ナレーション"
+    "progressLabel": "10/65　ナレーション"
   },
   {
     "id": "ep02_v010",
@@ -212,8 +235,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "未来からの呼びかけ",
     "visualCutIndex": 3,
-    "start": 57.353,
-    "end": 59.419,
+    "start": 62.485,
+    "end": 64.64,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -222,12 +245,12 @@
     "dialogue": "無茶なルート案内だ",
     "reading": "むちゃなるーとあんないだ。",
     "log": [
-      "発話ログ　10/63",
+      "発話ログ　11/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　未来からの呼びかけ",
-    "progressLabel": "10/63　汗田竜司"
+    "progressLabel": "11/65　汗田竜司"
   },
   {
     "id": "ep02_v011",
@@ -235,8 +258,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "夜の国道へ",
     "visualCutIndex": 4,
-    "start": 59.919,
-    "end": 70.51,
+    "start": 65.14,
+    "end": 75.777,
     "image": "assets/scenes/planned/ep02_vc03_night_ride.png",
     "plannedImage": "assets/scenes/planned/ep02_vc03_night_ride.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -245,12 +268,12 @@
     "dialogue": "それでも、表示された座標の揺らぎと予測モデルは、自分がかつて作っていた制御システムによく似ていた。汗田はヘルメットをかぶり、夜の国道へ走り出した。",
     "reading": "それでも、ひょうじされたざひょうのゆらぎとよそくもでるワ、じぶんがかつてつくっていたせいぎょしすてむによくにていた。あせだワへるめっとをかぶり、よるのこくどうエはしりだした。",
     "log": [
-      "発話ログ　11/63",
+      "発話ログ　12/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "04/20　夜の国道へ",
-    "progressLabel": "11/63　ナレーション"
+    "progressLabel": "12/65　ナレーション"
   },
   {
     "id": "ep02_v012",
@@ -258,8 +281,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 71.11,
-    "end": 75.514,
+    "start": 76.377,
+    "end": 80.842,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -268,12 +291,12 @@
     "dialogue": "コンビニでは、タクミがレシートを透明な袋に入れていた。",
     "reading": "こんびにでワ、たくみがれしーとをとうめいなふくろにいれていた。",
     "log": [
-      "発話ログ　12/63",
+      "発話ログ　13/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "12/63　ナレーション"
+    "progressLabel": "13/65　ナレーション"
   },
   {
     "id": "ep02_v013",
@@ -281,8 +304,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 75.814,
-    "end": 79.663,
+    "start": 81.142,
+    "end": 84.912,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -291,12 +314,12 @@
     "dialogue": "ミナさん、昨日のレシート、保管する意味あります？",
     "reading": "みなさん、きのうのれしーと、ほかんするいみあります？",
     "log": [
-      "発話ログ　13/63",
+      "発話ログ　14/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "13/63　タクミ"
+    "progressLabel": "14/65　タクミ"
   },
   {
     "id": "ep02_v014",
@@ -304,8 +327,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 79.963,
-    "end": 81.183,
+    "start": 85.212,
+    "end": 86.4,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -314,12 +337,12 @@
     "dialogue": "あるよ",
     "reading": "あるよ。",
     "log": [
-      "発話ログ　14/63",
+      "発話ログ　15/65",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "14/63　ミナ"
+    "progressLabel": "15/65　ミナ"
   },
   {
     "id": "ep02_v015",
@@ -327,8 +350,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 81.433,
-    "end": 82.637,
+    "start": 86.65,
+    "end": 87.873,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -337,12 +360,12 @@
     "dialogue": "会計上？",
     "reading": "かいけいじょう？",
     "log": [
-      "発話ログ　15/63",
+      "発話ログ　16/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "15/63　タクミ"
+    "progressLabel": "16/65　タクミ"
   },
   {
     "id": "ep02_v016",
@@ -350,8 +373,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 82.887,
-    "end": 84.509,
+    "start": 88.123,
+    "end": 89.815,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -360,12 +383,12 @@
     "dialogue": "たぶん歴史上",
     "reading": "たぶんれきしじょう。",
     "log": [
-      "発話ログ　16/63",
+      "発話ログ　17/65",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "16/63　ミナ"
+    "progressLabel": "17/65　ミナ"
   },
   {
     "id": "ep02_v017",
@@ -373,8 +396,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 84.759,
-    "end": 86.436,
+    "start": 90.065,
+    "end": 91.779,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -383,12 +406,12 @@
     "dialogue": "保管責任が重い",
     "reading": "ほかんせきにんがおもい。",
     "log": [
-      "発話ログ　17/63",
+      "発話ログ　18/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "17/63　タクミ"
+    "progressLabel": "18/65　タクミ"
   },
   {
     "id": "ep02_v018",
@@ -396,8 +419,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "汗田、来店",
     "visualCutIndex": 6,
-    "start": 86.936,
-    "end": 90.468,
+    "start": 92.279,
+    "end": 95.795,
     "image": "assets/scenes/planned/ep02_vc05_aseda_enters.png",
     "plannedImage": "assets/scenes/planned/ep02_vc05_aseda_enters.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -406,12 +429,12 @@
     "dialogue": "自動ドアが開いた。汗田はレジへ直行した。",
     "reading": "じどうどあがあいた。あせだワれじエちょっこうした。",
     "log": [
-      "発話ログ　18/63",
+      "発話ログ　19/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "06/20　汗田、来店",
-    "progressLabel": "18/63　ナレーション"
+    "progressLabel": "19/65　ナレーション"
   },
   {
     "id": "ep02_v019",
@@ -419,8 +442,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "汗田、来店",
     "visualCutIndex": 6,
-    "start": 90.768,
-    "end": 93.837,
+    "start": 96.095,
+    "end": 99.199,
     "image": "assets/scenes/planned/ep02_vc05_aseda_enters.png",
     "plannedImage": "assets/scenes/planned/ep02_vc05_aseda_enters.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -429,12 +452,12 @@
     "dialogue": "この店に、存在しないレジはあるか",
     "reading": "このみせに、そんざいしないれじワあるか。",
     "log": [
-      "発話ログ　19/63",
+      "発話ログ　20/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "06/20　汗田、来店",
-    "progressLabel": "19/63　汗田竜司"
+    "progressLabel": "20/65　汗田竜司"
   },
   {
     "id": "ep02_v020",
@@ -442,8 +465,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "二時十七分から",
     "visualCutIndex": 7,
-    "start": 94.237,
-    "end": 97.222,
+    "start": 99.599,
+    "end": 102.536,
     "image": "assets/scenes/planned/ep02_vc06_register_appears.png",
     "plannedImage": "assets/scenes/planned/ep02_vc06_register_appears.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -452,12 +475,12 @@
     "dialogue": "ミナさん、質問の入口が怖いです",
     "reading": "みなさん、しつもんのいりぐちがこわいです。",
     "log": [
-      "発話ログ　20/63",
+      "発話ログ　21/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "07/20　二時十七分から",
-    "progressLabel": "20/63　タクミ"
+    "progressLabel": "21/65　タクミ"
   },
   {
     "id": "ep02_v021",
@@ -465,8 +488,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "二時十七分から",
     "visualCutIndex": 7,
-    "start": 97.472,
-    "end": 99.518,
+    "start": 102.786,
+    "end": 104.807,
     "image": "assets/scenes/planned/ep02_vc06_register_appears.png",
     "plannedImage": "assets/scenes/planned/ep02_vc06_register_appears.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -475,12 +498,12 @@
     "dialogue": "二時十七分からです",
     "reading": "にじじゅうななふんからです。",
     "log": [
-      "発話ログ　21/63",
+      "発話ログ　22/65",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "07/20　二時十七分から",
-    "progressLabel": "21/63　ミナ"
+    "progressLabel": "22/65　ミナ"
   },
   {
     "id": "ep02_v022",
@@ -488,8 +511,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "第十三レジ出現",
     "visualCutIndex": 8,
-    "start": 100.018,
-    "end": 108.303,
+    "start": 105.307,
+    "end": 113.742,
     "image": "assets/scenes/planned/ep02_vc06_register_appears.png",
     "plannedImage": "assets/scenes/planned/ep02_vc06_register_appears.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -498,12 +521,12 @@
     "dialogue": "汗田が時計を見る。二時十六分五十秒。蛍光灯が瞬き、雑誌棚とコピー機の間に銀色のレジが現れた。",
     "reading": "あせだがとけいをみる。にじじゅうろっぷんごじゅうびょう。けいこうとうがまたたき、ざっしだなとこぴーきのあいだにぎんいろのれじがあらわれた。",
     "log": [
-      "発話ログ　22/63",
+      "発話ログ　23/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "08/20　第十三レジ出現",
-    "progressLabel": "22/63　ナレーション"
+    "progressLabel": "23/65　ナレーション"
   },
   {
     "id": "ep02_v023",
@@ -511,8 +534,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "第十三レジ出現",
     "visualCutIndex": 8,
-    "start": 108.703,
-    "end": 111.588,
+    "start": 114.142,
+    "end": 117.005,
     "image": "assets/scenes/planned/ep02_vc06_register_appears.png",
     "plannedImage": "assets/scenes/planned/ep02_vc06_register_appears.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -521,12 +544,12 @@
     "dialogue": "第十三レジ。ただいま営業中",
     "reading": "だいじゅうさんれじ。ただいまえいぎょうちゅう。",
     "log": [
-      "発話ログ　23/63",
+      "発話ログ　24/65",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "08/20　第十三レジ出現",
-    "progressLabel": "23/63　第十三レジ"
+    "progressLabel": "24/65　第十三レジ"
   },
   {
     "id": "ep02_v024",
@@ -534,8 +557,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "ナビとの接続",
     "visualCutIndex": 9,
-    "start": 112.088,
-    "end": 115.523,
+    "start": 117.505,
+    "end": 120.94,
     "image": "assets/scenes/planned/ep02_vc07_nav_scan.png",
     "plannedImage": "assets/scenes/planned/ep02_vc07_nav_scan.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -544,12 +567,12 @@
     "dialogue": "第十三レジは汗田のナビを読み取った。",
     "reading": "だいじゅうさんれじワあせだのなびをよみとった。",
     "log": [
-      "発話ログ　24/63",
+      "発話ログ　25/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　ナビとの接続",
-    "progressLabel": "24/63　ナレーション"
+    "progressLabel": "25/65　ナレーション"
   },
   {
     "id": "ep02_v025",
@@ -557,8 +580,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "ナビとの接続",
     "visualCutIndex": 9,
-    "start": 115.823,
-    "end": 119.945,
+    "start": 121.24,
+    "end": 125.369,
     "image": "assets/scenes/planned/ep02_vc07_nav_scan.png",
     "plannedImage": "assets/scenes/planned/ep02_vc07_nav_scan.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -567,12 +590,12 @@
     "dialogue": "未来食品流通管理システム断片データを確認",
     "reading": "みらいしょくひんりゅうつうかんりしすてむだんぺんでーたをかくにん。",
     "log": [
-      "発話ログ　25/63",
+      "発話ログ　26/65",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　ナビとの接続",
-    "progressLabel": "25/63　第十三レジ"
+    "progressLabel": "26/65　第十三レジ"
   },
   {
     "id": "ep02_v026",
@@ -580,8 +603,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "ナビとの接続",
     "visualCutIndex": 9,
-    "start": 120.295,
-    "end": 125.696,
+    "start": 125.719,
+    "end": 131.058,
     "image": "assets/scenes/planned/ep02_vc07_nav_scan.png",
     "plannedImage": "assets/scenes/planned/ep02_vc07_nav_scan.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -590,12 +613,12 @@
     "dialogue": "接続成功。欠落した配送記録を照合します",
     "reading": "せつぞくせいこう。けつらくしたはいそうきろくをしょうごうします。",
     "log": [
-      "発話ログ　26/63",
+      "発話ログ　27/65",
       "担当　ナビ",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　ナビとの接続",
-    "progressLabel": "26/63　ナビ"
+    "progressLabel": "27/65　ナビ"
   },
   {
     "id": "ep02_v027",
@@ -603,8 +626,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "在庫予測モデル",
     "visualCutIndex": 10,
-    "start": 126.096,
-    "end": 130.035,
+    "start": 131.458,
+    "end": 135.418,
     "image": "assets/scenes/planned/ep02_vc08_inventory_model.png",
     "plannedImage": "assets/scenes/planned/ep02_vc08_inventory_model.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -613,12 +636,12 @@
     "dialogue": "これは配送記録じゃない。在庫予測モデルだ",
     "reading": "これワはいそうきろくじゃない。ざいこよそくもでるだ。",
     "log": [
-      "発話ログ　27/63",
+      "発話ログ　28/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　在庫予測モデル",
-    "progressLabel": "27/63　汗田竜司"
+    "progressLabel": "28/65　汗田竜司"
   },
   {
     "id": "ep02_v028",
@@ -626,8 +649,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "在庫予測モデル",
     "visualCutIndex": 10,
-    "start": 130.335,
-    "end": 131.764,
+    "start": 135.718,
+    "end": 137.1,
     "image": "assets/scenes/planned/ep02_vc08_inventory_model.png",
     "plannedImage": "assets/scenes/planned/ep02_vc08_inventory_model.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -636,12 +659,12 @@
     "dialogue": "わかるんですか",
     "reading": "わかるんですか。",
     "log": [
-      "発話ログ　28/63",
+      "発話ログ　29/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　在庫予測モデル",
-    "progressLabel": "28/63　タクミ"
+    "progressLabel": "29/65　タクミ"
   },
   {
     "id": "ep02_v029",
@@ -649,8 +672,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "在庫予測モデル",
     "visualCutIndex": 10,
-    "start": 132.014,
-    "end": 134.248,
+    "start": 137.35,
+    "end": 139.538,
     "image": "assets/scenes/planned/ep02_vc08_inventory_model.png",
     "plannedImage": "assets/scenes/planned/ep02_vc08_inventory_model.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -659,12 +682,12 @@
     "dialogue": "似たものを作っていた",
     "reading": "にたものをつくっていた。",
     "log": [
-      "発話ログ　29/63",
+      "発話ログ　30/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　在庫予測モデル",
-    "progressLabel": "29/63　汗田竜司"
+    "progressLabel": "30/65　汗田竜司"
   },
   {
     "id": "ep02_v030",
@@ -672,8 +695,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "欠けた歴史メモ",
     "visualCutIndex": 11,
-    "start": 134.748,
-    "end": 139.867,
+    "start": 140.038,
+    "end": 145.199,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -682,12 +705,12 @@
     "dialogue": "昨日返品された完全栄養おにぎりの歴史メモに欠損があります",
     "reading": "きのうへんぴんされたかんぜんえいようおにぎりのれきしめもにけっそんがあります。",
     "log": [
-      "発話ログ　30/63",
+      "発話ログ　31/65",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "11/20　欠けた歴史メモ",
-    "progressLabel": "30/63　第十三レジ"
+    "progressLabel": "31/65　第十三レジ"
   },
   {
     "id": "ep02_v031",
@@ -695,8 +718,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "欠けた歴史メモ",
     "visualCutIndex": 11,
-    "start": 140.217,
-    "end": 143.312,
+    "start": 145.549,
+    "end": 148.713,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -705,12 +728,12 @@
     "dialogue": "画面に、ミナのメモが表示された。",
     "reading": "がめんに、みなのめもがひょうじされた。",
     "log": [
-      "発話ログ　31/63",
+      "発話ログ　32/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "11/20　欠けた歴史メモ",
-    "progressLabel": "31/63　ナレーション"
+    "progressLabel": "32/65　ナレーション"
   },
   {
     "id": "ep02_v032",
@@ -718,8 +741,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "欠けた歴史メモ",
     "visualCutIndex": 11,
-    "start": 143.612,
-    "end": 146.847,
+    "start": 149.013,
+    "end": 152.273,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -728,12 +751,12 @@
     "dialogue": "このおにぎりは、ちゃんと作った方がいいです。",
     "reading": "このおにぎりワ、ちゃんとつくったほうがいいです。",
     "log": [
-      "発話ログ　32/63",
+      "発話ログ　33/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "11/20　欠けた歴史メモ",
-    "progressLabel": "32/63　ナレーション"
+    "progressLabel": "33/65　ナレーション"
   },
   {
     "id": "ep02_v033",
@@ -741,8 +764,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "足りない条件",
     "visualCutIndex": 12,
-    "start": 147.247,
-    "end": 151.046,
+    "start": 152.673,
+    "end": 156.521,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -751,12 +774,12 @@
     "dialogue": "条件が足りない。目的も評価基準もない",
     "reading": "じょうけんがたりない。もくてきもひょうかきじゅんもない。",
     "log": [
-      "発話ログ　33/63",
+      "発話ログ　34/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　足りない条件",
-    "progressLabel": "33/63　汗田竜司"
+    "progressLabel": "34/65　汗田竜司"
   },
   {
     "id": "ep02_v034",
@@ -764,8 +787,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "足りない条件",
     "visualCutIndex": 12,
-    "start": 151.346,
-    "end": 153.646,
+    "start": 156.821,
+    "end": 159.132,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -774,12 +797,12 @@
     "dialogue": "ミナさんの普通が未来を困らせてる",
     "reading": "みなさんのふつうがみらいをこまらせてる。",
     "log": [
-      "発話ログ　34/63",
+      "発話ログ　35/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　足りない条件",
-    "progressLabel": "34/63　タクミ"
+    "progressLabel": "35/65　タクミ"
   },
   {
     "id": "ep02_v035",
@@ -787,8 +810,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "足りない条件",
     "visualCutIndex": 12,
-    "start": 153.896,
-    "end": 156.208,
+    "start": 159.382,
+    "end": 161.697,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -797,12 +820,12 @@
     "dialogue": "未来、繊細だね",
     "reading": "みらい、せんさいだね。",
     "log": [
-      "発話ログ　35/63",
+      "発話ログ　36/65",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　足りない条件",
-    "progressLabel": "35/63　ミナ"
+    "progressLabel": "36/65　ミナ"
   },
   {
     "id": "ep02_v036",
@@ -810,8 +833,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "修正メモを入力",
     "visualCutIndex": 13,
-    "start": 156.708,
-    "end": 160.078,
+    "start": 162.197,
+    "end": 165.567,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -820,12 +843,12 @@
     "dialogue": "修正メモを入力してください。残り二分",
     "reading": "しゅうせいめもをにゅうりょくしてください。のこりにふん。",
     "log": [
-      "発話ログ　36/63",
+      "発話ログ　37/65",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "13/20　修正メモを入力",
-    "progressLabel": "36/63　第十三レジ"
+    "progressLabel": "37/65　第十三レジ"
   },
   {
     "id": "ep02_v037",
@@ -833,8 +856,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "汗田、メモを書く",
     "visualCutIndex": 14,
-    "start": 160.578,
-    "end": 164.198,
+    "start": 166.067,
+    "end": 169.697,
     "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png",
     "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -843,12 +866,12 @@
     "dialogue": "汗田はレシート紙を受け取り、ペンを走らせた。",
     "reading": "あせだワれしーとしをうけとり、ぺんをはしらせた。",
     "log": [
-      "発話ログ　37/63",
+      "発話ログ　38/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　汗田、メモを書く",
-    "progressLabel": "37/63　ナレーション"
+    "progressLabel": "38/65　ナレーション"
   },
   {
     "id": "ep02_v038",
@@ -856,8 +879,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "汗田、メモを書く",
     "visualCutIndex": 14,
-    "start": 164.548,
-    "end": 172.117,
+    "start": 170.047,
+    "end": 177.706,
     "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png",
     "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -866,12 +889,12 @@
     "dialogue": "目的。二〇七四年の食糧供給不足に対し、完全栄養おにぎりの開発を継続すること。",
     "reading": "もくてき。にせんななじゅうよねんのしょくりょうきょうきゅうふそくにたいし、かんぜんえいようおにぎりのかいはつをけいぞくすること。",
     "log": [
-      "発話ログ　38/63",
+      "発話ログ　39/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　汗田、メモを書く",
-    "progressLabel": "38/63　ナレーション"
+    "progressLabel": "39/65　ナレーション"
   },
   {
     "id": "ep02_v039",
@@ -879,8 +902,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "汗田、メモを書く",
     "visualCutIndex": 14,
-    "start": 172.467,
-    "end": 176.06,
+    "start": 178.056,
+    "end": 181.661,
     "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png",
     "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -889,12 +912,12 @@
     "dialogue": "対象。培養鮭由来の栄養素材。",
     "reading": "たいしょう。ばいようさけゆらいのえいようそざい。",
     "log": [
-      "発話ログ　39/63",
+      "発話ログ　40/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　汗田、メモを書く",
-    "progressLabel": "39/63　ナレーション"
+    "progressLabel": "40/65　ナレーション"
   },
   {
     "id": "ep02_v040",
@@ -902,8 +925,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "汗田、メモを書く",
     "visualCutIndex": 14,
-    "start": 176.36,
-    "end": 181.95,
+    "start": 181.961,
+    "end": 187.428,
     "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png",
     "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -912,12 +935,12 @@
     "dialogue": "評価基準。味、保存性、量産性、価格、食べた人間の表情。",
     "reading": "ひょうかきじゅん。あじ、ほぞんせい、りょうさんせい、かかく、たべたにんげんのひょうじょう。",
     "log": [
-      "発話ログ　40/63",
+      "発話ログ　41/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　汗田、メモを書く",
-    "progressLabel": "40/63　ナレーション"
+    "progressLabel": "41/65　ナレーション"
   },
   {
     "id": "ep02_v041",
@@ -925,8 +948,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "数値だけじゃない",
     "visualCutIndex": 15,
-    "start": 182.45,
-    "end": 184.989,
+    "start": 187.928,
+    "end": 190.444,
     "image": "assets/scenes/planned/ep02_vc11_human_criterion.png",
     "plannedImage": "assets/scenes/planned/ep02_vc11_human_criterion.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -935,12 +958,12 @@
     "dialogue": "最後だけ急に人間っぽいですね",
     "reading": "さいごだけきゅうににんげんっぽいですね。",
     "log": [
-      "発話ログ　41/63",
+      "発話ログ　42/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　数値だけじゃない",
-    "progressLabel": "41/63　タクミ"
+    "progressLabel": "42/65　タクミ"
   },
   {
     "id": "ep02_v042",
@@ -948,8 +971,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "数値だけじゃない",
     "visualCutIndex": 15,
-    "start": 185.289,
-    "end": 188.338,
+    "start": 190.744,
+    "end": 193.733,
     "image": "assets/scenes/planned/ep02_vc11_human_criterion.png",
     "plannedImage": "assets/scenes/planned/ep02_vc11_human_criterion.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -958,12 +981,12 @@
     "dialogue": "食べ物の価値は数値だけじゃ決まらない",
     "reading": "たべもののかちワすうちだけじゃきまらない。",
     "log": [
-      "発話ログ　42/63",
+      "発話ログ　43/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　数値だけじゃない",
-    "progressLabel": "42/63　汗田竜司"
+    "progressLabel": "43/65　汗田竜司"
   },
   {
     "id": "ep02_v043",
@@ -971,8 +994,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "数値だけじゃない",
     "visualCutIndex": 15,
-    "start": 188.738,
-    "end": 194.212,
+    "start": 194.133,
+    "end": 199.573,
     "image": "assets/scenes/planned/ep02_vc11_human_criterion.png",
     "plannedImage": "assets/scenes/planned/ep02_vc11_human_criterion.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -981,12 +1004,12 @@
     "dialogue": "会社では笑われた言葉だった。けれどこの店では、誰も笑わなかった。",
     "reading": "かいしゃでワわらわれたことばだった。けれどこのみせでワ、だれもわらわなかった。",
     "log": [
-      "発話ログ　43/63",
+      "発話ログ　44/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　数値だけじゃない",
-    "progressLabel": "43/63　ナレーション"
+    "progressLabel": "44/65　ナレーション"
   },
   {
     "id": "ep02_v044",
@@ -994,8 +1017,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "メモ受理",
     "visualCutIndex": 16,
-    "start": 194.812,
-    "end": 199.549,
+    "start": 200.173,
+    "end": 204.765,
     "image": "assets/scenes/planned/ep02_vc12_memo_accepted.png",
     "plannedImage": "assets/scenes/planned/ep02_vc12_memo_accepted.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1004,12 +1027,12 @@
     "dialogue": "修正メモを受理しました。食糧改善率、安定",
     "reading": "しゅうせいめもをじゅりしました。しょくりょうかいぜんりつ、あんてい。",
     "log": [
-      "発話ログ　44/63",
+      "発話ログ　45/65",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　メモ受理",
-    "progressLabel": "44/63　第十三レジ"
+    "progressLabel": "45/65　第十三レジ"
   },
   {
     "id": "ep02_v045",
@@ -1017,8 +1040,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "メモ受理",
     "visualCutIndex": 16,
-    "start": 199.899,
-    "end": 201.396,
+    "start": 205.115,
+    "end": 206.511,
     "image": "assets/scenes/planned/ep02_vc12_memo_accepted.png",
     "plannedImage": "assets/scenes/planned/ep02_vc12_memo_accepted.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1027,12 +1050,12 @@
     "dialogue": "助かったんですか",
     "reading": "たすかったんですか。",
     "log": [
-      "発話ログ　45/63",
+      "発話ログ　46/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　メモ受理",
-    "progressLabel": "45/63　タクミ"
+    "progressLabel": "46/65　タクミ"
   },
   {
     "id": "ep02_v046",
@@ -1040,8 +1063,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "メモ受理",
     "visualCutIndex": 16,
-    "start": 201.646,
-    "end": 203.277,
+    "start": 206.761,
+    "end": 208.356,
     "image": "assets/scenes/planned/ep02_vc12_memo_accepted.png",
     "plannedImage": "assets/scenes/planned/ep02_vc12_memo_accepted.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1050,12 +1073,12 @@
     "dialogue": "ちょっと助かりました",
     "reading": "ちょっとたすかりました。",
     "log": [
-      "発話ログ　46/63",
+      "発話ログ　47/65",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　メモ受理",
-    "progressLabel": "46/63　第十三レジ"
+    "progressLabel": "47/65　第十三レジ"
   },
   {
     "id": "ep02_v047",
@@ -1063,8 +1086,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "メモ受理",
     "visualCutIndex": 16,
-    "start": 203.577,
-    "end": 204.667,
+    "start": 208.656,
+    "end": 209.952,
     "image": "assets/scenes/planned/ep02_vc12_memo_accepted.png",
     "plannedImage": "assets/scenes/planned/ep02_vc12_memo_accepted.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1073,12 +1096,12 @@
     "dialogue": "またちょっと！",
     "reading": "またちょっと！",
     "log": [
-      "発話ログ　47/63",
+      "発話ログ　48/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　メモ受理",
-    "progressLabel": "47/63　タクミ"
+    "progressLabel": "48/65　タクミ"
   },
   {
     "id": "ep02_v048",
@@ -1086,8 +1109,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "未来からの感謝",
     "visualCutIndex": 17,
-    "start": 205.167,
-    "end": 207.727,
+    "start": 210.452,
+    "end": 213.071,
     "image": "assets/scenes/planned/ep02_vc17_cleaning_first.png",
     "plannedImage": "assets/scenes/planned/ep02_vc17_cleaning_first.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1096,12 +1119,12 @@
     "dialogue": "ナビの画面に文字が浮かぶ。",
     "reading": "なびのがめんにもじがうかぶ。",
     "log": [
-      "発話ログ　48/63",
+      "発話ログ　49/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　未来からの感謝",
-    "progressLabel": "48/63　ナレーション"
+    "progressLabel": "49/65　ナレーション"
   },
   {
     "id": "ep02_v049",
@@ -1109,8 +1132,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "未来からの感謝",
     "visualCutIndex": 17,
-    "start": 208.027,
-    "end": 215.57,
+    "start": 213.371,
+    "end": 220.981,
     "image": "assets/scenes/planned/ep02_vc17_cleaning_first.png",
     "plannedImage": "assets/scenes/planned/ep02_vc17_cleaning_first.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1119,12 +1142,12 @@
     "dialogue": "協力に感謝します。汗田竜司。あなたの研究は未来でも使用されています。",
     "reading": "きょうりょくにかんしゃします。あせだりゅうじ。あなたのけんきゅうワみらいでもしようされています。",
     "log": [
-      "発話ログ　49/63",
+      "発話ログ　50/65",
       "担当　ナビ",
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　未来からの感謝",
-    "progressLabel": "49/63　ナビ"
+    "progressLabel": "50/65　ナビ"
   },
   {
     "id": "ep02_v050",
@@ -1132,8 +1155,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "未来からの感謝",
     "visualCutIndex": 17,
-    "start": 215.97,
-    "end": 218.635,
+    "start": 221.381,
+    "end": 224.026,
     "image": "assets/scenes/planned/ep02_vc17_cleaning_first.png",
     "plannedImage": "assets/scenes/planned/ep02_vc17_cleaning_first.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1142,12 +1165,12 @@
     "dialogue": "汗田はしばらく黙っていた。",
     "reading": "あせだワしばらくだまっていた。",
     "log": [
-      "発話ログ　50/63",
+      "発話ログ　51/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　未来からの感謝",
-    "progressLabel": "50/63　ナレーション"
+    "progressLabel": "51/65　ナレーション"
   },
   {
     "id": "ep02_v051",
@@ -1155,8 +1178,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 219.335,
-    "end": 221.007,
+    "start": 224.726,
+    "end": 226.466,
     "image": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "plannedImage": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1165,12 +1188,12 @@
     "dialogue": "コーヒー飲みます？",
     "reading": "こーひーのみます？",
     "log": [
-      "発話ログ　51/63",
+      "発話ログ　52/65",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "51/63　ミナ"
+    "progressLabel": "52/65　ミナ"
   },
   {
     "id": "ep02_v052",
@@ -1178,8 +1201,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 221.257,
-    "end": 222.711,
+    "start": 226.716,
+    "end": 228.195,
     "image": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "plannedImage": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1188,12 +1211,12 @@
     "dialogue": "ブラックで",
     "reading": "ぶらっくで。",
     "log": [
-      "発話ログ　52/63",
+      "発話ログ　53/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "52/63　汗田竜司"
+    "progressLabel": "53/65　汗田竜司"
   },
   {
     "id": "ep02_v053",
@@ -1201,8 +1224,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 222.961,
-    "end": 224.484,
+    "start": 228.445,
+    "end": 229.928,
     "image": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "plannedImage": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1211,12 +1234,12 @@
     "dialogue": "百二十円です",
     "reading": "ひゃくにじゅうえんです。",
     "log": [
-      "発話ログ　53/63",
+      "発話ログ　54/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "53/63　タクミ"
+    "progressLabel": "54/65　タクミ"
   },
   {
     "id": "ep02_v054",
@@ -1224,8 +1247,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 224.734,
-    "end": 226.056,
+    "start": 230.178,
+    "end": 231.538,
     "image": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "plannedImage": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1234,12 +1257,12 @@
     "dialogue": "安いな",
     "reading": "やすいな。",
     "log": [
-      "発話ログ　54/63",
+      "発話ログ　55/65",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "54/63　汗田竜司"
+    "progressLabel": "55/65　汗田竜司"
   },
   {
     "id": "ep02_v055",
@@ -1247,8 +1270,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 226.306,
-    "end": 228.874,
+    "start": 231.788,
+    "end": 234.3,
     "image": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "plannedImage": "assets/scenes/planned/ep02_vc19_next_anomaly_nav.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1257,12 +1280,12 @@
     "dialogue": "未来人と同じ反応しないでください",
     "reading": "みらいじんとおなじはんのうしないでください。",
     "log": [
-      "発話ログ　55/63",
+      "発話ログ　56/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "55/63　タクミ"
+    "progressLabel": "56/65　タクミ"
   },
   {
     "id": "ep02_v056",
@@ -1270,8 +1293,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "吐き出されたレシート",
     "visualCutIndex": 19,
-    "start": 229.374,
-    "end": 232.493,
+    "start": 234.8,
+    "end": 237.919,
     "image": "assets/scenes/planned/ep02_vc15_operation_log.png",
     "plannedImage": "assets/scenes/planned/ep02_vc15_operation_log.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1287,7 +1310,32 @@
       "店長確認　未了"
     ],
     "visualLabel": "19/20　吐き出されたレシート",
-    "progressLabel": "56/63　ナレーション"
+    "progressLabel": "57/65　ナレーション"
+  },
+  {
+    "id": "ep02_v056b",
+    "cut": "ep02_vc19",
+    "visualCutId": "vc19",
+    "visualCutTitle": "吐き出されたレシート",
+    "visualCutIndex": 19,
+    "start": 238.219,
+    "end": 242.718,
+    "image": "assets/scenes/planned/ep02_vc15_operation_log.png",
+    "plannedImage": "assets/scenes/planned/ep02_vc15_operation_log.png",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
+    "imagePrompt": "第十三レジが運用ログのレシートを吐き出す。カウンター、レシート、黒いレジ端末を中心にした静かな業務オチ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような補修眼鏡や古い地図の常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "ナレーション",
+    "dialogue": "レシートの最後の一行に、「店長確認、未了」とあった。",
+    "reading": "れしーとのさいごのいちぎょうに、てんちょうかくにん、みりょう、とあった。",
+    "log": [
+      "評価基準追加　一件",
+      "食べた人間の表情　重要",
+      "汗田竜司　接続登録",
+      "ホットコーヒー　ブラック　一件",
+      "店長確認　未了"
+    ],
+    "visualLabel": "19/20　吐き出されたレシート",
+    "progressLabel": "58/65　ナレーション"
   },
   {
     "id": "ep02_v057",
@@ -1295,8 +1343,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "吐き出されたレシート",
     "visualCutIndex": 19,
-    "start": 232.793,
-    "end": 234.891,
+    "start": 243.118,
+    "end": 245.261,
     "image": "assets/scenes/planned/ep02_vc15_operation_log.png",
     "plannedImage": "assets/scenes/planned/ep02_vc15_operation_log.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1312,7 +1360,7 @@
       "店長確認　未了"
     ],
     "visualLabel": "19/20　吐き出されたレシート",
-    "progressLabel": "57/63　タクミ"
+    "progressLabel": "59/65　タクミ"
   },
   {
     "id": "ep02_v058",
@@ -1320,8 +1368,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "吐き出されたレシート",
     "visualCutIndex": 19,
-    "start": 235.141,
-    "end": 236.737,
+    "start": 245.511,
+    "end": 248.185,
     "image": "assets/scenes/planned/ep02_vc15_operation_log.png",
     "plannedImage": "assets/scenes/planned/ep02_vc15_operation_log.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1337,7 +1385,7 @@
       "店長確認　未了"
     ],
     "visualLabel": "19/20　吐き出されたレシート",
-    "progressLabel": "58/63　ミナ"
+    "progressLabel": "60/65　ミナ"
   },
   {
     "id": "ep02_v059",
@@ -1345,8 +1393,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 237.337,
-    "end": 241.986,
+    "start": 248.785,
+    "end": 253.495,
     "image": "assets/scenes/planned/ep02_vc16_freezer_label.png",
     "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1355,12 +1403,12 @@
     "dialogue": "そのころ、バックヤードの冷凍庫の奥で、青いラベルが光った。",
     "reading": "そのころ、ばっくやーどのれいとうこのおくで、あおいらべるがひかった。",
     "log": [
-      "発話ログ　59/63",
+      "発話ログ　61/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "59/63　ナレーション"
+    "progressLabel": "61/65　ナレーション"
   },
   {
     "id": "ep02_v060",
@@ -1368,8 +1416,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 242.386,
-    "end": 244.831,
+    "start": 253.895,
+    "end": 256.329,
     "image": "assets/scenes/planned/ep02_vc20_night_shift_continues.png",
     "plannedImage": "assets/scenes/planned/ep02_vc20_night_shift_continues.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1378,12 +1426,12 @@
     "dialogue": "もう次回予告が冷凍庫から来てる",
     "reading": "もうじかいよこくがれいとうこからきてる。",
     "log": [
-      "発話ログ　60/63",
+      "発話ログ　62/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "60/63　タクミ"
+    "progressLabel": "62/65　タクミ"
   },
   {
     "id": "ep02_v061",
@@ -1391,8 +1439,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 245.081,
-    "end": 246.557,
+    "start": 256.579,
+    "end": 258.108,
     "image": "assets/scenes/planned/ep02_vc20_night_shift_continues.png",
     "plannedImage": "assets/scenes/planned/ep02_vc20_night_shift_continues.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1401,12 +1449,12 @@
     "dialogue": "先に掃除",
     "reading": "さきにそうじ。",
     "log": [
-      "発話ログ　61/63",
+      "発話ログ　63/65",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "61/63　ミナ"
+    "progressLabel": "63/65　ミナ"
   },
   {
     "id": "ep02_v062",
@@ -1414,8 +1462,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 246.807,
-    "end": 248.428,
+    "start": 258.358,
+    "end": 260.048,
     "image": "assets/scenes/planned/ep02_vc20_night_shift_continues.png",
     "plannedImage": "assets/scenes/planned/ep02_vc20_night_shift_continues.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1424,12 +1472,12 @@
     "dialogue": "未来より床ですか",
     "reading": "みらいよりゆかですか。",
     "log": [
-      "発話ログ　62/63",
+      "発話ログ　64/65",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "62/63　タクミ"
+    "progressLabel": "64/65　タクミ"
   },
   {
     "id": "ep02_v063",
@@ -1437,8 +1485,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 248.728,
-    "end": 257.907,
+    "start": 260.348,
+    "end": 269.433,
     "image": "assets/scenes/planned/ep02_vc18_aseda_leaves.png",
     "plannedImage": "assets/scenes/planned/ep02_vc18_aseda_leaves.png",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
@@ -1447,11 +1495,11 @@
     "dialogue": "汗田はコーヒーを持って外へ出た。ナビは沈黙していたが、画面の端には小さく表示が残っていた。次の異常地点：冷凍庫。",
     "reading": "あせだワこーひーをもってそとエでた。なびワちんもくしていたが、がめんのはしにワちいさくひょうじがのこっていた。つぎのいじょうちてん：れいとうこ。",
     "log": [
-      "発話ログ　63/63",
+      "発話ログ　65/65",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "63/63　ナレーション"
+    "progressLabel": "65/65　ナレーション"
   }
 ]

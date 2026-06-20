@@ -4,8 +4,8 @@
     {
       "name": "static",
       "runtimeExecutable": "C:\\Users\\qvf03\\AppData\\Local\\Python\\bin\\python.exe",
-      "runtimeArgs": ["-m", "http.server", "8013"],
-      "port": 8013
+      "runtimeArgs": ["-m", "http.server", "8014"],
+      "port": 8014
     }
   ]
 }

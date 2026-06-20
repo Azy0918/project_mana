@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920">
-  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0b0d13"/><stop offset="1" stop-color="#28354a"/></linearGradient></defs>
-  <rect width="1080" height="1920" fill="url(#g)"/>
-  <path d="M350 460 H730 V1200 L690 1160 L650 1200 L610 1160 L570 1200 L530 1160 L490 1200 L450 1160 L410 1200 L350 1160 Z" fill="#eee5d4"/>
-  <g fill="#1f2730" opacity=".68"><rect x="410" y="610" width="260" height="26"/><rect x="410" y="700" width="260" height="26"/><rect x="410" y="790" width="260" height="26"/><rect x="410" y="880" width="260" height="26"/></g>
-  <text x="540" y="210" text-anchor="middle" fill="#edf7ff" font-size="76" font-weight="800">レシート発行</text>
-  <text x="540" y="330" text-anchor="middle" fill="#53e5ff" font-size="44" font-weight="700">scene_07_receipt</text>
-  <text x="540" y="1300" text-anchor="middle" fill="#edf7ff" font-size="48">人類生存率 微増</text>
-</svg>

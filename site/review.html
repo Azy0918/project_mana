@@ -147,6 +147,7 @@
     const EPISODES = [
       { id:"ep01", label:"第1話", scene:"./scene_manifest.json",     voice:"./assets/manifest_reading_hiragana_mina_mao.json" },
       { id:"ep02", label:"第2話", scene:"./scene_manifest_ep02.json", voice:"./assets/manifest_reading_hiragana_ep02.json" },
+      { id:"ep03", label:"第3話", scene:"./scene_manifest_ep03.json", voice:"./assets/manifest_reading_hiragana_ep03.json" },
     ];
     let EP = EPISODES[1];
 
@@ -225,7 +226,7 @@
         <div class="line" data-id="${l.id}">
           <div class="meta">#${l.idx} ・ ${mmss(l.start)}–${mmss(l.end)} ・ ${l.visualCutId} ${esc(l.visualCutTitle)}</div>
           <div class="body">
-            <img class="thumb" loading="lazy" src="${esc(norm(l.image))}" alt="" onerror="this.style.opacity=.25">
+            <img class="thumb" src="${esc(norm(l.image))}" alt="" loading="lazy" decoding="async" onerror="this.style.opacity=.2;this.dataset.broken='1'">
             <div class="texts">
               <span class="speaker">${esc(l.speaker)}</span>
               <div class="dialogue">${esc(l.dialogue)}</div>

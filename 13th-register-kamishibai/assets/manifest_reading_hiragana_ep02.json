@@ -26,14 +26,27 @@
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v002_ナレーション.wav"
   },
   {
+    "id": "ep02_v002b",
+    "cut": "ep02_vc01",
+    "character": "ナレーション",
+    "speaker_name": "澤原 玄二郎",
+    "style_name": "ノーマル",
+    "style_id": 2029042368,
+    "text": "役員の言葉が、まだ耳に残っていた。",
+    "synthesis_text": "やくいんのことばが、まだみみにのこっていた。",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 450,
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v002b_ナレーション.wav"
+  },
+  {
     "id": "ep02_v003",
     "cut": "ep02_vc01",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
     "style_id": 1310138976,
-    "text": "面白いけど、すぐ利益になるの？",
-    "synthesis_text": "おもしろいけど、すぐりえきになるの？",
+    "text": "「面白いけど、すぐ利益になるの？」……か。",
+    "synthesis_text": "おもしろいけど、すぐりえきになるの？……か。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v003_汗田竜司.wav"
@@ -267,7 +280,7 @@
     "style_name": "ノーマル",
     "style_id": 604166016,
     "text": "二時十七分からです",
-    "synthesis_text": "にじじゅうしちふんからです。",
+    "synthesis_text": "にじじゅうななふんからです。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v021_ミナ.wav"
@@ -728,6 +741,19 @@
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v056_ナレーション.wav"
   },
   {
+    "id": "ep02_v056b",
+    "cut": "ep02_vc19",
+    "character": "ナレーション",
+    "speaker_name": "澤原 玄二郎",
+    "style_name": "ノーマル",
+    "style_id": 2029042368,
+    "text": "レシートの最後の一行に、「店長確認、未了」とあった。",
+    "synthesis_text": "れしーとのさいごのいちぎょうに、てんちょうかくにん、みりょう、とあった。",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 400,
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v056b_ナレーション.wav"
+  },
+  {
     "id": "ep02_v057",
     "cut": "ep02_vc19",
     "character": "タクミ",
@@ -747,8 +773,8 @@
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
-    "text": "だいたい残る",
-    "synthesis_text": "だいたいのこる。",
+    "text": "未了は、だいたい残る",
+    "synthesis_text": "みりょうワ、だいたいのこる。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 600,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v058_ミナ.wav"

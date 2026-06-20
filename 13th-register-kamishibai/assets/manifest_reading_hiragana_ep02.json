@@ -7,7 +7,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "汗田竜司は、会社の駐輪場で愛車のCB200Xにまたがった。",
-    "synthesis_text": "あせだりゅうじワ、かいしゃのちゅうりんじょうで、あいしゃのしーびーにひゃくえっくすにまたがった。",
+    "synthesis_text": "あせだりゅうじワ、かいしゃのちゅうりんじょうで、あいしゃの、しいびい、にひゃく、えっくすに、またがった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v001_ナレーション.wav"
@@ -33,7 +33,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "役員の言葉が、まだ耳に残っていた。",
-    "synthesis_text": "やくいんのことばが、まだみみにのこっていた。",
+    "synthesis_text": "やくいんのことばが、まだ、みみにのこっていた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v002b_ナレーション.wav"
@@ -59,7 +59,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "三十年以上積み上げたAI運行支援システムの提案は、また棚上げだった。",
-    "synthesis_text": "さんじゅうねんいじょうつみあげたえーあいうんこうしえんしすてむのていあんワ、またたなあげだった。",
+    "synthesis_text": "さんじゅうねんいじょうつみあげた、えいあいうんこうしえんしすてむのていあんワ、また、たなあげだった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v004_ナレーション.wav"
@@ -111,7 +111,7 @@
     "style_name": "ノーマル",
     "style_id": 1878365376,
     "text": "私は二〇七四年の食品流通管理システムです。欠落した配送記録を回収するため、第十三レジへの接続が必要です",
-    "synthesis_text": "わたしワにせんななじゅうよねんのしょくひんりゅうつうかんりしすてむです。けつらくしたはいそうきろくをかいしゅうするため、だいじゅうさんれじエのせつぞくがひつようです。",
+    "synthesis_text": "わたしワにせんななじゅうよねんのしょくひんりゅうつうかんりしすてむです。けつらくした、はいそうきろくをかいしゅうするため、だいじゅうさんれじエのせつぞくがひつようです。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v008_ナビ.wav"
@@ -371,7 +371,7 @@
     "style_name": "ノーマル",
     "style_id": 1937616896,
     "text": "わかるんですか",
-    "synthesis_text": "わかるんですか。",
+    "synthesis_text": "わかるんですか？",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v028_タクミ.wav"
@@ -397,7 +397,7 @@
     "style_name": "ノーマル",
     "style_id": 1805828384,
     "text": "昨日返品された完全栄養おにぎりの歴史メモに欠損があります",
-    "synthesis_text": "きのうへんぴんされたかんぜんえいようおにぎりのれきしめもにけっそんがあります。",
+    "synthesis_text": "きのう、へんぴんされたかんぜんえいようおにぎりのれきしめもにけっそんがあります。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v030_第十三レジ.wav"
@@ -410,7 +410,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "画面に、ミナのメモが表示された。",
-    "synthesis_text": "がめんに、みなのめもがひょうじされた。",
+    "synthesis_text": "がめんに、みなの、めもがひょうじされた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v031_ナレーション.wav"
@@ -644,7 +644,7 @@
     "style_name": "ノーマル",
     "style_id": 1878365376,
     "text": "協力に感謝します。汗田竜司。あなたの研究は未来でも使用されています。",
-    "synthesis_text": "きょうりょくにかんしゃします。あせだりゅうじ。あなたのけんきゅうワみらいでもしようされています。",
+    "synthesis_text": "きょうりょくにかんしゃします。あせだりゅうじ。あなたのけんきゅうワ、みらいでもしようされています。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v049_ナビ.wav"
@@ -825,8 +825,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": 1937616896,
-    "text": "未来より床ですか",
-    "synthesis_text": "みらいよりゆかですか。",
+    "text": "未来より掃除ですか",
+    "synthesis_text": "みらいより、そうじですか！",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v062_タクミ.wav"

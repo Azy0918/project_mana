@@ -717,7 +717,7 @@
       sceneDialogue.textContent = scene.dialogue || "";
       sceneSubDialogue.textContent = scene.subDialogue || "";
       sceneSubDialogue.hidden = !scene.subDialogue;
-      operationLog.innerHTML = (scene.log || []).map(item => `<div>${item}</div>`).join("");
+      operationLog.innerHTML = (scene.log || []).filter(item => !/^(発話ログ|担当|深夜帯)/.test(item)).map(item => `<div>${item}</div>`).join("");
       sceneBadge.textContent = scene.visualLabel || scene.progressLabel || scene.id;
       currentLabel.textContent = scene.progressLabel || scene.id;
       document.querySelectorAll(".scene-row").forEach(row => {
@@ -836,11 +836,9 @@
           { id: "imageSaveLink", href: "./assets/scenes/scene_03_register.jpg", text: "画像を保存", download: true },
           { href: "./assets/manifest_reading_hiragana_mina_mao.json", text: "manifest" },
           { href: "./scene_manifest.json", text: "line_manifest", download: true },
-          { href: "./assets/ep01_dialogue_edit.csv", text: "編集CSV", download: true },
           { href: "./assets/character_storyboard_sheet.jpg", text: "キャラ絵コンテ" }
         ],
         miniLinks: [
-          { href: "./assets/ep01_dialogue_edit.csv", text: "CSV", download: true },
           { href: "./assets/character_storyboard_sheet.jpg", text: "キャラ表" }
         ]
       },

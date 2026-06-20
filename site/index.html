@@ -609,7 +609,7 @@
       sceneDialogue.textContent = scene.dialogue || "";
       sceneSubDialogue.textContent = scene.subDialogue || "";
       sceneSubDialogue.hidden = !scene.subDialogue;
-      operationLog.innerHTML = (scene.log || []).map(item => `<div>${item}</div>`).join("");
+      operationLog.innerHTML = (scene.log || []).filter(item => !/^(発話ログ|担当|深夜帯)/.test(item)).map(item => `<div>${item}</div>`).join("");
       sceneBadge.textContent = scene.progressLabel || scene.id;
       currentLabel.textContent = scene.progressLabel || scene.id;
       document.querySelectorAll(".scene-row").forEach(row => {

@@ -85,7 +85,7 @@ IMAGE_TITLE = {
 # scene to the image that actually depicts it (verified by viewing all 20 images).
 IMAGE_VC_BY_CUT = {
     1: 1, 2: 2, 3: 2, 4: 3, 5: 4, 6: 5, 7: 6, 8: 6, 9: 7, 10: 8,
-    11: 9, 12: 9, 13: 9, 14: 10, 15: 11, 16: 12, 17: 17, 18: 19, 19: 15,
+    11: 9, 12: 9, 13: 9, 14: 10, 15: 11, 16: 12, 17: 13, 18: 14, 19: 15,
     20: None,  # final cut spreads its five lines across the five ending images
 }
 

@@ -33,7 +33,7 @@
     "style_name": "ノーマル",
     "style_id": 1937616896,
     "text": "冷凍庫に、昨日が入ってます",
-    "synthesis_text": "れいとうこに、きのうがはいってます。",
+    "synthesis_text": "れいとうこに、きのうがハいってます。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v003_タクミ.wav"
@@ -46,7 +46,7 @@
     "style_name": "ノーマル",
     "style_id": 604166016,
     "text": "日付管理なら白板",
-    "synthesis_text": "ひづけかんりならはくばん。",
+    "synthesis_text": "ひづけかんりなら、ハくばん。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v004_ミナ.wav"
@@ -72,7 +72,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "タクミはバックヤードの冷凍庫から、小さなカップアイスを取り出した。商品名は、昨日バニラ。製造年月日は二〇七四年六月十三日。",
-    "synthesis_text": "たくみワばっくやーどのれいとうこから、ちいさなかっぷあいすをとりだした。しょうひんめいワ、きのうばにら。せいぞうねんがっぴワにせんななじゅうよねんろくがつじゅうさんにち。",
+    "synthesis_text": "たくみワ、ばっくやーどのれいとうこから、ちいさなかっぷあいすをとりだした。しょうひんめいワ、きのうばにら。せいぞうねんがっぴワにせんななじゅうよねんろくがつじゅうさんにち。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v006_ナレーション.wav"
@@ -85,7 +85,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "注意書きには、「溶けると昨日になります。再凍結はできません」とある。",
-    "synthesis_text": "ちゅういがきにワ、とけるときのうになります。さいとうけつワできません、とある。",
+    "synthesis_text": "ちゅういがきにワ、とけるときのうになります。さいとうけつワ、できません、とある。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v007_ナレーション.wav"
@@ -124,7 +124,7 @@
     "style_name": "ノーマル",
     "style_id": 604166016,
     "text": "バニラなら当たり",
-    "synthesis_text": "ばにらならあたり。",
+    "synthesis_text": "ばにらなら、あたり。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v010_ミナ.wav"
@@ -137,7 +137,7 @@
     "style_name": "ノーマル",
     "style_id": 1937616896,
     "text": "食べる前提で見ないでください",
-    "synthesis_text": "たべるぜんていでみないでください。",
+    "synthesis_text": "たべるぜんていで、みないでください。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v011_タクミ.wav"
@@ -150,7 +150,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "冷凍庫の温度表示が、マイナス十八度からマイナス十七度へ上がった。次に、マイナス十六度。",
-    "synthesis_text": "れいとうこのおんどひょうじが、まいなすじゅうはちどからまいなすじゅうななどエあがった。つぎに、まいなすじゅうろくど。",
+    "synthesis_text": "れいとうこのおんどひょうじが、まいなすじゅうはちどから、まいなすじゅうななどエあがった。つぎに、まいなすじゅうろくど。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v012_ナレーション.wav"
@@ -176,7 +176,7 @@
     "style_name": "ノーマル",
     "style_id": 604166016,
     "text": "冷凍庫も疲れてる",
-    "synthesis_text": "れいとうこもつかれてる。",
+    "synthesis_text": "れいとうこも、つかれてる。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v014_ミナ.wav"
@@ -189,7 +189,7 @@
     "style_name": "ノーマル",
     "style_id": 1937616896,
     "text": "精神論で温度管理しないでください",
-    "synthesis_text": "せいしんろんでおんどかんりしないでください。",
+    "synthesis_text": "せいしんろんで、おんどかんりしないでください。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v015_タクミ.wav"
@@ -202,7 +202,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "アイスの表面に水滴が浮かんだ瞬間、店内のレジが勝手に鳴った。昨日の売上履歴が表示される。缶コーヒー一本、午前二時八分、座木山辰哉。",
-    "synthesis_text": "あいすのひょうめんにすいてきがうかんだしゅんかん、てんないのれじがかってになった。きのうのうりあげりれきがひょうじされる。かんこーひーいっぽん、ごぜんにじはっぷん、ざきやまたつや。",
+    "synthesis_text": "あいすのひょうめんに、すいてきがうかんだしゅんかん、てんないのれじがかってになった。きのうのうりあげりれきがひょうじされる。かんこーひーいっぽん、ごぜんにじはっぷん、ざきやまたつや。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v016_ナレーション.wav"
@@ -215,7 +215,7 @@
     "style_name": "ノーマル",
     "style_id": 1937616896,
     "text": "昨日の売上に戻ってる……",
-    "synthesis_text": "きのうのうりあげにもどってる……",
+    "synthesis_text": "きのうのうりあげに、もどってる……",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v017_タクミ.wav"
@@ -241,7 +241,7 @@
     "style_name": "ノーマル",
     "style_id": 604166016,
     "text": "コーヒーが戻った",
-    "synthesis_text": "こーひーがもどった。",
+    "synthesis_text": "こーひーが、もどった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v019_ミナ.wav"
@@ -293,7 +293,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "タクミはアイスを差し出した。",
-    "synthesis_text": "たくみワあいすをさしだした。",
+    "synthesis_text": "たくみワ、あいすをさしだした。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v023_ナレーション.wav"
@@ -319,7 +319,7 @@
     "style_name": "ノーマル",
     "style_id": 1310138976,
     "text": "昨日バニラ……読めるが、理解はしたくない",
-    "synthesis_text": "きのうばにら……よめるが、りかいワしたくない。",
+    "synthesis_text": "きのう、ばにら……、よめるが、りかいワしたくない。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v025_汗田竜司.wav"
@@ -332,7 +332,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "汗田はラベル横の小さなコードを見た。",
-    "synthesis_text": "あせだワらべるよこのちいさなこーどをみた。",
+    "synthesis_text": "あせだワ、らべるよこのちいさなこーどをみた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v026_ナレーション.wav"
@@ -345,7 +345,7 @@
     "style_name": "ノーマル",
     "style_id": 1310138976,
     "text": "これは食品ではない。時間保存媒体だ。低温状態で業務履歴を保持し、溶けると過去の店舗記録を展開する",
-    "synthesis_text": "これワしょくひんでワない。じかんほぞんばいたいだ。ていおんじょうたいでぎょうむりれきをほじし、とけるとかこのてんぽきろくをてんかいする。",
+    "synthesis_text": "これワ、しょくひんでワない。じかんほぞんばいたいだ！ていおんじょうたいで、ぎょうむりれきをほじし、とけると、かこのてんぽきろくをてんかいする。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v027_汗田竜司.wav"
@@ -371,7 +371,7 @@
     "style_name": "ノーマル",
     "style_id": 1310138976,
     "text": "未来の設計思想までは責任を持てない",
-    "synthesis_text": "みらいのせっけいしそうまでワせきにんをもてない。",
+    "synthesis_text": "みらいのせっけいしそうまでワ、せきにんをもてない。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v029_汗田竜司.wav"
@@ -384,7 +384,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "雑誌棚が、がたんと音を立てて昨日の配置に戻った。床清掃記録は未実施。休憩記録も未取得。",
-    "synthesis_text": "ざっしだなが、がたんとおとをたててきのうのはいちにもどった。ゆかせいそうきろくワみじっし。きゅうけいきろくもみしゅとく。",
+    "synthesis_text": "ざっしだなが、がたんとおとをたててきのうのはいちにもどった。ゆかせいそうきろくワ、みじっし。きゅうけいきろくも、みしゅとく。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v030_ナレーション.wav"
@@ -397,7 +397,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "タクミは顔を青くした。",
-    "synthesis_text": "たくみワかおをあおくした。",
+    "synthesis_text": "たくみワ、かおをあおくした。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v031_ナレーション.wav"
@@ -449,7 +449,7 @@
     "style_name": "ノーマル",
     "style_id": 604166016,
     "text": "それは確かに大事件",
-    "synthesis_text": "それワたしかにだいじけん。",
+    "synthesis_text": "それワ、たしかにだいじけん。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v035_ミナ.wav"
@@ -462,7 +462,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "二時十七分。第十三レジが現れた。",
-    "synthesis_text": "にじじゅうななふん。だいじゅうさんれじがあらわれた。",
+    "synthesis_text": "にじじゅうななふん。だいじゅうさんれじが、あらわれた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v036_ナレーション.wav"
@@ -475,7 +475,7 @@
     "style_name": "ノーマル",
     "style_id": 1805828384,
     "text": "警告。昨日バニラの融解により、昨日の業務履歴が再展開されています",
-    "synthesis_text": "けいこく。きのうばにらのゆうかいにより、きのうのぎょうむりれきがさいてんかいされています。",
+    "synthesis_text": "けいこく。きのうばにらのゆうかいにより、きのうのぎょうむりれきが、さいてんかいされています。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v037_第十三レジ.wav"
@@ -488,7 +488,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "汗田はナビ端末を第十三レジの横に置いた。",
-    "synthesis_text": "あせだワなびたんまつをだいじゅうさんれじのよこにおいた。",
+    "synthesis_text": "あせだワ、なびたんまつをだいじゅうさんれじのよこにおいた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v038_ナレーション.wav"
@@ -501,7 +501,7 @@
     "style_name": "ノーマル",
     "style_id": 1310138976,
     "text": "完全に時間が戻っているわけではない。人間の記憶は残っている。戻っているのは店舗記録と商品状態だ",
-    "synthesis_text": "かんぜんにじかんがもどっているわけでワない。にんげんのきおくワのこっている。もどっているのワてんぽきろくとしょうひんじょうたいだ。",
+    "synthesis_text": "かんぜんにじかんがもどっているわけでワない。にんげんのきおくワ、のこっている。もどっているのワ、てんぽきろくと、しょうひんじょうたいだ。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v039_汗田竜司.wav"
@@ -540,7 +540,7 @@
     "style_name": "ノーマル",
     "style_id": 1937616896,
     "text": "僕の努力が昨日に食われてる！",
-    "synthesis_text": "ぼくのどりょくがきのうにくわれてる！",
+    "synthesis_text": "ぼくのどりょくが、きのうにくわれてる！",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v042_タクミ.wav"
@@ -552,8 +552,8 @@
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": 1805828384,
-    "text": "さらに融解が進むと、未来おにぎりの修正メモも昨日状態に戻ります",
-    "synthesis_text": "さらにゆうかいがすすむと、みらいおにぎりのしゅうせいめももきのうじょうたいにもどります。",
+    "text": "さらに融解が進むと、未来おにぎりの修正メモも昨日の状態に戻ります",
+    "synthesis_text": "さらにゆうかいがすすむと、みらいおにぎりのしゅうせいめもも、きのうのじょうたいにもどります。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v043_第十三レジ.wav"
@@ -566,7 +566,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "汗田の表情が変わった。",
-    "synthesis_text": "あせだのひょうじょうがかわった。",
+    "synthesis_text": "あせだのひょうじょうが、かわった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v044_ナレーション.wav"
@@ -579,7 +579,7 @@
     "style_name": "ノーマル",
     "style_id": 1310138976,
     "text": "それはまずい",
-    "synthesis_text": "それワまずい。",
+    "synthesis_text": "それワ、まずい。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v045_汗田竜司.wav"
@@ -592,7 +592,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "ミナはアイスを見て言った。",
-    "synthesis_text": "みなワあいすをみていった。",
+    "synthesis_text": "みなワ、あいすをみていった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v046_ナレーション.wav"
@@ -618,7 +618,7 @@
     "style_name": "ノーマル",
     "style_id": 1937616896,
     "text": "ミナさん、今それ言う場面ですか",
-    "synthesis_text": "みなさん、いまそれいうばめんですか。",
+    "synthesis_text": "みなさん、いまそれいうばめんですか？",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v048_タクミ.wav"
@@ -631,7 +631,7 @@
     "style_name": "ノーマル",
     "style_id": 604166016,
     "text": "昨日と今日で",
-    "synthesis_text": "きのうときょうで。",
+    "synthesis_text": "きのうと、きょうで。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v049_ミナ.wav"
@@ -657,7 +657,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "汗田は一瞬沈黙し、真剣にうなずいた。",
-    "synthesis_text": "あせだワいっしゅんちんもくし、しんけんにうなずいた。",
+    "synthesis_text": "あせだワ、いっしゅんちんもくし、しんけんにうなずいた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v051_ナレーション.wav"
@@ -670,7 +670,7 @@
     "style_name": "ノーマル",
     "style_id": 1310138976,
     "text": "……理屈としては近い",
-    "synthesis_text": "……りくつとしてワちかい。",
+    "synthesis_text": "……りくつとしてワ、ちかい。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v052_汗田竜司.wav"
@@ -696,7 +696,7 @@
     "style_name": "ノーマル",
     "style_id": 1310138976,
     "text": "店舗システムは、商品を袋単位で別会計として扱える。昨日の履歴を含むアイスと、今日の店舗記録を別取引として認識させる",
-    "synthesis_text": "てんぽしすてむワ、しょうひんをふくろたんいでべつかいけいとしてあつかえる。きのうのりれきをふくむあいすと、きょうのてんぽきろくをべつとりひきとしてにんしきさせる。",
+    "synthesis_text": "てんぽしすてむワ、しょうひんを、ふくろたんいでべつかいけいとしてあつかえる。きのうのりれきを、ふくむあいすと、きょうのてんぽきろくを、べつとりひきとしてにんしきさせる。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v054_汗田竜司.wav"
@@ -709,7 +709,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "ミナは袋を二枚出した。",
-    "synthesis_text": "みなワふくろをにまいだした。",
+    "synthesis_text": "みなワ、ふくろをにまいだした。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v055_ナレーション.wav"
@@ -735,7 +735,7 @@
     "style_name": "ノーマル",
     "style_id": 1805828384,
     "text": "袋分けを確認。昨日と今日の取引境界を生成",
-    "synthesis_text": "ふくろわけをかくにん。きのうときょうのとりひききょうかいをせいせい。",
+    "synthesis_text": "ふくろわけをかくにん。きのうと、きょうのとりひききょうかいを、せいせい。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v057_第十三レジ.wav"
@@ -748,7 +748,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "店内の照明が青白く揺れた。売上履歴が高速で点滅し、雑誌棚の配置が昨日と今日を行き来する。",
-    "synthesis_text": "てんないのしょうめいがあおじろくゆれた。うりあげりれきがこうそくでてんめつし、ざっしだなのはいちがきのうときょうをいききする。",
+    "synthesis_text": "てんないのしょうめいが、あおじろくゆれた。うりあげりれきが、こうそくでてんめつし、ざっしだなのはいちがきのうときょうをいききする。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v058_ナレーション.wav"
@@ -800,7 +800,7 @@
     "style_name": "ノーマル",
     "style_id": 1937616896,
     "text": "そこ最優先で！",
-    "synthesis_text": "そこさいゆうせんで！",
+    "synthesis_text": "そこ、さいゆうせんで！",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v062_タクミ.wav"
@@ -813,7 +813,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "ミナが保冷剤を袋の上に置く。",
-    "synthesis_text": "みながほれいざいをふくろのうえにおく。",
+    "synthesis_text": "みなが、ほれいざいをふくろのうえにおく。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v063_ナレーション.wav"
@@ -852,7 +852,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "汗田は小さく笑った。",
-    "synthesis_text": "あせだワちいさくわらった。",
+    "synthesis_text": "あせだワ、ちいさくわらった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v066_ナレーション.wav"
@@ -865,7 +865,7 @@
     "style_name": "ノーマル",
     "style_id": 1310138976,
     "text": "普通の対応が最後に効くこともある",
-    "synthesis_text": "ふつうのたいおうがさいごにきくこともある。",
+    "synthesis_text": "ふつうのたいおうが、さいごにきくこともある。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v067_汗田竜司.wav"
@@ -917,7 +917,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "汗田は慎重に袋を持ち上げた。",
-    "synthesis_text": "あせだワしんちょうにふくろをもちあげた。",
+    "synthesis_text": "あせだワ、しんちょうにふくろをもちあげた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v071_ナレーション.wav"
@@ -930,7 +930,7 @@
     "style_name": "ノーマル",
     "style_id": 1310138976,
     "text": "保管した方がいい。時間が腹を壊す",
-    "synthesis_text": "ほかんしたほうがいい。じかんがはらをこわす。",
+    "synthesis_text": "ほかんしたほうがいい。じかんが、はらをこわす。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v072_汗田竜司.wav"
@@ -943,7 +943,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "第十三レジのレシートが出た。",
-    "synthesis_text": "だいじゅうさんれじのれしーとがでた。",
+    "synthesis_text": "だいじゅうさんれじのれしーとが、でた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v073_ナレーション.wav"
@@ -982,7 +982,7 @@
     "style_name": "ノーマル",
     "style_id": 1937616896,
     "text": "昨日と今日を分けるのに？",
-    "synthesis_text": "きのうときょうをわけるのに？",
+    "synthesis_text": "きのうと、きょうをわけるのに？",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v076_タクミ.wav"
@@ -995,7 +995,7 @@
     "style_name": "ノーマル",
     "style_id": 604166016,
     "text": "袋は袋",
-    "synthesis_text": "ふくろワふくろ。",
+    "synthesis_text": "ふくろワ、ふくろ。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v077_ミナ.wav"
@@ -1008,7 +1008,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "午前二時二十分。第十三レジは消えた。誰も触っていないのに、コピー機がウィーンと起動した。",
-    "synthesis_text": "ごぜんにじにじゅっぷん。だいじゅうさんれじワきえた。だれもさわっていないのに、こぴーきがうぃーんときどうした。",
+    "synthesis_text": "ごぜんにじにじゅっぷん。だいじゅうさんれじワ、きえた。だれもさわっていないのに、こぴーきが、うぃーん、ときどうした。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v078_ナレーション.wav"
@@ -1060,7 +1060,7 @@
     "style_name": "ノーマル",
     "style_id": 604166016,
     "text": "夜勤にはある",
-    "synthesis_text": "やきんにワある。",
+    "synthesis_text": "やきんにワ、ある。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v082_ミナ.wav"
@@ -1073,7 +1073,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "タクミはマニュアルノートを開き、震える手で書いた。「時間は袋分けできる場合がある。ただし袋代は取られる」",
-    "synthesis_text": "たくみワまにゅあるのーとをひらき、ふるえるてでかいた。じかんワふくろわけできるばあいがある。ただしふくろだいワとられる。",
+    "synthesis_text": "たくみワ、まにゅあるのーとをひらき、ふるえるてでかいた。じかんワ、ふくろわけできるばあいがある。ただし、ふくろだいワ、とられる。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 800,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v083_ナレーション.wav"

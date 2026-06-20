@@ -11,6 +11,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 VOICE_MANIFEST = REPO_ROOT / "13th-register-kamishibai" / "assets" / "manifest_reading_hiragana_ep02.json"
 TIMELINE = REPO_ROOT / "outputs" / "ep02_voice_reading_hiragana" / "ep02_full_voice_reading_hiragana_timeline.json"
 CHARACTER_LOCKS = REPO_ROOT / "13th-register-kamishibai" / "character_visual_locks.json"
+# Codex-owned source of truth for per-line image assignment (Claude only reads it).
+IMAGE_ASSIGNMENT = REPO_ROOT / "13th-register-kamishibai" / "image_assignment_ep02.json"
 OUT_PATHS = [
     REPO_ROOT / "13th-register-kamishibai" / "scene_manifest_ep02.json",
     REPO_ROOT / "site" / "scene_manifest_ep02.json",
@@ -154,6 +156,25 @@ def image_prompt(image_vc: int, locks: dict[str, str], style_lock: str) -> str:
     return f"{base} {lock_text} {style_lock}"
 
 
+def load_image_assignment() -> tuple[dict[str, str], str]:
+    """Read Codex's per-line image assignment (source of truth). Claude never edits its content."""
+    data = json.loads(IMAGE_ASSIGNMENT.read_text(encoding="utf-8"))
+    return data.get("assignments", {}), str(data.get("assetVersion", "")).strip()
+
+
+def vc_from_path(path: str) -> int:
+    """Reverse-look up the vc number from an image path (ignoring any ?v= suffix)."""
+    match = re.search(r"vc(\d+)", path or "")
+    return int(match.group(1)) if match else 0
+
+
+def versioned(path: str, asset_version: str) -> str:
+    """Append ?v=assetVersion for image cache busting (data-driven; player uses it as-is)."""
+    if not asset_version:
+        return path
+    return f"{path}{'&' if '?' in path else '?'}v={asset_version}"
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Build episode 2 scene manifest and, unless disabled, visual plan files."
@@ -171,10 +192,17 @@ def main() -> int:
     voice = json.loads(VOICE_MANIFEST.read_text(encoding="utf-8"))
     timeline = {row["id"]: row for row in json.loads(TIMELINE.read_text(encoding="utf-8"))}
     locks, style_lock = load_locks()
+    assignments, asset_version = load_image_assignment()
     skipped = [entry["id"] for entry in voice if entry["id"] not in timeline]
     if skipped:
         print(f"skipping lines missing from audio timeline: {', '.join(skipped)}")
     voice = [entry for entry in voice if entry["id"] in timeline]
+
+    # Per Codex: image_assignment is the sole source; no implicit fallback. Error on any gap.
+    missing_assign = [entry["id"] for entry in voice if entry["id"] not in assignments]
+    if missing_assign:
+        print(f"ERROR: image_assignment_ep02.json missing {len(missing_assign)} line(s): {', '.join(missing_assign)}")
+        return 1
 
     total = len(voice)
     scenes: list[dict] = []
@@ -184,8 +212,9 @@ def main() -> int:
         cut_num = cut_number(cut)
         character = entry["character"]
         title = TITLE_BY_CUT.get(cut_num, cut)
-        image_vc = PER_LINE_IMAGE_VC.get(line_id) or IMAGE_VC_BY_CUT.get(cut_num) or cut_num
-        image = f"{IMG_DIR}/{IMAGE_FILE[image_vc]}"
+        assigned = assignments[line_id]                  # Codex source-of-truth path (no ?v)
+        image_vc = vc_from_path(assigned)
+        image = versioned(assigned, asset_version)        # append ?v=assetVersion for cache busting
         tl = timeline.get(line_id, {})
         log = LOG_BY_CUT.get(cut_num) or [
             f"発話ログ　{index:02d}/{total}",
@@ -203,8 +232,8 @@ def main() -> int:
                 "end": tl.get("end", 0.0),
                 "image": image,
                 "plannedImage": image,
-                "fallbackImage": f"{IMG_DIR}/{IMAGE_FILE[1]}",
-                "imagePrompt": image_prompt(image_vc, locks, style_lock),
+                "fallbackImage": versioned(f"{IMG_DIR}/{IMAGE_FILE[1]}", asset_version),
+                "imagePrompt": image_prompt(image_vc, locks, style_lock) if image_vc in EP02_IMAGE_PROMPTS else "",
                 "speaker": character,
                 "dialogue": entry["text"],
                 "reading": entry["synthesis_text"],

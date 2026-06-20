@@ -652,7 +652,7 @@
 
     const versionAssetPath = path => {
       const normalized = normalizeAssetPath(path);
-      if (!ASSET_VERSION || normalized.startsWith("data:") || normalized.startsWith("blob:")) return normalized;
+      if (!ASSET_VERSION || /[?&]v=/.test(normalized) || normalized.startsWith("data:") || normalized.startsWith("blob:")) return normalized;
       const separator = normalized.includes("?") ? "&" : "?";
       return `${normalized}${separator}v=${encodeURIComponent(ASSET_VERSION)}`;
     };

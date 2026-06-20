@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>深夜二時の第十三レジ 第2話 レビュー＆調整</title>
+  <title>深夜二時の第十三レジ レビュー＆調整</title>
   <style>
     :root {
       color-scheme: dark;
@@ -23,6 +23,9 @@
     .tabs button { flex: 1; min-height: 40px; padding: 8px; border: 1px solid var(--line);
       border-radius: 8px; background: rgba(16,23,32,.9); color: var(--muted); font-weight: 800; font-size: 14px; cursor: pointer; }
     .tabs button.active { color: var(--cyan); border-color: rgba(83,229,255,.5); background: rgba(83,229,255,.10); }
+    .epbar { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
+    .epbar label { color: var(--muted); font-size: 12px; font-weight: 800; }
+    .epbar select { min-height: 34px; padding: 5px 10px; border: 1px solid rgba(83,229,255,.42); border-radius: 8px; background: rgba(5,7,11,.6); color: var(--text); font-size: 14px; font-weight: 800; }
     main { width: min(100%, 1000px); margin: 0 auto; padding: 14px; }
     .hint { margin: 0 0 12px; color: var(--muted); font-size: 12px; line-height: 1.6; }
     .status { color: var(--violet); font-size: 12px; }
@@ -80,7 +83,11 @@
 </head>
 <body>
   <header>
-    <h1>深夜二時の第十三レジ 第2話 ｜ レビュー＆調整</h1>
+    <h1>深夜二時の第十三レジ ｜ レビュー＆調整</h1>
+    <div class="epbar">
+      <label for="epSelect">話数</label>
+      <select id="epSelect" aria-label="話数を選択"></select>
+    </div>
     <div class="tabs">
       <button id="tabReviewBtn" class="active" type="button">① 確認・変更依頼</button>
       <button id="tabToneBtn" type="button">② トーン調整</button>
@@ -112,8 +119,11 @@
 
   <script>
     const ENGINE = "http://127.0.0.1:10101";
-    const SCENE_URL = "./scene_manifest_ep02.json";
-    const VOICE_URL = "./assets/manifest_reading_hiragana_ep02.json";
+    const EPISODES = [
+      { id:"ep01", label:"第1話", scene:"./scene_manifest.json",     voice:"./assets/manifest_reading_hiragana_mina_mao.json" },
+      { id:"ep02", label:"第2話", scene:"./scene_manifest_ep02.json", voice:"./assets/manifest_reading_hiragana_ep02.json" },
+    ];
+    let EP = EPISODES[1];
 
     // 既定パラメータ（ep01_voice_cast_selected.csv 由来。style_id→値）。未登録話者はエンジン既定。
     const PARAM_DEFAULTS = {
@@ -122,6 +132,7 @@
       1937616896: { speedScale:1.1,  intonationScale:1.05, tempoDynamicsScale:1.12, pitchScale:0.015, volumeScale:1.0, prePhonemeLength:0.06, postPhonemeLength:0.18 }, // にせ / タクミ
       604166016:  { speedScale:0.96, intonationScale:0.75, tempoDynamicsScale:0.8,  pitchScale:-0.02, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.2  }, // 中2 / ミナ
       1805828384: { speedScale:0.88, intonationScale:0.45, tempoDynamicsScale:0.5,  pitchScale:-0.04, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.25 }, // ろてじん / 第十三レジ
+      606865152:  { speedScale:0.95, intonationScale:0.78, tempoDynamicsScale:0.8,  pitchScale:-0.03, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.22 }, // fumifumi / 未来の会社員（第1話）
     };
     const ENGINE_DEFAULT = { speedScale:1.0, intonationScale:1.0, tempoDynamicsScale:1.0, pitchScale:0.0, volumeScale:1.0, prePhonemeLength:0.1, postPhonemeLength:0.1 };
     const PARAMS = [
@@ -146,10 +157,12 @@
 
     async function load() {
       try {
+        $("#reviewStatus").textContent = "読込中…"; $("#toneStatus").textContent = "読込中…";
         const [scenes, voice] = await Promise.all([
-          fetch(SCENE_URL).then(r => { if(!r.ok) throw new Error(SCENE_URL); return r.json(); }),
-          fetch(VOICE_URL).then(r => { if(!r.ok) throw new Error(VOICE_URL); return r.json(); }),
+          fetch(EP.scene).then(r => { if(!r.ok) throw new Error(EP.scene); return r.json(); }),
+          fetch(EP.voice).then(r => { if(!r.ok) throw new Error(EP.voice); return r.json(); }),
         ]);
+        Object.keys(tone).forEach(k => delete tone[k]);
         const sceneById = {}; scenes.forEach(s => sceneById[s.id] = s);
         LINES = voice.map((v, i) => {
           const sc = sceneById[v.id] || {};
@@ -164,8 +177,8 @@
         });
         LINES.forEach(l => { tone[l.id] = { ...defFor(l.styleId) }; });
         renderReview(); renderTone();
-        $("#reviewStatus").textContent = "（" + LINES.length + "行 読込）";
-        $("#toneStatus").textContent = "（" + LINES.length + "行 読込）";
+        $("#reviewStatus").textContent = "（" + EP.label + "・" + LINES.length + "行）";
+        $("#toneStatus").textContent = "（" + EP.label + "・" + LINES.length + "行）";
       } catch (e) {
         $("#reviewStatus").textContent = "読込失敗: " + e.message + "（ローカルHTTPサーバ or 公開URLで開いてください。file://は不可）";
       }
@@ -281,8 +294,8 @@
         return t ? { l, t } : null;
       }).filter(Boolean);
       if (!items.length) { showOut("変更依頼プロンプト", "（変更依頼が入力された行がありません。直したい行の「変更依頼」欄に記入してください。）"); return; }
-      let out = "# 紙芝居 変更依頼（深夜二時の第十三レジ 第2話）\n";
-      out += "以下のセリフに変更をお願いします。各行は scene_manifest_ep02.json / manifest_reading_hiragana_ep02.json の該当 id です。\n\n";
+      let out = `# 紙芝居 変更依頼（深夜二時の第十三レジ ${EP.label}）\n`;
+      out += `以下のセリフに変更をお願いします。各行は ${base(EP.scene)} / ${base(EP.voice)} の該当 id です。\n\n`;
       items.forEach(({ l, t }) => {
         out += `## #${l.idx}  id=${l.id}  cut=${l.visualCutId}(${l.visualCutTitle})  ${mmss(l.start)}–${mmss(l.end)}\n`;
         out += `- 話者: ${l.speaker}（${l.speakerName} / style_id ${l.styleId}）\n`;
@@ -304,9 +317,9 @@
         return diffs.length ? { l, diffs } : null;
       }).filter(Boolean);
       if (!changed.length) { showOut("トーン調整プロンプト", "（既定値から変更された行がありません。行を開いてスライダーを動かしてください。）"); return; }
-      let out = "# 第2話 トーン/イントネーション調整依頼（AivisSpeech パラメータ）\n";
+      let out = `# ${EP.label} トーン/イントネーション調整依頼（AivisSpeech パラメータ）\n`;
       out += "以下の行に「行単位のパラメータ上書き」をお願いします（値は目標値）。\n";
-      out += "現状はキャスト単位の一律パラメータなので、manifest に per-line override を持たせ、generate_ep02_full_voice.py が行ごとに適用する形へ拡張→該当行のみ再合成→scene_manifest再生成(--no-visual-plan)→公開、まで想定。\n\n";
+      out += `現状はキャスト単位の一律パラメータなので、${base(EP.voice)} に per-line override を持たせ、生成スクリプトが行ごとに適用する形へ拡張→該当行のみ再合成→scene_manifest再生成→公開、まで想定。\n\n`;
       changed.forEach(({ l, diffs }) => {
         out += `## #${l.idx}  id=${l.id}  ${l.speaker}（${l.speakerName} / style_id ${l.styleId}）\n`;
         out += `- セリフ: ${l.dialogue}\n`;
@@ -337,6 +350,10 @@
     $("#genReview").addEventListener("click", genReview);
     $("#genTone").addEventListener("click", genTone);
     $("#copyBtn").addEventListener("click", copyOut);
+    const epSel = $("#epSelect");
+    EPISODES.forEach((e, i) => { const o = document.createElement("option"); o.value = String(i); o.textContent = e.label; epSel.appendChild(o); });
+    epSel.value = String(EPISODES.indexOf(EP));
+    epSel.addEventListener("change", () => { EP = EPISODES[Number(epSel.value)] || EPISODES[0]; load(); });
     $("#closeBtn").addEventListener("click", () => $("#out").close());
     load();
   </script>

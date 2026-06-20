@@ -102,6 +102,7 @@
             <input type="file" accept="image/png,image/jpeg,image/webp" data-id="${esc(c.visualCutId)}">
             <textarea data-note="${esc(c.visualCutId)}" placeholder="差し替え理由・確認メモ">${esc(r.note || "")}</textarea>
             <div class="actions">
+              <button type="button" data-current="${esc(c.visualCutId)}">元画像DL</button>
               <button type="button" data-download="${esc(c.visualCutId)}" ${r.url ? "" : "disabled"}>採用名でDL</button>
               <button type="button" data-clear="${esc(c.visualCutId)}" ${r.url ? "" : "disabled"}>解除</button>
             </div>
@@ -110,6 +111,7 @@
       }).join("");
       document.querySelectorAll("input[type=file]").forEach(inp => inp.addEventListener("change", chooseFile));
       document.querySelectorAll("[data-note]").forEach(t => t.addEventListener("input", e => { const id=e.target.dataset.note; replacements[id] ||= {}; replacements[id].note=e.target.value; }));
+      document.querySelectorAll("[data-current]").forEach(b => b.addEventListener("click", () => downloadCurrent(b.dataset.current)));
       document.querySelectorAll("[data-download]").forEach(b => b.addEventListener("click", () => downloadImage(b.dataset.download)));
       document.querySelectorAll("[data-clear]").forEach(b => b.addEventListener("click", () => clearImage(b.dataset.clear)));
     }
@@ -131,6 +133,24 @@
       const c = CUTS.find(x => x.visualCutId === id), r = replacements[id];
       if (!c || !r) return;
       const a = document.createElement("a"); a.href = r.url; a.download = base(c.plannedImage); a.click();
+    }
+    async function downloadCurrent(id) {
+      const c = CUTS.find(x => x.visualCutId === id);
+      if (!c) return;
+      const src = norm(c.plannedImage);
+      try {
+        const blob = await fetch(src).then(r => {
+          if (!r.ok) throw new Error(String(r.status));
+          return r.blob();
+        });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = base(c.plannedImage);
+        a.click();
+        URL.revokeObjectURL(a.href);
+      } catch (e) {
+        window.open(src, "_blank", "noopener");
+      }
     }
     function promptText() {
       const items = selected();

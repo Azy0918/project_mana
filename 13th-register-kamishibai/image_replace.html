@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>深夜二時の第十三レジ 画像差し替え</title>
+  <style>
+    :root { color-scheme: dark; --bg:#05070b; --panel:#101720; --line:#26384a; --text:#edf7ff; --muted:#98a7b8; --cyan:#53e5ff; --violet:#b58cff; --ok:#86efac; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; color:var(--text); background:radial-gradient(circle at 18% 0%, rgba(83,229,255,.10), transparent 28rem), var(--bg); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+    header { position:sticky; top:0; z-index:10; padding:12px 14px; background:rgba(5,7,11,.92); border-bottom:1px solid var(--line); backdrop-filter:blur(8px); }
+    h1 { margin:0 0 8px; font-size:18px; }
+    .top { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .top label, .hint { color:var(--muted); font-size:12px; }
+    select, input, textarea { border:1px solid var(--line); border-radius:8px; background:rgba(5,7,11,.64); color:var(--text); }
+    select { min-height:34px; padding:6px 9px; font-weight:800; }
+    button { min-height:38px; padding:7px 12px; border:1px solid rgba(83,229,255,.42); border-radius:8px; background:rgba(83,229,255,.12); color:var(--cyan); font-weight:900; cursor:pointer; }
+    main { width:min(100%,1180px); margin:0 auto; padding:14px; }
+    .hint { margin:0 0 12px; line-height:1.6; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:12px; }
+    .card { border:1px solid var(--line); border-radius:10px; background:rgba(16,23,32,.72); overflow:hidden; }
+    .card.changed { border-color:rgba(134,239,172,.65); }
+    .meta { display:flex; justify-content:space-between; gap:8px; padding:8px 10px; border-bottom:1px solid var(--line); background:rgba(83,229,255,.07); color:var(--cyan); font-size:12px; font-weight:900; }
+    .compare { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:10px; }
+    .shot h3 { margin:0 0 5px; color:var(--muted); font-size:11px; }
+    .shot img { width:100%; aspect-ratio:9/16; object-fit:cover; border:1px solid var(--line); border-radius:6px; background:#02050a; }
+    .form { padding:0 10px 10px; display:grid; gap:8px; }
+    .imgname { color:var(--muted); font-size:11px; word-break:break-all; line-height:1.4; }
+    input[type=file] { width:100%; padding:8px; }
+    textarea { width:100%; min-height:48px; padding:8px; resize:vertical; font:13px/1.45 system-ui,sans-serif; }
+    .actions { display:flex; gap:8px; }
+    .actions button { flex:1; }
+    .bar { position:sticky; bottom:0; display:flex; gap:8px; padding:12px 0; margin-top:12px; background:linear-gradient(180deg, transparent, var(--bg) 38%); }
+    .bar button { flex:1; min-height:44px; }
+    dialog { width:min(96vw,820px); border:1px solid rgba(83,229,255,.5); border-radius:10px; background:var(--panel); color:var(--text); }
+    dialog::backdrop { background:rgba(0,0,0,.6); }
+    dialog h2 { margin:0 0 8px; font-size:15px; color:var(--cyan); }
+    dialog textarea { min-height:55vh; font:12px/1.6 ui-monospace, Consolas, monospace; background:#02050a; }
+    .dlg-actions { display:flex; gap:8px; margin-top:10px; }
+    .dlg-actions button { flex:1; }
+    .status { color:var(--violet); font-size:12px; font-weight:800; }
+    @media (max-width:560px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>画像差し替え準備 ｜ Codex向け</h1>
+    <div class="top">
+      <label for="epSelect">話数</label>
+      <select id="epSelect"></select>
+      <span id="status" class="status"></span>
+    </div>
+  </header>
+  <main>
+    <p class="hint">自分で編集した画像を各カットへ仮読み込みして、現在画像と比較できます。GitHub Pages上のファイルは直接上書きできないため、最後にCodexへ渡す差し替え指示プロンプトと差し替え台帳JSONを生成してください。必要なら各画像を採用ファイル名で個別ダウンロードできます。</p>
+    <div id="cards" class="grid"></div>
+    <div class="bar">
+      <button id="genPrompt" type="button">差し替え指示プロンプト生成</button>
+      <button id="exportJson" type="button">差し替え台帳JSON出力</button>
+    </div>
+  </main>
+
+  <dialog id="out">
+    <h2 id="outTitle">出力</h2>
+    <textarea id="outText" readonly></textarea>
+    <div class="dlg-actions">
+      <button id="copyBtn" type="button">コピー</button>
+      <button id="downloadBtn" type="button">ダウンロード</button>
+      <button id="closeBtn" type="button">閉じる</button>
+    </div>
+  </dialog>
+
+  <script>
+    const EPISODES = [
+      { id:"ep01", label:"第1話", visual:"./visual_cut_plan.json" },
+      { id:"ep02", label:"第2話", visual:"./visual_cut_plan_ep02.json" },
+    ];
+    let EP = EPISODES[1], CUTS = [], replacements = {};
+    const $ = s => document.querySelector(s);
+    const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
+    const norm = p => !p ? "" : (/^(\.\/|\/|https?:)/.test(p) ? p : "./" + p);
+    const base = p => String(p || "").split("/").pop();
+
+    async function load() {
+      $("#status").textContent = "読込中…";
+      CUTS = await fetch(EP.visual).then(r => { if(!r.ok) throw new Error(EP.visual); return r.json(); });
+      replacements = {};
+      render();
+      $("#status").textContent = `（${EP.label}・${CUTS.length}カット）`;
+    }
+    function render() {
+      $("#cards").innerHTML = CUTS.map((c,i) => {
+        const r = replacements[c.visualCutId] || {};
+        return `<section class="card ${r.url ? "changed" : ""}" data-id="${esc(c.visualCutId)}">
+          <div class="meta"><span>${String(i+1).padStart(2,"0")} / 20　${esc(c.visualCutId)}</span><span>${r.fileName ? "差替候補あり" : "未選択"}</span></div>
+          <div class="compare">
+            <div class="shot"><h3>現在</h3><img src="${esc(norm(c.plannedImage))}" loading="lazy" onerror="this.style.opacity=.25" alt=""></div>
+            <div class="shot"><h3>差替候補</h3><img id="prev_${esc(c.visualCutId)}" src="${esc(r.url || "")}" alt=""></div>
+          </div>
+          <div class="form">
+            <div class="imgname">採用先: 13th-register-kamishibai/${esc(c.plannedImage)}<br>同期先: site/${esc(c.plannedImage)}<br>ファイル名: ${esc(base(c.plannedImage))}</div>
+            <input type="file" accept="image/png,image/jpeg,image/webp" data-id="${esc(c.visualCutId)}">
+            <textarea data-note="${esc(c.visualCutId)}" placeholder="差し替え理由・確認メモ">${esc(r.note || "")}</textarea>
+            <div class="actions">
+              <button type="button" data-download="${esc(c.visualCutId)}" ${r.url ? "" : "disabled"}>採用名でDL</button>
+              <button type="button" data-clear="${esc(c.visualCutId)}" ${r.url ? "" : "disabled"}>解除</button>
+            </div>
+          </div>
+        </section>`;
+      }).join("");
+      document.querySelectorAll("input[type=file]").forEach(inp => inp.addEventListener("change", chooseFile));
+      document.querySelectorAll("[data-note]").forEach(t => t.addEventListener("input", e => { const id=e.target.dataset.note; replacements[id] ||= {}; replacements[id].note=e.target.value; }));
+      document.querySelectorAll("[data-download]").forEach(b => b.addEventListener("click", () => downloadImage(b.dataset.download)));
+      document.querySelectorAll("[data-clear]").forEach(b => b.addEventListener("click", () => clearImage(b.dataset.clear)));
+    }
+    function chooseFile(e) {
+      const id = e.target.dataset.id, file = e.target.files[0];
+      if (!file) return;
+      if (replacements[id]?.url) URL.revokeObjectURL(replacements[id].url);
+      replacements[id] = { ...(replacements[id] || {}), file, fileName:file.name, fileType:file.type, size:file.size, url:URL.createObjectURL(file) };
+      render();
+    }
+    function clearImage(id) {
+      if (replacements[id]?.url) URL.revokeObjectURL(replacements[id].url);
+      delete replacements[id]; render();
+    }
+    function selected() {
+      return CUTS.map(c => ({ cut:c, r:replacements[c.visualCutId] })).filter(x => x.r?.fileName);
+    }
+    function downloadImage(id) {
+      const c = CUTS.find(x => x.visualCutId === id), r = replacements[id];
+      if (!c || !r) return;
+      const a = document.createElement("a"); a.href = r.url; a.download = base(c.plannedImage); a.click();
+    }
+    function promptText() {
+      const items = selected();
+      if (!items.length) return "差し替え候補画像が選択されていません。各カットで画像ファイルを選んでください。";
+      let out = `# Codex画像差し替え依頼（${EP.label}）\n\n`;
+      out += "以下の手元編集済み画像を、指定の採用ファイル名で置き換えてください。画像本体以外のセリフ・音声・UIは変更しないでください。\n\n";
+      items.forEach(({cut,r}) => {
+        out += `## ${cut.visualCutId} ${cut.title}\n`;
+        out += `- 元画像: ${base(cut.plannedImage)}\n`;
+        out += `- ユーザー選択ファイル: ${r.fileName} (${Math.round((r.size||0)/1024)} KB)\n`;
+        out += `- 保存先1: 13th-register-kamishibai/${cut.plannedImage}\n`;
+        out += `- 保存先2: site/${cut.plannedImage}\n`;
+        out += `- メモ: ${r.note || "なし"}\n\n`;
+      });
+      out += "作業後は、差し替えたカット一覧、未変更ファイル、GitHub Pagesの確認URLを返してください。\n";
+      return out;
+    }
+    function ledgerJson() {
+      return JSON.stringify({ episode:EP.id, updatedAt:new Date().toISOString(), replacements:selected().map(({cut,r}) => ({
+        visualCutId:cut.visualCutId, title:cut.title, targetFile:base(cut.plannedImage),
+        kamishibaiPath:`13th-register-kamishibai/${cut.plannedImage}`, sitePath:`site/${cut.plannedImage}`,
+        sourceFile:r.fileName, size:r.size, note:r.note || ""
+      }))}, null, 2);
+    }
+    function show(title, text, filename) { $("#outTitle").textContent=title; $("#outText").value=text; $("#downloadBtn").dataset.filename=filename; $("#out").showModal(); $("#outText").select(); }
+    function copyOut() { navigator.clipboard?.writeText($("#outText").value); const b=$("#copyBtn"), o=b.textContent; b.textContent="コピーしました"; setTimeout(()=>b.textContent=o,1200); }
+    function downloadOut() { const blob=new Blob([$("#outText").value],{type:"text/plain;charset=utf-8"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=$("#downloadBtn").dataset.filename; a.click(); URL.revokeObjectURL(a.href); }
+    $("#genPrompt").addEventListener("click", () => show("差し替え指示プロンプト", promptText(), `${EP.id}_image_replace_prompt.txt`));
+    $("#exportJson").addEventListener("click", () => show("差し替え台帳JSON", ledgerJson(), `${EP.id}_image_replace_ledger.json`));
+    $("#copyBtn").addEventListener("click", copyOut);
+    $("#downloadBtn").addEventListener("click", downloadOut);
+    $("#closeBtn").addEventListener("click", () => $("#out").close());
+    const epSel = $("#epSelect");
+    EPISODES.forEach((e,i) => { const o=document.createElement("option"); o.value=String(i); o.textContent=e.label; epSel.appendChild(o); });
+    epSel.value = "1";
+    epSel.addEventListener("change", () => { EP=EPISODES[Number(epSel.value)] || EPISODES[0]; load(); });
+    load().catch(e => $("#status").textContent = "読込失敗: " + e.message);
+  </script>
+</body>
+</html>

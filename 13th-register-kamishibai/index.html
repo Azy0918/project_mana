@@ -642,10 +642,19 @@
       return `${min}:${sec}`;
     };
 
+    const ASSET_VERSION = new URLSearchParams(window.location.search).get("v") || "3fa092d";
+
     const normalizeAssetPath = path => {
       if (!path) return FALLBACK_IMAGE;
       if (path.startsWith("./") || path.startsWith("/") || path.startsWith("http")) return path;
       return `./${path}`;
+    };
+
+    const versionAssetPath = path => {
+      const normalized = normalizeAssetPath(path);
+      if (!ASSET_VERSION || normalized.startsWith("data:") || normalized.startsWith("blob:")) return normalized;
+      const separator = normalized.includes("?") ? "&" : "?";
+      return `${normalized}${separator}v=${encodeURIComponent(ASSET_VERSION)}`;
     };
 
     const findScene = seconds => {
@@ -692,10 +701,10 @@
       sceneImage.onerror = () => {
         if (sceneImage.dataset.src !== fallbackSrc) {
           sceneImage.dataset.src = fallbackSrc;
-          sceneImage.src = fallbackSrc;
+          sceneImage.src = versionAssetPath(fallbackSrc);
         }
       };
-      sceneImage.src = nextSrc;
+      sceneImage.src = versionAssetPath(nextSrc);
     };
 
     const renderScene = scene => {
@@ -881,7 +890,7 @@
       setImage(episode.fallbackImage, episode.fallbackImage);
       audio.src = episode.audio;
       audio.load();
-      fetch(episode.manifest)
+      fetch(versionAssetPath(episode.manifest), { cache: "no-store" })
         .then(response => {
           if (!response.ok) throw new Error("scene manifest load failed");
           return response.json();

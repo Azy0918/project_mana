@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import re
@@ -152,7 +153,20 @@ def image_prompt(image_vc: int, locks: dict[str, str], style_lock: str) -> str:
     return f"{base} {lock_text} {style_lock}"
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Build episode 2 scene manifest and, unless disabled, visual plan files."
+    )
+    parser.add_argument(
+        "--no-visual-plan",
+        action="store_true",
+        help="Write scene_manifest_ep02.json only. Use this for Claude timing/dialogue updates so visual_cut_plan files are not overwritten.",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
     voice = json.loads(VOICE_MANIFEST.read_text(encoding="utf-8"))
     timeline = {row["id"]: row for row in json.loads(TIMELINE.read_text(encoding="utf-8"))}
     locks, style_lock = load_locks()
@@ -204,32 +218,35 @@ def main() -> int:
         out_path.write_text(payload, encoding="utf-8")
         print(f"wrote {out_path}  ({len(scenes)} scenes)")
 
-    visual_plan = []
-    for image_vc in range(1, 21):
-        image = f"{IMG_DIR}/{IMAGE_FILE[image_vc]}"
-        title = IMAGE_TITLE.get(image_vc, f"vc{image_vc:02d}")
-        visual_plan.append(
-            {
-                "visualCutId": f"vc{image_vc:02d}",
-                "title": title,
-                "plannedImage": image,
-                "fallbackImage": f"{IMG_DIR}/{IMAGE_FILE[1]}",
-                "prompt": image_prompt(image_vc, locks, style_lock),
-            }
-        )
-    visual_plan_payload = json.dumps(visual_plan, ensure_ascii=False, indent=2)
-    for out_path in VISUAL_PLAN_JSON_PATHS:
-        out_path.write_text(visual_plan_payload, encoding="utf-8")
-        print(f"wrote {out_path}  ({len(visual_plan)} visual cuts)")
-    for out_path in VISUAL_PLAN_CSV_PATHS:
-        with out_path.open("w", encoding="utf-8", newline="") as handle:
-            writer = csv.DictWriter(
-                handle,
-                fieldnames=["visualCutId", "title", "plannedImage", "fallbackImage", "prompt"],
+    if args.no_visual_plan:
+        print("skipped visual plan outputs (--no-visual-plan)")
+    else:
+        visual_plan = []
+        for image_vc in range(1, 21):
+            image = f"{IMG_DIR}/{IMAGE_FILE[image_vc]}"
+            title = IMAGE_TITLE.get(image_vc, f"vc{image_vc:02d}")
+            visual_plan.append(
+                {
+                    "visualCutId": f"vc{image_vc:02d}",
+                    "title": title,
+                    "plannedImage": image,
+                    "fallbackImage": f"{IMG_DIR}/{IMAGE_FILE[1]}",
+                    "prompt": image_prompt(image_vc, locks, style_lock),
+                }
             )
-            writer.writeheader()
-            writer.writerows(visual_plan)
-        print(f"wrote {out_path}  ({len(visual_plan)} visual cuts)")
+        visual_plan_payload = json.dumps(visual_plan, ensure_ascii=False, indent=2)
+        for out_path in VISUAL_PLAN_JSON_PATHS:
+            out_path.write_text(visual_plan_payload, encoding="utf-8")
+            print(f"wrote {out_path}  ({len(visual_plan)} visual cuts)")
+        for out_path in VISUAL_PLAN_CSV_PATHS:
+            with out_path.open("w", encoding="utf-8", newline="") as handle:
+                writer = csv.DictWriter(
+                    handle,
+                    fieldnames=["visualCutId", "title", "plannedImage", "fallbackImage", "prompt"],
+                )
+                writer.writeheader()
+                writer.writerows(visual_plan)
+            print(f"wrote {out_path}  ({len(visual_plan)} visual cuts)")
 
     # Quick report: which image each cut resolved to.
     seen_cut = set()

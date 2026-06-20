@@ -90,12 +90,13 @@ IMAGE_VC_BY_CUT = {
     20: None,  # final cut spreads its five lines across the five ending images
 }
 
-# Final cut (vc20) line -> image vc, so all 20 images are used.
+# Final cut line -> image vc. vc20 is intentionally unused for now; the last
+# dialogue beat returns to the cleaning image instead of the night-shift wide.
 PER_LINE_IMAGE_VC = {
     "ep02_v059": 16,  # 冷凍庫の青いラベルが光る
-    "ep02_v060": 20,  # 次回予告より夜勤の通常運転へ戻す
-    "ep02_v061": 20,  # 先に掃除
-    "ep02_v062": 20,  # 夜勤は続く
+    "ep02_v060": 17,  # もう次回予告が冷凍庫から来てる
+    "ep02_v061": 17,  # 先に掃除
+    "ep02_v062": 17,  # 未来より掃除
     "ep02_v063": 18,  # 汗田、コーヒーを持って退店
 }
 

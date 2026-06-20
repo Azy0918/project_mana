@@ -75,6 +75,12 @@
     .dlg-actions button { min-height: 40px; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line);
       background: rgba(5,7,11,.6); color: var(--text); font-weight: 800; cursor: pointer; }
     .dlg-actions .primary { border-color: rgba(83,229,255,.5); background: rgba(83,229,255,.14); color: var(--cyan); }
+    #engineBar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 10px; }
+    #engineBar label { color: var(--muted); font-size: 12px; font-weight: 800; }
+    #engineBar input { flex: 1; min-width: 180px; min-height: 32px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 7px; background: rgba(5,7,11,.6); color: var(--text); font: 12px ui-monospace, monospace; }
+    #engineBar button { min-height: 32px; padding: 5px 12px; border: 1px solid rgba(83,229,255,.42); border-radius: 7px; background: rgba(83,229,255,.10); color: var(--cyan); font-weight: 800; font-size: 12px; cursor: pointer; }
+    .note { margin: 0 0 10px; padding: 9px 11px; border: 1px solid rgba(255,196,84,.5); border-radius: 8px; background: rgba(255,196,84,.08); color: #ffd9a0; font-size: 12px; line-height: 1.6; }
+    .note code { background: rgba(0,0,0,.35); padding: 1px 5px; border-radius: 4px; }
     .hidden { display: none !important; }
     @media (max-width: 560px) {
       .srow { grid-template-columns: 92px 1fr 48px; }
@@ -102,7 +108,14 @@
     </section>
 
     <section id="tabTone" class="hidden">
-      <p class="hint">行を開いてスライダーでトーン/イントネーションを調整。「試聴」は<strong>ローカルでAivisSpeech起動中（localhost）</strong>のときのみ鳴ります（公開URLからはCORSで不可）。調整した行だけが依頼プロンプトに入ります。<span id="toneStatus" class="status"></span></p>
+      <p class="hint">行を開いてスライダーでトーン/イントネーションを調整。調整した行だけが依頼プロンプトに入ります。<span id="toneStatus" class="status"></span></p>
+      <div id="engineBar">
+        <label for="engineUrl">エンジンURL</label>
+        <input id="engineUrl" type="text" spellcheck="false">
+        <button id="engineTest" type="button">接続テスト</button>
+        <span id="engineStatus" class="status"></span>
+      </div>
+      <div id="engineNote" class="note hidden"></div>
       <div id="toneList"></div>
       <div class="bar"><button id="genTone" type="button">トーン調整プロンプトを生成</button></div>
     </section>
@@ -118,7 +131,7 @@
   </dialog>
 
   <script>
-    const ENGINE = "http://127.0.0.1:10101";
+    let ENGINE = "http://127.0.0.1:10101";
     const EPISODES = [
       { id:"ep01", label:"第1話", scene:"./scene_manifest.json",     voice:"./assets/manifest_reading_hiragana_mina_mao.json" },
       { id:"ep02", label:"第2話", scene:"./scene_manifest_ep02.json", voice:"./assets/manifest_reading_hiragana_ep02.json" },
@@ -273,15 +286,43 @@
       const st = document.querySelector(`[data-prev="${id}"]`);
       st.textContent = "合成中…";
       try {
-        const q = await fetch(`${ENGINE}/audio_query?text=${encodeURIComponent(l.reading)}&speaker=${l.styleId}`, { method:"POST" }).then(r => r.json());
+        const qr = await fetch(`${ENGINE}/audio_query?text=${encodeURIComponent(l.reading)}&speaker=${l.styleId}`, { method:"POST" });
+        if (!qr.ok) throw new Error("audio_query " + qr.status);
+        const q = await qr.json();
         PARAMS.forEach(p => q[p.key] = tone[id][p.key]);
         q.outputSamplingRate = 44100; q.outputStereo = false;
-        const blob = await fetch(`${ENGINE}/synthesis?speaker=${l.styleId}`, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(q) }).then(r => r.blob());
-        const a = new Audio(URL.createObjectURL(blob)); a.play();
+        const sr = await fetch(`${ENGINE}/synthesis?speaker=${l.styleId}`, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(q) });
+        if (!sr.ok) throw new Error("synthesis " + sr.status);
+        new Audio(URL.createObjectURL(await sr.blob())).play();
         st.textContent = "再生 ▶";
       } catch (e) {
-        st.textContent = "エンジン未接続（localhost＋AivisSpeech起動時のみ）";
+        st.textContent = "✕ " + diagnose(e);
       }
+    }
+
+    function isLocal() { return ["localhost", "127.0.0.1"].includes(location.hostname); }
+    function diagnose(e) {
+      const m = String((e && e.message) || e);
+      if (/\b403\b/.test(m)) return isLocal() ? "拒否(403)：AivisSpeechのCORS設定を確認" : "拒否(403)：公開URLからは不可→localhostで開く";
+      if (/Failed to fetch|NetworkError|load failed/i.test(m)) return isLocal() ? "未接続：AivisSpeech未起動かURL違い" : "未接続：公開URL(" + location.protocol + ")からlocalhostへは届きません→localhostで開く";
+      return m;
+    }
+    async function testEngine() {
+      const st = $("#engineStatus"); st.textContent = "確認中…";
+      try {
+        const r = await fetch(`${ENGINE}/version`);
+        if (!r.ok) throw new Error(String(r.status));
+        st.textContent = "✅ 接続OK (v" + (await r.text()).replace(/"/g, "") + ")";
+      } catch (e) { st.textContent = "✕ " + diagnose(e); }
+    }
+    function setupEngine() {
+      const inp = $("#engineUrl"); inp.value = ENGINE;
+      inp.addEventListener("change", () => { ENGINE = inp.value.trim().replace(/\/+$/, ""); });
+      $("#engineTest").addEventListener("click", testEngine);
+      if (!isLocal()) {
+        const n = $("#engineNote"); n.classList.remove("hidden");
+        n.innerHTML = "⚠ 試聴は<strong>ローカル(localhost)で開いたときのみ</strong>動作します（現在: " + esc(location.origin) + "）。AivisSpeechを起動し、リポジトリ直下で <code>python -m http.server 8013</code> を実行→ <code>http://localhost:8013/13th-register-kamishibai/review.html</code> を開いてください。公開URL(https)からはエンジンが接続を拒否(403)します。スライダー操作とプロンプト生成はこのままでも使えます。";
+      } else { testEngine(); }
     }
 
     function esc(s) { return String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c])); }
@@ -355,6 +396,7 @@
     epSel.value = String(EPISODES.indexOf(EP));
     epSel.addEventListener("change", () => { EP = EPISODES[Number(epSel.value)] || EPISODES[0]; load(); });
     $("#closeBtn").addEventListener("click", () => $("#out").close());
+    setupEngine();
     load();
   </script>
 </body>

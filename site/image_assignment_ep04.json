@@ -1,7 +1,7 @@
 {
   "version": 1,
   "episode": "ep04",
-  "assetVersion": "ep04-plan-v1",
+  "assetVersion": "ep04-plan-v2",
   "status": "final",
   "_note": "Finalized by Claude to the FINAL 63 line ids (ep04_v001..v063), mapped to Codex's 20 EP04 images by content. (Codex's earlier draft assumed 100 guessed line ids; Codex is no longer in the relay loop.)",
   "assignments": {

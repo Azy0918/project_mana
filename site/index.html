@@ -453,7 +453,9 @@
       }
 
       .episode-switch-overlay {
-        display: block;
+        display: flex;
+        gap: 6px;
+        align-items: center;
       }
 
       .scene-badge {
@@ -509,6 +511,7 @@
         <div class="scene-badge" id="sceneBadge">第1話『第十三レジ』</div>
         <div class="episode-switch-overlay">
           <select id="episodeSelectOverlay" aria-label="話数を選択（スマホ用）"></select>
+          <button id="charSheetBtnOverlay" type="button" class="char-btn">キャラ表</button>
         </div>
 
         <div class="caption-dock">
@@ -893,7 +896,7 @@
               <div class="ch"><span class="nm">${esc(c.name)}</span><span class="kn">${esc(c.kana)}</span><br><span class="rl">${esc(c.roleTitle)}</span></div>
               <div class="sm">${esc(c.summary)}</div>
               <div class="tags">${(c.phrases || []).slice(0, 3).map(p => `<span class="tag">「${esc(p)}」</span>`).join("")}</div>
-              <a class="sheet" href="${esc(c.image)}" target="_blank" rel="noopener"><img class="sheet-img" loading="lazy" src="${esc(c.image)}" alt="${esc(c.name)} キャラシート" onerror="this.style.opacity=.25"></a>
+              <a class="sheet" href="${esc(c.image)}?v=2" target="_blank" rel="noopener"><img class="sheet-img" loading="eager" decoding="async" src="${esc(c.image)}?v=2" alt="${esc(c.name)} キャラシート" onerror="this.style.opacity=.25"></a>
             </div>`).join("");
           loaded = true;
         } catch (e) {
@@ -901,6 +904,7 @@
         }
       });
     })();
+    document.getElementById("charSheetBtnOverlay")?.addEventListener("click", () => document.getElementById("charSheetBtn")?.click());
   </script>
 </body>
 </html>

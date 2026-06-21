@@ -94,8 +94,30 @@
     .dlg-actions button { min-height: 40px; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line);
       background: rgba(5,7,11,.6); color: var(--text); font-weight: 800; cursor: pointer; }
     .dlg-actions .primary { border-color: rgba(83,229,255,.5); background: rgba(83,229,255,.14); color: var(--cyan); }
+    .character-tools { display: grid; grid-template-columns: 220px 1fr; gap: 12px; align-items: start; }
+    .character-nav { display: grid; gap: 8px; position: sticky; top: 112px; }
+    .char-btn { min-height: 44px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: rgba(16,23,32,.72); color: var(--text); text-align: left; font-weight: 900; cursor: pointer; }
+    .char-btn span { display: block; color: var(--muted); font-size: 11px; font-weight: 700; margin-top: 2px; }
+    .char-btn.active { color: var(--cyan); border-color: rgba(83,229,255,.56); background: rgba(83,229,255,.12); }
+    .char-sheet { border: 1px solid rgba(238,229,212,.35); border-radius: 12px; overflow: hidden; background: linear-gradient(180deg, #eee5d4, #d7cbb8); color: var(--ink); box-shadow: 0 22px 70px rgba(0,0,0,.34); }
+    .char-head { display: grid; grid-template-columns: minmax(180px, 34%) 1fr; gap: 16px; padding: 18px; border-bottom: 1px solid rgba(31,39,48,.22); }
+    .char-portrait { min-height: 360px; display: grid; place-items: center; padding: 10px; border: 1px solid rgba(31,39,48,.18); border-radius: 10px; background: rgba(255,255,255,.28); }
+    .char-portrait img { max-width: 100%; max-height: 460px; object-fit: contain; border-radius: 8px; }
+    .char-name { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(34px, 6vw, 64px); letter-spacing: .02em; line-height: 1; }
+    .char-kana { margin: 8px 0 4px; font-size: 18px; font-weight: 900; }
+    .char-role { margin: 0 0 14px; font-size: 16px; font-weight: 900; color: #34404b; }
+    .char-summary { margin: 0; padding: 12px 13px; border: 1px solid rgba(31,39,48,.18); border-radius: 9px; background: rgba(255,255,255,.26); font-size: 14px; line-height: 1.7; }
+    .char-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 14px 18px 18px; }
+    .char-section { padding: 12px; border: 1px solid rgba(31,39,48,.18); border-radius: 9px; background: rgba(255,255,255,.22); }
+    .char-section.wide { grid-column: 1 / -1; }
+    .char-section h3 { margin: 0 0 8px; padding-bottom: 5px; border-bottom: 1px solid rgba(31,39,48,.22); font-size: 15px; }
+    .taglist { display: flex; flex-wrap: wrap; gap: 6px; }
+    .taglist span { padding: 5px 8px; border: 1px solid rgba(31,39,48,.18); border-radius: 999px; background: rgba(255,255,255,.3); font-size: 12px; font-weight: 800; }
+    .char-list { margin: 0; padding-left: 1.2em; font-size: 13px; line-height: 1.65; }
+    .promptbox { width: 100%; min-height: 98px; padding: 10px; border: 1px solid rgba(31,39,48,.24); border-radius: 8px; background: rgba(5,7,11,.82); color: #eef7ff; font: 12px/1.55 ui-monospace, Consolas, monospace; resize: vertical; }
     .hidden { display: none !important; }
-    @media (max-width: 560px) { .srow { grid-template-columns: 92px 1fr 48px; } }
+    @media (max-width: 760px) { .character-tools { grid-template-columns: 1fr; } .character-nav { position: static; grid-template-columns: repeat(2, minmax(0,1fr)); } .char-head, .char-grid { grid-template-columns: 1fr; } .char-section.wide { grid-column: auto; } }
+    @media (max-width: 560px) { .srow { grid-template-columns: 92px 1fr 48px; } .tabs { flex-wrap: wrap; } .tabs button { flex-basis: calc(50% - 4px); } .character-nav { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -108,6 +130,7 @@
     <div class="tabs">
       <button id="tabReviewBtn" class="active" type="button">① 確認・変更依頼</button>
       <button id="tabToneBtn" type="button">② トーン調整</button>
+      <button id="tabCharacterBtn" type="button">③ キャラ表</button>
     </div>
   </header>
 
@@ -131,6 +154,14 @@
       <div id="toneList"></div>
       <div class="bar"><button id="genTone" type="button">トーン調整プロンプトを生成</button></div>
     </section>
+
+    <section id="tabCharacter" class="hidden">
+      <p class="hint">画像生成・差し替え時のキャラ固定表です。キャラを選ぶと、外見ロック、禁止事項、小道具、よく言う反応、生成用プロンプトを参照できます。<span id="characterStatus" class="status"></span></p>
+      <div class="character-tools">
+        <nav id="characterNav" class="character-nav" aria-label="キャラ一覧"></nav>
+        <article id="characterSheet" class="char-sheet"></article>
+      </div>
+    </section>
   </main>
 
   <dialog id="out">
@@ -148,8 +179,11 @@
       { id:"ep01", label:"第1話", scene:"./scene_manifest.json",     voice:"./assets/manifest_reading_hiragana_mina_mao.json" },
       { id:"ep02", label:"第2話", scene:"./scene_manifest_ep02.json", voice:"./assets/manifest_reading_hiragana_ep02.json" },
       { id:"ep03", label:"第3話", scene:"./scene_manifest_ep03.json", voice:"./assets/manifest_reading_hiragana_ep03.json" },
+      { id:"ep04", label:"第4話", scene:"./scene_manifest_ep04.json", voice:"./assets/manifest_reading_hiragana_ep04.json" },
     ];
     let EP = EPISODES[1];
+    let CHAR_REF = null;
+    let ACTIVE_CHAR = "";
 
     const PARAM_DEFAULTS = {
       2029042368: { speedScale:0.92, intonationScale:0.85, tempoDynamicsScale:0.82, pitchScale:-0.02, volumeScale:1.0, prePhonemeLength:0.12, postPhonemeLength:0.25 }, // 澤原 玄二郎 / ナレーション
@@ -158,6 +192,8 @@
       604166016:  { speedScale:0.96, intonationScale:0.75, tempoDynamicsScale:0.8,  pitchScale:-0.02, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.2  }, // 中2 / ミナ
       1805828384: { speedScale:0.88, intonationScale:0.45, tempoDynamicsScale:0.5,  pitchScale:-0.04, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.25 }, // ろてじん / 第十三レジ
       606865152:  { speedScale:0.95, intonationScale:0.78, tempoDynamicsScale:0.8,  pitchScale:-0.03, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.22 }, // fumifumi / 未来の会社員（第1話）
+      1628969216: { speedScale:0.9,  intonationScale:0.65, tempoDynamicsScale:0.68, pitchScale:-0.04, volumeScale:1.0, prePhonemeLength:0.1,  postPhonemeLength:0.25 }, // TANAKA / 座木山辰哉
+      1368642336: { speedScale:0.9,  intonationScale:0.62, tempoDynamicsScale:0.65, pitchScale:-0.05, volumeScale:1.0, prePhonemeLength:0.1,  postPhonemeLength:0.26 }, // M2 / トラック運転手
     };
     const ENGINE_DEFAULT = { speedScale:1.0, intonationScale:1.0, tempoDynamicsScale:1.0, pitchScale:0.0, volumeScale:1.0, prePhonemeLength:0.1, postPhonemeLength:0.1 };
     const PARAMS = [
@@ -267,6 +303,53 @@
         </div>`).join("");
       $("#toneList").querySelectorAll(".theader").forEach(h =>
         h.addEventListener("click", () => toggleTone(h.dataset.id)));
+    }
+
+    async function loadCharacters() {
+      try {
+        CHAR_REF = await getJSON("./assets/character_reference.json");
+        ACTIVE_CHAR = CHAR_REF.characters[0]?.id || "";
+        renderCharacters();
+        $("#characterStatus").textContent = `（${CHAR_REF.characters.length}件）`;
+      } catch (e) {
+        $("#characterStatus").textContent = "読込失敗: " + e.message;
+      }
+    }
+
+    function miniList(items) {
+      return `<ul class="char-list">${(items || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+    }
+
+    function tags(items) {
+      return `<div class="taglist">${(items || []).map(x => `<span>${esc(x)}</span>`).join("")}</div>`;
+    }
+
+    function renderCharacters() {
+      if (!CHAR_REF) return;
+      const chars = CHAR_REF.characters || [];
+      $("#characterNav").innerHTML = chars.map(c => `<button class="char-btn ${c.id === ACTIVE_CHAR ? "active" : ""}" type="button" data-char="${esc(c.id)}">${esc(c.name)}<span>${esc(c.roleTitle)}</span></button>`).join("");
+      $("#characterNav").querySelectorAll("[data-char]").forEach(b => b.addEventListener("click", () => { ACTIVE_CHAR = b.dataset.char; renderCharacters(); }));
+      const c = chars.find(x => x.id === ACTIVE_CHAR) || chars[0];
+      if (!c) { $("#characterSheet").innerHTML = ""; return; }
+      $("#characterSheet").innerHTML = `
+        <div class="char-head">
+          <div class="char-portrait"><img src="${esc(norm(c.image))}" alt="${esc(c.name)}" loading="lazy" onerror="this.style.opacity=.25"></div>
+          <div>
+            <h2 class="char-name">${esc(c.name)}</h2>
+            <div class="char-kana">（${esc(c.kana)}）</div>
+            <p class="char-role">${esc(c.roleTitle)}</p>
+            <p class="char-summary">${esc(c.summary)}</p>
+          </div>
+        </div>
+        <div class="char-grid">
+          <section class="char-section"><h3>基本</h3>${tags(c.profile)}</section>
+          <section class="char-section"><h3>必須固定</h3>${miniList(c.mustKeep)}</section>
+          <section class="char-section"><h3>禁止</h3>${miniList(c.mustAvoid)}</section>
+          <section class="char-section"><h3>持ち物・装備</h3>${tags(c.props)}</section>
+          <section class="char-section"><h3>口調・反応</h3>${miniList(c.phrases)}</section>
+          <section class="char-section"><h3>参照場面</h3>${miniList(c.sceneRefs)}</section>
+          <section class="char-section wide"><h3>生成用ロックプロンプト</h3><textarea class="promptbox" readonly>${esc(c.prompt)}</textarea></section>
+        </div>`;
     }
 
     function toggleTone(id) {
@@ -432,14 +515,19 @@
 
     function switchTab(which) {
       const r = which === "review";
+      const t = which === "tone";
+      const c = which === "character";
       $("#tabReview").classList.toggle("hidden", !r);
-      $("#tabTone").classList.toggle("hidden", r);
+      $("#tabTone").classList.toggle("hidden", !t);
+      $("#tabCharacter").classList.toggle("hidden", !c);
       $("#tabReviewBtn").classList.toggle("active", r);
-      $("#tabToneBtn").classList.toggle("active", !r);
+      $("#tabToneBtn").classList.toggle("active", t);
+      $("#tabCharacterBtn").classList.toggle("active", c);
     }
 
     $("#tabReviewBtn").addEventListener("click", () => switchTab("review"));
     $("#tabToneBtn").addEventListener("click", () => switchTab("tone"));
+    $("#tabCharacterBtn").addEventListener("click", () => switchTab("character"));
     $("#genReview").addEventListener("click", genReview);
     $("#genTone").addEventListener("click", genTone);
     $("#copyBtn").addEventListener("click", copyOut);
@@ -452,6 +540,7 @@
 
     setupEngine();
     load();
+    loadCharacters();
   </script>
 </body>
 </html>

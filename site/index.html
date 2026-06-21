@@ -476,6 +476,28 @@
         font-size: 17px;
       }
     }
+    /* キャラ表 (character sheet) */
+    .char-btn { min-height:34px; padding:5px 12px; margin-left:8px; border:1px solid rgba(181,140,255,.5); border-radius:8px;
+      background:rgba(181,140,255,.14); color:#d9c4ff; font-weight:800; font-size:13px; cursor:pointer; }
+    .char-dialog { width:min(96vw,860px); max-height:92vh; padding:0; border:1px solid rgba(83,229,255,.5); border-radius:12px;
+      background:#101720; color:#edf7ff; }
+    .char-dialog::backdrop { background:rgba(0,0,0,.72); }
+    .char-dialog-head { position:sticky; top:0; display:flex; justify-content:space-between; align-items:center; gap:10px;
+      padding:12px 14px; background:rgba(5,7,11,.96); border-bottom:1px solid #26384a; color:#53e5ff; font-weight:800; font-size:15px; }
+    .char-dialog-head button { min-width:36px; min-height:36px; border:1px solid #26384a; border-radius:8px;
+      background:rgba(16,23,32,.9); color:#edf7ff; font-weight:800; font-size:15px; cursor:pointer; }
+    .char-list { padding:14px; display:flex; flex-direction:column; gap:16px; overflow-y:auto; max-height:calc(92vh - 58px); }
+    .char-card { border:1px solid #26384a; border-radius:10px; background:rgba(16,23,32,.6); overflow:hidden; }
+    .char-card .ch { padding:10px 12px; border-bottom:1px solid #26384a; }
+    .char-card .nm { font-size:18px; font-weight:900; }
+    .char-card .kn { color:#98a7b8; font-size:12px; margin-left:6px; }
+    .char-card .rl { display:inline-block; margin-top:5px; padding:2px 9px; border-radius:999px;
+      background:rgba(83,229,255,.14); color:#53e5ff; font-size:11px; font-weight:800; }
+    .char-card .sm { padding:8px 12px; font-size:13px; line-height:1.6; color:#dfeaf6; }
+    .char-card .tags { padding:0 12px 9px; display:flex; flex-wrap:wrap; gap:5px; }
+    .char-card .tag { padding:2px 8px; border-radius:6px; background:rgba(255,255,255,.06); color:#98a7b8; font-size:11px; }
+    .char-card a.sheet { display:block; }
+    .char-card img.sheet-img { width:100%; height:auto; display:block; background:#02050a; }
   </style>
 </head>
 <body>
@@ -511,6 +533,7 @@
         <div class="episode-switch">
           <label for="episodeSelect">話数</label>
           <select id="episodeSelect" aria-label="話数を選択"></select>
+          <button id="charSheetBtn" type="button" class="char-btn">キャラ表</button>
         </div>
 
         <audio id="audio" controls preload="metadata"></audio>
@@ -528,6 +551,11 @@
       </div>
     </section>
   </main>
+
+  <dialog id="charDialog" class="char-dialog">
+    <div class="char-dialog-head"><span>キャラ表 ｜ 深夜二時の第十三レジ</span><button id="charDialogClose" type="button" aria-label="閉じる">✕</button></div>
+    <div class="char-list" id="charList"></div>
+  </dialog>
 
   <script>
     let FALLBACK_IMAGE = "./assets/scenes/scene_03_register.jpg";
@@ -755,6 +783,21 @@
           { href: "./assets/manifest_reading_hiragana_ep03.json", text: "manifest" },
           { href: "./scene_manifest_ep03.json", text: "line_manifest", download: true }
         ]
+      },
+      {
+        id: "ep04",
+        label: "第4話 未来レシートは先に謝る",
+        title: "深夜二時の第十三レジ 第4話",
+        badge: "第4話『未来レシートは先に謝る』",
+        audio: "./assets/ep04_full_voice_reading_hiragana.wav?v=1",
+        manifest: "./scene_manifest_ep04.json",
+        fallbackImage: "./assets/scenes/planned/ep04_vc01_copy_machine_starts.png",
+        links: [
+          { href: "./assets/ep04_full_voice_reading_hiragana.wav", text: "音声を保存", download: true },
+          { id: "imageSaveLink", href: "./assets/scenes/planned/ep04_vc01_copy_machine_starts.png", text: "画像を保存", download: true },
+          { href: "./assets/manifest_reading_hiragana_ep04.json", text: "manifest" },
+          { href: "./scene_manifest_ep04.json", text: "line_manifest", download: true }
+        ]
       }
     ];
 
@@ -826,6 +869,38 @@
     });
 
     loadEpisode(EPISODES[0]);
+
+    // キャラ表 (character sheet) modal
+    (function () {
+      const btn = document.getElementById("charSheetBtn");
+      const dlg = document.getElementById("charDialog");
+      const list = document.getElementById("charList");
+      const closeBtn = document.getElementById("charDialogClose");
+      if (!btn || !dlg) return;
+      let loaded = false;
+      const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      closeBtn.addEventListener("click", () => dlg.close());
+      dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+      btn.addEventListener("click", async () => {
+        if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+        if (loaded) return;
+        list.innerHTML = '<p style="padding:14px;color:#98a7b8">読み込み中…</p>';
+        try {
+          const res = await fetch("./assets/character_reference.json", { cache: "no-store" });
+          const data = await res.json();
+          list.innerHTML = (data.characters || []).map(c => `
+            <div class="char-card">
+              <div class="ch"><span class="nm">${esc(c.name)}</span><span class="kn">${esc(c.kana)}</span><br><span class="rl">${esc(c.roleTitle)}</span></div>
+              <div class="sm">${esc(c.summary)}</div>
+              <div class="tags">${(c.phrases || []).slice(0, 3).map(p => `<span class="tag">「${esc(p)}」</span>`).join("")}</div>
+              <a class="sheet" href="${esc(c.image)}" target="_blank" rel="noopener"><img class="sheet-img" loading="lazy" src="${esc(c.image)}" alt="${esc(c.name)} キャラシート" onerror="this.style.opacity=.25"></a>
+            </div>`).join("");
+          loaded = true;
+        } catch (e) {
+          list.innerHTML = '<p style="padding:14px;color:#ffd9a0">キャラ表を読み込めませんでした（localhost か 公開URL で開いてください）。</p>';
+        }
+      });
+    })();
   </script>
 </body>
 </html>

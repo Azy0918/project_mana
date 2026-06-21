@@ -453,9 +453,7 @@
       }
 
       .episode-switch-overlay {
-        display: flex;
-        gap: 6px;
-        align-items: center;
+        display: block;
       }
 
       .scene-badge {
@@ -511,7 +509,6 @@
         <div class="scene-badge" id="sceneBadge">第1話『第十三レジ』</div>
         <div class="episode-switch-overlay">
           <select id="episodeSelectOverlay" aria-label="話数を選択（スマホ用）"></select>
-          <button id="charSheetBtnOverlay" type="button" class="char-btn">キャラ表</button>
         </div>
 
         <div class="caption-dock">
@@ -873,7 +870,7 @@
 
     loadEpisode(EPISODES[0]);
 
-    // キャラ表 (character sheet) modal
+    // キャラ表 viewer — shows ONLY the PNG character sheets.
     (function () {
       const btn = document.getElementById("charSheetBtn");
       const dlg = document.getElementById("charDialog");
@@ -891,20 +888,15 @@
         try {
           const res = await fetch("./assets/character_reference.json", { cache: "no-store" });
           const data = await res.json();
-          list.innerHTML = (data.characters || []).map(c => `
-            <div class="char-card">
-              <div class="ch"><span class="nm">${esc(c.name)}</span><span class="kn">${esc(c.kana)}</span><br><span class="rl">${esc(c.roleTitle)}</span></div>
-              <div class="sm">${esc(c.summary)}</div>
-              <div class="tags">${(c.phrases || []).slice(0, 3).map(p => `<span class="tag">「${esc(p)}」</span>`).join("")}</div>
-              <a class="sheet" href="${esc(c.image)}?v=2" target="_blank" rel="noopener"><img class="sheet-img" loading="eager" decoding="async" src="${esc(c.image)}?v=2" alt="${esc(c.name)} キャラシート" onerror="this.style.opacity=.25"></a>
-            </div>`).join("");
+          list.innerHTML = (data.characters || []).map(c =>
+            `<a class="sheet" href="${esc(c.image)}?v=3" target="_blank" rel="noopener"><img class="sheet-img" loading="eager" decoding="async" src="${esc(c.image)}?v=3" alt="${esc(c.name)}" onerror="this.style.opacity=.2"></a>`
+          ).join("");
           loaded = true;
         } catch (e) {
           list.innerHTML = '<p style="padding:14px;color:#ffd9a0">キャラ表を読み込めませんでした（localhost か 公開URL で開いてください）。</p>';
         }
       });
     })();
-    document.getElementById("charSheetBtnOverlay")?.addEventListener("click", () => document.getElementById("charSheetBtn")?.click());
   </script>
 </body>
 </html>

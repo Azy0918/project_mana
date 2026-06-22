@@ -86,6 +86,7 @@
       { id:"ep09", label:"第9話", visual:"./visual_cut_plan_ep09.json", scene:"./scene_manifest_ep09.json" },
       { id:"ep10", label:"第10話", visual:"./visual_cut_plan_ep10.json", scene:"./scene_manifest_ep10.json" },
       { id:"ep11", label:"第11話", visual:"./visual_cut_plan_ep11.json", scene:"./scene_manifest_ep11.json" },
+      { id:"ep12", label:"第12話", visual:"./visual_cut_plan_ep12.json", scene:"./scene_manifest_ep12.json" },
     ];
     let EP = EPISODES[EPISODES.length - 1], CUTS = [], SCENES = [], draft = {};
     const $ = s => document.querySelector(s);
@@ -99,7 +100,7 @@
       $("#status").textContent = "読込中…";
       const [visual, scenes] = await Promise.all([
         fetch(EP.visual).then(r => { if(!r.ok) throw new Error(EP.visual); return r.json(); }),
-        fetch(EP.scene).then(r => { if(!r.ok) throw new Error(EP.scene); return r.json(); }),
+        EP.scene ? fetch(EP.scene).then(r => r.ok ? r.json() : []) : Promise.resolve([]),
       ]);
       CUTS = visual; SCENES = scenes;
       draft = JSON.parse(localStorage.getItem(key()) || "{}");

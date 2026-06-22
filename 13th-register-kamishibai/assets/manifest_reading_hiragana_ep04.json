@@ -319,7 +319,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "汗田も入ってきた。ナビに呼ばれたらしい。",
-    "synthesis_text": "あせだもはいってきた。なびによばれたらしい。",
+    "synthesis_text": "あせだもハいってきた。なびによばれたらしい。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v025_ナレーション.wav"
@@ -449,7 +449,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "二時二十八分。自動ドアが開き、眠そうなトラック運転手が入ってきた。",
-    "synthesis_text": "にじにじゅうはっぷん。じどうどあがひらき、ねむそうなとらっくうんてんしゅがはいってきた。",
+    "synthesis_text": "にじにじゅうはっぷん。じどうどあがひらき、ねむそうなとらっくうんてんしゅがハいってきた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v035_ナレーション.wav"

@@ -267,7 +267,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "自動ドアが開き、汗田が入ってきた。紫のヘルメットを片手に、眉間へ深いしわを寄せている。",
-    "synthesis_text": "じどうどあがひらき、あせだがはいってきた。むらさきのへるめっとをかたてに、みけんエふかいしわをよせている。",
+    "synthesis_text": "じどうどあがひらき、あせだがハいってきた。むらさきのへるめっとをかたてに、みけんエふかいしわをよせている。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v021_ナレーション.wav"

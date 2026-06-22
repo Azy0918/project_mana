@@ -254,7 +254,7 @@
     "style_name": "ノーマル",
     "style_id": 2029042368,
     "text": "入ってきたのは、くたびれたスーツ姿の男だった。",
-    "synthesis_text": "はいってきたのワ、くたびれたすーつすがたのおとこだった。",
+    "synthesis_text": "ハいってきたのワ、くたびれたすーつすがたのおとこだった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep01_voice_reading_hiragana\\clips\\ep01_v022_ナレーション.wav"

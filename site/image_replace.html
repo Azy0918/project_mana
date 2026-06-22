@@ -76,8 +76,15 @@
       { id:"ep02", label:"第2話", visual:"./visual_cut_plan_ep02.json" },
       { id:"ep03", label:"第3話", visual:"./visual_cut_plan_ep03.json" },
       { id:"ep04", label:"第4話", visual:"./visual_cut_plan_ep04.json" },
+      { id:"ep05", label:"第5話", visual:"./visual_cut_plan_ep05.json" },
+      { id:"ep06", label:"第6話", visual:"./visual_cut_plan_ep06.json" },
+      { id:"ep07", label:"第7話", visual:"./visual_cut_plan_ep07.json" },
+      { id:"ep08", label:"第8話", visual:"./visual_cut_plan_ep08.json" },
+      { id:"ep09", label:"第9話", visual:"./visual_cut_plan_ep09.json" },
+      { id:"ep10", label:"第10話", visual:"./visual_cut_plan_ep10.json" },
+      { id:"ep11", label:"第11話", visual:"./visual_cut_plan_ep11.json" },
     ];
-    let EP = EPISODES[3], CUTS = [], replacements = {};
+    let EP = EPISODES[EPISODES.length - 1], CUTS = [], replacements = {};
     const $ = s => document.querySelector(s);
     const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
     const norm = p => !p ? "" : (/^(\.\/|\/|https?:)/.test(p) ? p : "./" + p);
@@ -187,7 +194,7 @@
     $("#closeBtn").addEventListener("click", () => $("#out").close());
     const epSel = $("#epSelect");
     EPISODES.forEach((e,i) => { const o=document.createElement("option"); o.value=String(i); o.textContent=e.label; epSel.appendChild(o); });
-    epSel.value = "3";
+    epSel.value = String(EPISODES.length - 1);
     epSel.addEventListener("change", () => { EP=EPISODES[Number(epSel.value)] || EPISODES[0]; load(); });
     load().catch(e => $("#status").textContent = "読込失敗: " + e.message);
   </script>

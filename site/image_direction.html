@@ -77,8 +77,9 @@
     const EPISODES = [
       { id:"ep01", label:"第1話", visual:"./visual_cut_plan.json", scene:"./scene_manifest.json" },
       { id:"ep02", label:"第2話", visual:"./visual_cut_plan_ep02.json", scene:"./scene_manifest_ep02.json" },
+      { id:"ep03", label:"第3話", visual:"./visual_cut_plan_ep03.json", scene:"./scene_manifest_ep03.json" },
     ];
-    let EP = EPISODES[1], CUTS = [], SCENES = [], draft = {};
+    let EP = EPISODES[2], CUTS = [], SCENES = [], draft = {};
     const $ = s => document.querySelector(s);
     const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
     const norm = p => !p ? "" : (/^(\.\/|\/|https?:)/.test(p) ? p : "./" + p);
@@ -196,7 +197,7 @@
     $("#closeBtn").addEventListener("click", () => $("#out").close());
     const epSel = $("#epSelect");
     EPISODES.forEach((e,i) => { const o=document.createElement("option"); o.value=String(i); o.textContent=e.label; epSel.appendChild(o); });
-    epSel.value = "1";
+    epSel.value = "2";
     epSel.addEventListener("change", () => { EP = EPISODES[Number(epSel.value)] || EPISODES[0]; load(); });
     load().catch(e => $("#status").textContent = "読込失敗: " + e.message);
   </script>

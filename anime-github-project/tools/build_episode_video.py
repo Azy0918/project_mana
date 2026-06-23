@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import subprocess
@@ -81,13 +82,25 @@ def img_path(image_field: str) -> Path:
 
 
 def main() -> int:
-    ep = (sys.argv[1] if len(sys.argv) > 1 else "01").zfill(2)
+    parser = argparse.ArgumentParser(description="Build a YouTube vertical (1080x1920) episode video.")
+    parser.add_argument("ep", nargs="?", default="01", help="Episode number, e.g. 01.")
+    parser.add_argument("--audio", type=Path, default=None, help="Override the voice WAV (e.g. a voice trial).")
+    parser.add_argument("--out", type=Path, default=None, help="Override the output MP4 path.")
+    parser.add_argument("--suffix", default="", help="Suffix added to the default output name (ignored if --out set).")
+    args = parser.parse_args()
+
+    ep = str(args.ep).zfill(2)
     epn = int(ep)
     title = TITLES.get(epn, "")
     manifest, audio = ep_paths(ep)
+    if args.audio:
+        audio = args.audio
     (REPO / "video").mkdir(exist_ok=True)
-    out = REPO / "video" / f"ep{ep}_youtube_vertical_1080x1920.mp4"
-    ass = REPO / f"ep{ep}_subs.ass"
+    if args.out:
+        out = args.out
+    else:
+        out = REPO / "video" / f"ep{ep}{args.suffix}_youtube_vertical_1080x1920.mp4"
+    ass = REPO / f"ep{ep}{args.suffix}_subs.ass"
 
     scenes = json.loads(manifest.read_text(encoding="utf-8"))
     content = probe_duration(audio)

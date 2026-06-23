@@ -31,7 +31,8 @@ TITLES = {
     7: "宇宙宅配便、店留めです", 8: "月面店、発注しすぎました", 9: "銀河ポイントカードはお持ちですか",
     10: "あの会社員、返品済みです", 11: "第十二レジと第十四レジ", 12: "午前二時十七分、通常営業です",
 }
-CYAN = "&H00FFE553&"
+CREAM = "&H00D2E8F1&"   # ivory body/title text (#F1E8D2)
+GREEN = "&H0078C1A6&"   # sage-green accent (#A6C178)
 
 
 def ep_paths(ep: str):
@@ -122,9 +123,9 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: KB,{FONT},56,&H00FFFFFF,&H000000FF,&H00101A26,&H96000000,-1,0,0,0,100,100,0,0,1,3,2,7,40,40,40,1
-Style: Title,{FONT},64,&H00FFFFFF,&H000000FF,&H64000000,&H96000000,-1,0,0,0,100,100,0,0,1,4,3,5,60,60,0,1
-Style: Label,{FONT},33,&H00FFFFFF,&H000000FF,&H00101A26,&H78000000,-1,0,0,0,100,100,0,0,1,2,1,4,40,40,40,1
+Style: KB,{FONT},56,&H00D2E8F1,&H000000FF,&H00101A26,&H96000000,-1,0,0,0,100,100,0,0,1,3,2,7,40,40,40,1
+Style: Title,{FONT},64,&H00D2E8F1,&H000000FF,&H64000000,&H96000000,-1,0,0,0,100,100,0,0,1,4,3,5,60,60,0,1
+Style: Label,{FONT},33,&H00D2E8F1,&H000000FF,&H00101A26,&H78000000,-1,0,0,0,100,100,0,0,1,2,1,4,40,40,40,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -135,13 +136,13 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         ev.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},{style},,0,0,0,,{text}")
 
     # title card (floating text over the darkened first image)
-    dlg(0.15, TITLE_DUR, "Title", f"{{\\pos({CX},770)\\fs46\\c{CYAN}}}{SERIES}")
+    dlg(0.15, TITLE_DUR, "Title", f"{{\\pos({CX},770)\\fs46\\c{GREEN}}}{SERIES}")
     dlg(0.15, TITLE_DUR, "Title", f"{{\\pos({CX},910)\\fs108\\b1}}第{epn}話")
     dlg(0.15, TITLE_DUR, "Title", f"{{\\pos({CX},1055)\\fs54}}{title}")
 
     # persistent top badge: 第N話 (cyan) + title (white), inside the drawn box
     dlg(TITLE_DUR, es, "Label",
-        f"{{\\pos({BADGE_X+26},{BADGE_Y + BADGE_H//2})\\c{CYAN}\\b1}}第{epn}話　{{\\r}}{title}")
+        f"{{\\pos({BADGE_X+26},{BADGE_Y + BADGE_H//2})\\c{GREEN}\\b1}}第{epn}話　{{\\r}}{title}")
 
     # content subtitles, shifted by +TITLE_DUR, laid out inside the dialogue frame
     for i, s in enumerate(scenes):
@@ -155,20 +156,20 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         speaker = (s.get("speaker") or "").strip()
         body = wrap_jp(raw)
         pos = f"\\pos({TEXT_X},{TEXT_Y})"
-        text = (f"{{{pos}\\fs40\\c{CYAN}\\b1}}{speaker}{{\\r}}\\N{body}"
+        text = (f"{{{pos}\\fs40\\c{GREEN}\\b1}}{speaker}{{\\r}}\\N{body}"
                 if speaker else f"{{{pos}}}{body}")
         dlg(start, end, "KB", text)
 
     # end card (floating text over the darkened last image)
     if epn < 12:
-        dlg(es, total, "Title", f"{{\\pos({CX},740)\\fs46\\c{CYAN}}}次回")
+        dlg(es, total, "Title", f"{{\\pos({CX},740)\\fs46\\c{GREEN}}}次回")
         dlg(es, total, "Title", f"{{\\pos({CX},880)\\fs96\\b1}}第{epn+1}話")
         dlg(es, total, "Title", f"{{\\pos({CX},1010)\\fs52}}{TITLES.get(epn+1,'')}")
-        dlg(es, total, "Title", f"{{\\pos({CX},1230)\\fs40\\c{CYAN}}}チャンネル登録・高評価で応援してね")
+        dlg(es, total, "Title", f"{{\\pos({CX},1230)\\fs40\\c{GREEN}}}チャンネル登録・高評価で応援してね")
     else:
         dlg(es, total, "Title", f"{{\\pos({CX},820)\\fs120\\b1}}完")
         dlg(es, total, "Title", f"{{\\pos({CX},990)\\fs50}}ご視聴ありがとうございました")
-        dlg(es, total, "Title", f"{{\\pos({CX},1210)\\fs40\\c{CYAN}}}チャンネル登録・高評価で応援してね")
+        dlg(es, total, "Title", f"{{\\pos({CX},1210)\\fs40\\c{GREEN}}}チャンネル登録・高評価で応援してね")
 
     ass.write_text(header + "\n".join(ev) + "\n", encoding="utf-8")
 
@@ -189,14 +190,14 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     v.append("[vt]" + "".join(f"[v{i}]" for i in range(1, n + 1)) + f"[ve]concat=n={n+2}:v=1:a=0[cat]")
     en = f"between(t\\,{TITLE_DUR}\\,{es:.2f})"  # frame + badge: episode body only
     v.append(
-        f"[cat]drawbox=x={FX}:y={FY}:w={FW}:h={FH}:color=0x0C1322@0.86:t=fill:enable={en},"
-        f"drawbox=x={FX}:y={FY}:w={FW}:h={FH}:color=0x53E5FF@0.70:t=3:enable={en},"
-        f"drawbox=x={BADGE_X}:y={BADGE_Y}:w={badge_w}:h={BADGE_H}:color=0x0C1322@0.86:t=fill:enable={en},"
-        f"drawbox=x={BADGE_X}:y={BADGE_Y}:w={badge_w}:h={BADGE_H}:color=0x53E5FF@0.70:t=3:enable={en},"
+        f"[cat]drawbox=x={FX}:y={FY}:w={FW}:h={FH}:color=0x0E1B2E@0.86:t=fill:enable={en},"
+        f"drawbox=x={FX}:y={FY}:w={FW}:h={FH}:color=0xA6C178@0.70:t=3:enable={en},"
+        f"drawbox=x={BADGE_X}:y={BADGE_Y}:w={badge_w}:h={BADGE_H}:color=0x0E1B2E@0.86:t=fill:enable={en},"
+        f"drawbox=x={BADGE_X}:y={BADGE_Y}:w={badge_w}:h={BADGE_H}:color=0xA6C178@0.70:t=3:enable={en},"
         f"subtitles={ass.name}[vmid]"
     )
     # progress bar: a cyan strip slid in from the left, revealing width = W*t/total
-    v.append(f"color=c=0x53E5FF@0.92:s={W}x10:d={total:.2f},setsar=1[pbar]")
+    v.append(f"color=c=0xA6C178@0.92:s={W}x10:d={total:.2f},setsar=1[pbar]")
     v.append(f"[vmid][pbar]overlay=x='-{W}*(1-t/{total:.2f})':y={H-10}[vout]")
 
     a = [

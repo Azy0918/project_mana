@@ -6,7 +6,7 @@
     "visualCutTitle": "深夜コンビニ外観",
     "visualCutIndex": 1,
     "start": 0.0,
-    "end": 2.302,
+    "end": 2.244,
     "image": "assets/scenes/planned/ep01_vc01_store_exterior.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc01_store_exterior.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_01_opening.jpg",
@@ -15,12 +15,12 @@
     "dialogue": "午前二時三分。",
     "reading": "ごぜんにじさんぷん。",
     "log": [
-      "発話ログ　01/82",
+      "発話ログ　01/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "01/20　深夜コンビニ外観",
-    "progressLabel": "01/82　ナレーション"
+    "progressLabel": "01/90　ナレーション"
   },
   {
     "id": "ep01_v002",
@@ -28,8 +28,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "深夜コンビニ外観",
     "visualCutIndex": 1,
-    "start": 2.302,
-    "end": 8.236,
+    "start": 2.244,
+    "end": 8.329,
     "image": "assets/scenes/planned/ep01_vc01_store_exterior.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc01_store_exterior.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_01_opening.jpg",
@@ -38,12 +38,12 @@
     "dialogue": "国道沿いのコンビニは、冷蔵ケースの低い音だけでできているみたいに静かだった。",
     "reading": "こくどうぞいのこんびにワ、れいぞうけーすのひくいおとだけでできているみたいにしずかだった。",
     "log": [
-      "発話ログ　02/82",
+      "発話ログ　02/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "01/20　深夜コンビニ外観",
-    "progressLabel": "02/82　ナレーション"
+    "progressLabel": "02/90　ナレーション"
   },
   {
     "id": "ep01_v003",
@@ -51,8 +51,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "おにぎり棚の前のタクミ",
     "visualCutIndex": 2,
-    "start": 8.236,
-    "end": 14.277,
+    "start": 8.329,
+    "end": 14.381,
     "image": "assets/scenes/planned/ep01_vc02_takumi_onigiri_shelf.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc02_takumi_onigiri_shelf.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
@@ -61,12 +61,12 @@
     "dialogue": "新人夜勤バイトのタクミは、おにぎり棚の前で廃棄時間のシールを見比べていた。",
     "reading": "しんじんやきんばいとのたくみワ、おにぎりだなのまえで、はいきじかんのしーるをみくらべていた。",
     "log": [
-      "発話ログ　03/82",
+      "発話ログ　03/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "02/20　おにぎり棚の前のタクミ",
-    "progressLabel": "03/82　ナレーション"
+    "progressLabel": "03/90　ナレーション"
   },
   {
     "id": "ep01_v004",
@@ -74,8 +74,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "おにぎり棚の前のタクミ",
     "visualCutIndex": 2,
-    "start": 14.277,
-    "end": 19.626,
+    "start": 14.381,
+    "end": 19.732,
     "image": "assets/scenes/planned/ep01_vc02_takumi_onigiri_shelf.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc02_takumi_onigiri_shelf.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
@@ -84,12 +84,12 @@
     "dialogue": "ミナさん。廃棄のおにぎりって、何分前から食べていいんですか。",
     "reading": "みなさん。はいきのおにぎりって、なんぷんまえからたべていいんですか。",
     "log": [
-      "発話ログ　04/82",
+      "発話ログ　04/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "02/20　おにぎり棚の前のタクミ",
-    "progressLabel": "04/82　タクミ"
+    "progressLabel": "04/90　タクミ"
   },
   {
     "id": "ep01_v005",
@@ -97,8 +97,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "廃棄おにぎり問答",
     "visualCutIndex": 3,
-    "start": 19.626,
-    "end": 21.95,
+    "start": 19.732,
+    "end": 22.071,
     "image": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
@@ -107,12 +107,12 @@
     "dialogue": "食べていいとは言ってない。",
     "reading": "たべていいとワいってない。",
     "log": [
-      "発話ログ　05/82",
+      "発話ログ　05/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "05/82　ミナ"
+    "progressLabel": "05/90　ミナ"
   },
   {
     "id": "ep01_v006",
@@ -120,8 +120,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "廃棄おにぎり問答",
     "visualCutIndex": 3,
-    "start": 21.95,
-    "end": 24.188,
+    "start": 22.071,
+    "end": 24.32,
     "image": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
@@ -130,12 +130,12 @@
     "dialogue": "でも捨てるんですよね。",
     "reading": "でもすてるんですよね。",
     "log": [
-      "発話ログ　06/82",
+      "発話ログ　06/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "06/82　タクミ"
+    "progressLabel": "06/90　タクミ"
   },
   {
     "id": "ep01_v007",
@@ -143,8 +143,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "廃棄おにぎり問答",
     "visualCutIndex": 3,
-    "start": 24.188,
-    "end": 29.967,
+    "start": 24.32,
+    "end": 30.08,
     "image": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
@@ -153,12 +153,12 @@
     "dialogue": "捨てるものと食べていいものの間には、店長という深い谷がある。",
     "reading": "すてるものとたべていいもののあいだにワ、てんちょうというふかいたにがある。",
     "log": [
-      "発話ログ　07/82",
+      "発話ログ　07/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "07/82　ミナ"
+    "progressLabel": "07/90　ミナ"
   },
   {
     "id": "ep01_v008",
@@ -166,8 +166,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "廃棄おにぎり問答",
     "visualCutIndex": 3,
-    "start": 29.967,
-    "end": 32.432,
+    "start": 30.08,
+    "end": 32.479,
     "image": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
@@ -176,12 +176,12 @@
     "dialogue": "現実的に深いですね。",
     "reading": "げんじつてきにふかいですね。",
     "log": [
-      "発話ログ　08/82",
+      "発話ログ　08/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "08/82　タクミ"
+    "progressLabel": "08/90　タクミ"
   },
   {
     "id": "ep01_v009",
@@ -189,8 +189,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "廃棄おにぎり問答",
     "visualCutIndex": 3,
-    "start": 32.432,
-    "end": 34.655,
+    "start": 32.479,
+    "end": 34.614,
     "image": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
@@ -199,12 +199,12 @@
     "dialogue": "落ちるとシフトが減る。",
     "reading": "おちるとしふとがへる。",
     "log": [
-      "発話ログ　09/82",
+      "発話ログ　09/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "09/82　ミナ"
+    "progressLabel": "09/90　ミナ"
   },
   {
     "id": "ep01_v010",
@@ -212,8 +212,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "廃棄おにぎり問答",
     "visualCutIndex": 3,
-    "start": 34.655,
-    "end": 37.742,
+    "start": 34.614,
+    "end": 37.696,
     "image": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
@@ -222,12 +222,12 @@
     "dialogue": "シフト減るのが一番効くやつだ。",
     "reading": "しふとへるのがいちばんきくやつだ。",
     "log": [
-      "発話ログ　10/82",
+      "発話ログ　10/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "10/82　タクミ"
+    "progressLabel": "10/90　タクミ"
   },
   {
     "id": "ep01_v011",
@@ -235,8 +235,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "第十三レジ出現前兆",
     "visualCutIndex": 4,
-    "start": 37.742,
-    "end": 43.738,
+    "start": 37.696,
+    "end": 43.682,
     "image": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_03_register.jpg",
@@ -245,12 +245,12 @@
     "dialogue": "二時十五分、雑誌返品。二時十七分、第十三レジ。",
     "reading": "にじじゅうごふん、ざっしへんぴん。にじじゅうななふん、だいじゅうさんれじ。",
     "log": [
-      "発話ログ　11/82",
+      "発話ログ　11/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "04/20　第十三レジ出現前兆",
-    "progressLabel": "11/82　ミナ"
+    "progressLabel": "11/90　ミナ"
   },
   {
     "id": "ep01_v012",
@@ -258,8 +258,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "第十三レジ出現前兆",
     "visualCutIndex": 4,
-    "start": 43.738,
-    "end": 45.522,
+    "start": 43.682,
+    "end": 45.455,
     "image": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_03_register.jpg",
@@ -268,12 +268,12 @@
     "dialogue": "はい。……はい？",
     "reading": "はい。はい？",
     "log": [
-      "発話ログ　12/82",
+      "発話ログ　12/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "04/20　第十三レジ出現前兆",
-    "progressLabel": "12/82　タクミ"
+    "progressLabel": "12/90　タクミ"
   },
   {
     "id": "ep01_v014",
@@ -281,8 +281,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "第十三レジ出現前兆",
     "visualCutIndex": 4,
-    "start": 45.522,
-    "end": 51.528,
+    "start": 45.455,
+    "end": 51.437,
     "image": "assets/scenes/planned/ep01_vc04_register_appears.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc04_register_appears.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_03_register.jpg",
@@ -291,12 +291,12 @@
     "dialogue": "タクミが聞き返した瞬間、雑誌棚とコピー機の間に、銀色の古いレジが現れた。",
     "reading": "たくみがききかえしたしゅんかん、ざっしだなとこぴーきのあいだに、ぎんいろのふるいれじがあらわれた。",
     "log": [
-      "発話ログ　13/82",
+      "発話ログ　13/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "04/20　第十三レジ出現前兆",
-    "progressLabel": "13/82　ナレーション"
+    "progressLabel": "13/90　ナレーション"
   },
   {
     "id": "ep01_v015",
@@ -304,8 +304,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "営業中の第十三レジ",
     "visualCutIndex": 5,
-    "start": 51.528,
-    "end": 54.738,
+    "start": 51.437,
+    "end": 54.566,
     "image": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_03_register.jpg",
@@ -314,12 +314,12 @@
     "dialogue": "第十三レジ。ただいま営業中。",
     "reading": "だいじゅうさんれじ。ただいまえいぎょうちゅう。",
     "log": [
-      "発話ログ　14/82",
+      "発話ログ　14/90",
       "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "14/82　第十三レジ"
+    "progressLabel": "14/90　第十三レジ"
   },
   {
     "id": "ep01_v016",
@@ -327,8 +327,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "営業中の第十三レジ",
     "visualCutIndex": 5,
-    "start": 54.738,
-    "end": 56.109,
+    "start": 54.566,
+    "end": 55.987,
     "image": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_03_register.jpg",
@@ -337,12 +337,12 @@
     "dialogue": "増えた……。",
     "reading": "ふえた。",
     "log": [
-      "発話ログ　15/82",
+      "発話ログ　15/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "15/82　タクミ"
+    "progressLabel": "15/90　タクミ"
   },
   {
     "id": "ep01_v017",
@@ -350,8 +350,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "営業中の第十三レジ",
     "visualCutIndex": 5,
-    "start": 56.109,
-    "end": 57.696,
+    "start": 55.987,
+    "end": 57.543,
     "image": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_03_register.jpg",
@@ -360,12 +360,12 @@
     "dialogue": "増えるよ。",
     "reading": "ふえるよ。",
     "log": [
-      "発話ログ　16/82",
+      "発話ログ　16/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "16/82　ミナ"
+    "progressLabel": "16/90　ミナ"
   },
   {
     "id": "ep01_v018",
@@ -373,8 +373,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "営業中の第十三レジ",
     "visualCutIndex": 5,
-    "start": 57.696,
-    "end": 61.128,
+    "start": 57.543,
+    "end": 60.954,
     "image": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_03_register.jpg",
@@ -383,12 +383,12 @@
     "dialogue": "コンビニって夜になるとレジが増えるんですか。",
     "reading": "こんびにってよるになるとれじがふえるんですか。",
     "log": [
-      "発話ログ　17/82",
+      "発話ログ　17/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "17/82　タクミ"
+    "progressLabel": "17/90　タクミ"
   },
   {
     "id": "ep01_v019",
@@ -396,8 +396,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "営業中の第十三レジ",
     "visualCutIndex": 5,
-    "start": 61.128,
-    "end": 63.251,
+    "start": 60.954,
+    "end": 62.994,
     "image": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_03_register.jpg",
@@ -406,12 +406,12 @@
     "dialogue": "夜勤はだいたいそう。",
     "reading": "やきんワだいたいそう。",
     "log": [
-      "発話ログ　18/82",
+      "発話ログ　18/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "18/82　ミナ"
+    "progressLabel": "18/90　ミナ"
   },
   {
     "id": "ep01_v020",
@@ -419,8 +419,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "営業中の第十三レジ",
     "visualCutIndex": 5,
-    "start": 63.251,
-    "end": 65.434,
+    "start": 62.994,
+    "end": 65.199,
     "image": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc05_register_talks.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_03_register.jpg",
@@ -429,12 +429,12 @@
     "dialogue": "絶対違う。",
     "reading": "ぜったいちがう。",
     "log": [
-      "発話ログ　19/82",
+      "発話ログ　19/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "19/82　タクミ"
+    "progressLabel": "19/90　タクミ"
   },
   {
     "id": "ep01_v022",
@@ -442,8 +442,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "未来の会社員来店",
     "visualCutIndex": 6,
-    "start": 65.434,
-    "end": 69.216,
+    "start": 65.199,
+    "end": 68.993,
     "image": "assets/scenes/planned/ep01_vc06_future_worker_enters.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc06_future_worker_enters.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -452,12 +452,12 @@
     "dialogue": "入ってきたのは、くたびれたスーツ姿の男だった。",
     "reading": "ハいってきたのワ、くたびれたすーつすがたのおとこだった。",
     "log": [
-      "発話ログ　20/82",
+      "発話ログ　20/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "06/20　未来の会社員来店",
-    "progressLabel": "20/82　ナレーション"
+    "progressLabel": "20/90　ナレーション"
   },
   {
     "id": "ep01_v023",
@@ -465,8 +465,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "未来の会社員来店",
     "visualCutIndex": 6,
-    "start": 69.216,
-    "end": 74.809,
+    "start": 68.993,
+    "end": 74.554,
     "image": "assets/scenes/planned/ep01_vc06_future_worker_enters.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc06_future_worker_enters.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -475,12 +475,12 @@
     "dialogue": "肩の小さな液晶には、残業時間二百七十六時間、と表示されている。",
     "reading": "かたのちいさなえきしょうにワ、ざんぎょうじかんにひゃくななじゅうろくじかん、とひょうじされている。",
     "log": [
-      "発話ログ　21/82",
+      "発話ログ　21/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "06/20　未来の会社員来店",
-    "progressLabel": "21/82　ナレーション"
+    "progressLabel": "21/90　ナレーション"
   },
   {
     "id": "ep01_v024",
@@ -488,8 +488,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "未来の会社員来店",
     "visualCutIndex": 6,
-    "start": 74.809,
-    "end": 80.536,
+    "start": 74.554,
+    "end": 80.165,
     "image": "assets/scenes/planned/ep01_vc06_future_worker_enters.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc06_future_worker_enters.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -498,12 +498,12 @@
     "dialogue": "首元の透明なパッチが、レジの電子音に合わせて一度だけ銀色に光った。",
     "reading": "くびもとのとうめいなぱっちが、れじのでんしおんにあわせていちどだけぎんいろにひかった。",
     "log": [
-      "発話ログ　22/82",
+      "発話ログ　22/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "06/20　未来の会社員来店",
-    "progressLabel": "22/82　ナレーション"
+    "progressLabel": "22/90　ナレーション"
   },
   {
     "id": "ep01_v025",
@@ -511,8 +511,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "五十年後の返品相談",
     "visualCutIndex": 7,
-    "start": 80.536,
-    "end": 83.025,
+    "start": 80.165,
+    "end": 82.549,
     "image": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -521,12 +521,12 @@
     "dialogue": "返品、お願いします。",
     "reading": "へんぴん、おねがいします。",
     "log": [
-      "発話ログ　23/82",
+      "発話ログ　23/90",
       "担当　未来の会社員",
-      "未来案件　処理中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "23/82　未来の会社員"
+    "progressLabel": "23/90　未来の会社員"
   },
   {
     "id": "ep01_v026",
@@ -534,8 +534,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "五十年後の返品相談",
     "visualCutIndex": 7,
-    "start": 83.025,
-    "end": 85.39,
+    "start": 82.549,
+    "end": 84.874,
     "image": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -544,12 +544,12 @@
     "dialogue": "レシートはお持ちですか。",
     "reading": "れしーとワおもちですか。",
     "log": [
-      "発話ログ　24/82",
+      "発話ログ　24/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "24/82　ミナ"
+    "progressLabel": "24/90　ミナ"
   },
   {
     "id": "ep01_v027",
@@ -557,8 +557,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "五十年後の返品相談",
     "visualCutIndex": 7,
-    "start": 85.39,
-    "end": 88.362,
+    "start": 84.874,
+    "end": 87.823,
     "image": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -567,12 +567,12 @@
     "dialogue": "五十年後に発行されます。",
     "reading": "ごじゅうねんごに、はっこうされます。",
     "log": [
-      "発話ログ　25/82",
+      "発話ログ　25/90",
       "担当　未来の会社員",
-      "未来案件　処理中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "25/82　未来の会社員"
+    "progressLabel": "25/90　未来の会社員"
   },
   {
     "id": "ep01_v028",
@@ -580,8 +580,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "五十年後の返品相談",
     "visualCutIndex": 7,
-    "start": 88.362,
-    "end": 91.628,
+    "start": 87.823,
+    "end": 91.148,
     "image": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -590,12 +590,12 @@
     "dialogue": "ミナさん。対応マニュアルあります？",
     "reading": "みなさん。たいおうまにゅあるあります？",
     "log": [
-      "発話ログ　26/82",
+      "発話ログ　26/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "26/82　タクミ"
+    "progressLabel": "26/90　タクミ"
   },
   {
     "id": "ep01_v029",
@@ -603,8 +603,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "五十年後の返品相談",
     "visualCutIndex": 7,
-    "start": 91.628,
-    "end": 94.038,
+    "start": 91.148,
+    "end": 93.503,
     "image": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -613,12 +613,12 @@
     "dialogue": "まず、いらっしゃいませ。",
     "reading": "まず、いらっしゃいませ。",
     "log": [
-      "発話ログ　27/82",
+      "発話ログ　27/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "27/82　ミナ"
+    "progressLabel": "27/90　ミナ"
   },
   {
     "id": "ep01_v030",
@@ -626,8 +626,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "五十年後の返品相談",
     "visualCutIndex": 7,
-    "start": 94.038,
-    "end": 96.386,
+    "start": 93.503,
+    "end": 95.838,
     "image": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -636,12 +636,12 @@
     "dialogue": "そこからなんですね。",
     "reading": "そこからなんですね。",
     "log": [
-      "発話ログ　28/82",
+      "発話ログ　28/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "28/82　タクミ"
+    "progressLabel": "28/90　タクミ"
   },
   {
     "id": "ep01_v031",
@@ -649,8 +649,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "未来おにぎりスキャン",
     "visualCutIndex": 8,
-    "start": 96.386,
-    "end": 99.097,
+    "start": 95.838,
+    "end": 98.548,
     "image": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -659,12 +659,12 @@
     "dialogue": "男は袋からおにぎりを出した。",
     "reading": "おとこワふくろからおにぎりをだした。",
     "log": [
-      "発話ログ　29/82",
+      "発話ログ　29/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "29/82　ナレーション"
+    "progressLabel": "29/90　ナレーション"
   },
   {
     "id": "ep01_v032",
@@ -672,8 +672,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "未来おにぎりスキャン",
     "visualCutIndex": 8,
-    "start": 99.097,
-    "end": 103.113,
+    "start": 98.548,
+    "end": 102.516,
     "image": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -682,12 +682,12 @@
     "dialogue": "パッケージには、完全栄養おにぎり・思い出の鮭。",
     "reading": "ぱっけーじにワ、かんぜんえいようおにぎり、おもいでのしゃけ。",
     "log": [
-      "発話ログ　30/82",
+      "発話ログ　30/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "30/82　ナレーション"
+    "progressLabel": "30/90　ナレーション"
   },
   {
     "id": "ep01_v033",
@@ -695,8 +695,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "未来おにぎりスキャン",
     "visualCutIndex": 8,
-    "start": 103.113,
-    "end": 107.447,
+    "start": 102.516,
+    "end": 106.884,
     "image": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -705,12 +705,12 @@
     "dialogue": "製造年月日、二〇七四年六月十二日。",
     "reading": "せいぞうねんがっぴ、にせんななじゅうよねんろくがつじゅうににち。",
     "log": [
-      "発話ログ　31/82",
+      "発話ログ　31/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "31/82　ナレーション"
+    "progressLabel": "31/90　ナレーション"
   },
   {
     "id": "ep01_v034",
@@ -718,22 +718,22 @@
     "visualCutId": "vc08",
     "visualCutTitle": "未来おにぎりスキャン",
     "visualCutIndex": 8,
-    "start": 107.447,
-    "end": 111.403,
+    "start": 106.884,
+    "end": 111.29,
     "image": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
     "imagePrompt": "未来青年 / 未来の会社員が持参した完全栄養おにぎり・思い出の鮭を第十三レジでスキャン。警告表示、人類生存率、タクミの焦り。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "第十三レジ",
-    "dialogue": "警告。この商品は未来の食糧危機解決候補です。",
-    "reading": "けいこく。このしょうひんワみらいのしょくりょうききかいけつこうほです。",
+    "dialogue": "警告。この商品は未来食料供給モデルの中核です。",
+    "reading": "けいこく。このしょうひんワ、みらいしょくりょうきょうきゅうもでるのちゅうかくです。",
     "log": [
-      "発話ログ　32/82",
+      "発話ログ　32/90",
       "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "32/82　第十三レジ"
+    "progressLabel": "32/90　第十三レジ"
   },
   {
     "id": "ep01_v035",
@@ -741,22 +741,22 @@
     "visualCutId": "vc08",
     "visualCutTitle": "未来おにぎりスキャン",
     "visualCutIndex": 8,
-    "start": 111.403,
-    "end": 115.679,
+    "start": 111.29,
+    "end": 116.406,
     "image": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
     "imagePrompt": "未来青年 / 未来の会社員が持参した完全栄養おにぎり・思い出の鮭を第十三レジでスキャン。警告表示、人類生存率、タクミの焦り。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "第十三レジ",
-    "dialogue": "誤返品により人類生存率が三・二パーセント低下します。",
-    "reading": "ごへんぴんによりじんるいせいぞんりつがさんてんにぱーせんとていかします。",
+    "dialogue": "誤返品により人類生存率が〇・〇三パーセント低下します。",
+    "reading": "ごへんぴんにより、じんるいせいぞんりつが、れいてんれいさんぱーせんとていかします。",
     "log": [
-      "発話ログ　33/82",
+      "発話ログ　33/90",
       "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "33/82　第十三レジ"
+    "progressLabel": "33/90　第十三レジ"
   },
   {
     "id": "ep01_v036",
@@ -764,8 +764,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "未来おにぎりスキャン",
     "visualCutIndex": 8,
-    "start": 115.679,
-    "end": 119.986,
+    "start": 116.406,
+    "end": 120.736,
     "image": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc08_future_onigiri_scan.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -774,12 +774,12 @@
     "dialogue": "ミナさん、僕の時給で扱っていい数字じゃないです。",
     "reading": "みなさん、ぼくのじきゅうであつかっていいすうじじゃないです。",
     "log": [
-      "発話ログ　34/82",
+      "発話ログ　34/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "34/82　タクミ"
+    "progressLabel": "34/90　タクミ"
   },
   {
     "id": "ep01_v037",
@@ -787,8 +787,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "始末書を気にする未来人",
     "visualCutIndex": 9,
-    "start": 119.986,
-    "end": 124.279,
+    "start": 120.736,
+    "end": 124.913,
     "image": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -797,12 +797,12 @@
     "dialogue": "うちの課が試験販売前の商品を過去へ誤配送しまして。",
     "reading": "うちのかがしけんはんばいまえのしょうひんをかこエごはいそうしまして。",
     "log": [
-      "発話ログ　35/82",
+      "発話ログ　35/90",
       "担当　未来の会社員",
-      "未来案件　処理中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "35/82　未来の会社員"
+    "progressLabel": "35/90　未来の会社員"
   },
   {
     "id": "ep01_v038",
@@ -810,8 +810,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "始末書を気にする未来人",
     "visualCutIndex": 9,
-    "start": 124.279,
-    "end": 127.124,
+    "start": 124.913,
+    "end": 127.758,
     "image": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -820,12 +820,12 @@
     "dialogue": "返品しないと始末書が増えます。",
     "reading": "へんぴんしないとしまつしょがふえます。",
     "log": [
-      "発話ログ　36/82",
+      "発話ログ　36/90",
       "担当　未来の会社員",
-      "未来案件　処理中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "36/82　未来の会社員"
+    "progressLabel": "36/90　未来の会社員"
   },
   {
     "id": "ep01_v039",
@@ -833,8 +833,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "始末書を気にする未来人",
     "visualCutIndex": 9,
-    "start": 127.124,
-    "end": 129.815,
+    "start": 127.758,
+    "end": 130.438,
     "image": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -843,12 +843,12 @@
     "dialogue": "人類より始末書を気にしてる。",
     "reading": "じんるいよりしまつしょをきにしてる。",
     "log": [
-      "発話ログ　37/82",
+      "発話ログ　37/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "37/82　タクミ"
+    "progressLabel": "37/90　タクミ"
   },
   {
     "id": "ep01_v040",
@@ -856,8 +856,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "始末書を気にする未来人",
     "visualCutIndex": 9,
-    "start": 129.815,
-    "end": 131.53,
+    "start": 130.438,
+    "end": 132.165,
     "image": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -866,12 +866,12 @@
     "dialogue": "会社員なので。",
     "reading": "かいしゃいんなので。",
     "log": [
-      "発話ログ　38/82",
+      "発話ログ　38/90",
       "担当　未来の会社員",
-      "未来案件　処理中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "38/82　未来の会社員"
+    "progressLabel": "38/90　未来の会社員"
   },
   {
     "id": "ep01_v041",
@@ -879,8 +879,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "始末書を気にする未来人",
     "visualCutIndex": 9,
-    "start": 131.53,
-    "end": 133.952,
+    "start": 132.165,
+    "end": 134.597,
     "image": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
@@ -889,12 +889,12 @@
     "dialogue": "説得力が嫌だ。",
     "reading": "せっとくりょくがいやだ。",
     "log": [
-      "発話ログ　39/82",
+      "発話ログ　39/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "39/82　タクミ"
+    "progressLabel": "39/90　タクミ"
   },
   {
     "id": "ep01_v042",
@@ -902,8 +902,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "時空返品メニュー",
     "visualCutIndex": 10,
-    "start": 133.952,
-    "end": 141.85,
+    "start": 134.597,
+    "end": 142.438,
     "image": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -912,12 +912,12 @@
     "dialogue": "第十三レジの画面には、通常返品、時空返品、存在取消、温める、店長呼出、と並んでいた。",
     "reading": "だいじゅうさんれじのがめんにワ、つうじょうへんぴん、じくうへんぴん、そんざいとりけし、あたためる、てんちょうよびだし、とならんでいた。",
     "log": [
-      "発話ログ　40/82",
+      "発話ログ　40/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "40/82　ナレーション"
+    "progressLabel": "40/90　ナレーション"
   },
   {
     "id": "ep01_v043",
@@ -925,8 +925,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "時空返品メニュー",
     "visualCutIndex": 10,
-    "start": 141.85,
-    "end": 143.992,
+    "start": 142.438,
+    "end": 144.611,
     "image": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -935,12 +935,12 @@
     "dialogue": "店長呼出があります。",
     "reading": "てんちょうよびだしがあります。",
     "log": [
-      "発話ログ　41/82",
+      "発話ログ　41/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "41/82　タクミ"
+    "progressLabel": "41/90　タクミ"
   },
   {
     "id": "ep01_v044",
@@ -948,8 +948,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "時空返品メニュー",
     "visualCutIndex": 10,
-    "start": 143.992,
-    "end": 145.326,
+    "start": 144.611,
+    "end": 145.936,
     "image": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -958,12 +958,12 @@
     "dialogue": "押さない。",
     "reading": "おさない。",
     "log": [
-      "発話ログ　42/82",
+      "発話ログ　42/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "42/82　ミナ"
+    "progressLabel": "42/90　ミナ"
   },
   {
     "id": "ep01_v045",
@@ -971,8 +971,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "時空返品メニュー",
     "visualCutIndex": 10,
-    "start": 145.326,
-    "end": 146.558,
+    "start": 145.936,
+    "end": 147.157,
     "image": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -981,12 +981,12 @@
     "dialogue": "なぜ。",
     "reading": "なぜ。",
     "log": [
-      "発話ログ　43/82",
+      "発話ログ　43/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "43/82　タクミ"
+    "progressLabel": "43/90　タクミ"
   },
   {
     "id": "ep01_v046",
@@ -994,8 +994,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "時空返品メニュー",
     "visualCutIndex": 10,
-    "start": 146.558,
-    "end": 148.346,
+    "start": 147.157,
+    "end": 149.029,
     "image": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -1004,12 +1004,12 @@
     "dialogue": "二時以降は出ない。",
     "reading": "にじいこうワでない。",
     "log": [
-      "発話ログ　44/82",
+      "発話ログ　44/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "44/82　ミナ"
+    "progressLabel": "44/90　ミナ"
   },
   {
     "id": "ep01_v047",
@@ -1017,8 +1017,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "時空返品メニュー",
     "visualCutIndex": 10,
-    "start": 148.346,
-    "end": 151.106,
+    "start": 149.029,
+    "end": 151.815,
     "image": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc10_time_return_menu.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -1027,12 +1027,12 @@
     "dialogue": "店長呼出の存在意義。",
     "reading": "てんちょうよびだしのそんざいいぎ。",
     "log": [
-      "発話ログ　45/82",
+      "発話ログ　45/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "45/82　タクミ"
+    "progressLabel": "45/90　タクミ"
   },
   {
     "id": "ep01_v048",
@@ -1040,8 +1040,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "残り三分と七万二千円",
     "visualCutIndex": 11,
-    "start": 151.106,
-    "end": 153.283,
+    "start": 151.815,
+    "end": 154.05,
     "image": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -1050,12 +1050,12 @@
     "dialogue": "残り時間、三分。",
     "reading": "のこりじかん、さんぷん。",
     "log": [
-      "発話ログ　46/82",
+      "発話ログ　46/90",
       "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "11/20　残り三分と七万二千円",
-    "progressLabel": "46/82　第十三レジ"
+    "progressLabel": "46/90　第十三レジ"
   },
   {
     "id": "ep01_v049",
@@ -1063,8 +1063,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "残り三分と七万二千円",
     "visualCutIndex": 11,
-    "start": 153.283,
-    "end": 158.976,
+    "start": 154.05,
+    "end": 159.742,
     "image": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -1073,12 +1073,12 @@
     "dialogue": "二時二十分を過ぎると、この商品は現代店舗の新商品として定着します。",
     "reading": "にじにじゅっぷんをすぎると、このしょうひんワげんだいてんぽのしんしょうひんとしてていちゃくします。",
     "log": [
-      "発話ログ　47/82",
+      "発話ログ　47/90",
       "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "11/20　残り三分と七万二千円",
-    "progressLabel": "47/82　第十三レジ"
+    "progressLabel": "47/90　第十三レジ"
   },
   {
     "id": "ep01_v050",
@@ -1086,8 +1086,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "残り三分と七万二千円",
     "visualCutIndex": 11,
-    "start": 158.976,
-    "end": 161.931,
+    "start": 159.742,
+    "end": 162.675,
     "image": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -1096,12 +1096,12 @@
     "dialogue": "仕入れ原価、一個七万二千円。",
     "reading": "しいれげんか、いっこななまんにせんえん。",
     "log": [
-      "発話ログ　48/82",
+      "発話ログ　48/90",
       "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "11/20　残り三分と七万二千円",
-    "progressLabel": "48/82　第十三レジ"
+    "progressLabel": "48/90　第十三レジ"
   },
   {
     "id": "ep01_v051",
@@ -1109,8 +1109,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "残り三分と七万二千円",
     "visualCutIndex": 11,
-    "start": 161.931,
-    "end": 163.723,
+    "start": 162.675,
+    "end": 164.49,
     "image": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc11_countdown_cost.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_05_future_onigiri_scan.jpg",
@@ -1119,12 +1119,12 @@
     "dialogue": "返品しましょう。",
     "reading": "へんぴんしましょう。",
     "log": [
-      "発話ログ　49/82",
+      "発話ログ　49/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "11/20　残り三分と七万二千円",
-    "progressLabel": "49/82　タクミ"
+    "progressLabel": "49/90　タクミ"
   },
   {
     "id": "ep01_v052",
@@ -1132,8 +1132,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "世界の分岐をレンジへ",
     "visualCutIndex": 12,
-    "start": 163.723,
-    "end": 167.169,
+    "start": 164.49,
+    "end": 167.793,
     "image": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
@@ -1142,12 +1142,12 @@
     "dialogue": "こちらの商品、温めますか。",
     "reading": "こちらのしょうひん、あたためますか。",
     "log": [
-      "発話ログ　50/82",
+      "発話ログ　50/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "50/82　ミナ"
+    "progressLabel": "50/90　ミナ"
   },
   {
     "id": "ep01_v053",
@@ -1155,8 +1155,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "世界の分岐をレンジへ",
     "visualCutIndex": 12,
-    "start": 167.169,
-    "end": 168.919,
+    "start": 167.793,
+    "end": 169.543,
     "image": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
@@ -1165,12 +1165,12 @@
     "dialogue": "この状況で！？",
     "reading": "このじょうきょうで？",
     "log": [
-      "発話ログ　51/82",
+      "発話ログ　51/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "51/82　タクミ"
+    "progressLabel": "51/90　タクミ"
   },
   {
     "id": "ep01_v054",
@@ -1178,22 +1178,22 @@
     "visualCutId": "vc12",
     "visualCutTitle": "世界の分岐をレンジへ",
     "visualCutIndex": 12,
-    "start": 168.919,
-    "end": 170.612,
+    "start": 169.543,
+    "end": 172.652,
     "image": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
     "imagePrompt": "ミナが温め確認をし、未来おにぎりが電子レンジへ。未来青年 / 未来の会社員は同じ顔でお願いしますと言い、タクミが全力でツッコむ。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "未来の会社員",
-    "dialogue": "お願いします。",
-    "reading": "おねがいします。",
+    "dialogue": "鮭は温かい方が好きなので。",
+    "reading": "しゃけワ、あたたかいほうがすきなので。",
     "log": [
-      "発話ログ　52/82",
+      "発話ログ　52/90",
       "担当　未来の会社員",
-      "未来案件　処理中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "52/82　未来の会社員"
+    "progressLabel": "52/90　未来の会社員"
   },
   {
     "id": "ep01_v055",
@@ -1201,22 +1201,22 @@
     "visualCutId": "vc12",
     "visualCutTitle": "世界の分岐をレンジへ",
     "visualCutIndex": 12,
-    "start": 170.612,
-    "end": 172.896,
+    "start": 172.652,
+    "end": 176.053,
     "image": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
     "imagePrompt": "ミナが温め確認をし、未来おにぎりが電子レンジへ。未来青年 / 未来の会社員は同じ顔でお願いしますと言い、タクミが全力でツッコむ。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "タクミ",
-    "dialogue": "お願いしますじゃないですよ。",
-    "reading": "おねがいしますじゃないですよ。",
+    "dialogue": "人類の前に好みを優先するな！",
+    "reading": "じんるいのまえに、このみをゆうせんするな！",
     "log": [
-      "発話ログ　53/82",
+      "発話ログ　53/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "53/82　タクミ"
+    "progressLabel": "53/90　タクミ"
   },
   {
     "id": "ep01_v056",
@@ -1224,22 +1224,45 @@
     "visualCutId": "vc12",
     "visualCutTitle": "世界の分岐をレンジへ",
     "visualCutIndex": 12,
-    "start": 172.896,
-    "end": 176.433,
+    "start": 176.053,
+    "end": 179.094,
+    "image": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
+    "plannedImage": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
+    "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
+    "imagePrompt": "ミナが温め確認をし、未来おにぎりが電子レンジへ。未来青年 / 未来の会社員は同じ顔でお願いしますと言い、タクミが全力でツッコむ。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "ミナ",
+    "dialogue": "お客様の希望だから。",
+    "reading": "おきゃくさまの、きぼうだから。",
+    "log": [
+      "発話ログ　54/90",
+      "担当　ミナ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "12/20　世界の分岐をレンジへ",
+    "progressLabel": "54/90　ミナ"
+  },
+  {
+    "id": "ep01_v056_g1",
+    "cut": "ep01_045",
+    "visualCutId": "vc12",
+    "visualCutTitle": "世界の分岐をレンジへ",
+    "visualCutIndex": 12,
     "image": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
     "imagePrompt": "ミナが温め確認をし、未来おにぎりが電子レンジへ。未来青年 / 未来の会社員は同じ顔でお願いしますと言い、タクミが全力でツッコむ。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "タクミ",
-    "dialogue": "世界の分岐を電子レンジに入れないでください。",
-    "reading": "せかいのぶんきをでんしれんじにいれないでください。",
+    "dialogue": "接客が強すぎる！",
+    "reading": "せっきゃくが、つよすぎる！",
     "log": [
-      "発話ログ　54/82",
+      "発話ログ　55/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "54/82　タクミ"
+    "progressLabel": "55/90　タクミ",
+    "start": 179.094,
+    "end": 181.576
   },
   {
     "id": "ep01_v058",
@@ -1247,22 +1270,22 @@
     "visualCutId": "vc13",
     "visualCutTitle": "電子レンジ内の未来映像",
     "visualCutIndex": 13,
-    "start": 176.433,
-    "end": 180.176,
+    "start": 181.576,
+    "end": 184.912,
     "image": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
     "imagePrompt": "電子レンジの光の中に未来の食堂、空っぽの棚、長い列、子どもがおにぎりを持って笑う映像。手前に同一人物の未来青年 / 未来の会社員が息を呑む。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "ナレーション",
-    "dialogue": "おにぎりが淡く光り、未来の食堂が映った。",
-    "reading": "おにぎりがあわくひかり、みらいのしょくどうがうつった。",
+    "dialogue": "温められたおにぎりが淡く光った。",
+    "reading": "あたためられたおにぎりが、あわくひかった。",
     "log": [
-      "発話ログ　55/82",
+      "発話ログ　56/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "55/82　ナレーション"
+    "progressLabel": "56/90　ナレーション"
   },
   {
     "id": "ep01_v059",
@@ -1270,22 +1293,22 @@
     "visualCutId": "vc13",
     "visualCutTitle": "電子レンジ内の未来映像",
     "visualCutIndex": 13,
-    "start": 180.176,
-    "end": 182.684,
+    "start": 184.912,
+    "end": 188.86,
     "image": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
     "imagePrompt": "電子レンジの光の中に未来の食堂、空っぽの棚、長い列、子どもがおにぎりを持って笑う映像。手前に同一人物の未来青年 / 未来の会社員が息を呑む。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "ナレーション",
-    "dialogue": "空っぽの棚。長い列。",
-    "reading": "からっぽのたな。ながいれつ。",
+    "dialogue": "一瞬だけ未来の社員食堂らしき映像が浮かぶ。",
+    "reading": "いっしゅんだけ、みらいのしゃいんしょくどうらしきえいぞうがうかぶ。",
     "log": [
-      "発話ログ　56/82",
+      "発話ログ　57/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "56/82　ナレーション"
+    "progressLabel": "57/90　ナレーション"
   },
   {
     "id": "ep01_v060",
@@ -1293,22 +1316,22 @@
     "visualCutId": "vc13",
     "visualCutTitle": "電子レンジ内の未来映像",
     "visualCutIndex": 13,
-    "start": 182.684,
-    "end": 187.052,
+    "start": 188.86,
+    "end": 193.863,
     "image": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
     "imagePrompt": "電子レンジの光の中に未来の食堂、空っぽの棚、長い列、子どもがおにぎりを持って笑う映像。手前に同一人物の未来青年 / 未来の会社員が息を呑む。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "ナレーション",
-    "dialogue": "小さな子どもが、そのおにぎりを両手で持って笑っている。",
-    "reading": "ちいさなこどもが、そのおにぎりをりょうてでもってわらっている。",
+    "dialogue": "空っぽの棚の前で、小さな子どもがおにぎりを抱えて笑っていた。",
+    "reading": "からっぽのたなのまえで、ちいさなこどもがおにぎりをかかえてわらっていた。",
     "log": [
-      "発話ログ　57/82",
+      "発話ログ　58/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "57/82　ナレーション"
+    "progressLabel": "58/90　ナレーション"
   },
   {
     "id": "ep01_v061",
@@ -1316,22 +1339,22 @@
     "visualCutId": "vc13",
     "visualCutTitle": "電子レンジ内の未来映像",
     "visualCutIndex": 13,
-    "start": 187.052,
-    "end": 189.599,
+    "start": 193.863,
+    "end": 196.898,
     "image": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
     "imagePrompt": "電子レンジの光の中に未来の食堂、空っぽの棚、長い列、子どもがおにぎりを持って笑う映像。手前に同一人物の未来青年 / 未来の会社員が息を呑む。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "ナレーション",
-    "dialogue": "未来の会社員は息を呑んだ。",
-    "reading": "みらいのかいしゃいんワいきをのんだ。",
+    "speaker": "タクミ",
+    "dialogue": "なんか泣かせようとしてきてません？",
+    "reading": "なんか、なかせようとしてきてません？",
     "log": [
-      "発話ログ　58/82",
-      "担当　ナレーション",
-      "深夜帯　進行中"
+      "発話ログ　59/90",
+      "担当　タクミ",
+      "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "58/82　ナレーション"
+    "progressLabel": "59/90　タクミ"
   },
   {
     "id": "ep01_v062",
@@ -1339,22 +1362,45 @@
     "visualCutId": "vc13",
     "visualCutTitle": "電子レンジ内の未来映像",
     "visualCutIndex": 13,
-    "start": 189.599,
-    "end": 193.836,
+    "start": 196.898,
+    "end": 199.985,
     "image": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
     "imagePrompt": "電子レンジの光の中に未来の食堂、空っぽの棚、長い列、子どもがおにぎりを持って笑う映像。手前に同一人物の未来青年 / 未来の会社員が息を呑む。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "未来の会社員",
-    "dialogue": "開発記録です。これが、ちゃんと届けば……。",
-    "reading": "かいはつきろくです。これが、ちゃんととどけば。",
+    "dialogue": "試作品の広報映像です。",
+    "reading": "しさくひんの、こうほうえいぞうです。",
     "log": [
-      "発話ログ　59/82",
+      "発話ログ　60/90",
       "担当　未来の会社員",
-      "未来案件　処理中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "59/82　未来の会社員"
+    "progressLabel": "60/90　未来の会社員"
+  },
+  {
+    "id": "ep01_v062_g1",
+    "cut": "ep01_050",
+    "visualCutId": "vc13",
+    "visualCutTitle": "電子レンジ内の未来映像",
+    "visualCutIndex": 13,
+    "image": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
+    "plannedImage": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
+    "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
+    "imagePrompt": "電子レンジの光の中に未来の食堂、空っぽの棚、長い列、子どもがおにぎりを持って笑う映像。手前に同一人物の未来青年 / 未来の会社員が息を呑む。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "タクミ",
+    "dialogue": "危うく乗せられるところでしたよ！",
+    "reading": "あやうく、のせられるところでしたよ！",
+    "log": [
+      "発話ログ　61/90",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "13/20　電子レンジ内の未来映像",
+    "progressLabel": "61/90　タクミ",
+    "start": 199.985,
+    "end": 203.082
   },
   {
     "id": "ep01_v063",
@@ -1362,8 +1408,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
-    "start": 193.836,
-    "end": 196.686,
+    "start": 203.082,
+    "end": 205.917,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1372,12 +1418,12 @@
     "dialogue": "加熱により時空状態が安定しました。",
     "reading": "かねつによりじくうじょうたいがあんていしました。",
     "log": [
-      "発話ログ　60/82",
+      "発話ログ　62/90",
       "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "60/82　第十三レジ"
+    "progressLabel": "62/90　第十三レジ"
   },
   {
     "id": "ep01_v064",
@@ -1385,22 +1431,22 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
-    "start": 196.686,
-    "end": 198.979,
+    "start": 205.917,
+    "end": 209.972,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
     "imagePrompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
-    "speaker": "第十三レジ",
-    "dialogue": "履歴メモを入力してください。",
-    "reading": "りれきめもをにゅうりょくしてください。",
+    "speaker": "ミナ",
+    "dialogue": "このおにぎり、なくなると困る人がいそう。",
+    "reading": "このおにぎり、なくなるとこまるひとがいそう。",
     "log": [
-      "発話ログ　61/82",
-      "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "発話ログ　63/90",
+      "担当　ミナ",
+      "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "61/82　第十三レジ"
+    "progressLabel": "63/90　ミナ"
   },
   {
     "id": "ep01_v065",
@@ -1408,22 +1454,22 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
-    "start": 198.979,
-    "end": 202.85,
+    "start": 209.972,
+    "end": 212.019,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
     "imagePrompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
-    "speaker": "ミナ",
-    "dialogue": "このおにぎりは、ちゃんと作った方がいいです。",
-    "reading": "このおにぎりワ、ちゃんとつくったほうがいいです。",
+    "speaker": "タクミ",
+    "dialogue": "急にざっくり！",
+    "reading": "きゅうに、ざっくり！",
     "log": [
-      "発話ログ　62/82",
-      "担当　ミナ",
-      "声　中2 / ノーマル"
+      "発話ログ　64/90",
+      "担当　タクミ",
+      "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "62/82　ミナ"
+    "progressLabel": "64/90　タクミ"
   },
   {
     "id": "ep01_v066",
@@ -1431,22 +1477,68 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
-    "start": 202.85,
-    "end": 204.352,
+    "start": 212.019,
+    "end": 214.775,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
     "imagePrompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
-    "speaker": "タクミ",
-    "dialogue": "ざっくり！",
-    "reading": "ざっくり！",
+    "speaker": "ミナ",
+    "dialogue": "だいたいそんなものでしょ。",
+    "reading": "だいたい、そんなものでしょ。",
     "log": [
-      "発話ログ　63/82",
-      "担当　タクミ",
+      "発話ログ　65/90",
+      "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "63/82　タクミ"
+    "progressLabel": "65/90　ミナ"
+  },
+  {
+    "id": "ep01_v066_g1",
+    "cut": "ep01_054",
+    "visualCutId": "vc14",
+    "visualCutTitle": "履歴メモ入力",
+    "visualCutIndex": 14,
+    "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
+    "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
+    "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
+    "imagePrompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
+    "speaker": "第十三レジ",
+    "dialogue": "履歴メモを入力してください。",
+    "reading": "りれきめもを、にゅうりょくしてください。",
+    "log": [
+      "発話ログ　66/90",
+      "担当　第十三レジ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "14/20　履歴メモ入力",
+    "progressLabel": "66/90　第十三レジ",
+    "start": 214.775,
+    "end": 217.258
+  },
+  {
+    "id": "ep01_v066_g2",
+    "cut": "ep01_054",
+    "visualCutId": "vc14",
+    "visualCutTitle": "履歴メモ入力",
+    "visualCutIndex": 14,
+    "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
+    "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
+    "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
+    "imagePrompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
+    "speaker": "ミナ",
+    "dialogue": "ちゃんと作る。",
+    "reading": "ちゃんとつくる。",
+    "log": [
+      "発話ログ　67/90",
+      "担当　ミナ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "14/20　履歴メモ入力",
+    "progressLabel": "67/90　ミナ",
+    "start": 217.258,
+    "end": 218.742
   },
   {
     "id": "ep01_v067",
@@ -1454,8 +1546,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
-    "start": 204.352,
-    "end": 206.227,
+    "start": 218.742,
+    "end": 220.64,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1464,12 +1556,12 @@
     "dialogue": "記録しました。",
     "reading": "きろくしました。",
     "log": [
-      "発話ログ　64/82",
+      "発話ログ　68/90",
       "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "64/82　第十三レジ"
+    "progressLabel": "68/90　第十三レジ"
   },
   {
     "id": "ep01_v068",
@@ -1477,22 +1569,22 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
-    "start": 206.227,
-    "end": 207.594,
+    "start": 220.64,
+    "end": 222.855,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
     "imagePrompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
     "speaker": "タクミ",
-    "dialogue": "通るんだ！",
-    "reading": "とおるんだ！",
+    "dialogue": "二文字で通るんだ！",
+    "reading": "にもじで、とおるんだ！",
     "log": [
-      "発話ログ　65/82",
+      "発話ログ　69/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "65/82　タクミ"
+    "progressLabel": "69/90　タクミ"
   },
   {
     "id": "ep01_v069",
@@ -1500,22 +1592,22 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 207.594,
-    "end": 211.542,
+    "start": 222.855,
+    "end": 228.469,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
     "imagePrompt": "返品完了、返金百六十八円。同一人物の未来青年 / 未来の会社員がホットコーヒーを買い、タクミが未来に行きたくなくなる。背景に第十三レジ。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "第十三レジ",
-    "dialogue": "未来とは、だいたい雑なメモの積み重ねです。",
-    "reading": "みらいとワ、だいたいざつなめものつみかさねです。",
+    "dialogue": "未来開発案件の七十三パーセントは、雑なメモから始まっています。",
+    "reading": "みらいかいはつあんけんの、ななじゅうさんぱーせんとワ、ざつなめもからはじまっています。",
     "log": [
-      "発話ログ　66/82",
+      "発話ログ　70/90",
       "担当　第十三レジ",
-      "第十三レジ　応答中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "66/82　第十三レジ"
+    "progressLabel": "70/90　第十三レジ"
   },
   {
     "id": "ep01_v070",
@@ -1523,8 +1615,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 211.542,
-    "end": 216.148,
+    "start": 228.469,
+    "end": 233.099,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1533,12 +1625,12 @@
     "dialogue": "時空返品が完了し、返金額は百六十八円。",
     "reading": "じくうへんぴんがかんりょうし、へんきんがくワひゃくろくじゅうはちえん。",
     "log": [
-      "発話ログ　67/82",
+      "発話ログ　71/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "67/82　ナレーション"
+    "progressLabel": "71/90　ナレーション"
   },
   {
     "id": "ep01_v071",
@@ -1546,8 +1638,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 216.148,
-    "end": 220.712,
+    "start": 233.099,
+    "end": 237.709,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1556,12 +1648,12 @@
     "dialogue": "未来の会社員は現金で受け取り、さらにホットコーヒーを買った。",
     "reading": "みらいのかいしゃいんワげんきんでうけとり、さらにほっとこーひーをかった。",
     "log": [
-      "発話ログ　68/82",
+      "発話ログ　72/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "68/82　ナレーション"
+    "progressLabel": "72/90　ナレーション"
   },
   {
     "id": "ep01_v072",
@@ -1569,8 +1661,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 220.712,
-    "end": 223.194,
+    "start": 237.709,
+    "end": 240.167,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1579,12 +1671,35 @@
     "dialogue": "未来のコーヒー、高いので。",
     "reading": "みらいのこーひー、たかいので。",
     "log": [
-      "発話ログ　69/82",
+      "発話ログ　73/90",
       "担当　未来の会社員",
-      "未来案件　処理中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "69/82　未来の会社員"
+    "progressLabel": "73/90　未来の会社員"
+  },
+  {
+    "id": "ep01_v072_g1",
+    "cut": "ep01_060",
+    "visualCutId": "vc15",
+    "visualCutTitle": "時空返品完了とコーヒー",
+    "visualCutIndex": 15,
+    "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
+    "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
+    "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
+    "imagePrompt": "返品完了、返金百六十八円。同一人物の未来青年 / 未来の会社員がホットコーヒーを買い、タクミが未来に行きたくなくなる。背景に第十三レジ。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "未来の会社員",
+    "dialogue": "百六十八円は助かります。",
+    "reading": "ひゃくろくじゅうはちえんワ、たすかります。",
+    "log": [
+      "発話ログ　74/90",
+      "担当　未来の会社員",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "15/20　時空返品完了とコーヒー",
+    "progressLabel": "74/90　未来の会社員",
+    "start": 240.167,
+    "end": 243.148
   },
   {
     "id": "ep01_v073",
@@ -1592,22 +1707,68 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 223.194,
-    "end": 226.141,
+    "start": 243.148,
+    "end": 247.103,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
     "imagePrompt": "返品完了、返金百六十八円。同一人物の未来青年 / 未来の会社員がホットコーヒーを買い、タクミが未来に行きたくなくなる。背景に第十三レジ。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "タクミ",
-    "dialogue": "未来、行きたくないな。",
-    "reading": "みらい、いきたくないな。",
+    "dialogue": "返金額と同じ額のコーヒー買ってる。",
+    "reading": "へんきんがくと、おなじがくのこーひーかってる。",
     "log": [
-      "発話ログ　70/82",
+      "発話ログ　75/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "70/82　タクミ"
+    "progressLabel": "75/90　タクミ"
+  },
+  {
+    "id": "ep01_v073_g1",
+    "cut": "ep01_061",
+    "visualCutId": "vc15",
+    "visualCutTitle": "時空返品完了とコーヒー",
+    "visualCutIndex": 15,
+    "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
+    "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
+    "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
+    "imagePrompt": "返品完了、返金百六十八円。同一人物の未来青年 / 未来の会社員がホットコーヒーを買い、タクミが未来に行きたくなくなる。背景に第十三レジ。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "未来の会社員",
+    "dialogue": "経費です。",
+    "reading": "けいひです。",
+    "log": [
+      "発話ログ　76/90",
+      "担当　未来の会社員",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "15/20　時空返品完了とコーヒー",
+    "progressLabel": "76/90　未来の会社員",
+    "start": 247.103,
+    "end": 248.501
+  },
+  {
+    "id": "ep01_v073_g2",
+    "cut": "ep01_061",
+    "visualCutId": "vc15",
+    "visualCutTitle": "時空返品完了とコーヒー",
+    "visualCutIndex": 15,
+    "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
+    "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
+    "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
+    "imagePrompt": "返品完了、返金百六十八円。同一人物の未来青年 / 未来の会社員がホットコーヒーを買い、タクミが未来に行きたくなくなる。背景に第十三レジ。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。残業表示は一種類だけに固定。濃紺スーツの本人左胸側、左ラペルの外側から左肩ストラップへつながる位置に、名札サイズの横長クリップ式プレートを一つだけ付ける。正面向きの構図では見る側の右寄り、首タグより少し下、胸中央より外側に見える位置。外観は暗い半透明の角丸プレート、細いネオンシアン枠、短い水平シアンライン、文字は二段で上段「残業」下段「2074」だけ。腕時計型、四角い大型端末、首タグ一体型、肩パッド型にしない。本人の右肩、見る側の左肩、両腕、前腕、胸中央、首タグ上には残業表示を置かない。右肩表示は禁止。両肩表示は禁止。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "タクミ",
+    "dialogue": "何の経費ですか！",
+    "reading": "なんの、けいひですか！",
+    "log": [
+      "発話ログ　77/90",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "15/20　時空返品完了とコーヒー",
+    "progressLabel": "77/90　タクミ",
+    "start": 248.501,
+    "end": 250.724
   },
   {
     "id": "ep01_v074",
@@ -1615,8 +1776,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 226.141,
-    "end": 229.782,
+    "start": 250.724,
+    "end": 254.435,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1625,12 +1786,12 @@
     "dialogue": "午前二時二十分。第十三レジは消えた。",
     "reading": "ごぜんにじにじゅっぷん。だいじゅうさんれじワきえた。",
     "log": [
-      "発話ログ　71/82",
+      "発話ログ　78/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "71/82　ナレーション"
+    "progressLabel": "78/90　ナレーション"
   },
   {
     "id": "ep01_v075",
@@ -1638,8 +1799,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 229.782,
-    "end": 233.208,
+    "start": 254.435,
+    "end": 257.837,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1648,12 +1809,12 @@
     "dialogue": "残ったレシートには、こう印字されていた。",
     "reading": "のこったれしーとにワ、こういんじされていた。",
     "log": [
-      "発話ログ　72/82",
+      "発話ログ　79/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "72/82　ナレーション"
+    "progressLabel": "79/90　ナレーション"
   },
   {
     "id": "ep01_v076",
@@ -1661,8 +1822,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 233.208,
-    "end": 239.238,
+    "start": 257.837,
+    "end": 263.844,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1671,12 +1832,12 @@
     "dialogue": "時空返品、一件。歴史メモ、一件。完全栄養おにぎり、開発継続。",
     "reading": "じくうへんぴん、いっけん。れきしめも、いっけん。かんぜんえいようおにぎり、かいはつけいぞく。",
     "log": [
-      "発話ログ　73/82",
+      "発話ログ　80/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "73/82　ナレーション"
+    "progressLabel": "80/90　ナレーション"
   },
   {
     "id": "ep01_v077",
@@ -1684,8 +1845,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 239.238,
-    "end": 243.665,
+    "start": 263.844,
+    "end": 268.365,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1694,12 +1855,12 @@
     "dialogue": "人類生存率、微増。ホットコーヒー、レギュラー、一件。",
     "reading": "じんるいせいぞんりつ、びぞう。ほっとこーひー、れぎゅらー、いっけん。",
     "log": [
-      "発話ログ　74/82",
+      "発話ログ　81/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "74/82　ナレーション"
+    "progressLabel": "81/90　ナレーション"
   },
   {
     "id": "ep01_v078",
@@ -1707,8 +1868,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 243.665,
-    "end": 246.398,
+    "start": 268.365,
+    "end": 271.04,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1717,12 +1878,12 @@
     "dialogue": "スタッフ割引、対象外。",
     "reading": "すたっふわりびき、たいしょうがい。",
     "log": [
-      "発話ログ　75/82",
+      "発話ログ　82/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "75/82　ナレーション"
+    "progressLabel": "82/90　ナレーション"
   },
   {
     "id": "ep01_v079",
@@ -1730,8 +1891,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 246.398,
-    "end": 249.338,
+    "start": 271.04,
+    "end": 273.968,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1740,12 +1901,12 @@
     "dialogue": "最後が一番現実的だ。",
     "reading": "さいごがいちばんげんじつてきだ。",
     "log": [
-      "発話ログ　76/82",
+      "発話ログ　83/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "76/82　タクミ"
+    "progressLabel": "83/90　タクミ"
   },
   {
     "id": "ep01_v081",
@@ -1753,8 +1914,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "座木山辰哉、コピー機へ",
     "visualCutIndex": 17,
-    "start": 249.338,
-    "end": 252.794,
+    "start": 273.968,
+    "end": 277.378,
     "image": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1763,12 +1924,12 @@
     "dialogue": "近所の常連らしい男がコピー機へ向かった。",
     "reading": "きんじょのじょうれんらしいおとこがこぴーきへむかった。",
     "log": [
-      "発話ログ　77/82",
+      "発話ログ　84/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "17/20　座木山辰哉、コピー機へ",
-    "progressLabel": "77/82　ナレーション"
+    "progressLabel": "84/90　ナレーション"
   },
   {
     "id": "ep01_v083",
@@ -1776,8 +1937,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "座木山辰哉、コピー機へ",
     "visualCutIndex": 17,
-    "start": 252.794,
-    "end": 258.278,
+    "start": 277.378,
+    "end": 282.966,
     "image": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1786,12 +1947,12 @@
     "dialogue": "コピー、白黒でいいよ。色がつくと記憶が増えるから。",
     "reading": "こぴー、しろくろでいいよ。いろがつくときおくがふえるから。",
     "log": [
-      "発話ログ　78/82",
+      "発話ログ　85/90",
       "担当　座木山辰哉",
       "本日の営業　継続中"
     ],
     "visualLabel": "17/20　座木山辰哉、コピー機へ",
-    "progressLabel": "78/82　座木山辰哉"
+    "progressLabel": "85/90　座木山辰哉"
   },
   {
     "id": "ep01_v084",
@@ -1799,8 +1960,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "夜勤だから",
     "visualCutIndex": 18,
-    "start": 258.278,
-    "end": 261.862,
+    "start": 282.966,
+    "end": 286.583,
     "image": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1809,12 +1970,12 @@
     "dialogue": "この店、普通のお客さんも変なんですか。",
     "reading": "このみせ、ふつうのおきゃくさんもへんなんですか。",
     "log": [
-      "発話ログ　79/82",
+      "発話ログ　86/90",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　夜勤だから",
-    "progressLabel": "79/82　タクミ"
+    "progressLabel": "86/90　タクミ"
   },
   {
     "id": "ep01_v085",
@@ -1822,8 +1983,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "夜勤だから",
     "visualCutIndex": 18,
-    "start": 261.862,
-    "end": 263.976,
+    "start": 286.583,
+    "end": 288.685,
     "image": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1832,12 +1993,35 @@
     "dialogue": "夜勤だから。",
     "reading": "やきんだから。",
     "log": [
-      "発話ログ　80/82",
+      "発話ログ　87/90",
       "担当　ミナ",
-      "声　中2 / ノーマル"
+      "本日の営業　継続中"
     ],
     "visualLabel": "18/20　夜勤だから",
-    "progressLabel": "80/82　ミナ"
+    "progressLabel": "87/90　ミナ"
+  },
+  {
+    "id": "ep01_v085_g1",
+    "cut": "ep01_070",
+    "visualCutId": "vc18",
+    "visualCutTitle": "夜勤だから",
+    "visualCutIndex": 18,
+    "image": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
+    "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
+    "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
+    "imagePrompt": "タクミが普通のお客も変なのかと聞き、ミナが『夜勤だから』と無表情で返す。奥に座木山辰哉が釣りベスト姿でコピー機を使い、紙束を白黒コピーしている。店内は平常運転。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 座木山辰哉は55歳の近所の常連客で、未来人ではない。深夜二時台によく来てコピー機を使う、夜釣り好きの変わりもの。昔、バイクで頭を打つ大怪我をしたため、記憶や時間のズレに妙に驚かない。短く乱れた黒髪、眠そうで少し開いた目、薄い眉、薄い無精髭と口髭、下唇が少し前に出て上唇を隠す独特の口元。閉じた口でもこの下唇の形を保つ。表情はぼんやり穏やかで、悪人顔にしない。服は暗いフーディー、ポケットの多いカーキの釣りベスト、オリーブ色のカーゴパンツ、黒い長靴。少し猫背で肩の力が抜けた立ち姿。小道具は長い釣り竿、リール、タモ網、バケツ、タックルバッグ、青灰色のクーラーボックス、古いツーリング地図、コピーした紙束。釣り場では黙々と釣り、店内ではコピー機の前で紙や地図を見ている。缶コーヒーはブラック派。眼鏡、補修眼鏡、コピーカード、方位磁石、カーディガン、チェックシャツ、未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。未来青年や汗田竜司に似せない。実在人物そっくりにしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "タクミ",
+    "dialogue": "その一言で済ませないでください。",
+    "reading": "そのひとことで、すませないでください。",
+    "log": [
+      "発話ログ　88/90",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "18/20　夜勤だから",
+    "progressLabel": "88/90　タクミ",
+    "start": 288.685,
+    "end": 292.025
   },
   {
     "id": "ep01_v086",
@@ -1845,8 +2029,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "世界が少しだけ救われる",
     "visualCutIndex": 19,
-    "start": 263.976,
-    "end": 267.776,
+    "start": 292.025,
+    "end": 295.824,
     "image": "assets/scenes/planned/ep01_vc19_world_saved_quietly.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc19_world_saved_quietly.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1855,12 +2039,12 @@
     "dialogue": "世界が少しだけ救われても、夜勤は終わらない。",
     "reading": "せかいがすこしだけすくわれても、やきんワおわらない。",
     "log": [
-      "発話ログ　81/82",
+      "発話ログ　89/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "19/20　世界が少しだけ救われる",
-    "progressLabel": "81/82　ナレーション"
+    "progressLabel": "89/90　ナレーション"
   },
   {
     "id": "ep01_v087",
@@ -1868,8 +2052,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "夜勤はまだ終わらない",
     "visualCutIndex": 20,
-    "start": 267.776,
-    "end": 273.378,
+    "start": 295.824,
+    "end": 301.45,
     "image": "assets/scenes/planned/ep01_vc20_chores_remain.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc20_chores_remain.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1878,11 +2062,11 @@
     "dialogue": "床清掃も、雑誌返品も、廃棄登録も、まだ残っている。",
     "reading": "ゆかせいそうも、ざっしへんぴんも、はいきとうろくも、まだのこっている。",
     "log": [
-      "発話ログ　82/82",
+      "発話ログ　90/90",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　夜勤はまだ終わらない",
-    "progressLabel": "82/82　ナレーション"
+    "progressLabel": "90/90　ナレーション"
   }
 ]

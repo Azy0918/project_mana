@@ -6,7 +6,7 @@
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
     "start": 0.0,
-    "end": 1.037,
+    "end": 1.402,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -15,12 +15,12 @@
     "dialogue": "ミナさん",
     "reading": "みなさん。",
     "log": [
-      "発話ログ　01/83",
+      "発話ログ　01/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "01/83　タクミ"
+    "progressLabel": "01/94　タクミ"
   },
   {
     "id": "ep03_v002",
@@ -28,8 +28,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
-    "start": 1.287,
-    "end": 2.383,
+    "start": 1.402,
+    "end": 2.653,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -38,12 +38,12 @@
     "dialogue": "何",
     "reading": "なに。",
     "log": [
-      "発話ログ　02/83",
+      "発話ログ　02/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "02/83　ミナ"
+    "progressLabel": "02/94　ミナ"
   },
   {
     "id": "ep03_v003",
@@ -51,8 +51,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
-    "start": 2.633,
-    "end": 5.247,
+    "start": 2.653,
+    "end": 5.726,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -61,12 +61,12 @@
     "dialogue": "冷凍庫に、昨日が入ってます",
     "reading": "れいとうこに、きのうがハいってます。",
     "log": [
-      "発話ログ　03/83",
+      "発話ログ　03/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "03/83　タクミ"
+    "progressLabel": "03/94　タクミ"
   },
   {
     "id": "ep03_v004",
@@ -74,8 +74,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
-    "start": 5.547,
-    "end": 8.256,
+    "start": 5.726,
+    "end": 8.43,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -84,12 +84,12 @@
     "dialogue": "日付管理なら白板",
     "reading": "ひづけかんりなら、ハくばん。",
     "log": [
-      "発話ログ　04/83",
+      "発話ログ　04/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "04/83　ミナ"
+    "progressLabel": "04/94　ミナ"
   },
   {
     "id": "ep03_v005",
@@ -97,8 +97,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
-    "start": 8.506,
-    "end": 10.387,
+    "start": 8.43,
+    "end": 10.804,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -107,12 +107,12 @@
     "dialogue": "そういう昨日じゃないです",
     "reading": "そういうきのうじゃないです。",
     "log": [
-      "発話ログ　05/83",
+      "発話ログ　05/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "05/83　タクミ"
+    "progressLabel": "05/94　タクミ"
   },
   {
     "id": "ep03_v006",
@@ -120,8 +120,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "昨日バニラ",
     "visualCutIndex": 2,
-    "start": 10.787,
-    "end": 21.118,
+    "start": 10.804,
+    "end": 20.61,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -130,12 +130,12 @@
     "dialogue": "タクミはバックヤードの冷凍庫から、小さなカップアイスを取り出した。商品名は、昨日バニラ。製造年月日は二〇七四年六月十三日。",
     "reading": "たくみワ、ばっくやーどのれいとうこから、ちいさなかっぷあいすをとりだした。しょうひんめいワ、きのうばにら。せいぞうねんがっぴワにせんななじゅうよねんろくがつじゅうさんにち。",
     "log": [
-      "発話ログ　06/83",
+      "発話ログ　06/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "02/20　昨日バニラ",
-    "progressLabel": "06/83　ナレーション"
+    "progressLabel": "06/94　ナレーション"
   },
   {
     "id": "ep03_v007",
@@ -143,8 +143,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "昨日バニラ",
     "visualCutIndex": 2,
-    "start": 21.518,
-    "end": 27.157,
+    "start": 20.61,
+    "end": 26.082,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -153,12 +153,12 @@
     "dialogue": "注意書きには、「溶けると昨日になります。再凍結はできません」とある。",
     "reading": "ちゅういがきにワ、とけるときのうになります。さいとうけつワ、できません、とある。",
     "log": [
-      "発話ログ　07/83",
+      "発話ログ　07/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "02/20　昨日バニラ",
-    "progressLabel": "07/83　ナレーション"
+    "progressLabel": "07/94　ナレーション"
   },
   {
     "id": "ep03_v008",
@@ -166,8 +166,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "味は？",
     "visualCutIndex": 3,
-    "start": 27.657,
-    "end": 28.777,
+    "start": 26.082,
+    "end": 27.372,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -176,12 +176,12 @@
     "dialogue": "味は？",
     "reading": "あじワ？",
     "log": [
-      "発話ログ　08/83",
+      "発話ログ　08/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "08/83　ミナ"
+    "progressLabel": "08/94　ミナ"
   },
   {
     "id": "ep03_v009",
@@ -189,8 +189,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "味は？",
     "visualCutIndex": 3,
-    "start": 29.027,
-    "end": 30.495,
+    "start": 27.372,
+    "end": 29.18,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -199,12 +199,12 @@
     "dialogue": "そこじゃないです",
     "reading": "そこじゃないです。",
     "log": [
-      "発話ログ　09/83",
+      "発話ログ　09/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "09/83　タクミ"
+    "progressLabel": "09/94　タクミ"
   },
   {
     "id": "ep03_v010",
@@ -212,8 +212,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "味は？",
     "visualCutIndex": 3,
-    "start": 30.745,
-    "end": 32.854,
+    "start": 29.18,
+    "end": 31.478,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -222,12 +222,12 @@
     "dialogue": "バニラなら当たり",
     "reading": "ばにらなら、あたり。",
     "log": [
-      "発話ログ　10/83",
+      "発話ログ　10/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "10/83　ミナ"
+    "progressLabel": "10/94　ミナ"
   },
   {
     "id": "ep03_v011",
@@ -235,8 +235,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "味は？",
     "visualCutIndex": 3,
-    "start": 33.104,
-    "end": 35.459,
+    "start": 31.478,
+    "end": 34.52,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -245,12 +245,58 @@
     "dialogue": "食べる前提で見ないでください",
     "reading": "たべるぜんていで、みないでください。",
     "log": [
-      "発話ログ　11/83",
+      "発話ログ　11/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "11/83　タクミ"
+    "progressLabel": "11/94　タクミ"
+  },
+  {
+    "id": "ep03_v011_g1",
+    "cut": "ep03_vc03",
+    "visualCutId": "vc03",
+    "visualCutTitle": "味は？",
+    "visualCutIndex": 3,
+    "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "ミナ",
+    "dialogue": "チョコミントだったら悩む",
+    "reading": "ちょこみんとだったら、なやむ",
+    "log": [
+      "発話ログ　12/94",
+      "担当　ミナ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "03/20　味は？",
+    "progressLabel": "12/94　ミナ",
+    "start": 34.52,
+    "end": 37.41
+  },
+  {
+    "id": "ep03_v011_g2",
+    "cut": "ep03_vc03",
+    "visualCutId": "vc03",
+    "visualCutTitle": "味は？",
+    "visualCutIndex": 3,
+    "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "タクミ",
+    "dialogue": "悩むんですか！",
+    "reading": "なやむんですか！",
+    "log": [
+      "発話ログ　13/94",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "03/20　味は？",
+    "progressLabel": "13/94　タクミ",
+    "start": 37.41,
+    "end": 39.128
   },
   {
     "id": "ep03_v012",
@@ -258,8 +304,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "温度上昇",
     "visualCutIndex": 4,
-    "start": 35.909,
-    "end": 42.996,
+    "start": 39.128,
+    "end": 45.997,
     "image": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -268,12 +314,12 @@
     "dialogue": "冷凍庫の温度表示が、マイナス十八度からマイナス十七度へ上がった。次に、マイナス十六度。",
     "reading": "れいとうこのおんどひょうじが、まいなすじゅうはちどから、まいなすじゅうななどエあがった。つぎに、まいなすじゅうろくど。",
     "log": [
-      "発話ログ　12/83",
+      "発話ログ　14/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "04/20　温度上昇",
-    "progressLabel": "12/83　ナレーション"
+    "progressLabel": "14/94　ナレーション"
   },
   {
     "id": "ep03_v013",
@@ -281,8 +327,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "温度上昇",
     "visualCutIndex": 4,
-    "start": 43.396,
-    "end": 44.462,
+    "start": 45.997,
+    "end": 47.457,
     "image": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -291,12 +337,12 @@
     "dialogue": "上がってます！",
     "reading": "あがってます！",
     "log": [
-      "発話ログ　13/83",
+      "発話ログ　15/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "04/20　温度上昇",
-    "progressLabel": "13/83　タクミ"
+    "progressLabel": "15/94　タクミ"
   },
   {
     "id": "ep03_v014",
@@ -304,8 +350,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "温度上昇",
     "visualCutIndex": 4,
-    "start": 44.712,
-    "end": 47.26,
+    "start": 47.457,
+    "end": 50.121,
     "image": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -314,12 +360,12 @@
     "dialogue": "冷凍庫も疲れてる",
     "reading": "れいとうこも、つかれてる。",
     "log": [
-      "発話ログ　14/83",
+      "発話ログ　16/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "04/20　温度上昇",
-    "progressLabel": "14/83　ミナ"
+    "progressLabel": "16/94　ミナ"
   },
   {
     "id": "ep03_v015",
@@ -327,8 +373,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "温度上昇",
     "visualCutIndex": 4,
-    "start": 47.51,
-    "end": 50.47,
+    "start": 50.121,
+    "end": 53.858,
     "image": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -337,12 +383,12 @@
     "dialogue": "精神論で温度管理しないでください",
     "reading": "せいしんろんで、おんどかんりしないでください。",
     "log": [
-      "発話ログ　15/83",
+      "発話ログ　17/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "04/20　温度上昇",
-    "progressLabel": "15/83　タクミ"
+    "progressLabel": "17/94　タクミ"
   },
   {
     "id": "ep03_v016",
@@ -350,8 +396,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "昨日の売上",
     "visualCutIndex": 5,
-    "start": 50.92,
-    "end": 62.025,
+    "start": 53.858,
+    "end": 64.372,
     "image": "assets/scenes/planned/ep03_vc04_yesterday_sales_history.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc04_yesterday_sales_history.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -360,12 +406,12 @@
     "dialogue": "アイスの表面に水滴が浮かんだ瞬間、店内のレジが勝手に鳴った。昨日の売上履歴が表示される。缶コーヒー一本、午前二時八分、座木山辰哉。",
     "reading": "あいすのひょうめんに、すいてきがうかんだしゅんかん、てんないのれじがかってになった。きのうのうりあげりれきがひょうじされる。かんこーひーいっぽん、ごぜんにじはっぷん、ざきやまたつや。",
     "log": [
-      "発話ログ　16/83",
+      "発話ログ　18/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "05/20　昨日の売上",
-    "progressLabel": "16/83　ナレーション"
+    "progressLabel": "18/94　ナレーション"
   },
   {
     "id": "ep03_v017",
@@ -373,8 +419,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "昨日の売上",
     "visualCutIndex": 5,
-    "start": 62.425,
-    "end": 64.987,
+    "start": 64.372,
+    "end": 67.569,
     "image": "assets/scenes/planned/ep03_vc04_yesterday_sales_history.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc04_yesterday_sales_history.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -383,12 +429,12 @@
     "dialogue": "昨日の売上に戻ってる……",
     "reading": "きのうのうりあげに、もどってる……",
     "log": [
-      "発話ログ　17/83",
+      "発話ログ　19/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "05/20　昨日の売上",
-    "progressLabel": "17/83　タクミ"
+    "progressLabel": "19/94　タクミ"
   },
   {
     "id": "ep03_v018",
@@ -396,8 +442,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "戻ったコーヒー",
     "visualCutIndex": 6,
-    "start": 65.337,
-    "end": 70.952,
+    "start": 67.569,
+    "end": 72.949,
     "image": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -406,12 +452,12 @@
     "dialogue": "カウンターの上には、飲み切ったはずの紙コップのコーヒーが半分だけ戻っていた。",
     "reading": "かうんたーのうえにワ、のみきったはずのかみこっぷのこーひーがはんぶんだけもどっていた。",
     "log": [
-      "発話ログ　18/83",
+      "発話ログ　20/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "06/20　戻ったコーヒー",
-    "progressLabel": "18/83　ナレーション"
+    "progressLabel": "20/94　ナレーション"
   },
   {
     "id": "ep03_v019",
@@ -419,8 +465,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "戻ったコーヒー",
     "visualCutIndex": 6,
-    "start": 71.302,
-    "end": 73.759,
+    "start": 72.949,
+    "end": 75.38,
     "image": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -429,12 +475,12 @@
     "dialogue": "コーヒーが戻った",
     "reading": "こーひーが、もどった。",
     "log": [
-      "発話ログ　19/83",
+      "発話ログ　21/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "06/20　戻ったコーヒー",
-    "progressLabel": "19/83　ミナ"
+    "progressLabel": "21/94　ミナ"
   },
   {
     "id": "ep03_v020",
@@ -442,8 +488,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "戻ったコーヒー",
     "visualCutIndex": 6,
-    "start": 74.009,
-    "end": 75.485,
+    "start": 75.38,
+    "end": 77.457,
     "image": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -452,12 +498,12 @@
     "dialogue": "そこじゃないです！",
     "reading": "そこじゃないです！",
     "log": [
-      "発話ログ　20/83",
+      "発話ログ　22/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "06/20　戻ったコーヒー",
-    "progressLabel": "20/83　タクミ"
+    "progressLabel": "22/94　タクミ"
   },
   {
     "id": "ep03_v021",
@@ -465,8 +511,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "汗田、来店",
     "visualCutIndex": 7,
-    "start": 75.935,
-    "end": 83.034,
+    "start": 77.457,
+    "end": 84.315,
     "image": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -475,12 +521,12 @@
     "dialogue": "自動ドアが開き、汗田が入ってきた。紫のヘルメットを片手に、眉間へ深いしわを寄せている。",
     "reading": "じどうどあがひらき、あせだがハいってきた。むらさきのへるめっとをかたてに、みけんエふかいしわをよせている。",
     "log": [
-      "発話ログ　21/83",
+      "発話ログ　23/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "07/20　汗田、来店",
-    "progressLabel": "21/83　ナレーション"
+    "progressLabel": "23/94　ナレーション"
   },
   {
     "id": "ep03_v022",
@@ -488,8 +534,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "汗田、来店",
     "visualCutIndex": 7,
-    "start": 83.434,
-    "end": 86.688,
+    "start": 84.315,
+    "end": 87.597,
     "image": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -498,12 +544,12 @@
     "dialogue": "ナビが「異常地点、冷凍庫」と出した",
     "reading": "なびが、いじょうちてん、れいとうこ、とだした。",
     "log": [
-      "発話ログ　22/83",
+      "発話ログ　24/94",
       "担当　汗田竜司",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "07/20　汗田、来店",
-    "progressLabel": "22/83　汗田竜司"
+    "progressLabel": "24/94　汗田竜司"
   },
   {
     "id": "ep03_v023",
@@ -511,8 +557,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "アイスを差し出す",
     "visualCutIndex": 8,
-    "start": 87.088,
-    "end": 89.871,
+    "start": 87.597,
+    "end": 90.256,
     "image": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -521,12 +567,12 @@
     "dialogue": "タクミはアイスを差し出した。",
     "reading": "たくみワ、あいすをさしだした。",
     "log": [
-      "発話ログ　23/83",
+      "発話ログ　25/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "08/20　アイスを差し出す",
-    "progressLabel": "23/83　ナレーション"
+    "progressLabel": "25/94　ナレーション"
   },
   {
     "id": "ep03_v024",
@@ -534,8 +580,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "アイスを差し出す",
     "visualCutIndex": 8,
-    "start": 90.171,
-    "end": 91.2,
+    "start": 90.256,
+    "end": 91.696,
     "image": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -544,12 +590,12 @@
     "dialogue": "これです",
     "reading": "これです。",
     "log": [
-      "発話ログ　24/83",
+      "発話ログ　26/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "08/20　アイスを差し出す",
-    "progressLabel": "24/83　タクミ"
+    "progressLabel": "26/94　タクミ"
   },
   {
     "id": "ep03_v025",
@@ -557,8 +603,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "アイスを差し出す",
     "visualCutIndex": 8,
-    "start": 91.5,
-    "end": 95.439,
+    "start": 91.696,
+    "end": 95.656,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -567,12 +613,12 @@
     "dialogue": "昨日バニラ……読めるが、理解はしたくない",
     "reading": "きのう、ばにら……、よめるが、りかいワしたくない。",
     "log": [
-      "発話ログ　25/83",
+      "発話ログ　27/94",
       "担当　汗田竜司",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "08/20　アイスを差し出す",
-    "progressLabel": "25/83　汗田竜司"
+    "progressLabel": "27/94　汗田竜司"
   },
   {
     "id": "ep03_v026",
@@ -580,8 +626,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "時間保存媒体",
     "visualCutIndex": 9,
-    "start": 95.889,
-    "end": 99.344,
+    "start": 95.656,
+    "end": 98.942,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -590,12 +636,12 @@
     "dialogue": "汗田はラベル横の小さなコードを見た。",
     "reading": "あせだワ、らべるよこのちいさなこーどをみた。",
     "log": [
-      "発話ログ　26/83",
+      "発話ログ　28/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "09/20　時間保存媒体",
-    "progressLabel": "26/83　ナレーション"
+    "progressLabel": "28/94　ナレーション"
   },
   {
     "id": "ep03_v027",
@@ -603,8 +649,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "時間保存媒体",
     "visualCutIndex": 9,
-    "start": 99.644,
-    "end": 108.973,
+    "start": 98.942,
+    "end": 107.924,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -613,12 +659,12 @@
     "dialogue": "これは食品ではない。時間保存媒体だ。低温状態で業務履歴を保持し、溶けると過去の店舗記録を展開する",
     "reading": "これワ、しょくひんでワない。じかんほぞんばいたいだ！ていおんじょうたいで、ぎょうむりれきをほじし、とけると、かこのてんぽきろくをてんかいする。",
     "log": [
-      "発話ログ　27/83",
+      "発話ログ　29/94",
       "担当　汗田竜司",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "09/20　時間保存媒体",
-    "progressLabel": "27/83　汗田竜司"
+    "progressLabel": "29/94　汗田竜司"
   },
   {
     "id": "ep03_v028",
@@ -626,8 +672,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "時間保存媒体",
     "visualCutIndex": 9,
-    "start": 109.373,
-    "end": 112.28,
+    "start": 107.924,
+    "end": 111.35,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -636,12 +682,12 @@
     "dialogue": "未来、アイスに何を入れてるんですか",
     "reading": "みらい、あいすになにをいれてるんですか。",
     "log": [
-      "発話ログ　28/83",
+      "発話ログ　30/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "09/20　時間保存媒体",
-    "progressLabel": "28/83　タクミ"
+    "progressLabel": "30/94　タクミ"
   },
   {
     "id": "ep03_v029",
@@ -649,8 +695,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "時間保存媒体",
     "visualCutIndex": 9,
-    "start": 112.58,
-    "end": 115.929,
+    "start": 111.35,
+    "end": 114.879,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -659,12 +705,12 @@
     "dialogue": "未来の設計思想までは責任を持てない",
     "reading": "みらいのせっけいしそうまでワ、せきにんをもてない。",
     "log": [
-      "発話ログ　29/83",
+      "発話ログ　31/94",
       "担当　汗田竜司",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "09/20　時間保存媒体",
-    "progressLabel": "29/83　汗田竜司"
+    "progressLabel": "31/94　汗田竜司"
   },
   {
     "id": "ep03_v030",
@@ -672,8 +718,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 116.379,
-    "end": 124.361,
+    "start": 114.879,
+    "end": 122.515,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -682,12 +728,12 @@
     "dialogue": "雑誌棚が、がたんと音を立てて昨日の配置に戻った。床清掃記録は未実施。休憩記録も未取得。",
     "reading": "ざっしだなが、がたんとおとをたててきのうのはいちにもどった。ゆかせいそうきろくワ、みじっし。きゅうけいきろくも、みしゅとく。",
     "log": [
-      "発話ログ　30/83",
+      "発話ログ　32/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "30/83　ナレーション"
+    "progressLabel": "32/94　ナレーション"
   },
   {
     "id": "ep03_v031",
@@ -695,8 +741,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 124.761,
-    "end": 127.426,
+    "start": 122.515,
+    "end": 125.093,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -705,12 +751,12 @@
     "dialogue": "タクミは顔を青くした。",
     "reading": "たくみワ、かおをあおくした。",
     "log": [
-      "発話ログ　31/83",
+      "発話ログ　33/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "31/83　ナレーション"
+    "progressLabel": "33/94　ナレーション"
   },
   {
     "id": "ep03_v032",
@@ -718,8 +764,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 127.726,
-    "end": 129.493,
+    "start": 125.093,
+    "end": 127.311,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -728,12 +774,12 @@
     "dialogue": "大事件じゃないですか！",
     "reading": "だいじけんじゃないですか！",
     "log": [
-      "発話ログ　32/83",
+      "発話ログ　34/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "32/83　タクミ"
+    "progressLabel": "34/94　タクミ"
   },
   {
     "id": "ep03_v033",
@@ -741,8 +787,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 129.793,
-    "end": 131.056,
+    "start": 127.311,
+    "end": 128.729,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -751,12 +797,12 @@
     "dialogue": "休憩？",
     "reading": "きゅうけい？",
     "log": [
-      "発話ログ　33/83",
+      "発話ログ　35/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "33/83　ミナ"
+    "progressLabel": "35/94　ミナ"
   },
   {
     "id": "ep03_v034",
@@ -764,8 +810,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 131.306,
-    "end": 132.126,
+    "start": 128.729,
+    "end": 129.806,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -774,12 +820,12 @@
     "dialogue": "はい！",
     "reading": "はい！",
     "log": [
-      "発話ログ　34/83",
+      "発話ログ　36/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "34/83　タクミ"
+    "progressLabel": "36/94　タクミ"
   },
   {
     "id": "ep03_v035",
@@ -787,8 +833,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 132.376,
-    "end": 135.219,
+    "start": 129.806,
+    "end": 133.109,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -797,12 +843,35 @@
     "dialogue": "それは確かに大事件",
     "reading": "それワ、たしかにだいじけん。",
     "log": [
-      "発話ログ　35/83",
+      "発話ログ　37/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "35/83　ミナ"
+    "progressLabel": "37/94　ミナ"
+  },
+  {
+    "id": "ep03_v035_g1",
+    "cut": "ep03_vc10",
+    "visualCutId": "vc10",
+    "visualCutTitle": "昨日に戻る店内",
+    "visualCutIndex": 10,
+    "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "タクミ",
+    "dialogue": "初めて共感してもらえた",
+    "reading": "はじめて、きょうかんしてもらえた",
+    "log": [
+      "発話ログ　38/94",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "10/20　昨日に戻る店内",
+    "progressLabel": "38/94　タクミ",
+    "start": 133.109,
+    "end": 136.042
   },
   {
     "id": "ep03_v036",
@@ -810,8 +879,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "第十三レジ出現",
     "visualCutIndex": 11,
-    "start": 135.719,
-    "end": 139.708,
+    "start": 136.042,
+    "end": 139.928,
     "image": "assets/scenes/planned/ep03_vc09_register_appears_warning.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc09_register_appears_warning.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -820,12 +889,12 @@
     "dialogue": "二時十七分。第十三レジが現れた。",
     "reading": "にじじゅうななふん。だいじゅうさんれじが、あらわれた。",
     "log": [
-      "発話ログ　36/83",
+      "発話ログ　39/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "11/20　第十三レジ出現",
-    "progressLabel": "36/83　ナレーション"
+    "progressLabel": "39/94　ナレーション"
   },
   {
     "id": "ep03_v037",
@@ -833,8 +902,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "第十三レジ出現",
     "visualCutIndex": 11,
-    "start": 140.108,
-    "end": 146.587,
+    "start": 139.928,
+    "end": 145.986,
     "image": "assets/scenes/planned/ep03_vc09_register_appears_warning.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc09_register_appears_warning.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -843,12 +912,12 @@
     "dialogue": "警告。昨日バニラの融解により、昨日の業務履歴が再展開されています",
     "reading": "けいこく。きのうばにらのゆうかいにより、きのうのぎょうむりれきが、さいてんかいされています。",
     "log": [
-      "発話ログ　37/83",
+      "発話ログ　40/94",
       "担当　第十三レジ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "11/20　第十三レジ出現",
-    "progressLabel": "37/83　第十三レジ"
+    "progressLabel": "40/94　第十三レジ"
   },
   {
     "id": "ep03_v038",
@@ -856,8 +925,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "記憶は残る",
     "visualCutIndex": 12,
-    "start": 147.037,
-    "end": 151.086,
+    "start": 145.986,
+    "end": 150.031,
     "image": "assets/scenes/planned/ep03_vc10_records_rewind_not_memory.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc10_records_rewind_not_memory.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -866,12 +935,12 @@
     "dialogue": "汗田はナビ端末を第十三レジの横に置いた。",
     "reading": "あせだワ、なびたんまつをだいじゅうさんれじのよこにおいた。",
     "log": [
-      "発話ログ　38/83",
+      "発話ログ　41/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "12/20　記憶は残る",
-    "progressLabel": "38/83　ナレーション"
+    "progressLabel": "41/94　ナレーション"
   },
   {
     "id": "ep03_v039",
@@ -879,8 +948,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "記憶は残る",
     "visualCutIndex": 12,
-    "start": 151.436,
-    "end": 160.37,
+    "start": 150.031,
+    "end": 158.735,
     "image": "assets/scenes/planned/ep03_vc10_records_rewind_not_memory.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc10_records_rewind_not_memory.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -889,12 +958,12 @@
     "dialogue": "完全に時間が戻っているわけではない。人間の記憶は残っている。戻っているのは店舗記録と商品状態だ",
     "reading": "かんぜんにじかんがもどっているわけでワない。にんげんのきおくワ、のこっている。もどっているのワ、てんぽきろくと、しょうひんじょうたいだ。",
     "log": [
-      "発話ログ　39/83",
+      "発話ログ　42/94",
       "担当　汗田竜司",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "12/20　記憶は残る",
-    "progressLabel": "39/83　汗田竜司"
+    "progressLabel": "42/94　汗田竜司"
   },
   {
     "id": "ep03_v040",
@@ -902,8 +971,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "昨日に食われた掃除",
     "visualCutIndex": 13,
-    "start": 160.77,
-    "end": 162.852,
+    "start": 158.735,
+    "end": 161.348,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -912,12 +981,12 @@
     "dialogue": "つまり、僕の掃除は？",
     "reading": "つまり、ぼくのそうじワ？",
     "log": [
-      "発話ログ　40/83",
+      "発話ログ　43/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "13/20　昨日に食われた掃除",
-    "progressLabel": "40/83　タクミ"
+    "progressLabel": "43/94　タクミ"
   },
   {
     "id": "ep03_v041",
@@ -925,8 +994,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "昨日に食われた掃除",
     "visualCutIndex": 13,
-    "start": 163.152,
-    "end": 164.72,
+    "start": 161.348,
+    "end": 162.778,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -935,12 +1004,12 @@
     "dialogue": "昨日状態です",
     "reading": "きのうじょうたいです。",
     "log": [
-      "発話ログ　41/83",
+      "発話ログ　44/94",
       "担当　第十三レジ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "13/20　昨日に食われた掃除",
-    "progressLabel": "41/83　第十三レジ"
+    "progressLabel": "44/94　第十三レジ"
   },
   {
     "id": "ep03_v042",
@@ -948,8 +1017,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "昨日に食われた掃除",
     "visualCutIndex": 13,
-    "start": 165.02,
-    "end": 167.744,
+    "start": 162.778,
+    "end": 166.023,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -958,12 +1027,12 @@
     "dialogue": "僕の努力が昨日に食われてる！",
     "reading": "ぼくのどりょくが、きのうにくわれてる！",
     "log": [
-      "発話ログ　42/83",
+      "発話ログ　45/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "13/20　昨日に食われた掃除",
-    "progressLabel": "42/83　タクミ"
+    "progressLabel": "45/94　タクミ"
   },
   {
     "id": "ep03_v043",
@@ -971,8 +1040,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "昨日に食われた掃除",
     "visualCutIndex": 13,
-    "start": 168.094,
-    "end": 174.788,
+    "start": 166.023,
+    "end": 172.274,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -981,12 +1050,12 @@
     "dialogue": "さらに融解が進むと、未来おにぎりの修正メモも昨日の状態に戻ります",
     "reading": "さらにゆうかいがすすむと、みらいおにぎりのしゅうせいめもも、きのうのじょうたいにもどります。",
     "log": [
-      "発話ログ　43/83",
+      "発話ログ　46/94",
       "担当　第十三レジ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "13/20　昨日に食われた掃除",
-    "progressLabel": "43/83　第十三レジ"
+    "progressLabel": "46/94　第十三レジ"
   },
   {
     "id": "ep03_v044",
@@ -994,8 +1063,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "それはまずい",
     "visualCutIndex": 14,
-    "start": 175.238,
-    "end": 178.087,
+    "start": 172.274,
+    "end": 175.014,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1004,12 +1073,12 @@
     "dialogue": "汗田の表情が変わった。",
     "reading": "あせだのひょうじょうが、かわった。",
     "log": [
-      "発話ログ　44/83",
+      "発話ログ　47/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "14/20　それはまずい",
-    "progressLabel": "44/83　ナレーション"
+    "progressLabel": "47/94　ナレーション"
   },
   {
     "id": "ep03_v045",
@@ -1017,8 +1086,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "それはまずい",
     "visualCutIndex": 14,
-    "start": 178.387,
-    "end": 180.341,
+    "start": 175.014,
+    "end": 177.177,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1027,12 +1096,12 @@
     "dialogue": "それはまずい",
     "reading": "それワ、まずい。",
     "log": [
-      "発話ログ　45/83",
+      "発話ログ　48/94",
       "担当　汗田竜司",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "14/20　それはまずい",
-    "progressLabel": "45/83　汗田竜司"
+    "progressLabel": "48/94　汗田竜司"
   },
   {
     "id": "ep03_v046",
@@ -1040,8 +1109,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 180.841,
-    "end": 183.391,
+    "start": 177.177,
+    "end": 179.639,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1050,12 +1119,12 @@
     "dialogue": "ミナはアイスを見て言った。",
     "reading": "みなワ、あいすをみていった。",
     "log": [
-      "発話ログ　46/83",
+      "発話ログ　49/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "46/83　ナレーション"
+    "progressLabel": "49/94　ナレーション"
   },
   {
     "id": "ep03_v047",
@@ -1063,8 +1132,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 183.691,
-    "end": 186.544,
+    "start": 179.639,
+    "end": 182.551,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1073,12 +1142,12 @@
     "dialogue": "袋、お分けしますか",
     "reading": "ふくろ、おわけしますか。",
     "log": [
-      "発話ログ　47/83",
+      "発話ログ　50/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "47/83　ミナ"
+    "progressLabel": "50/94　ミナ"
   },
   {
     "id": "ep03_v048",
@@ -1086,22 +1155,22 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 186.844,
-    "end": 189.66,
+    "start": 182.551,
+    "end": 185.352,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん、今それ言う場面ですか",
-    "reading": "みなさん、いまそれいうばめんですか？",
+    "dialogue": "今それ言う場面ですか",
+    "reading": "いまそれ、いうばめんですか",
     "log": [
-      "発話ログ　48/83",
+      "発話ログ　51/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "48/83　タクミ"
+    "progressLabel": "51/94　タクミ"
   },
   {
     "id": "ep03_v049",
@@ -1109,8 +1178,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 189.96,
-    "end": 192.019,
+    "start": 185.352,
+    "end": 187.548,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1119,12 +1188,12 @@
     "dialogue": "昨日と今日で",
     "reading": "きのうと、きょうで。",
     "log": [
-      "発話ログ　49/83",
+      "発話ログ　52/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "49/83　ミナ"
+    "progressLabel": "52/94　ミナ"
   },
   {
     "id": "ep03_v050",
@@ -1132,8 +1201,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 192.269,
-    "end": 194.341,
+    "start": 187.548,
+    "end": 190.399,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1142,12 +1211,12 @@
     "dialogue": "時間をレジ袋で分けるな！",
     "reading": "じかんをれじぶくろでわけるな！",
     "log": [
-      "発話ログ　50/83",
+      "発話ログ　53/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "50/83　タクミ"
+    "progressLabel": "53/94　タクミ"
   },
   {
     "id": "ep03_v051",
@@ -1155,22 +1224,45 @@
     "visualCutId": "vc16",
     "visualCutTitle": "袋分けの理屈",
     "visualCutIndex": 16,
-    "start": 194.791,
-    "end": 198.676,
+    "start": 190.399,
+    "end": 192.027,
     "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ナレーション",
-    "dialogue": "汗田は一瞬沈黙し、真剣にうなずいた。",
-    "reading": "あせだワ、いっしゅんちんもくし、しんけんにうなずいた。",
+    "speaker": "汗田竜司",
+    "dialogue": "……待て",
+    "reading": "……まて",
     "log": [
-      "発話ログ　51/83",
-      "担当　ナレーション",
-      "深夜帯　進行中"
+      "発話ログ　54/94",
+      "担当　汗田竜司",
+      "本日の営業　継続中"
     ],
     "visualLabel": "16/20　袋分けの理屈",
-    "progressLabel": "51/83　ナレーション"
+    "progressLabel": "54/94　汗田竜司"
+  },
+  {
+    "id": "ep03_v051_g1",
+    "cut": "ep03_vc16",
+    "visualCutId": "vc16",
+    "visualCutTitle": "袋分けの理屈",
+    "visualCutIndex": 16,
+    "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "タクミ",
+    "dialogue": "止めてください",
+    "reading": "とめてください",
+    "log": [
+      "発話ログ　55/94",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "16/20　袋分けの理屈",
+    "progressLabel": "55/94　タクミ",
+    "start": 192.027,
+    "end": 193.673
   },
   {
     "id": "ep03_v052",
@@ -1178,22 +1270,22 @@
     "visualCutId": "vc16",
     "visualCutTitle": "袋分けの理屈",
     "visualCutIndex": 16,
-    "start": 199.026,
-    "end": 201.465,
+    "start": 193.673,
+    "end": 195.729,
     "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
     "speaker": "汗田竜司",
-    "dialogue": "……理屈としては近い",
-    "reading": "……りくつとしてワ、ちかい。",
+    "dialogue": "理屈としては近い",
+    "reading": "りくつとしては、ちかい",
     "log": [
-      "発話ログ　52/83",
+      "発話ログ　56/94",
       "担当　汗田竜司",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "16/20　袋分けの理屈",
-    "progressLabel": "52/83　汗田竜司"
+    "progressLabel": "56/94　汗田竜司"
   },
   {
     "id": "ep03_v053",
@@ -1201,8 +1293,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "袋分けの理屈",
     "visualCutIndex": 16,
-    "start": 201.765,
-    "end": 203.12,
+    "start": 195.729,
+    "end": 197.493,
     "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1211,12 +1303,12 @@
     "dialogue": "近いんですか！？",
     "reading": "ちかいんですか！？",
     "log": [
-      "発話ログ　53/83",
+      "発話ログ　57/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "16/20　袋分けの理屈",
-    "progressLabel": "53/83　タクミ"
+    "progressLabel": "57/94　タクミ"
   },
   {
     "id": "ep03_v054",
@@ -1224,22 +1316,45 @@
     "visualCutId": "vc16",
     "visualCutTitle": "袋分けの理屈",
     "visualCutIndex": 16,
-    "start": 203.42,
-    "end": 213.863,
+    "start": 197.493,
+    "end": 202.091,
     "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
     "speaker": "汗田竜司",
-    "dialogue": "店舗システムは、商品を袋単位で別会計として扱える。昨日の履歴を含むアイスと、今日の店舗記録を別取引として認識させる",
-    "reading": "てんぽしすてむワ、しょうひんを、ふくろたんいでべつかいけいとしてあつかえる。きのうのりれきを、ふくむあいすと、きょうのてんぽきろくを、べつとりひきとしてにんしきさせる。",
+    "dialogue": "店舗システムは袋単位で別取引と認識できる",
+    "reading": "てんぽしすてむワ、ふくろたんいでべつとりひきと、にんしきできる",
     "log": [
-      "発話ログ　54/83",
+      "発話ログ　58/94",
       "担当　汗田竜司",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "16/20　袋分けの理屈",
-    "progressLabel": "54/83　汗田竜司"
+    "progressLabel": "58/94　汗田竜司"
+  },
+  {
+    "id": "ep03_v054_g1",
+    "cut": "ep03_vc16",
+    "visualCutId": "vc16",
+    "visualCutTitle": "袋分けの理屈",
+    "visualCutIndex": 16,
+    "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "タクミ",
+    "dialogue": "レジ袋が時空より強い！",
+    "reading": "れじぶくろが、じくうよりつよい！",
+    "log": [
+      "発話ログ　59/94",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "16/20　袋分けの理屈",
+    "progressLabel": "59/94　タクミ",
+    "start": 202.091,
+    "end": 205.025
   },
   {
     "id": "ep03_v055",
@@ -1247,8 +1362,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "袋二枚",
     "visualCutIndex": 17,
-    "start": 214.313,
-    "end": 216.978,
+    "start": 205.025,
+    "end": 207.684,
     "image": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1257,12 +1372,12 @@
     "dialogue": "ミナは袋を二枚出した。",
     "reading": "みなワ、ふくろをにまいだした。",
     "log": [
-      "発話ログ　55/83",
+      "発話ログ　60/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "17/20　袋二枚",
-    "progressLabel": "55/83　ナレーション"
+    "progressLabel": "60/94　ナレーション"
   },
   {
     "id": "ep03_v056",
@@ -1270,8 +1385,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "袋二枚",
     "visualCutIndex": 17,
-    "start": 217.278,
-    "end": 220.311,
+    "start": 207.684,
+    "end": 210.879,
     "image": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1280,12 +1395,12 @@
     "dialogue": "こちらが昨日。こちらが今日",
     "reading": "こちらがきのう。こちらがきょう。",
     "log": [
-      "発話ログ　56/83",
+      "発話ログ　61/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "17/20　袋二枚",
-    "progressLabel": "56/83　ミナ"
+    "progressLabel": "61/94　ミナ"
   },
   {
     "id": "ep03_v057",
@@ -1293,8 +1408,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "袋二枚",
     "visualCutIndex": 17,
-    "start": 220.661,
-    "end": 225.592,
+    "start": 210.879,
+    "end": 215.593,
     "image": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1303,12 +1418,12 @@
     "dialogue": "袋分けを確認。昨日と今日の取引境界を生成",
     "reading": "ふくろわけをかくにん。きのうと、きょうのとりひききょうかいを、せいせい。",
     "log": [
-      "発話ログ　57/83",
+      "発話ログ　62/94",
       "担当　第十三レジ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "17/20　袋二枚",
-    "progressLabel": "57/83　第十三レジ"
+    "progressLabel": "62/94　第十三レジ"
   },
   {
     "id": "ep03_v058",
@@ -1316,8 +1431,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 226.042,
-    "end": 234.004,
+    "start": 215.593,
+    "end": 223.325,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1326,12 +1441,12 @@
     "dialogue": "店内の照明が青白く揺れた。売上履歴が高速で点滅し、雑誌棚の配置が昨日と今日を行き来する。",
     "reading": "てんないのしょうめいが、あおじろくゆれた。うりあげりれきが、こうそくでてんめつし、ざっしだなのはいちがきのうときょうをいききする。",
     "log": [
-      "発話ログ　58/83",
+      "発話ログ　63/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "58/83　ナレーション"
+    "progressLabel": "63/94　ナレーション"
   },
   {
     "id": "ep03_v059",
@@ -1339,8 +1454,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 234.404,
-    "end": 236.433,
+    "start": 223.325,
+    "end": 225.308,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1349,12 +1464,12 @@
     "dialogue": "タクミは叫んだ。",
     "reading": "たくみワさけんだ。",
     "log": [
-      "発話ログ　59/83",
+      "発話ログ　64/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "59/83　ナレーション"
+    "progressLabel": "64/94　ナレーション"
   },
   {
     "id": "ep03_v060",
@@ -1362,8 +1477,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 236.683,
-    "end": 238.33,
+    "start": 225.308,
+    "end": 227.357,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1372,12 +1487,12 @@
     "dialogue": "僕の休憩は！？",
     "reading": "ぼくのきゅうけいワ！？",
     "log": [
-      "発話ログ　60/83",
+      "発話ログ　65/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "60/83　タクミ"
+    "progressLabel": "65/94　タクミ"
   },
   {
     "id": "ep03_v061",
@@ -1385,22 +1500,22 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 238.63,
-    "end": 239.758,
+    "start": 227.357,
+    "end": 229.262,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
     "speaker": "第十三レジ",
-    "dialogue": "処理中",
-    "reading": "しょりちゅう。",
+    "dialogue": "優先順位、低",
+    "reading": "ゆうせんじゅんい、てい",
     "log": [
-      "発話ログ　61/83",
+      "発話ログ　66/94",
       "担当　第十三レジ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "61/83　第十三レジ"
+    "progressLabel": "66/94　第十三レジ"
   },
   {
     "id": "ep03_v062",
@@ -1408,8 +1523,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 240.058,
-    "end": 242.074,
+    "start": 229.262,
+    "end": 231.944,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1418,12 +1533,58 @@
     "dialogue": "そこ最優先で！",
     "reading": "そこ、さいゆうせんで！",
     "log": [
-      "発話ログ　62/83",
+      "発話ログ　67/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "62/83　タクミ"
+    "progressLabel": "67/94　タクミ"
+  },
+  {
+    "id": "ep03_v062_g1",
+    "cut": "ep03_vc18",
+    "visualCutId": "vc18",
+    "visualCutTitle": "青白い処理",
+    "visualCutIndex": 18,
+    "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "第十三レジ",
+    "dialogue": "処理中",
+    "reading": "しょりちゅう",
+    "log": [
+      "発話ログ　68/94",
+      "担当　第十三レジ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "18/20　青白い処理",
+    "progressLabel": "68/94　第十三レジ",
+    "start": 231.944,
+    "end": 233.056
+  },
+  {
+    "id": "ep03_v062_g2",
+    "cut": "ep03_vc18",
+    "visualCutId": "vc18",
+    "visualCutTitle": "青白い処理",
+    "visualCutIndex": 18,
+    "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "タクミ",
+    "dialogue": "今さら！",
+    "reading": "いまさら！",
+    "log": [
+      "発話ログ　69/94",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "18/20　青白い処理",
+    "progressLabel": "69/94　タクミ",
+    "start": 233.056,
+    "end": 234.516
   },
   {
     "id": "ep03_v063",
@@ -1431,8 +1592,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 242.524,
-    "end": 245.489,
+    "start": 234.516,
+    "end": 237.547,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1441,12 +1602,12 @@
     "dialogue": "ミナが保冷剤を袋の上に置く。",
     "reading": "みなが、ほれいざいをふくろのうえにおく。",
     "log": [
-      "発話ログ　63/83",
+      "発話ログ　70/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "63/83　ナレーション"
+    "progressLabel": "70/94　ナレーション"
   },
   {
     "id": "ep03_v064",
@@ -1454,8 +1615,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 245.789,
-    "end": 247.051,
+    "start": 237.547,
+    "end": 238.923,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1464,12 +1625,12 @@
     "dialogue": "冷やす",
     "reading": "ひやす。",
     "log": [
-      "発話ログ　64/83",
+      "発話ログ　71/94",
       "担当　ミナ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "64/83　ミナ"
+    "progressLabel": "71/94　ミナ"
   },
   {
     "id": "ep03_v065",
@@ -1477,8 +1638,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 247.301,
-    "end": 248.875,
+    "start": 238.923,
+    "end": 241.002,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1487,12 +1648,12 @@
     "dialogue": "急に普通の対応！",
     "reading": "きゅうにふつうのたいおう！",
     "log": [
-      "発話ログ　65/83",
+      "発話ログ　72/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "65/83　タクミ"
+    "progressLabel": "72/94　タクミ"
   },
   {
     "id": "ep03_v066",
@@ -1500,8 +1661,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 249.175,
-    "end": 251.805,
+    "start": 241.002,
+    "end": 243.557,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1510,12 +1671,12 @@
     "dialogue": "汗田は小さく笑った。",
     "reading": "あせだワ、ちいさくわらった。",
     "log": [
-      "発話ログ　66/83",
+      "発話ログ　73/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "66/83　ナレーション"
+    "progressLabel": "73/94　ナレーション"
   },
   {
     "id": "ep03_v067",
@@ -1523,8 +1684,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 252.105,
-    "end": 255.49,
+    "start": 243.557,
+    "end": 246.943,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1533,12 +1694,35 @@
     "dialogue": "普通の対応が最後に効くこともある",
     "reading": "ふつうのたいおうが、さいごにきくこともある。",
     "log": [
-      "発話ログ　67/83",
+      "発話ログ　74/94",
       "担当　汗田竜司",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "67/83　汗田竜司"
+    "progressLabel": "74/94　汗田竜司"
+  },
+  {
+    "id": "ep03_v067_g1",
+    "cut": "ep03_vc19",
+    "visualCutId": "vc19",
+    "visualCutTitle": "保冷剤と完了",
+    "visualCutIndex": 19,
+    "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "汗田竜司",
+    "dialogue": "結局、最後は保冷剤か",
+    "reading": "けっきょく、さいごワ、ほれいざいか",
+    "log": [
+      "発話ログ　75/94",
+      "担当　汗田竜司",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "19/20　保冷剤と完了",
+    "progressLabel": "75/94　汗田竜司",
+    "start": 246.943,
+    "end": 249.623
   },
   {
     "id": "ep03_v068",
@@ -1546,8 +1730,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 255.89,
-    "end": 260.186,
+    "start": 249.623,
+    "end": 253.912,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1556,12 +1740,12 @@
     "dialogue": "処理完了。昨日は昨日として保存されました",
     "reading": "しょりかんりょう。きのうワきのうとしてほぞんされました。",
     "log": [
-      "発話ログ　68/83",
+      "発話ログ　76/94",
       "担当　第十三レジ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "68/83　第十三レジ"
+    "progressLabel": "76/94　第十三レジ"
   },
   {
     "id": "ep03_v069",
@@ -1569,8 +1753,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 260.586,
-    "end": 264.181,
+    "start": 253.912,
+    "end": 257.411,
     "image": "assets/scenes/planned/ep03_vc17_tomorrow_milk_label.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc17_tomorrow_milk_label.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1579,12 +1763,12 @@
     "dialogue": "アイスのラベルは、明日ミルクに変わっていた。",
     "reading": "あいすのらべるワ、あしたみるくにかわっていた。",
     "log": [
-      "発話ログ　69/83",
+      "発話ログ　77/94",
       "担当　ナレーション",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "69/83　ナレーション"
+    "progressLabel": "77/94　ナレーション"
   },
   {
     "id": "ep03_v070",
@@ -1592,8 +1776,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 264.531,
-    "end": 266.685,
+    "start": 257.411,
+    "end": 260.186,
     "image": "assets/scenes/planned/ep03_vc17_tomorrow_milk_label.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc17_tomorrow_milk_label.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1602,12 +1786,12 @@
     "dialogue": "また未来っぽい名前になってる",
     "reading": "またみらいっぽいなまえになってる。",
     "log": [
-      "発話ログ　70/83",
+      "発話ログ　78/94",
       "担当　タクミ",
-      "深夜帯　進行中"
+      "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "70/83　タクミ"
+    "progressLabel": "78/94　タクミ"
   },
   {
     "id": "ep03_v071",
@@ -1615,8 +1799,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 267.135,
-    "end": 270.309,
+    "start": 260.186,
+    "end": 263.263,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1625,14 +1809,12 @@
     "dialogue": "汗田は慎重に袋を持ち上げた。",
     "reading": "あせだワ、しんちょうにふくろをもちあげた。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　79/94",
+      "担当　ナレーション",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "71/83　ナレーション"
+    "progressLabel": "79/94　ナレーション"
   },
   {
     "id": "ep03_v072",
@@ -1640,24 +1822,68 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 270.609,
-    "end": 274.328,
+    "start": 263.263,
+    "end": 265.434,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
     "speaker": "汗田竜司",
-    "dialogue": "保管した方がいい。時間が腹を壊す",
-    "reading": "ほかんしたほうがいい。じかんが、はらをこわす。",
+    "dialogue": "保管した方がいい。",
+    "reading": "ほかんしたほうがいい。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　80/94",
+      "担当　汗田竜司",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "72/83　汗田竜司"
+    "progressLabel": "80/94　汗田竜司"
+  },
+  {
+    "id": "ep03_v072_g1",
+    "cut": "ep03_vc20",
+    "visualCutId": "vc20",
+    "visualCutTitle": "レシートと夜勤",
+    "visualCutIndex": 20,
+    "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "汗田竜司",
+    "dialogue": "時間は、だいたい冷やした方が安定する。",
+    "reading": "じかんワ、だいたいひやしたほうが、あんていする。",
+    "log": [
+      "発話ログ　81/94",
+      "担当　汗田竜司",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "20/20　レシートと夜勤",
+    "progressLabel": "81/94　汗田竜司",
+    "start": 265.434,
+    "end": 268.949
+  },
+  {
+    "id": "ep03_v072_g2",
+    "cut": "ep03_vc20",
+    "visualCutId": "vc20",
+    "visualCutTitle": "レシートと夜勤",
+    "visualCutIndex": 20,
+    "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "タクミ",
+    "dialogue": "経験談みたいに言わないでください",
+    "reading": "けいけんだんみたいに、いわないでください",
+    "log": [
+      "発話ログ　82/94",
+      "担当　タクミ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "20/20　レシートと夜勤",
+    "progressLabel": "82/94　タクミ",
+    "start": 268.949,
+    "end": 272.092
   },
   {
     "id": "ep03_v073",
@@ -1665,8 +1891,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 274.778,
-    "end": 277.815,
+    "start": 272.092,
+    "end": 275.158,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1675,14 +1901,12 @@
     "dialogue": "第十三レジのレシートが出た。",
     "reading": "だいじゅうさんれじのれしーとが、でた。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　83/94",
+      "担当　ナレーション",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "73/83　ナレーション"
+    "progressLabel": "83/94　ナレーション"
   },
   {
     "id": "ep03_v074",
@@ -1690,8 +1914,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 278.215,
-    "end": 279.934,
+    "start": 275.158,
+    "end": 277.303,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1700,14 +1924,12 @@
     "dialogue": "袋代取るんですね",
     "reading": "ふくろだいとるんですね。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　84/94",
+      "担当　タクミ",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "74/83　タクミ"
+    "progressLabel": "84/94　タクミ"
   },
   {
     "id": "ep03_v075",
@@ -1715,8 +1937,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 280.234,
-    "end": 282.086,
+    "start": 277.303,
+    "end": 279.277,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1725,14 +1947,12 @@
     "dialogue": "袋使ったから",
     "reading": "ふくろつかったから。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　85/94",
+      "担当　ミナ",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "75/83　ミナ"
+    "progressLabel": "85/94　ミナ"
   },
   {
     "id": "ep03_v076",
@@ -1740,8 +1960,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 282.336,
-    "end": 284.489,
+    "start": 279.277,
+    "end": 281.943,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1750,14 +1970,12 @@
     "dialogue": "昨日と今日を分けるのに？",
     "reading": "きのうと、きょうをわけるのに？",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　86/94",
+      "担当　タクミ",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "76/83　タクミ"
+    "progressLabel": "86/94　タクミ"
   },
   {
     "id": "ep03_v077",
@@ -1765,8 +1983,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 284.789,
-    "end": 286.922,
+    "start": 281.943,
+    "end": 284.414,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1775,14 +1993,12 @@
     "dialogue": "袋は袋",
     "reading": "ふくろワ、ふくろ。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　87/94",
+      "担当　ミナ",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "77/83　ミナ"
+    "progressLabel": "87/94　ミナ"
   },
   {
     "id": "ep03_v078",
@@ -1790,8 +2006,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 287.372,
-    "end": 295.126,
+    "start": 284.414,
+    "end": 291.646,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1800,14 +2016,12 @@
     "dialogue": "午前二時二十分。第十三レジは消えた。誰も触っていないのに、コピー機がウィーンと起動した。",
     "reading": "ごぜんにじにじゅっぷん。だいじゅうさんれじワ、きえた。だれもさわっていないのに、こぴーきが、うぃーん、ときどうした。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　88/94",
+      "担当　ナレーション",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "78/83　ナレーション"
+    "progressLabel": "88/94　ナレーション"
   },
   {
     "id": "ep03_v079",
@@ -1815,8 +2029,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 295.526,
-    "end": 301.431,
+    "start": 291.646,
+    "end": 297.308,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1825,14 +2039,12 @@
     "dialogue": "紙には、「二時二十八分、唐揚げ棒を買った客が怒る」と印刷されていた。",
     "reading": "かみにワ、にじにじゅうはっぷん、からあげぼうをかったきゃくがおこる、といんさつされていた。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　89/94",
+      "担当　ナレーション",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "79/83　ナレーション"
+    "progressLabel": "89/94　ナレーション"
   },
   {
     "id": "ep03_v080",
@@ -1840,8 +2052,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 301.831,
-    "end": 303.625,
+    "start": 297.308,
+    "end": 299.178,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1850,14 +2062,12 @@
     "dialogue": "未来クレームだね",
     "reading": "みらいくれーむだね。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　90/94",
+      "担当　汗田竜司",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "80/83　汗田竜司"
+    "progressLabel": "90/94　汗田竜司"
   },
   {
     "id": "ep03_v081",
@@ -1865,8 +2075,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 303.925,
-    "end": 305.67,
+    "start": 299.178,
+    "end": 301.372,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1875,14 +2085,35 @@
     "dialogue": "そんなジャンルあります？",
     "reading": "そんなじゃんるあります？",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　91/94",
+      "担当　タクミ",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "81/83　タクミ"
+    "progressLabel": "91/94　タクミ"
+  },
+  {
+    "id": "ep03_v081_g1",
+    "cut": "ep03_vc20",
+    "visualCutId": "vc20",
+    "visualCutTitle": "レシートと夜勤",
+    "visualCutIndex": 20,
+    "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
+    "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
+    "imagePrompt": "",
+    "speaker": "汗田竜司",
+    "dialogue": "サービス業にはある",
+    "reading": "さーびすぎょうにワ、ある",
+    "log": [
+      "発話ログ　92/94",
+      "担当　汗田竜司",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "20/20　レシートと夜勤",
+    "progressLabel": "92/94　汗田竜司",
+    "start": 301.372,
+    "end": 303.738
   },
   {
     "id": "ep03_v082",
@@ -1890,8 +2121,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 305.97,
-    "end": 307.899,
+    "start": 303.738,
+    "end": 306.046,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1900,14 +2131,12 @@
     "dialogue": "夜勤にはある",
     "reading": "やきんにワ、ある。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　93/94",
+      "担当　ミナ",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "82/83　ミナ"
+    "progressLabel": "93/94　ミナ"
   },
   {
     "id": "ep03_v083",
@@ -1915,8 +2144,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 308.399,
-    "end": 316.764,
+    "start": 306.046,
+    "end": 314.441,
     "image": "assets/scenes/planned/ep03_vc20_manual_note_bag_time.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc20_manual_note_bag_time.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1925,13 +2154,11 @@
     "dialogue": "タクミはマニュアルノートを開き、震える手で書いた。「時間は袋分けできる場合がある。ただし袋代は取られる」",
     "reading": "たくみワ、まにゅあるのーとをひらき、ふるえるてでかいた。じかんワ、ふくろわけできるばあいがある。ただし、ふくろだいワ、とられる。",
     "log": [
-      "時刻分離処理　一件",
-      "昨日保存　一件",
-      "明日ミルク　保留　一件",
-      "スタッフ休憩　未取得",
-      "袋代　二円"
+      "発話ログ　94/94",
+      "担当　ナレーション",
+      "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "83/83　ナレーション"
+    "progressLabel": "94/94　ナレーション"
   }
 ]

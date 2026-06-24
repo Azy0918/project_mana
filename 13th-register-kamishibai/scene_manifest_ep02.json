@@ -6,7 +6,7 @@
     "visualCutTitle": "会社の駐輪場",
     "visualCutIndex": 1,
     "start": 0.0,
-    "end": 6.509,
+    "end": 6.564,
     "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -15,12 +15,12 @@
     "dialogue": "汗田竜司は、会社の駐輪場で愛車のCB200Xにまたがった。",
     "reading": "あせだりゅうじワ、かいしゃのちゅうりんじょうで、あいしゃの、しいびい、にひゃく、えっくすに、またがった。",
     "log": [
-      "発話ログ　01/65",
+      "発話ログ　01/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　会社の駐輪場",
-    "progressLabel": "01/65　ナレーション"
+    "progressLabel": "01/74　ナレーション"
   },
   {
     "id": "ep02_v002",
@@ -28,8 +28,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "会社の駐輪場",
     "visualCutIndex": 1,
-    "start": 6.909,
-    "end": 13.138,
+    "start": 6.964,
+    "end": 12.973,
     "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -38,21 +38,21 @@
     "dialogue": "五十四歳。自動車研究開発者。その日の説明会も、いつものように終わった。",
     "reading": "ごじゅうよんさい。じどうしゃけんきゅうかいはつしゃ。そのひのせつめいかいも、いつものようにおわった。",
     "log": [
-      "発話ログ　02/65",
+      "発話ログ　02/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　会社の駐輪場",
-    "progressLabel": "02/65　ナレーション"
+    "progressLabel": "02/74　ナレーション"
   },
   {
-    "id": "ep02_v002b",
+    "id": "ep02_v003",
     "cut": "ep02_vc01",
     "visualCutId": "vc01",
     "visualCutTitle": "会社の駐輪場",
     "visualCutIndex": 1,
-    "start": 13.538,
-    "end": 17.397,
+    "start": 13.373,
+    "end": 17.178,
     "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -61,21 +61,21 @@
     "dialogue": "役員の言葉が、まだ耳に残っていた。",
     "reading": "やくいんのことばが、まだ、みみにのこっていた。",
     "log": [
-      "発話ログ　03/65",
+      "発話ログ　03/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　会社の駐輪場",
-    "progressLabel": "03/65　ナレーション"
+    "progressLabel": "03/74　ナレーション"
   },
   {
-    "id": "ep02_v003",
+    "id": "ep02_v004",
     "cut": "ep02_vc01",
     "visualCutId": "vc01",
     "visualCutTitle": "会社の駐輪場",
     "visualCutIndex": 1,
-    "start": 17.847,
-    "end": 21.681,
+    "start": 17.628,
+    "end": 21.417,
     "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -84,21 +84,21 @@
     "dialogue": "「面白いけど、すぐ利益になるの？」……か。",
     "reading": "おもしろいけど、すぐりえきになるの？……か。",
     "log": [
-      "発話ログ　04/65",
+      "発話ログ　04/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　会社の駐輪場",
-    "progressLabel": "04/65　汗田竜司"
+    "progressLabel": "04/74　汗田竜司"
   },
   {
-    "id": "ep02_v004",
+    "id": "ep02_v005",
     "cut": "ep02_vc01",
     "visualCutId": "vc01",
     "visualCutTitle": "会社の駐輪場",
     "visualCutIndex": 1,
-    "start": 22.031,
-    "end": 28.271,
+    "start": 21.767,
+    "end": 27.857,
     "image": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -107,21 +107,21 @@
     "dialogue": "三十年以上積み上げたAI運行支援システムの提案は、また棚上げだった。",
     "reading": "さんじゅうねんいじょうつみあげた、えいあいうんこうしえんしすてむのていあんワ、また、たなあげだった。",
     "log": [
-      "発話ログ　05/65",
+      "発話ログ　05/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　会社の駐輪場",
-    "progressLabel": "05/65　ナレーション"
+    "progressLabel": "05/74　ナレーション"
   },
   {
-    "id": "ep02_v005",
+    "id": "ep02_v006",
     "cut": "ep02_vc02",
     "visualCutId": "vc02",
     "visualCutTitle": "ナビが点灯する",
     "visualCutIndex": 2,
-    "start": 28.771,
-    "end": 34.479,
+    "start": 28.357,
+    "end": 34.121,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -130,21 +130,21 @@
     "dialogue": "汗田がため息をついてキーを回すと、バイクのナビモニターが勝手に点灯した。",
     "reading": "あせだがためいきをついてきーをまわすと、ばいくのなびもにたーがかってにてんとうした。",
     "log": [
-      "発話ログ　06/65",
+      "発話ログ　06/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　ナビが点灯する",
-    "progressLabel": "06/65　ナレーション"
+    "progressLabel": "06/74　ナレーション"
   },
   {
-    "id": "ep02_v006",
+    "id": "ep02_v007",
     "cut": "ep02_vc02",
     "visualCutId": "vc02",
     "visualCutTitle": "ナビが点灯する",
     "visualCutIndex": 2,
-    "start": 34.879,
-    "end": 39.287,
+    "start": 34.521,
+    "end": 38.862,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -153,21 +153,21 @@
     "dialogue": "助けてください。第十三レジを探しています",
     "reading": "たすけてください。だいじゅうさんれじをさがしています。",
     "log": [
-      "発話ログ　07/65",
+      "発話ログ　07/74",
       "担当　ナビ",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　ナビが点灯する",
-    "progressLabel": "07/65　ナビ"
+    "progressLabel": "07/74　ナビ"
   },
   {
-    "id": "ep02_v007",
+    "id": "ep02_v008",
     "cut": "ep02_vc02",
     "visualCutId": "vc02",
     "visualCutTitle": "ナビが点灯する",
     "visualCutIndex": 2,
-    "start": 39.637,
-    "end": 43.217,
+    "start": 39.212,
+    "end": 42.553,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -176,21 +176,21 @@
     "dialogue": "……メーカー純正の音声案内ではないな",
     "reading": "……めーかーじゅんせいのおんせいあんないでワないな。",
     "log": [
-      "発話ログ　08/65",
+      "発話ログ　08/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　ナビが点灯する",
-    "progressLabel": "08/65　汗田竜司"
+    "progressLabel": "08/74　汗田竜司"
   },
   {
-    "id": "ep02_v008",
+    "id": "ep02_v009",
     "cut": "ep02_vc03",
     "visualCutId": "vc03",
     "visualCutTitle": "未来からの呼びかけ",
     "visualCutIndex": 3,
-    "start": 43.617,
-    "end": 56.081,
+    "start": 42.953,
+    "end": 55.583,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -199,21 +199,21 @@
     "dialogue": "私は二〇七四年の食品流通管理システムです。欠落した配送記録を回収するため、第十三レジへの接続が必要です",
     "reading": "わたしワにせんななじゅうよねんのしょくひんりゅうつうかんりしすてむです。けつらくした、はいそうきろくをかいしゅうするため、だいじゅうさんれじエのせつぞくがひつようです。",
     "log": [
-      "発話ログ　09/65",
+      "発話ログ　09/74",
       "担当　ナビ",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　未来からの呼びかけ",
-    "progressLabel": "09/65　ナビ"
+    "progressLabel": "09/74　ナビ"
   },
   {
-    "id": "ep02_v009",
+    "id": "ep02_v010",
     "cut": "ep02_vc03",
     "visualCutId": "vc03",
     "visualCutTitle": "未来からの呼びかけ",
     "visualCutIndex": 3,
-    "start": 56.481,
-    "end": 63.665,
+    "start": 55.983,
+    "end": 63.108,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -222,21 +222,21 @@
     "dialogue": "画面には、通勤路沿いのコンビニが表示されていた。到着予測、午前二時十六分五十秒。",
     "reading": "がめんにワ、つうきんろぞいのこんびにがひょうじされていた。とうちゃくよそく、ごぜんにじじゅうろっぷんごじゅうびょう。",
     "log": [
-      "発話ログ　10/65",
+      "発話ログ　10/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　未来からの呼びかけ",
-    "progressLabel": "10/65　ナレーション"
+    "progressLabel": "10/74　ナレーション"
   },
   {
-    "id": "ep02_v010",
+    "id": "ep02_v011",
     "cut": "ep02_vc03",
     "visualCutId": "vc03",
     "visualCutTitle": "未来からの呼びかけ",
     "visualCutIndex": 3,
-    "start": 64.015,
-    "end": 66.169,
+    "start": 63.458,
+    "end": 65.541,
     "image": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc02_nav_lights_up.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -245,21 +245,21 @@
     "dialogue": "無茶なルート案内だ",
     "reading": "むちゃなるーとあんないだ。",
     "log": [
-      "発話ログ　11/65",
+      "発話ログ　11/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　未来からの呼びかけ",
-    "progressLabel": "11/65　汗田竜司"
+    "progressLabel": "11/74　汗田竜司"
   },
   {
-    "id": "ep02_v011",
+    "id": "ep02_v012",
     "cut": "ep02_vc04",
     "visualCutId": "vc04",
     "visualCutTitle": "夜の国道へ",
     "visualCutIndex": 4,
-    "start": 66.669,
-    "end": 77.307,
+    "start": 66.041,
+    "end": 76.656,
     "image": "assets/scenes/planned/ep02_vc03_night_ride.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc03_night_ride.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -268,21 +268,21 @@
     "dialogue": "それでも、表示された座標の揺らぎと予測モデルは、自分がかつて作っていた制御システムによく似ていた。汗田はヘルメットをかぶり、夜の国道へ走り出した。",
     "reading": "それでも、ひょうじされたざひょうのゆらぎとよそくもでるワ、じぶんがかつてつくっていたせいぎょしすてむによくにていた。あせだワへるめっとをかぶり、よるのこくどうエはしりだした。",
     "log": [
-      "発話ログ　12/65",
+      "発話ログ　12/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "04/20　夜の国道へ",
-    "progressLabel": "12/65　ナレーション"
+    "progressLabel": "12/74　ナレーション"
   },
   {
-    "id": "ep02_v012",
+    "id": "ep02_v013",
     "cut": "ep02_vc05",
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 77.907,
-    "end": 82.371,
+    "start": 77.256,
+    "end": 81.736,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -291,21 +291,21 @@
     "dialogue": "コンビニでは、タクミがレシートを透明な袋に入れていた。",
     "reading": "こんびにでワ、たくみがれしーとをとうめいなふくろにいれていた。",
     "log": [
-      "発話ログ　13/65",
+      "発話ログ　13/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "13/65　ナレーション"
+    "progressLabel": "13/74　ナレーション"
   },
   {
-    "id": "ep02_v013",
+    "id": "ep02_v014",
     "cut": "ep02_vc05",
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 82.671,
-    "end": 86.441,
+    "start": 82.036,
+    "end": 85.822,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -314,21 +314,21 @@
     "dialogue": "ミナさん、昨日のレシート、保管する意味あります？",
     "reading": "みなさん、きのうのれしーと、ほかんするいみあります？",
     "log": [
-      "発話ログ　14/65",
+      "発話ログ　14/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "14/65　タクミ"
+    "progressLabel": "14/74　タクミ"
   },
   {
-    "id": "ep02_v014",
+    "id": "ep02_v015",
     "cut": "ep02_vc05",
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 86.741,
-    "end": 87.929,
+    "start": 86.122,
+    "end": 87.351,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -337,21 +337,21 @@
     "dialogue": "あるよ",
     "reading": "あるよ。",
     "log": [
-      "発話ログ　15/65",
+      "発話ログ　15/74",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "15/65　ミナ"
+    "progressLabel": "15/74　ミナ"
   },
   {
-    "id": "ep02_v015",
+    "id": "ep02_v016",
     "cut": "ep02_vc05",
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 88.179,
-    "end": 89.402,
+    "start": 87.601,
+    "end": 88.803,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -360,21 +360,21 @@
     "dialogue": "会計上？",
     "reading": "かいけいじょう？",
     "log": [
-      "発話ログ　16/65",
+      "発話ログ　16/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "16/65　タクミ"
+    "progressLabel": "16/74　タクミ"
   },
   {
-    "id": "ep02_v016",
+    "id": "ep02_v017",
     "cut": "ep02_vc05",
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 89.652,
-    "end": 91.344,
+    "start": 89.053,
+    "end": 90.713,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -383,21 +383,21 @@
     "dialogue": "たぶん歴史上",
     "reading": "たぶんれきしじょう。",
     "log": [
-      "発話ログ　17/65",
+      "発話ログ　17/74",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "17/65　ミナ"
+    "progressLabel": "17/74　ミナ"
   },
   {
-    "id": "ep02_v017",
+    "id": "ep02_v018",
     "cut": "ep02_vc05",
     "visualCutId": "vc05",
     "visualCutTitle": "レシートの保管",
     "visualCutIndex": 5,
-    "start": 91.594,
-    "end": 93.309,
+    "start": 90.963,
+    "end": 92.651,
     "image": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc04_receipt_storage.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -406,21 +406,21 @@
     "dialogue": "保管責任が重い",
     "reading": "ほかんせきにんがおもい。",
     "log": [
-      "発話ログ　18/65",
+      "発話ログ　18/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　レシートの保管",
-    "progressLabel": "18/65　タクミ"
+    "progressLabel": "18/74　タクミ"
   },
   {
-    "id": "ep02_v018",
+    "id": "ep02_v019",
     "cut": "ep02_vc06",
     "visualCutId": "vc06",
     "visualCutTitle": "汗田、来店",
     "visualCutIndex": 6,
-    "start": 93.809,
-    "end": 97.324,
+    "start": 93.151,
+    "end": 96.622,
     "image": "assets/scenes/planned/ep02_vc05_aseda_enters.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc05_aseda_enters.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -429,58 +429,35 @@
     "dialogue": "自動ドアが開いた。汗田はレジへ直行した。",
     "reading": "じどうどあがあいた。あせだワれじエちょっこうした。",
     "log": [
-      "発話ログ　19/65",
+      "発話ログ　19/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "06/20　汗田、来店",
-    "progressLabel": "19/65　ナレーション"
+    "progressLabel": "19/74　ナレーション"
   },
   {
-    "id": "ep02_v019",
+    "id": "ep02_v020",
     "cut": "ep02_vc06",
     "visualCutId": "vc06",
     "visualCutTitle": "汗田、来店",
     "visualCutIndex": 6,
-    "start": 97.624,
-    "end": 100.728,
+    "start": 96.922,
+    "end": 100.792,
     "image": "assets/scenes/planned/ep02_vc05_aseda_enters.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc05_aseda_enters.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "imagePrompt": "自動ドアが開き、汗田が紫ヘルメットを持ってコンビニに入る。タクミとミナがカウンター付近で対応する。汗田、タクミ、ミナの顔と制服を固定。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "汗田竜司",
-    "dialogue": "この店に、存在しないレジはあるか",
-    "reading": "このみせに、そんざいしないれじワあるか。",
+    "dialogue": "すまない。この店に、存在しないレジはあるか",
+    "reading": "すまない。このみせに、そんざいしないれじワあるか。",
     "log": [
-      "発話ログ　20/65",
+      "発話ログ　20/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "06/20　汗田、来店",
-    "progressLabel": "20/65　汗田竜司"
-  },
-  {
-    "id": "ep02_v020",
-    "cut": "ep02_vc07",
-    "visualCutId": "vc07",
-    "visualCutTitle": "二時十七分から",
-    "visualCutIndex": 7,
-    "start": 101.128,
-    "end": 104.065,
-    "image": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
-    "plannedImage": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
-    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
-    "imagePrompt": "午前二時十七分、第十三レジが現れる。黒いセルフレジ端末の眠そうなシアン顔。汗田は状況を観察し、タクミは困惑、ミナは平常運転。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "タクミ",
-    "dialogue": "ミナさん、質問の入口が怖いです",
-    "reading": "みなさん、しつもんのいりぐちがこわいです。",
-    "log": [
-      "発話ログ　21/65",
-      "担当　タクミ",
-      "深夜帯　進行中"
-    ],
-    "visualLabel": "07/20　二時十七分から",
-    "progressLabel": "21/65　タクミ"
+    "progressLabel": "20/74　汗田竜司"
   },
   {
     "id": "ep02_v021",
@@ -488,8 +465,31 @@
     "visualCutId": "vc07",
     "visualCutTitle": "二時十七分から",
     "visualCutIndex": 7,
-    "start": 104.315,
-    "end": 106.337,
+    "start": 101.192,
+    "end": 103.528,
+    "image": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "午前二時十七分、第十三レジが現れる。黒いセルフレジ端末の眠そうなシアン顔。汗田は状況を観察し、タクミは困惑、ミナは平常運転。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "タクミ",
+    "dialogue": "聞き方が都市伝説なんですよ",
+    "reading": "ききかたがとしでんせつなんですよ。",
+    "log": [
+      "発話ログ　21/74",
+      "担当　タクミ",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "07/20　二時十七分から",
+    "progressLabel": "21/74　タクミ"
+  },
+  {
+    "id": "ep02_v022",
+    "cut": "ep02_vc07",
+    "visualCutId": "vc07",
+    "visualCutTitle": "二時十七分から",
+    "visualCutIndex": 7,
+    "start": 103.778,
+    "end": 105.78,
     "image": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -498,21 +498,21 @@
     "dialogue": "二時十七分からです",
     "reading": "にじじゅうななふんからです。",
     "log": [
-      "発話ログ　22/65",
+      "発話ログ　22/74",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "07/20　二時十七分から",
-    "progressLabel": "22/65　ミナ"
+    "progressLabel": "22/74　ミナ"
   },
   {
-    "id": "ep02_v022",
+    "id": "ep02_v023",
     "cut": "ep02_vc08",
     "visualCutId": "vc08",
     "visualCutTitle": "第十三レジ出現",
     "visualCutIndex": 8,
-    "start": 106.837,
-    "end": 115.271,
+    "start": 106.28,
+    "end": 114.611,
     "image": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -521,21 +521,21 @@
     "dialogue": "汗田が時計を見る。二時十六分五十秒。蛍光灯が瞬き、雑誌棚とコピー機の間に銀色のレジが現れた。",
     "reading": "あせだがとけいをみる。にじじゅうろっぷんごじゅうびょう。けいこうとうがまたたき、ざっしだなとこぴーきのあいだにぎんいろのれじがあらわれた。",
     "log": [
-      "発話ログ　23/65",
+      "発話ログ　23/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "08/20　第十三レジ出現",
-    "progressLabel": "23/65　ナレーション"
+    "progressLabel": "23/74　ナレーション"
   },
   {
-    "id": "ep02_v023",
+    "id": "ep02_v024",
     "cut": "ep02_vc08",
     "visualCutId": "vc08",
     "visualCutTitle": "第十三レジ出現",
     "visualCutIndex": 8,
-    "start": 115.671,
-    "end": 118.534,
+    "start": 115.011,
+    "end": 117.913,
     "image": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc06_register_appears.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -544,21 +544,21 @@
     "dialogue": "第十三レジ。ただいま営業中",
     "reading": "だいじゅうさんれじ。ただいまえいぎょうちゅう。",
     "log": [
-      "発話ログ　24/65",
+      "発話ログ　24/74",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "08/20　第十三レジ出現",
-    "progressLabel": "24/65　第十三レジ"
+    "progressLabel": "24/74　第十三レジ"
   },
   {
-    "id": "ep02_v024",
+    "id": "ep02_v025",
     "cut": "ep02_vc09",
     "visualCutId": "vc09",
     "visualCutTitle": "ナビとの接続",
     "visualCutIndex": 9,
-    "start": 119.034,
-    "end": 122.469,
+    "start": 118.413,
+    "end": 121.892,
     "image": "assets/scenes/planned/ep02_vc07_nav_scan.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc07_nav_scan.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -567,21 +567,21 @@
     "dialogue": "第十三レジは汗田のナビを読み取った。",
     "reading": "だいじゅうさんれじワあせだのなびをよみとった。",
     "log": [
-      "発話ログ　25/65",
+      "発話ログ　25/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　ナビとの接続",
-    "progressLabel": "25/65　ナレーション"
+    "progressLabel": "25/74　ナレーション"
   },
   {
-    "id": "ep02_v025",
+    "id": "ep02_v026",
     "cut": "ep02_vc09",
     "visualCutId": "vc09",
     "visualCutTitle": "ナビとの接続",
     "visualCutIndex": 9,
-    "start": 122.769,
-    "end": 126.898,
+    "start": 122.192,
+    "end": 126.347,
     "image": "assets/scenes/planned/ep02_vc07_nav_scan.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc07_nav_scan.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -590,21 +590,21 @@
     "dialogue": "未来食品流通管理システム断片データを確認",
     "reading": "みらいしょくひんりゅうつうかんりしすてむだんぺんでーたをかくにん。",
     "log": [
-      "発話ログ　26/65",
+      "発話ログ　26/74",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　ナビとの接続",
-    "progressLabel": "26/65　第十三レジ"
+    "progressLabel": "26/74　第十三レジ"
   },
   {
-    "id": "ep02_v026",
+    "id": "ep02_v027",
     "cut": "ep02_vc09",
     "visualCutId": "vc09",
     "visualCutTitle": "ナビとの接続",
     "visualCutIndex": 9,
-    "start": 127.248,
-    "end": 132.588,
+    "start": 126.697,
+    "end": 132.2,
     "image": "assets/scenes/planned/ep02_vc07_nav_scan.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc07_nav_scan.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -613,21 +613,21 @@
     "dialogue": "接続成功。欠落した配送記録を照合します",
     "reading": "せつぞくせいこう。けつらくしたはいそうきろくをしょうごうします。",
     "log": [
-      "発話ログ　27/65",
+      "発話ログ　27/74",
       "担当　ナビ",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　ナビとの接続",
-    "progressLabel": "27/65　ナビ"
+    "progressLabel": "27/74　ナビ"
   },
   {
-    "id": "ep02_v027",
+    "id": "ep02_v028",
     "cut": "ep02_vc10",
     "visualCutId": "vc10",
     "visualCutTitle": "在庫予測モデル",
     "visualCutIndex": 10,
-    "start": 132.988,
-    "end": 136.947,
+    "start": 132.6,
+    "end": 136.538,
     "image": "assets/scenes/planned/ep02_vc08_inventory_model.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc08_inventory_model.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -636,21 +636,21 @@
     "dialogue": "これは配送記録じゃない。在庫予測モデルだ",
     "reading": "これワはいそうきろくじゃない。ざいこよそくもでるだ。",
     "log": [
-      "発話ログ　28/65",
+      "発話ログ　28/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　在庫予測モデル",
-    "progressLabel": "28/65　汗田竜司"
+    "progressLabel": "28/74　汗田竜司"
   },
   {
-    "id": "ep02_v028",
+    "id": "ep02_v029",
     "cut": "ep02_vc10",
     "visualCutId": "vc10",
     "visualCutTitle": "在庫予測モデル",
     "visualCutIndex": 10,
-    "start": 137.247,
-    "end": 138.625,
+    "start": 136.838,
+    "end": 138.154,
     "image": "assets/scenes/planned/ep02_vc08_inventory_model.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc08_inventory_model.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -659,21 +659,21 @@
     "dialogue": "わかるんですか",
     "reading": "わかるんですか？",
     "log": [
-      "発話ログ　29/65",
+      "発話ログ　29/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　在庫予測モデル",
-    "progressLabel": "29/65　タクミ"
+    "progressLabel": "29/74　タクミ"
   },
   {
-    "id": "ep02_v029",
+    "id": "ep02_v030",
     "cut": "ep02_vc10",
     "visualCutId": "vc10",
     "visualCutTitle": "在庫予測モデル",
     "visualCutIndex": 10,
-    "start": 138.875,
-    "end": 141.063,
+    "start": 138.404,
+    "end": 140.593,
     "image": "assets/scenes/planned/ep02_vc08_inventory_model.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc08_inventory_model.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -682,21 +682,21 @@
     "dialogue": "似たものを作っていた",
     "reading": "にたものをつくっていた。",
     "log": [
-      "発話ログ　30/65",
+      "発話ログ　30/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　在庫予測モデル",
-    "progressLabel": "30/65　汗田竜司"
+    "progressLabel": "30/74　汗田竜司"
   },
   {
-    "id": "ep02_v030",
+    "id": "ep02_v031",
     "cut": "ep02_vc11",
     "visualCutId": "vc11",
     "visualCutTitle": "欠けた歴史メモ",
     "visualCutIndex": 11,
-    "start": 141.563,
-    "end": 146.89,
+    "start": 141.093,
+    "end": 146.443,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -705,21 +705,21 @@
     "dialogue": "昨日返品された完全栄養おにぎりの歴史メモに欠損があります",
     "reading": "きのう、へんぴんされたかんぜんえいようおにぎりのれきしめもにけっそんがあります。",
     "log": [
-      "発話ログ　31/65",
+      "発話ログ　31/74",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "11/20　欠けた歴史メモ",
-    "progressLabel": "31/65　第十三レジ"
+    "progressLabel": "31/74　第十三レジ"
   },
   {
-    "id": "ep02_v031",
+    "id": "ep02_v032",
     "cut": "ep02_vc11",
     "visualCutId": "vc11",
     "visualCutTitle": "欠けた歴史メモ",
     "visualCutIndex": 11,
-    "start": 147.24,
-    "end": 150.59,
+    "start": 146.793,
+    "end": 150.212,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -728,21 +728,21 @@
     "dialogue": "画面に、ミナのメモが表示された。",
     "reading": "がめんに、みなの、めもがひょうじされた。",
     "log": [
-      "発話ログ　32/65",
+      "発話ログ　32/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "11/20　欠けた歴史メモ",
-    "progressLabel": "32/65　ナレーション"
+    "progressLabel": "32/74　ナレーション"
   },
   {
-    "id": "ep02_v032",
+    "id": "ep02_v033",
     "cut": "ep02_vc11",
     "visualCutId": "vc11",
     "visualCutTitle": "欠けた歴史メモ",
     "visualCutIndex": 11,
-    "start": 150.89,
-    "end": 154.15,
+    "start": 150.512,
+    "end": 153.772,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -751,21 +751,21 @@
     "dialogue": "このおにぎりは、ちゃんと作った方がいいです。",
     "reading": "このおにぎりワ、ちゃんとつくったほうがいいです。",
     "log": [
-      "発話ログ　33/65",
+      "発話ログ　33/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "11/20　欠けた歴史メモ",
-    "progressLabel": "33/65　ナレーション"
+    "progressLabel": "33/74　ナレーション"
   },
   {
-    "id": "ep02_v033",
+    "id": "ep02_v034",
     "cut": "ep02_vc12",
     "visualCutId": "vc12",
     "visualCutTitle": "足りない条件",
     "visualCutIndex": 12,
-    "start": 154.55,
-    "end": 158.399,
+    "start": 154.172,
+    "end": 158.056,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -774,35 +774,12 @@
     "dialogue": "条件が足りない。目的も評価基準もない",
     "reading": "じょうけんがたりない。もくてきもひょうかきじゅんもない。",
     "log": [
-      "発話ログ　34/65",
+      "発話ログ　34/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　足りない条件",
-    "progressLabel": "34/65　汗田竜司"
-  },
-  {
-    "id": "ep02_v034",
-    "cut": "ep02_vc12",
-    "visualCutId": "vc12",
-    "visualCutTitle": "足りない条件",
-    "visualCutIndex": 12,
-    "start": 158.699,
-    "end": 161.01,
-    "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
-    "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
-    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
-    "imagePrompt": "第十三レジが欠けた歴史メモを示す。レシート、端末画面、業務ログが静かに光る。人物は顔・髪型・制服を統一し、情報量を詰め込みすぎない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "タクミ",
-    "dialogue": "ミナさんの普通が未来を困らせてる",
-    "reading": "みなさんのふつうがみらいをこまらせてる。",
-    "log": [
-      "発話ログ　35/65",
-      "担当　タクミ",
-      "深夜帯　進行中"
-    ],
-    "visualLabel": "12/20　足りない条件",
-    "progressLabel": "35/65　タクミ"
+    "progressLabel": "34/74　汗田竜司"
   },
   {
     "id": "ep02_v035",
@@ -810,8 +787,31 @@
     "visualCutId": "vc12",
     "visualCutTitle": "足りない条件",
     "visualCutIndex": 12,
-    "start": 161.26,
-    "end": 163.575,
+    "start": 158.356,
+    "end": 160.589,
+    "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "第十三レジが欠けた歴史メモを示す。レシート、端末画面、業務ログが静かに光る。人物は顔・髪型・制服を統一し、情報量を詰め込みすぎない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "タクミ",
+    "dialogue": "ミナさんの二行が未来を止めてる",
+    "reading": "みなさんのにぎょうがみらいをとめてる。",
+    "log": [
+      "発話ログ　35/74",
+      "担当　タクミ",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "12/20　足りない条件",
+    "progressLabel": "35/74　タクミ"
+  },
+  {
+    "id": "ep02_v036",
+    "cut": "ep02_vc12",
+    "visualCutId": "vc12",
+    "visualCutTitle": "足りない条件",
+    "visualCutIndex": 12,
+    "start": 160.839,
+    "end": 163.131,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -820,21 +820,44 @@
     "dialogue": "未来、繊細だね",
     "reading": "みらい、せんさいだね。",
     "log": [
-      "発話ログ　36/65",
+      "発話ログ　36/74",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　足りない条件",
-    "progressLabel": "36/65　ミナ"
+    "progressLabel": "36/74　ミナ"
   },
   {
-    "id": "ep02_v036",
+    "id": "ep02_v037",
+    "cut": "ep02_vc12",
+    "visualCutId": "vc12",
+    "visualCutTitle": "足りない条件",
+    "visualCutIndex": 12,
+    "start": 163.431,
+    "end": 165.402,
+    "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "第十三レジが欠けた歴史メモを示す。レシート、端末画面、業務ログが静かに光る。人物は顔・髪型・制服を統一し、情報量を詰め込みすぎない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "タクミ",
+    "dialogue": "もっと強く生きてほしい",
+    "reading": "もっとつよくいきてほしい。",
+    "log": [
+      "発話ログ　37/74",
+      "担当　タクミ",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "12/20　足りない条件",
+    "progressLabel": "37/74　タクミ"
+  },
+  {
+    "id": "ep02_v038",
     "cut": "ep02_vc13",
     "visualCutId": "vc13",
     "visualCutTitle": "修正メモを入力",
     "visualCutIndex": 13,
-    "start": 164.075,
-    "end": 167.445,
+    "start": 165.902,
+    "end": 169.474,
     "image": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc09_missing_conditions.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -843,21 +866,21 @@
     "dialogue": "修正メモを入力してください。残り二分",
     "reading": "しゅうせいめもをにゅうりょくしてください。のこりにふん。",
     "log": [
-      "発話ログ　37/65",
+      "発話ログ　38/74",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "13/20　修正メモを入力",
-    "progressLabel": "37/65　第十三レジ"
+    "progressLabel": "38/74　第十三レジ"
   },
   {
-    "id": "ep02_v037",
+    "id": "ep02_v039",
     "cut": "ep02_vc14",
     "visualCutId": "vc14",
     "visualCutTitle": "汗田、メモを書く",
     "visualCutIndex": 14,
-    "start": 167.945,
-    "end": 171.575,
+    "start": 169.974,
+    "end": 173.603,
     "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -866,58 +889,12 @@
     "dialogue": "汗田はレシート紙を受け取り、ペンを走らせた。",
     "reading": "あせだワれしーとしをうけとり、ぺんをはしらせた。",
     "log": [
-      "発話ログ　38/65",
+      "発話ログ　39/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　汗田、メモを書く",
-    "progressLabel": "38/65　ナレーション"
-  },
-  {
-    "id": "ep02_v038",
-    "cut": "ep02_vc14",
-    "visualCutId": "vc14",
-    "visualCutTitle": "汗田、メモを書く",
-    "visualCutIndex": 14,
-    "start": 171.925,
-    "end": 179.583,
-    "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
-    "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
-    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
-    "imagePrompt": "汗田がレシート紙を受け取り、ペンで修正メモを書く。空中UIには書かず、紙のレシートに直接書く。手指は自然で、ペンと紙が明確。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "ナレーション",
-    "dialogue": "目的。二〇七四年の食糧供給不足に対し、完全栄養おにぎりの開発を継続すること。",
-    "reading": "もくてき。にせんななじゅうよねんのしょくりょうきょうきゅうふそくにたいし、かんぜんえいようおにぎりのかいはつをけいぞくすること。",
-    "log": [
-      "発話ログ　39/65",
-      "担当　ナレーション",
-      "深夜帯　進行中"
-    ],
-    "visualLabel": "14/20　汗田、メモを書く",
-    "progressLabel": "39/65　ナレーション"
-  },
-  {
-    "id": "ep02_v039",
-    "cut": "ep02_vc14",
-    "visualCutId": "vc14",
-    "visualCutTitle": "汗田、メモを書く",
-    "visualCutIndex": 14,
-    "start": 179.933,
-    "end": 183.538,
-    "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
-    "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
-    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
-    "imagePrompt": "汗田がレシート紙を受け取り、ペンで修正メモを書く。空中UIには書かず、紙のレシートに直接書く。手指は自然で、ペンと紙が明確。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "ナレーション",
-    "dialogue": "対象。培養鮭由来の栄養素材。",
-    "reading": "たいしょう。ばいようさけゆらいのえいようそざい。",
-    "log": [
-      "発話ログ　40/65",
-      "担当　ナレーション",
-      "深夜帯　進行中"
-    ],
-    "visualLabel": "14/20　汗田、メモを書く",
-    "progressLabel": "40/65　ナレーション"
+    "progressLabel": "39/74　ナレーション"
   },
   {
     "id": "ep02_v040",
@@ -925,54 +902,100 @@
     "visualCutId": "vc14",
     "visualCutTitle": "汗田、メモを書く",
     "visualCutIndex": 14,
-    "start": 183.838,
-    "end": 189.306,
+    "start": 173.953,
+    "end": 178.112,
     "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "imagePrompt": "汗田がレシート紙を受け取り、ペンで修正メモを書く。空中UIには書かず、紙のレシートに直接書く。手指は自然で、ペンと紙が明確。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "ナレーション",
-    "dialogue": "評価基準。味、保存性、量産性、価格、食べた人間の表情。",
-    "reading": "ひょうかきじゅん。あじ、ほぞんせい、りょうさんせい、かかく、たべたにんげんのひょうじょう。",
+    "speaker": "汗田竜司",
+    "dialogue": "目的。食糧不足に対する開発継続。",
+    "reading": "もくてき。しょくりょうぶそくにたいするかいはつけいぞく。",
     "log": [
-      "発話ログ　41/65",
-      "担当　ナレーション",
+      "発話ログ　40/74",
+      "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　汗田、メモを書く",
-    "progressLabel": "41/65　ナレーション"
+    "progressLabel": "40/74　汗田竜司"
   },
   {
     "id": "ep02_v041",
+    "cut": "ep02_vc14",
+    "visualCutId": "vc14",
+    "visualCutTitle": "汗田、メモを書く",
+    "visualCutIndex": 14,
+    "start": 178.462,
+    "end": 182.522,
+    "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "汗田がレシート紙を受け取り、ペンで修正メモを書く。空中UIには書かず、紙のレシートに直接書く。手指は自然で、ペンと紙が明確。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "汗田竜司",
+    "dialogue": "評価基準。味、保存性、量産性、価格。",
+    "reading": "ひょうかきじゅん。あじ、ほぞんせい、りょうさんせい、かかく。",
+    "log": [
+      "発話ログ　41/74",
+      "担当　汗田竜司",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "14/20　汗田、メモを書く",
+    "progressLabel": "41/74　汗田竜司"
+  },
+  {
+    "id": "ep02_v042",
+    "cut": "ep02_vc14",
+    "visualCutId": "vc14",
+    "visualCutTitle": "汗田、メモを書く",
+    "visualCutIndex": 14,
+    "start": 182.822,
+    "end": 185.485,
+    "image": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc10_corrected_memo.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "汗田がレシート紙を受け取り、ペンで修正メモを書く。空中UIには書かず、紙のレシートに直接書く。手指は自然で、ペンと紙が明確。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "汗田竜司",
+    "dialogue": "あと、食べた人間の表情。",
+    "reading": "あと、たべたにんげんのひょうじょう。",
+    "log": [
+      "発話ログ　42/74",
+      "担当　汗田竜司",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "14/20　汗田、メモを書く",
+    "progressLabel": "42/74　汗田竜司"
+  },
+  {
+    "id": "ep02_v043",
     "cut": "ep02_vc15",
     "visualCutId": "vc15",
     "visualCutTitle": "数値だけじゃない",
     "visualCutIndex": 15,
-    "start": 189.806,
-    "end": 192.321,
+    "start": 185.985,
+    "end": 188.278,
     "image": "assets/scenes/planned/ep02_vc11_human_criterion.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc11_human_criterion.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "imagePrompt": "タクミとミナが汗田の判断を見守る。第十三レジは無表情に処理を待つ。制服と髪型を固定し、タクミとミナを別人化しない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "タクミ",
-    "dialogue": "最後だけ急に人間っぽいですね",
-    "reading": "さいごだけきゅうににんげんっぽいですね。",
+    "dialogue": "最後だけ急に人間ですね",
+    "reading": "さいごだけきゅうににんげんですね。",
     "log": [
-      "発話ログ　42/65",
+      "発話ログ　43/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　数値だけじゃない",
-    "progressLabel": "42/65　タクミ"
+    "progressLabel": "43/74　タクミ"
   },
   {
-    "id": "ep02_v042",
+    "id": "ep02_v044",
     "cut": "ep02_vc15",
     "visualCutId": "vc15",
     "visualCutTitle": "数値だけじゃない",
     "visualCutIndex": 15,
-    "start": 192.621,
-    "end": 195.611,
+    "start": 188.578,
+    "end": 191.483,
     "image": "assets/scenes/planned/ep02_vc11_human_criterion.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc11_human_criterion.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -981,21 +1004,21 @@
     "dialogue": "食べ物の価値は数値だけじゃ決まらない",
     "reading": "たべもののかちワすうちだけじゃきまらない。",
     "log": [
-      "発話ログ　43/65",
+      "発話ログ　44/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　数値だけじゃない",
-    "progressLabel": "43/65　汗田竜司"
+    "progressLabel": "44/74　汗田竜司"
   },
   {
-    "id": "ep02_v043",
+    "id": "ep02_v045",
     "cut": "ep02_vc15",
     "visualCutId": "vc15",
     "visualCutTitle": "数値だけじゃない",
     "visualCutIndex": 15,
-    "start": 196.011,
-    "end": 201.45,
+    "start": 191.883,
+    "end": 197.302,
     "image": "assets/scenes/planned/ep02_vc11_human_criterion.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc11_human_criterion.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1004,21 +1027,21 @@
     "dialogue": "会社では笑われた言葉だった。けれどこの店では、誰も笑わなかった。",
     "reading": "かいしゃでワわらわれたことばだった。けれどこのみせでワ、だれもわらわなかった。",
     "log": [
-      "発話ログ　44/65",
+      "発話ログ　45/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　数値だけじゃない",
-    "progressLabel": "44/65　ナレーション"
+    "progressLabel": "45/74　ナレーション"
   },
   {
-    "id": "ep02_v044",
+    "id": "ep02_v046",
     "cut": "ep02_vc16",
     "visualCutId": "vc16",
     "visualCutTitle": "メモ受理",
     "visualCutIndex": 16,
-    "start": 202.05,
-    "end": 206.643,
+    "start": 197.902,
+    "end": 202.785,
     "image": "assets/scenes/planned/ep02_vc12_memo_accepted.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc12_memo_accepted.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1027,44 +1050,44 @@
     "dialogue": "修正メモを受理しました。食糧改善率、安定",
     "reading": "しゅうせいめもをじゅりしました。しょくりょうかいぜんりつ、あんてい。",
     "log": [
-      "発話ログ　45/65",
+      "発話ログ　46/74",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　メモ受理",
-    "progressLabel": "45/65　第十三レジ"
+    "progressLabel": "46/74　第十三レジ"
   },
   {
-    "id": "ep02_v045",
+    "id": "ep02_v047",
     "cut": "ep02_vc16",
     "visualCutId": "vc16",
     "visualCutTitle": "メモ受理",
     "visualCutIndex": 16,
-    "start": 206.993,
-    "end": 208.388,
+    "start": 203.135,
+    "end": 204.652,
     "image": "assets/scenes/planned/ep02_vc12_memo_accepted.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc12_memo_accepted.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "imagePrompt": "第十三レジが修正メモを受理する。レシート排出口から紙が出て、シアンの光が落ち着く。レジの顔は二本の水平な目と小さな口だけ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "タクミ",
-    "dialogue": "助かったんですか",
-    "reading": "たすかったんですか。",
+    "dialogue": "助かったんですか？",
+    "reading": "たすかったんですか？",
     "log": [
-      "発話ログ　46/65",
+      "発話ログ　47/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　メモ受理",
-    "progressLabel": "46/65　タクミ"
+    "progressLabel": "47/74　タクミ"
   },
   {
-    "id": "ep02_v046",
+    "id": "ep02_v048",
     "cut": "ep02_vc16",
     "visualCutId": "vc16",
     "visualCutTitle": "メモ受理",
     "visualCutIndex": 16,
-    "start": 208.638,
-    "end": 210.233,
+    "start": 204.902,
+    "end": 206.523,
     "image": "assets/scenes/planned/ep02_vc12_memo_accepted.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc12_memo_accepted.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1073,44 +1096,44 @@
     "dialogue": "ちょっと助かりました",
     "reading": "ちょっとたすかりました。",
     "log": [
-      "発話ログ　47/65",
+      "発話ログ　48/74",
       "担当　第十三レジ",
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　メモ受理",
-    "progressLabel": "47/65　第十三レジ"
+    "progressLabel": "48/74　第十三レジ"
   },
   {
-    "id": "ep02_v047",
+    "id": "ep02_v049",
     "cut": "ep02_vc16",
     "visualCutId": "vc16",
     "visualCutTitle": "メモ受理",
     "visualCutIndex": 16,
-    "start": 210.533,
-    "end": 211.829,
+    "start": 206.823,
+    "end": 209.094,
     "image": "assets/scenes/planned/ep02_vc12_memo_accepted.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc12_memo_accepted.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "imagePrompt": "第十三レジが修正メモを受理する。レシート排出口から紙が出て、シアンの光が落ち着く。レジの顔は二本の水平な目と小さな口だけ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "タクミ",
-    "dialogue": "またちょっと！",
-    "reading": "またちょっと！",
+    "dialogue": "ちょっとで済ませる話なんですか！",
+    "reading": "ちょっとですませるはなしなんですか！",
     "log": [
-      "発話ログ　48/65",
+      "発話ログ　49/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　メモ受理",
-    "progressLabel": "48/65　タクミ"
+    "progressLabel": "49/74　タクミ"
   },
   {
-    "id": "ep02_v048",
+    "id": "ep02_v050",
     "cut": "ep02_vc17",
     "visualCutId": "vc17",
     "visualCutTitle": "未来からの感謝",
     "visualCutIndex": 17,
-    "start": 212.329,
-    "end": 214.948,
+    "start": 209.594,
+    "end": 212.189,
     "image": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1119,67 +1142,113 @@
     "dialogue": "ナビの画面に文字が浮かぶ。",
     "reading": "なびのがめんにもじがうかぶ。",
     "log": [
-      "発話ログ　49/65",
+      "発話ログ　50/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　未来からの感謝",
-    "progressLabel": "49/65　ナレーション"
+    "progressLabel": "50/74　ナレーション"
   },
   {
-    "id": "ep02_v049",
+    "id": "ep02_v051",
     "cut": "ep02_vc17",
     "visualCutId": "vc17",
     "visualCutTitle": "未来からの感謝",
     "visualCutIndex": 17,
-    "start": 215.248,
-    "end": 223.23,
+    "start": 212.489,
+    "end": 220.889,
     "image": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "imagePrompt": "ナビ画面に未来からの感謝メッセージが浮かぶ。カウンター上のナビ端末は小型のバイク用ナビサイズで、巨大化しない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "ナビ",
-    "dialogue": "協力に感謝します。汗田竜司。あなたの研究は未来でも使用されています。",
-    "reading": "きょうりょくにかんしゃします。あせだりゅうじ。あなたのけんきゅうワ、みらいでもしようされています。",
+    "dialogue": "協力に感謝します。汗田竜司。あなたの研究成果は現在も稼働しています。",
+    "reading": "きょうりょくにかんしゃします。あせだりゅうじ。あなたのけんきゅうせいかワ、げんざいもかどうしています。",
     "log": [
-      "発話ログ　50/65",
+      "発話ログ　51/74",
       "担当　ナビ",
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　未来からの感謝",
-    "progressLabel": "50/65　ナビ"
+    "progressLabel": "51/74　ナビ"
   },
   {
-    "id": "ep02_v050",
+    "id": "ep02_v052",
     "cut": "ep02_vc17",
     "visualCutId": "vc17",
     "visualCutTitle": "未来からの感謝",
     "visualCutIndex": 17,
-    "start": 223.63,
-    "end": 226.276,
+    "start": 221.239,
+    "end": 225.586,
     "image": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "imagePrompt": "ナビ画面に未来からの感謝メッセージが浮かぶ。カウンター上のナビ端末は小型のバイク用ナビサイズで、巨大化しない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "ナレーション",
-    "dialogue": "汗田はしばらく黙っていた。",
-    "reading": "あせだワしばらくだまっていた。",
+    "speaker": "ナビ",
+    "dialogue": "利用者からの苦情件数は平均以下です。",
+    "reading": "りようしゃからのくじょうけんすうワ、へいきんいかです。",
     "log": [
-      "発話ログ　51/65",
-      "担当　ナレーション",
+      "発話ログ　52/74",
+      "担当　ナビ",
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　未来からの感謝",
-    "progressLabel": "51/65　ナレーション"
+    "progressLabel": "52/74　ナビ"
   },
   {
-    "id": "ep02_v051",
+    "id": "ep02_v053",
+    "cut": "ep02_vc17",
+    "visualCutId": "vc17",
+    "visualCutTitle": "未来からの感謝",
+    "visualCutIndex": 17,
+    "start": 225.886,
+    "end": 227.599,
+    "image": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "ナビ画面に未来からの感謝メッセージが浮かぶ。カウンター上のナビ端末は小型のバイク用ナビサイズで、巨大化しない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "タクミ",
+    "dialogue": "そこ評価なんですか！",
+    "reading": "そこひょうかなんですか！",
+    "log": [
+      "発話ログ　53/74",
+      "担当　タクミ",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "17/20　未来からの感謝",
+    "progressLabel": "53/74　タクミ"
+  },
+  {
+    "id": "ep02_v054",
+    "cut": "ep02_vc17",
+    "visualCutId": "vc17",
+    "visualCutTitle": "未来からの感謝",
+    "visualCutIndex": 17,
+    "start": 227.849,
+    "end": 229.328,
+    "image": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc13_future_thanks.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "ナビ画面に未来からの感謝メッセージが浮かぶ。カウンター上のナビ端末は小型のバイク用ナビサイズで、巨大化しない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "汗田竜司",
+    "dialogue": "十分だ",
+    "reading": "じゅうぶんだ。",
+    "log": [
+      "発話ログ　54/74",
+      "担当　汗田竜司",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "17/20　未来からの感謝",
+    "progressLabel": "54/74　汗田竜司"
+  },
+  {
+    "id": "ep02_v055",
     "cut": "ep02_vc18",
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 226.976,
-    "end": 228.715,
+    "start": 230.028,
+    "end": 231.698,
     "image": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1188,21 +1257,21 @@
     "dialogue": "コーヒー飲みます？",
     "reading": "こーひーのみます？",
     "log": [
-      "発話ログ　52/65",
+      "発話ログ　55/74",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "52/65　ミナ"
+    "progressLabel": "55/74　ミナ"
   },
   {
-    "id": "ep02_v052",
+    "id": "ep02_v056",
     "cut": "ep02_vc18",
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 228.965,
-    "end": 230.444,
+    "start": 231.948,
+    "end": 233.427,
     "image": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1211,21 +1280,21 @@
     "dialogue": "ブラックで",
     "reading": "ぶらっくで。",
     "log": [
-      "発話ログ　53/65",
+      "発話ログ　56/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "53/65　汗田竜司"
+    "progressLabel": "56/74　汗田竜司"
   },
   {
-    "id": "ep02_v053",
+    "id": "ep02_v057",
     "cut": "ep02_vc18",
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 230.694,
-    "end": 232.177,
+    "start": 233.677,
+    "end": 235.218,
     "image": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1234,21 +1303,21 @@
     "dialogue": "百二十円です",
     "reading": "ひゃくにじゅうえんです。",
     "log": [
-      "発話ログ　54/65",
+      "発話ログ　57/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "54/65　タクミ"
+    "progressLabel": "57/74　タクミ"
   },
   {
-    "id": "ep02_v054",
+    "id": "ep02_v058",
     "cut": "ep02_vc18",
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 232.427,
-    "end": 233.787,
+    "start": 235.468,
+    "end": 236.833,
     "image": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1257,21 +1326,21 @@
     "dialogue": "安いな",
     "reading": "やすいな。",
     "log": [
-      "発話ログ　55/65",
+      "発話ログ　58/74",
       "担当　汗田竜司",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "55/65　汗田竜司"
+    "progressLabel": "58/74　汗田竜司"
   },
   {
-    "id": "ep02_v055",
+    "id": "ep02_v059",
     "cut": "ep02_vc18",
     "visualCutId": "vc18",
     "visualCutTitle": "ブラックで",
     "visualCutIndex": 18,
-    "start": 234.037,
-    "end": 236.549,
+    "start": 237.083,
+    "end": 239.624,
     "image": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1280,21 +1349,67 @@
     "dialogue": "未来人と同じ反応しないでください",
     "reading": "みらいじんとおなじはんのうしないでください。",
     "log": [
-      "発話ログ　56/65",
+      "発話ログ　59/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　ブラックで",
-    "progressLabel": "56/65　タクミ"
+    "progressLabel": "59/74　タクミ"
   },
   {
-    "id": "ep02_v056",
+    "id": "ep02_v060",
+    "cut": "ep02_vc18",
+    "visualCutId": "vc18",
+    "visualCutTitle": "ブラックで",
+    "visualCutIndex": 18,
+    "start": 239.924,
+    "end": 242.842,
+    "image": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "ミナがブラックコーヒーを一杯だけ汗田へ渡す。汗田はまだコーヒーを持っておらず、受け取ろうとしている。二重のコーヒーを描かない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "汗田竜司",
+    "dialogue": "技術者はコーヒー代に敏感なんだ",
+    "reading": "ぎじゅつしゃワこーひーだいにびんかんなんだ。",
+    "log": [
+      "発話ログ　60/74",
+      "担当　汗田竜司",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "18/20　ブラックで",
+    "progressLabel": "60/74　汗田竜司"
+  },
+  {
+    "id": "ep02_v061",
+    "cut": "ep02_vc18",
+    "visualCutId": "vc18",
+    "visualCutTitle": "ブラックで",
+    "visualCutIndex": 18,
+    "start": 243.142,
+    "end": 245.179,
+    "image": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc14_black_coffee.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "ミナがブラックコーヒーを一杯だけ汗田へ渡す。汗田はまだコーヒーを持っておらず、受け取ろうとしている。二重のコーヒーを描かない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "タクミ",
+    "dialogue": "未来と共通点そこですか",
+    "reading": "みらいときょうつうてんそこですか。",
+    "log": [
+      "発話ログ　61/74",
+      "担当　タクミ",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "18/20　ブラックで",
+    "progressLabel": "61/74　タクミ"
+  },
+  {
+    "id": "ep02_v062",
     "cut": "ep02_vc19",
     "visualCutId": "vc19",
     "visualCutTitle": "吐き出されたレシート",
     "visualCutIndex": 19,
-    "start": 237.049,
-    "end": 240.168,
+    "start": 245.679,
+    "end": 248.854,
     "image": "assets/scenes/planned/ep02_vc15_operation_log.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc15_operation_log.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1303,23 +1418,21 @@
     "dialogue": "第十三レジはレシートを吐き出した。",
     "reading": "だいじゅうさんれじワれしーとをはきだした。",
     "log": [
-      "評価基準追加　一件",
-      "食べた人間の表情　重要",
-      "汗田竜司　接続登録",
-      "ホットコーヒー　ブラック　一件",
-      "店長確認　未了"
+      "発話ログ　62/74",
+      "担当　ナレーション",
+      "深夜帯　進行中"
     ],
     "visualLabel": "19/20　吐き出されたレシート",
-    "progressLabel": "57/65　ナレーション"
+    "progressLabel": "62/74　ナレーション"
   },
   {
-    "id": "ep02_v056b",
+    "id": "ep02_v063",
     "cut": "ep02_vc19",
     "visualCutId": "vc19",
     "visualCutTitle": "吐き出されたレシート",
     "visualCutIndex": 19,
-    "start": 240.468,
-    "end": 244.967,
+    "start": 249.154,
+    "end": 253.653,
     "image": "assets/scenes/planned/ep02_vc15_operation_log.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc15_operation_log.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1328,23 +1441,21 @@
     "dialogue": "レシートの最後の一行に、「店長確認、未了」とあった。",
     "reading": "れしーとのさいごのいちぎょうに、てんちょうかくにん、みりょう、とあった。",
     "log": [
-      "評価基準追加　一件",
-      "食べた人間の表情　重要",
-      "汗田竜司　接続登録",
-      "ホットコーヒー　ブラック　一件",
-      "店長確認　未了"
+      "発話ログ　63/74",
+      "担当　ナレーション",
+      "深夜帯　進行中"
     ],
     "visualLabel": "19/20　吐き出されたレシート",
-    "progressLabel": "58/65　ナレーション"
+    "progressLabel": "63/74　ナレーション"
   },
   {
-    "id": "ep02_v057",
+    "id": "ep02_v064",
     "cut": "ep02_vc19",
     "visualCutId": "vc19",
     "visualCutTitle": "吐き出されたレシート",
     "visualCutIndex": 19,
-    "start": 245.367,
-    "end": 247.51,
+    "start": 254.053,
+    "end": 256.255,
     "image": "assets/scenes/planned/ep02_vc15_operation_log.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc15_operation_log.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1353,23 +1464,21 @@
     "dialogue": "店長、関係ありました？",
     "reading": "てんちょう、かんけいありました？",
     "log": [
-      "評価基準追加　一件",
-      "食べた人間の表情　重要",
-      "汗田竜司　接続登録",
-      "ホットコーヒー　ブラック　一件",
-      "店長確認　未了"
+      "発話ログ　64/74",
+      "担当　タクミ",
+      "深夜帯　進行中"
     ],
     "visualLabel": "19/20　吐き出されたレシート",
-    "progressLabel": "59/65　タクミ"
+    "progressLabel": "64/74　タクミ"
   },
   {
-    "id": "ep02_v058",
+    "id": "ep02_v065",
     "cut": "ep02_vc19",
     "visualCutId": "vc19",
     "visualCutTitle": "吐き出されたレシート",
     "visualCutIndex": 19,
-    "start": 247.76,
-    "end": 250.435,
+    "start": 256.505,
+    "end": 259.087,
     "image": "assets/scenes/planned/ep02_vc15_operation_log.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc15_operation_log.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
@@ -1378,128 +1487,218 @@
     "dialogue": "未了は、だいたい残る",
     "reading": "みりょうワ、だいたいのこる。",
     "log": [
-      "評価基準追加　一件",
-      "食べた人間の表情　重要",
-      "汗田竜司　接続登録",
-      "ホットコーヒー　ブラック　一件",
-      "店長確認　未了"
+      "発話ログ　65/74",
+      "担当　ミナ",
+      "深夜帯　進行中"
     ],
     "visualLabel": "19/20　吐き出されたレシート",
-    "progressLabel": "60/65　ミナ"
+    "progressLabel": "65/74　ミナ"
   },
   {
-    "id": "ep02_v059",
+    "id": "ep02_v066",
     "cut": "ep02_vc20",
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 251.035,
-    "end": 255.744,
+    "start": 259.687,
+    "end": 264.097,
     "image": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
     "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
     "imagePrompt": "バックヤードの冷凍庫の奥で、青いラベルが小さく光る。人物は出さず、次の異常を予告する静物カット。  2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "ナレーション",
-    "dialogue": "そのころ、バックヤードの冷凍庫の奥で、青いラベルが光った。",
-    "reading": "そのころ、ばっくやーどのれいとうこのおくで、あおいらべるがひかった。",
+    "dialogue": "バックヤードの冷凍庫の奥で、青いラベルが淡く光った。",
+    "reading": "ばっくやーどのれいとうこのおくで、あおいらべるがあわくひかった。",
     "log": [
-      "発話ログ　61/65",
+      "発話ログ　66/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "61/65　ナレーション"
+    "progressLabel": "66/74　ナレーション"
   },
   {
-    "id": "ep02_v060",
+    "id": "ep02_v067",
     "cut": "ep02_vc20",
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 256.144,
-    "end": 258.578,
-    "image": "assets/scenes/planned/ep02_vc17_cleaning_first.png?v=ep02-rev2",
-    "plannedImage": "assets/scenes/planned/ep02_vc17_cleaning_first.png?v=ep02-rev2",
+    "start": 264.497,
+    "end": 267.011,
+    "image": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
-    "imagePrompt": "閉店前ではなく深夜営業中の通常業務へ戻る。タクミとミナが清掃用具の前で次の作業を確認する。顔、髪型、制服を固定。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "imagePrompt": "バックヤードの冷凍庫の奥で、青いラベルが小さく光る。人物は出さず、次の異常を予告する静物カット。  2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "タクミ",
     "dialogue": "もう次回予告が冷凍庫から来てる",
     "reading": "もうじかいよこくがれいとうこからきてる。",
     "log": [
-      "発話ログ　62/65",
+      "発話ログ　67/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "62/65　タクミ"
+    "progressLabel": "67/74　タクミ"
   },
   {
-    "id": "ep02_v061",
+    "id": "ep02_v068",
     "cut": "ep02_vc20",
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 258.828,
-    "end": 260.357,
-    "image": "assets/scenes/planned/ep02_vc17_cleaning_first.png?v=ep02-rev2",
-    "plannedImage": "assets/scenes/planned/ep02_vc17_cleaning_first.png?v=ep02-rev2",
+    "start": 267.261,
+    "end": 268.842,
+    "image": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
-    "imagePrompt": "閉店前ではなく深夜営業中の通常業務へ戻る。タクミとミナが清掃用具の前で次の作業を確認する。顔、髪型、制服を固定。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "imagePrompt": "バックヤードの冷凍庫の奥で、青いラベルが小さく光る。人物は出さず、次の異常を予告する静物カット。  2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "ミナ",
     "dialogue": "先に掃除",
     "reading": "さきにそうじ。",
     "log": [
-      "発話ログ　63/65",
+      "発話ログ　68/74",
       "担当　ミナ",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "63/65　ミナ"
+    "progressLabel": "68/74　ミナ"
   },
   {
-    "id": "ep02_v062",
+    "id": "ep02_v069",
     "cut": "ep02_vc20",
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 260.607,
-    "end": 262.673,
-    "image": "assets/scenes/planned/ep02_vc17_cleaning_first.png?v=ep02-rev2",
-    "plannedImage": "assets/scenes/planned/ep02_vc17_cleaning_first.png?v=ep02-rev2",
+    "start": 269.092,
+    "end": 271.235,
+    "image": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
-    "imagePrompt": "閉店前ではなく深夜営業中の通常業務へ戻る。タクミとミナが清掃用具の前で次の作業を確認する。顔、髪型、制服を固定。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "imagePrompt": "バックヤードの冷凍庫の奥で、青いラベルが小さく光る。人物は出さず、次の異常を予告する静物カット。  2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "タクミ",
     "dialogue": "未来より掃除ですか",
-    "reading": "みらいより、そうじですか！",
+    "reading": "みらいより、そうじですか。",
     "log": [
-      "発話ログ　64/65",
+      "発話ログ　69/74",
       "担当　タクミ",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "64/65　タクミ"
+    "progressLabel": "69/74　タクミ"
   },
   {
-    "id": "ep02_v063",
+    "id": "ep02_v070",
     "cut": "ep02_vc20",
     "visualCutId": "vc20",
     "visualCutTitle": "次の異常地点",
     "visualCutIndex": 20,
-    "start": 262.973,
-    "end": 272.058,
-    "image": "assets/scenes/planned/ep02_vc18_aseda_leaves.png?v=ep02-rev2",
-    "plannedImage": "assets/scenes/planned/ep02_vc18_aseda_leaves.png?v=ep02-rev2",
+    "start": 271.535,
+    "end": 273.599,
+    "image": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
-    "imagePrompt": "汗田がコーヒーを持って外へ出る。紫ヘルメット、黒いバイクジャケット、雨のコンビニ外観。汗田の顔と髪型を固定。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "ナレーション",
-    "dialogue": "汗田はコーヒーを持って外へ出た。ナビは沈黙していたが、画面の端には小さく表示が残っていた。次の異常地点：冷凍庫。",
-    "reading": "あせだワこーひーをもってそとエでた。なびワちんもくしていたが、がめんのはしにワちいさくひょうじがのこっていた。つぎのいじょうちてん：れいとうこ。",
+    "imagePrompt": "バックヤードの冷凍庫の奥で、青いラベルが小さく光る。人物は出さず、次の異常を予告する静物カット。  2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "ミナ",
+    "dialogue": "冷凍庫は逃げない",
+    "reading": "れいとうこワにげない。",
     "log": [
-      "発話ログ　65/65",
+      "発話ログ　70/74",
+      "担当　ミナ",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "20/20　次の異常地点",
+    "progressLabel": "70/74　ミナ"
+  },
+  {
+    "id": "ep02_v071",
+    "cut": "ep02_vc20",
+    "visualCutId": "vc20",
+    "visualCutTitle": "次の異常地点",
+    "visualCutIndex": 20,
+    "start": 273.849,
+    "end": 275.428,
+    "image": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "バックヤードの冷凍庫の奥で、青いラベルが小さく光る。人物は出さず、次の異常を予告する静物カット。  2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "タクミ",
+    "dialogue": "未来は逃げるんですよ！",
+    "reading": "みらいワにげるんですよ！",
+    "log": [
+      "発話ログ　71/74",
+      "担当　タクミ",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "20/20　次の異常地点",
+    "progressLabel": "71/74　タクミ"
+  },
+  {
+    "id": "ep02_v072",
+    "cut": "ep02_vc20",
+    "visualCutId": "vc20",
+    "visualCutTitle": "次の異常地点",
+    "visualCutIndex": 20,
+    "start": 275.828,
+    "end": 278.748,
+    "image": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "バックヤードの冷凍庫の奥で、青いラベルが小さく光る。人物は出さず、次の異常を予告する静物カット。  2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "ナレーション",
+    "dialogue": "汗田はコーヒーを持って店を出た。",
+    "reading": "あせだワこーひーをもってみせをでた。",
+    "log": [
+      "発話ログ　72/74",
       "担当　ナレーション",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　次の異常地点",
-    "progressLabel": "65/65　ナレーション"
+    "progressLabel": "72/74　ナレーション"
+  },
+  {
+    "id": "ep02_v073",
+    "cut": "ep02_vc20",
+    "visualCutId": "vc20",
+    "visualCutTitle": "次の異常地点",
+    "visualCutIndex": 20,
+    "start": 279.098,
+    "end": 282.877,
+    "image": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "バックヤードの冷凍庫の奥で、青いラベルが小さく光る。人物は出さず、次の異常を予告する静物カット。  2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "ナレーション",
+    "dialogue": "ナビの端には、小さく表示が残っていた。",
+    "reading": "なびのはしにワ、ちいさくひょうじがのこっていた。",
+    "log": [
+      "発話ログ　73/74",
+      "担当　ナレーション",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "20/20　次の異常地点",
+    "progressLabel": "73/74　ナレーション"
+  },
+  {
+    "id": "ep02_v074",
+    "cut": "ep02_vc20",
+    "visualCutId": "vc20",
+    "visualCutTitle": "次の異常地点",
+    "visualCutIndex": 20,
+    "start": 283.277,
+    "end": 286.674,
+    "image": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "plannedImage": "assets/scenes/planned/ep02_vc16_freezer_label.png?v=ep02-rev2",
+    "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png?v=ep02-rev2",
+    "imagePrompt": "バックヤードの冷凍庫の奥で、青いラベルが小さく光る。人物は出さず、次の異常を予告する静物カット。  2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "speaker": "ナビ",
+    "dialogue": "次の異常地点。冷凍庫。",
+    "reading": "つぎのいじょうちてん。れいとうこ。",
+    "log": [
+      "発話ログ　74/74",
+      "担当　ナビ",
+      "深夜帯　進行中"
+    ],
+    "visualLabel": "20/20　次の異常地点",
+    "progressLabel": "74/74　ナビ"
   }
 ]

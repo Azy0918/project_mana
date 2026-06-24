@@ -143,6 +143,32 @@
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v011_タクミ.wav"
   },
   {
+    "id": "ep03_v011_g1",
+    "cut": "ep03_vc03",
+    "character": "ミナ",
+    "speaker_name": "中2",
+    "style_name": "ノーマル",
+    "style_id": 604166016,
+    "text": "チョコミントだったら悩む",
+    "synthesis_text": "ちょこみんとだったら、なやむ",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v011_g1.wav"
+  },
+  {
+    "id": "ep03_v011_g2",
+    "cut": "ep03_vc03",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": 1937616896,
+    "text": "悩むんですか！",
+    "synthesis_text": "なやむんですか！",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v011_g2.wav"
+  },
+  {
     "id": "ep03_v012",
     "cut": "ep03_vc04",
     "character": "ナレーション",
@@ -455,6 +481,19 @@
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v035_ミナ.wav"
   },
   {
+    "id": "ep03_v035_g1",
+    "cut": "ep03_vc10",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": 1937616896,
+    "text": "初めて共感してもらえた",
+    "synthesis_text": "はじめて、きょうかんしてもらえた",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v035_g1.wav"
+  },
+  {
     "id": "ep03_v036",
     "cut": "ep03_vc11",
     "character": "ナレーション",
@@ -617,8 +656,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": 1937616896,
-    "text": "ミナさん、今それ言う場面ですか",
-    "synthesis_text": "みなさん、いまそれいうばめんですか？",
+    "text": "今それ言う場面ですか",
+    "synthesis_text": "いまそれ、いうばめんですか",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v048_タクミ.wav"
@@ -652,15 +691,28 @@
   {
     "id": "ep03_v051",
     "cut": "ep03_vc16",
-    "character": "ナレーション",
-    "speaker_name": "澤原 玄二郎",
+    "character": "汗田竜司",
+    "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
-    "style_id": 2029042368,
-    "text": "汗田は一瞬沈黙し、真剣にうなずいた。",
-    "synthesis_text": "あせだワ、いっしゅんちんもくし、しんけんにうなずいた。",
+    "style_id": 1310138976,
+    "text": "……待て",
+    "synthesis_text": "……まて",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v051_ナレーション.wav"
+  },
+  {
+    "id": "ep03_v051_g1",
+    "cut": "ep03_vc16",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": 1937616896,
+    "text": "止めてください",
+    "synthesis_text": "とめてください",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v051_g1.wav"
   },
   {
     "id": "ep03_v052",
@@ -669,8 +721,8 @@
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
     "style_id": 1310138976,
-    "text": "……理屈としては近い",
-    "synthesis_text": "……りくつとしてワ、ちかい。",
+    "text": "理屈としては近い",
+    "synthesis_text": "りくつとしては、ちかい",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v052_汗田竜司.wav"
@@ -695,11 +747,24 @@
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
     "style_id": 1310138976,
-    "text": "店舗システムは、商品を袋単位で別会計として扱える。昨日の履歴を含むアイスと、今日の店舗記録を別取引として認識させる",
-    "synthesis_text": "てんぽしすてむワ、しょうひんを、ふくろたんいでべつかいけいとしてあつかえる。きのうのりれきを、ふくむあいすと、きょうのてんぽきろくを、べつとりひきとしてにんしきさせる。",
+    "text": "店舗システムは袋単位で別取引と認識できる",
+    "synthesis_text": "てんぽしすてむワ、ふくろたんいでべつとりひきと、にんしきできる",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v054_汗田竜司.wav"
+  },
+  {
+    "id": "ep03_v054_g1",
+    "cut": "ep03_vc16",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": 1937616896,
+    "text": "レジ袋が時空より強い！",
+    "synthesis_text": "れじぶくろが、じくうよりつよい！",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v054_g1.wav"
   },
   {
     "id": "ep03_v055",
@@ -786,8 +851,8 @@
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": 1805828384,
-    "text": "処理中",
-    "synthesis_text": "しょりちゅう。",
+    "text": "優先順位、低",
+    "synthesis_text": "ゆうせんじゅんい、てい",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v061_第十三レジ.wav"
@@ -804,6 +869,32 @@
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v062_タクミ.wav"
+  },
+  {
+    "id": "ep03_v062_g1",
+    "cut": "ep03_vc18",
+    "character": "第十三レジ",
+    "speaker_name": "ろてじん（匿名インタビュー風）",
+    "style_name": "ノーマル",
+    "style_id": 1805828384,
+    "text": "処理中",
+    "synthesis_text": "しょりちゅう",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 200,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v062_g1.wav"
+  },
+  {
+    "id": "ep03_v062_g2",
+    "cut": "ep03_vc18",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": 1937616896,
+    "text": "今さら！",
+    "synthesis_text": "いまさら！",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v062_g2.wav"
   },
   {
     "id": "ep03_v063",
@@ -871,6 +962,19 @@
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v067_汗田竜司.wav"
   },
   {
+    "id": "ep03_v067_g1",
+    "cut": "ep03_vc19",
+    "character": "汗田竜司",
+    "speaker_name": "阿井田 茂",
+    "style_name": "ノーマル",
+    "style_id": 1310138976,
+    "text": "結局、最後は保冷剤か",
+    "synthesis_text": "けっきょく、さいごワ、ほれいざいか",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v067_g1.wav"
+  },
+  {
     "id": "ep03_v068",
     "cut": "ep03_vc19",
     "character": "第十三レジ",
@@ -929,11 +1033,37 @@
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
     "style_id": 1310138976,
-    "text": "保管した方がいい。時間が腹を壊す",
-    "synthesis_text": "ほかんしたほうがいい。じかんが、はらをこわす。",
+    "text": "保管した方がいい。",
+    "synthesis_text": "ほかんしたほうがいい。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v072_汗田竜司.wav"
+  },
+  {
+    "id": "ep03_v072_g1",
+    "cut": "ep03_vc20",
+    "character": "汗田竜司",
+    "speaker_name": "阿井田 茂",
+    "style_name": "ノーマル",
+    "style_id": 1310138976,
+    "text": "時間は、だいたい冷やした方が安定する。",
+    "synthesis_text": "じかんワ、だいたいひやしたほうが、あんていする。",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v072_g1.wav"
+  },
+  {
+    "id": "ep03_v072_g2",
+    "cut": "ep03_vc20",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": 1937616896,
+    "text": "経験談みたいに言わないでください",
+    "synthesis_text": "けいけんだんみたいに、いわないでください",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v072_g2.wav"
   },
   {
     "id": "ep03_v073",
@@ -1051,6 +1181,19 @@
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v081_タクミ.wav"
+  },
+  {
+    "id": "ep03_v081_g1",
+    "cut": "ep03_vc20",
+    "character": "汗田竜司",
+    "speaker_name": "阿井田 茂",
+    "style_name": "ノーマル",
+    "style_id": 1310138976,
+    "text": "サービス業にはある",
+    "synthesis_text": "さーびすぎょうにワ、ある",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v081_g1.wav"
   },
   {
     "id": "ep03_v082",

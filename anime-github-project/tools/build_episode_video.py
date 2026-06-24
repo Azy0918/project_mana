@@ -77,6 +77,27 @@ def wrap_jp(text: str, n: int = WRAP) -> str:
     return "\\N".join(lines)
 
 
+def fit_text(raw: str, has_speaker: bool):
+    """セリフが対話ボックスに収まる最大フォントを選ぶ。
+    横幅(折返し幅)と縦(行数*行高)の両方でボックス内に収め、はみ出しを防ぐ。
+    戻り値: (本文フォント, 話者名フォント, 折返し済み本文)。"""
+    pad_x = TEXT_X - FX                  # 左右の内側余白 (=55)
+    avail_w = FW - 2 * pad_x             # 本文に使える横幅 (~890)
+    avail_h = FH - (TEXT_Y - FY) - 28    # 本文に使える高さ (~262)
+    LH = 1.25                            # 行高係数 (安全側)
+    fs = 28
+    for fs in (56, 52, 48, 44, 40, 36, 32, 28):
+        wrap = max(8, int(avail_w // fs))           # 全角1文字 ≈ fs px
+        body = wrap_jp(raw, wrap)
+        nlines = body.count("\\N") + 1
+        sp_fs = min(40, fs)
+        total = (sp_fs * LH if has_speaker else 0) + nlines * fs * LH
+        if total <= avail_h:
+            return fs, sp_fs, body
+    # 最小フォントでも収まらない極端な長文はそのまま最小で返す
+    return fs, min(40, fs), wrap_jp(raw, max(8, int(avail_w // fs)))
+
+
 def img_path(image_field: str) -> Path:
     return KAMI / image_field.split("?")[0]
 
@@ -167,10 +188,12 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         if not raw:
             continue
         speaker = (s.get("speaker") or "").strip()
-        body = wrap_jp(raw)
+        fs, sp_fs, body = fit_text(raw, bool(speaker))
         pos = f"\\pos({TEXT_X},{TEXT_Y})"
-        text = (f"{{{pos}\\fs40\\c{GREEN}\\b1}}{speaker}{{\\r}}\\N{body}"
-                if speaker else f"{{{pos}}}{body}")
+        if speaker:
+            text = f"{{{pos}\\fs{sp_fs}\\c{GREEN}\\b1}}{speaker}{{\\r\\fs{fs}}}\\N{body}"
+        else:
+            text = f"{{{pos}\\fs{fs}}}{body}"
         dlg(start, end, "KB", text)
 
     # end card (floating text over the darkened last image)

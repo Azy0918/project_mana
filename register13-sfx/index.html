@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>第十三レジ 起動音 試聴 ｜ 深夜二時の第十三レジ</title>
+<style>
+  :root { --bg:#0b0f14; --card:#121a24; --line:#1e2b3a; --cream:#f1e8d2; --green:#a6c178; --sub:#8aa0b4; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0; background: radial-gradient(120% 80% at 50% 0%, #16202c 0%, var(--bg) 60%);
+    color: var(--cream); font-family: "Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+    line-height: 1.6; padding: 24px 16px 60px; min-height: 100vh;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 4px 0 2px; letter-spacing: .04em; }
+  .lead { color: var(--green); font-size: 13px; margin: 0 0 4px; }
+  .note { color: var(--sub); font-size: 12.5px; margin: 0 0 22px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 16px 16px 18px; margin: 0 0 16px; box-shadow: 0 6px 22px rgba(0,0,0,.35);
+  }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+    color: #0b0f14; background: var(--green); border-radius: 999px; padding: 3px 10px; margin-bottom: 8px;
+  }
+  .card h2 { font-size: 16px; margin: 0 0 4px; }
+  .card p { font-size: 13px; color: var(--sub); margin: 0 0 12px; }
+  audio { width: 100%; display: block; filter: saturate(.9); }
+  .meta { font-size: 11.5px; color: #5f7488; }
+  .links { font-size: 12px; color: var(--sub); margin-top: 8px; }
+  .links a { color: var(--green); text-decoration: none; }
+  footer { color: var(--sub); font-size: 12px; text-align: center; margin-top: 26px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="lead">深夜二時の第十三レジ</p>
+  <h1>第十三レジ 起動音  — 試聴（3版）</h1>
+  <p class="note">普通のコンビニPOSが未来システムへ接続する瞬間のサウンドロゴ。約3秒・48kHz/24bit。
+  下の3版を聴き比べて、採用したい番号を教えてください。</p>
+
+  <div class="card">
+    <span class="tag">v1 ・ WARM（本命）</span>
+    <h2>温かい標準</h2>
+    <p>バランス型。ピッ→ジジッ→E-G-Bの柔らかいパッド→ガラスのベル。サウンドロゴの軸。</p>
+    <audio controls preload="none">
+      <source src="register13_start_v1.mp3?v=1" type="audio/mpeg">
+      <source src="register13_start_v1.wav?v=1" type="audio/wav">
+    </audio>
+  </div>
+
+  <div class="card">
+    <span class="tag">v2 ・ BRIGHT</span>
+    <h2>近未来・きらめき強め</h2>
+    <p>上の倍音と最上音を足し、ベルを明るく、残響は浅め。煌めきを前に出した未来寄り。</p>
+    <audio controls preload="none">
+      <source src="register13_start_v2.mp3?v=1" type="audio/mpeg">
+      <source src="register13_start_v2.wav?v=1" type="audio/wav">
+    </audio>
+  </div>
+
+  <div class="card">
+    <span class="tag">v3 ・ QUIET</span>
+    <h2>深夜・静けさ寄り</h2>
+    <p>暗め・柔らかめ、残響を深く長く、ベルは低く優しいB5。控えめで親密な深夜の空気。</p>
+    <audio controls preload="none">
+      <source src="register13_start_v3.mp3?v=1" type="audio/mpeg">
+      <source src="register13_start_v3.wav?v=1" type="audio/wav">
+    </audio>
+  </div>
+
+  <p class="links">WAV原本（48kHz/24bit）:
+    <a href="register13_start_v1.wav?v=1">v1</a> ／
+    <a href="register13_start_v2.wav?v=1">v2</a> ／
+    <a href="register13_start_v3.wav?v=1">v3</a>
+  </p>
+
+  <footer>採用版が決まれば「第十三レジ出現」の演出に組み込みます。</footer>
+</div>
+</body>
+</html>

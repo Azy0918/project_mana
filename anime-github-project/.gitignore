@@ -1,0 +1,36 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Python local environments
+.venv/
+venv/
+
+# Remotion / Node
+remotion/node_modules/
+remotion/out/
+remotion/dist/
+remotion/.cache/
+remotion/remotion-studio*.log
+
+# Generated working files
+assets/voice_tests/
+tools/_pv_frames_new/
+tools/output_video/
+tools/output_audio/
+tools/output_voice/
+tools/output_aivis_voice/
+tools/output_aivis_audio/
+tools/output_sound_design/
+tools/output_elevenlabs*/
+tools/output_openai*/
+tools/aivis_voice_samples/
+
+# Local secrets
+.env
+*.env
+
+# Very large local exports
+*.mov
+*.avi
+*.mkv

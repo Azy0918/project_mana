@@ -1,0 +1,74 @@
+# 『深夜二時の第十三レジ』キャラクター音声設定(Gemini TTS)
+# アプリの「★ この声を採用」で更新される。voice は Gemini TTS のプリセットボイス名。
+# 下の値は初期の候補(未採用)。実際に聞き比べて確定すること。
+characters:
+  ナレーション:
+    voice: Charon
+    model: gemini-2.5-flash-preview-tts
+    style: 落ち着いた深夜のナレーション。淡々と、少しだけ温かく、ゆっくり読む。
+    line: 午前二時三分。
+    sample: ""
+    updated_at: ""
+  タクミ:
+    voice: Puck
+    model: gemini-2.5-flash-preview-tts
+    style: 若い男性の新人バイト。素朴で少し戸惑い気味、軽いツッコミ口調。
+    line: コンビニって夜になるとレジが増えるんですか。
+    sample: ""
+    updated_at: ""
+  ミナ:
+    voice: Kore
+    model: gemini-2.5-flash-preview-tts
+    style: 淡々とした女性の先輩。低めで落ち着き、感情を抑えた素っ気ない口調。
+    line: 夜勤だから。
+    sample: ""
+    updated_at: ""
+  汗田竜司:
+    voice: Iapetus
+    model: gemini-2.5-flash-preview-tts
+    style: 五十四歳の男性技術者。低く落ち着いた声、理知的で誠実。
+    line: 理屈としては近い。
+    sample: ""
+    updated_at: ""
+  第十三レジ:
+    voice: Algieba
+    model: gemini-2.5-flash-preview-tts
+    style: 機械的で無表情なレジ端末の合成音声。平板で淡々、少し不思議で近未来的。
+    line: 第十三レジ。ただいま営業中。
+    sample: ""
+    updated_at: ""
+  ナビ:
+    voice: Despina
+    model: gemini-2.5-flash-preview-tts
+    style: カーナビの音声案内。クリアで事務的、合成音声らしい平坦さ。
+    line: 次の異常地点。冷凍庫。
+    sample: ""
+    updated_at: ""
+  未来の会社員:
+    voice: Enceladus
+    model: gemini-2.5-flash-preview-tts
+    style: 疲れた未来のサラリーマン。やや低く力ない、丁寧だが平淡。
+    line: 返品、お願いします。
+    sample: ""
+    updated_at: ""
+  座木山辰哉:
+    voice: Fenrir
+    model: gemini-2.5-flash-preview-tts
+    style: 風変わりな常連の男性。マイペースで飄々とした、味のある口調。
+    line: コピー、白黒でいいよ。色がつくと記憶が増えるから。
+    sample: ""
+    updated_at: ""
+  唐沢栄治:
+    voice: Orus
+    model: gemini-2.5-flash-preview-tts
+    style: 店長気質の男性。きびきびと事務的、現実的で少し早口。
+    line: 時空処理でも、一会計三分以内でお願いします。
+    sample: ""
+    updated_at: ""
+  トラック運転手:
+    voice: Algenib
+    model: gemini-2.5-flash-preview-tts
+    style: 中年男性のトラック運転手。素朴で人懐っこい、やや戸惑った口調。
+    line: 荷物、未来便って書いてあるんですけど、ここで合ってますか。
+    sample: ""
+    updated_at: ""

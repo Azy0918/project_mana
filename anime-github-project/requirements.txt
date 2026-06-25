@@ -1,0 +1,5 @@
+# 第十三レジ Gemini TTS 音声オーディションアプリ
+streamlit>=1.36
+google-genai>=1.0
+python-dotenv>=1.0
+PyYAML>=6.0

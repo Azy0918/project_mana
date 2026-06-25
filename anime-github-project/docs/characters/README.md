@@ -6,7 +6,7 @@
 |---|---|---|
 | タクミ | [`takumi/MASTER_PROMPT.md`](takumi/MASTER_PROMPT.md) | 新人夜勤バイト・ツッコミ役。表情変化が最大。 |
 | ミナ | [`mina/MASTER_PROMPT.md`](mina/MASTER_PROMPT.md) | 先輩夜勤バイト。淡々・無表情、タクミとの対比を維持。 |
-| 汗田竜司 | [`aseda_ryuji/README.md`](aseda_ryuji/README.md) | 54歳の自動車開発者。第2話の主軸。 |
+| 汗田竜司 | [`aseda_ryuji/MASTER_PROMPT.md`](aseda_ryuji/MASTER_PROMPT.md) | 54歳の自動車開発者。CB200X風バイク＋紫ヘルメット＋ライダー向きナビまで固定（背景ノートは同フォルダ README.md）。 |
 | ナビ | [`navi/MASTER_PROMPT.md`](navi/MASTER_PROMPT.md) | 汗田のバイクナビ兼・第十三レジ通信端末（機器デザイン固定）。 |
 | 第十三レジ | [`register13/MASTER_PROMPT.md`](register13/MASTER_PROMPT.md) | 卓上サイズの「13番目のPOSレジ」。巨大装置NG・店内に溶け込む（デザイン修正版）。 |
 

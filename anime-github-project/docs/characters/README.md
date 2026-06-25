@@ -10,6 +10,12 @@
 | ナビ | [`navi/MASTER_PROMPT.md`](navi/MASTER_PROMPT.md) | 汗田のバイクナビ兼・第十三レジ通信端末（機器デザイン固定）。 |
 | 第十三レジ | [`register13/MASTER_PROMPT.md`](register13/MASTER_PROMPT.md) | 卓上サイズの「13番目のPOSレジ」。巨大装置NG・店内に溶け込む（デザイン修正版）。 |
 
+## 場所・舞台の固定設定
+
+| 対象 | 固定設定 | 補足 |
+|---|---|---|
+| コンビニ内装 | [`../settings/store_interior/MASTER_PROMPT.md`](../settings/store_interior/MASTER_PROMPT.md) | 全12話同一店舗。レイアウト・棚/設備位置・照明・色調を固定。 |
+
 関連：
 - 既定の作画方向・画像生成ルール: [`../../PROJECT.md`](../../PROJECT.md)
 - シリーズ・キャラクターデザイン（外見ロック）: `13th-register-kamishibai/character_design_series.md`（gh-pages側）

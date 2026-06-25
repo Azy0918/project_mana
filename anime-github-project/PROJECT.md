@@ -105,9 +105,13 @@ anime-github-project/
 
 **固定設定（マスタープロンプト・全話/全カット共通の正本）: [`docs/characters/register13/MASTER_PROMPT.md`](docs/characters/register13/MASTER_PROMPT.md)**
 
-### 未来の会社員
+### 未来の会社員（長谷山隆之）
 
-40代男性。疲れたスーツ姿。未来から来ているが派手なSF服ではなく、くたびれた現実感を優先する。
+40代前後の男性。2074年 食品流通管理課の会社員。疲れたダークグレーのスーツ＋首元の記憶返品タグ。未来から来ているが派手なSF服ではなく、くたびれた現実感を優先する。
+
+**固定設定: [`docs/characters/future_employee/MASTER_PROMPT.md`](docs/characters/future_employee/MASTER_PROMPT.md)**
+
+> その他のキャラ（座木山辰哉／唐沢栄治／トラック運転手）の固定設定は [`docs/characters/README.md`](docs/characters/README.md) を参照。全キャラ共通ルールは [`docs/characters/COMMON_RULES.md`](docs/characters/COMMON_RULES.md)。
 
 ### 汗田竜司
 

@@ -5,3 +5,6 @@ __pycache__/
 _worktrees/
 outputs/
 outputs/aivis_speakers_current.json
+
+# build_episode_video.py が毎レンダー時に生成する字幕中間ファイル(動画へ焼き込み済み)
+*_subs.ass

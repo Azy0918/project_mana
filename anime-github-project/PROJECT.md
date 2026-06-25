@@ -107,7 +107,7 @@ anime-github-project/
 
 ### 未来の会社員（長谷山隆之）
 
-40代前後の男性。2074年 食品流通管理課の会社員。疲れたダークグレーのスーツ＋首元の記憶返品タグ。未来から来ているが派手なSF服ではなく、くたびれた現実感を優先する。
+40代前後の男性。2074年 食品流通管理課の会社員。くたびれた濃紺スーツ＋首元の記憶返品タグ。未来から来ているが派手なSF服ではなく、くたびれた現実感を優先する。
 
 **固定設定: [`docs/characters/future_employee/MASTER_PROMPT.md`](docs/characters/future_employee/MASTER_PROMPT.md)**
 

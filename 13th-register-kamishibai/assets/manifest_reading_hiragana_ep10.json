@@ -19,8 +19,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "第1話のレシート。時空返品、一件。歴史メモ、一件。完全栄養おにぎり、開発継続。",
-    "synthesis_text": "だいいちわのれしーと。じくうへんぴん、いっけん。れきしめも、いっけん。かんぜんえいようおにぎり、かいはつけいぞく。",
+    "text": "第1話のレシート。時空返品、一件。履歴メモ、一件。完全栄養おにぎり、開発継続。",
+    "synthesis_text": "だいいちわのれしーと。じくうへんぴん、いっけん。りれきめも、いっけん。かんぜんえいようおにぎり、かいはつけいぞく。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
     "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v002_ナレーション.wav"

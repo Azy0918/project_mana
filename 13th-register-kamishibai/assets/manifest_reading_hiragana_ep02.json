@@ -396,10 +396,10 @@
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": 1805828384,
-    "text": "昨日返品された完全栄養おにぎりの歴史メモに欠損があります",
-    "synthesis_text": "きのう、へんぴんされたかんぜんえいようおにぎりのれきしめもにけっそんがあります。",
+    "text": "昨日返品された完全栄養おにぎりの履歴メモは簡易記録です。情報量が不足しています。修正メモを入力してください。",
+    "synthesis_text": "きのう、へんぴんされたかんぜんえいようおにぎりの、りれきめもワ、かんいきろくです。じょうほうりょうがふそくしています。しゅうせいめもを、にゅうりょくしてください。",
     "synthesis_source": "reading_hiragana",
-    "pause_after_ms": 350,
+    "pause_after_ms": 450,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v031_第十三レジ.wav"
   },
   {
@@ -409,8 +409,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "画面に、ミナのメモが表示された。",
-    "synthesis_text": "がめんに、みなの、めもがひょうじされた。",
+    "text": "画面に、ミナが入力した履歴メモが表示された。",
+    "synthesis_text": "がめんに、みながにゅうりょくした、りれきめもがひょうじされた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v032_ナレーション.wav"
@@ -422,14 +422,27 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "このおにぎりは、ちゃんと作った方がいいです。",
-    "synthesis_text": "このおにぎりワ、ちゃんとつくったほうがいいです。",
+    "text": "このおにぎりは、ちゃんと作る。",
+    "synthesis_text": "このおにぎりワ、ちゃんとつくる。",
     "synthesis_source": "reading_hiragana",
-    "pause_after_ms": 400,
+    "pause_after_ms": 300,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v033_ナレーション.wav"
   },
   {
     "id": "ep02_v034",
+    "cut": "ep02_vc11",
+    "character": "ナレーション",
+    "speaker_name": "澤原 玄二郎",
+    "style_name": "ノーマル",
+    "style_id": 2029042368,
+    "text": "なくなると困る人がいる。",
+    "synthesis_text": "なくなるとこまるひとがいる。",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 400,
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v034_ナレーション.wav"
+  },
+  {
+    "id": "ep02_v035",
     "cut": "ep02_vc12",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -439,10 +452,10 @@
     "synthesis_text": "じょうけんがたりない。もくてきもひょうかきじゅんもない。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v034_汗田竜司.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v035_汗田竜司.wav"
   },
   {
-    "id": "ep02_v035",
+    "id": "ep02_v036",
     "cut": "ep02_vc12",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -452,10 +465,10 @@
     "synthesis_text": "みなさんのにぎょうがみらいをとめてる。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v035_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v036_タクミ.wav"
   },
   {
-    "id": "ep02_v036",
+    "id": "ep02_v037",
     "cut": "ep02_vc12",
     "character": "ミナ",
     "speaker_name": "中2",
@@ -465,10 +478,10 @@
     "synthesis_text": "みらい、せんさいだね。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v036_ミナ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v037_ミナ.wav"
   },
   {
-    "id": "ep02_v037",
+    "id": "ep02_v038",
     "cut": "ep02_vc12",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -478,23 +491,23 @@
     "synthesis_text": "もっとつよくいきてほしい。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v037_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v038_タクミ.wav"
   },
   {
-    "id": "ep02_v038",
+    "id": "ep02_v039",
     "cut": "ep02_vc13",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": 1805828384,
-    "text": "修正メモを入力してください。残り二分",
-    "synthesis_text": "しゅうせいめもをにゅうりょくしてください。のこりにふん。",
+    "text": "残り二分。",
+    "synthesis_text": "のこり、にふん。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v038_第十三レジ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v039_第十三レジ.wav"
   },
   {
-    "id": "ep02_v039",
+    "id": "ep02_v040",
     "cut": "ep02_vc14",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -504,10 +517,10 @@
     "synthesis_text": "あせだワれしーとしをうけとり、ぺんをはしらせた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v039_ナレーション.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v040_ナレーション.wav"
   },
   {
-    "id": "ep02_v040",
+    "id": "ep02_v041",
     "cut": "ep02_vc14",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -517,19 +530,6 @@
     "synthesis_text": "もくてき。しょくりょうぶそくにたいするかいはつけいぞく。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v040_汗田竜司.wav"
-  },
-  {
-    "id": "ep02_v041",
-    "cut": "ep02_vc14",
-    "character": "汗田竜司",
-    "speaker_name": "阿井田 茂",
-    "style_name": "ノーマル",
-    "style_id": 1310138976,
-    "text": "評価基準。味、保存性、量産性、価格。",
-    "synthesis_text": "ひょうかきじゅん。あじ、ほぞんせい、りょうさんせい、かかく。",
-    "synthesis_source": "reading_hiragana",
-    "pause_after_ms": 300,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v041_汗田竜司.wav"
   },
   {
@@ -539,14 +539,27 @@
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
     "style_id": 1310138976,
-    "text": "あと、食べた人間の表情。",
-    "synthesis_text": "あと、たべたにんげんのひょうじょう。",
+    "text": "評価基準。味、保存性、量産性、価格。",
+    "synthesis_text": "ひょうかきじゅん。あじ、ほぞんせい、りょうさんせい、かかく。",
     "synthesis_source": "reading_hiragana",
-    "pause_after_ms": 500,
+    "pause_after_ms": 300,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v042_汗田竜司.wav"
   },
   {
     "id": "ep02_v043",
+    "cut": "ep02_vc14",
+    "character": "汗田竜司",
+    "speaker_name": "阿井田 茂",
+    "style_name": "ノーマル",
+    "style_id": 1310138976,
+    "text": "あと、食べた人間の表情。",
+    "synthesis_text": "あと、たべたにんげんのひょうじょう。",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 500,
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v043_汗田竜司.wav"
+  },
+  {
+    "id": "ep02_v044",
     "cut": "ep02_vc15",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -556,10 +569,10 @@
     "synthesis_text": "さいごだけきゅうににんげんですね。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v043_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v044_タクミ.wav"
   },
   {
-    "id": "ep02_v044",
+    "id": "ep02_v045",
     "cut": "ep02_vc15",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -569,10 +582,10 @@
     "synthesis_text": "たべもののかちワすうちだけじゃきまらない。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v044_汗田竜司.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v045_汗田竜司.wav"
   },
   {
-    "id": "ep02_v045",
+    "id": "ep02_v046",
     "cut": "ep02_vc15",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -582,10 +595,10 @@
     "synthesis_text": "かいしゃでワわらわれたことばだった。けれどこのみせでワ、だれもわらわなかった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 600,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v045_ナレーション.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v046_ナレーション.wav"
   },
   {
-    "id": "ep02_v046",
+    "id": "ep02_v047",
     "cut": "ep02_vc16",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -595,10 +608,10 @@
     "synthesis_text": "しゅうせいめもをじゅりしました。しょくりょうかいぜんりつ、あんてい。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v046_第十三レジ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v047_第十三レジ.wav"
   },
   {
-    "id": "ep02_v047",
+    "id": "ep02_v048",
     "cut": "ep02_vc16",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -608,10 +621,10 @@
     "synthesis_text": "たすかったんですか？",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v047_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v048_タクミ.wav"
   },
   {
-    "id": "ep02_v048",
+    "id": "ep02_v049",
     "cut": "ep02_vc16",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -621,10 +634,10 @@
     "synthesis_text": "ちょっとたすかりました。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v048_第十三レジ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v049_第十三レジ.wav"
   },
   {
-    "id": "ep02_v049",
+    "id": "ep02_v050",
     "cut": "ep02_vc16",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -634,10 +647,10 @@
     "synthesis_text": "ちょっとですませるはなしなんですか！",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v049_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v050_タクミ.wav"
   },
   {
-    "id": "ep02_v050",
+    "id": "ep02_v051",
     "cut": "ep02_vc17",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -647,10 +660,10 @@
     "synthesis_text": "なびのがめんにもじがうかぶ。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v050_ナレーション.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v051_ナレーション.wav"
   },
   {
-    "id": "ep02_v051",
+    "id": "ep02_v052",
     "cut": "ep02_vc17",
     "character": "ナビ",
     "speaker_name": "コハク",
@@ -660,10 +673,10 @@
     "synthesis_text": "きょうりょくにかんしゃします。あせだりゅうじ。あなたのけんきゅうせいかワ、げんざいもかどうしています。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v051_ナビ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v052_ナビ.wav"
   },
   {
-    "id": "ep02_v052",
+    "id": "ep02_v053",
     "cut": "ep02_vc17",
     "character": "ナビ",
     "speaker_name": "コハク",
@@ -673,10 +686,10 @@
     "synthesis_text": "りようしゃからのくじょうけんすうワ、へいきんいかです。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v052_ナビ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v053_ナビ.wav"
   },
   {
-    "id": "ep02_v053",
+    "id": "ep02_v054",
     "cut": "ep02_vc17",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -686,10 +699,10 @@
     "synthesis_text": "そこひょうかなんですか！",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v053_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v054_タクミ.wav"
   },
   {
-    "id": "ep02_v054",
+    "id": "ep02_v055",
     "cut": "ep02_vc17",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -699,10 +712,10 @@
     "synthesis_text": "じゅうぶんだ。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 700,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v054_汗田竜司.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v055_汗田竜司.wav"
   },
   {
-    "id": "ep02_v055",
+    "id": "ep02_v056",
     "cut": "ep02_vc18",
     "character": "ミナ",
     "speaker_name": "中2",
@@ -712,10 +725,10 @@
     "synthesis_text": "こーひーのみます？",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v055_ミナ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v056_ミナ.wav"
   },
   {
-    "id": "ep02_v056",
+    "id": "ep02_v057",
     "cut": "ep02_vc18",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -725,10 +738,10 @@
     "synthesis_text": "ぶらっくで。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v056_汗田竜司.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v057_汗田竜司.wav"
   },
   {
-    "id": "ep02_v057",
+    "id": "ep02_v058",
     "cut": "ep02_vc18",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -738,10 +751,10 @@
     "synthesis_text": "ひゃくにじゅうえんです。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v057_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v058_タクミ.wav"
   },
   {
-    "id": "ep02_v058",
+    "id": "ep02_v059",
     "cut": "ep02_vc18",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -751,10 +764,10 @@
     "synthesis_text": "やすいな。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v058_汗田竜司.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v059_汗田竜司.wav"
   },
   {
-    "id": "ep02_v059",
+    "id": "ep02_v060",
     "cut": "ep02_vc18",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -764,10 +777,10 @@
     "synthesis_text": "みらいじんとおなじはんのうしないでください。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v059_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v060_タクミ.wav"
   },
   {
-    "id": "ep02_v060",
+    "id": "ep02_v061",
     "cut": "ep02_vc18",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -777,10 +790,10 @@
     "synthesis_text": "ぎじゅつしゃワこーひーだいにびんかんなんだ。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v060_汗田竜司.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v061_汗田竜司.wav"
   },
   {
-    "id": "ep02_v061",
+    "id": "ep02_v062",
     "cut": "ep02_vc18",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -790,10 +803,23 @@
     "synthesis_text": "みらいときょうつうてんそこですか。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v061_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v062_タクミ.wav"
   },
   {
-    "id": "ep02_v062",
+    "id": "ep02_v063",
+    "cut": "ep02_vc19",
+    "character": "第十三レジ",
+    "speaker_name": "ろてじん（匿名インタビュー風）",
+    "style_name": "ノーマル",
+    "style_id": 1805828384,
+    "text": "履歴メモ保全完了。",
+    "synthesis_text": "りれきめも、ほぜんかんりょう。",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 500,
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v063_第十三レジ.wav"
+  },
+  {
+    "id": "ep02_v064",
     "cut": "ep02_vc19",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -803,10 +829,10 @@
     "synthesis_text": "だいじゅうさんれじワれしーとをはきだした。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v062_ナレーション.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v064_ナレーション.wav"
   },
   {
-    "id": "ep02_v063",
+    "id": "ep02_v065",
     "cut": "ep02_vc19",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -816,10 +842,10 @@
     "synthesis_text": "れしーとのさいごのいちぎょうに、てんちょうかくにん、みりょう、とあった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v063_ナレーション.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v065_ナレーション.wav"
   },
   {
-    "id": "ep02_v064",
+    "id": "ep02_v066",
     "cut": "ep02_vc19",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -829,10 +855,10 @@
     "synthesis_text": "てんちょう、かんけいありました？",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v064_タクミ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v066_タクミ.wav"
   },
   {
-    "id": "ep02_v065",
+    "id": "ep02_v067",
     "cut": "ep02_vc19",
     "character": "ミナ",
     "speaker_name": "中2",
@@ -842,10 +868,10 @@
     "synthesis_text": "みりょうワ、だいたいのこる。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 600,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v065_ミナ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v067_ミナ.wav"
   },
   {
-    "id": "ep02_v066",
+    "id": "ep02_v068",
     "cut": "ep02_vc20",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -855,10 +881,10 @@
     "synthesis_text": "ばっくやーどのれいとうこのおくで、あおいらべるがあわくひかった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v066_ナレーション.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v068_ナレーション.wav"
   },
   {
-    "id": "ep02_v067",
+    "id": "ep02_v069",
     "cut": "ep02_vc20",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -868,32 +894,6 @@
     "synthesis_text": "もうじかいよこくがれいとうこからきてる。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v067_タクミ.wav"
-  },
-  {
-    "id": "ep02_v068",
-    "cut": "ep02_vc20",
-    "character": "ミナ",
-    "speaker_name": "中2",
-    "style_name": "ノーマル",
-    "style_id": 604166016,
-    "text": "先に掃除",
-    "synthesis_text": "さきにそうじ。",
-    "synthesis_source": "reading_hiragana",
-    "pause_after_ms": 250,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v068_ミナ.wav"
-  },
-  {
-    "id": "ep02_v069",
-    "cut": "ep02_vc20",
-    "character": "タクミ",
-    "speaker_name": "にせ",
-    "style_name": "ノーマル",
-    "style_id": 1937616896,
-    "text": "未来より掃除ですか",
-    "synthesis_text": "みらいより、そうじですか。",
-    "synthesis_source": "reading_hiragana",
-    "pause_after_ms": 300,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v069_タクミ.wav"
   },
   {
@@ -903,8 +903,8 @@
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
-    "text": "冷凍庫は逃げない",
-    "synthesis_text": "れいとうこワにげない。",
+    "text": "先に掃除",
+    "synthesis_text": "さきにそうじ。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v070_ミナ.wav"
@@ -916,14 +916,40 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": 1937616896,
-    "text": "未来は逃げるんですよ！",
-    "synthesis_text": "みらいワにげるんですよ！",
+    "text": "未来より掃除ですか",
+    "synthesis_text": "みらいより、そうじですか。",
     "synthesis_source": "reading_hiragana",
-    "pause_after_ms": 400,
+    "pause_after_ms": 300,
     "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v071_タクミ.wav"
   },
   {
     "id": "ep02_v072",
+    "cut": "ep02_vc20",
+    "character": "ミナ",
+    "speaker_name": "中2",
+    "style_name": "ノーマル",
+    "style_id": 604166016,
+    "text": "冷凍庫は逃げない",
+    "synthesis_text": "れいとうこワにげない。",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v072_ミナ.wav"
+  },
+  {
+    "id": "ep02_v073",
+    "cut": "ep02_vc20",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": 1937616896,
+    "text": "未来は逃げるんですよ！",
+    "synthesis_text": "みらいワにげるんですよ！",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 400,
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v073_タクミ.wav"
+  },
+  {
+    "id": "ep02_v074",
     "cut": "ep02_vc20",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -933,10 +959,10 @@
     "synthesis_text": "あせだワこーひーをもってみせをでた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v072_ナレーション.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v074_ナレーション.wav"
   },
   {
-    "id": "ep02_v073",
+    "id": "ep02_v075",
     "cut": "ep02_vc20",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -946,10 +972,10 @@
     "synthesis_text": "なびのはしにワ、ちいさくひょうじがのこっていた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 400,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v073_ナレーション.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v075_ナレーション.wav"
   },
   {
-    "id": "ep02_v074",
+    "id": "ep02_v076",
     "cut": "ep02_vc20",
     "character": "ナビ",
     "speaker_name": "コハク",
@@ -959,6 +985,6 @@
     "synthesis_text": "つぎのいじょうちてん。れいとうこ。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 800,
-    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v074_ナビ.wav"
+    "clip": "outputs\\ep02_voice_reading_hiragana\\clips\\ep02_v076_ナビ.wav"
   }
 ]

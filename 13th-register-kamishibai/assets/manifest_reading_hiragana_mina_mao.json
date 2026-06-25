@@ -864,11 +864,24 @@
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
-    "text": "ちゃんと作る。",
-    "synthesis_text": "ちゃんとつくる。",
+    "text": "このおにぎりは、ちゃんと作る。",
+    "synthesis_text": "このおにぎりワ、ちゃんとつくる。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep01_voice_reading_hiragana\\clips\\ep01_v066_g2.wav"
+  },
+  {
+    "id": "ep01_v066_g3",
+    "cut": "ep01_054",
+    "character": "ミナ",
+    "speaker_name": "中2",
+    "style_name": "ノーマル",
+    "style_id": 604166016,
+    "text": "なくなると困る人がいる。",
+    "synthesis_text": "なくなるとこまるひとがいる。",
+    "synthesis_source": "reading_hiragana",
+    "pause_after_ms": 250,
+    "clip": "outputs\\ep01_voice_reading_hiragana\\clips\\ep01_v066_g3.wav"
   },
   {
     "id": "ep01_v067",
@@ -890,8 +903,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": 1937616896,
-    "text": "二文字で通るんだ！",
-    "synthesis_text": "にもじで、とおるんだ！",
+    "text": "そんなメモで通るんだ！",
+    "synthesis_text": "そんなめもで、とおるんだ！",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep01_voice_reading_hiragana\\clips\\ep01_v068_タクミ.wav"
@@ -1033,8 +1046,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "時空返品、一件。歴史メモ、一件。完全栄養おにぎり、開発継続。",
-    "synthesis_text": "じくうへんぴん、いっけん。れきしめも、いっけん。かんぜんえいようおにぎり、かいはつけいぞく。",
+    "text": "時空返品、一件。履歴メモ、一件。完全栄養おにぎり、開発継続。",
+    "synthesis_text": "じくうへんぴん、いっけん。りれきめも、いっけん。かんぜんえいようおにぎり、かいはつけいぞく。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 200,
     "clip": "outputs\\ep01_voice_reading_hiragana\\clips\\ep01_v076_ナレーション.wav"

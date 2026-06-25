@@ -15,12 +15,12 @@
     "dialogue": "午前二時三分。",
     "reading": "ごぜんにじさんぷん。",
     "log": [
-      "発話ログ　01/90",
+      "発話ログ　01/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "01/20　深夜コンビニ外観",
-    "progressLabel": "01/90　ナレーション"
+    "progressLabel": "01/91　ナレーション"
   },
   {
     "id": "ep01_v002",
@@ -38,12 +38,12 @@
     "dialogue": "国道沿いのコンビニは、冷蔵ケースの低い音だけでできているみたいに静かだった。",
     "reading": "こくどうぞいのこんびにワ、れいぞうけーすのひくいおとだけでできているみたいにしずかだった。",
     "log": [
-      "発話ログ　02/90",
+      "発話ログ　02/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "01/20　深夜コンビニ外観",
-    "progressLabel": "02/90　ナレーション"
+    "progressLabel": "02/91　ナレーション"
   },
   {
     "id": "ep01_v003",
@@ -61,12 +61,12 @@
     "dialogue": "新人夜勤バイトのタクミは、おにぎり棚の前で廃棄時間のシールを見比べていた。",
     "reading": "しんじんやきんばいとのたくみワ、おにぎりだなのまえで、はいきじかんのしーるをみくらべていた。",
     "log": [
-      "発話ログ　03/90",
+      "発話ログ　03/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "02/20　おにぎり棚の前のタクミ",
-    "progressLabel": "03/90　ナレーション"
+    "progressLabel": "03/91　ナレーション"
   },
   {
     "id": "ep01_v004",
@@ -84,12 +84,12 @@
     "dialogue": "ミナさん。廃棄のおにぎりって、何分前から食べていいんですか。",
     "reading": "みなさん。はいきのおにぎりって、なんぷんまえからたべていいんですか。",
     "log": [
-      "発話ログ　04/90",
+      "発話ログ　04/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "02/20　おにぎり棚の前のタクミ",
-    "progressLabel": "04/90　タクミ"
+    "progressLabel": "04/91　タクミ"
   },
   {
     "id": "ep01_v005",
@@ -107,12 +107,12 @@
     "dialogue": "食べていいとは言ってない。",
     "reading": "たべていいとワいってない。",
     "log": [
-      "発話ログ　05/90",
+      "発話ログ　05/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "05/90　ミナ"
+    "progressLabel": "05/91　ミナ"
   },
   {
     "id": "ep01_v006",
@@ -130,12 +130,12 @@
     "dialogue": "でも捨てるんですよね。",
     "reading": "でもすてるんですよね。",
     "log": [
-      "発話ログ　06/90",
+      "発話ログ　06/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "06/90　タクミ"
+    "progressLabel": "06/91　タクミ"
   },
   {
     "id": "ep01_v007",
@@ -153,12 +153,12 @@
     "dialogue": "捨てるものと食べていいものの間には、店長という深い谷がある。",
     "reading": "すてるものとたべていいもののあいだにワ、てんちょうというふかいたにがある。",
     "log": [
-      "発話ログ　07/90",
+      "発話ログ　07/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "07/90　ミナ"
+    "progressLabel": "07/91　ミナ"
   },
   {
     "id": "ep01_v008",
@@ -176,12 +176,12 @@
     "dialogue": "現実的に深いですね。",
     "reading": "げんじつてきにふかいですね。",
     "log": [
-      "発話ログ　08/90",
+      "発話ログ　08/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "08/90　タクミ"
+    "progressLabel": "08/91　タクミ"
   },
   {
     "id": "ep01_v009",
@@ -199,12 +199,12 @@
     "dialogue": "落ちるとシフトが減る。",
     "reading": "おちるとしふとがへる。",
     "log": [
-      "発話ログ　09/90",
+      "発話ログ　09/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "09/90　ミナ"
+    "progressLabel": "09/91　ミナ"
   },
   {
     "id": "ep01_v010",
@@ -222,12 +222,12 @@
     "dialogue": "シフト減るのが一番効くやつだ。",
     "reading": "しふとへるのがいちばんきくやつだ。",
     "log": [
-      "発話ログ　10/90",
+      "発話ログ　10/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　廃棄おにぎり問答",
-    "progressLabel": "10/90　タクミ"
+    "progressLabel": "10/91　タクミ"
   },
   {
     "id": "ep01_v011",
@@ -245,12 +245,12 @@
     "dialogue": "二時十五分、雑誌返品。二時十七分、第十三レジ。",
     "reading": "にじじゅうごふん、ざっしへんぴん。にじじゅうななふん、だいじゅうさんれじ。",
     "log": [
-      "発話ログ　11/90",
+      "発話ログ　11/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "04/20　第十三レジ出現前兆",
-    "progressLabel": "11/90　ミナ"
+    "progressLabel": "11/91　ミナ"
   },
   {
     "id": "ep01_v012",
@@ -268,12 +268,12 @@
     "dialogue": "はい。……はい？",
     "reading": "はい。はい？",
     "log": [
-      "発話ログ　12/90",
+      "発話ログ　12/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "04/20　第十三レジ出現前兆",
-    "progressLabel": "12/90　タクミ"
+    "progressLabel": "12/91　タクミ"
   },
   {
     "id": "ep01_v014",
@@ -291,12 +291,12 @@
     "dialogue": "タクミが聞き返した瞬間、雑誌棚とコピー機の間に、銀色の古いレジが現れた。",
     "reading": "たくみがききかえしたしゅんかん、ざっしだなとこぴーきのあいだに、ぎんいろのふるいれじがあらわれた。",
     "log": [
-      "発話ログ　13/90",
+      "発話ログ　13/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "04/20　第十三レジ出現前兆",
-    "progressLabel": "13/90　ナレーション"
+    "progressLabel": "13/91　ナレーション"
   },
   {
     "id": "ep01_v015",
@@ -314,12 +314,12 @@
     "dialogue": "第十三レジ。ただいま営業中。",
     "reading": "だいじゅうさんれじ。ただいまえいぎょうちゅう。",
     "log": [
-      "発話ログ　14/90",
+      "発話ログ　14/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "14/90　第十三レジ"
+    "progressLabel": "14/91　第十三レジ"
   },
   {
     "id": "ep01_v016",
@@ -337,12 +337,12 @@
     "dialogue": "増えた……。",
     "reading": "ふえた。",
     "log": [
-      "発話ログ　15/90",
+      "発話ログ　15/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "15/90　タクミ"
+    "progressLabel": "15/91　タクミ"
   },
   {
     "id": "ep01_v017",
@@ -360,12 +360,12 @@
     "dialogue": "増えるよ。",
     "reading": "ふえるよ。",
     "log": [
-      "発話ログ　16/90",
+      "発話ログ　16/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "16/90　ミナ"
+    "progressLabel": "16/91　ミナ"
   },
   {
     "id": "ep01_v018",
@@ -383,12 +383,12 @@
     "dialogue": "コンビニって夜になるとレジが増えるんですか。",
     "reading": "こんびにってよるになるとれじがふえるんですか。",
     "log": [
-      "発話ログ　17/90",
+      "発話ログ　17/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "17/90　タクミ"
+    "progressLabel": "17/91　タクミ"
   },
   {
     "id": "ep01_v019",
@@ -406,12 +406,12 @@
     "dialogue": "夜勤はだいたいそう。",
     "reading": "やきんワだいたいそう。",
     "log": [
-      "発話ログ　18/90",
+      "発話ログ　18/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "18/90　ミナ"
+    "progressLabel": "18/91　ミナ"
   },
   {
     "id": "ep01_v020",
@@ -429,12 +429,12 @@
     "dialogue": "絶対違う。",
     "reading": "ぜったいちがう。",
     "log": [
-      "発話ログ　19/90",
+      "発話ログ　19/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　営業中の第十三レジ",
-    "progressLabel": "19/90　タクミ"
+    "progressLabel": "19/91　タクミ"
   },
   {
     "id": "ep01_v022",
@@ -452,12 +452,12 @@
     "dialogue": "入ってきたのは、くたびれたスーツ姿の男だった。",
     "reading": "ハいってきたのワ、くたびれたすーつすがたのおとこだった。",
     "log": [
-      "発話ログ　20/90",
+      "発話ログ　20/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "06/20　未来の会社員来店",
-    "progressLabel": "20/90　ナレーション"
+    "progressLabel": "20/91　ナレーション"
   },
   {
     "id": "ep01_v023",
@@ -475,12 +475,12 @@
     "dialogue": "肩の小さな液晶には、残業時間二百七十六時間、と表示されている。",
     "reading": "かたのちいさなえきしょうにワ、ざんぎょうじかんにひゃくななじゅうろくじかん、とひょうじされている。",
     "log": [
-      "発話ログ　21/90",
+      "発話ログ　21/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "06/20　未来の会社員来店",
-    "progressLabel": "21/90　ナレーション"
+    "progressLabel": "21/91　ナレーション"
   },
   {
     "id": "ep01_v024",
@@ -498,12 +498,12 @@
     "dialogue": "首元の透明なパッチが、レジの電子音に合わせて一度だけ銀色に光った。",
     "reading": "くびもとのとうめいなぱっちが、れじのでんしおんにあわせていちどだけぎんいろにひかった。",
     "log": [
-      "発話ログ　22/90",
+      "発話ログ　22/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "06/20　未来の会社員来店",
-    "progressLabel": "22/90　ナレーション"
+    "progressLabel": "22/91　ナレーション"
   },
   {
     "id": "ep01_v025",
@@ -521,12 +521,12 @@
     "dialogue": "返品、お願いします。",
     "reading": "へんぴん、おねがいします。",
     "log": [
-      "発話ログ　23/90",
+      "発話ログ　23/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "23/90　未来の会社員"
+    "progressLabel": "23/91　未来の会社員"
   },
   {
     "id": "ep01_v026",
@@ -544,12 +544,12 @@
     "dialogue": "レシートはお持ちですか。",
     "reading": "れしーとワおもちですか。",
     "log": [
-      "発話ログ　24/90",
+      "発話ログ　24/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "24/90　ミナ"
+    "progressLabel": "24/91　ミナ"
   },
   {
     "id": "ep01_v027",
@@ -567,12 +567,12 @@
     "dialogue": "五十年後に発行されます。",
     "reading": "ごじゅうねんごに、はっこうされます。",
     "log": [
-      "発話ログ　25/90",
+      "発話ログ　25/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "25/90　未来の会社員"
+    "progressLabel": "25/91　未来の会社員"
   },
   {
     "id": "ep01_v028",
@@ -590,12 +590,12 @@
     "dialogue": "ミナさん。対応マニュアルあります？",
     "reading": "みなさん。たいおうまにゅあるあります？",
     "log": [
-      "発話ログ　26/90",
+      "発話ログ　26/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "26/90　タクミ"
+    "progressLabel": "26/91　タクミ"
   },
   {
     "id": "ep01_v029",
@@ -613,12 +613,12 @@
     "dialogue": "まず、いらっしゃいませ。",
     "reading": "まず、いらっしゃいませ。",
     "log": [
-      "発話ログ　27/90",
+      "発話ログ　27/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "27/90　ミナ"
+    "progressLabel": "27/91　ミナ"
   },
   {
     "id": "ep01_v030",
@@ -636,12 +636,12 @@
     "dialogue": "そこからなんですね。",
     "reading": "そこからなんですね。",
     "log": [
-      "発話ログ　28/90",
+      "発話ログ　28/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　五十年後の返品相談",
-    "progressLabel": "28/90　タクミ"
+    "progressLabel": "28/91　タクミ"
   },
   {
     "id": "ep01_v031",
@@ -659,12 +659,12 @@
     "dialogue": "男は袋からおにぎりを出した。",
     "reading": "おとこワふくろからおにぎりをだした。",
     "log": [
-      "発話ログ　29/90",
+      "発話ログ　29/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "29/90　ナレーション"
+    "progressLabel": "29/91　ナレーション"
   },
   {
     "id": "ep01_v032",
@@ -682,12 +682,12 @@
     "dialogue": "パッケージには、完全栄養おにぎり・思い出の鮭。",
     "reading": "ぱっけーじにワ、かんぜんえいようおにぎり、おもいでのしゃけ。",
     "log": [
-      "発話ログ　30/90",
+      "発話ログ　30/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "30/90　ナレーション"
+    "progressLabel": "30/91　ナレーション"
   },
   {
     "id": "ep01_v033",
@@ -705,12 +705,12 @@
     "dialogue": "製造年月日、二〇七四年六月十二日。",
     "reading": "せいぞうねんがっぴ、にせんななじゅうよねんろくがつじゅうににち。",
     "log": [
-      "発話ログ　31/90",
+      "発話ログ　31/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "31/90　ナレーション"
+    "progressLabel": "31/91　ナレーション"
   },
   {
     "id": "ep01_v034",
@@ -728,12 +728,12 @@
     "dialogue": "警告。この商品は未来食料供給モデルの中核です。",
     "reading": "けいこく。このしょうひんワ、みらいしょくりょうきょうきゅうもでるのちゅうかくです。",
     "log": [
-      "発話ログ　32/90",
+      "発話ログ　32/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "32/90　第十三レジ"
+    "progressLabel": "32/91　第十三レジ"
   },
   {
     "id": "ep01_v035",
@@ -751,12 +751,12 @@
     "dialogue": "誤返品により人類生存率が〇・〇三パーセント低下します。",
     "reading": "ごへんぴんにより、じんるいせいぞんりつが、れいてんれいさんぱーせんとていかします。",
     "log": [
-      "発話ログ　33/90",
+      "発話ログ　33/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "33/90　第十三レジ"
+    "progressLabel": "33/91　第十三レジ"
   },
   {
     "id": "ep01_v036",
@@ -774,12 +774,12 @@
     "dialogue": "ミナさん、僕の時給で扱っていい数字じゃないです。",
     "reading": "みなさん、ぼくのじきゅうであつかっていいすうじじゃないです。",
     "log": [
-      "発話ログ　34/90",
+      "発話ログ　34/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　未来おにぎりスキャン",
-    "progressLabel": "34/90　タクミ"
+    "progressLabel": "34/91　タクミ"
   },
   {
     "id": "ep01_v037",
@@ -797,12 +797,12 @@
     "dialogue": "うちの課が試験販売前の商品を過去へ誤配送しまして。",
     "reading": "うちのかがしけんはんばいまえのしょうひんをかこエごはいそうしまして。",
     "log": [
-      "発話ログ　35/90",
+      "発話ログ　35/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "35/90　未来の会社員"
+    "progressLabel": "35/91　未来の会社員"
   },
   {
     "id": "ep01_v038",
@@ -820,12 +820,12 @@
     "dialogue": "返品しないと始末書が増えます。",
     "reading": "へんぴんしないとしまつしょがふえます。",
     "log": [
-      "発話ログ　36/90",
+      "発話ログ　36/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "36/90　未来の会社員"
+    "progressLabel": "36/91　未来の会社員"
   },
   {
     "id": "ep01_v039",
@@ -843,12 +843,12 @@
     "dialogue": "人類より始末書を気にしてる。",
     "reading": "じんるいよりしまつしょをきにしてる。",
     "log": [
-      "発話ログ　37/90",
+      "発話ログ　37/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "37/90　タクミ"
+    "progressLabel": "37/91　タクミ"
   },
   {
     "id": "ep01_v040",
@@ -866,12 +866,12 @@
     "dialogue": "会社員なので。",
     "reading": "かいしゃいんなので。",
     "log": [
-      "発話ログ　38/90",
+      "発話ログ　38/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "38/90　未来の会社員"
+    "progressLabel": "38/91　未来の会社員"
   },
   {
     "id": "ep01_v041",
@@ -889,12 +889,12 @@
     "dialogue": "説得力が嫌だ。",
     "reading": "せっとくりょくがいやだ。",
     "log": [
-      "発話ログ　39/90",
+      "発話ログ　39/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　始末書を気にする未来人",
-    "progressLabel": "39/90　タクミ"
+    "progressLabel": "39/91　タクミ"
   },
   {
     "id": "ep01_v042",
@@ -912,12 +912,12 @@
     "dialogue": "第十三レジの画面には、通常返品、時空返品、存在取消、温める、店長呼出、と並んでいた。",
     "reading": "だいじゅうさんれじのがめんにワ、つうじょうへんぴん、じくうへんぴん、そんざいとりけし、あたためる、てんちょうよびだし、とならんでいた。",
     "log": [
-      "発話ログ　40/90",
+      "発話ログ　40/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "40/90　ナレーション"
+    "progressLabel": "40/91　ナレーション"
   },
   {
     "id": "ep01_v043",
@@ -935,12 +935,12 @@
     "dialogue": "店長呼出があります。",
     "reading": "てんちょうよびだしがあります。",
     "log": [
-      "発話ログ　41/90",
+      "発話ログ　41/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "41/90　タクミ"
+    "progressLabel": "41/91　タクミ"
   },
   {
     "id": "ep01_v044",
@@ -958,12 +958,12 @@
     "dialogue": "押さない。",
     "reading": "おさない。",
     "log": [
-      "発話ログ　42/90",
+      "発話ログ　42/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "42/90　ミナ"
+    "progressLabel": "42/91　ミナ"
   },
   {
     "id": "ep01_v045",
@@ -981,12 +981,12 @@
     "dialogue": "なぜ。",
     "reading": "なぜ。",
     "log": [
-      "発話ログ　43/90",
+      "発話ログ　43/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "43/90　タクミ"
+    "progressLabel": "43/91　タクミ"
   },
   {
     "id": "ep01_v046",
@@ -1004,12 +1004,12 @@
     "dialogue": "二時以降は出ない。",
     "reading": "にじいこうワでない。",
     "log": [
-      "発話ログ　44/90",
+      "発話ログ　44/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "44/90　ミナ"
+    "progressLabel": "44/91　ミナ"
   },
   {
     "id": "ep01_v047",
@@ -1027,12 +1027,12 @@
     "dialogue": "店長呼出の存在意義。",
     "reading": "てんちょうよびだしのそんざいいぎ。",
     "log": [
-      "発話ログ　45/90",
+      "発話ログ　45/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　時空返品メニュー",
-    "progressLabel": "45/90　タクミ"
+    "progressLabel": "45/91　タクミ"
   },
   {
     "id": "ep01_v048",
@@ -1050,12 +1050,12 @@
     "dialogue": "残り時間、三分。",
     "reading": "のこりじかん、さんぷん。",
     "log": [
-      "発話ログ　46/90",
+      "発話ログ　46/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "11/20　残り三分と七万二千円",
-    "progressLabel": "46/90　第十三レジ"
+    "progressLabel": "46/91　第十三レジ"
   },
   {
     "id": "ep01_v049",
@@ -1073,12 +1073,12 @@
     "dialogue": "二時二十分を過ぎると、この商品は現代店舗の新商品として定着します。",
     "reading": "にじにじゅっぷんをすぎると、このしょうひんワげんだいてんぽのしんしょうひんとしてていちゃくします。",
     "log": [
-      "発話ログ　47/90",
+      "発話ログ　47/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "11/20　残り三分と七万二千円",
-    "progressLabel": "47/90　第十三レジ"
+    "progressLabel": "47/91　第十三レジ"
   },
   {
     "id": "ep01_v050",
@@ -1096,12 +1096,12 @@
     "dialogue": "仕入れ原価、一個七万二千円。",
     "reading": "しいれげんか、いっこななまんにせんえん。",
     "log": [
-      "発話ログ　48/90",
+      "発話ログ　48/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "11/20　残り三分と七万二千円",
-    "progressLabel": "48/90　第十三レジ"
+    "progressLabel": "48/91　第十三レジ"
   },
   {
     "id": "ep01_v051",
@@ -1119,12 +1119,12 @@
     "dialogue": "返品しましょう。",
     "reading": "へんぴんしましょう。",
     "log": [
-      "発話ログ　49/90",
+      "発話ログ　49/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "11/20　残り三分と七万二千円",
-    "progressLabel": "49/90　タクミ"
+    "progressLabel": "49/91　タクミ"
   },
   {
     "id": "ep01_v052",
@@ -1142,12 +1142,12 @@
     "dialogue": "こちらの商品、温めますか。",
     "reading": "こちらのしょうひん、あたためますか。",
     "log": [
-      "発話ログ　50/90",
+      "発話ログ　50/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "50/90　ミナ"
+    "progressLabel": "50/91　ミナ"
   },
   {
     "id": "ep01_v053",
@@ -1165,12 +1165,12 @@
     "dialogue": "この状況で！？",
     "reading": "このじょうきょうで？",
     "log": [
-      "発話ログ　51/90",
+      "発話ログ　51/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "51/90　タクミ"
+    "progressLabel": "51/91　タクミ"
   },
   {
     "id": "ep01_v054",
@@ -1188,12 +1188,12 @@
     "dialogue": "鮭は温かい方が好きなので。",
     "reading": "しゃけワ、あたたかいほうがすきなので。",
     "log": [
-      "発話ログ　52/90",
+      "発話ログ　52/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "52/90　未来の会社員"
+    "progressLabel": "52/91　未来の会社員"
   },
   {
     "id": "ep01_v055",
@@ -1211,12 +1211,12 @@
     "dialogue": "人類の前に好みを優先するな！",
     "reading": "じんるいのまえに、このみをゆうせんするな！",
     "log": [
-      "発話ログ　53/90",
+      "発話ログ　53/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "53/90　タクミ"
+    "progressLabel": "53/91　タクミ"
   },
   {
     "id": "ep01_v056",
@@ -1234,12 +1234,12 @@
     "dialogue": "お客様の希望だから。",
     "reading": "おきゃくさまの、きぼうだから。",
     "log": [
-      "発話ログ　54/90",
+      "発話ログ　54/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "54/90　ミナ"
+    "progressLabel": "54/91　ミナ"
   },
   {
     "id": "ep01_v056_g1",
@@ -1247,6 +1247,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "世界の分岐をレンジへ",
     "visualCutIndex": 12,
+    "start": 179.094,
+    "end": 181.576,
     "image": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
@@ -1255,14 +1257,12 @@
     "dialogue": "接客が強すぎる！",
     "reading": "せっきゃくが、つよすぎる！",
     "log": [
-      "発話ログ　55/90",
+      "発話ログ　55/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　世界の分岐をレンジへ",
-    "progressLabel": "55/90　タクミ",
-    "start": 179.094,
-    "end": 181.576
+    "progressLabel": "55/91　タクミ"
   },
   {
     "id": "ep01_v058",
@@ -1280,12 +1280,12 @@
     "dialogue": "温められたおにぎりが淡く光った。",
     "reading": "あたためられたおにぎりが、あわくひかった。",
     "log": [
-      "発話ログ　56/90",
+      "発話ログ　56/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "56/90　ナレーション"
+    "progressLabel": "56/91　ナレーション"
   },
   {
     "id": "ep01_v059",
@@ -1303,12 +1303,12 @@
     "dialogue": "一瞬だけ未来の社員食堂らしき映像が浮かぶ。",
     "reading": "いっしゅんだけ、みらいのしゃいんしょくどうらしきえいぞうがうかぶ。",
     "log": [
-      "発話ログ　57/90",
+      "発話ログ　57/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "57/90　ナレーション"
+    "progressLabel": "57/91　ナレーション"
   },
   {
     "id": "ep01_v060",
@@ -1326,12 +1326,12 @@
     "dialogue": "空っぽの棚の前で、小さな子どもがおにぎりを抱えて笑っていた。",
     "reading": "からっぽのたなのまえで、ちいさなこどもがおにぎりをかかえてわらっていた。",
     "log": [
-      "発話ログ　58/90",
+      "発話ログ　58/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "58/90　ナレーション"
+    "progressLabel": "58/91　ナレーション"
   },
   {
     "id": "ep01_v061",
@@ -1349,12 +1349,12 @@
     "dialogue": "なんか泣かせようとしてきてません？",
     "reading": "なんか、なかせようとしてきてません？",
     "log": [
-      "発話ログ　59/90",
+      "発話ログ　59/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "59/90　タクミ"
+    "progressLabel": "59/91　タクミ"
   },
   {
     "id": "ep01_v062",
@@ -1372,12 +1372,12 @@
     "dialogue": "試作品の広報映像です。",
     "reading": "しさくひんの、こうほうえいぞうです。",
     "log": [
-      "発話ログ　60/90",
+      "発話ログ　60/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "60/90　未来の会社員"
+    "progressLabel": "60/91　未来の会社員"
   },
   {
     "id": "ep01_v062_g1",
@@ -1385,6 +1385,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "電子レンジ内の未来映像",
     "visualCutIndex": 13,
+    "start": 199.985,
+    "end": 203.082,
     "image": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc13_microwave_future_vision.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
@@ -1393,14 +1395,12 @@
     "dialogue": "危うく乗せられるところでしたよ！",
     "reading": "あやうく、のせられるところでしたよ！",
     "log": [
-      "発話ログ　61/90",
+      "発話ログ　61/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　電子レンジ内の未来映像",
-    "progressLabel": "61/90　タクミ",
-    "start": 199.985,
-    "end": 203.082
+    "progressLabel": "61/91　タクミ"
   },
   {
     "id": "ep01_v063",
@@ -1418,12 +1418,12 @@
     "dialogue": "加熱により時空状態が安定しました。",
     "reading": "かねつによりじくうじょうたいがあんていしました。",
     "log": [
-      "発話ログ　62/90",
+      "発話ログ　62/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "62/90　第十三レジ"
+    "progressLabel": "62/91　第十三レジ"
   },
   {
     "id": "ep01_v064",
@@ -1441,12 +1441,12 @@
     "dialogue": "このおにぎり、なくなると困る人がいそう。",
     "reading": "このおにぎり、なくなるとこまるひとがいそう。",
     "log": [
-      "発話ログ　63/90",
+      "発話ログ　63/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "63/90　ミナ"
+    "progressLabel": "63/91　ミナ"
   },
   {
     "id": "ep01_v065",
@@ -1464,12 +1464,12 @@
     "dialogue": "急にざっくり！",
     "reading": "きゅうに、ざっくり！",
     "log": [
-      "発話ログ　64/90",
+      "発話ログ　64/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "64/90　タクミ"
+    "progressLabel": "64/91　タクミ"
   },
   {
     "id": "ep01_v066",
@@ -1487,12 +1487,12 @@
     "dialogue": "だいたいそんなものでしょ。",
     "reading": "だいたい、そんなものでしょ。",
     "log": [
-      "発話ログ　65/90",
+      "発話ログ　65/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "65/90　ミナ"
+    "progressLabel": "65/91　ミナ"
   },
   {
     "id": "ep01_v066_g1",
@@ -1500,6 +1500,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
+    "start": 214.775,
+    "end": 217.258,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1508,14 +1510,12 @@
     "dialogue": "履歴メモを入力してください。",
     "reading": "りれきめもを、にゅうりょくしてください。",
     "log": [
-      "発話ログ　66/90",
+      "発話ログ　66/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "66/90　第十三レジ",
-    "start": 214.775,
-    "end": 217.258
+    "progressLabel": "66/91　第十三レジ"
   },
   {
     "id": "ep01_v066_g2",
@@ -1523,22 +1523,45 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
+    "start": 217.258,
+    "end": 220.183,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
     "imagePrompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
     "speaker": "ミナ",
-    "dialogue": "ちゃんと作る。",
-    "reading": "ちゃんとつくる。",
+    "dialogue": "このおにぎりは、ちゃんと作る。",
+    "reading": "このおにぎりワ、ちゃんとつくる。",
     "log": [
-      "発話ログ　67/90",
+      "発話ログ　67/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "67/90　ミナ",
-    "start": 217.258,
-    "end": 218.742
+    "progressLabel": "67/91　ミナ"
+  },
+  {
+    "id": "ep01_v066_g3",
+    "cut": "ep01_054",
+    "visualCutId": "vc14",
+    "visualCutTitle": "履歴メモ入力",
+    "visualCutIndex": 14,
+    "start": 220.183,
+    "end": 222.596,
+    "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
+    "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
+    "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
+    "imagePrompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
+    "speaker": "ミナ",
+    "dialogue": "なくなると困る人がいる。",
+    "reading": "なくなるとこまるひとがいる。",
+    "log": [
+      "発話ログ　68/91",
+      "担当　ミナ",
+      "本日の営業　継続中"
+    ],
+    "visualLabel": "14/20　履歴メモ入力",
+    "progressLabel": "68/91　ミナ"
   },
   {
     "id": "ep01_v067",
@@ -1546,8 +1569,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
-    "start": 218.742,
-    "end": 220.64,
+    "start": 222.596,
+    "end": 224.494,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1556,12 +1579,12 @@
     "dialogue": "記録しました。",
     "reading": "きろくしました。",
     "log": [
-      "発話ログ　68/90",
+      "発話ログ　69/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "68/90　第十三レジ"
+    "progressLabel": "69/91　第十三レジ"
   },
   {
     "id": "ep01_v068",
@@ -1569,22 +1592,22 @@
     "visualCutId": "vc14",
     "visualCutTitle": "履歴メモ入力",
     "visualCutIndex": 14,
-    "start": 220.64,
-    "end": 222.855,
+    "start": 224.494,
+    "end": 226.743,
     "image": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
     "imagePrompt": "第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
     "speaker": "タクミ",
-    "dialogue": "二文字で通るんだ！",
-    "reading": "にもじで、とおるんだ！",
+    "dialogue": "そんなメモで通るんだ！",
+    "reading": "そんなめもで、とおるんだ！",
     "log": [
-      "発話ログ　69/90",
+      "発話ログ　70/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　履歴メモ入力",
-    "progressLabel": "69/90　タクミ"
+    "progressLabel": "70/91　タクミ"
   },
   {
     "id": "ep01_v069",
@@ -1592,8 +1615,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 222.855,
-    "end": 228.469,
+    "start": 226.743,
+    "end": 232.357,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1602,12 +1625,12 @@
     "dialogue": "未来開発案件の七十三パーセントは、雑なメモから始まっています。",
     "reading": "みらいかいはつあんけんの、ななじゅうさんぱーせんとワ、ざつなめもからはじまっています。",
     "log": [
-      "発話ログ　70/90",
+      "発話ログ　71/91",
       "担当　第十三レジ",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "70/90　第十三レジ"
+    "progressLabel": "71/91　第十三レジ"
   },
   {
     "id": "ep01_v070",
@@ -1615,8 +1638,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 228.469,
-    "end": 233.099,
+    "start": 232.357,
+    "end": 236.987,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1625,12 +1648,12 @@
     "dialogue": "時空返品が完了し、返金額は百六十八円。",
     "reading": "じくうへんぴんがかんりょうし、へんきんがくワひゃくろくじゅうはちえん。",
     "log": [
-      "発話ログ　71/90",
+      "発話ログ　72/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "71/90　ナレーション"
+    "progressLabel": "72/91　ナレーション"
   },
   {
     "id": "ep01_v071",
@@ -1638,8 +1661,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 233.099,
-    "end": 237.709,
+    "start": 236.987,
+    "end": 241.597,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1648,12 +1671,12 @@
     "dialogue": "未来の会社員は現金で受け取り、さらにホットコーヒーを買った。",
     "reading": "みらいのかいしゃいんワげんきんでうけとり、さらにほっとこーひーをかった。",
     "log": [
-      "発話ログ　72/90",
+      "発話ログ　73/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "72/90　ナレーション"
+    "progressLabel": "73/91　ナレーション"
   },
   {
     "id": "ep01_v072",
@@ -1661,8 +1684,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 237.709,
-    "end": 240.167,
+    "start": 241.597,
+    "end": 244.055,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1671,12 +1694,12 @@
     "dialogue": "未来のコーヒー、高いので。",
     "reading": "みらいのこーひー、たかいので。",
     "log": [
-      "発話ログ　73/90",
+      "発話ログ　74/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "73/90　未来の会社員"
+    "progressLabel": "74/91　未来の会社員"
   },
   {
     "id": "ep01_v072_g1",
@@ -1684,6 +1707,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
+    "start": 244.055,
+    "end": 247.036,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1692,14 +1717,12 @@
     "dialogue": "百六十八円は助かります。",
     "reading": "ひゃくろくじゅうはちえんワ、たすかります。",
     "log": [
-      "発話ログ　74/90",
+      "発話ログ　75/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "74/90　未来の会社員",
-    "start": 240.167,
-    "end": 243.148
+    "progressLabel": "75/91　未来の会社員"
   },
   {
     "id": "ep01_v073",
@@ -1707,8 +1730,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
-    "start": 243.148,
-    "end": 247.103,
+    "start": 247.036,
+    "end": 250.991,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1717,12 +1740,12 @@
     "dialogue": "返金額と同じ額のコーヒー買ってる。",
     "reading": "へんきんがくと、おなじがくのこーひーかってる。",
     "log": [
-      "発話ログ　75/90",
+      "発話ログ　76/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "75/90　タクミ"
+    "progressLabel": "76/91　タクミ"
   },
   {
     "id": "ep01_v073_g1",
@@ -1730,6 +1753,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
+    "start": 250.991,
+    "end": 252.389,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1738,14 +1763,12 @@
     "dialogue": "経費です。",
     "reading": "けいひです。",
     "log": [
-      "発話ログ　76/90",
+      "発話ログ　77/91",
       "担当　未来の会社員",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "76/90　未来の会社員",
-    "start": 247.103,
-    "end": 248.501
+    "progressLabel": "77/91　未来の会社員"
   },
   {
     "id": "ep01_v073_g2",
@@ -1753,6 +1776,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "時空返品完了とコーヒー",
     "visualCutIndex": 15,
+    "start": 252.389,
+    "end": 254.612,
     "image": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1761,14 +1786,12 @@
     "dialogue": "何の経費ですか！",
     "reading": "なんの、けいひですか！",
     "log": [
-      "発話ログ　77/90",
+      "発話ログ　78/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　時空返品完了とコーヒー",
-    "progressLabel": "77/90　タクミ",
-    "start": 248.501,
-    "end": 250.724
+    "progressLabel": "78/91　タクミ"
   },
   {
     "id": "ep01_v074",
@@ -1776,8 +1799,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 250.724,
-    "end": 254.435,
+    "start": 254.612,
+    "end": 258.323,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1786,12 +1809,12 @@
     "dialogue": "午前二時二十分。第十三レジは消えた。",
     "reading": "ごぜんにじにじゅっぷん。だいじゅうさんれじワきえた。",
     "log": [
-      "発話ログ　78/90",
+      "発話ログ　79/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "78/90　ナレーション"
+    "progressLabel": "79/91　ナレーション"
   },
   {
     "id": "ep01_v075",
@@ -1799,8 +1822,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 254.435,
-    "end": 257.837,
+    "start": 258.323,
+    "end": 261.725,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1809,12 +1832,12 @@
     "dialogue": "残ったレシートには、こう印字されていた。",
     "reading": "のこったれしーとにワ、こういんじされていた。",
     "log": [
-      "発話ログ　79/90",
+      "発話ログ　80/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "79/90　ナレーション"
+    "progressLabel": "80/91　ナレーション"
   },
   {
     "id": "ep01_v076",
@@ -1822,22 +1845,22 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 257.837,
-    "end": 263.844,
+    "start": 261.725,
+    "end": 267.433,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
     "imagePrompt": "午前二時二十分、第十三レジが消えかけ、長いレシートだけが残る。人類生存率微増、スタッフ割引対象外。第十三レジの顔つきは、黒く重いセルフレジ端末の斜めスクリーンに、ネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る無表情フェイス。かわいくしすぎず、眠そうで機械的、でも妙に意思がある。本体は黒い金属とガラス、角ばった筐体、カード端末とスキャナー付き。",
     "speaker": "ナレーション",
-    "dialogue": "時空返品、一件。歴史メモ、一件。完全栄養おにぎり、開発継続。",
-    "reading": "じくうへんぴん、いっけん。れきしめも、いっけん。かんぜんえいようおにぎり、かいはつけいぞく。",
+    "dialogue": "時空返品、一件。履歴メモ、一件。完全栄養おにぎり、開発継続。",
+    "reading": "じくうへんぴん、いっけん。りれきめも、いっけん。かんぜんえいようおにぎり、かいはつけいぞく。",
     "log": [
-      "発話ログ　80/90",
+      "発話ログ　81/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "80/90　ナレーション"
+    "progressLabel": "81/91　ナレーション"
   },
   {
     "id": "ep01_v077",
@@ -1845,8 +1868,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 263.844,
-    "end": 268.365,
+    "start": 267.433,
+    "end": 271.954,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1855,12 +1878,12 @@
     "dialogue": "人類生存率、微増。ホットコーヒー、レギュラー、一件。",
     "reading": "じんるいせいぞんりつ、びぞう。ほっとこーひー、れぎゅらー、いっけん。",
     "log": [
-      "発話ログ　81/90",
+      "発話ログ　82/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "81/90　ナレーション"
+    "progressLabel": "82/91　ナレーション"
   },
   {
     "id": "ep01_v078",
@@ -1868,8 +1891,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 268.365,
-    "end": 271.04,
+    "start": 271.954,
+    "end": 274.629,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1878,12 +1901,12 @@
     "dialogue": "スタッフ割引、対象外。",
     "reading": "すたっふわりびき、たいしょうがい。",
     "log": [
-      "発話ログ　82/90",
+      "発話ログ　83/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "82/90　ナレーション"
+    "progressLabel": "83/91　ナレーション"
   },
   {
     "id": "ep01_v079",
@@ -1891,8 +1914,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "第十三レジ消滅とレシート",
     "visualCutIndex": 16,
-    "start": 271.04,
-    "end": 273.968,
+    "start": 274.629,
+    "end": 277.557,
     "image": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -1901,12 +1924,12 @@
     "dialogue": "最後が一番現実的だ。",
     "reading": "さいごがいちばんげんじつてきだ。",
     "log": [
-      "発話ログ　83/90",
+      "発話ログ　84/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　第十三レジ消滅とレシート",
-    "progressLabel": "83/90　タクミ"
+    "progressLabel": "84/91　タクミ"
   },
   {
     "id": "ep01_v081",
@@ -1914,8 +1937,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "座木山辰哉、コピー機へ",
     "visualCutIndex": 17,
-    "start": 273.968,
-    "end": 277.378,
+    "start": 277.557,
+    "end": 280.967,
     "image": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1924,12 +1947,12 @@
     "dialogue": "近所の常連らしい男がコピー機へ向かった。",
     "reading": "きんじょのじょうれんらしいおとこがこぴーきへむかった。",
     "log": [
-      "発話ログ　84/90",
+      "発話ログ　85/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "17/20　座木山辰哉、コピー機へ",
-    "progressLabel": "84/90　ナレーション"
+    "progressLabel": "85/91　ナレーション"
   },
   {
     "id": "ep01_v083",
@@ -1937,8 +1960,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "座木山辰哉、コピー機へ",
     "visualCutIndex": 17,
-    "start": 277.378,
-    "end": 282.966,
+    "start": 280.967,
+    "end": 286.555,
     "image": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc17_zakiyama_copy.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1947,12 +1970,12 @@
     "dialogue": "コピー、白黒でいいよ。色がつくと記憶が増えるから。",
     "reading": "こぴー、しろくろでいいよ。いろがつくときおくがふえるから。",
     "log": [
-      "発話ログ　85/90",
+      "発話ログ　86/91",
       "担当　座木山辰哉",
       "本日の営業　継続中"
     ],
     "visualLabel": "17/20　座木山辰哉、コピー機へ",
-    "progressLabel": "85/90　座木山辰哉"
+    "progressLabel": "86/91　座木山辰哉"
   },
   {
     "id": "ep01_v084",
@@ -1960,8 +1983,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "夜勤だから",
     "visualCutIndex": 18,
-    "start": 282.966,
-    "end": 286.583,
+    "start": 286.555,
+    "end": 290.172,
     "image": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1970,12 +1993,12 @@
     "dialogue": "この店、普通のお客さんも変なんですか。",
     "reading": "このみせ、ふつうのおきゃくさんもへんなんですか。",
     "log": [
-      "発話ログ　86/90",
+      "発話ログ　87/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　夜勤だから",
-    "progressLabel": "86/90　タクミ"
+    "progressLabel": "87/91　タクミ"
   },
   {
     "id": "ep01_v085",
@@ -1983,8 +2006,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "夜勤だから",
     "visualCutIndex": 18,
-    "start": 286.583,
-    "end": 288.685,
+    "start": 290.172,
+    "end": 292.274,
     "image": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -1993,12 +2016,12 @@
     "dialogue": "夜勤だから。",
     "reading": "やきんだから。",
     "log": [
-      "発話ログ　87/90",
+      "発話ログ　88/91",
       "担当　ミナ",
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　夜勤だから",
-    "progressLabel": "87/90　ミナ"
+    "progressLabel": "88/91　ミナ"
   },
   {
     "id": "ep01_v085_g1",
@@ -2006,6 +2029,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "夜勤だから",
     "visualCutIndex": 18,
+    "start": 292.274,
+    "end": 295.614,
     "image": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -2014,14 +2039,12 @@
     "dialogue": "その一言で済ませないでください。",
     "reading": "そのひとことで、すませないでください。",
     "log": [
-      "発話ログ　88/90",
+      "発話ログ　89/91",
       "担当　タクミ",
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　夜勤だから",
-    "progressLabel": "88/90　タクミ",
-    "start": 288.685,
-    "end": 292.025
+    "progressLabel": "89/91　タクミ"
   },
   {
     "id": "ep01_v086",
@@ -2029,8 +2052,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "世界が少しだけ救われる",
     "visualCutIndex": 19,
-    "start": 292.025,
-    "end": 295.824,
+    "start": 295.614,
+    "end": 299.413,
     "image": "assets/scenes/planned/ep01_vc19_world_saved_quietly.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc19_world_saved_quietly.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -2039,12 +2062,12 @@
     "dialogue": "世界が少しだけ救われても、夜勤は終わらない。",
     "reading": "せかいがすこしだけすくわれても、やきんワおわらない。",
     "log": [
-      "発話ログ　89/90",
+      "発話ログ　90/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　世界が少しだけ救われる",
-    "progressLabel": "89/90　ナレーション"
+    "progressLabel": "90/91　ナレーション"
   },
   {
     "id": "ep01_v087",
@@ -2052,8 +2075,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "夜勤はまだ終わらない",
     "visualCutIndex": 20,
-    "start": 295.824,
-    "end": 301.45,
+    "start": 299.413,
+    "end": 305.039,
     "image": "assets/scenes/planned/ep01_vc20_chores_remain.jpg?v=ep01-rev2",
     "plannedImage": "assets/scenes/planned/ep01_vc20_chores_remain.jpg?v=ep01-rev2",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -2062,11 +2085,11 @@
     "dialogue": "床清掃も、雑誌返品も、廃棄登録も、まだ残っている。",
     "reading": "ゆかせいそうも、ざっしへんぴんも、はいきとうろくも、まだのこっている。",
     "log": [
-      "発話ログ　90/90",
+      "発話ログ　91/91",
       "担当　ナレーション",
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　夜勤はまだ終わらない",
-    "progressLabel": "90/90　ナレーション"
+    "progressLabel": "91/91　ナレーション"
   }
 ]

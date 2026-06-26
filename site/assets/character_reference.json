@@ -8,7 +8,7 @@
       "name": "タクミ",
       "kana": "たくみ",
       "roleTitle": "新人夜勤バイト",
-      "image": "assets/character_sheets/takumi_sheet.png",
+      "image": "assets/character_sheets/takumi_sheet_v2.png",
       "summary": "読者目線の常識人でツッコミ役。第十三レジに毎回振り回されつつ、少しずつ夜勤の異常対応に慣れていく。",
       "profile": [
         "20歳前後",
@@ -56,7 +56,7 @@
       "name": "ミナ",
       "kana": "みな",
       "roleTitle": "先輩夜勤バイト",
-      "image": "assets/character_sheets/mina_sheet.png",
+      "image": "assets/character_sheets/mina_sheet_v2.png",
       "summary": "何が起きてもコンビニ業務に落とし込む先輩。淡々としているが冷たい人ではなく、処理判断が的確。",
       "profile": [
         "20代前半",
@@ -105,7 +105,7 @@
       "name": "未来青年",
       "kana": "みらいせいねん",
       "roleTitle": "2074年 食品流通管理課",
-      "image": "assets/character_sheets/future_worker_ep01_sheet.png",
+      "image": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
       "summary": "未来おにぎりを返品しに来る疲弊した会社員。危険なのは人格ではなく、首元タグに封じられた物流最適化知識。",
       "profile": [
         "実年齢27歳",
@@ -153,7 +153,7 @@
       "name": "汗田竜司",
       "kana": "あせだ りゅうじ",
       "roleTitle": "54歳 / 現代側の自動車研究開発者",
-      "image": "assets/character_sheets/aseda_ryuji_sheet.png",
+      "image": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
       "summary": "未来人ではない現代側の技術者。バイクナビ経由で未来食品流通管理システムにつながり、理屈で異常を読む。",
       "profile": [
         "54歳",
@@ -203,7 +203,7 @@
       "name": "座木山辰哉",
       "kana": "ざきやま たつや",
       "roleTitle": "55歳 / 近所の常連客",
-      "image": "assets/character_sheets/zakiyama_tatsuya_sheet.png",
+      "image": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
       "summary": "深夜二時台にコピー機を使いに来る夜釣り好きの常連。未来人ではなく、日常側の変わりもの。",
       "profile": [
         "55歳",
@@ -253,13 +253,13 @@
       "name": "唐沢栄治",
       "kana": "からさわ えいじ",
       "roleTitle": "53歳 / 本部SV・業務改善担当",
-      "image": "assets/character_sheets/karasawa_eiji_sheet.png",
+      "image": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
       "summary": "未来大戦争より本部監査の方が怖い現実圧のキャラ。SFを理解するのではなく、会計・棚卸し・現金過不足で異常を止める。",
       "profile": [
         "53歳",
         "コンビニ本部SV",
         "短く整えた黒髪と少し白髪",
-        "細い銀縁メガネ",
+        "眼鏡無し・髭無し",
         "落ち着いた鋭い目"
       ],
       "mustKeep": [
@@ -277,7 +277,8 @@
         "バイクジャケット",
         "釣りベスト",
         "白衣",
-        "派手なSF衣装"
+        "派手なSF衣装",
+        "眼鏡"
       ],
       "props": [
         "業務用タブレット",
@@ -295,18 +296,18 @@
       "sceneRefs": [
         "第6話以降: 本部SVとして現実の監査を持ち込む"
       ],
-      "prompt": "キャラID: karasawa_eiji。53歳の日本人男性、コンビニ本部SV / 業務改善担当。短く整えた黒髪に少し白髪、細い銀縁メガネ、落ち着いた鋭い目、地味な紺またはグレーのビジネスジャケット、白シャツ、細いネクタイ、左胸に本部IDカード、手に業務用タブレットまたはクリップボード。未来人にしない。"
+      "prompt": "キャラID: karasawa_eiji。53歳の日本人男性、コンビニ本部SV / 業務改善担当。短く整えた黒髪に少し白髪、眼鏡無し、髭無し、落ち着いた鋭い目、地味な紺またはグレーのビジネスジャケット、白シャツ、細いネクタイ、左胸に本部IDカード、手に業務用タブレットまたはクリップボード。未来人にしない。"
     },
     {
       "id": "thirteenth_register",
       "name": "第十三レジ",
       "kana": "だいじゅうさんレジ",
       "roleTitle": "午前2時17分に現れる存在しないレジ",
-      "image": "assets/character_sheets/thirteenth_register_sheet.png",
+      "image": "assets/character_sheets/thirteenth_register_sheet_v3.png",
       "summary": "未来・過去・宇宙・並行世界のズレを、現代店舗の業務として処理する卓上サイズの新型POSレジ。前面にネオンシアンの目二本と小さな水平の口の最小限の顔を持つ。",
       "profile": [
-        "黒く重いセルフレジ端末",
-        "角ばった金属とガラスの筐体",
+        "艶消しブラック〜濃いチャコールの卓上POS端末",
+        "一般的なPOSレジより少し大きい程度",
         "斜めのスクリーン",
         "眠そうな無表情",
         "機械的だが意思がある"
@@ -323,7 +324,18 @@
         "銀色の古いレジ化",
         "人型ロボット化",
         "顔表示の派手な変更",
-        "第十二・第十四レジとの混同"
+        "第十二・第十四レジとの混同",
+        "巨大装置",
+        "壁一面の機械",
+        "床から生える装置",
+        "SF映画の制御卓",
+        "ホログラム",
+        "ネオン過多",
+        "ロボットアーム",
+        "大きな漫画的フェイス",
+        "レジ周囲の矩形フレーム",
+        "文字・字幕・ロゴ・透かし",
+        "低品質"
       ],
       "props": [
         "未来レシート",
@@ -343,7 +355,7 @@
         "全話: 午前2時17分の処理端末",
         "第11話: 第十二・第十四レジとの思想対比"
       ],
-      "prompt": "キャラID: thirteenth_register。卓上サイズの新型POSレジ(約35×45×55cm、艶消しブラック〜濃いチャコール、細い青白LED)、前面ディスプレイにネオンシアンの短い水平な目が二本と小さな水平の口が一つだけ光る最小限の顔。巨大装置にしない、カウンター右端のグレータイルの上に出現。かわいいマスコット化しない。黒く重い大型筐体にしない。"
+      "prompt": "キャラID: thirteenth_register。卓上サイズの新型POSレジ(約35×45×55cm、艶消しブラック〜濃いチャコール、細い青白LED)、前面ディスプレイにネオンシアンの短い水平な目が二本と小さな水平の口が一つだけ光る最小限の顔。巨大装置にしない、カウンター右端のグレータイルの上に出現。かわいいマスコット化しない。大型筐体にしない。"
     },
     {
       "id": "navigation_terminal_ep02",

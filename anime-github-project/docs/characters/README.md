@@ -2,7 +2,7 @@
 
 各キャラクターの**全話・全カット共通の固定設定**。画像生成・作画時はこの設定を必ず守り、表情・視線・ポーズ・手の動きだけを変えて、キャラクターデザイン（顔・髪型・輪郭・目・体格・制服・年齢感）は変更しないこと。
 
-**統合版（1冊）→ [`../DESIGN_BIBLE_Ver1.6.md`](../DESIGN_BIBLE_Ver1.6.md)**
+**統合版（1冊）→ [`../DESIGN_BIBLE_Ver1.7.md`](../DESIGN_BIBLE_Ver1.7.md)**
 **作品全体の共通固定設定（デザインバイブル）→ [`../DESIGN_BIBLE.md`](../DESIGN_BIBLE.md)**
 **全キャラ共通の固定ルール → [`COMMON_RULES.md`](COMMON_RULES.md)**
 **音声キャスト → [`VOICE_CAST.md`](VOICE_CAST.md)** ／ **映像・字幕仕様 → [`../PRODUCTION_SPEC.md`](../PRODUCTION_SPEC.md)** ／ **12話構成 → [`../EPISODES.md`](../EPISODES.md)**

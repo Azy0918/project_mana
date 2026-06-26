@@ -202,10 +202,21 @@ st.caption("キャラクターごとに Gemini TTS の声を聞き比べ、採�
 
 api_key = load_env_key()
 if not api_key:
-    st.error(
-        "GEMINI_API_KEY が見つかりません。`.env`(または環境変数)に "
-        "`GEMINI_API_KEY=...` を設定してください。雛形は `.env.example` にあります。"
+    st.warning(
+        "GEMINI_API_KEY が未設定です。下の欄に貼り付けてください"
+        "（このセッションのみ使用・保存しません）。または `.env` に `GEMINI_API_KEY=...` を設定。"
     )
+    api_key = (st.text_input(
+        "Gemini APIキーを貼り付け",
+        type="password",
+        key="api_key_field",
+        placeholder="AIza... を貼り付け",
+        help="https://aistudio.google.com/apikey で取得",
+    ) or "").strip()
+    if api_key:
+        st.success("APIキーを受け付けました。生成できます。")
+    else:
+        st.info("👆 キーを貼り付けると「生成して再生」が有効になります。")
 
 voices_data = load_voices_yaml()
 

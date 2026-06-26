@@ -149,12 +149,23 @@ def parse_rate_from_mime(mime: str | None, default: int = 24000) -> int:
     return int(m.group(1)) if m else default
 
 
-def generate_tts(api_key: str, model: str, voice: str, text: str, style: str) -> tuple[bytes, int]:
+def generate_tts(api_key: str, model: str, voice: str, text: str, style: str,
+                 insecure_ssl: bool = True) -> tuple[bytes, int]:
     """Gemini TTS で音声を生成し (wav_bytes, rate) を返す。失敗時は例外。"""
     from google import genai
     from google.genai import types
 
-    client = genai.Client(api_key=api_key)
+    # ローカルの証明書エラー(SSL: CERTIFICATE_VERIFY_FAILED)対策。
+    # insecure_ssl=True で検証を無効化、False で certifi のCAバンドルを使う。
+    try:
+        import certifi
+        verify = False if insecure_ssl else certifi.where()
+    except Exception:
+        verify = not insecure_ssl
+    client = genai.Client(
+        api_key=api_key,
+        http_options=types.HttpOptions(client_args={"verify": verify}),
+    )
     # スタイル指示があれば自然言語で前置きし、その後に読ませるセリフを置く
     prompt = f"{style.strip()}\n\n{text.strip()}" if style.strip() else text.strip()
 
@@ -237,6 +248,10 @@ with st.sidebar:
         "モデル", MODELS,
         index=MODELS.index(saved["model"]) if saved.get("model") in MODELS else 0,
     )
+    insecure_ssl = st.checkbox(
+        "🔓 SSL検証を無効化（証明書エラー時）", value=True,
+        help="社内ネットワーク等で CERTIFICATE_VERIFY_FAILED が出る場合に有効。ローカル用途のみ。",
+    )
     if saved.get("voice"):
         st.success(f"現在の採用: {saved['voice']} / {saved.get('model', '')}")
     else:
@@ -260,7 +275,7 @@ with left:
         else:
             try:
                 with st.spinner(f"{voice} で生成中..."):
-                    wav_bytes, rate = generate_tts(api_key, model, voice, text, style)
+                    wav_bytes, rate = generate_tts(api_key, model, voice, text, style, insecure_ssl=insecure_ssl)
                 OUT_DIR.mkdir(parents=True, exist_ok=True)
                 fname = safe_filename(character, voice)
                 fpath = OUT_DIR / fname

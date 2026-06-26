@@ -2,8 +2,10 @@
 
 各キャラクターの**全話・全カット共通の固定設定**。画像生成・作画時はこの設定を必ず守り、表情・視線・ポーズ・手の動きだけを変えて、キャラクターデザイン（顔・髪型・輪郭・目・体格・制服・年齢感）は変更しないこと。
 
+**統合版（1冊）→ [`../DESIGN_BIBLE_Ver1.0.md`](../DESIGN_BIBLE_Ver1.0.md)**
 **作品全体の共通固定設定（デザインバイブル）→ [`../DESIGN_BIBLE.md`](../DESIGN_BIBLE.md)**
 **全キャラ共通の固定ルール → [`COMMON_RULES.md`](COMMON_RULES.md)**
+**音声キャスト → [`VOICE_CAST.md`](VOICE_CAST.md)** ／ **映像・字幕仕様 → [`../PRODUCTION_SPEC.md`](../PRODUCTION_SPEC.md)** ／ **12話構成 → [`../EPISODES.md`](../EPISODES.md)**
 
 | キャラ | 固定設定 | 補足 |
 |---|---|---|
@@ -24,7 +26,8 @@
 | コンビニ内装 | [`../settings/store_interior/MASTER_PROMPT.md`](../settings/store_interior/MASTER_PROMPT.md) | 全12話同一店舗。レイアウト・棚/設備位置・照明・色調を固定。 |
 | 店内見取り図 | [`../settings/store_interior/FLOOR_PLAN.md`](../settings/store_interior/FLOOR_PLAN.md) | 設備配置の俯瞰図（固定版）。 |
 | 第十三レジ 出現位置 | [`../settings/store_interior/REGISTER13_APPEARANCE.md`](../settings/store_interior/REGISTER13_APPEARANCE.md) | 第12レジ右隣・2:17出現・演出/カメラ/キャラ位置を固定。 |
-| 設備・未来商品 | [`../settings/props/MASTER_PROMPT.md`](../settings/props/MASTER_PROMPT.md) | コピー機/ホットスナック/唐揚げ棒/昨日バニラ/明日ミルク（デザイン・能力固定）。 |
+| 設備・未来商品 | [`../settings/props/MASTER_PROMPT.md`](../settings/props/MASTER_PROMPT.md) | コピー機/ホットスナック/唐揚げ棒/昨日バニラ/明日ミルク/記憶返品タグ 等（デザイン・能力固定）。 |
+| 第十二/第十四レジ | [`../settings/registers_12_14.md`](../settings/registers_12_14.md) | EP11対比装置（過去=木目／未来=透明）。通常の第12レジとは別物。 |
 
 関連：
 - 既定の作画方向・画像生成ルール: [`../../PROJECT.md`](../../PROJECT.md)

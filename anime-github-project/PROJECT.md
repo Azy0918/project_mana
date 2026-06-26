@@ -1,6 +1,6 @@
 # PROJECT: 第十三レジ Anime / Kamishibai Project
 
-> **📖 統合版（1冊）: [`docs/DESIGN_BIBLE_Ver1.5.md`](docs/DESIGN_BIBLE_Ver1.5.md)** — 全固定設定（世界観＋映像/字幕＋音声キャスト＋キャラ11＋舞台・設備＋12話構成）を1ファイルにまとめた読み物版。
+> **📖 統合版（1冊）: [`docs/DESIGN_BIBLE_Ver1.6.md`](docs/DESIGN_BIBLE_Ver1.6.md)** — 全固定設定（世界観＋映像/字幕＋音声キャスト＋キャラ11＋舞台・設備＋12話構成）を1ファイルにまとめた読み物版。
 > **共通固定設定（モジュール原本・最上位ルール）: [`docs/DESIGN_BIBLE.md`](docs/DESIGN_BIBLE.md)**
 > 世界観・店舗・外観・ライティング・カメラ・画風・レシート・未来商品・演出・音・時間ルール・演技・禁止事項を一括固定。
 

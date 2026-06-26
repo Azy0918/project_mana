@@ -16,12 +16,12 @@ characters:
     sample: ""
     updated_at: "2026-06-26"
   ミナ:
-    voice: Callirrhoe
+    voice: Kore
     model: gemini-2.5-flash-preview-tts
     style: 淡々とした女性の先輩。低めで落ち着き、感情を抑えた素っ気ない口調。
     line: 夜勤だから。
     sample: ""
-    updated_at: "2026-06-26"
+    updated_at: "2026-06-27"
   汗田竜司:
     voice: Enceladus
     model: gemini-2.5-flash-preview-tts

@@ -88,19 +88,21 @@
       { id:"ep11", label:"第11話", visual:"./visual_cut_plan_ep11.json", scene:"./scene_manifest_ep11.json" },
       { id:"ep12", label:"第12話", visual:"./visual_cut_plan_ep12.json", scene:"./scene_manifest_ep12.json" },
     ];
-    let EP = EPISODES[EPISODES.length - 1], CUTS = [], SCENES = [], draft = {};
+    let EP = EPISODES[EPISODES.length - 1], CUTS = [], SCENES = [], draft = {}, CB = 0;
     const $ = s => document.querySelector(s);
     const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
     const norm = p => !p ? "" : (/^(\.\/|\/|https?:)/.test(p) ? p : "./" + p);
+    const withCb = u => !u ? "" : u + (u.includes("?") ? "&" : "?") + "v=" + CB;  // 最新のJSON・画像を取得
     const base = p => String(p || "").split("/").pop();
     const mmss = s => { s=Number(s)||0; return Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0"); };
     const key = () => `image_direction_draft_${EP.id}`;
 
     async function load() {
       $("#status").textContent = "読込中…";
+      CB = Date.now();
       const [visual, scenes] = await Promise.all([
-        fetch(EP.visual).then(r => { if(!r.ok) throw new Error(EP.visual); return r.json(); }),
-        EP.scene ? fetch(EP.scene).then(r => r.ok ? r.json() : []) : Promise.resolve([]),
+        fetch(withCb(EP.visual)).then(r => { if(!r.ok) throw new Error(EP.visual); return r.json(); }),
+        EP.scene ? fetch(withCb(EP.scene)).then(r => r.ok ? r.json() : []) : Promise.resolve([]),
       ]);
       CUTS = visual; SCENES = scenes;
       draft = JSON.parse(localStorage.getItem(key()) || "{}");
@@ -124,7 +126,7 @@
         return `<section class="card ${active ? "active" : ""}" data-id="${esc(c.visualCutId)}">
           <div class="meta"><span>${String(i+1).padStart(2,"0")} / 20　${esc(c.visualCutId)}</span><span>${esc(d.decision || "keep")}</span></div>
           <div class="body">
-            <img class="thumb" loading="lazy" src="${esc(norm(c.plannedImage))}" onerror="this.style.opacity=.25" alt="">
+            <img class="thumb" loading="lazy" src="${esc(withCb(norm(c.plannedImage)))}" onerror="this.style.opacity=.25" alt="">
             <div>
               <div class="title">${esc(c.title)}</div>
               <div class="imgname">${esc(base(c.plannedImage))}</div>

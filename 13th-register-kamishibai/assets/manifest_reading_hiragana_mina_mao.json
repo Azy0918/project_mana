@@ -162,8 +162,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "タクミが聞き返した瞬間、雑誌棚とコピー機の間に、銀色の古いレジが現れた。",
-    "synthesis_text": "たくみがききかえしたしゅんかん、ざっしだなとこぴーきのあいだに、ぎんいろのふるいれじがあらわれた。",
+    "text": "タクミが聞き返した瞬間、カウンターの上に、見慣れない一台のレジが現れた。",
+    "synthesis_text": "たくみがききかえしたしゅんかん、かうんたーのうえに、みなれないいちだいのれじがあらわれた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
     "clip": "outputs\\ep01_voice_reading_hiragana\\clips\\ep01_v014_ナレーション.wav"
@@ -266,8 +266,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "肩の小さな液晶には、残業時間二百七十六時間、と表示されている。",
-    "synthesis_text": "かたのちいさなえきしょうにワ、ざんぎょうじかんにひゃくななじゅうろくじかん、とひょうじされている。",
+    "text": "一見ただの疲れた会社員。けれど、どこか今の時代の匂いがしなかった。",
+    "synthesis_text": "いっけんただのつかれたかいしゃいん。けれど、どこかいまのじだいのにおいがしなかった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
     "clip": "outputs\\ep01_voice_reading_hiragana\\clips\\ep01_v023_ナレーション.wav"

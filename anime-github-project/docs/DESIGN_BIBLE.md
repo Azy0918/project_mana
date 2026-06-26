@@ -1,7 +1,7 @@
 # 深夜二時の第十三レジ ｜ 共通固定設定（デザインバイブル）
 
 > **【固定】** 作品全12話を通して、世界観・店舗・レイアウト・小物・演出・画風・色彩・時間ルールを統一し、シリーズとして一貫性を維持する。
-> 個別の詳細は各設定docを参照：キャラ → [`characters/README.md`](characters/README.md)・共通ルール [`characters/COMMON_RULES.md`](characters/COMMON_RULES.md)、店舗 → [`settings/store_interior/MASTER_PROMPT.md`](settings/store_interior/MASTER_PROMPT.md)・見取り図 [`settings/store_interior/FLOOR_PLAN.md`](settings/store_interior/FLOOR_PLAN.md)、第十三レジ出現 → [`settings/store_interior/REGISTER13_APPEARANCE.md`](settings/store_interior/REGISTER13_APPEARANCE.md)。
+> 個別の詳細は各設定docを参照：キャラ → [`characters/README.md`](characters/README.md)・共通ルール [`characters/COMMON_RULES.md`](characters/COMMON_RULES.md)、店舗 → [`settings/store_interior/MASTER_PROMPT.md`](settings/store_interior/MASTER_PROMPT.md)・見取り図 [`settings/store_interior/FLOOR_PLAN.md`](settings/store_interior/FLOOR_PLAN.md)、第十三レジ出現 → [`settings/store_interior/REGISTER13_APPEARANCE.md`](settings/store_interior/REGISTER13_APPEARANCE.md)、設備・未来商品 → [`settings/props/MASTER_PROMPT.md`](settings/props/MASTER_PROMPT.md)。
 
 ---
 

@@ -17,13 +17,14 @@
 | ナビ | [`navi/MASTER_PROMPT.md`](navi/MASTER_PROMPT.md) | 汗田のバイクナビ兼・第十三レジ通信端末（機器デザイン固定）。 |
 | 第十三レジ | [`register13/MASTER_PROMPT.md`](register13/MASTER_PROMPT.md) | 卓上サイズの「13番目のPOSレジ」。巨大装置NG・店内に溶け込む（デザイン修正版）。 |
 
-## 場所・舞台の固定設定
+## 場所・舞台・設備の固定設定
 
 | 対象 | 固定設定 | 補足 |
 |---|---|---|
 | コンビニ内装 | [`../settings/store_interior/MASTER_PROMPT.md`](../settings/store_interior/MASTER_PROMPT.md) | 全12話同一店舗。レイアウト・棚/設備位置・照明・色調を固定。 |
 | 店内見取り図 | [`../settings/store_interior/FLOOR_PLAN.md`](../settings/store_interior/FLOOR_PLAN.md) | 設備配置の俯瞰図（固定版）。 |
 | 第十三レジ 出現位置 | [`../settings/store_interior/REGISTER13_APPEARANCE.md`](../settings/store_interior/REGISTER13_APPEARANCE.md) | 第12レジ右隣・2:17出現・演出/カメラ/キャラ位置を固定。 |
+| 設備・未来商品 | [`../settings/props/MASTER_PROMPT.md`](../settings/props/MASTER_PROMPT.md) | コピー機/ホットスナック/唐揚げ棒/昨日バニラ/明日ミルク（デザイン・能力固定）。 |
 
 関連：
 - 既定の作画方向・画像生成ルール: [`../../PROJECT.md`](../../PROJECT.md)

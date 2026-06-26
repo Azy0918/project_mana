@@ -25,7 +25,7 @@
 
 ## 設置場所
 
-- **レジカウンター右端、第12レジの右隣**（毎回同じ位置に固定）。コピー機方向のカウンター端。
+- **レジカウンター右端（カウンター上のグレータイルの位置）**（毎回同じ位置に固定）。コピー機方向のカウンター端。
 - **午前2時17分だけ**現れ、2時20分に消える。
 - カウンターから生えているような巨大設備にしない。**既存レジと並ぶ一台**として配置する。
 - 出現位置・演出・カメラ構図・キャラ立ち位置の固定 → [`../../settings/store_interior/REGISTER13_APPEARANCE.md`](../../settings/store_interior/REGISTER13_APPEARANCE.md)、店内全体 → [`../../settings/store_interior/FLOOR_PLAN.md`](../../settings/store_interior/FLOOR_PLAN.md)

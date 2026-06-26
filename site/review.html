@@ -531,6 +531,7 @@
       $("#tabReviewBtn").classList.toggle("active", r);
       $("#tabToneBtn").classList.toggle("active", t);
       $("#tabCharacterBtn").classList.toggle("active", c);
+      try { history.replaceState(null, "", "#" + which); } catch (e) {}
     }
 
     $("#tabReviewBtn").addEventListener("click", () => switchTab("review"));
@@ -546,9 +547,18 @@
     epSel.value = String(EPISODES.indexOf(EP));
     epSel.addEventListener("change", () => { EP = EPISODES[Number(epSel.value)] || EPISODES[0]; load(); });
 
+    // URLハッシュで直接タブを開く(例: review.html#character → キャラ表)
+    function applyHash() {
+      const h = (location.hash || "").replace("#", "");
+      if (h === "character" || h === "chars" || h === "characters") switchTab("character");
+      else if (h === "tone") switchTab("tone");
+    }
+    window.addEventListener("hashchange", applyHash);
+
     setupEngine();
     load();
     loadCharacters();
+    applyHash();
   </script>
 </body>
 </html>

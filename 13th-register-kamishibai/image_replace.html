@@ -85,15 +85,18 @@
       { id:"ep11", label:"第11話", visual:"./visual_cut_plan_ep11.json" },
       { id:"ep12", label:"第12話", visual:"./visual_cut_plan_ep12.json" },
     ];
-    let EP = EPISODES[EPISODES.length - 1], CUTS = [], replacements = {};
+    let EP = EPISODES[EPISODES.length - 1], CUTS = [], replacements = {}, CB = 0;
     const $ = s => document.querySelector(s);
     const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
     const norm = p => !p ? "" : (/^(\.\/|\/|https?:)/.test(p) ? p : "./" + p);
     const base = p => String(p || "").split("/").pop();
+    // キャッシュ回避: 読み込みごとに最新のJSON・画像を取得する(CDN/ブラウザの古い版を避ける)
+    const withCb = u => !u ? "" : u + (u.includes("?") ? "&" : "?") + "v=" + CB;
 
     async function load() {
       $("#status").textContent = "読込中…";
-      CUTS = await fetch(EP.visual).then(r => { if(!r.ok) throw new Error(EP.visual); return r.json(); });
+      CB = Date.now();
+      CUTS = await fetch(withCb(EP.visual)).then(r => { if(!r.ok) throw new Error(EP.visual); return r.json(); });
       replacements = {};
       render();
       $("#status").textContent = `（${EP.label}・${CUTS.length}カット）`;
@@ -104,7 +107,7 @@
         return `<section class="card ${r.url ? "changed" : ""}" data-id="${esc(c.visualCutId)}">
           <div class="meta"><span>${String(i+1).padStart(2,"0")} / 20　${esc(c.visualCutId)}</span><span>${r.fileName ? "差替候補あり" : "未選択"}</span></div>
           <div class="compare">
-            <div class="shot"><h3>現在</h3><img src="${esc(norm(c.plannedImage))}" loading="lazy" onerror="this.style.opacity=.25" alt=""></div>
+            <div class="shot"><h3>現在</h3><img src="${esc(withCb(norm(c.plannedImage)))}" loading="lazy" onerror="this.style.opacity=.25" alt=""></div>
             <div class="shot"><h3>差替候補</h3><img id="prev_${esc(c.visualCutId)}" src="${esc(r.url || "")}" alt=""></div>
           </div>
           <div class="form">
@@ -147,7 +150,7 @@
     async function downloadCurrent(id) {
       const c = CUTS.find(x => x.visualCutId === id);
       if (!c) return;
-      const src = norm(c.plannedImage);
+      const src = withCb(norm(c.plannedImage));
       try {
         const blob = await fetch(src).then(r => {
           if (!r.ok) throw new Error(String(r.status));

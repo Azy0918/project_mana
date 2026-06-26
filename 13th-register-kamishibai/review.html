@@ -192,6 +192,7 @@
     let EP = EPISODES[1];
     let CHAR_REF = null;
     let ACTIVE_CHAR = "";
+    let CB = 0;   // 画像キャッシュ回避トークン(読み込みごとに更新)
 
     const PARAM_DEFAULTS = {
       2029042368: { speedScale:0.92, intonationScale:0.85, tempoDynamicsScale:0.82, pitchScale:-0.02, volumeScale:1.0, prePhonemeLength:0.12, postPhonemeLength:0.25 }, // 澤原 玄二郎 / ナレーション
@@ -218,6 +219,7 @@
     const mmss = s => { s = Number(s) || 0; return Math.floor(s/60) + ":" + String(Math.floor(s%60)).padStart(2,"0"); };
     const base = p => String(p || "").split("/").pop();
     const norm = p => !p ? "" : (/^(\.\/|\/|https?:)/.test(p) ? p : "./" + p);
+    const withCb = u => !u ? "" : u + (u.includes("?") ? "&" : "?") + "v=" + CB;  // 最新画像を取得
     const defFor = sid => PARAM_DEFAULTS[sid] || ENGINE_DEFAULT;
     const r2 = n => Math.round(Number(n) * 100) / 100;
     const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
@@ -240,6 +242,7 @@
     async function load() {
       try {
         $("#reviewStatus").textContent = "読込中…"; $("#toneStatus").textContent = "読込中…";
+        CB = Date.now();
         const scenes = await getJSON(EP.scene);
         const voice = await getJSON(EP.voice);
         Object.keys(tone).forEach(k => delete tone[k]);
@@ -270,7 +273,7 @@
         <div class="line" data-id="${l.id}">
           <div class="meta">#${l.idx} ・ ${mmss(l.start)}–${mmss(l.end)} ・ ${l.visualCutId} ${esc(l.visualCutTitle)}</div>
           <div class="body">
-            <img class="thumb" src="${esc(norm(l.image))}" alt="" loading="lazy" decoding="async" onerror="this.style.opacity=.2;this.dataset.broken='1'">
+            <img class="thumb" src="${esc(withCb(norm(l.image)))}" alt="" loading="lazy" decoding="async" onerror="this.style.opacity=.2;this.dataset.broken='1'">
             <div class="texts">
               <span class="speaker">${esc(l.speaker)}</span>
               <div class="dialogue">${esc(l.dialogue)}</div>
@@ -341,7 +344,7 @@
       if (!c) { $("#characterSheet").innerHTML = ""; return; }
       $("#characterSheet").innerHTML = `
         <div class="char-head">
-          <div class="char-portrait"><img src="${esc(norm(c.image))}" alt="${esc(c.name)}" loading="lazy" onerror="this.style.opacity=.25"></div>
+          <div class="char-portrait"><img src="${esc(withCb(norm(c.image)))}" alt="${esc(c.name)}" loading="lazy" onerror="this.style.opacity=.25"></div>
           <div>
             <h2 class="char-name">${esc(c.name)}</h2>
             <div class="char-kana">（${esc(c.kana)}）</div>

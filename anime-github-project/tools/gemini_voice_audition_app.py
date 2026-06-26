@@ -157,6 +157,9 @@ def generate_tts(api_key: str, model: str, voice: str, text: str, style: str,
 
     # ローカルの証明書エラー(SSL: CERTIFICATE_VERIFY_FAILED)対策。
     # insecure_ssl=True で検証を無効化、False で certifi のCAバンドルを使う。
+    # 注意: client_args={"verify": ...} は当環境では効かず、httpx_client を
+    # 直接渡す方式でのみ SSL 検証を制御できる(実機検証済み)。
+    import httpx
     try:
         import certifi
         verify = False if insecure_ssl else certifi.where()
@@ -164,7 +167,9 @@ def generate_tts(api_key: str, model: str, voice: str, text: str, style: str,
         verify = not insecure_ssl
     client = genai.Client(
         api_key=api_key,
-        http_options=types.HttpOptions(client_args={"verify": verify}),
+        http_options=types.HttpOptions(
+            httpx_client=httpx.Client(verify=verify, timeout=60.0),
+        ),
     )
     # スタイル指示があれば自然言語で前置きし、その後に読ませるセリフを置く
     prompt = f"{style.strip()}\n\n{text.strip()}" if style.strip() else text.strip()
@@ -289,7 +294,15 @@ with left:
             except ModuleNotFoundError:
                 st.error("`google-genai` が未インストールです。`pip install -r requirements.txt` を実行してください。")
             except Exception as e:  # noqa: BLE001
-                st.error(f"生成に失敗しました: {e}")
+                msg = str(e)
+                if "CERTIFICATE_VERIFY_FAILED" in msg:
+                    st.error("SSL証明書エラーです。サイドバーの「SSL検証を無効化」をONにして再実行してください。")
+                elif "RESOURCE_EXHAUSTED" in msg or "credits are depleted" in msg or "429" in msg:
+                    st.error("APIの残高/クレジットが不足しています(429)。Google AI Studio の課金・残高を確認するか、無料枠で使えるキーに切り替えてください。")
+                elif any(k in msg for k in ("401", "403", "API key", "PERMISSION", "UNAUTHENTICATED")):
+                    st.error("APIキーが無効か権限がありません。https://aistudio.google.com/apikey で AIza… 形式のキーを発行して入れ替えてください。")
+                else:
+                    st.error(f"生成に失敗しました: {e}")
                 st.exception(e)
 
     # 直近の生成結果を再生 + 保存(ダウンロード) + 採用

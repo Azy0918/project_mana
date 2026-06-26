@@ -315,7 +315,7 @@
 
     async function loadCharacters() {
       try {
-        CHAR_REF = await getJSON("./assets/character_reference.json");
+        CHAR_REF = await getJSON("./assets/character_reference.json?cb=" + Date.now());
         ACTIVE_CHAR = CHAR_REF.characters[0]?.id || "";
         renderCharacters();
         $("#characterStatus").textContent = `（${CHAR_REF.characters.length}件）`;

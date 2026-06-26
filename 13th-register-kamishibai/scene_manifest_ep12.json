@@ -20,7 +20,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　静かすぎる店",
-    "progressLabel": "01/85　ナレーション"
+    "progressLabel": "01/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v002",
@@ -43,7 +45,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　静かすぎる店",
-    "progressLabel": "02/85　ナレーション"
+    "progressLabel": "02/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v003",
@@ -66,7 +70,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　マニュアル要約",
-    "progressLabel": "03/85　ナレーション"
+    "progressLabel": "03/85　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v004",
@@ -89,7 +105,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　マニュアル要約",
-    "progressLabel": "04/85　ナレーション"
+    "progressLabel": "04/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v005",
@@ -112,7 +130,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　マニュアル要約",
-    "progressLabel": "05/85　ナレーション"
+    "progressLabel": "05/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v006",
@@ -135,7 +155,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　マニュアル要約",
-    "progressLabel": "06/85　ナレーション"
+    "progressLabel": "06/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v007",
@@ -158,7 +180,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　マニュアル要約",
-    "progressLabel": "07/85　タクミ"
+    "progressLabel": "07/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v008",
@@ -181,7 +215,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　マニュアル要約",
-    "progressLabel": "08/85　ナレーション"
+    "progressLabel": "08/85　ナレーション",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v009",
@@ -204,7 +250,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　マニュアル要約",
-    "progressLabel": "09/85　ミナ"
+    "progressLabel": "09/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v010",
@@ -227,7 +285,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　マニュアル要約",
-    "progressLabel": "10/85　タクミ"
+    "progressLabel": "10/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v011",
@@ -250,7 +320,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　全員集合",
-    "progressLabel": "11/85　ナレーション"
+    "progressLabel": "11/85　ナレーション",
+    "characterIds": [
+      "future_worker_ep01"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v012",
@@ -273,7 +355,40 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　全員集合",
-    "progressLabel": "12/85　ナレーション"
+    "progressLabel": "12/85　ナレーション",
+    "characterIds": [
+      "aseda_ryuji",
+      "zakiyama_tatsuya",
+      "karasawa_eiji",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "karasawa_eiji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v013",
@@ -296,7 +411,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　全員集合",
-    "progressLabel": "13/85　タクミ"
+    "progressLabel": "13/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v014",
@@ -319,7 +446,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　全員集合",
-    "progressLabel": "14/85　ミナ"
+    "progressLabel": "14/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v015",
@@ -342,7 +481,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "04/20　機器が一斉に鳴る",
-    "progressLabel": "15/85　ナレーション"
+    "progressLabel": "15/85　ナレーション",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v016",
@@ -365,7 +516,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "04/20　機器が一斉に鳴る",
-    "progressLabel": "16/85　ナレーション"
+    "progressLabel": "16/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v017",
@@ -388,7 +541,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　雪のような伝票",
-    "progressLabel": "17/85　ナレーション"
+    "progressLabel": "17/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v018",
@@ -411,7 +566,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "06/20　全モチーフ集結",
-    "progressLabel": "18/85　ナレーション"
+    "progressLabel": "18/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v019",
@@ -434,7 +591,33 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "06/20　全モチーフ集結",
-    "progressLabel": "19/85　ナレーション"
+    "progressLabel": "19/85　ナレーション",
+    "characterIds": [
+      "future_worker_ep01",
+      "twelfth_register",
+      "fourteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "twelfth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/twelfth_register_sheet.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "fourteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/fourteenth_register_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v020",
@@ -457,7 +640,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "07/20　最終処理の選択肢",
-    "progressLabel": "20/85　第十三レジ"
+    "progressLabel": "20/85　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v021",
@@ -480,7 +675,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "08/20　未来青年の問い",
-    "progressLabel": "21/85　ナレーション"
+    "progressLabel": "21/85　ナレーション",
+    "characterIds": [
+      "future_worker_ep01"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v022",
@@ -503,7 +710,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "08/20　未来青年の問い",
-    "progressLabel": "22/85　未来の会社員"
+    "progressLabel": "22/85　未来の会社員",
+    "characterIds": [
+      "future_worker_ep01"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v023",
@@ -526,7 +745,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　知識の二面性",
-    "progressLabel": "23/85　第十三レジ"
+    "progressLabel": "23/85　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v024",
@@ -549,7 +780,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　知識の二面性",
-    "progressLabel": "24/85　タクミ"
+    "progressLabel": "24/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v025",
@@ -572,7 +815,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　知識の二面性",
-    "progressLabel": "25/85　第十三レジ"
+    "progressLabel": "25/85　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v026",
@@ -595,7 +850,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　技術も人間も",
-    "progressLabel": "26/85　ナレーション"
+    "progressLabel": "26/85　ナレーション",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v027",
@@ -618,7 +885,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　技術も人間も",
-    "progressLabel": "27/85　汗田竜司"
+    "progressLabel": "27/85　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v028",
@@ -641,7 +920,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "11/20　銀河監査局・最終通知",
-    "progressLabel": "28/85　ナレーション"
+    "progressLabel": "28/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v029",
@@ -664,7 +945,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "11/20　銀河監査局・最終通知",
-    "progressLabel": "29/85　ナレーション"
+    "progressLabel": "29/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v030",
@@ -687,7 +970,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　唐沢、現金過不足ゼロ",
-    "progressLabel": "30/85　ナレーション"
+    "progressLabel": "30/85　ナレーション",
+    "characterIds": [
+      "takumi",
+      "karasawa_eiji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "karasawa_eiji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v031",
@@ -710,7 +1012,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　唐沢、現金過不足ゼロ",
-    "progressLabel": "31/85　タクミ"
+    "progressLabel": "31/85　タクミ",
+    "characterIds": [
+      "takumi",
+      "karasawa_eiji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "karasawa_eiji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v032",
@@ -733,7 +1054,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　唐沢、現金過不足ゼロ",
-    "progressLabel": "32/85　ナレーション"
+    "progressLabel": "32/85　ナレーション",
+    "characterIds": [
+      "karasawa_eiji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "karasawa_eiji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v033",
@@ -756,7 +1089,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　唐沢、現金過不足ゼロ",
-    "progressLabel": "33/85　唐沢栄治"
+    "progressLabel": "33/85　唐沢栄治",
+    "characterIds": [
+      "karasawa_eiji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "karasawa_eiji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v034",
@@ -779,7 +1124,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　唐沢、現金過不足ゼロ",
-    "progressLabel": "34/85　タクミ"
+    "progressLabel": "34/85　タクミ",
+    "characterIds": [
+      "takumi",
+      "karasawa_eiji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "karasawa_eiji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v035",
@@ -802,7 +1166,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　唐沢、現金過不足ゼロ",
-    "progressLabel": "35/85　唐沢栄治"
+    "progressLabel": "35/85　唐沢栄治",
+    "characterIds": [
+      "karasawa_eiji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "karasawa_eiji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v036",
@@ -825,7 +1201,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "13/20　残り一分",
-    "progressLabel": "36/85　第十三レジ"
+    "progressLabel": "36/85　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v037",
@@ -848,7 +1236,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "37/85　ナレーション"
+    "progressLabel": "37/85　ナレーション",
+    "characterIds": [
+      "mina",
+      "future_worker_ep01"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v038",
@@ -871,7 +1278,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "38/85　ミナ"
+    "progressLabel": "38/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v039",
@@ -894,7 +1313,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "39/85　ナレーション"
+    "progressLabel": "39/85　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v040",
@@ -917,7 +1348,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "40/85　タクミ"
+    "progressLabel": "40/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v041",
@@ -940,7 +1383,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "41/85　ミナ"
+    "progressLabel": "41/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v042",
@@ -963,7 +1418,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "42/85　タクミ"
+    "progressLabel": "42/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v043",
@@ -986,7 +1453,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "43/85　ミナ"
+    "progressLabel": "43/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v044",
@@ -1009,7 +1488,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "44/85　タクミ"
+    "progressLabel": "44/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v045",
@@ -1032,7 +1523,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "45/85　ミナ"
+    "progressLabel": "45/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v046",
@@ -1055,7 +1558,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "46/85　ナレーション"
+    "progressLabel": "46/85　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v047",
@@ -1078,7 +1593,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "47/85　タクミ"
+    "progressLabel": "47/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v048",
@@ -1101,7 +1628,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "48/85　ナレーション"
+    "progressLabel": "48/85　ナレーション",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v049",
@@ -1124,7 +1663,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "49/85　ミナ"
+    "progressLabel": "49/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v050",
@@ -1147,7 +1698,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "50/85　タクミ"
+    "progressLabel": "50/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v051",
@@ -1170,7 +1733,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　現代保留を押す",
-    "progressLabel": "51/85　ナレーション"
+    "progressLabel": "51/85　ナレーション",
+    "characterIds": [
+      "mina",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v052",
@@ -1193,7 +1775,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　現代保留を押す",
-    "progressLabel": "52/85　第十三レジ"
+    "progressLabel": "52/85　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v053",
@@ -1216,7 +1810,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　未来大戦争、保留",
-    "progressLabel": "53/85　ナレーション"
+    "progressLabel": "53/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v054",
@@ -1239,7 +1835,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　記憶タグ安定",
-    "progressLabel": "54/85　ナレーション"
+    "progressLabel": "54/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v055",
@@ -1262,7 +1860,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　記憶タグ安定",
-    "progressLabel": "55/85　未来の会社員"
+    "progressLabel": "55/85　未来の会社員",
+    "characterIds": [
+      "future_worker_ep01"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v056",
@@ -1285,7 +1895,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　記憶タグ安定",
-    "progressLabel": "56/85　ナレーション"
+    "progressLabel": "56/85　ナレーション",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v057",
@@ -1308,7 +1930,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　記憶タグ安定",
-    "progressLabel": "57/85　ミナ"
+    "progressLabel": "57/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v058",
@@ -1331,7 +1965,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　記憶タグ安定",
-    "progressLabel": "58/85　未来の会社員"
+    "progressLabel": "58/85　未来の会社員",
+    "characterIds": [
+      "future_worker_ep01"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v059",
@@ -1354,7 +2000,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　記憶タグ安定",
-    "progressLabel": "59/85　ナレーション"
+    "progressLabel": "59/85　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v060",
@@ -1377,7 +2035,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　記憶タグ安定",
-    "progressLabel": "60/85　タクミ"
+    "progressLabel": "60/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v061",
@@ -1404,7 +2074,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "61/85　ナレーション"
+    "progressLabel": "61/85　ナレーション",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v062",
@@ -1431,7 +2113,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "62/85　汗田竜司"
+    "progressLabel": "62/85　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v063",
@@ -1458,7 +2152,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "63/85　ナレーション"
+    "progressLabel": "63/85　ナレーション",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v064",
@@ -1485,7 +2191,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "64/85　ナレーション"
+    "progressLabel": "64/85　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v065",
@@ -1512,7 +2230,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "65/85　タクミ"
+    "progressLabel": "65/85　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v066",
@@ -1539,7 +2269,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "66/85　ナレーション"
+    "progressLabel": "66/85　ナレーション",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v067",
@@ -1566,7 +2308,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "67/85　ミナ"
+    "progressLabel": "67/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v068",
@@ -1593,7 +2347,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "68/85　ナレーション"
+    "progressLabel": "68/85　ナレーション",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v069",
@@ -1620,7 +2386,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "69/85　汗田竜司"
+    "progressLabel": "69/85　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v070",
@@ -1643,7 +2421,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "70/85　ナレーション"
+    "progressLabel": "70/85　ナレーション",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v071",
@@ -1666,7 +2456,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "71/85　ナレーション"
+    "progressLabel": "71/85　ナレーション",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v072",
@@ -1689,7 +2491,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "72/85　ナレーション"
+    "progressLabel": "72/85　ナレーション",
+    "characterIds": [
+      "zakiyama_tatsuya",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v073",
@@ -1712,7 +2533,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "73/85　座木山辰哉"
+    "progressLabel": "73/85　座木山辰哉",
+    "characterIds": [
+      "zakiyama_tatsuya",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v074",
@@ -1735,7 +2575,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "74/85　ナレーション"
+    "progressLabel": "74/85　ナレーション",
+    "characterIds": [
+      "takumi",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v075",
@@ -1758,7 +2617,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "75/85　タクミ"
+    "progressLabel": "75/85　タクミ",
+    "characterIds": [
+      "takumi",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v076",
@@ -1781,7 +2659,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "76/85　ナレーション"
+    "progressLabel": "76/85　ナレーション",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v077",
@@ -1804,7 +2694,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "77/85　ナレーション"
+    "progressLabel": "77/85　ナレーション",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v078",
@@ -1827,7 +2729,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "78/85　ナレーション"
+    "progressLabel": "78/85　ナレーション",
+    "characterIds": [
+      "takumi",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v079",
@@ -1850,7 +2771,26 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "79/85　タクミ"
+    "progressLabel": "79/85　タクミ",
+    "characterIds": [
+      "takumi",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v080",
@@ -1873,7 +2813,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　夜勤は終わらない",
-    "progressLabel": "80/85　ナレーション"
+    "progressLabel": "80/85　ナレーション",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v081",
@@ -1896,7 +2848,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　夜勤は終わらない",
-    "progressLabel": "81/85　ミナ"
+    "progressLabel": "81/85　ミナ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v082",
@@ -1919,7 +2883,19 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　夜勤は終わらない",
-    "progressLabel": "82/85　ナレーション"
+    "progressLabel": "82/85　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep12_v083",
@@ -1942,7 +2918,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　夜勤は終わらない",
-    "progressLabel": "83/85　ナレーション"
+    "progressLabel": "83/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v084",
@@ -1965,7 +2943,9 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　夜勤は終わらない",
-    "progressLabel": "84/85　ナレーション"
+    "progressLabel": "84/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep12_v085",
@@ -1988,6 +2968,8 @@
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　夜勤は終わらない",
-    "progressLabel": "85/85　ナレーション"
+    "progressLabel": "85/85　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   }
 ]

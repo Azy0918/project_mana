@@ -5,7 +5,26 @@
     "plannedImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v001-ep05_v005",
-    "prompt": "バックヤードの棚から黄ばんだ手書き伝票の束が落ちる。タクミが拾い、ミナが未処理か見る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "バックヤードの棚から黄ばんだ手書き伝票の束が落ちる。タクミが拾い、ミナが未処理か見る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc02",
@@ -13,7 +32,26 @@
     "plannedImage": "assets/scenes/planned/ep05_vc02_showa_58_slips.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v006-ep05_v010",
-    "prompt": "牛乳、食パン、乾電池、謎のり弁などが並ぶ古い商店伝票。紙の黄ばみと手書き感、文字は雰囲気重視。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "牛乳、食パン、乾電池、謎のり弁などが並ぶ古い商店伝票。紙の黄ばみと手書き感、文字は雰囲気重視。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc03",
@@ -21,7 +59,26 @@
     "plannedImage": "assets/scenes/planned/ep05_vc03_slips_do_not_give_up.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v011-ep05_v015",
-    "prompt": "ミナが淡々と伝票整理の姿勢を見せ、タクミが昭和から未処理なら諦めたい顔。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "ミナが淡々と伝票整理の姿勢を見せ、タクミが昭和から未処理なら諦めたい顔。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc04",
@@ -29,7 +86,33 @@
     "plannedImage": "assets/scenes/planned/ep05_vc04_register_scans_old_slips.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v016-ep05_v020",
-    "prompt": "二時十七分、第十三レジが現れ、古い伝票を一枚ずつ読み込む。紙がレジへ吸い込まれる。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "二時十七分、第十三レジが現れ、古い伝票を一枚ずつ読み込む。紙がレジへ吸い込まれる。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc05",
@@ -37,7 +120,33 @@
     "plannedImage": "assets/scenes/planned/ep05_vc05_future_log_in_slip.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v021-ep05_v025",
-    "prompt": "伝票表示に記憶返品タグ、危険知識封印、開封厳禁の異質な記録が混ざる。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "伝票表示に記憶返品タグ、危険知識封印、開封厳禁の異質な記録が混ざる。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc06",
@@ -45,7 +154,61 @@
     "plannedImage": "assets/scenes/planned/ep05_vc06_aseda_old_paper_warning.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v026-ep05_v030",
-    "prompt": "汗田がナビに呼ばれて来店。ナビに古紙の匂いが危険という警告風表示。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "汗田がナビに呼ばれて来店。ナビに古紙の匂いが危険という警告風表示。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya",
+      "thirteenth_register",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc07",
@@ -53,7 +216,61 @@
     "plannedImage": "assets/scenes/planned/ep05_vc07_silver_fiber_slip.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v031-ep05_v035",
-    "prompt": "汗田が伝票を光に透かし、紙の繊維に細い銀色の線を見つける。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "汗田が伝票を光に透かし、紙の繊維に細い銀色の線を見つける。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya",
+      "thirteenth_register",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc08",
@@ -61,7 +278,61 @@
     "plannedImage": "assets/scenes/planned/ep05_vc08_disguised_future_log.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v036-ep05_v040",
-    "prompt": "未来青年の記憶封印ログが古い商店伝票に偽装されている様子を、紙束と微細回路の対比で表現。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "未来青年の記憶封印ログが古い商店伝票に偽装されている様子を、紙束と微細回路の対比で表現。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya",
+      "thirteenth_register",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc09",
@@ -69,7 +340,61 @@
     "plannedImage": "assets/scenes/planned/ep05_vc09_sorting_slips.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v041-ep05_v045",
-    "prompt": "牛乳、食パン、乾電池、記憶封印、のり弁、危険知識などを机に並べて地味に仕分ける。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "牛乳、食パン、乾電池、記憶封印、のり弁、危険知識などを机に並べて地味に仕分ける。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya",
+      "thirteenth_register",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc10",
@@ -77,7 +402,33 @@
     "plannedImage": "assets/scenes/planned/ep05_vc10_classification_low.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v046-ep05_v050",
-    "prompt": "第十三レジが分類精度低めを表示。タクミが低いと驚く。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "第十三レジが分類精度低めを表示。タクミが低いと驚く。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc11",
@@ -85,7 +436,47 @@
     "plannedImage": "assets/scenes/planned/ep05_vc11_zakiyama_old_store_memory.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v051-ep05_v055",
-    "prompt": "座木山が昔ここに小さい雑貨屋があったと語る。夜釣り常連姿、古い場所の記憶。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 座木山辰哉は55歳の近所の常連客で、未来人ではない。深夜二時台によく来てコピー機を使う、夜釣り好きの変わりもの。昔、バイクで頭を打つ大怪我をしたため、記憶や時間のズレに妙に驚かない。短く乱れた黒髪、眠そうで少し開いた目、薄い眉、薄い無精髭と口髭、下唇が少し前に出て上唇を隠す独特の口元。閉じた口でもこの下唇の形を保つ。表情はぼんやり穏やかで、悪人顔にしない。服は暗いフーディー、ポケットの多いカーキの釣りベスト、オリーブ色のカーゴパンツ、黒い長靴。少し猫背で肩の力が抜けた立ち姿。小道具は長い釣り竿、リール、タモ網、バケツ、タックルバッグ、青灰色のクーラーボックス、古いツーリング地図、コピーした紙束。釣り場では黙々と釣り、店内ではコピー機の前で紙や地図を見ている。缶コーヒーはブラック派。眼鏡、補修眼鏡、コピーカード、方位磁石、カーディガン、チェックシャツ、未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。未来青年や汗田竜司に似せない。実在人物そっくりにしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "座木山が昔ここに小さい雑貨屋があったと語る。夜釣り常連姿、古い場所の記憶。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 座木山辰哉は55歳の近所の常連客で、未来人ではない。深夜二時台によく来てコピー機を使う、夜釣り好きの変わりもの。昔、バイクで頭を打つ大怪我をしたため、記憶や時間のズレに妙に驚かない。短く乱れた黒髪、眠そうで少し開いた目、薄い眉、薄い無精髭と口髭、下唇が少し前に出て上唇を隠す独特の口元。閉じた口でもこの下唇の形を保つ。表情はぼんやり穏やかで、悪人顔にしない。服は暗いフーディー、ポケットの多いカーキの釣りベスト、オリーブ色のカーゴパンツ、黒い長靴。少し猫背で肩の力が抜けた立ち姿。小道具は長い釣り竿、リール、タモ網、バケツ、タックルバッグ、青灰色のクーラーボックス、古いツーリング地図、コピーした紙束。釣り場では黙々と釣り、店内ではコピー機の前で紙や地図を見ている。缶コーヒーはブラック派。眼鏡、補修眼鏡、コピーカード、方位磁石、カーディガン、チェックシャツ、未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。未来青年や汗田竜司に似せない。実在人物そっくりにしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc12",
@@ -93,7 +484,47 @@
     "plannedImage": "assets/scenes/planned/ep05_vc12_old_store_helped_night_people.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v056-ep05_v060",
-    "prompt": "昔の小さな雑貨屋の幻影と現在のコンビニが重なる。電池を買う夜の人の記憶を静かに表現。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 座木山辰哉は55歳の近所の常連客で、未来人ではない。深夜二時台によく来てコピー機を使う、夜釣り好きの変わりもの。昔、バイクで頭を打つ大怪我をしたため、記憶や時間のズレに妙に驚かない。短く乱れた黒髪、眠そうで少し開いた目、薄い眉、薄い無精髭と口髭、下唇が少し前に出て上唇を隠す独特の口元。閉じた口でもこの下唇の形を保つ。表情はぼんやり穏やかで、悪人顔にしない。服は暗いフーディー、ポケットの多いカーキの釣りベスト、オリーブ色のカーゴパンツ、黒い長靴。少し猫背で肩の力が抜けた立ち姿。小道具は長い釣り竿、リール、タモ網、バケツ、タックルバッグ、青灰色のクーラーボックス、古いツーリング地図、コピーした紙束。釣り場では黙々と釣り、店内ではコピー機の前で紙や地図を見ている。缶コーヒーはブラック派。眼鏡、補修眼鏡、コピーカード、方位磁石、カーディガン、チェックシャツ、未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。未来青年や汗田竜司に似せない。実在人物そっくりにしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "昔の小さな雑貨屋の幻影と現在のコンビニが重なる。電池を買う夜の人の記憶を静かに表現。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 座木山辰哉は55歳の近所の常連客で、未来人ではない。深夜二時台によく来てコピー機を使う、夜釣り好きの変わりもの。昔、バイクで頭を打つ大怪我をしたため、記憶や時間のズレに妙に驚かない。短く乱れた黒髪、眠そうで少し開いた目、薄い眉、薄い無精髭と口髭、下唇が少し前に出て上唇を隠す独特の口元。閉じた口でもこの下唇の形を保つ。表情はぼんやり穏やかで、悪人顔にしない。服は暗いフーディー、ポケットの多いカーキの釣りベスト、オリーブ色のカーゴパンツ、黒い長靴。少し猫背で肩の力が抜けた立ち姿。小道具は長い釣り竿、リール、タモ網、バケツ、タックルバッグ、青灰色のクーラーボックス、古いツーリング地図、コピーした紙束。釣り場では黙々と釣り、店内ではコピー機の前で紙や地図を見ている。缶コーヒーはブラック派。眼鏡、補修眼鏡、コピーカード、方位磁石、カーディガン、チェックシャツ、未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。未来青年や汗田竜司に似せない。実在人物そっくりにしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc13",
@@ -101,7 +532,61 @@
     "plannedImage": "assets/scenes/planned/ep05_vc13_hold_if_undecidable.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v061-ep05_v065",
-    "prompt": "問題の伝票に手書きで判断できないものは預かる、というメモ。長文は読ませず印象で。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "問題の伝票に手書きで判断できないものは預かる、というメモ。長文は読ませず印象で。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya",
+      "thirteenth_register",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc14",
@@ -109,7 +594,61 @@
     "plannedImage": "assets/scenes/planned/ep05_vc14_processing_choices_slips.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v066-ep05_v070",
-    "prompt": "第十三レジが過去伝票廃棄、未来記録開封、現代店舗保留を提示する。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "第十三レジが過去伝票廃棄、未来記録開封、現代店舗保留を提示する。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya",
+      "thirteenth_register",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc15",
@@ -117,7 +656,61 @@
     "plannedImage": "assets/scenes/planned/ep05_vc15_pending_stamp.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v071-ep05_v075",
-    "prompt": "ミナが伝票へ保留ハンコを押す。危険知識を剥がさない判断。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "ミナが伝票へ保留ハンコを押す。危険知識を剥がさない判断。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya",
+      "thirteenth_register",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc16",
@@ -125,7 +718,33 @@
     "plannedImage": "assets/scenes/planned/ep05_vc16_from_unprocessed_to_pending.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v076-ep05_v080",
-    "prompt": "第十三レジが過去伝票を未処理から保留へ移行。紙束の光が落ち着く。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "第十三レジが過去伝票を未処理から保留へ移行。紙束の光が落ち着く。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc17",
@@ -133,7 +752,33 @@
     "plannedImage": "assets/scenes/planned/ep05_vc17_showa_slip_receipt.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v081-ep05_v085",
-    "prompt": "昭和伝票整理済み、記憶返品タグ保留、店長確認未了などのレシート。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "昭和伝票整理済み、記憶返品タグ保留、店長確認未了などのレシート。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc18",
@@ -141,7 +786,61 @@
     "plannedImage": "assets/scenes/planned/ep05_vc18_label_maker.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v086-ep05_v090",
-    "prompt": "ミナが文具箱からテプラを出す。世界を救う前にラベル作り。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "ミナが文具箱からテプラを出す。世界を救う前にラベル作り。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina",
+      "future_worker_ep01",
+      "aseda_ryuji",
+      "zakiyama_tatsuya",
+      "thirteenth_register",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "future_worker_ep01",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc19",
@@ -149,7 +848,26 @@
     "plannedImage": "assets/scenes/planned/ep05_vc19_slip_file_storage.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v091-ep05_v095",
-    "prompt": "背表紙を付けた伝票ファイルに保留伝票を入れる。バックヤードの棚へ。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "背表紙を付けた伝票ファイルに保留伝票を入れる。バックヤードの棚へ。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "visualCutId": "vc20",
@@ -157,6 +875,25 @@
     "plannedImage": "assets/scenes/planned/ep05_vc20_manual_slip_note.png",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png",
     "lineRangeDraft": "ep05_v096-ep05_v100",
-    "prompt": "タクミが危険知識は剥がさない、古い伝票でも未処理なら処理するとマニュアルに書く。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。"
+    "prompt": "タクミが危険知識は剥がさない、古い伝票でも未処理なら処理するとマニュアルに書く。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。ミナの制服と同じ店舗制服にするが、女性用に見せない。 ミナは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "characterIds": [
+      "takumi",
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   }
 ]

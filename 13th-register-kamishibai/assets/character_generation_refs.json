@@ -1,0 +1,395 @@
+{
+  "version": 1,
+  "source": "assets/character_reference.json",
+  "purpose": "Reference-image map for 20 cuts x 12 episodes. Generation pipelines should attach these images when the corresponding characterIds appear.",
+  "referenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition.",
+  "characters": [
+    {
+      "id": "takumi",
+      "name": "タクミ",
+      "aliases": [
+        "新人バイト",
+        "新人夜勤",
+        "たくみ",
+        "タクミ"
+      ],
+      "primaryImage": "assets/character_sheets/takumi_sheet_v2.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/takumi_sheet_v2.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。",
+      "mustKeep": [
+        "濃紺ベースに深緑の店舗制服",
+        "白い横ラインと緑の襟",
+        "左胸の名札「タクミ」",
+        "丸めの目",
+        "普通の新人夜勤バイト感"
+      ],
+      "mustAvoid": [
+        "クールすぎる主人公顔",
+        "長髪・茶髪",
+        "女性的な顔",
+        "制服配色の変更",
+        "SF戦闘主人公化"
+      ]
+    },
+    {
+      "id": "mina",
+      "name": "ミナ",
+      "aliases": [
+        "先輩夜勤",
+        "みな",
+        "ミナ"
+      ],
+      "primaryImage": "assets/character_sheets/mina_sheet_v2.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/mina_sheet_v2.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「ミナ」。華美にしない。",
+      "mustKeep": [
+        "タクミと同じ店舗制服",
+        "左胸の名札「ミナ」",
+        "低いひとつ結び",
+        "手元の業務動作が丁寧",
+        "華美にしない"
+      ],
+      "mustAvoid": [
+        "ボブ化・ロングヘア化",
+        "アイドル風",
+        "冷たい悪役顔",
+        "制服配色の変更",
+        "未来人・黒幕感"
+      ]
+    },
+    {
+      "id": "future_worker_ep01",
+      "name": "未来青年",
+      "aliases": [
+        "みらいせいねん",
+        "返品済み青年",
+        "未来の会社員",
+        "未来の店員",
+        "未来青年",
+        "長谷山"
+      ],
+      "primaryImage": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。短く乱れた黒髪、疲れた目、薄いクマ、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ。",
+      "mustKeep": [
+        "短く乱れた黒髪",
+        "くたびれた濃紺スーツ",
+        "緩んだネクタイ",
+        "首元の透明な記憶返品タグ"
+      ],
+      "mustAvoid": [
+        "眼鏡",
+        "長髪",
+        "濃い髭",
+        "スポーツサングラス",
+        "バイクジャケット",
+        "未来警察風"
+      ]
+    },
+    {
+      "id": "aseda_ryuji",
+      "name": "汗田竜司",
+      "aliases": [
+        "あせだ りゅうじ",
+        "汗田リュウジ",
+        "汗田竜司",
+        "汗田"
+      ],
+      "primaryImage": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "キャラID: aseda_ryuji。54歳、現代側の自動車研究開発者で未来人ではない。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。手指を増やさない。",
+      "mustKeep": [
+        "紫のフルフェイスヘルメット",
+        "コンパクトなバイク用ナビ端末",
+        "理屈っぽい責任感",
+        "現代側の技術者",
+        "ややがっしりした体格"
+      ],
+      "mustAvoid": [
+        "未来人化",
+        "研究者白衣",
+        "座木山の釣り装備",
+        "未来青年の疲弊会社員化",
+        "ナビ端末の巨大タブレット化",
+        "手指の増殖"
+      ]
+    },
+    {
+      "id": "zakiyama_tatsuya",
+      "name": "座木山辰哉",
+      "aliases": [
+        "ざきやま たつや",
+        "崎山タツヤ",
+        "座木山辰哉",
+        "座木山"
+      ],
+      "primaryImage": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "座木山辰哉。55歳の近所の常連客で、未来人ではない。短く乱れた黒髪、眠そうで少し開いた目、薄い無精髭と口髭、下唇が少し前に出て上唇を隠す口元。暗いフーディー、カーキの釣りベスト、オリーブ色のカーゴパンツ、黒い長靴。釣り竿と古い地図。",
+      "mustKeep": [
+        "暗いフーディー",
+        "カーキの釣りベスト",
+        "オリーブ色のカーゴパンツ",
+        "黒い長靴",
+        "ぼんやり穏やかな表情"
+      ],
+      "mustAvoid": [
+        "未来人化",
+        "スーツ姿",
+        "肩液晶・首元タグ",
+        "スポーツサングラス",
+        "バイクジャケット",
+        "眼鏡",
+        "汗田・未来青年に似る"
+      ]
+    },
+    {
+      "id": "karasawa_eiji",
+      "name": "唐沢栄治",
+      "aliases": [
+        "からさわ えいじ",
+        "唐沢エイジ",
+        "唐沢栄治",
+        "唐沢"
+      ],
+      "primaryImage": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "キャラID: karasawa_eiji。53歳の日本人男性、コンビニ本部SV / 業務改善担当。短く整えた黒髪に少し白髪、眼鏡無し、髭無し、落ち着いた鋭い目、地味な紺またはグレーのビジネスジャケット、白シャツ、細いネクタイ、左胸に本部IDカード、手に業務用タブレットまたはクリップボード。未来人にしない。",
+      "mustKeep": [
+        "紺またはグレーのビジネスジャケット",
+        "白シャツ",
+        "細いネクタイ",
+        "本部IDカード",
+        "業務用タブレットまたはクリップボード"
+      ],
+      "mustAvoid": [
+        "未来人化",
+        "長髪",
+        "濃い髭",
+        "スポーツサングラス",
+        "バイクジャケット",
+        "釣りベスト",
+        "白衣",
+        "派手なSF衣装",
+        "眼鏡"
+      ]
+    },
+    {
+      "id": "thirteenth_register",
+      "name": "第十三レジ",
+      "aliases": [
+        "13th register",
+        "だいじゅうさんレジ",
+        "第十三レジ"
+      ],
+      "primaryImage": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "キャラID: thirteenth_register。卓上サイズの新型POSレジ(約35×45×55cm、艶消しブラック〜濃いチャコール、細い青白LED)、前面ディスプレイにネオンシアンの短い水平な目が二本と小さな水平の口が一つだけ光る最小限の顔。巨大装置にしない、カウンター右端のグレータイルの上に出現。かわいいマスコット化しない。大型筐体にしない。",
+      "mustKeep": [
+        "ネオンシアンの短い水平な目が二本",
+        "小さな水平の口が一つ",
+        "カード端末",
+        "スキャナー",
+        "レシート排出口"
+      ],
+      "mustAvoid": [
+        "かわいいマスコット化",
+        "銀色の古いレジ化",
+        "人型ロボット化",
+        "顔表示の派手な変更",
+        "第十二・第十四レジとの混同",
+        "巨大装置",
+        "壁一面の機械",
+        "床から生える装置",
+        "SF映画の制御卓",
+        "ホログラム",
+        "ネオン過多",
+        "ロボットアーム",
+        "大きな漫画的フェイス",
+        "レジ周囲の矩形フレーム",
+        "文字・字幕・ロゴ・透かし",
+        "低品質"
+      ]
+    },
+    {
+      "id": "navigation_terminal_ep02",
+      "name": "ナビ端末",
+      "aliases": [
+        "ナビたんまつ",
+        "バイクナビ",
+        "ナビ端末",
+        "ナビ"
+      ],
+      "primaryImage": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末。小型タブレットまたは大きめスマホ程度。シアンに発光する地図や物流ネットワーク表示。巨大タブレット化しない。",
+      "mustKeep": [
+        "小型サイズ",
+        "黒い防水ケース",
+        "シアン画面",
+        "汗田の視線方向へ自然に向く",
+        "ハンドル中央付近に固定可能"
+      ],
+      "mustAvoid": [
+        "巨大タブレット化",
+        "ノートPC化",
+        "画面が相手に背を向ける",
+        "ブランドロゴ",
+        "読める長文UI"
+      ]
+    },
+    {
+      "id": "twelfth_register",
+      "name": "第十二レジ",
+      "aliases": [
+        "だいじゅうにレジ",
+        "第十二レジ"
+      ],
+      "primaryImage": "assets/character_sheets/twelfth_register_sheet.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/twelfth_register_sheet.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "キャラID: twelfth_register。昭和の商店にありそうな木目調またはくすんだベージュの古いレジ端末、丸みのある筐体、古い金属キー、紙伝票の差し込み口、琥珀色の小さな表示ランプ。黒い第十三レジとは別機体。",
+      "mustKeep": [
+        "古い木目調またはくすんだベージュ",
+        "古い金属キー",
+        "紙伝票",
+        "琥珀色ランプ",
+        "第十三レジと別機体"
+      ],
+      "mustAvoid": [
+        "黒いセルフレジ",
+        "透明未来端末",
+        "人型ロボット",
+        "派手なサイバー機械",
+        "第十三レジと同じ顔"
+      ]
+    },
+    {
+      "id": "fourteenth_register",
+      "name": "第十四レジ",
+      "aliases": [
+        "だいじゅうよんレジ",
+        "第十四レジ"
+      ],
+      "primaryImage": "assets/character_sheets/fourteenth_register_sheet.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/fourteenth_register_sheet.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "キャラID: fourteenth_register。透明アクリルやガラスのような筐体、白と淡い紫の光、薄い浮遊パネル風の表示、直線的で清潔すぎる未来端末。黒い第十三レジ、古い第十二レジとは別機体。",
+      "mustKeep": [
+        "透明な未来型レジ",
+        "白と淡い紫の光",
+        "薄い浮遊パネル",
+        "直線的な清潔感",
+        "第十三・第十二と別機体"
+      ],
+      "mustAvoid": [
+        "木目調",
+        "古い金属キー",
+        "黒いセルフレジ",
+        "人型ロボット",
+        "宇宙兵器",
+        "第十三レジと同じ顔"
+      ]
+    },
+    {
+      "id": "truck_driver_ep04",
+      "name": "トラック運転手",
+      "aliases": [
+        "とらっくうんてんしゅ",
+        "トラック運転手",
+        "運転手"
+      ],
+      "primaryImage": "assets/character_sheets/truck_driver_ep04_sheet.png",
+      "referenceImages": [
+        {
+          "role": "design_sheet",
+          "path": "assets/character_sheets/truck_driver_ep04_sheet.png",
+          "weight": 1.0
+        }
+      ],
+      "prompt": "トラック運転手は第4話の一見客で、全カットで同一人物として固定。キャラID: truck_driver_ep04。50代後半の日本人男性、長距離トラック運転手。恰幅のよいがっしりした大柄、白髪まじりの短い角刈り（刈り上げ気味）、日焼けした赤ら顔の丸顔、太い眉、眠そうだが人の好い穏やかな表情、口ひげは無く顎に短い無精髭程度。濃紺またはグレーの作業つなぎ（ワークジャンプスーツ）、首にタオル。深夜コンビニで唐揚げ棒を買う、疲れているが悪人ではない一見客。帽子はかぶらない。座木山辰哉に似せない（座木山のような痩せ型・乱れた黒髪・口ひげ・下唇の突き出し・釣りベスト・釣り具にしない。別の顔と体型にする）。汗田竜司のスポーツサングラスやバイクジャケットにしない。未来青年のような疲弊した若い会社員にしない。スーツや店舗制服にしない。若者にしない。",
+      "mustKeep": [
+        "50代後半の大柄でがっしりした体型",
+        "白髪まじりの短い角刈り",
+        "日焼けした赤ら顔の丸顔",
+        "太い眉",
+        "濃紺またはグレーの作業つなぎ",
+        "首のタオル",
+        "帽子はかぶらない",
+        "眠そうだが人の好い表情"
+      ],
+      "mustAvoid": [
+        "座木山辰哉に似せる",
+        "痩せ型",
+        "乱れた黒髪",
+        "口ひげ・下唇の突き出し",
+        "釣りベスト・釣り具",
+        "帽子の有無がカットで変わる",
+        "スーツ・店舗制服",
+        "未来人",
+        "スポーツサングラス",
+        "バイクジャケット",
+        "若者化",
+        "別人化"
+      ]
+    }
+  ]
+}

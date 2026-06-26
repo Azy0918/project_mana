@@ -74,8 +74,12 @@ def build_scene() -> None:
     old = json.loads((KAMI / "scene_manifest.json").read_text(encoding="utf-8"))
     oldbyid = {e["id"]: e for e in old}
 
+    # Keep generation context intact when this revision rebuilds the player
+    # manifest. Reference-image metadata is attached by the kamishibai tool.
     VIS = ("visualCutId", "visualCutTitle", "visualCutIndex", "image",
-           "plannedImage", "fallbackImage", "imagePrompt", "visualLabel")
+           "plannedImage", "fallbackImage", "imagePrompt", "visualLabel",
+           "characterIds", "characterReferenceImages",
+           "characterReferenceInstruction")
     total = len(manifest)
     scenes = []
     last_vis = None
@@ -104,7 +108,11 @@ def build_scene() -> None:
             "log": [f"発話ログ　{i:02d}/{total}", f"担当　{ch}", "本日の営業　継続中"],
             "visualLabel": vis["visualLabel"],
             "progressLabel": f"{i:02d}/{total}　{ch}",
+            "characterIds": vis.get("characterIds", []),
+            "characterReferenceImages": vis.get("characterReferenceImages", []),
         })
+        if vis.get("characterReferenceInstruction"):
+            scenes[-1]["characterReferenceInstruction"] = vis["characterReferenceInstruction"]
     blob = json.dumps(scenes, ensure_ascii=False, indent=2)
     for base in (KAMI, SITE):
         p = base / "scene_manifest.json"

@@ -216,23 +216,23 @@ st.set_page_config(page_title="第十三レジ Gemini TTS オーディション"
 st.title("🎙️ 第十三レジ ｜ Gemini TTS 音声オーディション")
 st.caption("キャラクターごとに Gemini TTS の声を聞き比べ、採用した声を voices.yaml に保存します。")
 
-api_key = load_env_key()
-if not api_key:
-    st.warning(
-        "GEMINI_API_KEY が未設定です。下の欄に貼り付けてください"
-        "（このセッションのみ使用・保存しません）。または `.env` に `GEMINI_API_KEY=...` を設定。"
-    )
-    api_key = (st.text_input(
-        "Gemini APIキーを貼り付け",
-        type="password",
-        key="api_key_field",
-        placeholder="AIza... を貼り付け",
-        help="https://aistudio.google.com/apikey で取得",
-    ) or "").strip()
-    if api_key:
-        st.success("APIキーを受け付けました。生成できます。")
-    else:
-        st.info("👆 キーを貼り付けると「生成して再生」が有効になります。")
+env_key = load_env_key()
+# 入力欄は常に表示する。貼り付けたキーを最優先で使い、空なら .env のキーを使う。
+typed_key = (st.text_input(
+    "Gemini APIキーを貼り付け（新しい AIza… キーをここに貼ると優先して使われます）",
+    type="password",
+    key="api_key_field",
+    placeholder="AIza... を貼り付け",
+    help="https://aistudio.google.com/apikey で取得。貼り付けたキーは .env より優先（このセッションのみ・保存しません）。",
+) or "").strip()
+api_key = typed_key or (env_key or "").strip()
+if typed_key:
+    st.success("貼り付けたAPIキーを使用します（.envより優先）。")
+elif env_key:
+    masked = f"{env_key[:4]}…{env_key[-4:]}" if len(env_key) > 8 else "(設定あり)"
+    st.info(f"`.env` のキーを使用中：{masked}。別のキーを使うなら上の欄に貼り付けてください。")
+else:
+    st.warning("GEMINI_API_KEY が未設定です。上の欄に AIza… キーを貼り付けてください。")
 
 voices_data = load_voices_yaml()
 

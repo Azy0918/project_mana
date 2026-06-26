@@ -4,10 +4,10 @@ characters:
   ナレーション:
     voice: Charon
     model: gemini-2.5-flash-preview-tts
-    style: 落ち着いた深夜のナレーション。淡々と、少しだけ温かく、ゆっくり読む。
+    style: 落ち着いた深夜のナレーション。淡々と、少しだけ温かく。一定のテンポで自然に、間延びさせず、やや軽快に読む。
     line: 午前二時三分。
     sample: ""
-    updated_at: "2026-06-26"
+    updated_at: "2026-06-27"
   タクミ:
     voice: Puck
     model: gemini-2.5-flash-preview-tts

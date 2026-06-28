@@ -85,7 +85,7 @@
       { id:"ep11", label:"第11話", visual:"./visual_cut_plan_ep11.json" },
       { id:"ep12", label:"第12話", visual:"./visual_cut_plan_ep12.json" },
     ];
-    let EP = EPISODES[EPISODES.length - 1], CUTS = [], replacements = {}, CB = 0;
+    let EP = EPISODES[0], CUTS = [], replacements = {}, CB = 0;
     const $ = s => document.querySelector(s);
     const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
     const norm = p => !p ? "" : (/^(\.\/|\/|https?:)/.test(p) ? p : "./" + p);
@@ -198,7 +198,7 @@
     $("#closeBtn").addEventListener("click", () => $("#out").close());
     const epSel = $("#epSelect");
     EPISODES.forEach((e,i) => { const o=document.createElement("option"); o.value=String(i); o.textContent=e.label; epSel.appendChild(o); });
-    epSel.value = String(EPISODES.length - 1);
+    epSel.value = "0";
     epSel.addEventListener("change", () => { EP=EPISODES[Number(epSel.value)] || EPISODES[0]; load(); });
     load().catch(e => $("#status").textContent = "読込失敗: " + e.message);
   </script>

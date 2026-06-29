@@ -216,7 +216,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田がやって来た。ナビに、古紙の匂いが危険です、と出たらしい。",
-    "synthesis_text": "汗田がやって来た。ナビに、古紙の匂いが危険です、と出たらしい。",
+    "synthesis_text": "あせだがやって来た。ナビに、古紙の匂いが危険です、と出たらしい。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep05_aivis/raw/ep05_v017.wav"
   },
@@ -281,7 +281,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は伝票を光に透かした。紙の繊維の間に、細い銀色の線が入っている。",
-    "synthesis_text": "汗田は伝票を光に透かした。紙の繊維の間に、細い銀色の線が入っている。",
+    "synthesis_text": "あせだは伝票を光に透かした。紙の繊維の間に、細い銀色の線が入っている。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep05_aivis/raw/ep05_v022.wav"
   },
@@ -580,7 +580,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は低く言った。",
-    "synthesis_text": "汗田は低く言った。",
+    "synthesis_text": "あせだは低く言った。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep05_aivis/raw/ep05_v045.wav"
   },
@@ -762,7 +762,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は静かにうなずいた。",
-    "synthesis_text": "汗田は静かにうなずいた。",
+    "synthesis_text": "あせだは静かにうなずいた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep05_aivis/raw/ep05_v059.wav"
   },

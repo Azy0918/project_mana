@@ -320,7 +320,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田が入ってきた。ナビはすでに赤く点滅している。",
-    "synthesis_text": "汗田が入ってきた。ナビはすでに赤く点滅している。",
+    "synthesis_text": "あせだが入ってきた。ナビはすでに赤く点滅している。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep10_aivis/raw/ep10_v025.wav"
   },
@@ -593,7 +593,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田はすぐに言った。",
-    "synthesis_text": "汗田はすぐに言った。",
+    "synthesis_text": "あせだはすぐに言った。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep10_aivis/raw/ep10_v046.wav"
   },

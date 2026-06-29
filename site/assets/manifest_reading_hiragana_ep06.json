@@ -177,7 +177,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田はパンを見た。",
-    "synthesis_text": "汗田はパンを見た。",
+    "synthesis_text": "あせだはパンを見た。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep06_aivis/raw/ep06_v014.wav"
   },
@@ -476,7 +476,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田が目を上げた。",
-    "synthesis_text": "汗田が目を上げた。",
+    "synthesis_text": "あせだが目を上げた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep06_aivis/raw/ep06_v037.wav"
   },

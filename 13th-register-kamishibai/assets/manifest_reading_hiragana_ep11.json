@@ -229,7 +229,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田がナビを置いた。",
-    "synthesis_text": "汗田がナビを置いた。",
+    "synthesis_text": "あせだがナビを置いた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep11_aivis/raw/ep11_v018.wav"
   },
@@ -424,7 +424,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田もうなずいた。",
-    "synthesis_text": "汗田もうなずいた。",
+    "synthesis_text": "あせだもうなずいた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep11_aivis/raw/ep11_v033.wav"
   },
@@ -736,7 +736,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は静かに言った。",
-    "synthesis_text": "汗田は静かに言った。",
+    "synthesis_text": "あせだは静かに言った。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep11_aivis/raw/ep11_v057.wav"
   },

@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>深夜二時の第十三レジ レビュー（公開版）</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #05070b; --panel: #101720; --line: #26384a;
+      --text: #edf7ff; --muted: #98a7b8; --cyan: #53e5ff; --violet: #b58cff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; color: var(--text);
+      background: radial-gradient(circle at 20% 0%, rgba(83,229,255,.10), transparent 28rem), var(--bg);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    header { position: sticky; top: 0; z-index: 10; padding: 12px 14px;
+      background: rgba(5,7,11,.92); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
+    h1 { margin: 0 0 8px; font-size: 18px; }
+    .epbar { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; }
+    .epbar label { color: var(--muted); font-size: 12px; font-weight: 800; }
+    .epbar select { min-height: 34px; padding: 5px 10px; border: 1px solid rgba(83,229,255,.42); border-radius: 8px; background: rgba(5,7,11,.6); color: var(--text); font-size: 14px; font-weight: 800; }
+    .tabs { display: flex; gap: 8px; }
+    .tabs button { flex: 1; min-height: 40px; padding: 8px; border: 1px solid var(--line);
+      border-radius: 8px; background: rgba(16,23,32,.9); color: var(--muted); font-weight: 800; font-size: 14px; cursor: pointer; }
+    .tabs button.active { color: var(--cyan); border-color: rgba(83,229,255,.5); background: rgba(83,229,255,.10); }
+    main { width: min(100%, 1000px); margin: 0 auto; padding: 14px; }
+    .hint { margin: 0 0 12px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .status { color: var(--violet); font-size: 12px; }
+
+    #engineBar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 10px;
+      padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: rgba(16,23,32,.55); }
+    #engineBar label { color: var(--muted); font-size: 12px; font-weight: 800; }
+    #engineBar input { flex: 1; min-width: 170px; min-height: 32px; padding: 5px 9px; border: 1px solid var(--line); border-radius: 7px; background: rgba(5,7,11,.6); color: var(--text); font: 12px ui-monospace, monospace; }
+    #engineBar button { min-height: 32px; padding: 5px 12px; border: 1px solid rgba(83,229,255,.42); border-radius: 7px; background: rgba(83,229,255,.10); color: var(--cyan); font-weight: 800; font-size: 12px; cursor: pointer; }
+    .note { margin: 0 0 12px; padding: 9px 11px; border: 1px solid rgba(255,196,84,.5); border-radius: 8px; background: rgba(255,196,84,.08); color: #ffd9a0; font-size: 12px; line-height: 1.6; }
+    .note code { background: rgba(0,0,0,.35); padding: 1px 5px; border-radius: 4px; }
+
+    .line { border: 1px solid var(--line); border-radius: 10px; background: rgba(16,23,32,.7); margin-bottom: 12px; overflow: hidden; }
+    .line.req-on { border-color: rgba(181,140,255,.6); }
+    .line.rd-on { border-color: rgba(83,229,255,.6); }
+    .line .meta { padding: 7px 11px; font-size: 12px; font-weight: 800; color: var(--cyan);
+      background: rgba(83,229,255,.07); border-bottom: 1px solid var(--line); }
+    .line .body { display: grid; grid-template-columns: 96px 1fr; gap: 11px; padding: 11px; }
+    .thumb { width: 96px; aspect-ratio: 9/16; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); background: #02050a; }
+    .texts { min-width: 0; }
+    .speaker { display: inline-block; padding: 2px 8px; border-radius: 999px; background: rgba(83,229,255,.15);
+      color: var(--cyan); font-size: 12px; font-weight: 800; margin-bottom: 5px; }
+    .dialogue { font-size: 15px; font-weight: 700; line-height: 1.5; }
+    .readingrow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 7px; }
+    .readingrow .rl { color: var(--muted); font-size: 11px; font-weight: 800; }
+    .readingedit { flex: 1; min-width: 140px; min-height: 32px; padding: 5px 8px; border: 1px solid var(--line);
+      border-radius: 6px; background: rgba(5,7,11,.55); color: #dfeaf6; font-size: 13px; }
+    .readingedit.changed { border-color: rgba(83,229,255,.6); color: var(--cyan); }
+    .rprev { min-height: 32px; padding: 4px 11px; border: 1px solid rgba(83,229,255,.42); border-radius: 999px;
+      background: rgba(83,229,255,.10); color: var(--cyan); font-weight: 800; font-size: 12px; cursor: pointer; }
+    .rprev-st { flex-basis: 100%; }
+    .imgname { margin-top: 6px; color: var(--muted); font-size: 11px; word-break: break-all; }
+    .req { width: 100%; margin: 0; border: 0; border-top: 1px solid var(--line); padding: 9px 11px;
+      background: rgba(5,7,11,.5); color: var(--text); font: inherit; font-size: 13px; resize: vertical; min-height: 38px; }
+    .req::placeholder { color: #5d6f83; }
+
+    .tline { border: 1px solid var(--line); border-radius: 10px; background: rgba(16,23,32,.7); margin-bottom: 8px; }
+    .tline.changed { border-color: rgba(83,229,255,.55); }
+    .theader { display: flex; align-items: center; gap: 9px; padding: 9px 11px; cursor: pointer; }
+    .theader .idx { color: var(--cyan); font-weight: 900; font-size: 12px; white-space: nowrap; }
+    .theader .sp { padding: 1px 7px; border-radius: 999px; background: rgba(83,229,255,.14); color: var(--cyan); font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .theader .dl { flex: 1; min-width: 0; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .theader .mark { color: var(--violet); font-size: 11px; font-weight: 800; }
+    .sliders { padding: 4px 11px 12px; border-top: 1px solid var(--line); }
+    .readingmini { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 8px 0 2px; }
+    .readingmini .rl { color: var(--muted); font-size: 11px; font-weight: 800; }
+    .readingmini input { flex: 1; min-width: 140px; min-height: 30px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; background: rgba(5,7,11,.55); color: #dfeaf6; font-size: 13px; }
+    .srow { display: grid; grid-template-columns: 120px 1fr 56px; gap: 9px; align-items: center; padding: 5px 0; }
+    .srow label { font-size: 12px; color: var(--muted); }
+    .srow input[type=range] { width: 100%; accent-color: var(--cyan); }
+    .srow .val { font-size: 12px; font-weight: 800; text-align: right; color: var(--text); }
+    .srow .val.diff { color: var(--cyan); }
+    .trow-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
+    .trow-actions button { min-height: 34px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 8px;
+      background: rgba(5,7,11,.6); color: var(--text); font-weight: 800; font-size: 12px; cursor: pointer; }
+
+    .bar { position: sticky; bottom: 0; display: flex; gap: 8px; padding: 12px 0; background: linear-gradient(180deg, transparent, var(--bg) 40%); }
+    .bar button { flex: 1; min-height: 44px; border: 1px solid rgba(83,229,255,.5); border-radius: 8px;
+      background: rgba(83,229,255,.12); color: var(--cyan); font-weight: 900; font-size: 14px; cursor: pointer; }
+    dialog { width: min(96vw, 760px); border: 1px solid rgba(83,229,255,.5); border-radius: 10px; background: var(--panel); color: var(--text); }
+    dialog::backdrop { background: rgba(0,0,0,.6); }
+    dialog h2 { margin: 0 0 8px; font-size: 15px; color: var(--cyan); }
+    dialog textarea { width: 100%; min-height: 46vh; border: 1px solid var(--line); border-radius: 8px;
+      background: #02050a; color: var(--text); font: 12px/1.6 ui-monospace, monospace; padding: 10px; resize: vertical; }
+    .dlg-actions { display: flex; gap: 8px; margin-top: 10px; }
+    .dlg-actions button { min-height: 40px; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line);
+      background: rgba(5,7,11,.6); color: var(--text); font-weight: 800; cursor: pointer; }
+    .dlg-actions .primary { border-color: rgba(83,229,255,.5); background: rgba(83,229,255,.14); color: var(--cyan); }
+    .character-tools { display: grid; grid-template-columns: 220px 1fr; gap: 12px; align-items: start; }
+    .character-nav { display: grid; gap: 8px; position: sticky; top: 112px; }
+    .char-btn { min-height: 44px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: rgba(16,23,32,.72); color: var(--text); text-align: left; font-weight: 900; cursor: pointer; }
+    .char-btn span { display: block; color: var(--muted); font-size: 11px; font-weight: 700; margin-top: 2px; }
+    .char-btn.active { color: var(--cyan); border-color: rgba(83,229,255,.56); background: rgba(83,229,255,.12); }
+    .char-sheet { border: 1px solid rgba(238,229,212,.35); border-radius: 12px; overflow: hidden; background: linear-gradient(180deg, #eee5d4, #d7cbb8); color: var(--ink); box-shadow: 0 22px 70px rgba(0,0,0,.34); }
+    .char-head { display: grid; grid-template-columns: minmax(180px, 34%) 1fr; gap: 16px; padding: 18px; border-bottom: 1px solid rgba(31,39,48,.22); }
+    .char-portrait { min-height: 360px; display: grid; place-items: center; padding: 10px; border: 1px solid rgba(31,39,48,.18); border-radius: 10px; background: rgba(255,255,255,.28); }
+    .char-portrait img { max-width: 100%; max-height: 460px; object-fit: contain; border-radius: 8px; }
+    .char-name { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(34px, 6vw, 64px); letter-spacing: .02em; line-height: 1; }
+    .char-kana { margin: 8px 0 4px; font-size: 18px; font-weight: 900; }
+    .char-role { margin: 0 0 14px; font-size: 16px; font-weight: 900; color: #34404b; }
+    .char-summary { margin: 0; padding: 12px 13px; border: 1px solid rgba(31,39,48,.18); border-radius: 9px; background: rgba(255,255,255,.26); font-size: 14px; line-height: 1.7; }
+    .char-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 14px 18px 18px; }
+    .char-section { padding: 12px; border: 1px solid rgba(31,39,48,.18); border-radius: 9px; background: rgba(255,255,255,.22); }
+    .char-section.wide { grid-column: 1 / -1; }
+    .char-section h3 { margin: 0 0 8px; padding-bottom: 5px; border-bottom: 1px solid rgba(31,39,48,.22); font-size: 15px; }
+    .taglist { display: flex; flex-wrap: wrap; gap: 6px; }
+    .taglist span { padding: 5px 8px; border: 1px solid rgba(31,39,48,.18); border-radius: 999px; background: rgba(255,255,255,.3); font-size: 12px; font-weight: 800; }
+    .char-list { margin: 0; padding-left: 1.2em; font-size: 13px; line-height: 1.65; }
+    .promptbox { width: 100%; min-height: 98px; padding: 10px; border: 1px solid rgba(31,39,48,.24); border-radius: 8px; background: rgba(5,7,11,.82); color: #eef7ff; font: 12px/1.55 ui-monospace, Consolas, monospace; resize: vertical; }
+    .hidden { display: none !important; }
+    @media (max-width: 760px) { .character-tools { grid-template-columns: 1fr; } .character-nav { position: static; grid-template-columns: repeat(2, minmax(0,1fr)); } .char-head, .char-grid { grid-template-columns: 1fr; } .char-section.wide { grid-column: auto; } }
+    @media (max-width: 560px) { .srow { grid-template-columns: 92px 1fr 48px; } .tabs { flex-wrap: wrap; } .tabs button { flex-basis: calc(50% - 4px); } .character-nav { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>深夜二時の第十三レジ ｜ レビュー（公開版）</h1>
+    <div class="epbar">
+      <label for="epSelect">話数</label>
+      <select id="epSelect" aria-label="話数を選択"></select>
+    </div>
+    <div class="tabs">
+      <button id="tabReviewBtn" class="active" type="button">① 確認・変更依頼</button>
+      <button id="tabToneBtn" type="button">② トーン調整</button>
+      <button id="tabCharacterBtn" type="button">③ キャラ表</button>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="tabReview">
+      <p class="hint">各セリフの内容・よみ・画像・タイミングを確認。<strong>よみ欄は直接編集できます</strong>。直したい行に「変更依頼」を書き、下のボタンで依頼プロンプトを生成→コピーして渡せます。<span id="reviewStatus" class="status"></span></p>
+      <div id="reviewList"></div>
+      <div class="bar"><button id="genReview" type="button">変更依頼プロンプトを生成</button></div>
+    </section>
+
+    <section id="tabTone" class="hidden">
+      <p class="hint">行を開いてスライダーでトーン/イントネーションを調整。よみも編集できます。調整した行だけが依頼プロンプトに入ります。<span id="toneStatus" class="status"></span></p>
+      <div id="toneList"></div>
+      <div class="bar"><button id="genTone" type="button">トーン調整プロンプトを生成</button></div>
+    </section>
+
+    <section id="tabCharacter" class="hidden">
+      <p class="hint">画像生成・差し替え時のキャラ固定表です。キャラを選ぶと、外見ロック、禁止事項、小道具、よく言う反応、生成用プロンプトを参照できます。<span id="characterStatus" class="status"></span></p>
+      <div class="character-tools">
+        <nav id="characterNav" class="character-nav" aria-label="キャラ一覧"></nav>
+        <article id="characterSheet" class="char-sheet"></article>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="out">
+    <h2 id="outTitle">プロンプト</h2>
+    <textarea id="outText" readonly></textarea>
+    <div class="dlg-actions">
+      <button class="primary" id="copyBtn" type="button">コピー</button>
+      <button id="closeBtn" type="button">閉じる</button>
+    </div>
+  </dialog>
+
+  <script>
+    let ENGINE = "http://127.0.0.1:10101";
+    const EPISODES = [
+      { id:"ep01", label:"第1話", scene:"./scene_manifest.json",     voice:"./assets/manifest_reading_hiragana_mina_mao.json" },
+      { id:"ep02", label:"第2話", scene:"./scene_manifest_ep02.json", voice:"./assets/manifest_reading_hiragana_ep02.json" },
+      { id:"ep03", label:"第3話", scene:"./scene_manifest_ep03.json", voice:"./assets/manifest_reading_hiragana_ep03.json" },
+      { id:"ep04", label:"第4話", scene:"./scene_manifest_ep04.json", voice:"./assets/manifest_reading_hiragana_ep04.json" },
+      { id:"ep05", label:"第5話", scene:"./scene_manifest_ep05.json", voice:"./assets/manifest_reading_hiragana_ep05.json" },
+      { id:"ep06", label:"第6話", scene:"./scene_manifest_ep06.json", voice:"./assets/manifest_reading_hiragana_ep06.json" },
+      { id:"ep07", label:"第7話", scene:"./scene_manifest_ep07.json", voice:"./assets/manifest_reading_hiragana_ep07.json" },
+      { id:"ep08", label:"第8話", scene:"./scene_manifest_ep08.json", voice:"./assets/manifest_reading_hiragana_ep08.json" },
+      { id:"ep09", label:"第9話", scene:"./scene_manifest_ep09.json", voice:"./assets/manifest_reading_hiragana_ep09.json" },
+      { id:"ep10", label:"第10話", scene:"./scene_manifest_ep10.json", voice:"./assets/manifest_reading_hiragana_ep10.json" },
+      { id:"ep11", label:"第11話", scene:"./scene_manifest_ep11.json", voice:"./assets/manifest_reading_hiragana_ep11.json" },
+      { id:"ep12", label:"第12話", scene:"./scene_manifest_ep12.json", voice:"./assets/manifest_reading_hiragana_ep12.json" },
+    ];
+    let EP = EPISODES[1];
+    let CHAR_REF = null;
+    let ACTIVE_CHAR = "";
+    let CB = 0;   // 画像キャッシュ回避トークン(読み込みごとに更新)
+
+    const PARAM_DEFAULTS = {
+      2029042368: { speedScale:0.92, intonationScale:0.85, tempoDynamicsScale:0.82, pitchScale:-0.02, volumeScale:1.0, prePhonemeLength:0.12, postPhonemeLength:0.25 }, // 澤原 玄二郎 / ナレーション
+      1310138976: { speedScale:0.93, intonationScale:0.8,  tempoDynamicsScale:0.8,  pitchScale:-0.03, volumeScale:1.0, prePhonemeLength:0.1,  postPhonemeLength:0.25 }, // 阿井田 茂 / 汗田竜司
+      1937616896: { speedScale:1.1,  intonationScale:1.05, tempoDynamicsScale:1.12, pitchScale:0.015, volumeScale:1.0, prePhonemeLength:0.06, postPhonemeLength:0.18 }, // にせ / タクミ
+      604166016:  { speedScale:0.96, intonationScale:0.75, tempoDynamicsScale:0.8,  pitchScale:-0.02, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.2  }, // 中2 / エリ
+      1805828384: { speedScale:0.88, intonationScale:0.45, tempoDynamicsScale:0.5,  pitchScale:-0.04, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.25 }, // ろてじん / 第十三レジ
+      606865152:  { speedScale:0.95, intonationScale:0.78, tempoDynamicsScale:0.8,  pitchScale:-0.03, volumeScale:1.0, prePhonemeLength:0.08, postPhonemeLength:0.22 }, // fumifumi / 未来の会社員（第1話）
+      1628969216: { speedScale:0.9,  intonationScale:0.65, tempoDynamicsScale:0.68, pitchScale:-0.04, volumeScale:1.0, prePhonemeLength:0.1,  postPhonemeLength:0.25 }, // TANAKA / 座木山辰哉
+      1368642336: { speedScale:0.9,  intonationScale:0.62, tempoDynamicsScale:0.65, pitchScale:-0.05, volumeScale:1.0, prePhonemeLength:0.1,  postPhonemeLength:0.26 }, // M2 / トラック運転手
+    };
+    const ENGINE_DEFAULT = { speedScale:1.0, intonationScale:1.0, tempoDynamicsScale:1.0, pitchScale:0.0, volumeScale:1.0, prePhonemeLength:0.1, postPhonemeLength:0.1 };
+    const PARAMS = [
+      { key:"speedScale",         label:"話速 speed",        min:0.5,  max:2.0,  step:0.01 },
+      { key:"pitchScale",         label:"音高 pitch",        min:-0.15,max:0.15, step:0.01 },
+      { key:"intonationScale",    label:"抑揚 intonation",   min:0.0,  max:2.0,  step:0.01 },
+      { key:"tempoDynamicsScale", label:"緩急 tempoDyn",     min:0.0,  max:2.0,  step:0.01 },
+      { key:"volumeScale",        label:"音量 volume",       min:0.0,  max:2.0,  step:0.01 },
+      { key:"prePhonemeLength",   label:"前ポーズ pre",      min:0.0,  max:1.5,  step:0.01 },
+      { key:"postPhonemeLength",  label:"後ポーズ post",     min:0.0,  max:1.5,  step:0.01 },
+    ];
+
+    const $ = s => document.querySelector(s);
+    const mmss = s => { s = Number(s) || 0; return Math.floor(s/60) + ":" + String(Math.floor(s%60)).padStart(2,"0"); };
+    const base = p => String(p || "").split("/").pop();
+    const norm = p => !p ? "" : (/^(\.\/|\/|https?:)/.test(p) ? p : "./" + p);
+    const withCb = u => !u ? "" : u + (u.includes("?") ? "&" : "?") + "v=" + CB;  // 最新画像を取得
+    const defFor = sid => PARAM_DEFAULTS[sid] || ENGINE_DEFAULT;
+    const r2 = n => Math.round(Number(n) * 100) / 100;
+    const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;" }[c]));
+
+    let LINES = [];
+    const tone = {};          // id -> {param: value}
+    const readingEdit = {};   // id -> edited reading (only when changed)
+    const lineById = id => LINES.find(l => l.id === id);
+    const currentReading = id => (id in readingEdit ? readingEdit[id] : (lineById(id)?.reading || ""));
+
+    async function getJSON(url) {
+      let last;
+      for (let i = 0; i < 3; i++) {
+        try { const r = await fetch(url, { cache: "no-store" }); if (!r.ok) throw new Error(url + " " + r.status); return await r.json(); }
+        catch (e) { last = e; await new Promise(res => setTimeout(res, 250 * (i + 1))); }
+      }
+      throw last;
+    }
+
+    async function load() {
+      try {
+        $("#reviewStatus").textContent = "読込中…"; $("#toneStatus").textContent = "読込中…";
+        CB = Date.now();
+        const scenes = await getJSON(EP.scene);
+        const voice = await getJSON(EP.voice);
+        Object.keys(tone).forEach(k => delete tone[k]);
+        Object.keys(readingEdit).forEach(k => delete readingEdit[k]);
+        const sceneById = {}; scenes.forEach(s => sceneById[s.id] = s);
+        LINES = voice.map((v, i) => {
+          const sc = sceneById[v.id] || {};
+          return {
+            idx: i + 1, id: v.id, cut: v.cut || sc.cut || "",
+            visualCutId: sc.visualCutId || "", visualCutTitle: sc.visualCutTitle || "",
+            start: sc.start ?? 0, end: sc.end ?? 0,
+            image: sc.image || "", speaker: v.character || sc.speaker || "",
+            speakerName: v.speaker_name || "", styleId: Number(v.style_id) || 0,
+            dialogue: v.text || sc.dialogue || "", reading: v.synthesis_text || sc.reading || "",
+          };
+        });
+        LINES.forEach(l => { tone[l.id] = { ...defFor(l.styleId) }; });
+        renderReview(); renderTone();
+        $("#reviewStatus").textContent = "（" + EP.label + "・" + LINES.length + "行）";
+        $("#toneStatus").textContent = "（" + EP.label + "・" + LINES.length + "行）";
+      } catch (e) {
+        $("#reviewStatus").textContent = "読込失敗: " + e.message + "（localhost か 公開URL で開いてください。file:// は不可）";
+      }
+    }
+
+    function renderReview() {
+      $("#reviewList").innerHTML = LINES.map(l => `
+        <div class="line" data-id="${l.id}">
+          <div class="meta">#${l.idx} ・ ${mmss(l.start)}–${mmss(l.end)} ・ ${l.visualCutId} ${esc(l.visualCutTitle)}</div>
+          <div class="body">
+            <img class="thumb" src="${esc(withCb(norm(l.image)))}" alt="" loading="lazy" decoding="async" onerror="this.style.opacity=.2;this.dataset.broken='1'">
+            <div class="texts">
+              <span class="speaker">${esc(l.speaker)}</span>
+              <div class="dialogue">${esc(l.dialogue)}</div>
+              <div class="readingrow">
+                <span class="rl">よみ</span>
+                <input class="readingedit" data-id="${l.id}" value="${esc(l.reading)}" spellcheck="false">
+              </div>
+              <div class="imgname">画像：${esc(base(l.image))}</div>
+            </div>
+          </div>
+          <textarea class="req" data-id="${l.id}" placeholder="このセリフへの変更依頼（セリフ／画像／タイミング 等。よみは上の欄を直接編集）"></textarea>
+        </div>`).join("");
+      $("#reviewList").querySelectorAll(".req").forEach(t =>
+        t.addEventListener("input", () => t.closest(".line").classList.toggle("req-on", t.value.trim() !== "")));
+      $("#reviewList").querySelectorAll(".readingedit").forEach(inp => inp.addEventListener("input", () => {
+        const id = inp.dataset.id, orig = lineById(id).reading;
+        if (inp.value !== orig) readingEdit[id] = inp.value; else delete readingEdit[id];
+        const changed = id in readingEdit;
+        inp.classList.toggle("changed", changed);
+        inp.closest(".line").classList.toggle("rd-on", changed);
+      }));
+    }
+
+    function renderTone() {
+      $("#toneList").innerHTML = LINES.map(l => `
+        <div class="tline" data-id="${l.id}">
+          <div class="theader" data-id="${l.id}">
+            <span class="idx">#${l.idx}</span>
+            <span class="sp">${esc(l.speaker)}</span>
+            <span class="dl">${esc(l.dialogue)}</span>
+            <span class="mark hidden">調整あり</span>
+          </div>
+          <div class="sliders hidden" data-id="${l.id}"></div>
+        </div>`).join("");
+      $("#toneList").querySelectorAll(".theader").forEach(h =>
+        h.addEventListener("click", () => toggleTone(h.dataset.id)));
+    }
+
+    async function loadCharacters() {
+      try {
+        CHAR_REF = await getJSON("./assets/character_reference.json?cb=" + Date.now());
+        ACTIVE_CHAR = CHAR_REF.characters[0]?.id || "";
+        renderCharacters();
+        $("#characterStatus").textContent = `（${CHAR_REF.characters.length}件）`;
+      } catch (e) {
+        $("#characterStatus").textContent = "読込失敗: " + e.message;
+      }
+    }
+
+    function miniList(items) {
+      return `<ul class="char-list">${(items || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+    }
+
+    function tags(items) {
+      return `<div class="taglist">${(items || []).map(x => `<span>${esc(x)}</span>`).join("")}</div>`;
+    }
+
+    function renderCharacters() {
+      if (!CHAR_REF) return;
+      const chars = CHAR_REF.characters || [];
+      $("#characterNav").innerHTML = chars.map(c => `<button class="char-btn ${c.id === ACTIVE_CHAR ? "active" : ""}" type="button" data-char="${esc(c.id)}">${esc(c.name)}<span>${esc(c.roleTitle)}</span></button>`).join("");
+      $("#characterNav").querySelectorAll("[data-char]").forEach(b => b.addEventListener("click", () => { ACTIVE_CHAR = b.dataset.char; renderCharacters(); }));
+      const c = chars.find(x => x.id === ACTIVE_CHAR) || chars[0];
+      if (!c) { $("#characterSheet").innerHTML = ""; return; }
+      $("#characterSheet").innerHTML = `
+        <div class="char-head">
+          <div class="char-portrait"><img src="${esc(withCb(norm(c.image)))}" alt="${esc(c.name)}" loading="lazy" onerror="this.style.opacity=.25"></div>
+          <div>
+            <h2 class="char-name">${esc(c.name)}</h2>
+            <div class="char-kana">（${esc(c.kana)}）</div>
+            <p class="char-role">${esc(c.roleTitle)}</p>
+            <p class="char-summary">${esc(c.summary)}</p>
+          </div>
+        </div>
+        <div class="char-grid">
+          <section class="char-section"><h3>基本</h3>${tags(c.profile)}</section>
+          <section class="char-section"><h3>必須固定</h3>${miniList(c.mustKeep)}</section>
+          <section class="char-section"><h3>禁止</h3>${miniList(c.mustAvoid)}</section>
+          <section class="char-section"><h3>持ち物・装備</h3>${tags(c.props)}</section>
+          <section class="char-section"><h3>口調・反応</h3>${miniList(c.phrases)}</section>
+          <section class="char-section"><h3>参照場面</h3>${miniList(c.sceneRefs)}</section>
+          <section class="char-section wide"><h3>生成用ロックプロンプト</h3><textarea class="promptbox" readonly>${esc(c.prompt)}</textarea></section>
+        </div>`;
+    }
+
+    function toggleTone(id) {
+      const box = $(`.sliders[data-id="${id}"]`);
+      if (!box) return;
+      if (box.dataset.built !== "1") { buildSliders(id, box); box.dataset.built = "1"; }
+      box.classList.toggle("hidden");
+    }
+
+    function buildSliders(id, box) {
+      const l = lineById(id), def = defFor(l.styleId);
+      box.innerHTML = `
+        <div class="readingmini">
+          <span class="rl">よみ</span>
+          <input class="readingedit2" data-id="${id}" value="${esc(currentReading(id))}" spellcheck="false">
+        </div>` + PARAMS.map(p => {
+        const v = tone[id][p.key];
+        return `<div class="srow">
+          <label>${p.label}</label>
+          <input type="range" min="${p.min}" max="${p.max}" step="${p.step}" value="${v}" data-id="${id}" data-key="${p.key}">
+          <span class="val" data-id="${id}" data-key="${p.key}">${v.toFixed(2)}</span>
+        </div>`;
+      }).join("") + `
+        <div class="trow-actions">
+          <button type="button" data-act="reset" data-id="${id}">リセット</button>
+          <span class="status" data-prev="${id}"></span>
+        </div>`;
+      box.querySelector(".readingedit2").addEventListener("input", e => {
+        const orig = l.reading;
+        if (e.target.value !== orig) readingEdit[id] = e.target.value; else delete readingEdit[id];
+        const r = $(`#reviewList .readingedit[data-id="${id}"]`);
+        if (r) { r.value = e.target.value; r.classList.toggle("changed", id in readingEdit); r.closest(".line").classList.toggle("rd-on", id in readingEdit); }
+      });
+      box.querySelectorAll('input[type=range]').forEach(inp => inp.addEventListener("input", () => {
+        const key = inp.dataset.key; tone[id][key] = Number(inp.value);
+        const val = box.querySelector(`.val[data-key="${key}"]`);
+        val.textContent = Number(inp.value).toFixed(2);
+        val.classList.toggle("diff", r2(inp.value) !== r2(def[key]));
+        markChanged(id);
+      }));
+      box.querySelector('[data-act="reset"]').addEventListener("click", () => resetLine(id));
+      box.querySelectorAll('.val').forEach(v => v.classList.toggle("diff", r2(tone[id][v.dataset.key]) !== r2(def[v.dataset.key])));
+    }
+
+    function markChanged(id) {
+      const def = defFor(lineById(id).styleId);
+      const changed = PARAMS.some(p => r2(tone[id][p.key]) !== r2(def[p.key]));
+      const row = $(`.tline[data-id="${id}"]`);
+      row.classList.toggle("changed", changed);
+      row.querySelector(".mark").classList.toggle("hidden", !changed);
+    }
+
+    function resetLine(id) {
+      tone[id] = { ...defFor(lineById(id).styleId) };
+      const box = $(`.sliders[data-id="${id}"]`); box.dataset.built = ""; box.innerHTML = ""; buildSliders(id, box); box.dataset.built = "1";
+      markChanged(id);
+    }
+
+    async function synth(styleId, text, params, st) {
+      st.textContent = "合成中…";
+      try {
+        const qr = await fetch(`${ENGINE}/audio_query?text=${encodeURIComponent(text)}&speaker=${styleId}`, { method:"POST" });
+        if (!qr.ok) throw new Error("audio_query " + qr.status);
+        const q = await qr.json();
+        PARAMS.forEach(p => q[p.key] = params[p.key]);
+        q.outputSamplingRate = 44100; q.outputStereo = false;
+        const sr = await fetch(`${ENGINE}/synthesis?speaker=${styleId}`, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(q) });
+        if (!sr.ok) throw new Error("synthesis " + sr.status);
+        new Audio(URL.createObjectURL(await sr.blob())).play();
+        st.textContent = "再生 ▶";
+      } catch (e) { st.textContent = "✕ " + diagnose(e); }
+    }
+    function previewReading(id) {     // よみ確認：編集後のよみ × 話者の既定トーン
+      const l = lineById(id);
+      synth(l.styleId, currentReading(id), defFor(l.styleId), document.querySelector(`[data-rprev="${id}"]`));
+    }
+    function preview(id) {            // トーン確認：編集後のよみ × 調整中のトーン
+      const l = lineById(id);
+      synth(l.styleId, currentReading(id), tone[id], document.querySelector(`[data-prev="${id}"]`));
+    }
+
+    function isLocal() { return ["localhost", "127.0.0.1"].includes(location.hostname); }
+    function diagnose(e) {
+      const m = String((e && e.message) || e);
+      if (/\b403\b/.test(m)) return isLocal() ? "拒否(403)：AivisSpeechのCORS設定を確認" : "拒否(403)：公開URLからは不可→localhostで開く";
+      if (/Failed to fetch|NetworkError|load failed/i.test(m)) return isLocal() ? "未接続：AivisSpeech未起動かURL違い" : "未接続：公開URL(" + location.protocol + ")からlocalhostへは届きません→localhostで開く";
+      return m;
+    }
+    async function testEngine() {
+      const st = $("#engineStatus"); st.textContent = "確認中…";
+      try {
+        const r = await fetch(`${ENGINE}/version`);
+        if (!r.ok) throw new Error(String(r.status));
+        st.textContent = "✅ 接続OK (v" + (await r.text()).replace(/"/g, "") + ")";
+      } catch (e) { st.textContent = "✕ " + diagnose(e); }
+    }
+    function setupEngine() {
+      const inp = $("#engineUrl"); inp.value = ENGINE;
+      inp.addEventListener("change", () => { ENGINE = inp.value.trim().replace(/\/+$/, ""); });
+      $("#engineTest").addEventListener("click", testEngine);
+      if (!isLocal()) {
+        const n = $("#engineNote"); n.classList.remove("hidden");
+        n.innerHTML = "⚠ 試聴は<strong>ローカル(localhost)で開いたときのみ</strong>動作します（現在: " + esc(location.origin) + "）。AivisSpeechを起動し、<code>python -m http.server 8013 --directory \"&lt;リポジトリ直下&gt;\"</code> を実行→ <code>http://localhost:8013/13th-register-kamishibai/review.html</code> を開いてください。公開URL(https)からはエンジンが接続を拒否(403)します。よみ編集・スライダー・プロンプト生成はこのままでも使えます。";
+      } else { testEngine(); }
+    }
+
+    function showOut(title, text) { $("#outTitle").textContent = title; $("#outText").value = text; $("#out").showModal(); $("#outText").focus(); $("#outText").select(); }
+
+    function genReview() {
+      const items = LINES.map(l => {
+        const t = ($(`.req[data-id="${l.id}"]`)?.value || "").trim();
+        const rd = (l.id in readingEdit) ? readingEdit[l.id] : null;
+        return (t || rd !== null) ? { l, t, rd } : null;
+      }).filter(Boolean);
+      if (!items.length) { showOut("変更依頼プロンプト", "（変更依頼が入力された行がありません。よみ欄の編集、または「変更依頼」欄への記入をしてください。）"); return; }
+      let out = `# 紙芝居 変更依頼（深夜二時の第十三レジ ${EP.label}）\n`;
+      out += `以下のセリフに変更をお願いします。各行は ${base(EP.scene)} / ${base(EP.voice)} の該当 id です。\n\n`;
+      items.forEach(({ l, t, rd }) => {
+        out += `## #${l.idx}  id=${l.id}  cut=${l.visualCutId}(${l.visualCutTitle})  ${mmss(l.start)}–${mmss(l.end)}\n`;
+        out += `- 話者: ${l.speaker}（${l.speakerName} / style_id ${l.styleId}）\n`;
+        out += `- セリフ: ${l.dialogue}\n`;
+        if (rd !== null) { out += `- よみ変更: ${l.reading} → ${rd}\n`; }
+        else { out += `- 現よみ: ${l.reading}\n`; }
+        out += `- 使用画像: ${base(l.image)}\n`;
+        if (t) out += `- 変更依頼: ${t}\n`;
+        out += "\n";
+      });
+      out += "※ 反映手順: セリフ確定→reading_hiragana(発音優先)→scene_manifest再生成(--no-visual-plan)→音声再合成→UI同期確認。\n";
+      out += "※ 画像の差し替え・割り当て変更が必要な場合は Codex への画像依頼に回してください（Claudeは画像を生成・変更しない）。\n";
+      showOut("変更依頼プロンプト（" + items.length + "件）", out);
+    }
+
+    function genTone() {
+      const changed = LINES.map(l => {
+        const def = defFor(l.styleId);
+        const diffs = PARAMS.filter(p => r2(tone[l.id][p.key]) !== r2(def[p.key])).map(p => ({ key: p.key, from: r2(def[p.key]), to: r2(tone[l.id][p.key]) }));
+        const rd = (l.id in readingEdit) ? readingEdit[l.id] : null;
+        return (diffs.length || rd !== null) ? { l, diffs, rd } : null;
+      }).filter(Boolean);
+      if (!changed.length) { showOut("トーン調整プロンプト", "（既定値から変更された行がありません。行を開いてスライダーを動かす／よみを編集してください。）"); return; }
+      let out = `# ${EP.label} トーン/イントネーション調整依頼（AivisSpeech パラメータ）\n`;
+      out += "以下の行に「行単位のパラメータ上書き」をお願いします（値は目標値）。\n";
+      out += `現状はキャスト単位の一律パラメータなので、${base(EP.voice)} に per-line override を持たせ、生成スクリプトが行ごとに適用する形へ拡張→該当行のみ再合成→scene_manifest再生成→公開、まで想定。\n\n`;
+      changed.forEach(({ l, diffs, rd }) => {
+        out += `## #${l.idx}  id=${l.id}  ${l.speaker}（${l.speakerName} / style_id ${l.styleId}）\n`;
+        out += `- セリフ: ${l.dialogue}\n`;
+        if (rd !== null) out += `- よみ変更: ${l.reading} → ${rd}\n`;
+        diffs.forEach(d => { out += `- ${d.key}: ${d.from} → ${d.to}\n`; });
+        out += "\n";
+      });
+      out += "※ 変更のあるパラメータ／よみのみ記載（他は話者既定のまま）。\n";
+      showOut("トーン調整プロンプト（" + changed.length + "行）", out);
+    }
+
+    function copyOut() {
+      const t = $("#outText").value;
+      const done = () => { const b = $("#copyBtn"); const o = b.textContent; b.textContent = "コピーしました"; setTimeout(() => b.textContent = o, 1400); };
+      if (navigator.clipboard?.writeText) navigator.clipboard.writeText(t).then(done, () => { $("#outText").select(); document.execCommand("copy"); done(); });
+      else { $("#outText").select(); document.execCommand("copy"); done(); }
+    }
+
+    function switchTab(which) {
+      const r = which === "review";
+      const t = which === "tone";
+      const c = which === "character";
+      $("#tabReview").classList.toggle("hidden", !r);
+      $("#tabTone").classList.toggle("hidden", !t);
+      $("#tabCharacter").classList.toggle("hidden", !c);
+      $("#tabReviewBtn").classList.toggle("active", r);
+      $("#tabToneBtn").classList.toggle("active", t);
+      $("#tabCharacterBtn").classList.toggle("active", c);
+      try { history.replaceState(null, "", "#" + which); } catch (e) {}
+    }
+
+    $("#tabReviewBtn").addEventListener("click", () => switchTab("review"));
+    $("#tabToneBtn").addEventListener("click", () => switchTab("tone"));
+    $("#tabCharacterBtn").addEventListener("click", () => switchTab("character"));
+    $("#genReview").addEventListener("click", genReview);
+    $("#genTone").addEventListener("click", genTone);
+    $("#copyBtn").addEventListener("click", copyOut);
+    $("#closeBtn").addEventListener("click", () => $("#out").close());
+
+    const epSel = $("#epSelect");
+    EPISODES.forEach((e, i) => { const o = document.createElement("option"); o.value = String(i); o.textContent = e.label; epSel.appendChild(o); });
+    epSel.value = String(EPISODES.indexOf(EP));
+    epSel.addEventListener("change", () => { EP = EPISODES[Number(epSel.value)] || EPISODES[0]; load(); });
+
+    // URLハッシュで直接タブを開く(例: review.html#character → キャラ表)
+    function applyHash() {
+      const h = (location.hash || "").replace("#", "");
+      if (h === "character" || h === "chars" || h === "characters") switchTab("character");
+      else if (h === "tone") switchTab("tone");
+    }
+    window.addEventListener("hashchange", applyHash);
+
+    load();
+    loadCharacters();
+    applyHash();
+  </script>
+</body>
+</html>

@@ -294,7 +294,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "自動ドアが開き、汗田が入ってきた。紫のヘルメットを片手に、眉間へ深いしわを寄せている。",
-    "synthesis_text": "自動ドアが開き、汗田が入ってきた。紫のヘルメットを片手に、眉間へ深いしわを寄せている。",
+    "synthesis_text": "自動ドアが開き、あせだが入ってきた。紫のヘルメットを片手に、眉間へ深いしわを寄せている。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v021.wav"
   },
@@ -359,7 +359,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田はラベル横の小さなコードを見た。",
-    "synthesis_text": "汗田はラベル横の小さなコードを見た。",
+    "synthesis_text": "あせだはラベル横の小さなコードを見た。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v026.wav"
   },
@@ -528,7 +528,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田はナビ端末を第十三レジの横に置いた。",
-    "synthesis_text": "汗田はナビ端末を第十三レジの横に置いた。",
+    "synthesis_text": "あせだはナビ端末を第十三レジの横に置いた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v038.wav"
   },
@@ -606,7 +606,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田の表情が変わった。",
-    "synthesis_text": "汗田の表情が変わった。",
+    "synthesis_text": "あせだの表情が変わった。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v044.wav"
   },
@@ -944,7 +944,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は小さく笑った。",
-    "synthesis_text": "汗田は小さく笑った。",
+    "synthesis_text": "あせだは小さく笑った。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v066.wav"
   },
@@ -1022,7 +1022,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は慎重に袋を持ち上げた。",
-    "synthesis_text": "汗田は慎重に袋を持ち上げた。",
+    "synthesis_text": "あせだは慎重に袋を持ち上げた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v071.wav"
   },

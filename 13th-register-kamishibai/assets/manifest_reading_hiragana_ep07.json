@@ -190,7 +190,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田がナビ端末を持って現れた。",
-    "synthesis_text": "汗田がナビ端末を持って現れた。",
+    "synthesis_text": "あせだがナビ端末を持って現れた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep07_aivis/raw/ep07_v015.wav"
   },
@@ -450,7 +450,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は箱の配送ログを開いた。",
-    "synthesis_text": "汗田は箱の配送ログを開いた。",
+    "synthesis_text": "あせだは箱の配送ログを開いた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep07_aivis/raw/ep07_v035.wav"
   },

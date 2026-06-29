@@ -255,7 +255,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田がナビを確認した。",
-    "synthesis_text": "汗田がナビを確認した。",
+    "synthesis_text": "あせだがナビを確認した。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep09_aivis/raw/ep09_v020.wav"
   },
@@ -398,7 +398,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田が低く笑った。",
-    "synthesis_text": "汗田が低く笑った。",
+    "synthesis_text": "あせだが低く笑った。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep09_aivis/raw/ep09_v031.wav"
   },
@@ -697,7 +697,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田はうなずいた。",
-    "synthesis_text": "汗田はうなずいた。",
+    "synthesis_text": "あせだはうなずいた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep09_aivis/raw/ep09_v054.wav"
   },

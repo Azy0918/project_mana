@@ -138,7 +138,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田がナビ画面を見ながら言った。",
-    "synthesis_text": "汗田がナビ画面を見ながら言った。",
+    "synthesis_text": "あせだがナビ画面を見ながら言った。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep08_aivis/raw/ep08_v011.wav"
   },
@@ -216,7 +216,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田はうなずいた。",
-    "synthesis_text": "汗田はうなずいた。",
+    "synthesis_text": "あせだはうなずいた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep08_aivis/raw/ep08_v017.wav"
   },
@@ -333,7 +333,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田はしばらく考え、うなずいた。",
-    "synthesis_text": "汗田はしばらく考え、うなずいた。",
+    "synthesis_text": "あせだはしばらく考え、うなずいた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep08_aivis/raw/ep08_v026.wav"
   },
@@ -528,7 +528,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は言った。",
-    "synthesis_text": "汗田は言った。",
+    "synthesis_text": "あせだは言った。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep08_aivis/raw/ep08_v041.wav"
   },

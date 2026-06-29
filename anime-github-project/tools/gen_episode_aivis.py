@@ -26,7 +26,7 @@ PAUSE = {"ナレーション": 450, "第十三レジ": 350}
 PAUSE_DEFAULT = 250
 VOICE_MAN_NAME = f"manifest_reading_hiragana_{EP}.json"
 # 発音矯正(読み)辞書: 表示セリフは漢字のまま、合成だけ かな読みに置換(EP01と統一)
-READING_FIXES = {"時空": "じくう", "履歴": "りれき", "返金": "へんきん", "返品": "へんぴん"}
+READING_FIXES = {"時空": "じくう", "履歴": "りれき", "返金": "へんきん", "返品": "へんぴん", "汗田": "あせだ"}
 def to_reading(text):
     for k, v in READING_FIXES.items():
         text = text.replace(k, v)

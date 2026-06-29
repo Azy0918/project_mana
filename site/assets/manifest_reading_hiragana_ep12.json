@@ -151,7 +151,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田はナビ端末をカウンターに置いた。唐沢は巡回の名目で来て、現金過不足表を見ている。座木山はコピー機の前で、古い地図を広げていた。",
-    "synthesis_text": "汗田はナビ端末をカウンターに置いた。唐沢は巡回の名目で来て、現金過不足表を見ている。座木山はコピー機の前で、古い地図を広げていた。",
+    "synthesis_text": "あせだはナビ端末をカウンターに置いた。唐沢は巡回の名目で来て、現金過不足表を見ている。座木山はコピー機の前で、古い地図を広げていた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep12_aivis/raw/ep12_v012.wav"
   },
@@ -333,7 +333,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は静かに言った。",
-    "synthesis_text": "汗田は静かに言った。",
+    "synthesis_text": "あせだは静かに言った。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep12_aivis/raw/ep12_v026.wav"
   },
@@ -788,7 +788,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は青年にコーヒーを渡した。",
-    "synthesis_text": "汗田は青年にコーヒーを渡した。",
+    "synthesis_text": "あせだは青年にコーヒーを渡した。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep12_aivis/raw/ep12_v061.wav"
   },
@@ -879,7 +879,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田は苦笑した。",
-    "synthesis_text": "汗田は苦笑した。",
+    "synthesis_text": "あせだは苦笑した。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep12_aivis/raw/ep12_v068.wav"
   },

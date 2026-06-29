@@ -6,7 +6,7 @@
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
     "start": 0.0,
-    "end": 1.402,
+    "end": 0.889,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -20,7 +20,26 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "01/94　タクミ"
+    "progressLabel": "01/94　タクミ",
+    "characterIds": [
+      "takumi",
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v002",
@@ -28,8 +47,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
-    "start": 1.402,
-    "end": 2.653,
+    "start": 1.139,
+    "end": 2.128,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -43,7 +62,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "02/94　エリ"
+    "progressLabel": "02/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v003",
@@ -51,8 +82,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
-    "start": 2.653,
-    "end": 5.726,
+    "start": 2.378,
+    "end": 4.917,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -66,7 +97,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "03/94　タクミ"
+    "progressLabel": "03/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v004",
@@ -74,8 +117,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
-    "start": 5.726,
-    "end": 8.43,
+    "start": 5.167,
+    "end": 7.429,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -89,7 +132,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "04/94　エリ"
+    "progressLabel": "04/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v005",
@@ -97,8 +152,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "冷凍庫に昨日",
     "visualCutIndex": 1,
-    "start": 8.43,
-    "end": 10.804,
+    "start": 7.679,
+    "end": 9.463,
     "image": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -112,7 +167,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "05/94　タクミ"
+    "progressLabel": "05/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v006",
@@ -120,8 +187,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "昨日バニラ",
     "visualCutIndex": 2,
-    "start": 10.804,
-    "end": 20.61,
+    "start": 9.713,
+    "end": 19.788,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -135,7 +202,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "02/20　昨日バニラ",
-    "progressLabel": "06/94　ナレーション"
+    "progressLabel": "06/94　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v007",
@@ -143,8 +222,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "昨日バニラ",
     "visualCutIndex": 2,
-    "start": 20.61,
-    "end": 26.082,
+    "start": 20.238,
+    "end": 25.493,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -158,7 +237,9 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "02/20　昨日バニラ",
-    "progressLabel": "07/94　ナレーション"
+    "progressLabel": "07/94　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep03_v008",
@@ -166,8 +247,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "味は？",
     "visualCutIndex": 3,
-    "start": 26.082,
-    "end": 27.372,
+    "start": 25.943,
+    "end": 27.08,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -181,7 +262,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "08/94　エリ"
+    "progressLabel": "08/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v009",
@@ -189,8 +282,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "味は？",
     "visualCutIndex": 3,
-    "start": 27.372,
-    "end": 29.18,
+    "start": 27.33,
+    "end": 28.723,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -204,7 +297,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "09/94　タクミ"
+    "progressLabel": "09/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v010",
@@ -212,8 +317,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "味は？",
     "visualCutIndex": 3,
-    "start": 29.18,
-    "end": 31.478,
+    "start": 28.973,
+    "end": 30.56,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -227,7 +332,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "10/94　エリ"
+    "progressLabel": "10/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v011",
@@ -235,8 +352,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "味は？",
     "visualCutIndex": 3,
-    "start": 31.478,
-    "end": 34.52,
+    "start": 30.81,
+    "end": 32.817,
     "image": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -250,7 +367,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "11/94　タクミ"
+    "progressLabel": "11/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v011_g1",
@@ -272,8 +401,20 @@
     ],
     "visualLabel": "03/20　味は？",
     "progressLabel": "12/94　エリ",
-    "start": 34.52,
-    "end": 37.41
+    "start": 33.067,
+    "end": 35.238,
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v011_g2",
@@ -295,8 +436,20 @@
     ],
     "visualLabel": "03/20　味は？",
     "progressLabel": "13/94　タクミ",
-    "start": 37.41,
-    "end": 39.128
+    "start": 35.488,
+    "end": 36.857,
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v012",
@@ -304,8 +457,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "温度上昇",
     "visualCutIndex": 4,
-    "start": 39.128,
-    "end": 45.997,
+    "start": 37.107,
+    "end": 43.997,
     "image": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -319,7 +472,9 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "04/20　温度上昇",
-    "progressLabel": "14/94　ナレーション"
+    "progressLabel": "14/94　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep03_v013",
@@ -327,8 +482,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "温度上昇",
     "visualCutIndex": 4,
-    "start": 45.997,
-    "end": 47.457,
+    "start": 44.447,
+    "end": 45.452,
     "image": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -342,7 +497,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "04/20　温度上昇",
-    "progressLabel": "15/94　タクミ"
+    "progressLabel": "15/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v014",
@@ -350,8 +517,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "温度上昇",
     "visualCutIndex": 4,
-    "start": 47.457,
-    "end": 50.121,
+    "start": 45.702,
+    "end": 47.868,
     "image": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -365,7 +532,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "04/20　温度上昇",
-    "progressLabel": "16/94　エリ"
+    "progressLabel": "16/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v015",
@@ -373,8 +552,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "温度上昇",
     "visualCutIndex": 4,
-    "start": 50.121,
-    "end": 53.858,
+    "start": 48.118,
+    "end": 50.597,
     "image": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -388,7 +567,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "04/20　温度上昇",
-    "progressLabel": "17/94　タクミ"
+    "progressLabel": "17/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v016",
@@ -396,8 +587,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "昨日の売上",
     "visualCutIndex": 5,
-    "start": 53.858,
-    "end": 64.372,
+    "start": 50.847,
+    "end": 61.521,
     "image": "assets/scenes/planned/ep03_vc04_yesterday_sales_history.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc04_yesterday_sales_history.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -411,7 +602,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　昨日の売上",
-    "progressLabel": "18/94　ナレーション"
+    "progressLabel": "18/94　ナレーション",
+    "characterIds": [
+      "zakiyama_tatsuya"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "zakiyama_tatsuya",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v017",
@@ -419,8 +622,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "昨日の売上",
     "visualCutIndex": 5,
-    "start": 64.372,
-    "end": 67.569,
+    "start": 61.971,
+    "end": 64.105,
     "image": "assets/scenes/planned/ep03_vc04_yesterday_sales_history.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc04_yesterday_sales_history.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -434,7 +637,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "05/20　昨日の売上",
-    "progressLabel": "19/94　タクミ"
+    "progressLabel": "19/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v018",
@@ -442,8 +657,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "戻ったコーヒー",
     "visualCutIndex": 6,
-    "start": 67.569,
-    "end": 72.949,
+    "start": 64.355,
+    "end": 69.759,
     "image": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -457,7 +672,9 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "06/20　戻ったコーヒー",
-    "progressLabel": "20/94　ナレーション"
+    "progressLabel": "20/94　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep03_v019",
@@ -465,8 +682,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "戻ったコーヒー",
     "visualCutIndex": 6,
-    "start": 72.949,
-    "end": 75.38,
+    "start": 70.209,
+    "end": 71.988,
     "image": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -480,7 +697,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "06/20　戻ったコーヒー",
-    "progressLabel": "21/94　エリ"
+    "progressLabel": "21/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v020",
@@ -488,8 +717,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "戻ったコーヒー",
     "visualCutIndex": 6,
-    "start": 75.38,
-    "end": 77.457,
+    "start": 72.238,
+    "end": 73.741,
     "image": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -503,7 +732,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "06/20　戻ったコーヒー",
-    "progressLabel": "22/94　タクミ"
+    "progressLabel": "22/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v021",
@@ -511,8 +752,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "汗田、来店",
     "visualCutIndex": 7,
-    "start": 77.457,
-    "end": 84.315,
+    "start": 73.991,
+    "end": 80.85,
     "image": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -526,7 +767,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　汗田、来店",
-    "progressLabel": "23/94　ナレーション"
+    "progressLabel": "23/94　ナレーション",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v022",
@@ -534,8 +787,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "汗田、来店",
     "visualCutIndex": 7,
-    "start": 84.315,
-    "end": 87.597,
+    "start": 81.3,
+    "end": 84.578,
     "image": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -549,7 +802,26 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "07/20　汗田、来店",
-    "progressLabel": "24/94　汗田竜司"
+    "progressLabel": "24/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v023",
@@ -557,8 +829,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "アイスを差し出す",
     "visualCutIndex": 8,
-    "start": 87.597,
-    "end": 90.256,
+    "start": 84.828,
+    "end": 87.342,
     "image": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -572,7 +844,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　アイスを差し出す",
-    "progressLabel": "25/94　ナレーション"
+    "progressLabel": "25/94　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v024",
@@ -580,8 +864,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "アイスを差し出す",
     "visualCutIndex": 8,
-    "start": 90.256,
-    "end": 91.696,
+    "start": 87.792,
+    "end": 88.782,
     "image": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc06_aseda_enters_freezer_alert.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -595,7 +879,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　アイスを差し出す",
-    "progressLabel": "26/94　タクミ"
+    "progressLabel": "26/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v025",
@@ -603,8 +899,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "アイスを差し出す",
     "visualCutIndex": 8,
-    "start": 91.696,
-    "end": 95.656,
+    "start": 89.032,
+    "end": 92.821,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -618,7 +914,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "08/20　アイスを差し出す",
-    "progressLabel": "27/94　汗田竜司"
+    "progressLabel": "27/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v026",
@@ -626,8 +934,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "時間保存媒体",
     "visualCutIndex": 9,
-    "start": 95.656,
-    "end": 98.942,
+    "start": 93.071,
+    "end": 96.341,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -641,7 +949,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　時間保存媒体",
-    "progressLabel": "28/94　ナレーション"
+    "progressLabel": "28/94　ナレーション",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v027",
@@ -649,8 +969,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "時間保存媒体",
     "visualCutIndex": 9,
-    "start": 98.942,
-    "end": 107.924,
+    "start": 96.791,
+    "end": 105.769,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -664,7 +984,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　時間保存媒体",
-    "progressLabel": "29/94　汗田竜司"
+    "progressLabel": "29/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v028",
@@ -672,8 +1004,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "時間保存媒体",
     "visualCutIndex": 9,
-    "start": 107.924,
-    "end": 111.35,
+    "start": 106.019,
+    "end": 108.752,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -687,7 +1019,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　時間保存媒体",
-    "progressLabel": "30/94　タクミ"
+    "progressLabel": "30/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v029",
@@ -695,8 +1039,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "時間保存媒体",
     "visualCutIndex": 9,
-    "start": 111.35,
-    "end": 114.879,
+    "start": 109.002,
+    "end": 112.306,
     "image": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc07_time_storage_medium.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -710,7 +1054,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "09/20　時間保存媒体",
-    "progressLabel": "31/94　汗田竜司"
+    "progressLabel": "31/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v030",
@@ -718,8 +1074,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 114.879,
-    "end": 122.515,
+    "start": 112.556,
+    "end": 119.923,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -733,7 +1089,9 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "32/94　ナレーション"
+    "progressLabel": "32/94　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep03_v031",
@@ -741,8 +1099,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 122.515,
-    "end": 125.093,
+    "start": 120.373,
+    "end": 122.748,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -756,7 +1114,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "33/94　ナレーション"
+    "progressLabel": "33/94　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v032",
@@ -764,8 +1134,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 125.093,
-    "end": 127.311,
+    "start": 123.198,
+    "end": 124.952,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -779,7 +1149,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "34/94　タクミ"
+    "progressLabel": "34/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v033",
@@ -787,8 +1169,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 127.311,
-    "end": 128.729,
+    "start": 125.202,
+    "end": 126.37,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -802,7 +1184,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "35/94　エリ"
+    "progressLabel": "35/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v034",
@@ -810,8 +1204,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 128.729,
-    "end": 129.806,
+    "start": 126.62,
+    "end": 127.438,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -825,7 +1219,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "36/94　タクミ"
+    "progressLabel": "36/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v035",
@@ -833,8 +1239,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "昨日に戻る店内",
     "visualCutIndex": 10,
-    "start": 129.806,
-    "end": 133.109,
+    "start": 127.688,
+    "end": 129.997,
     "image": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -848,7 +1254,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "37/94　エリ"
+    "progressLabel": "37/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v035_g1",
@@ -870,8 +1288,20 @@
     ],
     "visualLabel": "10/20　昨日に戻る店内",
     "progressLabel": "38/94　タクミ",
-    "start": 133.109,
-    "end": 136.042
+    "start": 130.247,
+    "end": 132.303,
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v036",
@@ -879,8 +1309,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "第十三レジ出現",
     "visualCutIndex": 11,
-    "start": 136.042,
-    "end": 139.928,
+    "start": 132.553,
+    "end": 136.347,
     "image": "assets/scenes/planned/ep03_vc09_register_appears_warning.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc09_register_appears_warning.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -894,7 +1324,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "11/20　第十三レジ出現",
-    "progressLabel": "39/94　ナレーション"
+    "progressLabel": "39/94　ナレーション",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v037",
@@ -902,8 +1344,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "第十三レジ出現",
     "visualCutIndex": 11,
-    "start": 139.928,
-    "end": 145.986,
+    "start": 136.797,
+    "end": 143.109,
     "image": "assets/scenes/planned/ep03_vc09_register_appears_warning.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc09_register_appears_warning.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -917,7 +1359,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "11/20　第十三レジ出現",
-    "progressLabel": "40/94　第十三レジ"
+    "progressLabel": "40/94　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v038",
@@ -925,8 +1379,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "記憶は残る",
     "visualCutIndex": 12,
-    "start": 145.986,
-    "end": 150.031,
+    "start": 143.459,
+    "end": 147.148,
     "image": "assets/scenes/planned/ep03_vc10_records_rewind_not_memory.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc10_records_rewind_not_memory.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -940,7 +1394,33 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　記憶は残る",
-    "progressLabel": "41/94　ナレーション"
+    "progressLabel": "41/94　ナレーション",
+    "characterIds": [
+      "aseda_ryuji",
+      "thirteenth_register",
+      "navigation_terminal_ep02"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      },
+      {
+        "characterId": "navigation_terminal_ep02",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v039",
@@ -948,8 +1428,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "記憶は残る",
     "visualCutIndex": 12,
-    "start": 150.031,
-    "end": 158.735,
+    "start": 147.598,
+    "end": 155.973,
     "image": "assets/scenes/planned/ep03_vc10_records_rewind_not_memory.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc10_records_rewind_not_memory.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -963,7 +1443,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "12/20　記憶は残る",
-    "progressLabel": "42/94　汗田竜司"
+    "progressLabel": "42/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v040",
@@ -971,8 +1463,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "昨日に食われた掃除",
     "visualCutIndex": 13,
-    "start": 158.735,
-    "end": 161.348,
+    "start": 156.223,
+    "end": 158.232,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -986,7 +1478,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　昨日に食われた掃除",
-    "progressLabel": "43/94　タクミ"
+    "progressLabel": "43/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v041",
@@ -994,8 +1498,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "昨日に食われた掃除",
     "visualCutIndex": 13,
-    "start": 161.348,
-    "end": 162.778,
+    "start": 158.482,
+    "end": 160.112,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1009,7 +1513,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　昨日に食われた掃除",
-    "progressLabel": "44/94　第十三レジ"
+    "progressLabel": "44/94　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v042",
@@ -1017,8 +1533,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "昨日に食われた掃除",
     "visualCutIndex": 13,
-    "start": 162.778,
-    "end": 166.023,
+    "start": 160.462,
+    "end": 162.819,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1032,7 +1548,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　昨日に食われた掃除",
-    "progressLabel": "45/94　タクミ"
+    "progressLabel": "45/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v043",
@@ -1040,8 +1568,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "昨日に食われた掃除",
     "visualCutIndex": 13,
-    "start": 166.023,
-    "end": 172.274,
+    "start": 163.069,
+    "end": 169.474,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1055,7 +1583,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "13/20　昨日に食われた掃除",
-    "progressLabel": "46/94　第十三レジ"
+    "progressLabel": "46/94　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v044",
@@ -1063,8 +1603,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "それはまずい",
     "visualCutIndex": 14,
-    "start": 172.274,
-    "end": 175.014,
+    "start": 169.824,
+    "end": 172.348,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1078,7 +1618,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　それはまずい",
-    "progressLabel": "47/94　ナレーション"
+    "progressLabel": "47/94　ナレーション",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v045",
@@ -1086,8 +1638,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "それはまずい",
     "visualCutIndex": 14,
-    "start": 175.014,
-    "end": 177.177,
+    "start": 172.798,
+    "end": 174.267,
     "image": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc11_effort_eaten_by_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1101,7 +1653,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "14/20　それはまずい",
-    "progressLabel": "48/94　汗田竜司"
+    "progressLabel": "48/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v046",
@@ -1109,8 +1673,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 177.177,
-    "end": 179.639,
+    "start": 174.517,
+    "end": 176.787,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1124,7 +1688,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "49/94　ナレーション"
+    "progressLabel": "49/94　ナレーション",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v047",
@@ -1132,8 +1708,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 179.639,
-    "end": 182.551,
+    "start": 177.237,
+    "end": 179.866,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1147,7 +1723,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "50/94　エリ"
+    "progressLabel": "50/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v048",
@@ -1155,8 +1743,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 182.551,
-    "end": 185.352,
+    "start": 180.116,
+    "end": 181.949,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1170,7 +1758,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "51/94　タクミ"
+    "progressLabel": "51/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v049",
@@ -1178,8 +1778,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 185.352,
-    "end": 187.548,
+    "start": 182.199,
+    "end": 183.727,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1193,7 +1793,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "52/94　エリ"
+    "progressLabel": "52/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v050",
@@ -1201,8 +1813,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "袋分けの提案",
     "visualCutIndex": 15,
-    "start": 187.548,
-    "end": 190.399,
+    "start": 183.977,
+    "end": 185.966,
     "image": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1216,7 +1828,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "53/94　タクミ"
+    "progressLabel": "53/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v051",
@@ -1224,8 +1848,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "袋分けの理屈",
     "visualCutIndex": 16,
-    "start": 190.399,
-    "end": 192.027,
+    "start": 186.216,
+    "end": 187.651,
     "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1239,7 +1863,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　袋分けの理屈",
-    "progressLabel": "54/94　汗田竜司"
+    "progressLabel": "54/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v051_g1",
@@ -1261,8 +1897,20 @@
     ],
     "visualLabel": "16/20　袋分けの理屈",
     "progressLabel": "55/94　タクミ",
-    "start": 192.027,
-    "end": 193.673
+    "start": 187.901,
+    "end": 189.133,
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v052",
@@ -1270,8 +1918,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "袋分けの理屈",
     "visualCutIndex": 16,
-    "start": 193.673,
-    "end": 195.729,
+    "start": 189.383,
+    "end": 191.177,
     "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1285,7 +1933,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　袋分けの理屈",
-    "progressLabel": "56/94　汗田竜司"
+    "progressLabel": "56/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v053",
@@ -1293,8 +1953,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "袋分けの理屈",
     "visualCutIndex": 16,
-    "start": 195.729,
-    "end": 197.493,
+    "start": 191.427,
+    "end": 192.738,
     "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1308,7 +1968,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　袋分けの理屈",
-    "progressLabel": "57/94　タクミ"
+    "progressLabel": "57/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v054",
@@ -1316,8 +1988,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "袋分けの理屈",
     "visualCutIndex": 16,
-    "start": 197.493,
-    "end": 202.091,
+    "start": 192.988,
+    "end": 197.067,
     "image": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc13_separate_transaction_logic.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1331,7 +2003,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "16/20　袋分けの理屈",
-    "progressLabel": "58/94　汗田竜司"
+    "progressLabel": "58/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v054_g1",
@@ -1353,8 +2037,20 @@
     ],
     "visualLabel": "16/20　袋分けの理屈",
     "progressLabel": "59/94　タクミ",
-    "start": 202.091,
-    "end": 205.025
+    "start": 197.317,
+    "end": 199.397,
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v055",
@@ -1362,8 +2058,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "袋二枚",
     "visualCutIndex": 17,
-    "start": 205.025,
-    "end": 207.684,
+    "start": 199.647,
+    "end": 202.092,
     "image": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1377,7 +2073,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "17/20　袋二枚",
-    "progressLabel": "60/94　ナレーション"
+    "progressLabel": "60/94　ナレーション",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v056",
@@ -1385,8 +2093,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "袋二枚",
     "visualCutIndex": 17,
-    "start": 207.684,
-    "end": 210.879,
+    "start": 202.542,
+    "end": 205.633,
     "image": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1400,7 +2108,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "17/20　袋二枚",
-    "progressLabel": "61/94　エリ"
+    "progressLabel": "61/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v057",
@@ -1408,8 +2128,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "袋二枚",
     "visualCutIndex": 17,
-    "start": 210.879,
-    "end": 215.593,
+    "start": 205.883,
+    "end": 210.406,
     "image": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1423,7 +2143,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "17/20　袋二枚",
-    "progressLabel": "62/94　第十三レジ"
+    "progressLabel": "62/94　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v058",
@@ -1431,8 +2163,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 215.593,
-    "end": 223.325,
+    "start": 210.756,
+    "end": 218.3,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1446,7 +2178,9 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "63/94　ナレーション"
+    "progressLabel": "63/94　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep03_v059",
@@ -1454,8 +2188,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 223.325,
-    "end": 225.308,
+    "start": 218.75,
+    "end": 220.778,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1469,7 +2203,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "64/94　ナレーション"
+    "progressLabel": "64/94　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v060",
@@ -1477,8 +2223,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 225.308,
-    "end": 227.357,
+    "start": 221.228,
+    "end": 222.83,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1492,7 +2238,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "65/94　タクミ"
+    "progressLabel": "65/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v061",
@@ -1500,8 +2258,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 227.357,
-    "end": 229.262,
+    "start": 223.08,
+    "end": 224.967,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1515,7 +2273,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "66/94　第十三レジ"
+    "progressLabel": "66/94　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v062",
@@ -1523,8 +2293,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "青白い処理",
     "visualCutIndex": 18,
-    "start": 229.262,
-    "end": 231.944,
+    "start": 225.317,
+    "end": 226.929,
     "image": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc15_transaction_boundary_flicker.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1538,7 +2308,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　青白い処理",
-    "progressLabel": "67/94　タクミ"
+    "progressLabel": "67/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v062_g1",
@@ -1560,8 +2342,20 @@
     ],
     "visualLabel": "18/20　青白い処理",
     "progressLabel": "68/94　第十三レジ",
-    "start": 231.944,
-    "end": 233.056
+    "start": 227.179,
+    "end": 228.182,
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v062_g2",
@@ -1583,8 +2377,20 @@
     ],
     "visualLabel": "18/20　青白い処理",
     "progressLabel": "69/94　タクミ",
-    "start": 233.056,
-    "end": 234.516
+    "start": 228.532,
+    "end": 229.631,
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v063",
@@ -1592,8 +2398,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 234.516,
-    "end": 237.547,
+    "start": 229.881,
+    "end": 232.755,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1607,7 +2413,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "70/94　ナレーション"
+    "progressLabel": "70/94　ナレーション",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v064",
@@ -1615,8 +2433,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 237.547,
-    "end": 238.923,
+    "start": 233.205,
+    "end": 234.348,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1630,7 +2448,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "71/94　エリ"
+    "progressLabel": "71/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v065",
@@ -1638,8 +2468,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 238.923,
-    "end": 241.002,
+    "start": 234.598,
+    "end": 236.196,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1653,7 +2483,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "72/94　タクミ"
+    "progressLabel": "72/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v066",
@@ -1661,8 +2503,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 241.002,
-    "end": 243.557,
+    "start": 236.446,
+    "end": 238.962,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1676,7 +2518,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "73/94　ナレーション"
+    "progressLabel": "73/94　ナレーション",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v067",
@@ -1684,8 +2538,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 243.557,
-    "end": 246.943,
+    "start": 239.412,
+    "end": 242.52,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1699,7 +2553,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "74/94　汗田竜司"
+    "progressLabel": "74/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v067_g1",
@@ -1721,8 +2587,20 @@
     ],
     "visualLabel": "19/20　保冷剤と完了",
     "progressLabel": "75/94　汗田竜司",
-    "start": 246.943,
-    "end": 249.623
+    "start": 242.77,
+    "end": 245.698,
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v068",
@@ -1730,8 +2608,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 249.623,
-    "end": 253.912,
+    "start": 245.948,
+    "end": 250.117,
     "image": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1745,7 +2623,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "76/94　第十三レジ"
+    "progressLabel": "76/94　第十三レジ",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v069",
@@ -1753,8 +2643,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 253.912,
-    "end": 257.411,
+    "start": 250.467,
+    "end": 254.026,
     "image": "assets/scenes/planned/ep03_vc17_tomorrow_milk_label.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc17_tomorrow_milk_label.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1768,7 +2658,9 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "77/94　ナレーション"
+    "progressLabel": "77/94　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep03_v070",
@@ -1776,8 +2668,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "保冷剤と完了",
     "visualCutIndex": 19,
-    "start": 257.411,
-    "end": 260.186,
+    "start": 254.476,
+    "end": 256.593,
     "image": "assets/scenes/planned/ep03_vc17_tomorrow_milk_label.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc17_tomorrow_milk_label.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1791,7 +2683,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "78/94　タクミ"
+    "progressLabel": "78/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v071",
@@ -1799,8 +2703,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 260.186,
-    "end": 263.263,
+    "start": 256.843,
+    "end": 259.707,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1814,7 +2718,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "79/94　ナレーション"
+    "progressLabel": "79/94　ナレーション",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v072",
@@ -1822,8 +2738,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 263.263,
-    "end": 265.434,
+    "start": 260.157,
+    "end": 262.076,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1837,7 +2753,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "80/94　汗田竜司"
+    "progressLabel": "80/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v072_g1",
@@ -1859,8 +2787,20 @@
     ],
     "visualLabel": "20/20　レシートと夜勤",
     "progressLabel": "81/94　汗田竜司",
-    "start": 265.434,
-    "end": 268.949
+    "start": 262.326,
+    "end": 265.835,
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v072_g2",
@@ -1882,8 +2822,20 @@
     ],
     "visualLabel": "20/20　レシートと夜勤",
     "progressLabel": "82/94　タクミ",
-    "start": 268.949,
-    "end": 272.092
+    "start": 266.085,
+    "end": 268.319,
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v073",
@@ -1891,8 +2843,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 272.092,
-    "end": 275.158,
+    "start": 268.569,
+    "end": 271.297,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1906,7 +2858,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "83/94　ナレーション"
+    "progressLabel": "83/94　ナレーション",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v074",
@@ -1914,8 +2878,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 275.158,
-    "end": 277.303,
+    "start": 271.747,
+    "end": 273.289,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1929,7 +2893,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "84/94　タクミ"
+    "progressLabel": "84/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v075",
@@ -1937,8 +2913,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 277.303,
-    "end": 279.277,
+    "start": 273.539,
+    "end": 275.399,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1952,7 +2928,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "85/94　エリ"
+    "progressLabel": "85/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v076",
@@ -1960,8 +2948,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 279.277,
-    "end": 281.943,
+    "start": 275.649,
+    "end": 277.547,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1975,7 +2963,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "86/94　タクミ"
+    "progressLabel": "86/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v077",
@@ -1983,8 +2983,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 281.943,
-    "end": 284.414,
+    "start": 277.797,
+    "end": 279.456,
     "image": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -1998,7 +2998,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "87/94　エリ"
+    "progressLabel": "87/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v078",
@@ -2006,8 +3018,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 284.414,
-    "end": 291.646,
+    "start": 279.706,
+    "end": 286.875,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -2021,7 +3033,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "88/94　ナレーション"
+    "progressLabel": "88/94　ナレーション",
+    "characterIds": [
+      "thirteenth_register"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "thirteenth_register",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v079",
@@ -2029,8 +3053,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 291.646,
-    "end": 297.308,
+    "start": 287.325,
+    "end": 292.942,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -2044,7 +3068,9 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "89/94　ナレーション"
+    "progressLabel": "89/94　ナレーション",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "id": "ep03_v080",
@@ -2052,8 +3078,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 297.308,
-    "end": 299.178,
+    "start": 293.392,
+    "end": 295.12,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -2067,7 +3093,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "90/94　汗田竜司"
+    "progressLabel": "90/94　汗田竜司",
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v081",
@@ -2075,8 +3113,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 299.178,
-    "end": 301.372,
+    "start": 295.37,
+    "end": 297.068,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -2090,7 +3128,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "91/94　タクミ"
+    "progressLabel": "91/94　タクミ",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v081_g1",
@@ -2112,8 +3162,20 @@
     ],
     "visualLabel": "20/20　レシートと夜勤",
     "progressLabel": "92/94　汗田竜司",
-    "start": 301.372,
-    "end": 303.738
+    "start": 297.318,
+    "end": 299.308,
+    "characterIds": [
+      "aseda_ryuji"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "aseda_ryuji",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v082",
@@ -2121,8 +3183,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 303.738,
-    "end": 306.046,
+    "start": 299.558,
+    "end": 301.14,
     "image": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -2136,7 +3198,19 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "93/94　エリ"
+    "progressLabel": "93/94　エリ",
+    "characterIds": [
+      "mina"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
     "id": "ep03_v083",
@@ -2144,8 +3218,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "レシートと夜勤",
     "visualCutIndex": 20,
-    "start": 306.046,
-    "end": 314.441,
+    "start": 301.39,
+    "end": 309.13,
     "image": "assets/scenes/planned/ep03_vc20_manual_note_bag_time.png?v=ep03-plan-v1",
     "plannedImage": "assets/scenes/planned/ep03_vc20_manual_note_bag_time.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
@@ -2159,6 +3233,18 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "94/94　ナレーション"
+    "progressLabel": "94/94　ナレーション",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   }
 ]

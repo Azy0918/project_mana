@@ -41,7 +41,7 @@
   {
     "visualCutId": "vc03",
     "lineStart": "ep01_v004",
-    "lineEnd": "ep01_v025",
+    "lineEnd": "ep01_v027",
     "title": "廃棄おにぎり問答",
     "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter_eri_v1.png",
     "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
@@ -68,7 +68,7 @@
   },
   {
     "visualCutId": "vc04",
-    "lineStart": "ep01_v026",
+    "lineStart": "ep01_v028",
     "lineEnd": "ep01_v028",
     "title": "第十三レジ出現前兆",
     "plannedImage": "assets/scenes/planned/ep01_vc04_register_appears_v4.png",
@@ -573,7 +573,7 @@
   {
     "visualCutId": "vc15",
     "lineStart": "ep01_v098",
-    "lineEnd": "ep01_v109",
+    "lineEnd": "ep01_v105",
     "title": "時空返品完了とコーヒー",
     "plannedImage": "assets/scenes/planned/ep01_vc15_refund_coffee_eri_v1.png",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -628,8 +628,8 @@
   },
   {
     "visualCutId": "vc16",
-    "lineStart": "ep01_v110",
-    "lineEnd": "ep01_v118",
+    "lineStart": "ep01_v106",
+    "lineEnd": "ep01_v112",
     "title": "第十三レジ消滅とレシート",
     "plannedImage": "assets/scenes/planned/ep01_vc16_receipt_result_v3.png",
     "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
@@ -649,8 +649,8 @@
   },
   {
     "visualCutId": "vc17",
-    "lineStart": "ep01_v119",
-    "lineEnd": "ep01_v120",
+    "lineStart": "ep01_v113",
+    "lineEnd": "ep01_v114",
     "title": "座木山辰哉、コピー機へ",
     "plannedImage": "assets/scenes/planned/ep01_vc17_zakiyama_copy_v3.png",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -698,8 +698,8 @@
   },
   {
     "visualCutId": "vc18",
-    "lineStart": "ep01_v121",
-    "lineEnd": "ep01_v123",
+    "lineStart": "ep01_v115",
+    "lineEnd": "ep01_v117",
     "title": "夜勤だから",
     "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer_eri_v1.png",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -747,8 +747,8 @@
   },
   {
     "visualCutId": "vc19",
-    "lineStart": "ep01_v124",
-    "lineEnd": "ep01_v126",
+    "lineStart": "ep01_v118",
+    "lineEnd": "ep01_v119",
     "title": "世界が少しだけ救われる",
     "plannedImage": "assets/scenes/planned/ep01_vc19_world_saved_quietly_v3.png",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
@@ -775,8 +775,8 @@
   },
   {
     "visualCutId": "vc20",
-    "lineStart": "ep01_v127",
-    "lineEnd": "ep01_v127",
+    "lineStart": "ep01_v120",
+    "lineEnd": "ep01_v121",
     "title": "夜勤はまだ終わらない",
     "plannedImage": "assets/scenes/planned/ep01_vc20_chores_remain_v3.png",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",

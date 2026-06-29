@@ -24,6 +24,13 @@ CAST_CSV = TOOLS / "ep01_voice_cast.csv"
 FB = {"レシート": "第十三レジ"}
 PAUSE = {"ナレーション": 450, "第十三レジ": 350}
 PAUSE_DEFAULT = 250
+VOICE_MAN_NAME = f"manifest_reading_hiragana_{EP}.json"
+# 発音矯正(読み)辞書: 表示セリフは漢字のまま、合成だけ かな読みに置換(EP01と統一)
+READING_FIXES = {"時空": "じくう", "履歴": "りれき", "返金": "へんきん", "返品": "へんぴん"}
+def to_reading(text):
+    for k, v in READING_FIXES.items():
+        text = text.replace(k, v)
+    return text
 
 
 def post(url, payload=None, attempts=4):
@@ -59,17 +66,19 @@ def main():
         info = cast.get(ch)
         if not info:
             print(f"  ★cast無し {sp}->skip", flush=True); continue
-        sid = int(info["style_id"]); text = sc.get("dialogue", "")
+        sid = int(info["style_id"]); dialogue = sc.get("dialogue", "")
+        reading = to_reading(dialogue)   # 合成は「読み」(発音矯正後)を使う
+        sc["reading"] = reading          # scene_manifestにも読みを格納
         cp = CLIP_DIR / f"{sc['id']}.wav"
         if not cp.exists():   # 再開: 既存クリップ再利用(AivisSpeechは決定的)
-            q = audio_query(text, sid)
+            q = audio_query(reading, sid)
             for k in PARAM_KEYS:
                 q[k] = float(info[k])
             q["outputSamplingRate"] = RATE; q["outputStereo"] = False
             cp.write_bytes(synth(q, sid))
         with wave.open(str(cp), "rb") as w:
             fr = w.getframerate(); pcm = w.readframes(w.getnframes())
-        clips.append({"sc": sc, "ch": ch, "pcm": pcm, "fr": fr})
+        clips.append({"sc": sc, "ch": ch, "pcm": pcm, "fr": fr, "info": info, "reading": reading})
         if i % 20 == 0:
             print(f"  {i}/{len(src)}", flush=True)
         time.sleep(0.15)
@@ -88,11 +97,20 @@ def main():
     with wave.open(buf, "wb") as o:
         o.setnchannels(1); o.setsampwidth(2); o.setframerate(rate); o.writeframes(bytes(full))
     wav = buf.getvalue()
+    # 音声マニフェスト(review.htmlが読む「よみ」表示用): 表示=dialogue / 読み=synthesis_text
+    vman = []
+    for c in clips:
+        sc = c["sc"]; info = c["info"]
+        vman.append({"id": sc["id"], "cut": sc.get("cut", ""), "visualCutId": sc.get("visualCutId", ""),
+            "character": c["ch"], "speaker_name": info["speaker_name"], "style_name": info.get("style_name", ""),
+            "style_id": info["style_id"], "text": sc.get("dialogue", ""), "synthesis_text": c["reading"],
+            "synthesis_source": "aivis_auto", "clip": f"outputs/{EP}_aivis/raw/{sc['id']}.wav"})
     for root, sub in DESTS:
         base = root / sub
         (base / "assets").mkdir(parents=True, exist_ok=True)
         (base / "assets" / WAV_NAME).write_bytes(wav)
         json.dump(src, open(base / SCENE_NAME, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+        json.dump(vman, open(base / "assets" / VOICE_MAN_NAME, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
         print(f"  書込 {root.name}/{sub}", flush=True)
     print(f"完了: {len(src)}行 / 総尺 {cursor:.1f}s / wav {len(wav)//1024}KB", flush=True)
 

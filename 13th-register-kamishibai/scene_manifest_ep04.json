@@ -72,7 +72,7 @@
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん、コピー機が自己判断で働いてます",
+    "dialogue": "エリさん、コピー機が自己判断で働いてます",
     "reading": "みなさん、こぴーきがじこはんだんではたらいてます。",
     "log": [
       "発話ログ　03/63",
@@ -113,16 +113,16 @@
     "plannedImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "偉いね",
     "reading": "えらいね。",
     "log": [
       "発話ログ　04/63",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　コピー機起動",
-    "progressLabel": "04/63　ミナ",
+    "progressLabel": "04/63　エリ",
     "characterIds": [
       "mina"
     ],
@@ -269,7 +269,7 @@
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはホットスナックケースを見た。",
+    "dialogue": "エリはホットスナックケースを見た。",
     "reading": "みなワ、ほっとすなっくけーすをみた。",
     "log": [
       "発話ログ　09/63",
@@ -303,16 +303,16 @@
     "plannedImage": "assets/scenes/planned/ep04_vc03_hot_snack_case.png?v=ep04-plan-v2",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "未来クレーム",
     "reading": "みらいくれーむ。",
     "log": [
       "発話ログ　10/63",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　未来クレーム",
-    "progressLabel": "10/63　ミナ",
+    "progressLabel": "10/63　エリ",
     "characterIds": [
       "mina"
     ],
@@ -563,7 +563,7 @@
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは紙を一枚コピー機の横に貼った。",
+    "dialogue": "エリは紙を一枚コピー機の横に貼った。",
     "reading": "みなワ、かみをいちまいこぴーきのよこにはった。",
     "log": [
       "発話ログ　17/63",
@@ -597,16 +597,16 @@
     "plannedImage": "assets/scenes/planned/ep04_vc05_pre_apology_notice.png?v=ep04-plan-v2",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "先に謝ればいい",
     "reading": "さきにあやまればいい。",
     "log": [
       "発話ログ　18/63",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　先に謝る",
-    "progressLabel": "18/63　ミナ",
+    "progressLabel": "18/63　エリ",
     "characterIds": [
       "mina"
     ],
@@ -667,16 +667,16 @@
     "plannedImage": "assets/scenes/planned/ep04_vc05_pre_apology_notice.png?v=ep04-plan-v2",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "接客は初動",
     "reading": "せっきゃくワ、しょどう。",
     "log": [
       "発話ログ　20/63",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "05/20　先に謝る",
-    "progressLabel": "20/63　ミナ",
+    "progressLabel": "20/63　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1025,7 +1025,7 @@
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはホットスナックケースを開けた。唐揚げ棒が一本、小さく震えている。紙の旗には、まだ怒られていません、と書かれていた。",
+    "dialogue": "エリはホットスナックケースを開けた。唐揚げ棒が一本、小さく震えている。紙の旗には、まだ怒られていません、と書かれていた。",
     "reading": "みなワ、ほっとすなっくけーすをあけた。からあげぼうがいっぽん、ちいさくふるえている。かみのはたにワ、まだおこられていません、とかかれていた。",
     "log": [
       "発話ログ　30/63",
@@ -1164,16 +1164,16 @@
     "plannedImage": "assets/scenes/planned/ep04_vc09_future_manual_basic_greeting.png?v=ep04-plan-v2",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "接客の基本",
     "reading": "せっきゃくのきほん。",
     "log": [
       "発話ログ　34/63",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "11/20　まず挨拶",
-    "progressLabel": "34/63　ミナ",
+    "progressLabel": "34/63　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1522,7 +1522,7 @@
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは静かに言った。",
+    "dialogue": "エリは静かに言った。",
     "reading": "みなワ、しずかにいった。",
     "log": [
       "発話ログ　44/63",
@@ -1556,16 +1556,16 @@
     "plannedImage": "assets/scenes/planned/ep04_vc12_memory_temperature_matches.png?v=ep04-plan-v2",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "袋、お付けしますか",
     "reading": "ふくろ、おつけしますか。",
     "log": [
       "発話ログ　45/63",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　袋はいらない",
-    "progressLabel": "45/63　ミナ",
+    "progressLabel": "45/63　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1626,16 +1626,16 @@
     "plannedImage": "assets/scenes/planned/ep04_vc12_memory_temperature_matches.png?v=ep04-plan-v2",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "ありがとうございます",
     "reading": "ありがとうございます。",
     "log": [
       "発話ログ　47/63",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　袋はいらない",
-    "progressLabel": "47/63　ミナ",
+    "progressLabel": "47/63　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1767,7 +1767,7 @@
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはタクミを見た。",
+    "dialogue": "エリはタクミを見た。",
     "reading": "みなワ、たくみをみた。",
     "log": [
       "発話ログ　51/63",
@@ -1808,16 +1808,16 @@
     "plannedImage": "assets/scenes/planned/ep04_vc14_unused_apology_inventory.png?v=ep04-plan-v2",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_copy_machine_starts.png?v=ep04-plan-v2",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "取っておく？",
     "reading": "とっておく？",
     "log": [
       "発話ログ　52/63",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　謝罪を返品",
-    "progressLabel": "52/63　ミナ",
+    "progressLabel": "52/63　エリ",
     "characterIds": [
       "mina"
     ],

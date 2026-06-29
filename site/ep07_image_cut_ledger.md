@@ -27,7 +27,7 @@
 |---:|---|---|---|---|
 | 01 | 宅配端末が鳴る | `assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png` | `ep07_v001-ep07_v005` | 午前二時十四分、宅配便端末が勝手に鳴る。配達予定なしなのにカウンター下に銀色の箱。 |
 | 02 | 月面店留め箱 | `assets/scenes/planned/ep07_vc02_moon_pickup_box.png` | `ep07_v006-ep07_v010` | 銀色の宇宙宅配箱。月面基地店留めラベル風、シアンの配送ライン。文字は雰囲気。 |
-| 03 | 受取番号から入る | `assets/scenes/planned/ep07_vc03_pickup_number_first.png` | `ep07_v011-ep07_v015` | ミナが受取番号を確認しようとする。タクミが月面よりそこかと驚く。 |
+| 03 | 受取番号から入る | `assets/scenes/planned/ep07_vc03_pickup_number_first.png` | `ep07_v011-ep07_v015` | エリが受取番号を確認しようとする。タクミが月面よりそこかと驚く。 |
 | 04 | 第十三レジ宇宙宅配確認 | `assets/scenes/planned/ep07_vc04_register_scans_space_delivery.png` | `ep07_v016-ep07_v020` | 二時十七分、第十三レジが宇宙宅配便を確認。現代日本コンビニへの誤配。 |
 | 05 | 箱の中身 | `assets/scenes/planned/ep07_vc05_space_parcel_contents.png` | `ep07_v021-ep07_v025` | 無重力プリン、月面作業員用カップ麺、真空でも鳴る防犯ブザーが銀色箱に入っている。 |
 | 06 | 無重力プリン跳ねる | `assets/scenes/planned/ep07_vc06_zero_g_pudding.png` | `ep07_v026-ep07_v030` | 無重力プリンが重力下で跳ねそうに揺れる。食べ物として致命的なコメディ。 |
@@ -37,7 +37,7 @@
 | 10 | 受取人確認 | `assets/scenes/planned/ep07_vc10_recipient_verification.png` | `ep07_v046-ep07_v050` | 第十三レジが月面店夜勤担当の本人確認を要求。受取人不在の端末画面。 |
 | 11 | レシート本人確認候補 | `assets/scenes/planned/ep07_vc11_receipt_as_id.png` | `ep07_v051-ep07_v055` | クレーター作業許可証、銀河社員証、またはレシート、という本人確認候補の雰囲気。 |
 | 12 | 危険署名一致 | `assets/scenes/planned/ep07_vc12_danger_signature_route.png` | `ep07_v056-ep07_v060` | 汗田が配送ログに未来青年の封印タグと同じ署名を見つける。 |
-| 13 | 本人不在なら再配送 | `assets/scenes/planned/ep07_vc13_redelivery_decision.png` | `ep07_v061-ep07_v065` | ミナが本人がいないなら再配送と判断。宇宙にも再配送がある普通の業務感。 |
+| 13 | 本人不在なら再配送 | `assets/scenes/planned/ep07_vc13_redelivery_decision.png` | `ep07_v061-ep07_v065` | エリが本人がいないなら再配送と判断。宇宙にも再配送がある普通の業務感。 |
 | 14 | 店留め保管料 | `assets/scenes/planned/ep07_vc14_storage_fee.png` | `ep07_v066-ep07_v070` | 第十三レジが店留め保管料を要求。タクミが宇宙からも取るのかと驚く。 |
 | 15 | 再配送ラベル | `assets/scenes/planned/ep07_vc15_redelivery_label.png` | `ep07_v071-ep07_v075` | タクミが銀色箱に再配送ラベルを貼る。備考欄にこちらではプリンが跳ねます、の雰囲気。 |
 | 16 | 銀河監査局へ通知 | `assets/scenes/planned/ep07_vc16_notify_galactic_audit.png` | `ep07_v076-ep07_v080` | 第十三レジが銀河流通監査局へ通知。シアンの通信ラインが箱から伸びる。 |

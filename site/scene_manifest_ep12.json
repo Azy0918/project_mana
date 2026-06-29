@@ -173,7 +173,7 @@
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはレジ締めの準備をしながら言った。",
+    "dialogue": "エリはレジ締めの準備をしながら言った。",
     "reading": "みなワ、れじじめのじゅんびをしながらいった。",
     "log": [
       "発話ログ　08/85",
@@ -195,16 +195,16 @@
     "plannedImage": "assets/scenes/planned/ep12_vc02_manual_recap.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "役に立つよ",
     "reading": "やくにたつよ。",
     "log": [
       "発話ログ　09/85",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　マニュアル要約",
-    "progressLabel": "09/85　ミナ"
+    "progressLabel": "09/85　エリ"
   },
   {
     "id": "ep12_v010",
@@ -310,16 +310,16 @@
     "plannedImage": "assets/scenes/planned/ep12_vc03_all_characters_present.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "全員、たぶん必要",
     "reading": "ぜんいん、たぶんひつよう。",
     "log": [
       "発話ログ　14/85",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　全員集合",
-    "progressLabel": "14/85　ミナ"
+    "progressLabel": "14/85　エリ"
   },
   {
     "id": "ep12_v015",
@@ -840,7 +840,7 @@
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは未来青年を見た。",
+    "dialogue": "エリは未来青年を見た。",
     "reading": "みなワ、みらいせいねんをみた。",
     "log": [
       "発話ログ　37/85",
@@ -862,16 +862,16 @@
     "plannedImage": "assets/scenes/planned/ep12_vc14_takumi_says_hold.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "レシートはある",
     "reading": "れしーとワ、ある。",
     "log": [
       "発話ログ　38/85",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "38/85　ミナ"
+    "progressLabel": "38/85　エリ"
   },
   {
     "id": "ep12_v039",
@@ -931,16 +931,16 @@
     "plannedImage": "assets/scenes/planned/ep12_vc14_takumi_says_hold.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "危険知識は？",
     "reading": "きけんちしきワ？",
     "log": [
       "発話ログ　41/85",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "41/85　ミナ"
+    "progressLabel": "41/85　エリ"
   },
   {
     "id": "ep12_v042",
@@ -977,16 +977,16 @@
     "plannedImage": "assets/scenes/planned/ep12_vc14_takumi_says_hold.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "判断は？",
     "reading": "はんだんワ？",
     "log": [
       "発話ログ　43/85",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "43/85　ミナ"
+    "progressLabel": "43/85　エリ"
   },
   {
     "id": "ep12_v044",
@@ -1023,16 +1023,16 @@
     "plannedImage": "assets/scenes/planned/ep12_vc14_takumi_says_hold.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "じゃあ",
     "reading": "じゃあ。",
     "log": [
       "発話ログ　45/85",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "45/85　ミナ"
+    "progressLabel": "45/85　エリ"
   },
   {
     "id": "ep12_v046",
@@ -1093,7 +1093,7 @@
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナが少しだけ笑った。",
+    "dialogue": "エリが少しだけ笑った。",
     "reading": "みなが、すこしだけわらった。",
     "log": [
       "発話ログ　48/85",
@@ -1115,16 +1115,16 @@
     "plannedImage": "assets/scenes/planned/ep12_vc14_takumi_says_hold.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "育った",
     "reading": "そだった。",
     "log": [
       "発話ログ　49/85",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　保留です",
-    "progressLabel": "49/85　ミナ"
+    "progressLabel": "49/85　エリ"
   },
   {
     "id": "ep12_v050",
@@ -1162,7 +1162,7 @@
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは第十三レジの画面で、現代店舗で保留、を押した。",
+    "dialogue": "エリは第十三レジの画面で、現代店舗で保留、を押した。",
     "reading": "みなワ、だいじゅうさんれじのがめんで、げんだいてんぽでほりゅう、をおした。",
     "log": [
       "発話ログ　51/85",
@@ -1277,7 +1277,7 @@
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは言った。",
+    "dialogue": "エリは言った。",
     "reading": "みなワ、いった。",
     "log": [
       "発話ログ　56/85",
@@ -1299,16 +1299,16 @@
     "plannedImage": "assets/scenes/planned/ep12_vc17_memory_tag_stabilizes.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "店長確認待ち",
     "reading": "てんちょうかくにんまち。",
     "log": [
       "発話ログ　57/85",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　記憶タグ安定",
-    "progressLabel": "57/85　ミナ"
+    "progressLabel": "57/85　エリ"
   },
   {
     "id": "ep12_v058",
@@ -1527,7 +1527,7 @@
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはレジ締め表を閉じた。",
+    "dialogue": "エリはレジ締め表を閉じた。",
     "reading": "みなワ、れじじめひょうをとじた。",
     "log": [
       "第十三レジ　最終レシート",
@@ -1553,7 +1553,7 @@
     "plannedImage": "assets/scenes/planned/ep12_vc18_final_receipt.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "大事なことだから",
     "reading": "だいじなことだから。",
     "log": [
@@ -1566,7 +1566,7 @@
       "本日の営業　継続中"
     ],
     "visualLabel": "18/20　最後のレシート",
-    "progressLabel": "67/85　ミナ"
+    "progressLabel": "67/85　エリ"
   },
   {
     "id": "ep12_v068",
@@ -1865,7 +1865,7 @@
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはモップを手に取った。",
+    "dialogue": "エリはモップを手に取った。",
     "reading": "みなワ、もっぷをてにとった。",
     "log": [
       "発話ログ　80/85",
@@ -1887,16 +1887,16 @@
     "plannedImage": "assets/scenes/planned/ep12_vc20_night_shift_never_ends.png?v=ep12-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep12_vc01_too_quiet_store.png?v=ep12-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "夜勤だから",
     "reading": "やきんだから。",
     "log": [
       "発話ログ　81/85",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　夜勤は終わらない",
-    "progressLabel": "81/85　ミナ"
+    "progressLabel": "81/85　エリ"
   },
   {
     "id": "ep12_v082",

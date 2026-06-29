@@ -35,7 +35,7 @@ REFERENCE_INSTRUCTION = (
 
 EXTRA_ALIASES: dict[str, list[str]] = {
     "takumi": ["タクミ", "新人夜勤", "新人バイト"],
-    "mina": ["ミナ", "先輩夜勤"],
+    "mina": ["エリ", "先輩夜勤"],
     "future_worker_ep01": ["未来青年", "未来の店員", "未来の会社員", "返品済み青年", "長谷山"],
     "aseda_ryuji": ["汗田竜司", "汗田", "汗田リュウジ"],
     "zakiyama_tatsuya": ["座木山辰哉", "座木山", "崎山タツヤ"],

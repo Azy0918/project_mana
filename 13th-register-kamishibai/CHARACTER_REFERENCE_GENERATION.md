@@ -50,7 +50,7 @@ python 13th-register-kamishibai/tools/apply_character_references.py --dry-run
 
 現段階ではLoRAより参照画像方式を優先する。
 
-- タクミ / ミナ / 第十三レジ: 参照画像を必ず使う。
+- タクミ / エリ / 第十三レジ: 参照画像を必ず使う。
 - 汗田 / 座木山 / 唐沢: 登場カットで参照画像を使う。
 - LoRAは、安定した教師画像を各キャラ10〜30枚以上用意できた段階で追加する。
 

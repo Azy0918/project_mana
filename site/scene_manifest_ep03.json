@@ -12,7 +12,7 @@
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん",
+    "dialogue": "エリさん",
     "reading": "みなさん。",
     "log": [
       "発話ログ　01/94",
@@ -34,16 +34,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "何",
     "reading": "なに。",
     "log": [
       "発話ログ　02/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "02/94　ミナ"
+    "progressLabel": "02/94　エリ"
   },
   {
     "id": "ep03_v003",
@@ -80,16 +80,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "日付管理なら白板",
     "reading": "ひづけかんりなら、ハくばん。",
     "log": [
       "発話ログ　04/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "01/20　冷凍庫に昨日",
-    "progressLabel": "04/94　ミナ"
+    "progressLabel": "04/94　エリ"
   },
   {
     "id": "ep03_v005",
@@ -172,16 +172,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "味は？",
     "reading": "あじワ？",
     "log": [
       "発話ログ　08/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "08/94　ミナ"
+    "progressLabel": "08/94　エリ"
   },
   {
     "id": "ep03_v009",
@@ -218,16 +218,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "バニラなら当たり",
     "reading": "ばにらなら、あたり。",
     "log": [
       "発話ログ　10/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "10/94　ミナ"
+    "progressLabel": "10/94　エリ"
   },
   {
     "id": "ep03_v011",
@@ -262,16 +262,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc02_yesterday_vanilla_cup.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "チョコミントだったら悩む",
     "reading": "ちょこみんとだったら、なやむ",
     "log": [
       "発話ログ　12/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "03/20　味は？",
-    "progressLabel": "12/94　ミナ",
+    "progressLabel": "12/94　エリ",
     "start": 34.52,
     "end": 37.41
   },
@@ -356,16 +356,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc03_freezer_temperature_rise.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "冷凍庫も疲れてる",
     "reading": "れいとうこも、つかれてる。",
     "log": [
       "発話ログ　16/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "04/20　温度上昇",
-    "progressLabel": "16/94　ミナ"
+    "progressLabel": "16/94　エリ"
   },
   {
     "id": "ep03_v015",
@@ -471,16 +471,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc05_returned_paper_coffee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "コーヒーが戻った",
     "reading": "こーひーが、もどった。",
     "log": [
       "発話ログ　21/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "06/20　戻ったコーヒー",
-    "progressLabel": "21/94　ミナ"
+    "progressLabel": "21/94　エリ"
   },
   {
     "id": "ep03_v020",
@@ -793,16 +793,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "休憩？",
     "reading": "きゅうけい？",
     "log": [
       "発話ログ　35/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "35/94　ミナ"
+    "progressLabel": "35/94　エリ"
   },
   {
     "id": "ep03_v034",
@@ -839,16 +839,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc08_shelf_rewinds_to_yesterday.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "それは確かに大事件",
     "reading": "それワ、たしかにだいじけん。",
     "log": [
       "発話ログ　37/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "10/20　昨日に戻る店内",
-    "progressLabel": "37/94　ミナ"
+    "progressLabel": "37/94　エリ"
   },
   {
     "id": "ep03_v035_g1",
@@ -1116,7 +1116,7 @@
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはアイスを見て言った。",
+    "dialogue": "エリはアイスを見て言った。",
     "reading": "みなワ、あいすをみていった。",
     "log": [
       "発話ログ　49/94",
@@ -1138,16 +1138,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "袋、お分けしますか",
     "reading": "ふくろ、おわけしますか。",
     "log": [
       "発話ログ　50/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "50/94　ミナ"
+    "progressLabel": "50/94　エリ"
   },
   {
     "id": "ep03_v048",
@@ -1184,16 +1184,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc12_bag_split_question.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "昨日と今日で",
     "reading": "きのうと、きょうで。",
     "log": [
       "発話ログ　52/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "15/20　袋分けの提案",
-    "progressLabel": "52/94　ミナ"
+    "progressLabel": "52/94　エリ"
   },
   {
     "id": "ep03_v050",
@@ -1369,7 +1369,7 @@
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは袋を二枚出した。",
+    "dialogue": "エリは袋を二枚出した。",
     "reading": "みなワ、ふくろをにまいだした。",
     "log": [
       "発話ログ　60/94",
@@ -1391,16 +1391,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc14_yesterday_today_bags.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "こちらが昨日。こちらが今日",
     "reading": "こちらがきのう。こちらがきょう。",
     "log": [
       "発話ログ　61/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "17/20　袋二枚",
-    "progressLabel": "61/94　ミナ"
+    "progressLabel": "61/94　エリ"
   },
   {
     "id": "ep03_v057",
@@ -1599,7 +1599,7 @@
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナが保冷剤を袋の上に置く。",
+    "dialogue": "エリが保冷剤を袋の上に置く。",
     "reading": "みなが、ほれいざいをふくろのうえにおく。",
     "log": [
       "発話ログ　70/94",
@@ -1621,16 +1621,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc16_break_and_ice_pack.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "冷やす",
     "reading": "ひやす。",
     "log": [
       "発話ログ　71/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "19/20　保冷剤と完了",
-    "progressLabel": "71/94　ミナ"
+    "progressLabel": "71/94　エリ"
   },
   {
     "id": "ep03_v065",
@@ -1943,16 +1943,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "袋使ったから",
     "reading": "ふくろつかったから。",
     "log": [
       "発話ログ　85/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "85/94　ミナ"
+    "progressLabel": "85/94　エリ"
   },
   {
     "id": "ep03_v076",
@@ -1989,16 +1989,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc18_receipt_bag_fee.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "袋は袋",
     "reading": "ふくろワ、ふくろ。",
     "log": [
       "発話ログ　87/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "87/94　ミナ"
+    "progressLabel": "87/94　エリ"
   },
   {
     "id": "ep03_v078",
@@ -2127,16 +2127,16 @@
     "plannedImage": "assets/scenes/planned/ep03_vc19_future_complaint_copy.png?v=ep03-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png?v=ep03-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "夜勤にはある",
     "reading": "やきんにワ、ある。",
     "log": [
       "発話ログ　93/94",
-      "担当　ミナ",
+      "担当　エリ",
       "本日の営業　継続中"
     ],
     "visualLabel": "20/20　レシートと夜勤",
-    "progressLabel": "93/94　ミナ"
+    "progressLabel": "93/94　エリ"
   },
   {
     "id": "ep03_v083",

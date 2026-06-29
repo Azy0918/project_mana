@@ -72,7 +72,7 @@
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん、棚卸し表に人間が入ってます",
+    "dialogue": "エリさん、棚卸し表に人間が入ってます",
     "reading": "みなさん、たなおろしひょうに、にんげんがハいってます。",
     "log": [
       "発話ログ　03/68",
@@ -113,16 +113,16 @@
     "plannedImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "保留中だから",
     "reading": "ほりゅうちゅうだから。",
     "log": [
       "発話ログ　04/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　棚卸し表に人間",
-    "progressLabel": "04/68　ミナ",
+    "progressLabel": "04/68　エリ",
     "characterIds": [
       "mina"
     ],
@@ -728,7 +728,7 @@
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは棚卸し表を持った。",
+    "dialogue": "エリは棚卸し表を持った。",
     "reading": "みなワ、たなおろしひょうをもった。",
     "log": [
       "発話ログ　21/68",
@@ -762,16 +762,16 @@
     "plannedImage": "assets/scenes/planned/ep11_vc09_mina_count_inventory.png?v=ep11-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "数えよう",
     "reading": "かぞえよう。",
     "log": [
       "発話ログ　22/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　数えよう",
-    "progressLabel": "22/68　ミナ",
+    "progressLabel": "22/68　エリ",
     "characterIds": [
       "mina"
     ],
@@ -832,16 +832,16 @@
     "plannedImage": "assets/scenes/planned/ep11_vc09_mina_count_inventory.png?v=ep11-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "今あるものを数える",
     "reading": "いまあるものをかぞえる。",
     "log": [
       "発話ログ　24/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　数えよう",
-    "progressLabel": "24/68　ミナ",
+    "progressLabel": "24/68　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1058,7 +1058,7 @@
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは言った。",
+    "dialogue": "エリは言った。",
     "reading": "みなワ、いった。",
     "log": [
       "発話ログ　31/68",
@@ -1092,16 +1092,16 @@
     "plannedImage": "assets/scenes/planned/ep11_vc12_actual_items_only.png?v=ep11-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "現物だけ",
     "reading": "げんぶつだけ。",
     "log": [
       "発話ログ　32/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　現物だけ",
-    "progressLabel": "32/68　ミナ",
+    "progressLabel": "32/68　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1328,7 +1328,7 @@
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは棚卸し表にハンコを押した。",
+    "dialogue": "エリは棚卸し表にハンコを押した。",
     "reading": "みなワ、たなおろしひょうにはんこをおした。",
     "log": [
       "発話ログ　39/68",
@@ -1362,16 +1362,16 @@
     "plannedImage": "assets/scenes/planned/ep11_vc15_current_store_stamp.png?v=ep11-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "今の店では、これだけ",
     "reading": "いまのみせでワ、これだけ。",
     "log": [
       "発話ログ　40/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　棚卸しにハンコ",
-    "progressLabel": "40/68　ミナ",
+    "progressLabel": "40/68　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1654,7 +1654,7 @@
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは淡々と言った。",
+    "dialogue": "エリは淡々と言った。",
     "reading": "みなワ、たんたんといった。",
     "log": [
       "発話ログ　48/68",
@@ -1688,16 +1688,16 @@
     "plannedImage": "assets/scenes/planned/ep11_vc17_now_processing.png?v=ep11-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep11_vc01_inventory_human.png?v=ep11-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "夜勤だから",
     "reading": "やきんだから。",
     "log": [
       "発話ログ　49/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "17/20　今、処理中",
-    "progressLabel": "49/68　ミナ",
+    "progressLabel": "49/68　エリ",
     "characterIds": [
       "mina"
     ],

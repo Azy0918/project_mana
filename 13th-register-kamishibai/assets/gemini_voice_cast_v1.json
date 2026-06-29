@@ -3,7 +3,7 @@
   "defaultVoice": "Kore",
   "cast": {
     "ナレーション": "Kore",
-    "ミナ": "Leda",
+    "エリ": "Leda",
     "タクミ": "Puck",
     "第十三レジ": "Charon",
     "未来の会社員": "Fenrir",
@@ -11,7 +11,7 @@
   },
   "sampleStatus": {
     "ナレーション": "generated with Kore",
-    "ミナ": "generated with Leda, preferred",
+    "エリ": "generated with Leda, preferred",
     "タクミ": "generated with Puck",
     "第十三レジ": "generated with Charon",
     "未来の会社員": "blocked, Gemini API prepayment credits depleted before sample",

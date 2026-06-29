@@ -32,7 +32,7 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": 1937616896,
-    "text": "ミナさん、これ本当に本人確認に使うんですか",
+    "text": "エリさん、これ本当に本人確認に使うんですか",
     "synthesis_text": "みなさん、これほんとうにほんにんかくにんにつかうんですか。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -41,7 +41,7 @@
   {
     "id": "ep10_v004",
     "cut": "ep10_vc02",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -49,7 +49,7 @@
     "synthesis_text": "れしーとあるから。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v004_ミナ.wav"
+    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v004_エリ.wav"
   },
   {
     "id": "ep10_v005",
@@ -370,7 +370,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナはレシートを出した。",
+    "text": "エリはレシートを出した。",
     "synthesis_text": "みなワ、れしーとをだした。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -379,7 +379,7 @@
   {
     "id": "ep10_v030",
     "cut": "ep10_vc10",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -387,7 +387,7 @@
     "synthesis_text": "かくにんします。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v030_ミナ.wav"
+    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v030_エリ.wav"
   },
   {
     "id": "ep10_v031",
@@ -405,7 +405,7 @@
   {
     "id": "ep10_v032",
     "cut": "ep10_vc10",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -413,7 +413,7 @@
     "synthesis_text": "おきゃくさま。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
-    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v032_ミナ.wav"
+    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v032_エリ.wav"
   },
   {
     "id": "ep10_v033",
@@ -539,7 +539,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナはパッチを見た。",
+    "text": "エリはパッチを見た。",
     "synthesis_text": "みなワ、ぱっちをみた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -548,7 +548,7 @@
   {
     "id": "ep10_v043",
     "cut": "ep10_vc13",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -556,7 +556,7 @@
     "synthesis_text": "はがさないほうがいい。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v043_ミナ.wav"
+    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v043_エリ.wav"
   },
   {
     "id": "ep10_v044",
@@ -617,7 +617,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナはうなずいた。",
+    "text": "エリはうなずいた。",
     "synthesis_text": "みなワ、うなずいた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -626,7 +626,7 @@
   {
     "id": "ep10_v049",
     "cut": "ep10_vc15",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -634,7 +634,7 @@
     "synthesis_text": "ほりゅう。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
-    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v049_ミナ.wav"
+    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v049_エリ.wav"
   },
   {
     "id": "ep10_v050",
@@ -864,7 +864,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナは涼しい顔で答えた。",
+    "text": "エリは涼しい顔で答えた。",
     "synthesis_text": "みなワ、すずしいかおでこたえた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -873,7 +873,7 @@
   {
     "id": "ep10_v068",
     "cut": "ep10_vc21",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -881,6 +881,6 @@
     "synthesis_text": "たなおろしでかぞえよう。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 800,
-    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v068_ミナ.wav"
+    "clip": "outputs\\ep10_voice_reading_hiragana\\clips\\ep10_v068_エリ.wav"
   }
 ]

@@ -30,7 +30,7 @@
 | 03 | 銀河共通ポイントカード | `assets/scenes/planned/ep09_vc03_galactic_point_card.png` | `ep09_v011-ep09_v015` | 古いカードに銀河共通ポイントの雰囲気。星屑のようなホログラム、長文は読ませない。 |
 | 04 | 第十三レジ八兆ポイント | `assets/scenes/planned/ep09_vc04_register_eight_trillion.png` | `ep09_v016-ep09_v020` | 二時十七分、第十三レジが八兆ポイント残高を確認。タクミの手が震える。 |
 | 05 | 地球円変換禁止 | `assets/scenes/planned/ep09_vc05_no_currency_conversion.png` | `ep09_v021-ep09_v025` | 第十三レジが地球円変換を提案し、タクミが全力で止める。 |
-| 06 | 店が国になる | `assets/scenes/planned/ep09_vc06_store_becomes_country.png` | `ep09_v026-ep09_v030` | ミナが使えるなら使うかと傾げ、タクミが店が国になると焦る。ポイント光が店内を包む。 |
+| 06 | 店が国になる | `assets/scenes/planned/ep09_vc06_store_becomes_country.png` | `ep09_v026-ep09_v030` | エリが使えるなら使うかと傾げ、タクミが店が国になると焦る。ポイント光が店内を包む。 |
 | 07 | 宇宙物流信用残高 | `assets/scenes/planned/ep09_vc07_cosmic_credit_balance.png` | `ep09_v031-ep09_v035` | 汗田がナビで宇宙物流の信用残高だと説明。変換すると補給権限が集まる不穏な図。 |
 | 08 | 再来店予定通知 | `assets/scenes/planned/ep09_vc08_future_worker_return_notice.png` | `ep09_v036-ep09_v040` | 第十三レジが危険知識保持者の再来店予定を通知。未来青年の首元タグを思わせる小さな記号。 |
 | 09 | 唐沢客単価確認 | `assets/scenes/planned/ep09_vc09_karasawa_high_unit_price.png` | `ep09_v041-ep09_v045` | 唐沢が深夜二時台の客単価が高いと来店。タクミが上がる寸前ですと青ざめる。 |
@@ -43,7 +43,7 @@
 | 16 | 店売上正常範囲 | `assets/scenes/planned/ep09_vc16_sales_normal_range.png` | `ep09_v076-ep09_v080` | 第十三レジが失効完了、店の売上正常範囲を示し、タクミが胸をなで下ろす。 |
 | 17 | 銀河ポイントレシート | `assets/scenes/planned/ep09_vc17_galactic_point_receipt.png` | `ep09_v081-ep09_v085` | 銀河共通ポイント八兆、地球円変換未実施、危険知識保持者再来店予定のレシート。 |
 | 18 | 未来青年が来る | `assets/scenes/planned/ep09_vc18_future_worker_coming.png` | `ep09_v086-ep09_v090` | タクミと汗田がレシート末尾を見て、未来青年が来ることを認識。 |
-| 19 | レシート探しておこう | `assets/scenes/planned/ep09_vc19_prepare_receipts.png` | `ep09_v091-ep09_v095` | ミナが本人確認用のレシートを探しておこうと淡々。タクミが人間確認の準備に困惑。 |
+| 19 | レシート探しておこう | `assets/scenes/planned/ep09_vc19_prepare_receipts.png` | `ep09_v091-ep09_v095` | エリが本人確認用のレシートを探しておこうと淡々。タクミが人間確認の準備に困惑。 |
 | 20 | コピー機の予告 | `assets/scenes/planned/ep09_vc20_copy_predicts_returned_person.png` | `ep09_v096-ep09_v100` | コピー機が明日、返品済みの人が来ます、と予告紙を出す。タクミがため息。 |
 
 ## 保留事項

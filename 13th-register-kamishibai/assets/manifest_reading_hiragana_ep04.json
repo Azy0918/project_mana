@@ -32,7 +32,7 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": 1937616896,
-    "text": "ミナさん、コピー機が自己判断で働いてます",
+    "text": "エリさん、コピー機が自己判断で働いてます",
     "synthesis_text": "みなさん、こぴーきがじこはんだんではたらいてます。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
@@ -41,7 +41,7 @@
   {
     "id": "ep04_v004",
     "cut": "ep04_vc01",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -49,7 +49,7 @@
     "synthesis_text": "えらいね。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v004_ミナ.wav"
+    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v004_エリ.wav"
   },
   {
     "id": "ep04_v005",
@@ -110,7 +110,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナはホットスナックケースを見た。",
+    "text": "エリはホットスナックケースを見た。",
     "synthesis_text": "みなワ、ほっとすなっくけーすをみた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -119,7 +119,7 @@
   {
     "id": "ep04_v010",
     "cut": "ep04_vc03",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -127,7 +127,7 @@
     "synthesis_text": "みらいくれーむ。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v010_ミナ.wav"
+    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v010_エリ.wav"
   },
   {
     "id": "ep04_v011",
@@ -214,7 +214,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナは紙を一枚コピー機の横に貼った。",
+    "text": "エリは紙を一枚コピー機の横に貼った。",
     "synthesis_text": "みなワ、かみをいちまいこぴーきのよこにはった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -223,7 +223,7 @@
   {
     "id": "ep04_v018",
     "cut": "ep04_vc05",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -231,7 +231,7 @@
     "synthesis_text": "さきにあやまればいい。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v018_ミナ.wav"
+    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v018_エリ.wav"
   },
   {
     "id": "ep04_v019",
@@ -249,7 +249,7 @@
   {
     "id": "ep04_v020",
     "cut": "ep04_vc05",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -257,7 +257,7 @@
     "synthesis_text": "せっきゃくワ、しょどう。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
-    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v020_ミナ.wav"
+    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v020_エリ.wav"
   },
   {
     "id": "ep04_v021",
@@ -383,7 +383,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナはホットスナックケースを開けた。唐揚げ棒が一本、小さく震えている。紙の旗には、まだ怒られていません、と書かれていた。",
+    "text": "エリはホットスナックケースを開けた。唐揚げ棒が一本、小さく震えている。紙の旗には、まだ怒られていません、と書かれていた。",
     "synthesis_text": "みなワ、ほっとすなっくけーすをあけた。からあげぼうがいっぽん、ちいさくふるえている。かみのはたにワ、まだおこられていません、とかかれていた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
@@ -431,7 +431,7 @@
   {
     "id": "ep04_v034",
     "cut": "ep04_vc11",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -439,7 +439,7 @@
     "synthesis_text": "せっきゃくのきほん。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
-    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v034_ミナ.wav"
+    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v034_エリ.wav"
   },
   {
     "id": "ep04_v035",
@@ -565,7 +565,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナは静かに言った。",
+    "text": "エリは静かに言った。",
     "synthesis_text": "みなワ、しずかにいった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -574,7 +574,7 @@
   {
     "id": "ep04_v045",
     "cut": "ep04_vc15",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -582,7 +582,7 @@
     "synthesis_text": "ふくろ、おつけしますか。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v045_ミナ.wav"
+    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v045_エリ.wav"
   },
   {
     "id": "ep04_v046",
@@ -600,7 +600,7 @@
   {
     "id": "ep04_v047",
     "cut": "ep04_vc15",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -608,7 +608,7 @@
     "synthesis_text": "ありがとうございます。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
-    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v047_ミナ.wav"
+    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v047_エリ.wav"
   },
   {
     "id": "ep04_v048",
@@ -656,7 +656,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナはタクミを見た。",
+    "text": "エリはタクミを見た。",
     "synthesis_text": "みなワ、たくみをみた。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
@@ -665,7 +665,7 @@
   {
     "id": "ep04_v052",
     "cut": "ep04_vc17",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -673,7 +673,7 @@
     "synthesis_text": "とっておく？",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v052_ミナ.wav"
+    "clip": "outputs\\ep04_voice_reading_hiragana\\clips\\ep04_v052_エリ.wav"
   },
   {
     "id": "ep04_v053",

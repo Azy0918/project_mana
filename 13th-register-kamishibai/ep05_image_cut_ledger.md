@@ -25,9 +25,9 @@
 
 | cut | タイトル | 採用予定ファイル | 台本行ID範囲(仮) | 内容 |
 |---:|---|---|---|---|
-| 01 | 古い紙束が落ちる | `assets/scenes/planned/ep05_vc01_old_slips_fall.png` | `ep05_v001-ep05_v005` | バックヤードの棚から黄ばんだ手書き伝票の束が落ちる。タクミが拾い、ミナが未処理か見る。 |
+| 01 | 古い紙束が落ちる | `assets/scenes/planned/ep05_vc01_old_slips_fall.png` | `ep05_v001-ep05_v005` | バックヤードの棚から黄ばんだ手書き伝票の束が落ちる。タクミが拾い、エリが未処理か見る。 |
 | 02 | 昭和五十八年伝票 | `assets/scenes/planned/ep05_vc02_showa_58_slips.png` | `ep05_v006-ep05_v010` | 牛乳、食パン、乾電池、謎のり弁などが並ぶ古い商店伝票。紙の黄ばみと手書き感、文字は雰囲気重視。 |
-| 03 | 伝票は諦めない | `assets/scenes/planned/ep05_vc03_slips_do_not_give_up.png` | `ep05_v011-ep05_v015` | ミナが淡々と伝票整理の姿勢を見せ、タクミが昭和から未処理なら諦めたい顔。 |
+| 03 | 伝票は諦めない | `assets/scenes/planned/ep05_vc03_slips_do_not_give_up.png` | `ep05_v011-ep05_v015` | エリが淡々と伝票整理の姿勢を見せ、タクミが昭和から未処理なら諦めたい顔。 |
 | 04 | 第十三レジ読み込み | `assets/scenes/planned/ep05_vc04_register_scans_old_slips.png` | `ep05_v016-ep05_v020` | 二時十七分、第十三レジが現れ、古い伝票を一枚ずつ読み込む。紙がレジへ吸い込まれる。 |
 | 05 | 未来記録混入 | `assets/scenes/planned/ep05_vc05_future_log_in_slip.png` | `ep05_v021-ep05_v025` | 伝票表示に記憶返品タグ、危険知識封印、開封厳禁の異質な記録が混ざる。 |
 | 06 | 汗田と古紙警告 | `assets/scenes/planned/ep05_vc06_aseda_old_paper_warning.png` | `ep05_v026-ep05_v030` | 汗田がナビに呼ばれて来店。ナビに古紙の匂いが危険という警告風表示。 |
@@ -39,10 +39,10 @@
 | 12 | 夜の人を助けた場所 | `assets/scenes/planned/ep05_vc12_old_store_helped_night_people.png` | `ep05_v056-ep05_v060` | 昔の小さな雑貨屋の幻影と現在のコンビニが重なる。電池を買う夜の人の記憶を静かに表現。 |
 | 13 | 判断できないものは預かる | `assets/scenes/planned/ep05_vc13_hold_if_undecidable.png` | `ep05_v061-ep05_v065` | 問題の伝票に手書きで判断できないものは預かる、というメモ。長文は読ませず印象で。 |
 | 14 | 処理選択三択 | `assets/scenes/planned/ep05_vc14_processing_choices_slips.png` | `ep05_v066-ep05_v070` | 第十三レジが過去伝票廃棄、未来記録開封、現代店舗保留を提示する。 |
-| 15 | 保留ハンコ | `assets/scenes/planned/ep05_vc15_pending_stamp.png` | `ep05_v071-ep05_v075` | ミナが伝票へ保留ハンコを押す。危険知識を剥がさない判断。 |
+| 15 | 保留ハンコ | `assets/scenes/planned/ep05_vc15_pending_stamp.png` | `ep05_v071-ep05_v075` | エリが伝票へ保留ハンコを押す。危険知識を剥がさない判断。 |
 | 16 | 未処理から保留へ | `assets/scenes/planned/ep05_vc16_from_unprocessed_to_pending.png` | `ep05_v076-ep05_v080` | 第十三レジが過去伝票を未処理から保留へ移行。紙束の光が落ち着く。 |
 | 17 | 昭和伝票レシート | `assets/scenes/planned/ep05_vc17_showa_slip_receipt.png` | `ep05_v081-ep05_v085` | 昭和伝票整理済み、記憶返品タグ保留、店長確認未了などのレシート。 |
-| 18 | テプラ出す | `assets/scenes/planned/ep05_vc18_label_maker.png` | `ep05_v086-ep05_v090` | ミナが文具箱からテプラを出す。世界を救う前にラベル作り。 |
+| 18 | テプラ出す | `assets/scenes/planned/ep05_vc18_label_maker.png` | `ep05_v086-ep05_v090` | エリが文具箱からテプラを出す。世界を救う前にラベル作り。 |
 | 19 | 伝票ファイル保管 | `assets/scenes/planned/ep05_vc19_slip_file_storage.png` | `ep05_v091-ep05_v095` | 背表紙を付けた伝票ファイルに保留伝票を入れる。バックヤードの棚へ。 |
 | 20 | マニュアル伝票整理 | `assets/scenes/planned/ep05_vc20_manual_slip_note.png` | `ep05_v096-ep05_v100` | タクミが危険知識は剥がさない、古い伝票でも未処理なら処理するとマニュアルに書く。 |
 

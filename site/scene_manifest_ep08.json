@@ -58,7 +58,7 @@
     "fallbackImage": "assets/scenes/planned/ep08_vc01_order_terminal_shakes.png?v=ep08-plan-v1",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん。酸素グミって何ですか",
+    "dialogue": "エリさん。酸素グミって何ですか",
     "reading": "みなさん。さんそぐみって、なんですか。",
     "log": [
       "発話ログ　03/56",
@@ -80,16 +80,16 @@
     "plannedImage": "assets/scenes/planned/ep08_vc02_oxygen_gummies_10000.png?v=ep08-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep08_vc01_order_terminal_shakes.png?v=ep08-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "噛むと息がしやすい？",
     "reading": "かむと、いきがしやすい？",
     "log": [
       "発話ログ　04/56",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　酸素グミ一万個",
-    "progressLabel": "04/56　ミナ"
+    "progressLabel": "04/56　エリ"
   },
   {
     "id": "ep08_v005",
@@ -126,16 +126,16 @@
     "plannedImage": "assets/scenes/planned/ep08_vc02_oxygen_gummies_10000.png?v=ep08-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep08_vc01_order_terminal_shakes.png?v=ep08-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "置けないね",
     "reading": "おけないね。",
     "log": [
       "発話ログ　06/56",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　酸素グミ一万個",
-    "progressLabel": "06/56　ミナ"
+    "progressLabel": "06/56　エリ"
   },
   {
     "id": "ep08_v007",
@@ -517,16 +517,16 @@
     "plannedImage": "assets/scenes/planned/ep08_vc07_three_rows_limit.png?v=ep08-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep08_vc01_order_terminal_shakes.png?v=ep08-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "三列まで",
     "reading": "さんれつまで。",
     "log": [
       "発話ログ　23/56",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "07/20　三列まで",
-    "progressLabel": "23/56　ミナ"
+    "progressLabel": "23/56　エリ"
   },
   {
     "id": "ep08_v024",
@@ -563,16 +563,16 @@
     "plannedImage": "assets/scenes/planned/ep08_vc07_three_rows_limit.png?v=ep08-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep08_vc01_order_terminal_shakes.png?v=ep08-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "置けないものは売れない",
     "reading": "おけないものワ、うれない。",
     "log": [
       "発話ログ　25/56",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "07/20　三列まで",
-    "progressLabel": "25/56　ミナ"
+    "progressLabel": "25/56　エリ"
   },
   {
     "id": "ep08_v026",
@@ -862,16 +862,16 @@
     "plannedImage": "assets/scenes/planned/ep08_vc13_moon_store_anxiety.png?v=ep08-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep08_vc01_order_terminal_shakes.png?v=ep08-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "三列まで",
     "reading": "さんれつまで。",
     "log": [
       "発話ログ　38/56",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "13/20　一万個ないと不安",
-    "progressLabel": "38/56　ミナ"
+    "progressLabel": "38/56　エリ"
   },
   {
     "id": "ep08_v039",
@@ -978,7 +978,7 @@
     "fallbackImage": "assets/scenes/planned/ep08_vc01_order_terminal_shakes.png?v=ep08-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは二十四個の仮発注を確定した。",
+    "dialogue": "エリは二十四個の仮発注を確定した。",
     "reading": "みなワ、にじゅうよんこのかりはっちゅうをかくていした。",
     "log": [
       "発話ログ　43/56",
@@ -1211,7 +1211,7 @@
     "fallbackImage": "assets/scenes/planned/ep08_vc01_order_terminal_shakes.png?v=ep08-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはホットスナックケースを閉めた。",
+    "dialogue": "エリはホットスナックケースを閉めた。",
     "reading": "みなワ、ほっとすなっくけーすをしめた。",
     "log": [
       "発話ログ　53/56",
@@ -1233,16 +1233,16 @@
     "plannedImage": "assets/scenes/planned/ep08_vc19_oxygen_gummy_air_flavor.png?v=ep08-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep08_vc01_order_terminal_shakes.png?v=ep08-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "酸素グミ、味は？",
     "reading": "さんそぐみ、あじワ？",
     "log": [
       "発話ログ　54/56",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　酸素グミは空気味",
-    "progressLabel": "54/56　ミナ"
+    "progressLabel": "54/56　エリ"
   },
   {
     "id": "ep08_v055",

@@ -58,7 +58,7 @@
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん、ポイント端末が宇宙っぽいです",
+    "dialogue": "エリさん、ポイント端末が宇宙っぽいです",
     "reading": "みなさん、ぽいんとたんまつがうちゅうっぽいです。",
     "log": [
       "発話ログ　03/64",
@@ -80,16 +80,16 @@
     "plannedImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "キャンペーン？",
     "reading": "きゃんぺーん？",
     "log": [
       "発話ログ　04/64",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "01/20　宇宙っぽいポイント端末",
-    "progressLabel": "04/64　ミナ"
+    "progressLabel": "04/64　エリ"
   },
   {
     "id": "ep09_v005",
@@ -380,7 +380,7 @@
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは少しだけ首を傾けた。",
+    "dialogue": "エリは少しだけ首を傾けた。",
     "reading": "みなワ、すこしだけくびをかしげた。",
     "log": [
       "発話ログ　17/64",
@@ -402,16 +402,16 @@
     "plannedImage": "assets/scenes/planned/ep09_vc06_store_becomes_country.png?v=ep09-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "使えるなら使う？",
     "reading": "つかえるならつかう？",
     "log": [
       "発話ログ　18/64",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "06/20　店が国になる",
-    "progressLabel": "18/64　ミナ"
+    "progressLabel": "18/64　エリ"
   },
   {
     "id": "ep09_v019",
@@ -771,7 +771,7 @@
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは座木山に聞いた。",
+    "dialogue": "エリは座木山に聞いた。",
     "reading": "みなワ、ざきやまにきいた。",
     "log": [
       "発話ログ　34/64",
@@ -793,16 +793,16 @@
     "plannedImage": "assets/scenes/planned/ep09_vc12_zakiyama_refuses_points.png?v=ep09-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "使います？",
     "reading": "つかいます？",
     "log": [
       "発話ログ　35/64",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　貯めた覚えのないもの",
-    "progressLabel": "35/64　ミナ"
+    "progressLabel": "35/64　エリ"
   },
   {
     "id": "ep09_v036",
@@ -886,7 +886,7 @@
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは端末を操作した。",
+    "dialogue": "エリは端末を操作した。",
     "reading": "みなワ、たんまつをそうさした。",
     "log": [
       "発話ログ　39/64",
@@ -908,16 +908,16 @@
     "plannedImage": "assets/scenes/planned/ep09_vc13_last_used_200_million.png?v=ep09-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "期限確認",
     "reading": "きげんかくにん。",
     "log": [
       "発話ログ　40/64",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "13/20　最終利用、二億年前",
-    "progressLabel": "40/64　ミナ"
+    "progressLabel": "40/64　エリ"
   },
   {
     "id": "ep09_v041",
@@ -1285,7 +1285,7 @@
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはいつも通り言った。",
+    "dialogue": "エリはいつも通り言った。",
     "reading": "みなワ、いつもどおりいった。",
     "log": [
       "発話ログ　56/64",
@@ -1307,16 +1307,16 @@
     "plannedImage": "assets/scenes/planned/ep09_vc19_prepare_receipts.png?v=ep09-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep09_vc01_starry_point_reader.png?v=ep09-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "レシート探しておこう",
     "reading": "れしーとさがしておこう。",
     "log": [
       "発話ログ　57/64",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　レシートを探す",
-    "progressLabel": "57/64　ミナ"
+    "progressLabel": "57/64　エリ"
   },
   {
     "id": "ep09_v058",

@@ -38,13 +38,13 @@
 | 11 | 銀河監査局通知 | `assets/scenes/planned/ep12_vc11_galactic_audit_final.png` | `ep12_v051-ep12_v055` | コピー機から銀河流通監査局の返送要求通知が出る。BGMが眠い指摘も混ざるが絵は不穏。 |
 | 12 | 唐沢の現金過不足ゼロ | `assets/scenes/planned/ep12_vc12_karasawa_cash_zero.png` | `ep12_v056-ep12_v060` | 唐沢が現金表を見ながら、数字が合わないものは保留、現金過不足はゼロと現実判断。 |
 | 13 | 残り時間一分 | `assets/scenes/planned/ep12_vc13_one_minute_left.png` | `ep12_v061-ep12_v065` | 第十三レジが残り時間一分を示し、店内の全員が集中する。 |
-| 14 | 保留です | `assets/scenes/planned/ep12_vc14_takumi_says_hold.png` | `ep12_v066-ep12_v070` | ミナの問いにタクミが自然に保留ですと答える。成長の瞬間。 |
-| 15 | 現代店舗で保留を押す | `assets/scenes/planned/ep12_vc15_mina_pushes_hold.png` | `ep12_v071-ep12_v075` | ミナが第十三レジ画面で現代店舗で保留を押す。 |
+| 14 | 保留です | `assets/scenes/planned/ep12_vc14_takumi_says_hold.png` | `ep12_v066-ep12_v070` | エリの問いにタクミが自然に保留ですと答える。成長の瞬間。 |
+| 15 | 現代店舗で保留を押す | `assets/scenes/planned/ep12_vc15_mina_pushes_hold.png` | `ep12_v071-ep12_v075` | エリが第十三レジ画面で現代店舗で保留を押す。 |
 | 16 | 未来大戦争発生保留 | `assets/scenes/planned/ep12_vc16_war_on_hold.png` | `ep12_v076-ep12_v080` | 店内の空気が揺れ、銀河標準からあげや廃棄予定の未来が光って折り畳まれる。 |
 | 17 | タグ安定 | `assets/scenes/planned/ep12_vc17_memory_tag_stabilizes.png` | `ep12_v081-ep12_v085` | 未来青年の首元タグが剥がれず透明なまま安定する。汗田がコーヒーを渡す。 |
 | 18 | 最後のレシート | `assets/scenes/planned/ep12_vc18_final_receipt.png` | `ep12_v086-ep12_v090` | 危険知識封印、未来大戦争発生保留、青年返品取消、現金過不足ゼロ、本日の営業継続中の最後のレシート。 |
 | 19 | 第十三レジ消失と通常音 | `assets/scenes/planned/ep12_vc19_register_disappears_normal_sound.png` | `ep12_v091-ep12_v095` | 午前二時二十分、第十三レジが消え、冷蔵ケース、自動ドア、小さな電子音が戻る。 |
-| 20 | 夜勤は終わらない | `assets/scenes/planned/ep12_vc20_night_shift_never_ends.png` | `ep12_v096-ep12_v100` | 座木山がコピー機を使えるか聞き、コピー機が普通でない音を鳴らす。ミナがモップ、タクミが最後に夜勤は終わらないと書く。 |
+| 20 | 夜勤は終わらない | `assets/scenes/planned/ep12_vc20_night_shift_never_ends.png` | `ep12_v096-ep12_v100` | 座木山がコピー機を使えるか聞き、コピー機が普通でない音を鳴らす。エリがモップ、タクミが最後に夜勤は終わらないと書く。 |
 
 ## 保留事項
 

@@ -97,7 +97,7 @@
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん、昔の商店の伝票みたいなのが出てきました",
+    "dialogue": "エリさん、昔の商店の伝票みたいなのが出てきました",
     "reading": "みなさん、むかしのしょうてんのでんぴょうみたいなのがでてきました。",
     "log": [
       "発話ログ　04/62",
@@ -138,16 +138,16 @@
     "plannedImage": "assets/scenes/planned/ep05_vc03_slips_do_not_give_up.png?v=ep05-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "未処理？",
     "reading": "みしょり？",
     "log": [
       "発話ログ　05/62",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　伝票は諦めない",
-    "progressLabel": "05/62　ミナ",
+    "progressLabel": "05/62　エリ",
     "characterIds": [
       "mina"
     ],
@@ -208,16 +208,16 @@
     "plannedImage": "assets/scenes/planned/ep05_vc03_slips_do_not_give_up.png?v=ep05-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "伝票は諦めない",
     "reading": "でんぴょうワ、あきらめない。",
     "log": [
       "発話ログ　07/62",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　伝票は諦めない",
-    "progressLabel": "07/62　ミナ",
+    "progressLabel": "07/62　エリ",
     "characterIds": [
       "mina"
     ],
@@ -802,7 +802,7 @@
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは別の束を持ってきた。",
+    "dialogue": "エリは別の束を持ってきた。",
     "reading": "みなワ、べつのたばをもってきた。",
     "log": [
       "発話ログ　24/62",
@@ -836,16 +836,16 @@
     "plannedImage": "assets/scenes/planned/ep05_vc09_sorting_slips.png?v=ep05-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "じゃあ仕分けよう",
     "reading": "じゃあしわけよう。",
     "log": [
       "発話ログ　25/62",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　仕分け作業",
-    "progressLabel": "25/62　ミナ",
+    "progressLabel": "25/62　エリ",
     "characterIds": [
       "mina"
     ],
@@ -906,16 +906,16 @@
     "plannedImage": "assets/scenes/planned/ep05_vc09_sorting_slips.png?v=ep05-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "伝票だから",
     "reading": "でんぴょうだから。",
     "log": [
       "発話ログ　27/62",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　仕分け作業",
-    "progressLabel": "27/62　ミナ",
+    "progressLabel": "27/62　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1359,7 +1359,7 @@
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは伝票を一枚持った。",
+    "dialogue": "エリは伝票を一枚持った。",
     "reading": "みなワ、でんぴょうをいちまいもった。",
     "log": [
       "発話ログ　40/62",
@@ -1393,16 +1393,16 @@
     "plannedImage": "assets/scenes/planned/ep05_vc12_old_store_helped_night_people.png?v=ep05-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "だから未処理は困る",
     "reading": "だから、みしょりワこまる。",
     "log": [
       "発話ログ　41/62",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "12/20　夜の人を助けた店",
-    "progressLabel": "41/62　ミナ",
+    "progressLabel": "41/62　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1660,16 +1660,16 @@
     "plannedImage": "assets/scenes/planned/ep05_vc14_processing_choices_slips.png?v=ep05-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "危険知識は剥がさない",
     "reading": "きけんちしきワ、はがさない。",
     "log": [
       "発話ログ　49/62",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　処理選択",
-    "progressLabel": "49/62　ミナ",
+    "progressLabel": "49/62　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1696,7 +1696,7 @@
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは伝票に保留のハンコを押した。",
+    "dialogue": "エリは伝票に保留のハンコを押した。",
     "reading": "みなワ、でんぴょうにほりゅうのはんこをおした。",
     "log": [
       "発話ログ　50/62",
@@ -1730,16 +1730,16 @@
     "plannedImage": "assets/scenes/planned/ep05_vc15_pending_stamp.png?v=ep05-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "現代店舗で一時保管",
     "reading": "げんだいてんぽで、いちじほかん。",
     "log": [
       "発話ログ　51/62",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　保留のハンコ",
-    "progressLabel": "51/62　ミナ",
+    "progressLabel": "51/62　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1877,7 +1877,7 @@
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはバックヤードの文具箱を開けた。",
+    "dialogue": "エリはバックヤードの文具箱を開けた。",
     "reading": "みなワ、ばっくやーどのぶんぐばこをあけた。",
     "log": [
       "発話ログ　55/62",
@@ -1911,16 +1911,16 @@
     "plannedImage": "assets/scenes/planned/ep05_vc18_label_maker.png?v=ep05-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "テプラ出す？",
     "reading": "てぷら、だす？",
     "log": [
       "発話ログ　56/62",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　テプラ",
-    "progressLabel": "56/62　ミナ",
+    "progressLabel": "56/62　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1981,16 +1981,16 @@
     "plannedImage": "assets/scenes/planned/ep05_vc18_label_maker.png?v=ep05-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep05_vc01_old_slips_fall.png?v=ep05-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "探しやすいから",
     "reading": "さがしやすいから。",
     "log": [
       "発話ログ　58/62",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "18/20　テプラ",
-    "progressLabel": "58/62　ミナ",
+    "progressLabel": "58/62　エリ",
     "characterIds": [
       "mina"
     ],

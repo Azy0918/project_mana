@@ -6,7 +6,7 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": 1937616896,
-    "text": "ミナさん",
+    "text": "エリさん",
     "synthesis_text": "みなさん。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
@@ -15,7 +15,7 @@
   {
     "id": "ep03_v002",
     "cut": "ep03_vc01",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -23,7 +23,7 @@
     "synthesis_text": "なに。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v002_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v002_エリ.wav"
   },
   {
     "id": "ep03_v003",
@@ -41,7 +41,7 @@
   {
     "id": "ep03_v004",
     "cut": "ep03_vc01",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -49,7 +49,7 @@
     "synthesis_text": "ひづけかんりなら、ハくばん。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v004_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v004_エリ.wav"
   },
   {
     "id": "ep03_v005",
@@ -93,7 +93,7 @@
   {
     "id": "ep03_v008",
     "cut": "ep03_vc03",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -101,7 +101,7 @@
     "synthesis_text": "あじワ？",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v008_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v008_エリ.wav"
   },
   {
     "id": "ep03_v009",
@@ -119,7 +119,7 @@
   {
     "id": "ep03_v010",
     "cut": "ep03_vc03",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -127,7 +127,7 @@
     "synthesis_text": "ばにらなら、あたり。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v010_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v010_エリ.wav"
   },
   {
     "id": "ep03_v011",
@@ -145,7 +145,7 @@
   {
     "id": "ep03_v011_g1",
     "cut": "ep03_vc03",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -197,7 +197,7 @@
   {
     "id": "ep03_v014",
     "cut": "ep03_vc04",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -205,7 +205,7 @@
     "synthesis_text": "れいとうこも、つかれてる。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v014_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v014_エリ.wav"
   },
   {
     "id": "ep03_v015",
@@ -262,7 +262,7 @@
   {
     "id": "ep03_v019",
     "cut": "ep03_vc06",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -270,7 +270,7 @@
     "synthesis_text": "こーひーが、もどった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v019_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v019_エリ.wav"
   },
   {
     "id": "ep03_v020",
@@ -444,7 +444,7 @@
   {
     "id": "ep03_v033",
     "cut": "ep03_vc10",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -452,7 +452,7 @@
     "synthesis_text": "きゅうけい？",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v033_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v033_エリ.wav"
   },
   {
     "id": "ep03_v034",
@@ -470,7 +470,7 @@
   {
     "id": "ep03_v035",
     "cut": "ep03_vc10",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -478,7 +478,7 @@
     "synthesis_text": "それワ、たしかにだいじけん。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v035_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v035_エリ.wav"
   },
   {
     "id": "ep03_v035_g1",
@@ -630,7 +630,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナはアイスを見て言った。",
+    "text": "エリはアイスを見て言った。",
     "synthesis_text": "みなワ、あいすをみていった。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -639,7 +639,7 @@
   {
     "id": "ep03_v047",
     "cut": "ep03_vc15",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -647,7 +647,7 @@
     "synthesis_text": "ふくろ、おわけしますか。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v047_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v047_エリ.wav"
   },
   {
     "id": "ep03_v048",
@@ -665,7 +665,7 @@
   {
     "id": "ep03_v049",
     "cut": "ep03_vc15",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -673,7 +673,7 @@
     "synthesis_text": "きのうと、きょうで。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v049_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v049_エリ.wav"
   },
   {
     "id": "ep03_v050",
@@ -773,7 +773,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナは袋を二枚出した。",
+    "text": "エリは袋を二枚出した。",
     "synthesis_text": "みなワ、ふくろをにまいだした。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -782,7 +782,7 @@
   {
     "id": "ep03_v056",
     "cut": "ep03_vc17",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -790,7 +790,7 @@
     "synthesis_text": "こちらがきのう。こちらがきょう。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 350,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v056_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v056_エリ.wav"
   },
   {
     "id": "ep03_v057",
@@ -903,7 +903,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": 2029042368,
-    "text": "ミナが保冷剤を袋の上に置く。",
+    "text": "エリが保冷剤を袋の上に置く。",
     "synthesis_text": "みなが、ほれいざいをふくろのうえにおく。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 300,
@@ -912,7 +912,7 @@
   {
     "id": "ep03_v064",
     "cut": "ep03_vc19",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -920,7 +920,7 @@
     "synthesis_text": "ひやす。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v064_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v064_エリ.wav"
   },
   {
     "id": "ep03_v065",
@@ -1094,7 +1094,7 @@
   {
     "id": "ep03_v075",
     "cut": "ep03_vc20",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -1102,7 +1102,7 @@
     "synthesis_text": "ふくろつかったから。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 250,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v075_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v075_エリ.wav"
   },
   {
     "id": "ep03_v076",
@@ -1120,7 +1120,7 @@
   {
     "id": "ep03_v077",
     "cut": "ep03_vc20",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -1128,7 +1128,7 @@
     "synthesis_text": "ふくろワ、ふくろ。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 450,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v077_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v077_エリ.wav"
   },
   {
     "id": "ep03_v078",
@@ -1198,7 +1198,7 @@
   {
     "id": "ep03_v082",
     "cut": "ep03_vc20",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": 604166016,
@@ -1206,7 +1206,7 @@
     "synthesis_text": "やきんにワ、ある。",
     "synthesis_source": "reading_hiragana",
     "pause_after_ms": 500,
-    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v082_ミナ.wav"
+    "clip": "outputs\\ep03_voice_reading_hiragana\\clips\\ep03_v082_エリ.wav"
   },
   {
     "id": "ep03_v083",

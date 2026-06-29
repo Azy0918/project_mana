@@ -58,7 +58,7 @@
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん、これ本当に本人確認に使うんですか",
+    "dialogue": "エリさん、これ本当に本人確認に使うんですか",
     "reading": "みなさん、これほんとうにほんにんかくにんにつかうんですか。",
     "log": [
       "発話ログ　03/68",
@@ -80,16 +80,16 @@
     "plannedImage": "assets/scenes/planned/ep10_vc02_receipt_for_person.png?v=ep10-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "レシートあるから",
     "reading": "れしーとあるから。",
     "log": [
       "発話ログ　04/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　本人確認にレシート？",
-    "progressLabel": "04/68　ミナ"
+    "progressLabel": "04/68　エリ"
   },
   {
     "id": "ep10_v005",
@@ -656,7 +656,7 @@
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはレシートを出した。",
+    "dialogue": "エリはレシートを出した。",
     "reading": "みなワ、れしーとをだした。",
     "log": [
       "発話ログ　29/68",
@@ -678,16 +678,16 @@
     "plannedImage": "assets/scenes/planned/ep10_vc10_mina_receipt_check.png?v=ep10-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "確認します",
     "reading": "かくにんします。",
     "log": [
       "発話ログ　30/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　確認します",
-    "progressLabel": "30/68　ミナ"
+    "progressLabel": "30/68　エリ"
   },
   {
     "id": "ep10_v031",
@@ -724,16 +724,16 @@
     "plannedImage": "assets/scenes/planned/ep10_vc10_mina_receipt_check.png?v=ep10-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "お客様",
     "reading": "おきゃくさま。",
     "log": [
       "発話ログ　32/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "10/20　確認します",
-    "progressLabel": "32/68　ミナ"
+    "progressLabel": "32/68　エリ"
   },
   {
     "id": "ep10_v033",
@@ -955,7 +955,7 @@
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはパッチを見た。",
+    "dialogue": "エリはパッチを見た。",
     "reading": "みなワ、ぱっちをみた。",
     "log": [
       "発話ログ　42/68",
@@ -977,16 +977,16 @@
     "plannedImage": "assets/scenes/planned/ep10_vc13_do_not_peel_tag.png?v=ep10-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "剥がさない方がいい",
     "reading": "はがさないほうがいい。",
     "log": [
       "発話ログ　43/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "13/20　剥がさない方がいい",
-    "progressLabel": "43/68　ミナ"
+    "progressLabel": "43/68　エリ"
   },
   {
     "id": "ep10_v044",
@@ -1093,7 +1093,7 @@
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはうなずいた。",
+    "dialogue": "エリはうなずいた。",
     "reading": "みなワ、うなずいた。",
     "log": [
       "発話ログ　48/68",
@@ -1115,16 +1115,16 @@
     "plannedImage": "assets/scenes/planned/ep10_vc16_temporary_hold.png?v=ep10-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "保留",
     "reading": "ほりゅう。",
     "log": [
       "発話ログ　49/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "16/20　一時保留",
-    "progressLabel": "49/68　ミナ"
+    "progressLabel": "49/68　エリ"
   },
   {
     "id": "ep10_v050",
@@ -1542,7 +1542,7 @@
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは涼しい顔で答えた。",
+    "dialogue": "エリは涼しい顔で答えた。",
     "reading": "みなワ、すずしいかおでこたえた。",
     "log": [
       "発話ログ　67/68",
@@ -1564,15 +1564,15 @@
     "plannedImage": "assets/scenes/planned/ep10_vc20_copy_registers_forecast.png?v=ep10-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep10_vc01_ep1_receipt_file.png?v=ep10-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "棚卸しで数えよう",
     "reading": "たなおろしでかぞえよう。",
     "log": [
       "発話ログ　68/68",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　コピー機の予告",
-    "progressLabel": "68/68　ミナ"
+    "progressLabel": "68/68　エリ"
   }
 ]

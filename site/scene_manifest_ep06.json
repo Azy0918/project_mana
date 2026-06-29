@@ -104,7 +104,7 @@
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん、賞味期限がありません",
+    "dialogue": "エリさん、賞味期限がありません",
     "reading": "みなさん、しょうみきげんがありません。",
     "log": [
       "発話ログ　05/60",
@@ -126,16 +126,16 @@
     "plannedImage": "assets/scenes/planned/ep06_vc02_no_expiration_date.png?v=ep06-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "昔のパン？",
     "reading": "むかしのぱん？",
     "log": [
       "発話ログ　06/60",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "02/20　賞味期限がない",
-    "progressLabel": "06/60　ミナ"
+    "progressLabel": "06/60　エリ"
   },
   {
     "id": "ep06_v007",
@@ -403,7 +403,7 @@
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは端末を開いた。",
+    "dialogue": "エリは端末を開いた。",
     "reading": "みなワ、たんまつをひらいた。",
     "log": [
       "発話ログ　18/60",
@@ -425,16 +425,16 @@
     "plannedImage": "assets/scenes/planned/ep06_vc07_bread_speaks.png?v=ep06-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "廃棄？",
     "reading": "はいき？",
     "log": [
       "発話ログ　19/60",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "07/20　パンの自己主張",
-    "progressLabel": "19/60　ミナ"
+    "progressLabel": "19/60　エリ"
   },
   {
     "id": "ep06_v020",
@@ -587,7 +587,7 @@
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは少し考えて言った。",
+    "dialogue": "エリは少し考えて言った。",
     "reading": "みなワ、すこしかんがえていった。",
     "log": [
       "発話ログ　26/60",
@@ -609,16 +609,16 @@
     "plannedImage": "assets/scenes/planned/ep06_vc09_taste_test_bad_idea.png?v=ep06-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "試食？",
     "reading": "ししょく？",
     "log": [
       "発話ログ　27/60",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "09/20　試食という難題",
-    "progressLabel": "27/60　ミナ"
+    "progressLabel": "27/60　エリ"
   },
   {
     "id": "ep06_v028",
@@ -932,7 +932,7 @@
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはうなずいた。",
+    "dialogue": "エリはうなずいた。",
     "reading": "みなワ、うなずいた。",
     "log": [
       "発話ログ　41/60",
@@ -954,16 +954,16 @@
     "plannedImage": "assets/scenes/planned/ep06_vc13_pending_register_accept.png?v=ep06-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "保留",
     "reading": "ほりゅう。",
     "log": [
       "発話ログ　42/60",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "13/20　保留を受理",
-    "progressLabel": "42/60　ミナ"
+    "progressLabel": "42/60　エリ"
   },
   {
     "id": "ep06_v043",
@@ -1092,16 +1092,16 @@
     "plannedImage": "assets/scenes/planned/ep06_vc15_future_stabilized_by_note.png?v=ep06-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "現場運用は強い",
     "reading": "げんばうんようワ、つよい。",
     "log": [
       "発話ログ　48/60",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "15/20　付箋で安定",
-    "progressLabel": "48/60　ミナ"
+    "progressLabel": "48/60　エリ"
   },
   {
     "id": "ep06_v049",
@@ -1283,7 +1283,7 @@
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは保留箱を棚に置いた。",
+    "dialogue": "エリは保留箱を棚に置いた。",
     "reading": "みなワ、ほりゅうばこをたなにおいた。",
     "log": [
       "発話ログ　56/60",
@@ -1305,16 +1305,16 @@
     "plannedImage": "assets/scenes/planned/ep06_vc18_pending_box_bread.png?v=ep06-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "パン、朝まで置いておく",
     "reading": "ぱん、あさまでおいておく。",
     "log": [
       "発話ログ　57/60",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　保留箱のパン",
-    "progressLabel": "57/60　ミナ"
+    "progressLabel": "57/60　エリ"
   },
   {
     "id": "ep06_v058",
@@ -1351,16 +1351,16 @@
     "plannedImage": "assets/scenes/planned/ep06_vc19_waiting_manager_confirmation.png?v=ep06-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep06_vc01_plain_bread_bags.png?v=ep06-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "店長確認",
     "reading": "てんちょうかくにん。",
     "log": [
       "発話ログ　59/60",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "20/20　店長確認待ち",
-    "progressLabel": "59/60　ミナ"
+    "progressLabel": "59/60　エリ"
   },
   {
     "id": "ep06_v060",

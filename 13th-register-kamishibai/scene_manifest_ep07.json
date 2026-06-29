@@ -87,7 +87,7 @@
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
     "speaker": "タクミ",
-    "dialogue": "ミナさん、月面の荷物が店留めです",
+    "dialogue": "エリさん、月面の荷物が店留めです",
     "reading": "みなさん、げつめんのにもつがみせどめです。",
     "log": [
       "発話ログ　04/58",
@@ -128,16 +128,16 @@
     "plannedImage": "assets/scenes/planned/ep07_vc03_pickup_number_first.png?v=ep07-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "受取番号は？",
     "reading": "うけとりばんごうワ？",
     "log": [
       "発話ログ　05/58",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "03/20　受取番号は？",
-    "progressLabel": "05/58　ミナ",
+    "progressLabel": "05/58　エリ",
     "characterIds": [
       "mina"
     ],
@@ -329,7 +329,7 @@
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはプリンを見た。",
+    "dialogue": "エリはプリンを見た。",
     "reading": "みなワ、ぷりんをみた。",
     "log": [
       "発話ログ　11/58",
@@ -363,16 +363,16 @@
     "plannedImage": "assets/scenes/planned/ep07_vc06_zero_g_pudding.png?v=ep07-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "食べられる？",
     "reading": "たべられる？",
     "log": [
       "発話ログ　12/58",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "06/20　無重力プリン",
-    "progressLabel": "12/58　ミナ",
+    "progressLabel": "12/58　エリ",
     "characterIds": [
       "mina"
     ],
@@ -750,16 +750,16 @@
     "plannedImage": "assets/scenes/planned/ep07_vc08_galactic_audit_notice.png?v=ep07-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "眠いのは事実",
     "reading": "ねむいのワ、じじつ。",
     "log": [
       "発話ログ　24/58",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "08/20　監査局からの通知",
-    "progressLabel": "24/58　ミナ",
+    "progressLabel": "24/58　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1287,7 +1287,7 @@
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナは受取欄を見た。",
+    "dialogue": "エリは受取欄を見た。",
     "reading": "みなワ、うけとりらんをみた。",
     "log": [
       "発話ログ　39/58",
@@ -1321,16 +1321,16 @@
     "plannedImage": "assets/scenes/planned/ep07_vc13_redelivery_decision.png?v=ep07-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "本人がいないなら再配送",
     "reading": "ほんにんがいないなら、さいはいそう。",
     "log": [
       "発話ログ　40/58",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "13/20　再配送の判断",
-    "progressLabel": "40/58　ミナ",
+    "progressLabel": "40/58　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1391,16 +1391,16 @@
     "plannedImage": "assets/scenes/planned/ep07_vc13_redelivery_decision.png?v=ep07-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "荷物だから",
     "reading": "にもつだから。",
     "log": [
       "発話ログ　42/58",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "13/20　再配送の判断",
-    "progressLabel": "42/58　ミナ",
+    "progressLabel": "42/58　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1496,16 +1496,16 @@
     "plannedImage": "assets/scenes/planned/ep07_vc14_storage_fee.png?v=ep07-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "保管したから",
     "reading": "ほかんしたから。",
     "log": [
       "発話ログ　45/58",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "14/20　店留め保管料",
-    "progressLabel": "45/58　ミナ",
+    "progressLabel": "45/58　エリ",
     "characterIds": [
       "mina"
     ],
@@ -1760,7 +1760,7 @@
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "ミナはタクミのマニュアルを見た。",
+    "dialogue": "エリはタクミのマニュアルを見た。",
     "reading": "みなワ、たくみのまにゅあるをみた。",
     "log": [
       "発話ログ　53/58",
@@ -1801,16 +1801,16 @@
     "plannedImage": "assets/scenes/planned/ep07_vc19_manual_space_pickup.png?v=ep07-plan-v1",
     "fallbackImage": "assets/scenes/planned/ep07_vc01_delivery_terminal_rings.png?v=ep07-plan-v1",
     "imagePrompt": "",
-    "speaker": "ミナ",
+    "speaker": "エリ",
     "dialogue": "書く？",
     "reading": "かく？",
     "log": [
       "発話ログ　54/58",
-      "担当　ミナ",
+      "担当　エリ",
       "深夜帯　進行中"
     ],
     "visualLabel": "19/20　宇宙宅配のマニュアル",
-    "progressLabel": "54/58　ミナ",
+    "progressLabel": "54/58　エリ",
     "characterIds": [
       "mina"
     ],

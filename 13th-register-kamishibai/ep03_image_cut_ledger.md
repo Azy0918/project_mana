@@ -53,3 +53,11 @@
 
 - Claudeの正式な `ep03_image_request_sheet.md` と台本行IDが出たら、`image_assignment_ep03.json` の assignments を正式IDに合わせる。
 - 第4話につなぐ未来クレーム客を第3話内で人物として出すかは未確定。現段階ではコピー機から出る紙だけで表現する。
+
+## 2026-06-30 新規生成 v1
+
+- シナリオ変更後の `scene_manifest_ep03.json` を正として、20カットを新規生成した。
+- 昨日バニラ／明日ミルクは `assets/character_sheets/yesterday_vanilla_tomorrow_milk_sheet_v1.png` の商品設定に寄せた。
+- 旧画像は削除せず、新規ファイル `ep03_vc##_..._yvtm_v1.png` として追加した。
+- `visual_cut_plan_ep03.json`、`scene_manifest_ep03.json`、`image_assignment_ep03.json` の画像参照を新規生成画像へ更新した。
+- 音声ファイル、読み上げマニフェスト、音声タイムラインは変更していない。

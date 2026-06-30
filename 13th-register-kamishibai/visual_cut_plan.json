@@ -777,10 +777,10 @@
     "visualCutId": "vc20",
     "lineStart": "ep01_v120",
     "lineEnd": "ep01_v121",
-    "title": "夜勤はまだ終わらない",
-    "plannedImage": "assets/scenes/planned/ep01_vc20_chores_remain_v3.png",
+    "title": "夜勤日誌を読む",
+    "plannedImage": "assets/scenes/planned/ep01_vc20_diary_reading_v1.png",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
-    "prompt": "床清掃、雑誌返品、廃棄登録が残っている深夜コンビニ。タクミが遠い目、エリは淡々。余韻のラスト。",
+    "prompt": "ラストカット。深夜2時20分過ぎの静かなコンビニ、13レジが消えた後の通常カウンターで、タクミが夜勤日誌／マニュアルノートを開いて読んでいる。エリが横で静かに見守る。世界の危機が業務連絡になる余韻。13レジ本体は映さない。",
     "characterIds": [
       "takumi",
       "mina"

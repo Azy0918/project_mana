@@ -787,8 +787,8 @@
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
     "style_id": "1310138976",
-    "text": "未来対応費。",
-    "synthesis_text": "未来対応費。",
+    "text": "時空対応費じゃないんだ。",
+    "synthesis_text": "じくう対応費じゃないんだ。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v061.wav"
   },
@@ -905,7 +905,7 @@
     "style_name": "ノーマル",
     "style_id": "604166016",
     "text": "先に掃除！",
-    "synthesis_text": "先に掃除！",
+    "synthesis_text": "先に掃除。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v070.wav"
   },

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "episode": "ep02",
-  "assetVersion": "timing-fix-ep02-20260630",
+  "assetVersion": "timing-fix-ep02-20260630-v2",
   "assignments": {
     "ep02_v001": "assets/scenes/planned/ep02_vc01_company_parking_asada_v2.png",
     "ep02_v002": "assets/scenes/planned/ep02_vc01_company_parking_asada_v2.png",
@@ -22,10 +22,10 @@
     "ep02_v016": "assets/scenes/planned/ep02_vc04_receipt_storage_eri_v1.png",
     "ep02_v017": "assets/scenes/planned/ep02_vc04_receipt_storage_eri_v1.png",
     "ep02_v018": "assets/scenes/planned/ep02_vc04_receipt_storage_eri_v1.png",
-    "ep02_v019": "assets/scenes/planned/ep02_vc05_aseda_enters_eri_v1.png",
-    "ep02_v020": "assets/scenes/planned/ep02_vc05_aseda_enters_eri_v1.png",
-    "ep02_v021": "assets/scenes/planned/ep02_vc05_aseda_enters_eri_v1.png",
-    "ep02_v022": "assets/scenes/planned/ep02_vc05_aseda_enters_eri_v1.png",
+    "ep02_v019": "assets/scenes/planned/ep02_vc05_aseda_enters.png",
+    "ep02_v020": "assets/scenes/planned/ep02_vc05_aseda_enters.png",
+    "ep02_v021": "assets/scenes/planned/ep02_vc05_aseda_enters.png",
+    "ep02_v022": "assets/scenes/planned/ep02_vc05_aseda_enters.png",
     "ep02_v023": "assets/scenes/planned/ep02_vc06_register_appears_eri_v1.png",
     "ep02_v024": "assets/scenes/planned/ep02_vc06_register_appears_eri_v1.png",
     "ep02_v025": "assets/scenes/planned/ep02_vc07_nav_scan_eri_v1.png",

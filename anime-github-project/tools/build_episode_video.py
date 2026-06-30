@@ -21,7 +21,7 @@ END_DUR = 4.0       # end card seconds
 CX = W // 2
 # visual-novel dialogue frame (lower third, drawn during the episode body)
 FX, FY, FW, FH = 40, 1440, 1000, 330
-TEXT_X, TEXT_Y = FX + 55, FY + 40
+TEXT_X, TEXT_Y = FX + 34, FY + 36   # 左右余白を詰めて紙芝居プレーヤー同等の幅利用に
 # persistent top badge box: 第N話 + episode title
 BADGE_X, BADGE_Y, BADGE_H = 30, 30, 72
 
@@ -89,12 +89,13 @@ def fit_text(raw: str, has_speaker: bool):
     """セリフが対話ボックスに収まる最大フォントを選ぶ。
     横幅(折返し幅)と縦(行数*行高)の両方でボックス内に収め、はみ出しを防ぐ。
     戻り値: (本文フォント, 話者名フォント, 折返し済み本文)。"""
-    pad_x = TEXT_X - FX                  # 左右の内側余白 (=55)
-    avail_w = FW - 2 * pad_x             # 本文に使える横幅 (~890)
-    avail_h = FH - (TEXT_Y - FY) - 28    # 本文に使える高さ (~262)
+    pad_x = TEXT_X - FX                  # 左右の内側余白 (=34)
+    avail_w = FW - 2 * pad_x             # 本文に使える横幅 (~932)
+    avail_h = FH - (TEXT_Y - FY) - 24    # 本文に使える高さ
     LH = 1.25                            # 行高係数 (安全側)
-    fs = 28
-    for fs in (56, 52, 48, 44, 40, 36, 32, 28):
+    fs = 26
+    # フォント上限を50pxに抑え、1行18〜19字でプレーヤー同等に幅を使い切る
+    for fs in (50, 46, 42, 38, 34, 30, 28, 26):
         wrap = max(8, int(avail_w // fs))           # 全角1文字 ≈ fs px
         body = wrap_jp(raw, wrap)
         nlines = body.count("\\N") + 1

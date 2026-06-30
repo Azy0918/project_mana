@@ -44,7 +44,7 @@ def wav_duration(path: Path) -> float:
 def log_for(row: dict, index: int, total: int) -> list[str]:
     character = row.get("character") or row.get("speaker_name") or ""
     base = [f"発話ログ　{index:02d}/{total:02d}", f"担当　{character}"]
-    if character == "ミナ":
+    if character == "エリ":
         return base + ["声　中2 / ノーマル"]
     if character == "第十三レジ":
         return base + ["第十三レジ　応答中"]

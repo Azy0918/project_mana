@@ -56,7 +56,7 @@ CHARACTERS: dict[str, dict] = {
         slug="takumi", default_voice="Puck",
         line="コンビニって夜になるとレジが増えるんですか。",
         style="若い男性の新人バイト。素朴で少し戸惑い気味、軽いツッコミ口調。"),
-    "ミナ": dict(
+    "エリ": dict(
         slug="mina", default_voice="Kore",
         line="夜勤だから。",
         style="淡々とした女性の先輩。低めで落ち着き、感情を抑えた素っ気ない口調。"),

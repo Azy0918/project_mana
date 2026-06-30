@@ -10,7 +10,7 @@
 | キャラ | 固定設定 | 補足 |
 |---|---|---|
 | タクミ | [`takumi/MASTER_PROMPT.md`](takumi/MASTER_PROMPT.md) | 新人夜勤バイト・ツッコミ役。表情変化が最大。 |
-| ミナ | [`mina/MASTER_PROMPT.md`](mina/MASTER_PROMPT.md) | 先輩夜勤バイト。淡々・無表情、タクミとの対比を維持。 |
+| エリ | [`mina/MASTER_PROMPT.md`](mina/MASTER_PROMPT.md) | 先輩夜勤バイト。淡々・無表情、タクミとの対比を維持。 |
 | 汗田竜司 | [`aseda_ryuji/MASTER_PROMPT.md`](aseda_ryuji/MASTER_PROMPT.md) | 54歳の自動車開発者。CB200X風バイク＋紫ヘルメット＋ライダー向きナビまで固定（背景ノートは同フォルダ README.md）。 |
 | 未来の会社員（長谷山隆之） | [`future_employee/MASTER_PROMPT.md`](future_employee/MASTER_PROMPT.md) | 2074年食品流通管理課。くたびれた濃紺スーツ＋記憶返品タグ。第1話来店客・後半重要人物。 |
 | 座木山辰哉 | [`zakiyama/MASTER_PROMPT.md`](zakiyama/MASTER_PROMPT.md) | 55歳・常連客。釣りベスト、伸びかけ坊主。コピー機の人。 |

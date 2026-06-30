@@ -10,7 +10,7 @@ HTML ページ(voice_samples/index.html)も出力する。生成物は gh-pages 
     python tools/gen_voice_samples.py --voices 3
 
     # 1キャラだけ・声を指定して生成
-    python tools/gen_voice_samples.py --character ミナ --voice Kore --voice Leda
+    python tools/gen_voice_samples.py --character エリ --voice Kore --voice Leda
 
 APIキー:
     --api-key で渡すか、.env / 環境変数 GEMINI_API_KEY を使う。
@@ -42,7 +42,7 @@ CHARACTERS: dict[str, dict] = {
         candidates=["Puck", "Zephyr", "Fenrir"],
         line="コンビニって、夜になるとレジが増えるんですか。",
         style="若い男性の新人バイト。素朴で少し戸惑い気味、軽いツッコミ口調。"),
-    "ミナ": dict(slug="mina", default_voice="Kore",
+    "エリ": dict(slug="mina", default_voice="Kore",
         candidates=["Kore", "Leda", "Autonoe"],
         line="夜勤だから。",
         style="淡々とした女性の先輩。低めで落ち着き、感情を抑えた素っ気ない口調。"),

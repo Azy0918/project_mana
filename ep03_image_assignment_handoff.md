@@ -16,7 +16,7 @@
 
 | 行ID範囲 | 内容（台本） | Codex画像 |
 |---|---|---|
-| v001–005 | 冷凍庫に昨日が入ってる（タクミ/ミナ） | ep03_vc01_freezer_yesterday.png |
+| v001–005 | 冷凍庫に昨日が入ってる（タクミ/エリ） | ep03_vc01_freezer_yesterday.png |
 | v006–011 | 昨日バニラのカップ＋注意書き／味は？ | ep03_vc02_yesterday_vanilla_cup.png |
 | v012–015 | 冷凍庫の温度が上昇 | ep03_vc03_freezer_temperature_rise.png |
 | v016–017 | レジが昨日の売上履歴を表示 | ep03_vc04_yesterday_sales_history.png |
@@ -27,7 +27,7 @@
 | v036–037 | 二時十七分、第十三レジ出現・警告 | ep03_vc09_register_appears_warning.png |
 | v038–039 | 戻るのは記録と商品状態、記憶は残る | ep03_vc10_records_rewind_not_memory.png |
 | v040–045 | 掃除が昨日状態／努力が食われる／それはまずい | ep03_vc11_effort_eaten_by_yesterday.png |
-| v046–050 | ミナ「袋、お分けしますか」 | ep03_vc12_bag_split_question.png |
+| v046–050 | エリ「袋、お分けしますか」 | ep03_vc12_bag_split_question.png |
 | v051–054 | 汗田が別会計＝別取引の理屈を説明 | ep03_vc13_separate_transaction_logic.png |
 | v055–057 | 袋を二枚（昨日／今日）／取引境界生成 | ep03_vc14_yesterday_today_bags.png |
 | v058–062 | 照明が青白く明滅・処理中／休憩は！？ | ep03_vc15_transaction_boundary_flicker.png |

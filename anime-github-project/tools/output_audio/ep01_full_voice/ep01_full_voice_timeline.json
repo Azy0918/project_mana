@@ -37,7 +37,7 @@
     "cut": "ep01_005",
     "character": "タクミ",
     "speaker": "にせ / ノーマル",
-    "text": "ミナさん。廃棄のおにぎりって、何分前から食べていいんですか。",
+    "text": "エリさん。廃棄のおにぎりって、何分前から食べていいんですか。",
     "synthesis_text": "みなさん。はいきのおにぎりって、なんぷんまえからたべていいんですか。",
     "start": 15.802,
     "end": 20.412,
@@ -46,13 +46,13 @@
   {
     "id": "ep01_v005",
     "cut": "ep01_006",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "食べていいとは言ってない。",
     "synthesis_text": "たべていいとワいってない。",
     "start": 20.712,
     "end": 22.914,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v005_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v005_エリ.wav"
   },
   {
     "id": "ep01_v006",
@@ -68,13 +68,13 @@
   {
     "id": "ep01_v007",
     "cut": "ep01_008",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "捨てるものと食べていいものの間には、店長という深い谷がある。",
     "synthesis_text": "すてるものとたべていいもののあいだにワ、てんちょうというふかいたにがある。",
     "start": 25.432,
     "end": 31.288,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v007_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v007_エリ.wav"
   },
   {
     "id": "ep01_v008",
@@ -90,13 +90,13 @@
   {
     "id": "ep01_v009",
     "cut": "ep01_008",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "落ちるとシフトが減る。",
     "synthesis_text": "おちるとしふとがへる。",
     "start": 33.855,
     "end": 35.817,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v009_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v009_エリ.wav"
   },
   {
     "id": "ep01_v010",
@@ -112,13 +112,13 @@
   {
     "id": "ep01_v011",
     "cut": "ep01_010",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "二時十五分、雑誌返品。二時十七分、第十三レジ。",
     "synthesis_text": "にじじゅうごふん、ざっしへんぴん。にじじゅうななふん、だいじゅうさんれじ。",
     "start": 39.036,
     "end": 45.069,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v011_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v011_エリ.wav"
   },
   {
     "id": "ep01_v012",
@@ -167,13 +167,13 @@
   {
     "id": "ep01_v017",
     "cut": "ep01_017",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "増えるよ。",
     "synthesis_text": "ふえるよ。",
     "start": 58.87,
     "end": 60.276,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v017_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v017_エリ.wav"
   },
   {
     "id": "ep01_v018",
@@ -189,13 +189,13 @@
   {
     "id": "ep01_v019",
     "cut": "ep01_019",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "夜勤はだいたいそう。",
     "synthesis_text": "やきんワだいたいそう。",
     "start": 63.748,
     "end": 65.731,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v019_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v019_エリ.wav"
   },
   {
     "id": "ep01_v020",
@@ -255,13 +255,13 @@
   {
     "id": "ep01_v026",
     "cut": "ep01_023",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "レシートはお持ちですか。",
     "synthesis_text": "れしーとワおもちですか。",
     "start": 87.013,
     "end": 89.352,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v026_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v026_エリ.wav"
   },
   {
     "id": "ep01_v027",
@@ -279,7 +279,7 @@
     "cut": "ep01_025",
     "character": "タクミ",
     "speaker": "にせ / ノーマル",
-    "text": "ミナさん。対応マニュアルあります？",
+    "text": "エリさん。対応マニュアルあります？",
     "synthesis_text": "みなさん。たいおうまにゅあるあります？",
     "start": 92.576,
     "end": 95.367,
@@ -288,13 +288,13 @@
   {
     "id": "ep01_v029",
     "cut": "ep01_026",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "まず、いらっしゃいませ。",
     "synthesis_text": "まず、いらっしゃいませ。",
     "start": 95.617,
     "end": 97.85,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v029_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v029_エリ.wav"
   },
   {
     "id": "ep01_v030",
@@ -367,7 +367,7 @@
     "cut": "ep01_031",
     "character": "タクミ",
     "speaker": "にせ / ノーマル",
-    "text": "ミナさん、僕の時給で扱っていい数字じゃないです。",
+    "text": "エリさん、僕の時給で扱っていい数字じゃないです。",
     "synthesis_text": "みなさん、ぼくのじきゅうであつかっていいすうじじゃないです。",
     "start": 122.085,
     "end": 125.61,
@@ -453,13 +453,13 @@
   {
     "id": "ep01_v044",
     "cut": "ep01_038",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "押さない。",
     "synthesis_text": "おさない。",
     "start": 150.081,
     "end": 151.32,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v044_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v044_エリ.wav"
   },
   {
     "id": "ep01_v045",
@@ -475,13 +475,13 @@
   {
     "id": "ep01_v046",
     "cut": "ep01_038",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "二時以降は出ない。",
     "synthesis_text": "にじいこうワでない。",
     "start": 152.745,
     "end": 154.542,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v046_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v046_エリ.wav"
   },
   {
     "id": "ep01_v047",
@@ -541,13 +541,13 @@
   {
     "id": "ep01_v052",
     "cut": "ep01_042",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "こちらの商品、温めますか。",
     "synthesis_text": "こちらのしょうひん、あたためますか。",
     "start": 170.905,
     "end": 174.282,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v052_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v052_エリ.wav"
   },
   {
     "id": "ep01_v053",
@@ -673,13 +673,13 @@
   {
     "id": "ep01_v065",
     "cut": "ep01_053",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "このおにぎりは、ちゃんと作った方がいいです。",
     "synthesis_text": "このおにぎりワ、ちゃんとつくったほうがいいです。",
     "start": 208.115,
     "end": 211.897,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v065_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v065_エリ.wav"
   },
   {
     "id": "ep01_v066",
@@ -871,13 +871,13 @@
   {
     "id": "ep01_v085",
     "cut": "ep01_070",
-    "character": "ミナ",
+    "character": "エリ",
     "speaker": "中2 / ノーマル",
     "text": "夜勤だから。",
     "synthesis_text": "やきんだから。",
     "start": 272.927,
     "end": 274.507,
-    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v085_ミナ.wav"
+    "clip": "outputs/ep01_voice_reading_hiragana/clips/ep01_v085_エリ.wav"
   },
   {
     "id": "ep01_v086",

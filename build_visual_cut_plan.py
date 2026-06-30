@@ -25,8 +25,8 @@ TAKUMI_STYLE = (
 )
 
 MINA_STYLE = (
-    "ミナは全カットで同一人物。20代前半の先輩夜勤バイト、黒髪ボブまたは低いひとつ結び、"
-    "コンビニ制服と名札「ミナ」。淡々とした無表情、背筋がまっすぐ。"
+    "エリは全カットで同一人物。20代前半の先輩夜勤バイト、黒髪ボブまたは低いひとつ結び、"
+    "コンビニ制服と名札「エリ」。淡々とした無表情、背筋がまっすぐ。"
 )
 
 FUTURE_WORKER_STYLE = (
@@ -81,7 +81,7 @@ VISUAL_CUTS = [
         "plannedImage": "assets/scenes/planned/ep01_vc02_takumi_onigiri_shelf.jpg",
         "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
         "prompt": prompt_with_locks(
-            "おにぎり棚の前で廃棄シールを見比べるタクミ。横に冷静なミナ。",
+            "おにぎり棚の前で廃棄シールを見比べるタクミ。横に冷静なエリ。",
             TAKUMI_STYLE,
             MINA_STYLE,
         ),
@@ -94,7 +94,7 @@ VISUAL_CUTS = [
         "plannedImage": "assets/scenes/planned/ep01_vc03_onigiri_banter.jpg",
         "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
         "prompt": prompt_with_locks(
-            "ミナが淡々と注意し、タクミがツッコむ。おにぎり棚、値札、廃棄時間シール。静かな会話コメディ。",
+            "エリが淡々と注意し、タクミがツッコむ。おにぎり棚、値札、廃棄時間シール。静かな会話コメディ。",
             TAKUMI_STYLE,
             MINA_STYLE,
         ),
@@ -119,7 +119,7 @@ VISUAL_CUTS = [
         "plannedImage": "assets/scenes/planned/ep01_vc05_register_talks.jpg",
         "fallbackImage": "assets/scenes/scene_03_register.jpg",
         "prompt": prompt_with_locks(
-            f"第十三レジが営業中表示を出す。タクミは驚き、ミナは当然のように無表情。{REGISTER_FACE_STYLE}",
+            f"第十三レジが営業中表示を出す。タクミは驚き、エリは当然のように無表情。{REGISTER_FACE_STYLE}",
             TAKUMI_STYLE,
             MINA_STYLE,
         ),
@@ -132,7 +132,7 @@ VISUAL_CUTS = [
         "plannedImage": "assets/scenes/planned/ep01_vc06_future_worker_enters.jpg",
         "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
         "prompt": prompt_with_locks(
-            "自動ドアから未来青年 / 未来の会社員が入店する。深夜コンビニ店内、タクミとミナが迎える。",
+            "自動ドアから未来青年 / 未来の会社員が入店する。深夜コンビニ店内、タクミとエリが迎える。",
             FUTURE_WORKER_STYLE,
             TAKUMI_STYLE,
             MINA_STYLE,
@@ -146,7 +146,7 @@ VISUAL_CUTS = [
         "plannedImage": "assets/scenes/planned/ep01_vc07_future_return_counter.jpg",
         "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
         "prompt": prompt_with_locks(
-            "レジ前で未来青年 / 未来の会社員が返品を頼む。ミナは通常接客、タクミは対応マニュアルを探す。",
+            "レジ前で未来青年 / 未来の会社員が返品を頼む。エリは通常接客、タクミは対応マニュアルを探す。",
             FUTURE_WORKER_STYLE,
             TAKUMI_STYLE,
             MINA_STYLE,
@@ -174,7 +174,7 @@ VISUAL_CUTS = [
         "plannedImage": "assets/scenes/planned/ep01_vc09_future_worker_excuse.jpg",
         "fallbackImage": "assets/scenes/scene_04_future_worker_enters.jpg",
         "prompt": prompt_with_locks(
-            "未来青年 / 未来の会社員が始末書を気にして深く頭を下げる。タクミが引き気味にツッコミ、ミナは静観。",
+            "未来青年 / 未来の会社員が始末書を気にして深く頭を下げる。タクミが引き気味にツッコミ、エリは静観。",
             FUTURE_WORKER_STYLE,
             TAKUMI_STYLE,
             MINA_STYLE,
@@ -216,7 +216,7 @@ VISUAL_CUTS = [
         "plannedImage": "assets/scenes/planned/ep01_vc12_microwave_choice.jpg",
         "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
         "prompt": prompt_with_locks(
-            "ミナが温め確認をし、未来おにぎりが電子レンジへ。未来青年 / 未来の会社員は同じ顔でお願いしますと言い、タクミが全力でツッコむ。",
+            "エリが温め確認をし、未来おにぎりが電子レンジへ。未来青年 / 未来の会社員は同じ顔でお願いしますと言い、タクミが全力でツッコむ。",
             FUTURE_WORKER_STYLE,
             TAKUMI_STYLE,
             MINA_STYLE,
@@ -241,7 +241,7 @@ VISUAL_CUTS = [
         "title": "履歴メモ入力",
         "plannedImage": "assets/scenes/planned/ep01_vc14_history_memo.jpg",
         "fallbackImage": "assets/scenes/scene_07_receipt.jpg",
-        "prompt": f"第十三レジに履歴メモ入力欄。ミナの雑なメモが記録され、タクミが驚く。{REGISTER_FACE_STYLE}",
+        "prompt": f"第十三レジに履歴メモ入力欄。エリの雑なメモが記録され、タクミが驚く。{REGISTER_FACE_STYLE}",
     },
     {
         "visualCutId": "vc15",
@@ -288,7 +288,7 @@ VISUAL_CUTS = [
         "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer.jpg",
         "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
         "prompt": prompt_with_locks(
-            "タクミが普通のお客も変なのかと聞き、ミナが『夜勤だから』と無表情で返す。奥に座木山辰哉がコピー機で古い地図を白黒コピーしている。店内は平常運転。",
+            "タクミが普通のお客も変なのかと聞き、エリが『夜勤だから』と無表情で返す。奥に座木山辰哉がコピー機で古い地図を白黒コピーしている。店内は平常運転。",
             TAKUMI_STYLE,
             MINA_STYLE,
             ZAKIYAMA_STYLE,
@@ -301,7 +301,7 @@ VISUAL_CUTS = [
         "title": "世界が少しだけ救われる",
         "plannedImage": "assets/scenes/planned/ep01_vc19_world_saved_quietly.jpg",
         "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
-        "prompt": "世界が少しだけ救われた余韻。深夜コンビニ店内、タクミとミナ、静かな青い光。大事件の後でも普通。",
+        "prompt": "世界が少しだけ救われた余韻。深夜コンビニ店内、タクミとエリ、静かな青い光。大事件の後でも普通。",
     },
     {
         "visualCutId": "vc20",
@@ -310,7 +310,7 @@ VISUAL_CUTS = [
         "title": "夜勤はまだ終わらない",
         "plannedImage": "assets/scenes/planned/ep01_vc20_chores_remain.jpg",
         "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
-        "prompt": "床清掃、雑誌返品、廃棄登録が残っている深夜コンビニ。タクミが遠い目、ミナは淡々。余韻のラスト。",
+        "prompt": "床清掃、雑誌返品、廃棄登録が残っている深夜コンビニ。タクミが遠い目、エリは淡々。余韻のラスト。",
     },
 ]
 

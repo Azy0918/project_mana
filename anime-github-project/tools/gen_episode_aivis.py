@@ -31,6 +31,9 @@ def to_reading(text):
     for k, v in READING_FIXES.items():
         text = text.replace(k, v)
     return text
+# 行単位の読み上書き(表示≠読みの個別指定)。{id: 読み}。辞書より優先
+_OVR = TOOLS / "line_reading_overrides.json"
+LINE_READING = json.loads(_OVR.read_text(encoding="utf-8")) if _OVR.exists() else {}
 
 
 def post(url, payload=None, attempts=4):
@@ -83,7 +86,7 @@ def main():
         if not info:
             print(f"  ★cast無し {sp}->skip", flush=True); continue
         sid = int(info["style_id"]); dialogue = sc.get("dialogue", "")
-        reading = to_reading(dialogue)   # 合成は「読み」(発音矯正後)を使う
+        reading = LINE_READING.get(sc["id"]) or to_reading(dialogue)   # 行上書き優先、無ければ辞書適用
         sc["reading"] = reading          # scene_manifestにも読みを格納
         cp = CLIP_DIR / f"{sc['id']}.wav"
         if not cp.exists():   # 再開: 既存クリップ再利用(AivisSpeechは決定的)

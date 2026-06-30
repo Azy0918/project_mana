@@ -8,7 +8,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田竜司は、会社の駐輪場で愛車のCB200Xにまたがった。",
-    "synthesis_text": "あせだ竜司は、会社の駐輪場で愛車のCB200Xにまたがった。",
+    "synthesis_text": "あせだ竜司は、会社の駐輪場で愛車のシービー200エックスにまたがった。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v001.wav"
   },
@@ -73,7 +73,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田がため息をついてキーを回すと、バイクのナビモニターが勝手に点灯した。",
-    "synthesis_text": "あせだがため息をついてキーを回すと、バイクのナビモニターが勝手に点灯した。",
+    "synthesis_text": "あせだがため息をついてキいを回すと、バイクのナビモニターが勝手に点灯した。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v006.wav"
   },
@@ -151,7 +151,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "それでも、表示された座標の揺らぎと予測モデルは、自分がかつて作っていた制御システムによく似ていた。汗田はヘルメットをかぶり、夜の国道へ走り出した。",
-    "synthesis_text": "それでも、表示された座標の揺らぎと予測モデルは、自分がかつて作っていた制御システムによく似ていた。あせだはヘルメットをかぶり、夜の国道へ走り出した。",
+    "synthesis_text": "それでも、表示された座標のゆらぎと予測モデルは、自分がかつて作っていた制御システムによく似ていた。あせだはヘルメットをかぶり、夜の国道へ走り出した。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v012.wav"
   },
@@ -294,7 +294,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "汗田が時計を見る。2時16分50秒。蛍光灯が瞬き、カウンターの上に、見慣れないレジが一台現れた。",
-    "synthesis_text": "あせだが時計を見る。2時16分50秒。蛍光灯が瞬き、カウンターの上に、見慣れないレジが一台現れた。",
+    "synthesis_text": "あせだが時計を見る。2時16分50秒。蛍光灯がまたたき、カウンターの上に、見慣れないレジが一台現れた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v023.wav"
   },
@@ -644,8 +644,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "ちょっとで済ませる話なんですか！",
-    "synthesis_text": "ちょっとで済ませる話なんですか！",
+    "text": "ちょっとですか！",
+    "synthesis_text": "ちょっとですか！",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v050.wav"
   },
@@ -761,8 +761,8 @@
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
     "style_id": "1310138976",
-    "text": "安いな。",
-    "synthesis_text": "安いな。",
+    "text": "領収書ください。",
+    "synthesis_text": "領収書ください。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v059.wav"
   },
@@ -774,8 +774,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "未来人と同じ反応しないでください。",
-    "synthesis_text": "未来人と同じ反応しないでください。",
+    "text": "何費ですか？",
+    "synthesis_text": "何費ですか？",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v060.wav"
   },
@@ -787,8 +787,8 @@
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
     "style_id": "1310138976",
-    "text": "技術者はコーヒー代に敏感なんだ。",
-    "synthesis_text": "技術者はコーヒー代に敏感なんだ。",
+    "text": "未来対応費。",
+    "synthesis_text": "未来対応費。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v061.wav"
   },
@@ -800,8 +800,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "未来と共通点そこですか。",
-    "synthesis_text": "未来と共通点そこですか。",
+    "text": "その経費、通りそうで嫌なんですよ。",
+    "synthesis_text": "その経費、通りそうで嫌なんですよ。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v062.wav"
   },

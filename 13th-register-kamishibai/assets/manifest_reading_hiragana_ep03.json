@@ -176,7 +176,7 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "れいぞうこの温度表示が、-18度から-17度へ上がった。次に、-16度。",
+    "text": "冷蔵庫の温度表示が、-18度から-17度へ上がった。次に、-16度。",
     "synthesis_text": "れいぞうこの温度表示が、マイナス18度からマイナス17度へ上がった。次に、マイナス16度。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v012.wav"

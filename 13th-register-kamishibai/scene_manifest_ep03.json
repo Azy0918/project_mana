@@ -464,7 +464,7 @@
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png",
     "imagePrompt": "",
     "speaker": "ナレーション",
-    "dialogue": "れいぞうこの温度表示が、-18度から-17度へ上がった。次に、-16度。",
+    "dialogue": "冷蔵庫の温度表示が、-18度から-17度へ上がった。次に、-16度。",
     "reading": "れいぞうこの温度表示が、マイナス18度からマイナス17度へ上がった。次に、マイナス16度。",
     "log": [
       "発話ログ　14/94",

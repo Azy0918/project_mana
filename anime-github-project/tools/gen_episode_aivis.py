@@ -34,8 +34,13 @@ def to_reading(text):
 # 行単位の読み上書き(表示≠読みの個別指定)。{id: 読み}。辞書より優先
 _OVR = TOOLS / "line_reading_overrides.json"
 LINE_READING = json.loads(_OVR.read_text(encoding="utf-8")) if _OVR.exists() else {}
-# 第13レジ登場の効果音を、指定行の直後に挿入。{id: wav(44.1kHz mono)}
-SFX_AFTER = {"ep02_v024": TOOLS / "sfx_register.wav"}
+# 第13レジ登場の効果音を、指定行(登場の宣言/ナレーション)の直後に挿入。{id: wav(44.1kHz mono)}
+_SFX = TOOLS / "sfx_register.wav"
+SFX_AFTER = {k: _SFX for k in (
+    "ep02_v024",  # 「第13レジ。ただいま営業中。」
+    "ep03_v036", "ep04_v021", "ep05_v009", "ep06_v009", "ep07_v007",
+    "ep08_v008", "ep09_v011", "ep10_v015", "ep11_v007", "ep12_v015",  # 各話「第十三レジが現れた」
+)}
 def _sfx_pcm(p):
     with wave.open(str(p), "rb") as w:
         return w.readframes(w.getnframes())

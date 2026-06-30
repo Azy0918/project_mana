@@ -72,8 +72,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "タクミはバックヤードの冷凍庫から、小さなカップアイスを取り出した。商品名は、昨日バニラ。製造年月日は二〇七四年六月十三日。",
-    "synthesis_text": "タクミはバックヤードの冷凍庫から、小さなカップアイスを取り出した。商品名は、昨日バニラ。製造年月日は二〇七四年六月十三日。",
+    "text": "タクミはバックヤードの冷凍庫から、小さなカップアイスを取り出した。商品名は、昨日バニラ。製造年月日は2074年6月13日。",
+    "synthesis_text": "タクミはバックヤードの冷凍庫から、小さなカップアイスを取り出した。商品名は、昨日バニラ。製造年月日は2074年6月13日。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v006.wav"
   },
@@ -176,8 +176,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "冷凍庫の温度表示が、マイナス十八度からマイナス十七度へ上がった。次に、マイナス十六度。",
-    "synthesis_text": "れいぞうこの温度表示が、マイナス十八度からマイナス十七度へ上がった。次に、マイナス十六度。",
+    "text": "れいぞうこの温度表示が、-18度から-17度へ上がった。次に、-16度。",
+    "synthesis_text": "れいぞうこの温度表示が、マイナス18度からマイナス17度へ上がった。次に、マイナス16度。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v012.wav"
   },
@@ -189,8 +189,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "上がってます！",
-    "synthesis_text": "上がってます！",
+    "text": "室温が上がってます！",
+    "synthesis_text": "室温が上がってます！",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v013.wav"
   },
@@ -228,8 +228,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "アイスの表面に水滴が浮かんだ瞬間、店内のレジが勝手に鳴った。昨日の売上履歴が表示される。缶コーヒー一本、午前二時八分、座木山辰哉。",
-    "synthesis_text": "アイスの表面に水滴が浮かんだ瞬間、店内のレジが勝手に鳴った。昨日の売上りれきが表示される。缶コーヒー一本、午前二時八分、座木山辰哉。",
+    "text": "アイスの表面に水滴が浮かんだ瞬間、店内のレジが勝手に鳴った。昨日の売上りれきが表示される。缶コーヒー1本、午前2時8分、座木山辰哉。",
+    "synthesis_text": "アイスの表面に水滴が浮かんだ瞬間、店内のレジが勝手に鳴った。昨日の売上りれきが表示される。缶コーヒー1本、午前2時8分、座木山辰哉。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v016.wav"
   },
@@ -507,6 +507,19 @@
     "clip": "outputs/ep03_aivis/raw/ep03_v036.wav"
   },
   {
+    "id": "ep03_v036_reg",
+    "cut": "ep03_vc11",
+    "visualCutId": "vc11",
+    "character": "第十三レジ",
+    "speaker_name": "ろてじん（匿名インタビュー風）",
+    "style_name": "ノーマル",
+    "style_id": "1805828384",
+    "text": "第13レジ。ただいま営業中。",
+    "synthesis_text": "第13レジ。ただいま営業中。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep03_aivis/raw/ep03_v036_reg.wav"
+  },
+  {
     "id": "ep03_v037",
     "cut": "ep03_vc11",
     "visualCutId": "vc11",
@@ -774,8 +787,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "エリは袋を二枚出した。",
-    "synthesis_text": "エリは袋を二枚出した。",
+    "text": "エリは袋を2枚出して、1枚に昨日アイスを入れた。",
+    "synthesis_text": "エリは袋を2枚出して、1枚に昨日アイスを入れた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v055.wav"
   },
@@ -800,8 +813,8 @@
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": "1805828384",
-    "text": "袋分けを確認。昨日と今日の取引境界を生成",
-    "synthesis_text": "袋分けを確認。昨日と今日の取引境界を生成",
+    "text": "袋分けを確認。昨日と今日の取引境界を生成。",
+    "synthesis_text": "袋分けを確認。昨日と今日の取引境界を生成。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v057.wav"
   },

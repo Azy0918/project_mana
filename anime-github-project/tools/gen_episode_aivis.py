@@ -38,8 +38,8 @@ LINE_READING = json.loads(_OVR.read_text(encoding="utf-8")) if _OVR.exists() els
 _SFX = TOOLS / "sfx_register.wav"
 SFX_AFTER = {k: _SFX for k in (
     "ep02_v024",  # 「第13レジ。ただいま営業中。」
-    "ep03_v036", "ep04_v021", "ep05_v009", "ep06_v009", "ep07_v007",
-    "ep08_v008", "ep09_v011", "ep10_v015", "ep11_v007", "ep12_v015",  # 各話「第十三レジが現れた」
+    "ep03_v036_reg", "ep04_v021_reg", "ep05_v009_reg", "ep06_v009_reg", "ep07_v007_reg",
+    "ep08_v008_reg", "ep09_v011_reg", "ep10_v015_reg", "ep11_v007_reg", "ep12_v015_reg",  # 各話 登場「ただいま営業中」直後
 )}
 def _sfx_pcm(p):
     with wave.open(str(p), "rb") as w:

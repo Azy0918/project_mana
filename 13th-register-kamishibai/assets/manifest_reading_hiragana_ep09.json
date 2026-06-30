@@ -143,6 +143,19 @@
     "clip": "outputs/ep09_aivis/raw/ep09_v011.wav"
   },
   {
+    "id": "ep09_v011_reg",
+    "cut": "ep09_vc04",
+    "visualCutId": "vc04",
+    "character": "第十三レジ",
+    "speaker_name": "ろてじん（匿名インタビュー風）",
+    "style_name": "ノーマル",
+    "style_id": "1805828384",
+    "text": "第13レジ。ただいま営業中。",
+    "synthesis_text": "第13レジ。ただいま営業中。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep09_aivis/raw/ep09_v011_reg.wav"
+  },
+  {
     "id": "ep09_v012",
     "cut": "ep09_vc04",
     "visualCutId": "vc04",

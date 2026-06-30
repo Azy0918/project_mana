@@ -501,8 +501,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "二時十七分。第十三レジが現れた。",
-    "synthesis_text": "二時十七分。第十三レジが現れた。",
+    "text": "2時17分。第十三レジが現れた。",
+    "synthesis_text": "2時17分。第十三レジが現れた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v036.wav"
   },
@@ -514,8 +514,8 @@
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": "1805828384",
-    "text": "第13レジ。ただいま営業中。",
-    "synthesis_text": "第13レジ。ただいま営業中。",
+    "text": "第十三レジ。ただいま営業中。",
+    "synthesis_text": "第十三レジ。ただいま営業中。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v036_reg.wav"
   },
@@ -1125,8 +1125,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "午前二時二十分。第十三レジは消えた。誰も触っていないのに、コピー機がウィーンと起動した。",
-    "synthesis_text": "午前二時二十分。第十三レジは消えた。誰も触っていないのに、コピー機がウィーンと起動した。",
+    "text": "午前2時20分。第十三レジは消えた。誰も触っていないのに、コピー機がウィーンと起動した。",
+    "synthesis_text": "午前2時20分。第十三レジは消えた。誰も触っていないのに、コピー機がウィーンと起動した。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v078.wav"
   },
@@ -1138,8 +1138,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "紙には、「二時二十八分、唐揚げ棒を買った客が怒る」と印刷されていた。",
-    "synthesis_text": "紙には、「二時二十八分、唐揚げ棒を買った客が怒る」と印刷されていた。",
+    "text": "紙には、「2時28分、唐揚げ棒を買った客が怒る」と印刷されていた。",
+    "synthesis_text": "紙には、「2時28分、唐揚げ棒を買った客が怒る」と印刷されていた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v079.wav"
   },

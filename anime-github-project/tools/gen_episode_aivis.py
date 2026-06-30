@@ -58,6 +58,22 @@ def synth(query, sid):
 def main():
     cast = {r["character"]: r for r in csv.DictReader(io.open(CAST_CSV, encoding="utf-8-sig"))}
     src = json.load(open(CODEX / "13th-register-kamishibai" / SCENE_NAME, encoding="utf-8"))
+    # 画像を visual_cut_plan(確定版)から再同期: planned実在ならplanned、無ければfallback
+    kami = CODEX / "13th-register-kamishibai"
+    plan_path = kami / f"visual_cut_plan_{EP}.json"
+    if plan_path.exists():
+        plan = {c["visualCutId"]: c for c in json.load(open(plan_path, encoding="utf-8"))}
+        for s in src:
+            c = plan.get(s.get("visualCutId"))
+            if not c:
+                continue
+            pi = (c.get("plannedImage") or "").split("?")[0]
+            fb = (c.get("fallbackImage") or "").split("?")[0]
+            img = pi if (pi and (kami / pi).exists()) else fb
+            if img:
+                s["image"] = img
+                s["plannedImage"] = c.get("plannedImage", s.get("plannedImage", ""))
+                s["fallbackImage"] = c.get("fallbackImage", s.get("fallbackImage", ""))
     CLIP_DIR.mkdir(parents=True, exist_ok=True)
     print(f"{EP}: {len(src)}行 AivisSpeech合成", flush=True)
     clips = []

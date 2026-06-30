@@ -25,7 +25,7 @@ CLIP_DIR = Path(r"C:\Users\qvf03\Documents\anime_clips") / "ep01_aivis" / "raw" 
 DESTS = [(CODEX, s) for s in ("13th-register-kamishibai", "site")]
 
 # 確定カット境界: 各カットの開始行(1始まり)。vc01..vc20  ※6行削除(v105,106,108,109,111,118)で再計算済=121行
-CUT_START = [1, 3, 4, 28, 29, 35, 38, 50, 58, 62, 68, 72, 83, 89, 98, 106, 113, 115, 118, 120]
+CUT_START = [1, 3, 4, 28, 29, 35, 38, 50, 58, 62, 68, 72, 83, 89, 98, 106, 113, 115, 118, 118]
 SPEAKER_FALLBACK = {"レシート": "第十三レジ"}
 PAUSE = {"ナレーション":450, "第十三レジ":350}  # ms、その他は既定
 # 行の直後に効果音wav(44.1kHz mono)を挿入。{line_id: wavパス}
@@ -76,7 +76,7 @@ def cut_for(line_no):  # 1始まり行 -> (index1, vcId)
 def main():
     cast={r["character"]:r for r in csv.DictReader(io.open(CAST_CSV, encoding="utf-8-sig"))}
     lines=parse_lines()
-    assert len(lines)==121, f"想定121行≠{len(lines)}"
+    assert len(lines)==120, f"想定120行≠{len(lines)}"
     CLIP_DIR.mkdir(parents=True, exist_ok=True)
 
     # 既存 visual_cut_plan(Codex版・新画像入り)を雛形に、lineStart/Endを更新

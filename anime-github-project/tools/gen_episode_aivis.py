@@ -34,6 +34,11 @@ def to_reading(text):
 # 行単位の読み上書き(表示≠読みの個別指定)。{id: 読み}。辞書より優先
 _OVR = TOOLS / "line_reading_overrides.json"
 LINE_READING = json.loads(_OVR.read_text(encoding="utf-8")) if _OVR.exists() else {}
+# 第13レジ登場の効果音を、指定行の直後に挿入。{id: wav(44.1kHz mono)}
+SFX_AFTER = {"ep02_v024": TOOLS / "sfx_register.wav"}
+def _sfx_pcm(p):
+    with wave.open(str(p), "rb") as w:
+        return w.readframes(w.getnframes())
 
 
 def post(url, payload=None, attempts=4):
@@ -111,6 +116,8 @@ def main():
         pa = PAUSE.get(ch, PAUSE_DEFAULT)
         if pa:
             full += b"\x00\x00" * int(rate * pa / 1000); cursor += pa / 1000.0
+        if sc["id"] in SFX_AFTER and SFX_AFTER[sc["id"]].exists():
+            sfx = _sfx_pcm(SFX_AFTER[sc["id"]]); full += sfx; cursor += len(sfx) / 2 / rate
 
     buf = io.BytesIO()
     with wave.open(buf, "wb") as o:

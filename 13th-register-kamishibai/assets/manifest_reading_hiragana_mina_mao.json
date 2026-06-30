@@ -1640,7 +1640,7 @@
   {
     "id": "ep01_v118",
     "cut": "ep01_118",
-    "visualCutId": "vc19",
+    "visualCutId": "vc20",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
@@ -1654,7 +1654,7 @@
   {
     "id": "ep01_v119",
     "cut": "ep01_119",
-    "visualCutId": "vc19",
+    "visualCutId": "vc20",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
@@ -1678,19 +1678,5 @@
     "synthesis_source": "aivis_auto",
     "pause_after_ms": 450,
     "clip": "outputs/ep01_revised_aivis/raw/ep01_v120.wav"
-  },
-  {
-    "id": "ep01_v121",
-    "cut": "ep01_121",
-    "visualCutId": "vc20",
-    "character": "ナレーション",
-    "speaker_name": "澤原 玄二郎",
-    "style_name": "ノーマル",
-    "style_id": "2029042368",
-    "text": "夜勤は、まだ終わらない。",
-    "synthesis_text": "夜勤は、まだ終わらない。",
-    "synthesis_source": "aivis_auto",
-    "pause_after_ms": 450,
-    "clip": "outputs/ep01_revised_aivis/raw/ep01_v121.wav"
   }
 ]

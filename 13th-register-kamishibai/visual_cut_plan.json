@@ -775,8 +775,8 @@
   },
   {
     "visualCutId": "vc20",
-    "lineStart": "ep01_v120",
-    "lineEnd": "ep01_v121",
+    "lineStart": "ep01_v118",
+    "lineEnd": "ep01_v120",
     "title": "夜勤日誌を読む",
     "plannedImage": "assets/scenes/planned/ep01_vc20_diary_reading_v1.png",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",

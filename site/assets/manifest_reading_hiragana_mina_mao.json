@@ -1211,8 +1211,8 @@
     "speaker_name": "yukyu",
     "style_name": "デフォルト",
     "style_id": "1099751712",
-    "text": "シサク品の広報映像です。",
-    "synthesis_text": "これは、シサクひんの、こうほぉおエイゾおですね。",
+    "text": "これは試作品の広報映像ですね。",
+    "synthesis_text": "これは試作品の広報映像ですね。",
     "synthesis_source": "aivis_auto",
     "pause_after_ms": 250,
     "clip": "outputs/ep01_revised_aivis/raw/ep01_v087.wav"
@@ -1225,8 +1225,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "あやうく感動するところでした。",
-    "synthesis_text": "あやうく感動するところでした。",
+    "text": "危うく感動するところでした。",
+    "synthesis_text": "危うく感動するところでした。",
     "synthesis_source": "aivis_auto",
     "pause_after_ms": 250,
     "clip": "outputs/ep01_revised_aivis/raw/ep01_v088.wav"

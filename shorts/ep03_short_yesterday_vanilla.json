@@ -1,0 +1,25 @@
+{
+  "episode": "ep03",
+  "title": "昨日に溶けるアイスクリーム",
+  "source_scene": "13th-register-kamishibai/scene_manifest_ep03.json",
+  "clip_dir": "C:/Users/qvf03/Documents/anime_clips/ep03_aivis/raw",
+  "hook": "溶けると、\\N昨日になります。",
+  "endcard": ["深夜二時の第十三レジ", "第1話〜第3話 公開中", "本編はYouTubeへ"],
+  "hook_dur": 1.8,
+  "end_dur": 2.2,
+  "pause_ms": 130,
+  "note": "本編scene_manifest_ep03からセリフ/画像/音声を再利用。一点突破=『溶けると昨日になるアイスをレジ袋で昨日と今日に分ける』。話者表記はエリで統一(本編準拠)。",
+  "line_ids": [
+    "ep03_v003",
+    "ep03_v004",
+    "ep03_v037",
+    "ep03_v047",
+    "ep03_v048",
+    "ep03_v049",
+    "ep03_v050",
+    "ep03_v052",
+    "ep03_v054_g1",
+    "ep03_v074",
+    "ep03_v077"
+  ]
+}

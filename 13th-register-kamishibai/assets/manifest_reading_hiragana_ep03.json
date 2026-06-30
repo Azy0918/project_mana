@@ -59,7 +59,7 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "そういう機能じゃないです。",
+    "text": "そういう\"機能\"じゃないです。",
     "synthesis_text": "そういう機能じゃないです。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v005.wav"
@@ -99,7 +99,7 @@
     "style_name": "ノーマル",
     "style_id": "604166016",
     "text": "味は？",
-    "synthesis_text": "あじは？",
+    "synthesis_text": "味は？",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v008.wav"
   },
@@ -177,7 +177,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "冷凍庫の温度表示が、-18度から-17度へ上がった。次に、-16度。",
-    "synthesis_text": "れいとうこの温度表示が、マイナス18度からマイナス17度へ上がった。次に、マイナス16度。",
+    "synthesis_text": "れいとうこの温度表示がマイナス18度からマイナス17度へ上がった。次にマイナス16度。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v012.wav"
   },
@@ -229,7 +229,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "アイスの表面に水滴が浮かんだ瞬間、店内のレジが勝手に鳴った。昨日の売上履歴が表示される。缶コーヒー1本、午前2時8分、座木山辰哉。",
-    "synthesis_text": "アイスの表面に水滴が浮かんだ瞬間、店内のレジが勝手に鳴った。昨日の売上りれきが表示される。缶コーヒー1本、午前2時8分、座木山辰哉。",
+    "synthesis_text": "アイスの表面に水滴が浮かんだ瞬間店内のレジが勝手に鳴った。昨日の売上りれきが表示される。缶コーヒー1本午前2時8分座木山辰哉。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v016.wav"
   },
@@ -294,7 +294,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "自動ドアが開き、汗田が入ってきた。紫のヘルメットを片手に、眉間へ深いしわを寄せている。",
-    "synthesis_text": "自動ドアが開き、あせだが入ってきた。紫のヘルメットを片手に、眉間へ深いしわを寄せている。",
+    "synthesis_text": "自動ドアが開きあせだが入ってきた。紫のヘルメットを片手に眉間へ深いしわを寄せている。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v021.wav"
   },
@@ -307,7 +307,7 @@
     "style_name": "ノーマル",
     "style_id": "1310138976",
     "text": "ナビが「異常地点、冷凍庫」と出した",
-    "synthesis_text": "ナビが「異常地点、れいぞうこ」と出した",
+    "synthesis_text": "ナビが「異常地点、れいとうこ」と出した",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v022.wav"
   },
@@ -372,7 +372,7 @@
     "style_name": "ノーマル",
     "style_id": "1310138976",
     "text": "これは食品ではない。時間保存媒体だ。低温状態で業務履歴を保持し、溶けると過去の店舗記録を展開する。",
-    "synthesis_text": "これは食品ではない。時間保存媒体だ。低温状態で業務りれきを保持し、溶けると過去の店舗記録を展開する。",
+    "synthesis_text": "これは食品ではない。時間保存媒体だ。低温状態で業務りれきを保持し溶けると過去の店舗記録を展開する。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v027.wav"
   },
@@ -385,7 +385,7 @@
     "style_name": "ノーマル",
     "style_id": "1937616896",
     "text": "未来、アイスに何を入れてるんですか！",
-    "synthesis_text": "未来、アイスに何を入れてるんですか！",
+    "synthesis_text": "未来。アイスに何を入れてるんですか！",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v028.wav"
   },
@@ -475,8 +475,8 @@
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": "604166016",
-    "text": "それは確かに大事件",
-    "synthesis_text": "それは確かに大事件",
+    "text": "それは確かに大事件。",
+    "synthesis_text": "それは確かに大事件。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v035.wav"
   },
@@ -488,8 +488,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "初めて共感してもらえた",
-    "synthesis_text": "初めて共感してもらえた",
+    "text": "初めて共感してもらえた。",
+    "synthesis_text": "初めて共感してもらえた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v035_g1.wav"
   },
@@ -527,8 +527,8 @@
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": "1805828384",
-    "text": "警告。昨日バニラの融解により、昨日の業務履歴が再展開されています",
-    "synthesis_text": "警告。昨日バニラの融解により、昨日の業務りれきが再展開されています",
+    "text": "警告。「昨日バニラ」の融解により、昨日の業務りれきが再展開されています。",
+    "synthesis_text": "警告。「昨日バニラ」の融解により昨日の業務りれきが再展開されています。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v037.wav"
   },
@@ -579,8 +579,8 @@
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": "1805828384",
-    "text": "昨日状態です",
-    "synthesis_text": "昨日状態です",
+    "text": "昨日の状態です。",
+    "synthesis_text": "昨日の状態です。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v041.wav"
   },
@@ -983,7 +983,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "アイスのラベルは、明日ミルクに変わっていた。",
-    "synthesis_text": "アイスのラベルは、明日ミルクに変わっていた。",
+    "synthesis_text": "アイスのラベルは明日ミルクに変わっていた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v069.wav"
   },
@@ -1126,7 +1126,7 @@
     "style_name": "ノーマル",
     "style_id": "2029042368",
     "text": "午前2時20分。第十三レジは消えた。誰も触っていないのに、コピー機がウィーンと起動した。",
-    "synthesis_text": "午前2時20分。第十三レジは消えた。誰も触っていないのに、コピー機がウィーンと起動した。",
+    "synthesis_text": "午前2時20分。第十三レジは消えた。誰も触っていないのにコピー機がウィーーンと起動した。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v078.wav"
   },
@@ -1203,8 +1203,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "タクミはマニュアルノートを開き、震える手で書いた。「時間は袋分けできる場合がある。ただし袋代は取られる」",
-    "synthesis_text": "タクミはマニュアルノートを開き、震える手で書いた。「時間は袋分けできる場合がある。ただし袋代は取られる」",
+    "text": "タクミはマニュアルノートを開き、ため息まじりに書いた。「時間は袋分けできる場合がある。ただし袋代は取られる」",
+    "synthesis_text": "タクミはマニュアルノートを開き、ため息まじりに書いた。「時間は袋分けできる場合がある。ただし袋代は取られる」",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep03_aivis/raw/ep03_v083.wav"
   }

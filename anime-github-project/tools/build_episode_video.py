@@ -63,15 +63,23 @@ def ass_time(t: float) -> str:
 
 
 def wrap_jp(text: str, n: int = WRAP) -> str:
+    # 紙芝居プレーヤー風: 枠幅(n文字)いっぱいまで詰めて折り返す。
+    # 句読点ごとの早折りはせず、禁則処理(行頭に句読点・小書き・閉じ括弧を置かない)だけ行う。
+    LEAD_NG = "、。，．！？・…ー）〕］｝」』ぁぃぅぇぉっゃゅょゎヶヵ"  # 行頭禁則
+    def alnum(c):  # 半角英数字の連続は1語として途中で折らない(例: 2074)
+        return c.isascii() and c.isalnum()
     lines, cur = [], ""
     for ch in text:
-        cur += ch
-        if (ch in "、。！？" and len(cur) >= 8) or len(cur) >= n:
+        no_break = (ch in LEAD_NG) or (alnum(ch) and cur and alnum(cur[-1]))
+        if len(cur) >= n and not no_break:
             lines.append(cur)
-            cur = ""
+            cur = ch
+        else:
+            cur += ch  # 幅超でも禁則文字・数字連続はぶら下げて前行に残す
     if cur:
         lines.append(cur)
-    if len(lines) >= 2 and len(lines[-1]) <= 2 and len(lines[-2]) + len(lines[-1]) <= n + 1:
+    # 末尾の極端に短い行(1〜2字)は前行へ吸収して見栄えを整える
+    if len(lines) >= 2 and len(lines[-1]) <= 2 and len(lines[-2]) + len(lines[-1]) <= n + 2:
         last = lines.pop()
         lines[-1] += last
     return "\\N".join(lines)

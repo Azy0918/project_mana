@@ -106,7 +106,7 @@
   {
     "id": "ep02_v009",
     "cut": "ep02_vc03",
-    "visualCutId": "vc03",
+    "visualCutId": "vc02",
     "character": "ナビ",
     "speaker_name": "コハク",
     "style_name": "ノーマル",
@@ -119,7 +119,7 @@
   {
     "id": "ep02_v010",
     "cut": "ep02_vc03",
-    "visualCutId": "vc03",
+    "visualCutId": "vc02",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
@@ -132,7 +132,7 @@
   {
     "id": "ep02_v011",
     "cut": "ep02_vc03",
-    "visualCutId": "vc03",
+    "visualCutId": "vc02",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
@@ -288,7 +288,7 @@
   {
     "id": "ep02_v023",
     "cut": "ep02_vc06",
-    "visualCutId": "vc06",
+    "visualCutId": "vc05",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
@@ -514,8 +514,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "汗田はレシート紙を受け取り、ペンを走らせた。",
-    "synthesis_text": "あせだはレシート紙を受け取り、ペンを走らせた。",
+    "text": "汗田はレシートを受け取り、ペンを走らせた。",
+    "synthesis_text": "あせだはレシートを受け取り、ペンを走らせた。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v040.wav"
   },
@@ -800,8 +800,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "時空対応費じゃないんだ。",
-    "synthesis_text": "じくう対応費じゃないんだ。",
+    "text": "時空外対応費じゃないんだ。",
+    "synthesis_text": "じくうがい対応費じゃないんだ。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep02_aivis/raw/ep02_v062.wav"
   },

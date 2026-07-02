@@ -575,6 +575,7 @@ def _auto_replace_bad_inclusions(
     all_cards: list[CardRow],
     target_civs: set[str],
     seed_name_keys: set[str],
+    route_type: str = "lock_confirmed_win",
 ) -> tuple[list[tuple[CardRow, int, str]], list[str]]:
     """Try to reduce obviously bad auto-picked cards.
 
@@ -620,7 +621,7 @@ def _auto_replace_bad_inclusions(
     if deficit <= 0:
         return new_items, notes
 
-    role_tags_map = _route_role_tags("lock_confirmed_win")
+    role_tags_map = _route_role_tags(route_type)
     # Fill by priority: starter/defense/resource/removal/payoff/flex with low-risk cards.
     fill_roles = ["starter", "defense", "resource", "removal", "payoff", "flex"]
     for role in fill_roles:
@@ -730,6 +731,7 @@ def expand_route_seed_to_deck(
         all_cards,
         target_civs,
         seed_name_keys,
+        route_type=route_type,
     )
 
     # Merge duplicate display rows and re-trim if capping duplicate copies changed size.

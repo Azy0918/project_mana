@@ -1,0 +1,495 @@
+{
+  "executed_at": "2026-07-02T08:51:56",
+  "target_win_rate": 0.7,
+  "meta_deck_count": 5,
+  "validated_decks": 12,
+  "champions": 12,
+  "champion_ids": [
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52
+  ],
+  "results": [
+    {
+      "deck_id": 43,
+      "deck_name": "未開拓 loop_converted_win: 堕呪 ウキドゥ / トラップ×トラップ / マザー・エイリアン",
+      "reached_target": true,
+      "final_win_rate": 0.836,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.8825,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.995,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.8425,
+          "average_finish_turn": 6.9
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.94,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.52,
+          "average_finish_turn": 7.0
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 83.6%",
+        "最終平均勝率: 83.6% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 45,
+      "deck_name": "未開拓 opponent_deckout_win: 水面護り ハコフ/蓄積された魔力の縛り / 蓄積された魔力 / ハッスル・キャッ",
+      "reached_target": true,
+      "final_win_rate": 0.824,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.8675,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.995,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.825,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.93,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.5025,
+          "average_finish_turn": 7.0
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 82.4%",
+        "最終平均勝率: 82.4% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 44,
+      "deck_name": "未開拓 alternate_effect_win: アクア・スーパーエメラル / TOYザマス / コレンココ・タンク",
+      "reached_target": true,
+      "final_win_rate": 0.8235,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.8675,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.995,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.8225,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.93,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.5025,
+          "average_finish_turn": 7.0
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 82.3%",
+        "最終平均勝率: 82.3% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 41,
+      "deck_name": "未開拓 lock_confirmed_win: 宣凶師ドロシア / オ・ジンレオ・タンク / 星龍パーフェクト・アース",
+      "reached_target": true,
+      "final_win_rate": 0.797,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.8475,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.9925,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.7925,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.9075,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.445,
+          "average_finish_turn": 7.0
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 79.7%",
+        "最終平均勝率: 79.7% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 52,
+      "deck_name": "未開拓 direct_attack_win: 天斬の悪魔龍 ジュランデス / 連鎖庇護類 ジュラピ",
+      "reached_target": true,
+      "final_win_rate": 0.797,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.8475,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.9925,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.7925,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.9075,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.445,
+          "average_finish_turn": 7.0
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 79.7%",
+        "最終平均勝率: 79.7% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 49,
+      "deck_name": "未開拓 loop_converted_win: 【問1】テック / ブレイン×ブレイン / ガルベリアス・ドラゴン",
+      "reached_target": true,
+      "final_win_rate": 0.795,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.84,
+          "average_finish_turn": 7.8
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.9925,
+          "average_finish_turn": 7.7
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.7925,
+          "average_finish_turn": 7.5
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.9075,
+          "average_finish_turn": 7.7
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.4425,
+          "average_finish_turn": 7.3
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 79.5%",
+        "最終平均勝率: 79.5% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 47,
+      "deck_name": "未開拓 lock_confirmed_win: 竜のフレア・エッグ / アクア・カスケード",
+      "reached_target": true,
+      "final_win_rate": 0.791,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.84,
+          "average_finish_turn": 7.3
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.9925,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.785,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.9,
+          "average_finish_turn": 7.3
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.4375,
+          "average_finish_turn": 7.1
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 67.6%",
+        "反復1: [defense] 火炎流星弾 試行は不発 (67.6% → 67.6%)。破棄",
+        "反復2: [finisher] ブレイン・ストーム×3 → 龍装者 バルチュリス×3。勝率 67.6% → 67.7%",
+        "反復3: [defense] ブレードライガー×1/革命龍程式 シリンダ×2 → 火炎流星弾×3。勝率 67.7% → 67.8%",
+        "反復4: [defense] 革命船長 リーフ 試行は不発 (67.8% → 67.7%)。破棄",
+        "反復5: [finisher] 暴走 ザクルマ/「緊急発進だ!!」 試行は不発 (67.8% → 63.2%)。破棄",
+        "反復6: [meta] 洗脳センノー 試行は不発 (67.8% → 63.2%)。破棄",
+        "反復7: [removal] グレイト“S-駆” 試行は不発 (67.8% → 63.2%)。破棄",
+        "反復8: [resource] ブレイン・ストーム×1/革命龍程式 シリンダ×1/龍装者 バルチュリス×1 → ネクスト・チャージャー×3。勝率 67.8% → 79.1%",
+        "最終平均勝率: 79.1% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 48,
+      "deck_name": "未開拓 damage_overflow_win: 相撲 Dr.ウンリュウ",
+      "reached_target": true,
+      "final_win_rate": 0.79,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.84,
+          "average_finish_turn": 7.3
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.9925,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.7825,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.9,
+          "average_finish_turn": 7.3
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.435,
+          "average_finish_turn": 7.1
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 50.8%",
+        "反復1: [finisher] チョートッQ 試行は不発 (50.8% → 39.4%)。破棄",
+        "反復2: [meta] 貝獣 ホタッテ×2/奇天烈 ガチダイブ×1 → 洗脳センノー×3。勝率 50.8% → 61.4%",
+        "反復3: [finisher] チョートッQ 試行は不発 (61.4% → 61.4%)。破棄",
+        "反復4: [defense] プラーヤ×3 → 生意気な衛兵 メダカ×3。勝率 61.4% → 65.1%",
+        "反復5: [finisher] チョートッQ 試行は不発 (65.1% → 64.8%)。破棄",
+        "反復6: [defense] 革命船長 リーフ 試行は不発 (65.1% → 65.1%)。破棄",
+        "反復7: [meta] 奇天烈 ガチダイブ×2/超奇天烈 ギャブル×1 → 第4新都市 ウツボイド×3。勝率 65.1% → 67.5%",
+        "反復8: [defense] 超奇天烈 ギャブル×2/洗脳センノー×1 → 革命船長 リーフ×3。勝率 67.5% → 67.6%",
+        "反復9: [defense] 遺跡採掘員 ゼーハー 試行は不発 (67.6% → 67.6%)。破棄",
+        "反復10: [finisher] チョートッQ 試行は不発 (67.6% → 67.6%)。破棄",
+        "反復11: [meta] 貝獣 ホタッテ 試行は不発 (67.6% → 67.6%)。破棄",
+        "反復12: [removal] 異端流し オニカマス 試行は不発 (67.6% → 67.6%)。破棄",
+        "反復13: [resource] 「世界をつなぐ柱」の天罰×3 → ブレイン・チャージャー×3。勝率 67.6% → 79.0%",
+        "最終平均勝率: 79.0% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 51,
+      "deck_name": "未開拓 opponent_deckout_win: 戦攻妖精クルメル",
+      "reached_target": true,
+      "final_win_rate": 0.786,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.8375,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.9925,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.775,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.9,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.425,
+          "average_finish_turn": 7.0
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 78.6%",
+        "最終平均勝率: 78.6% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 46,
+      "deck_name": "未開拓 direct_attack_win: 天斬の悪魔龍 ジュランデス / D2B バブール",
+      "reached_target": true,
+      "final_win_rate": 0.7765,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.825,
+          "average_finish_turn": 7.3
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.9925,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.76,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.8925,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.4125,
+          "average_finish_turn": 7.0
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 77.6%",
+        "最終平均勝率: 77.6% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 42,
+      "deck_name": "未開拓 damage_overflow_win: ピクシー・コクーン / ZEROの暴走 デッドリー・ハイウェイ / ツイン“LE",
+      "reached_target": true,
+      "final_win_rate": 0.7635,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.815,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.9925,
+          "average_finish_turn": 7.0
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.735,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.8775,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.3975,
+          "average_finish_turn": 7.0
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 48.9%",
+        "反復1: [meta] エボリューション・エッグ×3 → 連鎖庇護類 ジュラピ×3。勝率 48.9% → 64.9%",
+        "反復2: [meta] エボリューション・エッグ×1/五郎丸コミュニケーション×2 → マツぽっくん×3。勝率 64.9% → 76.3%",
+        "最終平均勝率: 76.3% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 50,
+      "deck_name": "未開拓 alternate_effect_win: 完全防御革命 / ベイB パオパオ",
+      "reached_target": true,
+      "final_win_rate": 0.7265,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.775,
+          "average_finish_turn": 7.7
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.99,
+          "average_finish_turn": 7.7
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.6775,
+          "average_finish_turn": 7.5
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.8575,
+          "average_finish_turn": 7.7
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.3325,
+          "average_finish_turn": 7.2
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 63.8%",
+        "反復1: [finisher] クリムゾン・コミューン×3 → 龍装者 バルチュリス×3。勝率 63.8% → 63.9%",
+        "反復2: [finisher] 暴走 ザクルマ/「緊急発進だ!!」 試行は不発 (63.9% → 44.9%)。破棄",
+        "反復3: [meta] オ・ジンレオ・タンク×3 → 連鎖庇護類 ジュラピ×3。勝率 63.9% → 65.1%",
+        "反復4: [finisher] 暴走 ザクルマ/「緊急発進だ!!」 試行は不発 (65.1% → 53.8%)。破棄",
+        "反復5: [meta] クリムゾン・コミューン×1/コレンココ・タンク×2 → マツぽっくん×3。勝率 65.1% → 72.7%",
+        "最終平均勝率: 72.7% (目標到達)"
+      ]
+    }
+  ]
+}

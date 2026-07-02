@@ -14,7 +14,6 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 KAMI = REPO / "13th-register-kamishibai"
-SITE = REPO / "site"
 TIMELINE = REPO / "outputs" / "ep02_voice_reading_hiragana" / "ep02_full_voice_reading_hiragana_timeline.json"
 
 # character -> (speaker_name, style_name, style_id)  [official cast]

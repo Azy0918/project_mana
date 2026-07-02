@@ -18,7 +18,6 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 KAMI = REPO / "13th-register-kamishibai"
-SITE = REPO / "site"
 MANIFEST_REL = "assets/manifest_reading_hiragana_mina_mao.json"
 TIMELINE = REPO / "outputs" / "ep01_voice_reading_hiragana" / "ep01_full_voice_reading_hiragana_mina_mao_timeline.json"
 

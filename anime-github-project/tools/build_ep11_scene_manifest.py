@@ -12,7 +12,6 @@ TIMELINE = REPO_ROOT / "outputs" / "ep11_voice_reading_hiragana" / "ep11_full_vo
 DEFAULT_ASSIGNMENT = REPO_ROOT / "ep11_image_assignment_proposal.json"
 OUT_PATHS = [
     REPO_ROOT / "13th-register-kamishibai" / "scene_manifest_ep11.json",
-    REPO_ROOT / "site" / "scene_manifest_ep11.json",
 ]
 
 # Claude-owned (台本): visual-cut titles keyed by the IMAGE vc number (Codex's 20 EP11 beats).

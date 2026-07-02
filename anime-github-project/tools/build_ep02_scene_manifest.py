@@ -15,15 +15,12 @@ CHARACTER_LOCKS = REPO_ROOT / "13th-register-kamishibai" / "character_visual_loc
 IMAGE_ASSIGNMENT = REPO_ROOT / "13th-register-kamishibai" / "image_assignment_ep02.json"
 OUT_PATHS = [
     REPO_ROOT / "13th-register-kamishibai" / "scene_manifest_ep02.json",
-    REPO_ROOT / "site" / "scene_manifest_ep02.json",
 ]
 VISUAL_PLAN_JSON_PATHS = [
     REPO_ROOT / "13th-register-kamishibai" / "visual_cut_plan_ep02.json",
-    REPO_ROOT / "site" / "visual_cut_plan_ep02.json",
 ]
 VISUAL_PLAN_CSV_PATHS = [
     REPO_ROOT / "13th-register-kamishibai" / "assets" / "ep02_visual_cut_plan.csv",
-    REPO_ROOT / "site" / "assets" / "ep02_visual_cut_plan.csv",
 ]
 IMG_DIR = "assets/scenes/planned"
 

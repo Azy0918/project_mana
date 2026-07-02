@@ -14,7 +14,6 @@ TIMELINE = REPO_ROOT / "outputs" / "ep03_voice_reading_hiragana" / "ep03_full_vo
 DEFAULT_ASSIGNMENT = REPO_ROOT / "13th-register-kamishibai" / "image_assignment_ep03.json"
 OUT_PATHS = [
     REPO_ROOT / "13th-register-kamishibai" / "scene_manifest_ep03.json",
-    REPO_ROOT / "site" / "scene_manifest_ep03.json",
 ]
 
 # Claude-owned: cut titles shown in the player (台本). Derived from the EP03 script beats.

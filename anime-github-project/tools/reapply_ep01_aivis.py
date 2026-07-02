@@ -22,7 +22,7 @@ REV_MD = CODEX / "anime-github-project" / "ep01_revised.md"  # OneDrive外の正
 CAST_CSV = CODEX / "anime-github-project" / "tools" / "ep01_voice_cast.csv"
 CLIP_DIR = Path(r"C:\Users\qvf03\Documents\anime_clips") / "ep01_aivis" / "raw"  # OneDrive外
 # (root, sub) の宛先 = Codexのみ(OneDriveは同期巻き戻し事故のため不使用)
-DESTS = [(CODEX, s) for s in ("13th-register-kamishibai", "site")]
+DESTS = [(CODEX, s) for s in ("13th-register-kamishibai",)]  # siteミラー廃止(2026-07 棚卸し)
 
 # 確定カット境界: 各カットの開始行(1始まり)。vc01..vc20  ※6行削除(v105,106,108,109,111,118)で再計算済=121行
 CUT_START = [1, 3, 4, 28, 29, 35, 38, 50, 58, 62, 68, 72, 83, 89, 98, 106, 113, 115, 118, 118]

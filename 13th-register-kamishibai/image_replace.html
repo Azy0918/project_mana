@@ -111,7 +111,7 @@
             <div class="shot"><h3>差替候補</h3><img id="prev_${esc(c.visualCutId)}" src="${esc(r.url || "")}" alt=""></div>
           </div>
           <div class="form">
-            <div class="imgname">採用先: 13th-register-kamishibai/${esc(c.plannedImage)}<br>同期先: site/${esc(c.plannedImage)}<br>ファイル名: ${esc(base(c.plannedImage))}</div>
+            <div class="imgname">採用先: 13th-register-kamishibai/${esc(c.plannedImage)}<br>ファイル名: ${esc(base(c.plannedImage))}</div>
             <input type="file" accept="image/png,image/jpeg,image/webp" data-id="${esc(c.visualCutId)}">
             <textarea data-note="${esc(c.visualCutId)}" placeholder="差し替え理由・確認メモ">${esc(r.note || "")}</textarea>
             <div class="actions">
@@ -174,8 +174,7 @@
         out += `## ${cut.visualCutId} ${cut.title}\n`;
         out += `- 元画像: ${base(cut.plannedImage)}\n`;
         out += `- ユーザー選択ファイル: ${r.fileName} (${Math.round((r.size||0)/1024)} KB)\n`;
-        out += `- 保存先1: 13th-register-kamishibai/${cut.plannedImage}\n`;
-        out += `- 保存先2: site/${cut.plannedImage}\n`;
+        out += `- 保存先: 13th-register-kamishibai/${cut.plannedImage}\n`;
         out += `- メモ: ${r.note || "なし"}\n\n`;
       });
       out += "作業後は、差し替えたカット一覧、未変更ファイル、GitHub Pagesの確認URLを返してください。\n";
@@ -184,7 +183,7 @@
     function ledgerJson() {
       return JSON.stringify({ episode:EP.id, updatedAt:new Date().toISOString(), replacements:selected().map(({cut,r}) => ({
         visualCutId:cut.visualCutId, title:cut.title, targetFile:base(cut.plannedImage),
-        kamishibaiPath:`13th-register-kamishibai/${cut.plannedImage}`, sitePath:`site/${cut.plannedImage}`,
+        kamishibaiPath:`13th-register-kamishibai/${cut.plannedImage}`,
         sourceFile:r.fileName, size:r.size, note:r.note || ""
       }))}, null, 2);
     }

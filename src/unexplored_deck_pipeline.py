@@ -24,6 +24,7 @@ from src.generated_deck_store import save_generated_deck
 from src.route_seed_generator import generate_route_seed_candidates
 from src.route_deck_expander import expand_route_seed_to_deck
 from src.route_deck_validator import validate_expanded_deck
+from src.deck_development_engine import develop_unexplored_deck, development_log_to_note
 
 DEFAULT_OUTPUT_DIR = Path("data/reports/unexplored_deck_pipeline")
 
@@ -128,6 +129,7 @@ def run_unexplored_deck_pipeline(
     min_adjusted_score: int = 55,
     allow_fixable: bool = False,
     save_to_db: bool = True,
+    develop: bool = True,
     output_dir: str | Path = DEFAULT_OUTPUT_DIR,
 ) -> dict[str, Any]:
     """seed生成→40枚化→検証→保存 を一気通貫で実行する。
@@ -181,9 +183,25 @@ def run_unexplored_deck_pipeline(
             continue
         seen_fingerprints.add(fingerprint)
 
-        # 3. 検証
-        validation = validate_expanded_deck(expansion)
-        verdict = validation.get("validation_verdict", "棄却候補")
+        # 3. 開発 (LLM式: seed接続実証→弱点修繕反復→ターンプラン→再現性)
+        development = None
+        if develop:
+            try:
+                development = develop_unexplored_deck(expansion, db_path=db_path)
+                expansion = development["expansion"]
+                validation = development["final_validation"]
+                verdict = development["development_verdict"]
+                entry["seed_interaction"] = development["seed_interaction"]["verdict"]
+                entry["seed_all_pieces_prob"] = development["consistency"].get("all_pieces_prob")
+                entry["route_online_turn"] = development["turn_plan"].get("route_online_turn")
+            except Exception as exc:
+                entry["development_error"] = str(exc)
+                validation = validate_expanded_deck(expansion)
+                verdict = validation.get("validation_verdict", "棄却候補")
+        else:
+            validation = validate_expanded_deck(expansion)
+            verdict = validation.get("validation_verdict", "棄却候補")
+
         entry["validation_verdict"] = verdict
         entry["warning_count"] = validation.get("warning_count", 0)
 
@@ -209,6 +227,10 @@ def run_unexplored_deck_pipeline(
         deck_eval = expansion.get("deck_evaluation") or {}
         evaluation = deck_eval if isinstance(deck_eval, dict) else {}
 
+        strategy_note = _build_strategy_note(candidate, expansion, validation)
+        if development is not None:
+            strategy_note += "\n\n" + development_log_to_note(development)
+
         deck_name = f"未開拓 {route_type}: {expansion.get('route_seed_cards', '')[:40]}"
         try:
             deck_id = save_generated_deck(
@@ -217,7 +239,7 @@ def run_unexplored_deck_pipeline(
                 deck_type=route_type,
                 focus_tags=focus_tags,
                 avoid_tags=[],
-                strategy_note=_build_strategy_note(candidate, expansion, validation),
+                strategy_note=strategy_note,
                 deck_cards=deck_cards,
                 analysis=analysis,
                 evaluation=evaluation,
@@ -288,6 +310,7 @@ def main() -> None:
     parser.add_argument("--min-score", type=int, default=55, help="40枚化する最小adjusted_route_score")
     parser.add_argument("--allow-fixable", action="store_true", help="要修正判定のデッキも保存する")
     parser.add_argument("--dry-run", action="store_true", help="DB保存を行わない")
+    parser.add_argument("--no-develop", action="store_true", help="開発エンジンをスキップする")
     args = parser.parse_args()
 
     summary = run_unexplored_deck_pipeline(
@@ -297,6 +320,7 @@ def main() -> None:
         min_adjusted_score=args.min_score,
         allow_fixable=args.allow_fixable,
         save_to_db=not args.dry_run,
+        develop=not args.no_develop,
         output_dir=args.out,
     )
     print(f"seed候補: {summary['seed_candidates_total']}")

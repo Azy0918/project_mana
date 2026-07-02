@@ -1,0 +1,23 @@
+{
+  "episode": "ep01",
+  "title": "未来のおにぎり、温めますか",
+  "source_scene": "13th-register-kamishibai/scene_manifest.json",
+  "clip_dir": "C:/Users/qvf03/Documents/anime_clips/ep01_aivis/raw",
+  "sfx_wav": "anime-github-project/tools/sfx_register.wav",
+  "hook": "このコンビニ、\\N2時17分にレジが増えます。",
+  "hook_image": "assets/scenes/planned/ep01_vc01_store_exterior_v2.png",
+  "endcard": ["続きは本編へ", "第1話 公開中", "深夜二時の第十三レジ"],
+  "hook_dur": 1.9,
+  "end_dur": 2.6,
+  "pause_ms": 110,
+  "sfx_after": "ep01_v029",
+  "mid_telop": { "text": "本当に増えた。", "at_id": "ep01_v029", "dur": 2.4 },
+  "note": "本編冒頭〜第十三レジ登場までの入口ショート。冒頭ナレv001と一部の廃棄おにぎり会話を間引き。必須(出現v028/営業中v029+SFX/増えたv030/増えるよv031/時刻は仕組みv034)は保持。話者=エリ表記。",
+  "line_ids": [
+    "ep01_v004", "ep01_v005", "ep01_v007", "ep01_v008",
+    "ep01_v011", "ep01_v013", "ep01_v015", "ep01_v016", "ep01_v017", "ep01_v018",
+    "ep01_v019", "ep01_v020", "ep01_v021", "ep01_v022",
+    "ep01_v026", "ep01_v027", "ep01_v028", "ep01_v029", "ep01_v030", "ep01_v031",
+    "ep01_v032", "ep01_v033", "ep01_v034"
+  ]
+}

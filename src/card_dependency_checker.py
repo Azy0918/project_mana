@@ -180,3 +180,116 @@ def check_deck_dependencies(
         "has_dead_cards": bool(dead),
         "verdict": "依存欠陥あり" if dead else ("依存やや弱い" if weak else "依存OK"),
     }
+
+
+# ---------------------------------------------------------------------------
+# 勝ち切り手段の実在チェック
+# ---------------------------------------------------------------------------
+#
+# 自動生成デッキで実際に起きた欠陥: ブロッカーと「相手プレイヤーを
+# 攻撃できない」持ちで固められ、耐えた後に勝つ手段が存在しない。
+# これもテキストから決定的に判定できる。
+
+ATTACK_FORBIDDEN_PATTERNS = [
+    "相手プレイヤーを攻撃できない",
+    "■攻撃できない",
+    "◇攻撃できない",
+    "このクリーチャーは攻撃できない",
+]
+
+ALT_WIN_PATTERNS = [
+    "ゲームに勝つ",
+    "勝利する",
+    "かわりに自分がゲームに勝つ",
+]
+
+
+def _can_attack_player(card: dict[str, Any]) -> bool:
+    card_type = str(card.get("card_type") or "")
+    if "クリーチャー" not in card_type:
+        return False
+    text = str(card.get("text") or "")
+    normalized = text.replace("\n", "")
+    if "相手プレイヤーを攻撃できない" in normalized:
+        return False
+    # 「攻撃できない」が無条件で書かれているカードを除外
+    # (「〜の場合攻撃できない」のような条件付きは許容)
+    for line in text.split("\n"):
+        line = line.strip("■◇ ")
+        if line == "攻撃できない。" or line == "攻撃できない":
+            return False
+    return True
+
+
+THREAT_MARKERS = [
+    "W・ブレイカー",
+    "T・ブレイカー",
+    "Q・ブレイカー",
+    "ワールド・ブレイカー",
+    "スピードアタッカー",
+    "ブロックされない",
+    "アンブロッカブル",
+]
+
+
+def _threat_power(card: dict[str, Any]) -> int:
+    raw = re.sub(r"[^0-9]", "", str(card.get("power") or "0"))
+    try:
+        return int(raw or 0)
+    except Exception:
+        return 0
+
+
+def _is_real_attacker(card: dict[str, Any]) -> bool:
+    """勝ち筋として数えられる打点かを判定する。
+
+    攻撃可能なだけの小型ユーティリティ (2コスト初動等) は勝ち筋ではない。
+    パワー5000以上、ブレイカー持ち、SA、ブロック不能のいずれかを要求する。
+    """
+    if not _can_attack_player(card):
+        return False
+    text = str(card.get("text") or "")
+    if any(marker in text for marker in THREAT_MARKERS):
+        return True
+    return _threat_power(card) >= 5000
+
+
+def check_win_capability(
+    deck_cards: list[dict[str, Any]],
+    min_attackers: int = 6,
+    min_alt_win: int = 2,
+) -> dict[str, Any]:
+    """デッキが物理的に勝てるかを検証する。
+
+    勝ち筋 = 実質的な打点 (パワー5000+/ブレイカー/SA/ブロック不能) が
+    十分にいる、または特殊勝利カードがある。どちらも無いデッキは
+    どれだけ受けが厚くても勝てない。
+    """
+    attacker_count = 0
+    alt_win_count = 0
+    attackers: list[str] = []
+    alt_wins: list[str] = []
+
+    for card in deck_cards:
+        quantity = int(card.get("quantity") or card.get("count") or 0)
+        text = str(card.get("text") or "")
+        name = str(card.get("name") or "")
+        if any(p in text for p in ALT_WIN_PATTERNS):
+            alt_win_count += quantity
+            alt_wins.append(name)
+        if _is_real_attacker(card):
+            attacker_count += quantity
+            attackers.append(name)
+
+    can_win = attacker_count >= min_attackers or alt_win_count >= min_alt_win
+    return {
+        "attacker_count": attacker_count,
+        "alt_win_count": alt_win_count,
+        "attacker_names": attackers[:15],
+        "alt_win_names": alt_wins,
+        "can_win": can_win,
+        "verdict": (
+            "勝ち筋OK" if can_win
+            else f"勝ち筋なし (攻撃可能{attacker_count}枚 / 特殊勝利{alt_win_count}枚)"
+        ),
+    }

@@ -1,30 +1,30 @@
 {
-  "executed_at": "2026-07-03T01:05:57",
+  "executed_at": "2026-07-03T01:13:49",
   "target_win_rate": 0.7,
   "meta_deck_count": 5,
   "validated_decks": 9,
   "champions": 9,
   "champion_ids": [
-    53,
-    54,
-    55,
-    56,
-    57,
-    58,
-    59,
-    60,
-    61
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79
   ],
   "results": [
     {
-      "deck_id": 55,
-      "deck_name": "未開拓 opponent_deckout_win: 水面護り ハコフ/蓄積された魔力の縛り / 蓄積された魔力 / ハッスル・キャッ",
+      "deck_id": 78,
+      "deck_name": "未開拓 opponent_deckout_win: 戦攻妖精クルメル",
       "reached_target": true,
-      "final_win_rate": 0.824,
+      "final_win_rate": 0.805,
       "matchups": [
         {
           "opponent": "火光レイド",
-          "win_rate": 0.8675,
+          "win_rate": 0.8525,
           "average_finish_turn": 7.1
         },
         {
@@ -34,27 +34,27 @@
         },
         {
           "opponent": "光単裁きの紋章Z",
-          "win_rate": 0.825,
+          "win_rate": 0.805,
           "average_finish_turn": 7.0
         },
         {
           "opponent": "水単スコーラー",
-          "win_rate": 0.93,
-          "average_finish_turn": 7.0
+          "win_rate": 0.9075,
+          "average_finish_turn": 7.1
         },
         {
           "opponent": "自然単デンジャデオン",
-          "win_rate": 0.5025,
+          "win_rate": 0.465,
           "average_finish_turn": 7.0
         }
       ],
       "improvement_log": [
-        "初期平均勝率: 82.4%",
-        "最終平均勝率: 82.4% (目標到達)"
+        "初期平均勝率: 80.5%",
+        "最終平均勝率: 80.5% (目標到達)"
       ]
     },
     {
-      "deck_id": 53,
+      "deck_id": 71,
       "deck_name": "未開拓 lock_confirmed_win: 宣凶師ドロシア / オ・ジンレオ・タンク / 星龍パーフェクト・アース",
       "reached_target": true,
       "final_win_rate": 0.797,
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "deck_id": 61,
+      "deck_id": 79,
       "deck_name": "未開拓 direct_attack_win: 天斬の悪魔龍 ジュランデス / 連鎖庇護類 ジュラピ",
       "reached_target": true,
       "final_win_rate": 0.797,
@@ -128,7 +128,7 @@
       ]
     },
     {
-      "deck_id": 58,
+      "deck_id": 76,
       "deck_name": "未開拓 loop_converted_win: 【問1】テック / ブレイン×ブレイン / ガルベリアス・ドラゴン",
       "reached_target": true,
       "final_win_rate": 0.795,
@@ -165,7 +165,7 @@
       ]
     },
     {
-      "deck_id": 56,
+      "deck_id": 74,
       "deck_name": "未開拓 lock_confirmed_win: 竜のフレア・エッグ / アクア・カスケード",
       "reached_target": true,
       "final_win_rate": 0.791,
@@ -197,20 +197,18 @@
         }
       ],
       "improvement_log": [
-        "初期平均勝率: 67.6%",
-        "反復1: [defense] 火炎流星弾 試行は不発 (67.6% → 67.6%)。破棄",
-        "反復2: [finisher] ブレイン・ストーム×3 → 龍装者 バルチュリス×3。勝率 67.6% → 67.7%",
-        "反復3: [defense] ブレードライガー×1/革命龍程式 シリンダ×2 → 火炎流星弾×3。勝率 67.7% → 67.8%",
-        "反復4: [defense] 革命船長 リーフ 試行は不発 (67.8% → 67.7%)。破棄",
-        "反復5: [finisher] 暴走 ザクルマ/「緊急発進だ!!」 試行は不発 (67.8% → 63.2%)。破棄",
-        "反復6: [meta] 洗脳センノー 試行は不発 (67.8% → 63.2%)。破棄",
-        "反復7: [removal] グレイト“S-駆” 試行は不発 (67.8% → 63.2%)。破棄",
-        "反復8: [resource] ブレイン・ストーム×1/革命龍程式 シリンダ×1/龍装者 バルチュリス×1 → ネクスト・チャージャー×3。勝率 67.8% → 79.1%",
+        "初期平均勝率: 67.7%",
+        "反復1: [defense] ブレードライガー×1/革命龍程式 シリンダ×2 → 火炎流星弾×3。勝率 67.7% → 67.8%",
+        "反復2: [defense] 革命船長 リーフ 試行は不発 (67.8% → 67.8%)。破棄",
+        "反復3: [finisher] 暴走 ザクルマ/「緊急発進だ!!」 試行は不発 (67.8% → 67.8%)。破棄",
+        "反復4: [meta] 洗脳センノー 試行は不発 (67.8% → 67.8%)。破棄",
+        "反復5: [removal] グレイト“S-駆” 試行は不発 (67.8% → 67.8%)。破棄",
+        "反復6: [resource] ブレイン・ストーム×3 → ネクスト・チャージャー×3。勝率 67.8% → 79.1%",
         "最終平均勝率: 79.1% (目標到達)"
       ]
     },
     {
-      "deck_id": 57,
+      "deck_id": 75,
       "deck_name": "未開拓 damage_overflow_win: 相撲 Dr.ウンリュウ",
       "reached_target": true,
       "final_win_rate": 0.79,
@@ -260,44 +258,7 @@
       ]
     },
     {
-      "deck_id": 60,
-      "deck_name": "未開拓 opponent_deckout_win: 戦攻妖精クルメル",
-      "reached_target": true,
-      "final_win_rate": 0.786,
-      "matchups": [
-        {
-          "opponent": "火光レイド",
-          "win_rate": 0.8375,
-          "average_finish_turn": 7.2
-        },
-        {
-          "opponent": "火水レイド",
-          "win_rate": 0.9925,
-          "average_finish_turn": 7.0
-        },
-        {
-          "opponent": "光単裁きの紋章Z",
-          "win_rate": 0.775,
-          "average_finish_turn": 7.0
-        },
-        {
-          "opponent": "水単スコーラー",
-          "win_rate": 0.9,
-          "average_finish_turn": 7.1
-        },
-        {
-          "opponent": "自然単デンジャデオン",
-          "win_rate": 0.425,
-          "average_finish_turn": 7.0
-        }
-      ],
-      "improvement_log": [
-        "初期平均勝率: 78.6%",
-        "最終平均勝率: 78.6% (目標到達)"
-      ]
-    },
-    {
-      "deck_id": 54,
+      "deck_id": 72,
       "deck_name": "未開拓 damage_overflow_win: ピクシー・コクーン / ZEROの暴走 デッドリー・ハイウェイ / ツイン“LE",
       "reached_target": true,
       "final_win_rate": 0.7635,
@@ -330,13 +291,50 @@
       ],
       "improvement_log": [
         "初期平均勝率: 48.9%",
-        "反復1: [meta] エボリューション・エッグ×3 → 連鎖庇護類 ジュラピ×3。勝率 48.9% → 64.9%",
-        "反復2: [meta] エボリューション・エッグ×1/五郎丸コミュニケーション×2 → マツぽっくん×3。勝率 64.9% → 76.3%",
+        "反復1: [meta] 五郎丸コミュニケーション×2/ソーナンデス×1 → 連鎖庇護類 ジュラピ×3。勝率 48.9% → 64.0%",
+        "反復2: [meta] エボリューション・エッグ×3 → マツぽっくん×3。勝率 64.0% → 76.3%",
         "最終平均勝率: 76.3% (目標到達)"
       ]
     },
     {
-      "deck_id": 59,
+      "deck_id": 73,
+      "deck_name": "未開拓 opponent_deckout_win: 水面護り ハコフ/蓄積された魔力の縛り / 蓄積された魔力 / ハッスル・キャッ",
+      "reached_target": true,
+      "final_win_rate": 0.763,
+      "matchups": [
+        {
+          "opponent": "火光レイド",
+          "win_rate": 0.8125,
+          "average_finish_turn": 7.3
+        },
+        {
+          "opponent": "火水レイド",
+          "win_rate": 0.9925,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "光単裁きの紋章Z",
+          "win_rate": 0.735,
+          "average_finish_turn": 7.1
+        },
+        {
+          "opponent": "水単スコーラー",
+          "win_rate": 0.8775,
+          "average_finish_turn": 7.2
+        },
+        {
+          "opponent": "自然単デンジャデオン",
+          "win_rate": 0.3975,
+          "average_finish_turn": 7.0
+        }
+      ],
+      "improvement_log": [
+        "初期平均勝率: 76.3%",
+        "最終平均勝率: 76.3% (目標到達)"
+      ]
+    },
+    {
+      "deck_id": 77,
       "deck_name": "未開拓 alternate_effect_win: 完全防御革命 / ベイB パオパオ",
       "reached_target": true,
       "final_win_rate": 0.7265,

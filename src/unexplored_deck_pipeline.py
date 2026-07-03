@@ -30,7 +30,12 @@ from src.route_proof_searcher import list_proof_win_conditions, search_route_pro
 from src.route_deck_expander import expand_route_seed_to_deck
 from src.route_deck_validator import validate_expanded_deck
 from src.deck_development_engine import develop_unexplored_deck, development_log_to_note
-from src.card_dependency_checker import check_deck_dependencies, extract_dependencies
+from src.card_dependency_checker import (
+    _is_real_attacker,
+    check_deck_dependencies,
+    check_win_capability,
+    extract_dependencies,
+)
 from src.deck_development_engine import _find_reinforcement
 from src.route_deck_expander import _load_cards as _load_card_rows, _norm as _norm_name
 
@@ -201,11 +206,10 @@ def _card_text_index(db_path: str | Path) -> dict[str, dict[str, Any]]:
         }
 
 
-def _check_dependencies(
+def _enrich_rows(
     expansion: dict[str, Any],
     card_index: dict[str, dict[str, Any]],
-) -> dict[str, Any]:
-    """展開デッキに死にカード (依存未充足) がないか検証する。"""
+) -> list[dict[str, Any]]:
     enriched = []
     for row in expansion.get("deck_rows", []):
         card = dict(row)
@@ -214,7 +218,15 @@ def _check_dependencies(
         card["quantity"] = int(row.get("count") or 0)
         card.update(meta)
         enriched.append(card)
-    result = check_deck_dependencies(enriched)
+    return enriched
+
+
+def _check_dependencies(
+    expansion: dict[str, Any],
+    card_index: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    """展開デッキに死にカード (依存未充足) がないか検証する。"""
+    result = check_deck_dependencies(_enrich_rows(expansion, card_index))
     seed_names = {
         str(r.get("card_name"))
         for r in expansion.get("deck_rows", [])
@@ -286,6 +298,101 @@ def _replace_dead_cards(
     updated["deck_rows"] = kept
     updated["deck_size"] = sum(int(r.get("count") or 0) for r in kept)
     return updated, notes
+
+
+def _ensure_win_capability(
+    expansion: dict[str, Any],
+    card_rows: list[Any],
+    card_index: dict[str, dict[str, Any]],
+    max_swaps: int = 4,
+) -> tuple[dict[str, Any], dict[str, Any], list[str]]:
+    """勝ち筋のないデッキに攻撃可能なpayoffカードを注入する。
+
+    seed以外のdefense/flex過剰枠を削り、プレイヤーを攻撃できる
+    フィニッシャー級カードへ入れ替える。修繕不能ならそのまま返す
+    (呼び出し側が棄却判定する)。
+    """
+    notes: list[str] = []
+    current = dict(expansion)
+    win_check = check_win_capability(_enrich_rows(current, card_index))
+    if win_check["can_win"]:
+        return current, win_check, notes
+
+    route_type = str(current.get("route_type") or "lock_confirmed_win")
+    target_civs = {
+        c for c in str(current.get("target_civilizations") or "").split("/") if c
+    }
+
+    for _ in range(max_swaps):
+        deck_rows = [dict(r) for r in current.get("deck_rows", [])]
+        existing = {_norm_name(str(r.get("card_name"))) for r in deck_rows}
+
+        # 攻撃可能なpayoff候補を探す
+        addition = None
+        for card in sorted(
+            card_rows,
+            key=lambda c: ("フィニッシャー" not in c.tags, "打点" not in c.tags, c.cost),
+        ):
+            if _norm_name(card.name) in existing:
+                continue
+            if card.cost <= 0 or card.cost > 7:
+                continue
+            civs = {x for x in card.civ_set if x != "無色"}
+            if target_civs and civs and not (civs & target_civs):
+                continue
+            meta = card_index.get(card.name, {})
+            probe = {
+                "name": card.name,
+                "card_type": card.card_type,
+                "text": meta.get("text", ""),
+                "power": meta.get("power", ""),
+            }
+            if not _is_real_attacker(probe):
+                continue
+            if "フィニッシャー" in card.tags or "打点" in card.tags:
+                addition = card
+                break
+        if addition is None:
+            notes.append("攻撃可能なpayoff候補が見つからず修繕断念")
+            break
+
+        # 非seedのdefense/flexから3枚削る
+        cut_pool = sorted(
+            (r for r in deck_rows if "seed" not in str(r.get("role") or "")),
+            key=lambda r: (
+                not any(k in str(r.get("role") or "") for k in ("flex", "defense")),
+                -int(r.get("cost") or 0),
+            ),
+        )
+        if not cut_pool:
+            notes.append("削れる枠がなく修繕断念")
+            break
+        cut = cut_pool[0]
+        take = min(3, int(cut.get("count") or 0))
+        cut["count"] = int(cut.get("count") or 0) - take
+        deck_rows = [r for r in deck_rows if int(r.get("count") or 0) > 0]
+        meta = card_index.get(addition.name, {})
+        deck_rows.append(
+            {
+                "count": take,
+                "card_name": addition.name,
+                "civilization": addition.civilization,
+                "cost": addition.cost,
+                "card_type": addition.card_type,
+                "tags": addition.tags,
+                "role": "payoff",
+            }
+        )
+        notes.append(f"勝ち筋補強: {cut.get('card_name')}×{take} → {addition.name}×{take}")
+        current = dict(current)
+        current["deck_rows"] = deck_rows
+        current["deck_size"] = sum(int(r.get("count") or 0) for r in deck_rows)
+
+        win_check = check_win_capability(_enrich_rows(current, card_index))
+        if win_check["can_win"]:
+            break
+
+    return current, win_check, notes
 
 
 def _load_reference_decks(db_path: str | Path) -> list[list[dict[str, Any]]]:
@@ -466,6 +573,21 @@ def run_unexplored_deck_pipeline(
                 ]
                 results.append(entry)
                 continue
+            validation = validate_expanded_deck(expansion)
+            verdict = validation.get("validation_verdict", "棄却候補")
+
+        # 3a2. 勝ち筋の実在チェック (受けだけで勝てないデッキを修繕/棄却)
+        expansion, win_check, win_notes = _ensure_win_capability(
+            expansion, card_rows, card_index
+        )
+        entry["win_capability"] = win_check["verdict"]
+        if win_notes:
+            entry["win_capability_notes"] = win_notes
+        if not win_check["can_win"]:
+            entry["status"] = "no_win_condition"
+            results.append(entry)
+            continue
+        if win_notes:
             validation = validate_expanded_deck(expansion)
             verdict = validation.get("validation_verdict", "棄却候補")
 

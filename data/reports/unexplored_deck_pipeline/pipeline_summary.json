@@ -1,5 +1,5 @@
 {
-  "executed_at": "2026-07-03T01:05:38",
+  "executed_at": "2026-07-03T01:13:31",
   "seed_candidates_total": 86,
   "proof_based_candidates": 36,
   "novelty_reference_decks": 5,
@@ -7,15 +7,15 @@
   "expanded_count": 12,
   "saved_count": 9,
   "saved_deck_ids": [
-    53,
-    54,
-    55,
-    56,
-    57,
-    58,
-    59,
-    60,
-    61
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79
   ],
   "allow_fixable": true,
   "min_adjusted_score": 55,
@@ -29,6 +29,7 @@
       "seed_all_pieces_prob": 0.737,
       "route_online_turn": 5,
       "dependency_verdict": "依存OK",
+      "win_capability": "勝ち筋OK",
       "validation_verdict": "要修正",
       "warning_count": 2,
       "novelty_score": 81,
@@ -36,7 +37,7 @@
       "combined_score": 79,
       "candidate_origin": "route_based",
       "status": "saved",
-      "generated_deck_id": 53,
+      "generated_deck_id": 71,
       "deck_size": 40
     },
     {
@@ -48,14 +49,18 @@
       "seed_all_pieces_prob": 0.69,
       "route_online_turn": 6,
       "dependency_verdict": "依存OK",
-      "validation_verdict": "要修正",
-      "warning_count": 3,
-      "novelty_score": 82,
-      "max_similarity_to_known": 0.13,
-      "combined_score": 80,
+      "win_capability": "勝ち筋OK",
+      "win_capability_notes": [
+        "勝ち筋補強: 死亡遊戯×3 → 龍装者 バルチュリス×3"
+      ],
+      "validation_verdict": "検証OK",
+      "warning_count": 2,
+      "novelty_score": 81,
+      "max_similarity_to_known": 0.14,
+      "combined_score": 79,
       "candidate_origin": "route_based",
       "status": "saved",
-      "generated_deck_id": 54,
+      "generated_deck_id": 72,
       "deck_size": 40
     },
     {
@@ -97,14 +102,20 @@
       "seed_all_pieces_prob": 0.665,
       "route_online_turn": 5,
       "dependency_verdict": "依存OK",
-      "validation_verdict": "検証OK",
-      "warning_count": 2,
+      "win_capability": "勝ち筋OK",
+      "win_capability_notes": [
+        "勝ち筋補強: 夜の青守銀 シャイン×3 → ナ・ハナキ・リー×3",
+        "勝ち筋補強: 夜の青守銀 シャイン×1 → リブロッコ・タンク×1",
+        "勝ち筋補強: 白騎士の絶対防御マッコル×3 → チョートッQ×3"
+      ],
+      "validation_verdict": "要修正",
+      "warning_count": 3,
       "novelty_score": 82,
       "max_similarity_to_known": 0.14,
       "combined_score": 80,
       "candidate_origin": "route_based",
       "status": "saved",
-      "generated_deck_id": 55,
+      "generated_deck_id": 73,
       "deck_size": 40
     },
     {
@@ -131,14 +142,18 @@
       "seed_all_pieces_prob": 0.7,
       "route_online_turn": 3,
       "dependency_verdict": "依存OK",
+      "win_capability": "勝ち筋OK",
+      "win_capability_notes": [
+        "勝ち筋補強: 水面護り ハコフ/蓄積された魔力の縛り×3 → 龍装者 バルチュリス×3"
+      ],
       "validation_verdict": "検証OK",
       "warning_count": 1,
-      "novelty_score": 72,
-      "max_similarity_to_known": 0.25,
+      "novelty_score": 73,
+      "max_similarity_to_known": 0.24,
       "combined_score": 74,
       "candidate_origin": "proof_based",
       "status": "saved",
-      "generated_deck_id": 56,
+      "generated_deck_id": 74,
       "deck_size": 40
     },
     {
@@ -150,6 +165,7 @@
       "seed_all_pieces_prob": 0.836,
       "route_online_turn": 4,
       "dependency_verdict": "依存OK",
+      "win_capability": "勝ち筋OK",
       "validation_verdict": "要修正",
       "warning_count": 1,
       "novelty_score": 70,
@@ -157,7 +173,7 @@
       "combined_score": 73,
       "candidate_origin": "proof_based",
       "status": "saved",
-      "generated_deck_id": 57,
+      "generated_deck_id": 75,
       "deck_size": 40
     },
     {
@@ -169,14 +185,18 @@
       "seed_all_pieces_prob": 0.585,
       "route_online_turn": 6,
       "dependency_verdict": "依存OK",
+      "win_capability": "勝ち筋OK",
+      "win_capability_notes": [
+        "勝ち筋補強: 夜のジャッジ・チュリス×3 → 龍装者 バルチュリス×3"
+      ],
       "validation_verdict": "要修正",
       "warning_count": 3,
       "novelty_score": 78,
-      "max_similarity_to_known": 0.18,
+      "max_similarity_to_known": 0.19,
       "combined_score": 76,
       "candidate_origin": "route_based",
       "status": "saved",
-      "generated_deck_id": 58,
+      "generated_deck_id": 76,
       "deck_size": 40
     },
     {
@@ -188,6 +208,7 @@
       "seed_all_pieces_prob": 0.7,
       "route_online_turn": 3,
       "dependency_verdict": "依存やや弱い",
+      "win_capability": "勝ち筋OK",
       "validation_verdict": "要修正",
       "warning_count": 0,
       "novelty_score": 80,
@@ -195,7 +216,7 @@
       "combined_score": 77,
       "candidate_origin": "proof_based",
       "status": "saved",
-      "generated_deck_id": 59,
+      "generated_deck_id": 77,
       "deck_size": 40
     },
     {
@@ -207,14 +228,18 @@
       "seed_all_pieces_prob": 0.862,
       "route_online_turn": 4,
       "dependency_verdict": "依存やや弱い",
+      "win_capability": "勝ち筋OK",
+      "win_capability_notes": [
+        "勝ち筋補強: ボールぺんぎん×2 → チョートッQ×2"
+      ],
       "validation_verdict": "検証OK",
       "warning_count": 1,
       "novelty_score": 83,
-      "max_similarity_to_known": 0.12,
+      "max_similarity_to_known": 0.13,
       "combined_score": 78,
       "candidate_origin": "proof_based",
       "status": "saved",
-      "generated_deck_id": 60,
+      "generated_deck_id": 78,
       "deck_size": 40
     },
     {
@@ -226,6 +251,7 @@
       "seed_all_pieces_prob": 0.7,
       "route_online_turn": 1,
       "dependency_verdict": "依存OK",
+      "win_capability": "勝ち筋OK",
       "validation_verdict": "要修正",
       "warning_count": 0,
       "novelty_score": 84,
@@ -233,7 +259,7 @@
       "combined_score": 79,
       "candidate_origin": "proof_based",
       "status": "saved",
-      "generated_deck_id": 61,
+      "generated_deck_id": 79,
       "deck_size": 40
     }
   ]

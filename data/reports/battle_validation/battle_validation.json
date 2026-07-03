@@ -1,63 +1,23 @@
 {
-  "executed_at": "2026-07-02T08:51:56",
+  "executed_at": "2026-07-03T01:05:57",
   "target_win_rate": 0.7,
   "meta_deck_count": 5,
-  "validated_decks": 12,
-  "champions": 12,
+  "validated_decks": 9,
+  "champions": 9,
   "champion_ids": [
-    41,
-    42,
-    43,
-    44,
-    45,
-    46,
-    47,
-    48,
-    49,
-    50,
-    51,
-    52
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
   ],
   "results": [
     {
-      "deck_id": 43,
-      "deck_name": "未開拓 loop_converted_win: 堕呪 ウキドゥ / トラップ×トラップ / マザー・エイリアン",
-      "reached_target": true,
-      "final_win_rate": 0.836,
-      "matchups": [
-        {
-          "opponent": "火光レイド",
-          "win_rate": 0.8825,
-          "average_finish_turn": 7.1
-        },
-        {
-          "opponent": "火水レイド",
-          "win_rate": 0.995,
-          "average_finish_turn": 7.0
-        },
-        {
-          "opponent": "光単裁きの紋章Z",
-          "win_rate": 0.8425,
-          "average_finish_turn": 6.9
-        },
-        {
-          "opponent": "水単スコーラー",
-          "win_rate": 0.94,
-          "average_finish_turn": 7.0
-        },
-        {
-          "opponent": "自然単デンジャデオン",
-          "win_rate": 0.52,
-          "average_finish_turn": 7.0
-        }
-      ],
-      "improvement_log": [
-        "初期平均勝率: 83.6%",
-        "最終平均勝率: 83.6% (目標到達)"
-      ]
-    },
-    {
-      "deck_id": 45,
+      "deck_id": 55,
       "deck_name": "未開拓 opponent_deckout_win: 水面護り ハコフ/蓄積された魔力の縛り / 蓄積された魔力 / ハッスル・キャッ",
       "reached_target": true,
       "final_win_rate": 0.824,
@@ -94,44 +54,7 @@
       ]
     },
     {
-      "deck_id": 44,
-      "deck_name": "未開拓 alternate_effect_win: アクア・スーパーエメラル / TOYザマス / コレンココ・タンク",
-      "reached_target": true,
-      "final_win_rate": 0.8235,
-      "matchups": [
-        {
-          "opponent": "火光レイド",
-          "win_rate": 0.8675,
-          "average_finish_turn": 7.1
-        },
-        {
-          "opponent": "火水レイド",
-          "win_rate": 0.995,
-          "average_finish_turn": 7.0
-        },
-        {
-          "opponent": "光単裁きの紋章Z",
-          "win_rate": 0.8225,
-          "average_finish_turn": 7.0
-        },
-        {
-          "opponent": "水単スコーラー",
-          "win_rate": 0.93,
-          "average_finish_turn": 7.0
-        },
-        {
-          "opponent": "自然単デンジャデオン",
-          "win_rate": 0.5025,
-          "average_finish_turn": 7.0
-        }
-      ],
-      "improvement_log": [
-        "初期平均勝率: 82.3%",
-        "最終平均勝率: 82.3% (目標到達)"
-      ]
-    },
-    {
-      "deck_id": 41,
+      "deck_id": 53,
       "deck_name": "未開拓 lock_confirmed_win: 宣凶師ドロシア / オ・ジンレオ・タンク / 星龍パーフェクト・アース",
       "reached_target": true,
       "final_win_rate": 0.797,
@@ -168,7 +91,7 @@
       ]
     },
     {
-      "deck_id": 52,
+      "deck_id": 61,
       "deck_name": "未開拓 direct_attack_win: 天斬の悪魔龍 ジュランデス / 連鎖庇護類 ジュラピ",
       "reached_target": true,
       "final_win_rate": 0.797,
@@ -205,7 +128,7 @@
       ]
     },
     {
-      "deck_id": 49,
+      "deck_id": 58,
       "deck_name": "未開拓 loop_converted_win: 【問1】テック / ブレイン×ブレイン / ガルベリアス・ドラゴン",
       "reached_target": true,
       "final_win_rate": 0.795,
@@ -242,7 +165,7 @@
       ]
     },
     {
-      "deck_id": 47,
+      "deck_id": 56,
       "deck_name": "未開拓 lock_confirmed_win: 竜のフレア・エッグ / アクア・カスケード",
       "reached_target": true,
       "final_win_rate": 0.791,
@@ -287,7 +210,7 @@
       ]
     },
     {
-      "deck_id": 48,
+      "deck_id": 57,
       "deck_name": "未開拓 damage_overflow_win: 相撲 Dr.ウンリュウ",
       "reached_target": true,
       "final_win_rate": 0.79,
@@ -337,7 +260,7 @@
       ]
     },
     {
-      "deck_id": 51,
+      "deck_id": 60,
       "deck_name": "未開拓 opponent_deckout_win: 戦攻妖精クルメル",
       "reached_target": true,
       "final_win_rate": 0.786,
@@ -374,44 +297,7 @@
       ]
     },
     {
-      "deck_id": 46,
-      "deck_name": "未開拓 direct_attack_win: 天斬の悪魔龍 ジュランデス / D2B バブール",
-      "reached_target": true,
-      "final_win_rate": 0.7765,
-      "matchups": [
-        {
-          "opponent": "火光レイド",
-          "win_rate": 0.825,
-          "average_finish_turn": 7.3
-        },
-        {
-          "opponent": "火水レイド",
-          "win_rate": 0.9925,
-          "average_finish_turn": 7.1
-        },
-        {
-          "opponent": "光単裁きの紋章Z",
-          "win_rate": 0.76,
-          "average_finish_turn": 7.1
-        },
-        {
-          "opponent": "水単スコーラー",
-          "win_rate": 0.8925,
-          "average_finish_turn": 7.2
-        },
-        {
-          "opponent": "自然単デンジャデオン",
-          "win_rate": 0.4125,
-          "average_finish_turn": 7.0
-        }
-      ],
-      "improvement_log": [
-        "初期平均勝率: 77.6%",
-        "最終平均勝率: 77.6% (目標到達)"
-      ]
-    },
-    {
-      "deck_id": 42,
+      "deck_id": 54,
       "deck_name": "未開拓 damage_overflow_win: ピクシー・コクーン / ZEROの暴走 デッドリー・ハイウェイ / ツイン“LE",
       "reached_target": true,
       "final_win_rate": 0.7635,
@@ -450,7 +336,7 @@
       ]
     },
     {
-      "deck_id": 50,
+      "deck_id": 59,
       "deck_name": "未開拓 alternate_effect_win: 完全防御革命 / ベイB パオパオ",
       "reached_target": true,
       "final_win_rate": 0.7265,

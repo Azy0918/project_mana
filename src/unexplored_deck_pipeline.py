@@ -30,6 +30,9 @@ from src.route_proof_searcher import list_proof_win_conditions, search_route_pro
 from src.route_deck_expander import expand_route_seed_to_deck
 from src.route_deck_validator import validate_expanded_deck
 from src.deck_development_engine import develop_unexplored_deck, development_log_to_note
+from src.card_dependency_checker import check_deck_dependencies, extract_dependencies
+from src.deck_development_engine import _find_reinforcement
+from src.route_deck_expander import _load_cards as _load_card_rows, _norm as _norm_name
 
 DEFAULT_OUTPUT_DIR = Path("data/reports/unexplored_deck_pipeline")
 
@@ -185,6 +188,106 @@ def _generate_proof_based_candidates(
     return candidates
 
 
+def _card_text_index(db_path: str | Path) -> dict[str, dict[str, Any]]:
+    with sqlite3.connect(str(db_path)) as conn:
+        conn.row_factory = sqlite3.Row
+        return {
+            str(row["name"]): {
+                "text": str(row["text"] or ""),
+                "power": str(row["power"] or ""),
+                "race": str(row["race"] or ""),
+            }
+            for row in conn.execute("SELECT name, text, power, race FROM cards")
+        }
+
+
+def _check_dependencies(
+    expansion: dict[str, Any],
+    card_index: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    """展開デッキに死にカード (依存未充足) がないか検証する。"""
+    enriched = []
+    for row in expansion.get("deck_rows", []):
+        card = dict(row)
+        meta = card_index.get(str(row.get("card_name") or ""), {})
+        card["name"] = row.get("card_name", "")
+        card["quantity"] = int(row.get("count") or 0)
+        card.update(meta)
+        enriched.append(card)
+    result = check_deck_dependencies(enriched)
+    seed_names = {
+        str(r.get("card_name"))
+        for r in expansion.get("deck_rows", [])
+        if "seed" in str(r.get("role") or "")
+    }
+    result["dead_seed_cards"] = sorted(
+        set(result["dead_card_names"]) & seed_names
+    )
+    return result
+
+
+def _replace_dead_cards(
+    expansion: dict[str, Any],
+    dead_names: list[str],
+    card_rows: list[Any],
+    card_index: dict[str, dict[str, Any]],
+) -> tuple[dict[str, Any], list[str]]:
+    """死にカード(非seed)を外し、同roleの依存フリーなカードで穴埋めする。"""
+    notes: list[str] = []
+    kept: list[dict[str, Any]] = []
+    dropped: list[dict[str, Any]] = []
+    for row in expansion.get("deck_rows", []):
+        if str(row.get("card_name")) in dead_names:
+            dropped.append(row)
+        else:
+            kept.append(dict(row))
+
+    route_type = str(expansion.get("route_type") or "lock_confirmed_win")
+    target_civs = {
+        c for c in str(expansion.get("target_civilizations") or "").split("/") if c
+    }
+    existing = {str(r.get("card_name")) for r in kept}
+
+    for row in dropped:
+        role = str(row.get("role") or "flex").split("/")[0]
+        count = int(row.get("count") or 0)
+        replacement = None
+        # 依存を持たない補充カードを探す (最大5回試行)
+        for _ in range(5):
+            candidate = _find_reinforcement(
+                card_rows, role, route_type, target_civs,
+                {_norm_name(name) for name in existing},
+            )
+            if candidate is None:
+                break
+            meta = card_index.get(candidate.name, {})
+            deps = extract_dependencies({"name": candidate.name, "text": meta.get("text", "")})
+            existing.add(candidate.name)
+            if not deps:
+                replacement = candidate
+                break
+        if replacement is not None:
+            kept.append(
+                {
+                    "count": count,
+                    "card_name": replacement.name,
+                    "civilization": replacement.civilization,
+                    "cost": replacement.cost,
+                    "card_type": replacement.card_type,
+                    "tags": replacement.tags,
+                    "role": role,
+                }
+            )
+            notes.append(f"{row.get('card_name')} (依存未充足) → {replacement.name} に置換")
+        else:
+            notes.append(f"{row.get('card_name')} (依存未充足) を除外。代替が見つからず{count}枚欠員")
+
+    updated = dict(expansion)
+    updated["deck_rows"] = kept
+    updated["deck_size"] = sum(int(r.get("count") or 0) for r in kept)
+    return updated, notes
+
+
 def _load_reference_decks(db_path: str | Path) -> list[list[dict[str, Any]]]:
     """処方箋a: novelty計算の参照プール (環境デッキ + 既存生成デッキ)。"""
     references: list[list[dict[str, Any]]] = []
@@ -280,6 +383,10 @@ def run_unexplored_deck_pipeline(
     # novelty参照プール (環境デッキ + 既存生成デッキ)
     reference_decks = _load_reference_decks(db_path)
 
+    # 依存関係チェック用のカードテキスト索引と補充用カードプール
+    card_index = _card_text_index(db_path)
+    card_rows = _load_card_rows(db_path)
+
     eligible = [
         c for c in candidates
         if int(c.get("adjusted_route_score") or 0) >= min_adjusted_score
@@ -331,6 +438,34 @@ def run_unexplored_deck_pipeline(
                 validation = validate_expanded_deck(expansion)
                 verdict = validation.get("validation_verdict", "棄却候補")
         else:
+            validation = validate_expanded_deck(expansion)
+            verdict = validation.get("validation_verdict", "棄却候補")
+
+        # 3a. 依存関係チェック (死にカード検出 — ルール上決定的な検証)
+        dep_result = _check_dependencies(expansion, card_index)
+        entry["dependency_verdict"] = dep_result["verdict"]
+        if dep_result["dead_seed_cards"]:
+            # seedカード自体が機能しないデッキは救済不能。棄却する
+            entry["status"] = "dead_seed_dependency"
+            entry["dead_cards"] = [
+                f"{d['card_name']} <- {d['dependency']}" for d in dep_result["dead_cards"]
+            ]
+            results.append(entry)
+            continue
+        if dep_result["has_dead_cards"]:
+            # 非seedの死にカードは依存フリーの同roleカードへ置換して再検証
+            expansion, replace_notes = _replace_dead_cards(
+                expansion, dep_result["dead_card_names"], card_rows, card_index
+            )
+            entry["dead_card_replacements"] = replace_notes
+            recheck = _check_dependencies(expansion, card_index)
+            if recheck["has_dead_cards"]:
+                entry["status"] = "unresolved_dead_dependency"
+                entry["dead_cards"] = [
+                    f"{d['card_name']} <- {d['dependency']}" for d in recheck["dead_cards"]
+                ]
+                results.append(entry)
+                continue
             validation = validate_expanded_deck(expansion)
             verdict = validation.get("validation_verdict", "棄却候補")
 

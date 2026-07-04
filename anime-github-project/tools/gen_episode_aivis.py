@@ -36,11 +36,13 @@ _OVR = TOOLS / "line_reading_overrides.json"
 LINE_READING = json.loads(_OVR.read_text(encoding="utf-8")) if _OVR.exists() else {}
 # 第13レジ登場の効果音を、指定行(登場の宣言/ナレーション)の直後に挿入。{id: wav(44.1kHz mono)}
 _SFX = TOOLS / "sfx_register.wav"
+_SFX_SCAN = TOOLS / "sfx_scan.wav"  # 通常レジのスキャン音「ピッ」(台本の通常レジSE行の代替)
 SFX_AFTER = {k: _SFX for k in (
     "ep02_v024",  # 「第13レジ。ただいま営業中。」
-    "ep03_v036_reg", "ep04_v017", "ep05_v009_reg", "ep06_v009_reg", "ep07_v007_reg",
+    "ep03_v036_reg", "ep04_v015", "ep05_v009_reg", "ep06_v009_reg", "ep07_v007_reg",
     "ep08_v008_reg", "ep09_v011_reg", "ep10_v015_reg", "ep11_v007_reg", "ep12_v015_reg",  # 各話 登場「ただいま営業中」直後
 )}
+SFX_AFTER.update({"ep04_v044": _SFX_SCAN, "ep04_v059": _SFX_SCAN})  # EP04改修版(2026-07)のスキャンSE位置
 def _sfx_pcm(p):
     with wave.open(str(p), "rb") as w:
         return w.readframes(w.getnframes())

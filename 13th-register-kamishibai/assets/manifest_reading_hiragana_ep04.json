@@ -163,8 +163,8 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "現実に戻さないでください。",
-    "synthesis_text": "現実に戻さないでください。",
+    "text": "現実に戻さないで。",
+    "synthesis_text": "現実に戻さないで。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v013.wav"
   },
@@ -210,19 +210,6 @@
   {
     "id": "ep04_v017",
     "cut": "ep04_017",
-    "visualCutId": "vc03",
-    "character": "タクミ",
-    "speaker_name": "にせ",
-    "style_name": "ノーマル",
-    "style_id": "1937616896",
-    "text": "確認しないでほしい。",
-    "synthesis_text": "確認しないでほしい。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v017.wav"
-  },
-  {
-    "id": "ep04_v018",
-    "cut": "ep04_018",
     "visualCutId": "vc04",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -230,6 +217,19 @@
     "style_id": "1805828384",
     "text": "未来レシートを先行印字します。",
     "synthesis_text": "未来レシートを先行印字します。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v017.wav"
+  },
+  {
+    "id": "ep04_v018",
+    "cut": "ep04_018",
+    "visualCutId": "vc04",
+    "character": "ナレーション",
+    "speaker_name": "澤原 玄二郎",
+    "style_name": "ノーマル",
+    "style_id": "2029042368",
+    "text": "レシートが出た。",
+    "synthesis_text": "レシートが出た。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v018.wav"
   },
@@ -241,8 +241,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "レシートが出た。",
-    "synthesis_text": "レシートが出た。",
+    "text": "唐揚げ棒、1点。お詫び、1件。",
+    "synthesis_text": "唐揚げ棒、1点。お詫び、1件。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v019.wav"
   },
@@ -254,27 +254,14 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "唐揚げ棒、1点。お詫び、1件。",
-    "synthesis_text": "唐揚げ棒、1点。お詫び、1件。",
+    "text": "理由。記憶ほど熱くありませんでした。",
+    "synthesis_text": "理由。記憶ほど熱くありませんでした。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v020.wav"
   },
   {
     "id": "ep04_v021",
     "cut": "ep04_021",
-    "visualCutId": "vc04",
-    "character": "ナレーション",
-    "speaker_name": "澤原 玄二郎",
-    "style_name": "ノーマル",
-    "style_id": "2029042368",
-    "text": "理由。記憶ほど熱くありませんでした。",
-    "synthesis_text": "理由。記憶ほど熱くありませんでした。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v021.wav"
-  },
-  {
-    "id": "ep04_v022",
-    "cut": "ep04_022",
     "visualCutId": "vc04",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -283,37 +270,11 @@
     "text": "お詫びが会計に入ってる。",
     "synthesis_text": "お詫びが会計に入ってる。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v022.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v021.wav"
   },
   {
-    "id": "ep04_v023",
-    "cut": "ep04_023",
-    "visualCutId": "vc04",
-    "character": "第十三レジ",
-    "speaker_name": "ろてじん（匿名インタビュー風）",
-    "style_name": "ノーマル",
-    "style_id": "1805828384",
-    "text": "このまま発行すると、未来クレームが確定します。",
-    "synthesis_text": "このまま発行すると、未来クレームが確定します。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v023.wav"
-  },
-  {
-    "id": "ep04_v024",
-    "cut": "ep04_024",
-    "visualCutId": "vc04",
-    "character": "タクミ",
-    "speaker_name": "にせ",
-    "style_name": "ノーマル",
-    "style_id": "1937616896",
-    "text": "じゃあ出さないでください。",
-    "synthesis_text": "じゃあ出さないでください。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v024.wav"
-  },
-  {
-    "id": "ep04_v025",
-    "cut": "ep04_025",
+    "id": "ep04_v022",
+    "cut": "ep04_022",
     "visualCutId": "vc04",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -322,11 +283,11 @@
     "text": "先に謝る仕様です。",
     "synthesis_text": "先に謝る仕様です。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v025.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v022.wav"
   },
   {
-    "id": "ep04_v026",
-    "cut": "ep04_026",
+    "id": "ep04_v023",
+    "cut": "ep04_023",
     "visualCutId": "vc04",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -334,6 +295,45 @@
     "style_id": "1937616896",
     "text": "謝るなら未来変えてください。",
     "synthesis_text": "謝るなら未来変えてください。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v023.wav"
+  },
+  {
+    "id": "ep04_v024",
+    "cut": "ep04_024",
+    "visualCutId": "vc05",
+    "character": "ナレーション",
+    "speaker_name": "澤原 玄二郎",
+    "style_name": "ノーマル",
+    "style_id": "2029042368",
+    "text": "自動ドアが開いた。",
+    "synthesis_text": "自動ドアが開いた。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v024.wav"
+  },
+  {
+    "id": "ep04_v025",
+    "cut": "ep04_025",
+    "visualCutId": "vc05",
+    "character": "汗田竜司",
+    "speaker_name": "阿井田 茂",
+    "style_name": "ノーマル",
+    "style_id": "1310138976",
+    "text": "ホットスナック付近に、感情の熱源あり。",
+    "synthesis_text": "ホットスナック付近に、感情の熱源あり。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v025.wav"
+  },
+  {
+    "id": "ep04_v026",
+    "cut": "ep04_026",
+    "visualCutId": "vc05",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": "1937616896",
+    "text": "言い方。",
+    "synthesis_text": "言い方。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v026.wav"
   },
@@ -345,8 +345,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "ノーマル",
     "style_id": "2029042368",
-    "text": "自動ドアが開いた。",
-    "synthesis_text": "自動ドアが開いた。",
+    "text": "汗田はレシートを見た。",
+    "synthesis_text": "あせだはレシートを見た。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v027.wav"
   },
@@ -358,8 +358,8 @@
     "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
     "style_id": "1310138976",
-    "text": "ホットスナック付近に、感情の熱源あり。",
-    "synthesis_text": "ホットスナック付近に、感情の熱源あり。",
+    "text": "原因は謝罪不足じゃない。",
+    "synthesis_text": "原因は謝罪不足じゃない。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v028.wav"
   },
@@ -371,53 +371,14 @@
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "言い方。",
-    "synthesis_text": "言い方。",
+    "text": "じゃあ何ですか。",
+    "synthesis_text": "じゃあ何ですか。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v029.wav"
   },
   {
     "id": "ep04_v030",
     "cut": "ep04_030",
-    "visualCutId": "vc05",
-    "character": "ナレーション",
-    "speaker_name": "澤原 玄二郎",
-    "style_name": "ノーマル",
-    "style_id": "2029042368",
-    "text": "汗田はレシートを見た。",
-    "synthesis_text": "あせだはレシートを見た。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v030.wav"
-  },
-  {
-    "id": "ep04_v031",
-    "cut": "ep04_031",
-    "visualCutId": "vc05",
-    "character": "汗田竜司",
-    "speaker_name": "阿井田 茂",
-    "style_name": "ノーマル",
-    "style_id": "1310138976",
-    "text": "原因は謝罪不足じゃない。",
-    "synthesis_text": "原因は謝罪不足じゃない。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v031.wav"
-  },
-  {
-    "id": "ep04_v032",
-    "cut": "ep04_032",
-    "visualCutId": "vc05",
-    "character": "タクミ",
-    "speaker_name": "にせ",
-    "style_name": "ノーマル",
-    "style_id": "1937616896",
-    "text": "じゃあ何ですか。",
-    "synthesis_text": "じゃあ何ですか。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v032.wav"
-  },
-  {
-    "id": "ep04_v033",
-    "cut": "ep04_033",
     "visualCutId": "vc05",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -426,11 +387,11 @@
     "text": "温度のズレだ。",
     "synthesis_text": "温度のズレだ。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v033.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v030.wav"
   },
   {
-    "id": "ep04_v034",
-    "cut": "ep04_034",
+    "id": "ep04_v031",
+    "cut": "ep04_031",
     "visualCutId": "vc05",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -439,11 +400,11 @@
     "text": "唐揚げ棒の？",
     "synthesis_text": "唐揚げ棒の？",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v034.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v031.wav"
   },
   {
-    "id": "ep04_v035",
-    "cut": "ep04_035",
+    "id": "ep04_v032",
+    "cut": "ep04_032",
     "visualCutId": "vc05",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -452,11 +413,11 @@
     "text": "商品温度と、客の記憶温度。",
     "synthesis_text": "商品温度と、客の記憶温度。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v035.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v032.wav"
   },
   {
-    "id": "ep04_v036",
-    "cut": "ep04_036",
+    "id": "ep04_v033",
+    "cut": "ep04_033",
     "visualCutId": "vc05",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -465,89 +426,50 @@
     "text": "記憶に温度をつけないでください。",
     "synthesis_text": "記憶に温度をつけないでください。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v036.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v033.wav"
   },
   {
-    "id": "ep04_v037",
-    "cut": "ep04_037",
+    "id": "ep04_v034",
+    "cut": "ep04_034",
     "visualCutId": "vc06",
-    "character": "第十三レジ",
-    "speaker_name": "ろてじん（匿名インタビュー風）",
+    "character": "汗田竜司",
+    "speaker_name": "阿井田 茂",
     "style_name": "ノーマル",
-    "style_id": "1805828384",
-    "text": "商品温度、46度。",
-    "synthesis_text": "商品温度、46度。",
+    "style_id": "1310138976",
+    "text": "この温度差が無くなればクレームも出ないはず。",
+    "synthesis_text": "この温度差が無くなればクレームも出ないはず。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v037.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v034.wav"
   },
   {
-    "id": "ep04_v038",
-    "cut": "ep04_038",
-    "visualCutId": "vc06",
-    "character": "第十三レジ",
-    "speaker_name": "ろてじん（匿名インタビュー風）",
-    "style_name": "ノーマル",
-    "style_id": "1805828384",
-    "text": "記憶温度、未照合。",
-    "synthesis_text": "記憶温度、未照合。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v038.wav"
-  },
-  {
-    "id": "ep04_v039",
-    "cut": "ep04_039",
+    "id": "ep04_v035",
+    "cut": "ep04_035",
     "visualCutId": "vc06",
     "character": "タクミ",
     "speaker_name": "にせ",
     "style_name": "ノーマル",
     "style_id": "1937616896",
-    "text": "未照合で謝ったんですか。",
-    "synthesis_text": "未照合で謝ったんですか。",
+    "text": "記憶温度なんて、どう計ればいいんですか。",
+    "synthesis_text": "記憶温度なんて、どう計ればいいんですか。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v039.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v035.wav"
   },
   {
-    "id": "ep04_v040",
-    "cut": "ep04_040",
-    "visualCutId": "vc06",
-    "character": "第十三レジ",
-    "speaker_name": "ろてじん（匿名インタビュー風）",
-    "style_name": "ノーマル",
-    "style_id": "1805828384",
-    "text": "先に謝る仕様です。",
-    "synthesis_text": "先に謝る仕様です。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v040.wav"
-  },
-  {
-    "id": "ep04_v041",
-    "cut": "ep04_041",
-    "visualCutId": "vc06",
-    "character": "タクミ",
-    "speaker_name": "にせ",
-    "style_name": "ノーマル",
-    "style_id": "1937616896",
-    "text": "ちゃんと分析してください。",
-    "synthesis_text": "ちゃんと分析してください。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v041.wav"
-  },
-  {
-    "id": "ep04_v042",
-    "cut": "ep04_042",
+    "id": "ep04_v036",
+    "cut": "ep04_036",
     "visualCutId": "vc06",
     "character": "エリ",
     "speaker_name": "中2",
     "style_name": "ノーマル",
     "style_id": "604166016",
-    "text": "温め直す？",
-    "synthesis_text": "温め直す？",
+    "text": "スキャンする？",
+    "synthesis_text": "スキャンする？",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v042.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v036.wav"
   },
   {
-    "id": "ep04_v043",
-    "cut": "ep04_043",
+    "id": "ep04_v037",
+    "cut": "ep04_037",
     "visualCutId": "vc06",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -556,11 +478,11 @@
     "text": "それだ。",
     "synthesis_text": "それだ。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v043.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v037.wav"
   },
   {
-    "id": "ep04_v044",
-    "cut": "ep04_044",
+    "id": "ep04_v038",
+    "cut": "ep04_038",
     "visualCutId": "vc07",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -569,11 +491,11 @@
     "text": "エリは唐揚げ棒をスキャナーに近づけた。",
     "synthesis_text": "エリは唐揚げ棒をスキャナーに近づけた。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v044.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v038.wav"
   },
   {
-    "id": "ep04_v045",
-    "cut": "ep04_045",
+    "id": "ep04_v039",
+    "cut": "ep04_039",
     "visualCutId": "vc07",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -582,11 +504,11 @@
     "text": "商品温度、46度。",
     "synthesis_text": "商品温度、46度。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v045.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v039.wav"
   },
   {
-    "id": "ep04_v046",
-    "cut": "ep04_046",
+    "id": "ep04_v040",
+    "cut": "ep04_040",
     "visualCutId": "vc07",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -595,11 +517,11 @@
     "text": "そこは普通。",
     "synthesis_text": "そこは普通。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v046.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v040.wav"
   },
   {
-    "id": "ep04_v047",
-    "cut": "ep04_047",
+    "id": "ep04_v041",
+    "cut": "ep04_041",
     "visualCutId": "vc07",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -608,11 +530,11 @@
     "text": "購入予定者のスキャンが必要です。",
     "synthesis_text": "購入予定者のスキャンが必要です。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v047.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v041.wav"
   },
   {
-    "id": "ep04_v048",
-    "cut": "ep04_048",
+    "id": "ep04_v042",
+    "cut": "ep04_042",
     "visualCutId": "vc07",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -621,11 +543,11 @@
     "text": "どうやって？",
     "synthesis_text": "どうやって？",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v048.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v042.wav"
   },
   {
-    "id": "ep04_v049",
-    "cut": "ep04_049",
+    "id": "ep04_v043",
+    "cut": "ep04_043",
     "visualCutId": "vc08",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -634,11 +556,11 @@
     "text": "第十三レジの上部に見慣れないリング状の装置が展開し、淡い光が空間に広がる。",
     "synthesis_text": "第十三レジの上部に見慣れないリング状の装置が展開し、淡い光が空間に広がる。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v049.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v043.wav"
   },
   {
-    "id": "ep04_v050",
-    "cut": "ep04_050",
+    "id": "ep04_v044",
+    "cut": "ep04_044",
     "visualCutId": "vc08",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -647,11 +569,11 @@
     "text": "周辺100キロ圏内をスキャンします。",
     "synthesis_text": "周辺100キロ圏内をスキャンします。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v050.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v044.wav"
   },
   {
-    "id": "ep04_v051",
-    "cut": "ep04_051",
+    "id": "ep04_v045",
+    "cut": "ep04_045",
     "visualCutId": "vc08",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -660,11 +582,11 @@
     "text": "範囲が広すぎる！",
     "synthesis_text": "範囲が広すぎる！",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v051.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v045.wav"
   },
   {
-    "id": "ep04_v052",
-    "cut": "ep04_052",
+    "id": "ep04_v046",
+    "cut": "ep04_046",
     "visualCutId": "vc09",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -673,11 +595,11 @@
     "text": "トラック運転手、327名を検知。",
     "synthesis_text": "トラック運転手、327名を検知。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v052.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v046.wav"
   },
   {
-    "id": "ep04_v053",
-    "cut": "ep04_053",
+    "id": "ep04_v047",
+    "cut": "ep04_047",
     "visualCutId": "vc09",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -686,11 +608,11 @@
     "text": "絞れてない！",
     "synthesis_text": "絞れてない！",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v053.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v047.wav"
   },
   {
-    "id": "ep04_v054",
-    "cut": "ep04_054",
+    "id": "ep04_v048",
+    "cut": "ep04_048",
     "visualCutId": "vc09",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -699,11 +621,11 @@
     "text": "本人スキャンが必要です。",
     "synthesis_text": "本人スキャンが必要です。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v054.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v048.wav"
   },
   {
-    "id": "ep04_v055",
-    "cut": "ep04_055",
+    "id": "ep04_v049",
+    "cut": "ep04_049",
     "visualCutId": "vc09",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -712,11 +634,11 @@
     "text": "無駄な技術力！",
     "synthesis_text": "無駄な技術力！",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v055.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v049.wav"
   },
   {
-    "id": "ep04_v056",
-    "cut": "ep04_056",
+    "id": "ep04_v050",
+    "cut": "ep04_050",
     "visualCutId": "vc10",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -725,11 +647,11 @@
     "text": "自動ドアが開いた。",
     "synthesis_text": "自動ドアが開いた。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v056.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v050.wav"
   },
   {
-    "id": "ep04_v057",
-    "cut": "ep04_057",
+    "id": "ep04_v051",
+    "cut": "ep04_051",
     "visualCutId": "vc10",
     "character": "トラック運転手",
     "speaker_name": "M2",
@@ -738,11 +660,11 @@
     "text": "唐揚げ棒、ひとつ。",
     "synthesis_text": "唐揚げ棒、ひとつ。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v057.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v051.wav"
   },
   {
-    "id": "ep04_v058",
-    "cut": "ep04_058",
+    "id": "ep04_v052",
+    "cut": "ep04_052",
     "visualCutId": "vc10",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -751,11 +673,11 @@
     "text": "いらっしゃいませ。唐揚げ棒ですね。",
     "synthesis_text": "いらっしゃいませ。唐揚げ棒ですね。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v058.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v052.wav"
   },
   {
-    "id": "ep04_v059",
-    "cut": "ep04_059",
+    "id": "ep04_v053",
+    "cut": "ep04_053",
     "visualCutId": "vc10",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -764,11 +686,11 @@
     "text": "タクミが唐揚げ棒を持ち上げた。",
     "synthesis_text": "タクミが唐揚げ棒を持ち上げた。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v059.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v053.wav"
   },
   {
-    "id": "ep04_v060",
-    "cut": "ep04_060",
+    "id": "ep04_v054",
+    "cut": "ep04_054",
     "visualCutId": "vc10",
     "character": "トラック運転手",
     "speaker_name": "M2",
@@ -777,11 +699,11 @@
     "text": "ん？　俺、今ピッてされた？",
     "synthesis_text": "ん？　俺、今ピッてされた？",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v060.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v054.wav"
   },
   {
-    "id": "ep04_v061",
-    "cut": "ep04_061",
+    "id": "ep04_v055",
+    "cut": "ep04_055",
     "visualCutId": "vc11",
     "character": "エリ",
     "speaker_name": "中2",
@@ -790,11 +712,11 @@
     "text": "すみません。記憶温度測ります。",
     "synthesis_text": "すみません。記憶温度測ります。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v061.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v055.wav"
   },
   {
-    "id": "ep04_v062",
-    "cut": "ep04_062",
+    "id": "ep04_v056",
+    "cut": "ep04_056",
     "visualCutId": "vc11",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -802,6 +724,84 @@
     "style_id": "1805828384",
     "text": "記憶を確認。",
     "synthesis_text": "記憶を確認。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v056.wav"
+  },
+  {
+    "id": "ep04_v057",
+    "cut": "ep04_057",
+    "visualCutId": "vc11",
+    "character": "第十三レジ",
+    "speaker_name": "ろてじん（匿名インタビュー風）",
+    "style_name": "ノーマル",
+    "style_id": "1805828384",
+    "text": "1998年。国道沿い。午前2時31分。",
+    "synthesis_text": "1998年。国道沿い。午前2時31分。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v057.wav"
+  },
+  {
+    "id": "ep04_v058",
+    "cut": "ep04_058",
+    "visualCutId": "vc11",
+    "character": "第十三レジ",
+    "speaker_name": "ろてじん（匿名インタビュー風）",
+    "style_name": "ノーマル",
+    "style_id": "1805828384",
+    "text": "唐揚げ棒相当品、1点。",
+    "synthesis_text": "唐揚げ棒相当品、1点。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v058.wav"
+  },
+  {
+    "id": "ep04_v059",
+    "cut": "ep04_059",
+    "visualCutId": "vc11",
+    "character": "第十三レジ",
+    "speaker_name": "ろてじん（匿名インタビュー風）",
+    "style_name": "ノーマル",
+    "style_id": "1805828384",
+    "text": "記憶温度、72度。",
+    "synthesis_text": "記憶温度、72度。",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v059.wav"
+  },
+  {
+    "id": "ep04_v060",
+    "cut": "ep04_060",
+    "visualCutId": "vc11",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": "1937616896",
+    "text": "思い出、熱すぎません？",
+    "synthesis_text": "思い出、熱すぎません？",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v060.wav"
+  },
+  {
+    "id": "ep04_v061",
+    "cut": "ep04_061",
+    "visualCutId": "vc11",
+    "character": "トラック運転手",
+    "speaker_name": "M2",
+    "style_name": "ノーマル",
+    "style_id": "1368642336",
+    "text": "1998年？",
+    "synthesis_text": "1998年？",
+    "synthesis_source": "aivis_auto",
+    "clip": "outputs/ep04_aivis/raw/ep04_v061.wav"
+  },
+  {
+    "id": "ep04_v062",
+    "cut": "ep04_062",
+    "visualCutId": "vc11",
+    "character": "タクミ",
+    "speaker_name": "にせ",
+    "style_name": "ノーマル",
+    "style_id": "1937616896",
+    "text": "すみません。深夜のレジが距離感を間違えています。",
+    "synthesis_text": "すみません。深夜のレジが距離感を間違えています。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v062.wav"
   },
@@ -813,8 +813,8 @@
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": "1805828384",
-    "text": "1998年。国道沿い。午前2時31分。",
-    "synthesis_text": "1998年。国道沿い。午前2時31分。",
+    "text": "商品温度、46度、記憶温度、72度。",
+    "synthesis_text": "商品温度、46度、記憶温度、72度。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v063.wav"
   },
@@ -826,92 +826,14 @@
     "speaker_name": "ろてじん（匿名インタビュー風）",
     "style_name": "ノーマル",
     "style_id": "1805828384",
-    "text": "唐揚げ棒相当品、1点。",
-    "synthesis_text": "唐揚げ棒相当品、1点。",
+    "text": "差分、26度。",
+    "synthesis_text": "差分、26度。",
     "synthesis_source": "aivis_auto",
     "clip": "outputs/ep04_aivis/raw/ep04_v064.wav"
   },
   {
     "id": "ep04_v065",
     "cut": "ep04_065",
-    "visualCutId": "vc11",
-    "character": "第十三レジ",
-    "speaker_name": "ろてじん（匿名インタビュー風）",
-    "style_name": "ノーマル",
-    "style_id": "1805828384",
-    "text": "記憶温度、72度。",
-    "synthesis_text": "記憶温度、72度。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v065.wav"
-  },
-  {
-    "id": "ep04_v066",
-    "cut": "ep04_066",
-    "visualCutId": "vc11",
-    "character": "タクミ",
-    "speaker_name": "にせ",
-    "style_name": "ノーマル",
-    "style_id": "1937616896",
-    "text": "思い出、熱すぎません？",
-    "synthesis_text": "思い出、熱すぎません？",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v066.wav"
-  },
-  {
-    "id": "ep04_v067",
-    "cut": "ep04_067",
-    "visualCutId": "vc11",
-    "character": "トラック運転手",
-    "speaker_name": "M2",
-    "style_name": "ノーマル",
-    "style_id": "1368642336",
-    "text": "1998年？",
-    "synthesis_text": "1998年？",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v067.wav"
-  },
-  {
-    "id": "ep04_v068",
-    "cut": "ep04_068",
-    "visualCutId": "vc11",
-    "character": "タクミ",
-    "speaker_name": "にせ",
-    "style_name": "ノーマル",
-    "style_id": "1937616896",
-    "text": "すみません。深夜のレジが距離感を間違えています。",
-    "synthesis_text": "すみません。深夜のレジが距離感を間違えています。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v068.wav"
-  },
-  {
-    "id": "ep04_v069",
-    "cut": "ep04_069",
-    "visualCutId": "vc11",
-    "character": "第十三レジ",
-    "speaker_name": "ろてじん（匿名インタビュー風）",
-    "style_name": "ノーマル",
-    "style_id": "1805828384",
-    "text": "商品温度、46度、記憶温度、72度。",
-    "synthesis_text": "商品温度、46度、記憶温度、72度。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v069.wav"
-  },
-  {
-    "id": "ep04_v070",
-    "cut": "ep04_070",
-    "visualCutId": "vc11",
-    "character": "第十三レジ",
-    "speaker_name": "ろてじん（匿名インタビュー風）",
-    "style_name": "ノーマル",
-    "style_id": "1805828384",
-    "text": "差分、26度。",
-    "synthesis_text": "差分、26度。",
-    "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v070.wav"
-  },
-  {
-    "id": "ep04_v071",
-    "cut": "ep04_071",
     "visualCutId": "vc12",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -920,11 +842,11 @@
     "text": "記憶温度合わせを開始。",
     "synthesis_text": "記憶温度合わせを開始。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v071.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v065.wav"
   },
   {
-    "id": "ep04_v072",
-    "cut": "ep04_072",
+    "id": "ep04_v066",
+    "cut": "ep04_066",
     "visualCutId": "vc12",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -933,11 +855,11 @@
     "text": "唐揚げ棒から、少しだけ湯気が立った。",
     "synthesis_text": "唐揚げ棒から、少しだけ湯気が立った。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v072.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v066.wav"
   },
   {
-    "id": "ep04_v073",
-    "cut": "ep04_073",
+    "id": "ep04_v067",
+    "cut": "ep04_067",
     "visualCutId": "vc12",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -946,11 +868,11 @@
     "text": "湯気の中に、古い国道の街灯が見えた。",
     "synthesis_text": "湯気の中に、古い国道の街灯が見えた。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v073.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v067.wav"
   },
   {
-    "id": "ep04_v074",
-    "cut": "ep04_074",
+    "id": "ep04_v068",
+    "cut": "ep04_068",
     "visualCutId": "vc12",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -959,11 +881,11 @@
     "text": "今、道路が見えましたよ。",
     "synthesis_text": "今、道路が見えましたよ。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v074.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v068.wav"
   },
   {
-    "id": "ep04_v075",
-    "cut": "ep04_075",
+    "id": "ep04_v069",
+    "cut": "ep04_069",
     "visualCutId": "vc12",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -972,11 +894,11 @@
     "text": "記憶の熱量が戻っている。",
     "synthesis_text": "記憶の熱量が戻っている。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v075.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v069.wav"
   },
   {
-    "id": "ep04_v076",
-    "cut": "ep04_076",
+    "id": "ep04_v070",
+    "cut": "ep04_070",
     "visualCutId": "vc12",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -985,11 +907,11 @@
     "text": "言い方はかっこいいのに、対象が唐揚げ棒なんですよ。",
     "synthesis_text": "言い方はかっこいいのに、対象が唐揚げ棒なんですよ。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v076.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v070.wav"
   },
   {
-    "id": "ep04_v077",
-    "cut": "ep04_077",
+    "id": "ep04_v071",
+    "cut": "ep04_071",
     "visualCutId": "vc13",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -998,11 +920,11 @@
     "text": "未来レシートを再発行します。",
     "synthesis_text": "未来レシートを再発行します。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v077.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v071.wav"
   },
   {
-    "id": "ep04_v078",
-    "cut": "ep04_078",
+    "id": "ep04_v072",
+    "cut": "ep04_072",
     "visualCutId": "vc13",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1011,11 +933,11 @@
     "text": "レシートが出た。",
     "synthesis_text": "レシートが出た。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v078.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v072.wav"
   },
   {
-    "id": "ep04_v079",
-    "cut": "ep04_079",
+    "id": "ep04_v073",
+    "cut": "ep04_073",
     "visualCutId": "vc13",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1024,11 +946,11 @@
     "text": "お詫び0件、ありがとう1件。",
     "synthesis_text": "お詫び0件、ありがとう1件。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v079.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v073.wav"
   },
   {
-    "id": "ep04_v080",
-    "cut": "ep04_080",
+    "id": "ep04_v074",
+    "cut": "ep04_074",
     "visualCutId": "vc13",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -1037,11 +959,11 @@
     "text": "増えてる！",
     "synthesis_text": "増えてる！",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v080.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v074.wav"
   },
   {
-    "id": "ep04_v081",
-    "cut": "ep04_081",
+    "id": "ep04_v075",
+    "cut": "ep04_075",
     "visualCutId": "vc13",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -1050,11 +972,11 @@
     "text": "接客品質が改善しました。",
     "synthesis_text": "接客品質が改善しました。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v081.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v075.wav"
   },
   {
-    "id": "ep04_v082",
-    "cut": "ep04_082",
+    "id": "ep04_v076",
+    "cut": "ep04_076",
     "visualCutId": "vc13",
     "character": "エリ",
     "speaker_name": "中2",
@@ -1063,11 +985,11 @@
     "text": "売れるね。",
     "synthesis_text": "売れるね。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v082.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v076.wav"
   },
   {
-    "id": "ep04_v083",
-    "cut": "ep04_083",
+    "id": "ep04_v077",
+    "cut": "ep04_077",
     "visualCutId": "vc14",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -1076,11 +998,11 @@
     "text": "お待たせしました。唐揚げ棒です。",
     "synthesis_text": "お待たせしました。唐揚げ棒です。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v083.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v077.wav"
   },
   {
-    "id": "ep04_v084",
-    "cut": "ep04_084",
+    "id": "ep04_v078",
+    "cut": "ep04_078",
     "visualCutId": "vc14",
     "character": "トラック運転手",
     "speaker_name": "M2",
@@ -1089,11 +1011,11 @@
     "text": "ありがとう。",
     "synthesis_text": "ありがとう。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v084.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v078.wav"
   },
   {
-    "id": "ep04_v085",
-    "cut": "ep04_085",
+    "id": "ep04_v079",
+    "cut": "ep04_079",
     "visualCutId": "vc14",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1102,11 +1024,11 @@
     "text": "トラック運転手はお金を払い、イートインコーナーで1口食べた。",
     "synthesis_text": "トラック運転手はお金を払い、イートインコーナーで1口食べた。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v085.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v079.wav"
   },
   {
-    "id": "ep04_v086",
-    "cut": "ep04_086",
+    "id": "ep04_v080",
+    "cut": "ep04_080",
     "visualCutId": "vc14",
     "character": "トラック運転手",
     "speaker_name": "M2",
@@ -1115,11 +1037,11 @@
     "text": "ああ。昔思い出すな。",
     "synthesis_text": "ああ。昔思い出すな。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v086.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v080.wav"
   },
   {
-    "id": "ep04_v087",
-    "cut": "ep04_087",
+    "id": "ep04_v081",
+    "cut": "ep04_081",
     "visualCutId": "vc14",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -1128,11 +1050,11 @@
     "text": "冷めてませんか？",
     "synthesis_text": "冷めてませんか？",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v087.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v081.wav"
   },
   {
-    "id": "ep04_v088",
-    "cut": "ep04_088",
+    "id": "ep04_v082",
+    "cut": "ep04_082",
     "visualCutId": "vc14",
     "character": "トラック運転手",
     "speaker_name": "M2",
@@ -1141,11 +1063,11 @@
     "text": "冷めてないよ。十分だ。",
     "synthesis_text": "冷めてないよ。十分だ。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v088.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v082.wav"
   },
   {
-    "id": "ep04_v089",
-    "cut": "ep04_089",
+    "id": "ep04_v083",
+    "cut": "ep04_083",
     "visualCutId": "vc16",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1154,11 +1076,11 @@
     "text": "運転手は唐揚げ棒を食べながら店を出ていった。",
     "synthesis_text": "運転手は唐揚げ棒を食べながら店を出ていった。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v089.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v083.wav"
   },
   {
-    "id": "ep04_v090",
-    "cut": "ep04_090",
+    "id": "ep04_v084",
+    "cut": "ep04_084",
     "visualCutId": "vc16",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -1167,11 +1089,11 @@
     "text": "ありがとうございました。",
     "synthesis_text": "ありがとうございました。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v090.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v084.wav"
   },
   {
-    "id": "ep04_v091",
-    "cut": "ep04_091",
+    "id": "ep04_v085",
+    "cut": "ep04_085",
     "visualCutId": "vc18",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1180,11 +1102,11 @@
     "text": "自動ドアが閉まると、第十三レジが最後のレシートを印字した。",
     "synthesis_text": "自動ドアが閉まると、第十三レジが最後のレシートを印字した。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v091.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v085.wav"
   },
   {
-    "id": "ep04_v092",
-    "cut": "ep04_092",
+    "id": "ep04_v086",
+    "cut": "ep04_086",
     "visualCutId": "vc18",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -1193,11 +1115,11 @@
     "text": "未来クレーム、発生回避。",
     "synthesis_text": "未来クレーム、発生回避。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v092.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v086.wav"
   },
   {
-    "id": "ep04_v093",
-    "cut": "ep04_093",
+    "id": "ep04_v087",
+    "cut": "ep04_087",
     "visualCutId": "vc18",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -1206,11 +1128,11 @@
     "text": "温め直し証明、1件。",
     "synthesis_text": "温め直し証明、1件。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v093.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v087.wav"
   },
   {
-    "id": "ep04_v094",
-    "cut": "ep04_094",
+    "id": "ep04_v088",
+    "cut": "ep04_088",
     "visualCutId": "vc18",
     "character": "第十三レジ",
     "speaker_name": "ろてじん（匿名インタビュー風）",
@@ -1219,11 +1141,11 @@
     "text": "返品済み青年、再照合予定。",
     "synthesis_text": "へんぴん済み青年、再照合予定。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v094.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v088.wav"
   },
   {
-    "id": "ep04_v095",
-    "cut": "ep04_095",
+    "id": "ep04_v089",
+    "cut": "ep04_089",
     "visualCutId": "vc18",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -1232,11 +1154,11 @@
     "text": "またあの人ですか……。",
     "synthesis_text": "またあの人ですか……。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v095.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v089.wav"
   },
   {
-    "id": "ep04_v096",
-    "cut": "ep04_096",
+    "id": "ep04_v090",
+    "cut": "ep04_090",
     "visualCutId": "vc18",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -1245,11 +1167,11 @@
     "text": "おそらく。",
     "synthesis_text": "おそらく。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v096.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v090.wav"
   },
   {
-    "id": "ep04_v097",
-    "cut": "ep04_097",
+    "id": "ep04_v091",
+    "cut": "ep04_091",
     "visualCutId": "vc19",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1258,11 +1180,11 @@
     "text": "午前2時20分。第十三レジは消えた。",
     "synthesis_text": "午前2時20分。第十三レジは消えた。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v097.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v091.wav"
   },
   {
-    "id": "ep04_v098",
-    "cut": "ep04_098",
+    "id": "ep04_v092",
+    "cut": "ep04_092",
     "visualCutId": "vc19",
     "character": "エリ",
     "speaker_name": "中2",
@@ -1271,11 +1193,11 @@
     "text": "補充しよう。",
     "synthesis_text": "補充しよう。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v098.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v092.wav"
   },
   {
-    "id": "ep04_v099",
-    "cut": "ep04_099",
+    "id": "ep04_v093",
+    "cut": "ep04_093",
     "visualCutId": "vc19",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -1284,11 +1206,11 @@
     "text": "普通の補充ですね。",
     "synthesis_text": "普通の補充ですね。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v099.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v093.wav"
   },
   {
-    "id": "ep04_v100",
-    "cut": "ep04_100",
+    "id": "ep04_v094",
+    "cut": "ep04_094",
     "visualCutId": "vc19",
     "character": "エリ",
     "speaker_name": "中2",
@@ -1297,11 +1219,11 @@
     "text": "売れたから。",
     "synthesis_text": "売れたから。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v100.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v094.wav"
   },
   {
-    "id": "ep04_v101",
-    "cut": "ep04_101",
+    "id": "ep04_v095",
+    "cut": "ep04_095",
     "visualCutId": "vc19",
     "character": "汗田竜司",
     "speaker_name": "阿井田 茂",
@@ -1310,11 +1232,11 @@
     "text": "先に謝るより、先に温め直す。",
     "synthesis_text": "先に謝るより、先に温め直す。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v101.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v095.wav"
   },
   {
-    "id": "ep04_v102",
-    "cut": "ep04_102",
+    "id": "ep04_v096",
+    "cut": "ep04_096",
     "visualCutId": "vc19",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -1323,11 +1245,11 @@
     "text": "結論それですか。",
     "synthesis_text": "結論それですか。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v102.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v096.wav"
   },
   {
-    "id": "ep04_v103",
-    "cut": "ep04_103",
+    "id": "ep04_v097",
+    "cut": "ep04_097",
     "visualCutId": "vc20",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1336,11 +1258,11 @@
     "text": "タクミは業務ノートに書き足した。",
     "synthesis_text": "タクミは業務ノートに書き足した。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v103.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v097.wav"
   },
   {
-    "id": "ep04_v104",
-    "cut": "ep04_104",
+    "id": "ep04_v098",
+    "cut": "ep04_098",
     "visualCutId": "vc20",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1349,11 +1271,11 @@
     "text": "未来レシートは先に謝ることがある。",
     "synthesis_text": "未来レシートは先に謝ることがある。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v104.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v098.wav"
   },
   {
-    "id": "ep04_v105",
-    "cut": "ep04_105",
+    "id": "ep04_v099",
+    "cut": "ep04_099",
     "visualCutId": "vc20",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1362,11 +1284,11 @@
     "text": "唐揚げ棒は温め直せば、だいたい何とかなる。",
     "synthesis_text": "唐揚げ棒は温め直せば、だいたい何とかなる。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v105.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v099.wav"
   },
   {
-    "id": "ep04_v106",
-    "cut": "ep04_106",
+    "id": "ep04_v100",
+    "cut": "ep04_100",
     "visualCutId": "vc20",
     "character": "タクミ",
     "speaker_name": "にせ",
@@ -1375,11 +1297,11 @@
     "text": "だいたいでマニュアルにしていいんですか。",
     "synthesis_text": "だいたいでマニュアルにしていいんですか。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v106.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v100.wav"
   },
   {
-    "id": "ep04_v107",
-    "cut": "ep04_107",
+    "id": "ep04_v101",
+    "cut": "ep04_101",
     "visualCutId": "vc20",
     "character": "エリ",
     "speaker_name": "中2",
@@ -1388,11 +1310,11 @@
     "text": "現場っぽい。",
     "synthesis_text": "現場っぽい。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v107.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v101.wav"
   },
   {
-    "id": "ep04_v108",
-    "cut": "ep04_108",
+    "id": "ep04_v102",
+    "cut": "ep04_102",
     "visualCutId": "vc20",
     "character": "ナレーション",
     "speaker_name": "澤原 玄二郎",
@@ -1401,6 +1323,6 @@
     "text": "深夜のコンビニでは、未来のクレームも、いったん温め直しになる。",
     "synthesis_text": "深夜のコンビニでは、未来のクレームも、いったん温め直しになる。",
     "synthesis_source": "aivis_auto",
-    "clip": "outputs/ep04_aivis/raw/ep04_v108.wav"
+    "clip": "outputs/ep04_aivis/raw/ep04_v102.wav"
   }
 ]

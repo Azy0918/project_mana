@@ -15,11 +15,11 @@
     "dialogue": "午前2時5分。",
     "reading": "午前2時5分。",
     "log": [
-      "発話ログ　1/102",
+      "発話ログ　1/97",
       "担当　ナレーション"
     ],
     "visualLabel": "01/20　業務ノートと対応マニュアル",
-    "progressLabel": "1/102　ナレーション"
+    "progressLabel": "1/97　ナレーション"
   },
   {
     "id": "ep04_v002",
@@ -37,11 +37,11 @@
     "dialogue": "タクミは第十三レジ対応マニュアルを読んでいた。",
     "reading": "タクミは第十三レジ対応マニュアルを読んでいた。",
     "log": [
-      "発話ログ　2/102",
+      "発話ログ　2/97",
       "担当　ナレーション"
     ],
     "visualLabel": "01/20　業務ノートと対応マニュアル",
-    "progressLabel": "2/102　ナレーション"
+    "progressLabel": "2/97　ナレーション"
   },
   {
     "id": "ep04_v003",
@@ -59,11 +59,11 @@
     "dialogue": "マニュアルには予告紙が挟まれていた。",
     "reading": "マニュアルには予告紙が挟まれていた。",
     "log": [
-      "発話ログ　3/102",
+      "発話ログ　3/97",
       "担当　ナレーション"
     ],
     "visualLabel": "01/20　業務ノートと対応マニュアル",
-    "progressLabel": "3/102　ナレーション"
+    "progressLabel": "3/97　ナレーション"
   },
   {
     "id": "ep04_v004",
@@ -81,11 +81,11 @@
     "dialogue": "2時28分。唐揚げ棒を買った客が怒る。",
     "reading": "2時28分。唐揚げ棒を買った客が怒る。",
     "log": [
-      "発話ログ　4/102",
+      "発話ログ　4/97",
       "担当　ナレーション"
     ],
     "visualLabel": "01/20　業務ノートと対応マニュアル",
-    "progressLabel": "4/102　ナレーション"
+    "progressLabel": "4/97　ナレーション"
   },
   {
     "id": "ep04_v005",
@@ -103,11 +103,11 @@
     "dialogue": "あと23分で怒られるんですよね。",
     "reading": "あと23分で怒られるんですよね。",
     "log": [
-      "発話ログ　5/102",
+      "発話ログ　5/97",
       "担当　タクミ"
     ],
     "visualLabel": "02/20　予告メモと唐揚げ棒の気配",
-    "progressLabel": "5/102　タクミ"
+    "progressLabel": "5/97　タクミ"
   },
   {
     "id": "ep04_v006",
@@ -125,11 +125,11 @@
     "dialogue": "時間がわかってるだけ親切。",
     "reading": "時間がわかってるだけ親切。",
     "log": [
-      "発話ログ　6/102",
+      "発話ログ　6/97",
       "担当　エリ"
     ],
     "visualLabel": "02/20　予告メモと唐揚げ棒の気配",
-    "progressLabel": "6/102　エリ"
+    "progressLabel": "6/97　エリ"
   },
   {
     "id": "ep04_v007",
@@ -147,11 +147,11 @@
     "dialogue": "クレームを時刻指定にしないでください。",
     "reading": "クレームを時刻指定にしないでください。",
     "log": [
-      "発話ログ　7/102",
+      "発話ログ　7/97",
       "担当　タクミ"
     ],
     "visualLabel": "02/20　予告メモと唐揚げ棒の気配",
-    "progressLabel": "7/102　タクミ"
+    "progressLabel": "7/97　タクミ"
   },
   {
     "id": "ep04_v008",
@@ -169,11 +169,11 @@
     "dialogue": "ホットスナックケースには、唐揚げ棒が1本だけ残っていた。",
     "reading": "ホットスナックケースには、唐揚げ棒が1本だけ残っていた。",
     "log": [
-      "発話ログ　8/102",
+      "発話ログ　8/97",
       "担当　ナレーション"
     ],
     "visualLabel": "02/20　予告メモと唐揚げ棒の気配",
-    "progressLabel": "8/102　ナレーション"
+    "progressLabel": "8/97　ナレーション"
   },
   {
     "id": "ep04_v009",
@@ -191,11 +191,11 @@
     "dialogue": "あれですか。",
     "reading": "あれですか。",
     "log": [
-      "発話ログ　9/102",
+      "発話ログ　9/97",
       "担当　タクミ"
     ],
     "visualLabel": "02/20　予告メモと唐揚げ棒の気配",
-    "progressLabel": "9/102　タクミ"
+    "progressLabel": "9/97　タクミ"
   },
   {
     "id": "ep04_v010",
@@ -213,11 +213,11 @@
     "dialogue": "あれだね。",
     "reading": "あれだね。",
     "log": [
-      "発話ログ　10/102",
+      "発話ログ　10/97",
       "担当　エリ"
     ],
     "visualLabel": "02/20　予告メモと唐揚げ棒の気配",
-    "progressLabel": "10/102　エリ"
+    "progressLabel": "10/97　エリ"
   },
   {
     "id": "ep04_v011",
@@ -235,11 +235,11 @@
     "dialogue": "一本だけ残ってると、急に運命背負ってる感じしますね。",
     "reading": "一本だけ残ってると、急に運命背負ってる感じしますね。",
     "log": [
-      "発話ログ　11/102",
+      "発話ログ　11/97",
       "担当　タクミ"
     ],
     "visualLabel": "02/20　予告メモと唐揚げ棒の気配",
-    "progressLabel": "11/102　タクミ"
+    "progressLabel": "11/97　タクミ"
   },
   {
     "id": "ep04_v012",
@@ -257,11 +257,11 @@
     "dialogue": "売れ残りだよ。",
     "reading": "売れ残りだよ。",
     "log": [
-      "発話ログ　12/102",
+      "発話ログ　12/97",
       "担当　エリ"
     ],
     "visualLabel": "02/20　予告メモと唐揚げ棒の気配",
-    "progressLabel": "12/102　エリ"
+    "progressLabel": "12/97　エリ"
   },
   {
     "id": "ep04_v013",
@@ -279,11 +279,11 @@
     "dialogue": "現実に戻さないで。",
     "reading": "現実に戻さないで。",
     "log": [
-      "発話ログ　13/102",
+      "発話ログ　13/97",
       "担当　タクミ"
     ],
     "visualLabel": "02/20　予告メモと唐揚げ棒の気配",
-    "progressLabel": "13/102　タクミ"
+    "progressLabel": "13/97　タクミ"
   },
   {
     "id": "ep04_v014",
@@ -301,11 +301,11 @@
     "dialogue": "午前2時17分。カウンター右端の薄いグレーの四角の上に、第十三レジが現れた。",
     "reading": "午前2時17分。カウンター右端の薄いグレーの四角の上に、第十三レジが現れた。",
     "log": [
-      "発話ログ　14/102",
+      "発話ログ　14/97",
       "担当　ナレーション"
     ],
     "visualLabel": "03/20　唐揚げ棒と第十三レジ出現",
-    "progressLabel": "14/102　ナレーション"
+    "progressLabel": "14/97　ナレーション"
   },
   {
     "id": "ep04_v015",
@@ -323,11 +323,11 @@
     "dialogue": "第十三レジ。ただいま営業中。",
     "reading": "第十三レジ。ただいま営業中。",
     "log": [
-      "発話ログ　15/102",
+      "発話ログ　15/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "03/20　唐揚げ棒と第十三レジ出現",
-    "progressLabel": "15/102　第十三レジ"
+    "progressLabel": "15/97　第十三レジ"
   },
   {
     "id": "ep04_v016",
@@ -345,11 +345,11 @@
     "dialogue": "未来クレーム予告を確認。",
     "reading": "未来クレーム予告を確認。",
     "log": [
-      "発話ログ　16/102",
+      "発話ログ　16/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "03/20　唐揚げ棒と第十三レジ出現",
-    "progressLabel": "16/102　第十三レジ"
+    "progressLabel": "16/97　第十三レジ"
   },
   {
     "id": "ep04_v017",
@@ -367,11 +367,11 @@
     "dialogue": "未来レシートを先行印字します。",
     "reading": "未来レシートを先行印字します。",
     "log": [
-      "発話ログ　17/102",
+      "発話ログ　17/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "04/20　未来レシート先行印字",
-    "progressLabel": "17/102　第十三レジ"
+    "progressLabel": "17/97　第十三レジ"
   },
   {
     "id": "ep04_v018",
@@ -389,11 +389,11 @@
     "dialogue": "レシートが出た。",
     "reading": "レシートが出た。",
     "log": [
-      "発話ログ　18/102",
+      "発話ログ　18/97",
       "担当　ナレーション"
     ],
     "visualLabel": "04/20　未来レシート先行印字",
-    "progressLabel": "18/102　ナレーション"
+    "progressLabel": "18/97　ナレーション"
   },
   {
     "id": "ep04_v019",
@@ -411,11 +411,11 @@
     "dialogue": "唐揚げ棒、1点。お詫び、1件。",
     "reading": "唐揚げ棒、1点。お詫び、1件。",
     "log": [
-      "発話ログ　19/102",
+      "発話ログ　19/97",
       "担当　ナレーション"
     ],
     "visualLabel": "04/20　未来レシート先行印字",
-    "progressLabel": "19/102　ナレーション"
+    "progressLabel": "19/97　ナレーション"
   },
   {
     "id": "ep04_v020",
@@ -433,11 +433,11 @@
     "dialogue": "理由。記憶ほど熱くありませんでした。",
     "reading": "理由。記憶ほど熱くありませんでした。",
     "log": [
-      "発話ログ　20/102",
+      "発話ログ　20/97",
       "担当　ナレーション"
     ],
     "visualLabel": "04/20　未来レシート先行印字",
-    "progressLabel": "20/102　ナレーション"
+    "progressLabel": "20/97　ナレーション"
   },
   {
     "id": "ep04_v021",
@@ -455,11 +455,11 @@
     "dialogue": "お詫びが会計に入ってる。",
     "reading": "お詫びが会計に入ってる。",
     "log": [
-      "発話ログ　21/102",
+      "発話ログ　21/97",
       "担当　タクミ"
     ],
     "visualLabel": "04/20　未来レシート先行印字",
-    "progressLabel": "21/102　タクミ"
+    "progressLabel": "21/97　タクミ"
   },
   {
     "id": "ep04_v022",
@@ -477,11 +477,11 @@
     "dialogue": "先に謝る仕様です。",
     "reading": "先に謝る仕様です。",
     "log": [
-      "発話ログ　22/102",
+      "発話ログ　22/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "04/20　未来レシート先行印字",
-    "progressLabel": "22/102　第十三レジ"
+    "progressLabel": "22/97　第十三レジ"
   },
   {
     "id": "ep04_v023",
@@ -499,11 +499,11 @@
     "dialogue": "謝るなら未来変えてください。",
     "reading": "謝るなら未来変えてください。",
     "log": [
-      "発話ログ　23/102",
+      "発話ログ　23/97",
       "担当　タクミ"
     ],
     "visualLabel": "04/20　未来レシート先行印字",
-    "progressLabel": "23/102　タクミ"
+    "progressLabel": "23/97　タクミ"
   },
   {
     "id": "ep04_v024",
@@ -521,11 +521,11 @@
     "dialogue": "自動ドアが開いた。",
     "reading": "自動ドアが開いた。",
     "log": [
-      "発話ログ　24/102",
+      "発話ログ　24/97",
       "担当　ナレーション"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "24/102　ナレーション"
+    "progressLabel": "24/97　ナレーション"
   },
   {
     "id": "ep04_v025",
@@ -543,11 +543,11 @@
     "dialogue": "ホットスナック付近に、感情の熱源あり。",
     "reading": "ホットスナック付近に、感情の熱源あり。",
     "log": [
-      "発話ログ　25/102",
+      "発話ログ　25/97",
       "担当　汗田竜司"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "25/102　汗田竜司"
+    "progressLabel": "25/97　汗田竜司"
   },
   {
     "id": "ep04_v026",
@@ -565,11 +565,11 @@
     "dialogue": "言い方。",
     "reading": "言い方。",
     "log": [
-      "発話ログ　26/102",
+      "発話ログ　26/97",
       "担当　タクミ"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "26/102　タクミ"
+    "progressLabel": "26/97　タクミ"
   },
   {
     "id": "ep04_v027",
@@ -587,11 +587,11 @@
     "dialogue": "汗田はレシートを見た。",
     "reading": "あせだはレシートを見た。",
     "log": [
-      "発話ログ　27/102",
+      "発話ログ　27/97",
       "担当　ナレーション"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "27/102　ナレーション"
+    "progressLabel": "27/97　ナレーション"
   },
   {
     "id": "ep04_v028",
@@ -609,11 +609,11 @@
     "dialogue": "原因は謝罪不足じゃない。",
     "reading": "原因は謝罪不足じゃない。",
     "log": [
-      "発話ログ　28/102",
+      "発話ログ　28/97",
       "担当　汗田竜司"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "28/102　汗田竜司"
+    "progressLabel": "28/97　汗田竜司"
   },
   {
     "id": "ep04_v029",
@@ -631,11 +631,11 @@
     "dialogue": "じゃあ何ですか。",
     "reading": "じゃあ何ですか。",
     "log": [
-      "発話ログ　29/102",
+      "発話ログ　29/97",
       "担当　タクミ"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "29/102　タクミ"
+    "progressLabel": "29/97　タクミ"
   },
   {
     "id": "ep04_v030",
@@ -653,11 +653,11 @@
     "dialogue": "温度のズレだ。",
     "reading": "温度のズレだ。",
     "log": [
-      "発話ログ　30/102",
+      "発話ログ　30/97",
       "担当　汗田竜司"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "30/102　汗田竜司"
+    "progressLabel": "30/97　汗田竜司"
   },
   {
     "id": "ep04_v031",
@@ -675,11 +675,11 @@
     "dialogue": "唐揚げ棒の？",
     "reading": "唐揚げ棒の？",
     "log": [
-      "発話ログ　31/102",
+      "発話ログ　31/97",
       "担当　タクミ"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "31/102　タクミ"
+    "progressLabel": "31/97　タクミ"
   },
   {
     "id": "ep04_v032",
@@ -697,11 +697,11 @@
     "dialogue": "商品温度と、客の記憶温度。",
     "reading": "商品温度と、客の記憶温度。",
     "log": [
-      "発話ログ　32/102",
+      "発話ログ　32/97",
       "担当　汗田竜司"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "32/102　汗田竜司"
+    "progressLabel": "32/97　汗田竜司"
   },
   {
     "id": "ep04_v033",
@@ -719,11 +719,11 @@
     "dialogue": "記憶に温度をつけないでください。",
     "reading": "記憶に温度をつけないでください。",
     "log": [
-      "発話ログ　33/102",
+      "発話ログ　33/97",
       "担当　タクミ"
     ],
     "visualLabel": "05/20　汗田登場・感情の熱源",
-    "progressLabel": "33/102　タクミ"
+    "progressLabel": "33/97　タクミ"
   },
   {
     "id": "ep04_v034",
@@ -741,11 +741,11 @@
     "dialogue": "この温度差が無くなればクレームも出ないはず。",
     "reading": "この温度差が無くなればクレームも出ないはず。",
     "log": [
-      "発話ログ　34/102",
+      "発話ログ　34/97",
       "担当　汗田竜司"
     ],
     "visualLabel": "06/20　記憶温度スキャン提案",
-    "progressLabel": "34/102　汗田竜司"
+    "progressLabel": "34/97　汗田竜司"
   },
   {
     "id": "ep04_v035",
@@ -763,11 +763,11 @@
     "dialogue": "記憶温度なんて、どう計ればいいんですか。",
     "reading": "記憶温度なんて、どう計ればいいんですか。",
     "log": [
-      "発話ログ　35/102",
+      "発話ログ　35/97",
       "担当　タクミ"
     ],
     "visualLabel": "06/20　記憶温度スキャン提案",
-    "progressLabel": "35/102　タクミ"
+    "progressLabel": "35/97　タクミ"
   },
   {
     "id": "ep04_v036",
@@ -785,11 +785,11 @@
     "dialogue": "スキャンする？",
     "reading": "スキャンする？",
     "log": [
-      "発話ログ　36/102",
+      "発話ログ　36/97",
       "担当　エリ"
     ],
     "visualLabel": "06/20　記憶温度スキャン提案",
-    "progressLabel": "36/102　エリ"
+    "progressLabel": "36/97　エリ"
   },
   {
     "id": "ep04_v037",
@@ -807,11 +807,11 @@
     "dialogue": "それだ。",
     "reading": "それだ。",
     "log": [
-      "発話ログ　37/102",
+      "発話ログ　37/97",
       "担当　汗田竜司"
     ],
     "visualLabel": "06/20　記憶温度スキャン提案",
-    "progressLabel": "37/102　汗田竜司"
+    "progressLabel": "37/97　汗田竜司"
   },
   {
     "id": "ep04_v038",
@@ -829,11 +829,11 @@
     "dialogue": "エリは唐揚げ棒をスキャナーに近づけた。",
     "reading": "エリは唐揚げ棒をスキャナーに近づけた。",
     "log": [
-      "発話ログ　38/102",
+      "発話ログ　38/97",
       "担当　ナレーション"
     ],
     "visualLabel": "07/20　唐揚げ棒温度46度",
-    "progressLabel": "38/102　ナレーション"
+    "progressLabel": "38/97　ナレーション"
   },
   {
     "id": "ep04_v039",
@@ -851,11 +851,11 @@
     "dialogue": "商品温度、46度。",
     "reading": "商品温度、46度。",
     "log": [
-      "発話ログ　39/102",
+      "発話ログ　39/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "07/20　唐揚げ棒温度46度",
-    "progressLabel": "39/102　第十三レジ"
+    "progressLabel": "39/97　第十三レジ"
   },
   {
     "id": "ep04_v040",
@@ -873,11 +873,11 @@
     "dialogue": "そこは普通。",
     "reading": "そこは普通。",
     "log": [
-      "発話ログ　40/102",
+      "発話ログ　40/97",
       "担当　タクミ"
     ],
     "visualLabel": "07/20　唐揚げ棒温度46度",
-    "progressLabel": "40/102　タクミ"
+    "progressLabel": "40/97　タクミ"
   },
   {
     "id": "ep04_v041",
@@ -895,11 +895,11 @@
     "dialogue": "購入予定者のスキャンが必要です。",
     "reading": "購入予定者のスキャンが必要です。",
     "log": [
-      "発話ログ　41/102",
+      "発話ログ　41/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "07/20　唐揚げ棒温度46度",
-    "progressLabel": "41/102　第十三レジ"
+    "progressLabel": "41/97　第十三レジ"
   },
   {
     "id": "ep04_v042",
@@ -917,11 +917,11 @@
     "dialogue": "どうやって？",
     "reading": "どうやって？",
     "log": [
-      "発話ログ　42/102",
+      "発話ログ　42/97",
       "担当　タクミ"
     ],
     "visualLabel": "07/20　唐揚げ棒温度46度",
-    "progressLabel": "42/102　タクミ"
+    "progressLabel": "42/97　タクミ"
   },
   {
     "id": "ep04_v043",
@@ -939,11 +939,11 @@
     "dialogue": "第十三レジの上部に見慣れないリング状の装置が展開し、淡い光が空間に広がる。",
     "reading": "第十三レジの上部に見慣れないリング状の装置が展開し、淡い光が空間に広がる。",
     "log": [
-      "発話ログ　43/102",
+      "発話ログ　43/97",
       "担当　ナレーション"
     ],
     "visualLabel": "08/20　生体購買履歴スキャン開始",
-    "progressLabel": "43/102　ナレーション"
+    "progressLabel": "43/97　ナレーション"
   },
   {
     "id": "ep04_v044",
@@ -961,11 +961,11 @@
     "dialogue": "周辺100キロ圏内をスキャンします。",
     "reading": "周辺100キロ圏内をスキャンします。",
     "log": [
-      "発話ログ　44/102",
+      "発話ログ　44/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "08/20　生体購買履歴スキャン開始",
-    "progressLabel": "44/102　第十三レジ"
+    "progressLabel": "44/97　第十三レジ"
   },
   {
     "id": "ep04_v045",
@@ -983,11 +983,11 @@
     "dialogue": "範囲が広すぎる！",
     "reading": "範囲が広すぎる！",
     "log": [
-      "発話ログ　45/102",
+      "発話ログ　45/97",
       "担当　タクミ"
     ],
     "visualLabel": "08/20　生体購買履歴スキャン開始",
-    "progressLabel": "45/102　タクミ"
+    "progressLabel": "45/97　タクミ"
   },
   {
     "id": "ep04_v046",
@@ -1005,11 +1005,11 @@
     "dialogue": "トラック運転手、327名を検知。",
     "reading": "トラック運転手、327名を検知。",
     "log": [
-      "発話ログ　46/102",
+      "発話ログ　46/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "09/20　光が店内を横断",
-    "progressLabel": "46/102　第十三レジ"
+    "progressLabel": "46/97　第十三レジ"
   },
   {
     "id": "ep04_v047",
@@ -1027,11 +1027,11 @@
     "dialogue": "絞れてない！",
     "reading": "絞れてない！",
     "log": [
-      "発話ログ　47/102",
+      "発話ログ　47/97",
       "担当　タクミ"
     ],
     "visualLabel": "09/20　光が店内を横断",
-    "progressLabel": "47/102　タクミ"
+    "progressLabel": "47/97　タクミ"
   },
   {
     "id": "ep04_v048",
@@ -1049,11 +1049,11 @@
     "dialogue": "本人スキャンが必要です。",
     "reading": "本人スキャンが必要です。",
     "log": [
-      "発話ログ　48/102",
+      "発話ログ　48/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "09/20　光が店内を横断",
-    "progressLabel": "48/102　第十三レジ"
+    "progressLabel": "48/97　第十三レジ"
   },
   {
     "id": "ep04_v049",
@@ -1071,11 +1071,11 @@
     "dialogue": "無駄な技術力！",
     "reading": "無駄な技術力！",
     "log": [
-      "発話ログ　49/102",
+      "発話ログ　49/97",
       "担当　タクミ"
     ],
     "visualLabel": "09/20　光が店内を横断",
-    "progressLabel": "49/102　タクミ"
+    "progressLabel": "49/97　タクミ"
   },
   {
     "id": "ep04_v050",
@@ -1093,11 +1093,11 @@
     "dialogue": "自動ドアが開いた。",
     "reading": "自動ドアが開いた。",
     "log": [
-      "発話ログ　50/102",
+      "発話ログ　50/97",
       "担当　ナレーション"
     ],
     "visualLabel": "10/20　トラック運転手と記憶温度72度",
-    "progressLabel": "50/102　ナレーション"
+    "progressLabel": "50/97　ナレーション"
   },
   {
     "id": "ep04_v051",
@@ -1115,11 +1115,11 @@
     "dialogue": "唐揚げ棒、ひとつ。",
     "reading": "唐揚げ棒、ひとつ。",
     "log": [
-      "発話ログ　51/102",
+      "発話ログ　51/97",
       "担当　トラック運転手"
     ],
     "visualLabel": "10/20　トラック運転手と記憶温度72度",
-    "progressLabel": "51/102　トラック運転手"
+    "progressLabel": "51/97　トラック運転手"
   },
   {
     "id": "ep04_v052",
@@ -1137,11 +1137,11 @@
     "dialogue": "いらっしゃいませ。唐揚げ棒ですね。",
     "reading": "いらっしゃいませ。唐揚げ棒ですね。",
     "log": [
-      "発話ログ　52/102",
+      "発話ログ　52/97",
       "担当　タクミ"
     ],
     "visualLabel": "10/20　トラック運転手と記憶温度72度",
-    "progressLabel": "52/102　タクミ"
+    "progressLabel": "52/97　タクミ"
   },
   {
     "id": "ep04_v053",
@@ -1159,11 +1159,11 @@
     "dialogue": "タクミが唐揚げ棒を持ち上げた。",
     "reading": "タクミが唐揚げ棒を持ち上げた。",
     "log": [
-      "発話ログ　53/102",
+      "発話ログ　53/97",
       "担当　ナレーション"
     ],
     "visualLabel": "10/20　トラック運転手と記憶温度72度",
-    "progressLabel": "53/102　ナレーション"
+    "progressLabel": "53/97　ナレーション"
   },
   {
     "id": "ep04_v054",
@@ -1181,11 +1181,11 @@
     "dialogue": "ん？　俺、今ピッてされた？",
     "reading": "ん？　俺、今ピッてされた？",
     "log": [
-      "発話ログ　54/102",
+      "発話ログ　54/97",
       "担当　トラック運転手"
     ],
     "visualLabel": "10/20　トラック運転手と記憶温度72度",
-    "progressLabel": "54/102　トラック運転手"
+    "progressLabel": "54/97　トラック運転手"
   },
   {
     "id": "ep04_v055",
@@ -1203,11 +1203,11 @@
     "dialogue": "すみません。記憶温度測ります。",
     "reading": "すみません。記憶温度測ります。",
     "log": [
-      "発話ログ　55/102",
+      "発話ログ　55/97",
       "担当　エリ"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "55/102　エリ"
+    "progressLabel": "55/97　エリ"
   },
   {
     "id": "ep04_v056",
@@ -1225,11 +1225,11 @@
     "dialogue": "記憶を確認。",
     "reading": "記憶を確認。",
     "log": [
-      "発話ログ　56/102",
+      "発話ログ　56/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "56/102　第十三レジ"
+    "progressLabel": "56/97　第十三レジ"
   },
   {
     "id": "ep04_v057",
@@ -1247,11 +1247,11 @@
     "dialogue": "1998年。国道沿い。午前2時31分。",
     "reading": "1998年。国道沿い。午前2時31分。",
     "log": [
-      "発話ログ　57/102",
+      "発話ログ　57/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "57/102　第十三レジ"
+    "progressLabel": "57/97　第十三レジ"
   },
   {
     "id": "ep04_v058",
@@ -1269,11 +1269,11 @@
     "dialogue": "唐揚げ棒相当品、1点。",
     "reading": "唐揚げ棒相当品、1点。",
     "log": [
-      "発話ログ　58/102",
+      "発話ログ　58/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "58/102　第十三レジ"
+    "progressLabel": "58/97　第十三レジ"
   },
   {
     "id": "ep04_v059",
@@ -1291,11 +1291,11 @@
     "dialogue": "記憶温度、72度。",
     "reading": "記憶温度、72度。",
     "log": [
-      "発話ログ　59/102",
+      "発話ログ　59/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "59/102　第十三レジ"
+    "progressLabel": "59/97　第十三レジ"
   },
   {
     "id": "ep04_v060",
@@ -1313,11 +1313,11 @@
     "dialogue": "思い出、熱すぎません？",
     "reading": "思い出、熱すぎません？",
     "log": [
-      "発話ログ　60/102",
+      "発話ログ　60/97",
       "担当　タクミ"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "60/102　タクミ"
+    "progressLabel": "60/97　タクミ"
   },
   {
     "id": "ep04_v061",
@@ -1335,11 +1335,11 @@
     "dialogue": "1998年？",
     "reading": "1998年？",
     "log": [
-      "発話ログ　61/102",
+      "発話ログ　61/97",
       "担当　トラック運転手"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "61/102　トラック運転手"
+    "progressLabel": "61/97　トラック運転手"
   },
   {
     "id": "ep04_v062",
@@ -1357,11 +1357,11 @@
     "dialogue": "すみません。深夜のレジが距離感を間違えています。",
     "reading": "すみません。深夜のレジが距離感を間違えています。",
     "log": [
-      "発話ログ　62/102",
+      "発話ログ　62/97",
       "担当　タクミ"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "62/102　タクミ"
+    "progressLabel": "62/97　タクミ"
   },
   {
     "id": "ep04_v063",
@@ -1379,11 +1379,11 @@
     "dialogue": "商品温度、46度、記憶温度、72度。",
     "reading": "商品温度、46度、記憶温度、72度。",
     "log": [
-      "発話ログ　63/102",
+      "発話ログ　63/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "63/102　第十三レジ"
+    "progressLabel": "63/97　第十三レジ"
   },
   {
     "id": "ep04_v064",
@@ -1401,11 +1401,11 @@
     "dialogue": "差分、26度。",
     "reading": "差分、26度。",
     "log": [
-      "発話ログ　64/102",
+      "発話ログ　64/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "11/20　温め直し判断",
-    "progressLabel": "64/102　第十三レジ"
+    "progressLabel": "64/97　第十三レジ"
   },
   {
     "id": "ep04_v065",
@@ -1423,11 +1423,11 @@
     "dialogue": "記憶温度合わせを開始。",
     "reading": "記憶温度合わせを開始。",
     "log": [
-      "発話ログ　65/102",
+      "発話ログ　65/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "12/20　レシート補正と古い国道の湯気",
-    "progressLabel": "65/102　第十三レジ"
+    "progressLabel": "65/97　第十三レジ"
   },
   {
     "id": "ep04_v066",
@@ -1445,11 +1445,11 @@
     "dialogue": "唐揚げ棒から、少しだけ湯気が立った。",
     "reading": "唐揚げ棒から、少しだけ湯気が立った。",
     "log": [
-      "発話ログ　66/102",
+      "発話ログ　66/97",
       "担当　ナレーション"
     ],
     "visualLabel": "12/20　レシート補正と古い国道の湯気",
-    "progressLabel": "66/102　ナレーション"
+    "progressLabel": "66/97　ナレーション"
   },
   {
     "id": "ep04_v067",
@@ -1467,11 +1467,11 @@
     "dialogue": "湯気の中に、古い国道の街灯が見えた。",
     "reading": "湯気の中に、古い国道の街灯が見えた。",
     "log": [
-      "発話ログ　67/102",
+      "発話ログ　67/97",
       "担当　ナレーション"
     ],
     "visualLabel": "12/20　レシート補正と古い国道の湯気",
-    "progressLabel": "67/102　ナレーション"
+    "progressLabel": "67/97　ナレーション"
   },
   {
     "id": "ep04_v068",
@@ -1489,11 +1489,11 @@
     "dialogue": "今、道路が見えましたよ。",
     "reading": "今、道路が見えましたよ。",
     "log": [
-      "発話ログ　68/102",
+      "発話ログ　68/97",
       "担当　タクミ"
     ],
     "visualLabel": "12/20　レシート補正と古い国道の湯気",
-    "progressLabel": "68/102　タクミ"
+    "progressLabel": "68/97　タクミ"
   },
   {
     "id": "ep04_v069",
@@ -1511,11 +1511,11 @@
     "dialogue": "記憶の熱量が戻っている。",
     "reading": "記憶の熱量が戻っている。",
     "log": [
-      "発話ログ　69/102",
+      "発話ログ　69/97",
       "担当　汗田竜司"
     ],
     "visualLabel": "12/20　レシート補正と古い国道の湯気",
-    "progressLabel": "69/102　汗田竜司"
+    "progressLabel": "69/97　汗田竜司"
   },
   {
     "id": "ep04_v070",
@@ -1533,11 +1533,11 @@
     "dialogue": "言い方はかっこいいのに、対象が唐揚げ棒なんですよ。",
     "reading": "言い方はかっこいいのに、対象が唐揚げ棒なんですよ。",
     "log": [
-      "発話ログ　70/102",
+      "発話ログ　70/97",
       "担当　タクミ"
     ],
     "visualLabel": "12/20　レシート補正と古い国道の湯気",
-    "progressLabel": "70/102　タクミ"
+    "progressLabel": "70/97　タクミ"
   },
   {
     "id": "ep04_v071",
@@ -1555,11 +1555,11 @@
     "dialogue": "未来レシートを再発行します。",
     "reading": "未来レシートを再発行します。",
     "log": [
-      "発話ログ　71/102",
+      "発話ログ　71/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "13/20　通常販売可能",
-    "progressLabel": "71/102　第十三レジ"
+    "progressLabel": "71/97　第十三レジ"
   },
   {
     "id": "ep04_v072",
@@ -1577,11 +1577,11 @@
     "dialogue": "レシートが出た。",
     "reading": "レシートが出た。",
     "log": [
-      "発話ログ　72/102",
+      "発話ログ　72/97",
       "担当　ナレーション"
     ],
     "visualLabel": "13/20　通常販売可能",
-    "progressLabel": "72/102　ナレーション"
+    "progressLabel": "72/97　ナレーション"
   },
   {
     "id": "ep04_v073",
@@ -1599,11 +1599,11 @@
     "dialogue": "お詫び0件、ありがとう1件。",
     "reading": "お詫び0件、ありがとう1件。",
     "log": [
-      "発話ログ　73/102",
+      "発話ログ　73/97",
       "担当　ナレーション"
     ],
     "visualLabel": "13/20　通常販売可能",
-    "progressLabel": "73/102　ナレーション"
+    "progressLabel": "73/97　ナレーション"
   },
   {
     "id": "ep04_v074",
@@ -1621,11 +1621,11 @@
     "dialogue": "増えてる！",
     "reading": "増えてる！",
     "log": [
-      "発話ログ　74/102",
+      "発話ログ　74/97",
       "担当　タクミ"
     ],
     "visualLabel": "13/20　通常販売可能",
-    "progressLabel": "74/102　タクミ"
+    "progressLabel": "74/97　タクミ"
   },
   {
     "id": "ep04_v075",
@@ -1643,11 +1643,11 @@
     "dialogue": "接客品質が改善しました。",
     "reading": "接客品質が改善しました。",
     "log": [
-      "発話ログ　75/102",
+      "発話ログ　75/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "13/20　通常販売可能",
-    "progressLabel": "75/102　第十三レジ"
+    "progressLabel": "75/97　第十三レジ"
   },
   {
     "id": "ep04_v076",
@@ -1656,20 +1656,20 @@
     "visualCutTitle": "通常販売可能",
     "visualCutIndex": 13,
     "start": 221.55,
-    "end": 222.72,
+    "end": 223.227,
     "image": "assets/scenes/planned/ep04_vc13_normal_sale_receipt.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_normal_sale_receipt.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_normal_sale_receipt.png",
     "imagePrompt": "コピー機が満足そうに静かになる。店内は普通の夜勤へ戻りかけ、第十三レジだけが処理を続ける。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "speaker": "エリ",
-    "dialogue": "売れるね。",
-    "reading": "売れるね。",
+    "dialogue": "クレーム減った。",
+    "reading": "クレーム減った。",
     "log": [
-      "発話ログ　76/102",
+      "発話ログ　76/97",
       "担当　エリ"
     ],
     "visualLabel": "13/20　通常販売可能",
-    "progressLabel": "76/102　エリ"
+    "progressLabel": "76/97　エリ"
   },
   {
     "id": "ep04_v077",
@@ -1677,8 +1677,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "昔を思い出す一口",
     "visualCutIndex": 14,
-    "start": 222.97,
-    "end": 225.68,
+    "start": 223.477,
+    "end": 226.187,
     "image": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "plannedImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
@@ -1687,11 +1687,11 @@
     "dialogue": "お待たせしました。唐揚げ棒です。",
     "reading": "お待たせしました。唐揚げ棒です。",
     "log": [
-      "発話ログ　77/102",
+      "発話ログ　77/97",
       "担当　タクミ"
     ],
     "visualLabel": "14/20　昔を思い出す一口",
-    "progressLabel": "77/102　タクミ"
+    "progressLabel": "77/97　タクミ"
   },
   {
     "id": "ep04_v078",
@@ -1699,8 +1699,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "昔を思い出す一口",
     "visualCutIndex": 14,
-    "start": 225.93,
-    "end": 227.106,
+    "start": 226.437,
+    "end": 227.613,
     "image": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "plannedImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
@@ -1709,11 +1709,11 @@
     "dialogue": "ありがとう。",
     "reading": "ありがとう。",
     "log": [
-      "発話ログ　78/102",
+      "発話ログ　78/97",
       "担当　トラック運転手"
     ],
     "visualLabel": "14/20　昔を思い出す一口",
-    "progressLabel": "78/102　トラック運転手"
+    "progressLabel": "78/97　トラック運転手"
   },
   {
     "id": "ep04_v079",
@@ -1721,8 +1721,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "昔を思い出す一口",
     "visualCutIndex": 14,
-    "start": 227.356,
-    "end": 231.81,
+    "start": 227.863,
+    "end": 232.317,
     "image": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "plannedImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
@@ -1731,11 +1731,11 @@
     "dialogue": "トラック運転手はお金を払い、イートインコーナーで1口食べた。",
     "reading": "トラック運転手はお金を払い、イートインコーナーで1口食べた。",
     "log": [
-      "発話ログ　79/102",
+      "発話ログ　79/97",
       "担当　ナレーション"
     ],
     "visualLabel": "14/20　昔を思い出す一口",
-    "progressLabel": "79/102　ナレーション"
+    "progressLabel": "79/97　ナレーション"
   },
   {
     "id": "ep04_v080",
@@ -1743,8 +1743,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "昔を思い出す一口",
     "visualCutIndex": 14,
-    "start": 232.26,
-    "end": 235.088,
+    "start": 232.767,
+    "end": 235.595,
     "image": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "plannedImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
@@ -1753,11 +1753,11 @@
     "dialogue": "ああ。昔思い出すな。",
     "reading": "ああ。昔思い出すな。",
     "log": [
-      "発話ログ　80/102",
+      "発話ログ　80/97",
       "担当　トラック運転手"
     ],
     "visualLabel": "14/20　昔を思い出す一口",
-    "progressLabel": "80/102　トラック運転手"
+    "progressLabel": "80/97　トラック運転手"
   },
   {
     "id": "ep04_v081",
@@ -1765,8 +1765,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "昔を思い出す一口",
     "visualCutIndex": 14,
-    "start": 235.338,
-    "end": 236.832,
+    "start": 235.845,
+    "end": 237.339,
     "image": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "plannedImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
@@ -1775,11 +1775,11 @@
     "dialogue": "冷めてませんか？",
     "reading": "冷めてませんか？",
     "log": [
-      "発話ログ　81/102",
+      "発話ログ　81/97",
       "担当　タクミ"
     ],
     "visualLabel": "14/20　昔を思い出す一口",
-    "progressLabel": "81/102　タクミ"
+    "progressLabel": "81/97　タクミ"
   },
   {
     "id": "ep04_v082",
@@ -1787,8 +1787,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "昔を思い出す一口",
     "visualCutIndex": 14,
-    "start": 237.082,
-    "end": 239.92,
+    "start": 237.589,
+    "end": 240.427,
     "image": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "plannedImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
@@ -1797,11 +1797,11 @@
     "dialogue": "冷めてないよ。十分だ。",
     "reading": "冷めてないよ。十分だ。",
     "log": [
-      "発話ログ　82/102",
+      "発話ログ　82/97",
       "担当　トラック運転手"
     ],
     "visualLabel": "14/20　昔を思い出す一口",
-    "progressLabel": "82/102　トラック運転手"
+    "progressLabel": "82/97　トラック運転手"
   },
   {
     "id": "ep04_v083",
@@ -1809,8 +1809,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "会計と退店",
     "visualCutIndex": 16,
-    "start": 240.17,
-    "end": 244.043,
+    "start": 240.677,
+    "end": 244.551,
     "image": "assets/scenes/planned/ep04_vc16_checkout_driver_leaves.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_checkout_driver_leaves.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_checkout_driver_leaves.png",
@@ -1819,11 +1819,11 @@
     "dialogue": "運転手は唐揚げ棒を食べながら店を出ていった。",
     "reading": "運転手は唐揚げ棒を食べながら店を出ていった。",
     "log": [
-      "発話ログ　83/102",
+      "発話ログ　83/97",
       "担当　ナレーション"
     ],
     "visualLabel": "16/20　会計と退店",
-    "progressLabel": "83/102　ナレーション"
+    "progressLabel": "83/97　ナレーション"
   },
   {
     "id": "ep04_v084",
@@ -1831,8 +1831,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "会計と退店",
     "visualCutIndex": 16,
-    "start": 244.493,
-    "end": 246.222,
+    "start": 245.001,
+    "end": 246.73,
     "image": "assets/scenes/planned/ep04_vc16_checkout_driver_leaves.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_checkout_driver_leaves.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_checkout_driver_leaves.png",
@@ -1841,11 +1841,11 @@
     "dialogue": "ありがとうございました。",
     "reading": "ありがとうございました。",
     "log": [
-      "発話ログ　84/102",
+      "発話ログ　84/97",
       "担当　タクミ"
     ],
     "visualLabel": "16/20　会計と退店",
-    "progressLabel": "84/102　タクミ"
+    "progressLabel": "84/97　タクミ"
   },
   {
     "id": "ep04_v085",
@@ -1853,8 +1853,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "返品済み青年再照合予定",
     "visualCutIndex": 18,
-    "start": 246.472,
-    "end": 251.158,
+    "start": 246.98,
+    "end": 251.666,
     "image": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
@@ -1863,11 +1863,11 @@
     "dialogue": "自動ドアが閉まると、第十三レジが最後のレシートを印字した。",
     "reading": "自動ドアが閉まると、第十三レジが最後のレシートを印字した。",
     "log": [
-      "発話ログ　85/102",
+      "発話ログ　85/97",
       "担当　ナレーション"
     ],
     "visualLabel": "18/20　返品済み青年再照合予定",
-    "progressLabel": "85/102　ナレーション"
+    "progressLabel": "85/97　ナレーション"
   },
   {
     "id": "ep04_v086",
@@ -1875,8 +1875,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "返品済み青年再照合予定",
     "visualCutIndex": 18,
-    "start": 251.608,
-    "end": 253.874,
+    "start": 252.116,
+    "end": 254.381,
     "image": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
@@ -1885,11 +1885,11 @@
     "dialogue": "未来クレーム、発生回避。",
     "reading": "未来クレーム、発生回避。",
     "log": [
-      "発話ログ　86/102",
+      "発話ログ　86/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "18/20　返品済み青年再照合予定",
-    "progressLabel": "86/102　第十三レジ"
+    "progressLabel": "86/97　第十三レジ"
   },
   {
     "id": "ep04_v087",
@@ -1897,8 +1897,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "返品済み青年再照合予定",
     "visualCutIndex": 18,
-    "start": 254.224,
-    "end": 256.55,
+    "start": 254.731,
+    "end": 257.058,
     "image": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
@@ -1907,11 +1907,11 @@
     "dialogue": "温め直し証明、1件。",
     "reading": "温め直し証明、1件。",
     "log": [
-      "発話ログ　87/102",
+      "発話ログ　87/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "18/20　返品済み青年再照合予定",
-    "progressLabel": "87/102　第十三レジ"
+    "progressLabel": "87/97　第十三レジ"
   },
   {
     "id": "ep04_v088",
@@ -1919,8 +1919,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "返品済み青年再照合予定",
     "visualCutIndex": 18,
-    "start": 256.9,
-    "end": 259.966,
+    "start": 257.408,
+    "end": 260.474,
     "image": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
@@ -1929,11 +1929,11 @@
     "dialogue": "返品済み青年、再照合予定。",
     "reading": "へんぴん済み青年、再照合予定。",
     "log": [
-      "発話ログ　88/102",
+      "発話ログ　88/97",
       "担当　第十三レジ"
     ],
     "visualLabel": "18/20　返品済み青年再照合予定",
-    "progressLabel": "88/102　第十三レジ"
+    "progressLabel": "88/97　第十三レジ"
   },
   {
     "id": "ep04_v089",
@@ -1941,8 +1941,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "返品済み青年再照合予定",
     "visualCutIndex": 18,
-    "start": 260.316,
-    "end": 262.115,
+    "start": 260.824,
+    "end": 262.623,
     "image": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
@@ -1951,11 +1951,11 @@
     "dialogue": "またあの人ですか……。",
     "reading": "またあの人ですか……。",
     "log": [
-      "発話ログ　89/102",
+      "発話ログ　89/97",
       "担当　タクミ"
     ],
     "visualLabel": "18/20　返品済み青年再照合予定",
-    "progressLabel": "89/102　タクミ"
+    "progressLabel": "89/97　タクミ"
   },
   {
     "id": "ep04_v090",
@@ -1963,8 +1963,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "返品済み青年再照合予定",
     "visualCutIndex": 18,
-    "start": 262.365,
-    "end": 263.725,
+    "start": 262.873,
+    "end": 264.232,
     "image": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
@@ -1973,11 +1973,11 @@
     "dialogue": "おそらく。",
     "reading": "おそらく。",
     "log": [
-      "発話ログ　90/102",
+      "発話ログ　90/97",
       "担当　汗田竜司"
     ],
     "visualLabel": "18/20　返品済み青年再照合予定",
-    "progressLabel": "90/102　汗田竜司"
+    "progressLabel": "90/97　汗田竜司"
   },
   {
     "id": "ep04_v091",
@@ -1985,8 +1985,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "第十三レジ消滅",
     "visualCutIndex": 19,
-    "start": 263.975,
-    "end": 267.79,
+    "start": 264.482,
+    "end": 268.298,
     "image": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
     "plannedImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
@@ -1995,130 +1995,20 @@
     "dialogue": "午前2時20分。第十三レジは消えた。",
     "reading": "午前2時20分。第十三レジは消えた。",
     "log": [
-      "発話ログ　91/102",
+      "発話ログ　91/97",
       "担当　ナレーション"
     ],
     "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "91/102　ナレーション"
+    "progressLabel": "91/97　ナレーション"
   },
   {
     "id": "ep04_v092",
     "cut": "ep04_092",
-    "visualCutId": "vc19",
-    "visualCutTitle": "第十三レジ消滅",
-    "visualCutIndex": 19,
-    "start": 268.24,
-    "end": 269.509,
-    "image": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "plannedImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "imagePrompt": "タクミがマニュアルにコピー機の予告は半分だけ信じると書く。唐揚げ棒は普通に売る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "エリ",
-    "dialogue": "補充しよう。",
-    "reading": "補充しよう。",
-    "log": [
-      "発話ログ　92/102",
-      "担当　エリ"
-    ],
-    "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "92/102　エリ"
-  },
-  {
-    "id": "ep04_v093",
-    "cut": "ep04_093",
-    "visualCutId": "vc19",
-    "visualCutTitle": "第十三レジ消滅",
-    "visualCutIndex": 19,
-    "start": 269.759,
-    "end": 271.409,
-    "image": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "plannedImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "imagePrompt": "タクミがマニュアルにコピー機の予告は半分だけ信じると書く。唐揚げ棒は普通に売る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "タクミ",
-    "dialogue": "普通の補充ですね。",
-    "reading": "普通の補充ですね。",
-    "log": [
-      "発話ログ　93/102",
-      "担当　タクミ"
-    ],
-    "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "93/102　タクミ"
-  },
-  {
-    "id": "ep04_v094",
-    "cut": "ep04_094",
-    "visualCutId": "vc19",
-    "visualCutTitle": "第十三レジ消滅",
-    "visualCutIndex": 19,
-    "start": 271.659,
-    "end": 273.034,
-    "image": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "plannedImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "imagePrompt": "タクミがマニュアルにコピー機の予告は半分だけ信じると書く。唐揚げ棒は普通に売る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "エリ",
-    "dialogue": "売れたから。",
-    "reading": "売れたから。",
-    "log": [
-      "発話ログ　94/102",
-      "担当　エリ"
-    ],
-    "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "94/102　エリ"
-  },
-  {
-    "id": "ep04_v095",
-    "cut": "ep04_095",
-    "visualCutId": "vc19",
-    "visualCutTitle": "第十三レジ消滅",
-    "visualCutIndex": 19,
-    "start": 273.284,
-    "end": 276.476,
-    "image": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "plannedImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "imagePrompt": "タクミがマニュアルにコピー機の予告は半分だけ信じると書く。唐揚げ棒は普通に売る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "汗田竜司",
-    "dialogue": "先に謝るより、先に温め直す。",
-    "reading": "先に謝るより、先に温め直す。",
-    "log": [
-      "発話ログ　95/102",
-      "担当　汗田竜司"
-    ],
-    "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "95/102　汗田竜司"
-  },
-  {
-    "id": "ep04_v096",
-    "cut": "ep04_096",
-    "visualCutId": "vc19",
-    "visualCutTitle": "第十三レジ消滅",
-    "visualCutIndex": 19,
-    "start": 276.726,
-    "end": 278.297,
-    "image": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "plannedImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "imagePrompt": "タクミがマニュアルにコピー機の予告は半分だけ信じると書く。唐揚げ棒は普通に売る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
-    "speaker": "タクミ",
-    "dialogue": "結論それですか。",
-    "reading": "結論それですか。",
-    "log": [
-      "発話ログ　96/102",
-      "担当　タクミ"
-    ],
-    "visualLabel": "19/20　第十三レジ消滅",
-    "progressLabel": "96/102　タクミ"
-  },
-  {
-    "id": "ep04_v097",
-    "cut": "ep04_097",
     "visualCutId": "vc20",
     "visualCutTitle": "ノート追記・先に温め直す",
     "visualCutIndex": 20,
-    "start": 278.547,
-    "end": 281.375,
+    "start": 268.748,
+    "end": 271.577,
     "image": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "plannedImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
@@ -2127,20 +2017,20 @@
     "dialogue": "タクミは業務ノートに書き足した。",
     "reading": "タクミは業務ノートに書き足した。",
     "log": [
-      "発話ログ　97/102",
+      "発話ログ　92/97",
       "担当　ナレーション"
     ],
     "visualLabel": "20/20　ノート追記・先に温め直す",
-    "progressLabel": "97/102　ナレーション"
+    "progressLabel": "92/97　ナレーション"
   },
   {
-    "id": "ep04_v098",
-    "cut": "ep04_098",
+    "id": "ep04_v093",
+    "cut": "ep04_093",
     "visualCutId": "vc20",
     "visualCutTitle": "ノート追記・先に温め直す",
     "visualCutIndex": 20,
-    "start": 281.825,
-    "end": 284.851,
+    "start": 272.027,
+    "end": 275.053,
     "image": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "plannedImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
@@ -2149,20 +2039,20 @@
     "dialogue": "未来レシートは先に謝ることがある。",
     "reading": "未来レシートは先に謝ることがある。",
     "log": [
-      "発話ログ　98/102",
+      "発話ログ　93/97",
       "担当　ナレーション"
     ],
     "visualLabel": "20/20　ノート追記・先に温め直す",
-    "progressLabel": "98/102　ナレーション"
+    "progressLabel": "93/97　ナレーション"
   },
   {
-    "id": "ep04_v099",
-    "cut": "ep04_099",
+    "id": "ep04_v094",
+    "cut": "ep04_094",
     "visualCutId": "vc20",
     "visualCutTitle": "ノート追記・先に温め直す",
     "visualCutIndex": 20,
-    "start": 285.301,
-    "end": 289.163,
+    "start": 275.503,
+    "end": 279.364,
     "image": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "plannedImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
@@ -2171,20 +2061,20 @@
     "dialogue": "唐揚げ棒は温め直せば、だいたい何とかなる。",
     "reading": "唐揚げ棒は温め直せば、だいたい何とかなる。",
     "log": [
-      "発話ログ　99/102",
+      "発話ログ　94/97",
       "担当　ナレーション"
     ],
     "visualLabel": "20/20　ノート追記・先に温め直す",
-    "progressLabel": "99/102　ナレーション"
+    "progressLabel": "94/97　ナレーション"
   },
   {
-    "id": "ep04_v100",
-    "cut": "ep04_100",
+    "id": "ep04_v095",
+    "cut": "ep04_095",
     "visualCutId": "vc20",
     "visualCutTitle": "ノート追記・先に温め直す",
     "visualCutIndex": 20,
-    "start": 289.613,
-    "end": 292.013,
+    "start": 279.814,
+    "end": 282.215,
     "image": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "plannedImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
@@ -2193,20 +2083,20 @@
     "dialogue": "だいたいでマニュアルにしていいんですか。",
     "reading": "だいたいでマニュアルにしていいんですか。",
     "log": [
-      "発話ログ　100/102",
+      "発話ログ　95/97",
       "担当　タクミ"
     ],
     "visualLabel": "20/20　ノート追記・先に温め直す",
-    "progressLabel": "100/102　タクミ"
+    "progressLabel": "95/97　タクミ"
   },
   {
-    "id": "ep04_v101",
-    "cut": "ep04_101",
+    "id": "ep04_v096",
+    "cut": "ep04_096",
     "visualCutId": "vc20",
     "visualCutTitle": "ノート追記・先に温め直す",
     "visualCutIndex": 20,
-    "start": 292.263,
-    "end": 293.582,
+    "start": 282.465,
+    "end": 283.784,
     "image": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "plannedImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
@@ -2215,20 +2105,20 @@
     "dialogue": "現場っぽい。",
     "reading": "現場っぽい。",
     "log": [
-      "発話ログ　101/102",
+      "発話ログ　96/97",
       "担当　エリ"
     ],
     "visualLabel": "20/20　ノート追記・先に温め直す",
-    "progressLabel": "101/102　エリ"
+    "progressLabel": "96/97　エリ"
   },
   {
-    "id": "ep04_v102",
-    "cut": "ep04_102",
+    "id": "ep04_v097",
+    "cut": "ep04_097",
     "visualCutId": "vc20",
     "visualCutTitle": "ノート追記・先に温め直す",
     "visualCutIndex": 20,
-    "start": 293.832,
-    "end": 298.658,
+    "start": 284.034,
+    "end": 288.859,
     "image": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "plannedImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
@@ -2237,10 +2127,10 @@
     "dialogue": "深夜のコンビニでは、未来のクレームも、いったん温め直しになる。",
     "reading": "深夜のコンビニでは、未来のクレームも、いったん温め直しになる。",
     "log": [
-      "発話ログ　102/102",
+      "発話ログ　97/97",
       "担当　ナレーション"
     ],
     "visualLabel": "20/20　ノート追記・先に温め直す",
-    "progressLabel": "102/102　ナレーション"
+    "progressLabel": "97/97　ナレーション"
   }
 ]

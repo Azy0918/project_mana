@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Episode Studio ｜ 第十三レジ</title>
+<style>
+  :root{color-scheme:dark;--bg:#05070b;--panel:#101720;--panel2:#161f2b;--line:#26384a;--text:#edf7ff;--muted:#98a7b8;
+    --cyan:#53e5ff;--violet:#b58cff;--warn:#ffcf6b;--bad:#ff8a8a;--ok:#8affb0}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 0%,rgba(83,229,255,.08),transparent 26rem),var(--bg);
+    color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  header{position:sticky;top:0;z-index:10;background:rgba(10,14,20,.92);border-bottom:1px solid var(--line);
+    padding:10px 14px;backdrop-filter:blur(8px)}
+  header h1{margin:0;font-size:16px}
+  header .sub{margin:2px 0 0;color:var(--muted);font-size:11.5px}
+  nav.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  nav.tabs button{font:inherit;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);
+    color:var(--text);cursor:pointer;font-size:12.5px;font-weight:700}
+  nav.tabs button.active{background:rgba(83,229,255,.18);border-color:rgba(83,229,255,.5);color:var(--cyan)}
+  main{max-width:1080px;margin:0 auto;padding:16px 14px 80px}
+  section.tab{display:none}
+  section.tab.active{display:block}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+  .card h2{margin:0 0 10px;font-size:14px;color:var(--cyan)}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .col{display:flex;flex-direction:column;gap:4px}
+  label{font-size:11.5px;color:var(--muted);font-weight:700}
+  input,select,textarea,button{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--line);
+    border-radius:7px;padding:7px 9px}
+  input,select{min-height:36px}
+  textarea{width:100%;resize:vertical;min-height:38px}
+  button{cursor:pointer;font-weight:800;min-height:36px}
+  button.go{background:rgba(83,229,255,.16);border-color:rgba(83,229,255,.55);color:var(--cyan)}
+  button.danger{background:rgba(255,138,138,.14);border-color:rgba(255,138,138,.5);color:var(--bad)}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  .muted{color:var(--muted);font-size:12px}
+  .note{color:var(--warn);font-size:12px;line-height:1.5}
+  .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:800}
+  .badge.ok{background:rgba(138,255,176,.14);color:var(--ok)}
+  .badge.bad{background:rgba(255,138,138,.14);color:var(--bad)}
+  .badge.warn{background:rgba(255,207,107,.14);color:var(--warn)}
+  table{width:100%;border-collapse:collapse}
+  .line-card{border:1px solid var(--line);border-radius:9px;padding:9px 10px;margin:7px 0;background:rgba(5,7,11,.35)}
+  .line-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+  .line-head select{min-height:30px;padding:4px 8px;font-size:12px}
+  .idtag{font-family:monospace;color:var(--muted);font-size:11px}
+  .line-card textarea{width:100%;font-size:13px}
+  .line-ctl{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center}
+  .line-ctl input[type=number]{width:80px;min-height:30px}
+  .line-ctl button{min-height:30px;padding:5px 9px;font-size:11.5px}
+  .cut-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+  .cut-card{border:1px solid var(--line);border-radius:9px;padding:9px;background:rgba(5,7,11,.35)}
+  .cut-card img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:6px;background:#000;border:1px solid var(--line)}
+  .cut-card .path{font-family:monospace;font-size:10.5px;color:var(--muted);word-break:break-all;margin:5px 0}
+  .cut-card textarea{font-size:11.5px;min-height:56px}
+  .cut-card input[type=number]{width:70px}
+  .progress{height:8px;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden;margin:8px 0}
+  .progress b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet))}
+  #log{max-height:160px;overflow:auto;font-family:monospace;font-size:11px;color:var(--muted);white-space:pre-wrap;
+    background:rgba(0,0,0,.3);border-radius:7px;padding:8px}
+  .player-phone{width:min(100%,300px);aspect-ratio:9/16;position:relative;border:1px solid rgba(83,229,255,.4);
+    border-radius:16px;overflow:hidden;background:#000;margin:0 auto}
+  .player-phone img{width:100%;height:100%;object-fit:cover}
+  .player-cap{position:absolute;left:0;right:0;bottom:0;padding:60px 10px 10px;
+    background:linear-gradient(180deg,transparent,rgba(0,0,0,.92));font-size:12px}
+  .player-cap b{color:var(--cyan);display:block;font-size:11px;margin-bottom:3px}
+  #videoCanvas{display:none}
+  .flex1{flex:1;min-width:160px}
+  code.small{font-size:11px;background:rgba(255,255,255,.06);padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎬 Episode Studio ｜ 深夜二時の第十三レジ</h1>
+  <p class="sub">セリフ・画像・音声をここで編集して、紙芝居プレイヤーへ直接公開します。</p>
+  <nav class="tabs">
+    <button data-tab="settings" class="active">設定</button>
+    <button data-tab="dialogue">セリフ</button>
+    <button data-tab="images">画像</button>
+    <button data-tab="audio">音声</button>
+    <button data-tab="preview">プレビュー</button>
+    <button data-tab="export">書き出し</button>
+  </nav>
+</header>
+<main>
+
+  <!-- ===== 設定 ===== -->
+  <section class="tab active" data-tab="settings">
+    <div class="card">
+      <h2>GitHub 接続</h2>
+      <p class="muted">ここに保存した内容はブラウザの localStorage のみに残ります（サーバーには送られません）。
+        Personal Access Token は <code class="small">Contents: Read and write</code> 権限だけで作成してください。</p>
+      <div class="row">
+        <div class="col flex1"><label>Owner</label><input id="ghOwner"></div>
+        <div class="col flex1"><label>Repo</label><input id="ghRepo"></div>
+        <div class="col flex1"><label>Branch</label><input id="ghBranch"></div>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <div class="col flex1"><label>Personal Access Token</label><input id="ghToken" type="password" placeholder="ghp_..."></div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <button class="go" id="ghSave">保存して接続確認</button>
+        <span id="ghStatus" class="badge"></span>
+      </div>
+    </div>
+    <div class="card">
+      <h2>話数を選ぶ</h2>
+      <div class="row">
+        <div class="col flex1"><label>話数</label><select id="episodeSelect"></select></div>
+        <div class="col"><label>&nbsp;</label><button id="loadEpisodeBtn" class="go">読み込む</button></div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div class="col flex1"><label>新規話数番号（例: 13）</label><input id="newEpNum" type="number" min="13" placeholder="13"></div>
+        <div class="col flex1"><label>タイトル</label><input id="newEpTitle" placeholder="第13話 〜"></div>
+        <div class="col"><label>&nbsp;</label><button id="newEpBtn">新規作成</button></div>
+      </div>
+      <p id="episodeStatus" class="muted" style="margin-top:8px"></p>
+    </div>
+    <div class="card">
+      <h2>AivisSpeech（音声合成エンジン）</h2>
+      <p class="muted">音声生成は <b>PCのブラウザ</b> でこのページを開き、AivisSpeechエンジンをローカルで起動してください。
+        起動時にCORSを許可する必要があります（下の起動コマンド例を参照）。スマホではセリフ・画像・タイミングの編集のみ行えます。</p>
+      <div class="row"><span id="aivisStatus" class="badge"></span><button id="aivisCheck">接続確認</button></div>
+      <p class="muted" style="margin-top:8px">起動コマンド例（AivisSpeech同梱エンジンの場合）：<br>
+        <code class="small">run.exe --cors_policy_mode all</code></p>
+    </div>
+    <div class="card"><h2>ログ</h2><div id="log"></div></div>
+  </section>
+
+  <!-- ===== セリフ ===== -->
+  <section class="tab" data-tab="dialogue">
+    <div class="card">
+      <h2>CSVで一括アップロード</h2>
+      <p class="muted">列: <code class="small">speaker,dialogue,reading,pause_ms,cut</code>（cutは1〜20の画像カット番号。reading省略時はdialogueをそのまま読み上げに使用）</p>
+      <div class="row">
+        <input type="file" id="csvFile" accept=".csv,text/csv">
+        <button id="csvImportBtn">読み込んで置き換え</button>
+        <button id="csvExportBtn">CSVダウンロード</button>
+        <button id="csvTemplateBtn">テンプレートDL</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>セリフ一覧 <span id="lineCount" class="muted"></span></h2>
+      <div id="lineList"></div>
+      <div class="row" style="margin-top:8px">
+        <button id="addLineBtn">＋行を追加</button>
+        <button class="go" id="saveDialogueBtn">GitHubに保存</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 画像 ===== -->
+  <section class="tab" data-tab="images">
+    <div class="card">
+      <h2>画像カット（20枚固定）</h2>
+      <p class="muted">codexなど外部の画像生成に渡す保存先パスです。ここに書き出したファイル名で置けば、そのまま反映されます。
+        タイミングは空欄なら自動（セリフ音声の長さから算出）、数値を入れると秒指定で固定できます。</p>
+      <div class="row"><button id="saveCutsBtn" class="go">カット情報をGitHubに保存</button></div>
+    </div>
+    <div class="cut-grid" id="cutGrid"></div>
+  </section>
+
+  <!-- ===== 音声 ===== -->
+  <section class="tab" data-tab="audio">
+    <div class="card">
+      <h2>音声生成</h2>
+      <div class="row">
+        <button class="go" id="genAllBtn">一括生成（未生成分のみ）</button>
+        <button id="genAllForceBtn">一括再生成（全部）</button>
+        <span id="genProgress" class="muted"></span>
+      </div>
+      <div class="progress"><b id="genProgressBar"></b></div>
+    </div>
+    <div class="card">
+      <h2>行ごとの生成</h2>
+      <div id="audioLineList"></div>
+    </div>
+    <div class="card">
+      <h2>結合＆保存</h2>
+      <p class="muted">全行の生成が終わったら、結合してタイムスタンプ付きの scene_manifest を作り、GitHubへコミットします。</p>
+      <button class="go" id="commitAudioBtn">結合してGitHubへコミット</button>
+    </div>
+  </section>
+
+  <!-- ===== プレビュー ===== -->
+  <section class="tab" data-tab="preview">
+    <div class="card">
+      <h2>紙芝居プレビュー</h2>
+      <div class="player-phone">
+        <img id="prevImg" alt="">
+        <div class="player-cap"><b id="prevSpeaker"></b><span id="prevText"></span></div>
+      </div>
+      <audio id="prevAudio" controls style="width:100%;margin-top:10px"></audio>
+      <p class="muted" id="prevMeta" style="margin-top:6px"></p>
+    </div>
+  </section>
+
+  <!-- ===== 書き出し ===== -->
+  <section class="tab" data-tab="export">
+    <div class="card">
+      <h2>紙芝居プレイヤーとして公開</h2>
+      <p class="muted">scene_manifest とアセットをGitHubへコミットし、index.html の話数一覧にも登録します。</p>
+      <button class="go" id="publishPlayerBtn">公開する</button>
+      <p id="publishStatus" class="muted"></p>
+    </div>
+    <div class="card">
+      <h2>YouTube用 動画書き出し</h2>
+      <p class="muted">画像＋字幕＋音声をブラウザ内で合成し、動画ファイルとしてダウンロードします（YouTubeへのアップロードは手動）。</p>
+      <div class="row">
+        <div class="col"><label>解像度</label>
+          <select id="videoRes"><option value="1080x1920">縦 1080x1920</option><option value="720x1280">縦 720x1280（軽量）</option></select>
+        </div>
+        <div class="col"><label>&nbsp;</label><button class="go" id="renderVideoBtn">動画を生成</button></div>
+      </div>
+      <div class="progress"><b id="videoProgressBar"></b></div>
+      <p id="videoStatus" class="muted"></p>
+      <a id="videoDownload" style="display:none" class="go" download>ダウンロード</a>
+    </div>
+    <canvas id="videoCanvas" width="1080" height="1920"></canvas>
+  </section>
+
+</main>
+<script src="studio.js"></script>
+</body>
+</html>

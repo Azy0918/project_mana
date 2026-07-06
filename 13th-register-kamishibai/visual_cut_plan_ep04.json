@@ -1,682 +1,278 @@
 [
   {
     "visualCutId": "vc01",
-    "title": "業務ノートと対応マニュアル",
-    "plannedImage": "assets/scenes/planned/ep04_vc01_manual_note.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc01_manual_note.png",
-    "lineRangeDraft": "ep04_v001-ep04_v006",
-    "prompt": "深夜2時5分、静かな店内。レジ下の棚やカウンター上に夜勤用の業務ノートがあり、タクミが困った顔で開いている。エリは背景で淡々と通常業務。第十三レジはまだ出さない。ノート表紙は見えるが文字は読ませない。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。",
+    "lineStart": "ep04_v001",
+    "lineEnd": "ep04_v011",
+    "title": "ホットスナックケース故障・最後の唐揚げ棒",
+    "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "深夜2時5分、ホットスナックケースの表示が点滅して壊れている。タクミが困り顔でエリに報告し、ケースには唐揚げ棒が最後の1本だけ残っている。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri"
+      "タクミ",
+      "エリ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc02",
-    "title": "予告メモと唐揚げ棒の気配",
-    "plannedImage": "assets/scenes/planned/ep04_vc02_future_note_karaage.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc02_future_note_karaage.png",
-    "lineRangeDraft": "ep04_v007-ep04_v012",
-    "prompt": "業務ノートに挟まれた未来予告の紙片をタクミとエリが見る。唐揚げ棒に関する予告だと分かる構図で、奥にホットスナックケースを入れる。紙の文字は読ませず、タクミは困惑、エリは平静。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。",
+    "lineStart": "ep04_v012",
+    "lineEnd": "ep04_v017",
+    "title": "予告レシート印字・2時28分クレーム予告",
+    "plannedImage": "assets/scenes/planned/ep04_vc02_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "コピー機が予告レシートを1枚印刷する。2時28分に唐揚げ棒を買った客が怒るという予告内容だが、紙面の文字は読ませない。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri"
+      "タクミ",
+      "エリ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc03",
-    "title": "唐揚げ棒と第十三レジ出現",
-    "plannedImage": "assets/scenes/planned/ep04_vc03_karaage_register_appears.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc03_karaage_register_appears.png",
-    "lineRangeDraft": "ep04_v013-ep04_v018",
-    "prompt": "ホットスナックケース内の唐揚げ棒1本が主役のように残っている。2時17分、第十三レジがカウンター右端に静かに現れる。タクミは驚き、エリはいつも通り。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
-    "characterIds": [
-      "takumi",
-      "eri",
-      "thirteenth_register"
-    ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "lineStart": "ep04_v018",
+    "lineEnd": "ep04_v019",
+    "title": "2時17分・第十三レジ出現",
+    "plannedImage": "assets/scenes/planned/ep04_vc03_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "2時17分。カウンター右端に第十三レジが静かに出現する瞬間。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。",
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc04",
-    "title": "未来レシート先行印字",
-    "plannedImage": "assets/scenes/planned/ep04_vc04_future_receipt_pre_apology.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc04_future_receipt_pre_apology.png",
-    "lineRangeDraft": "ep04_v019-ep04_v024",
-    "prompt": "第十三レジから未来レシートが先行印字される。レシートは短く、読めない記号程度にする。タクミが抗議するように身を乗り出し、エリは平静。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v020",
+    "lineEnd": "ep04_v025",
+    "title": "未来レシート先行印字・お詫び理由",
+    "plannedImage": "assets/scenes/planned/ep04_vc04_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "第十三レジが未来レシートを先行印字する。唐揚げ棒1点とお詫び1件の短いレシート、タクミが困惑して覗き込む。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "thirteenth_register"
+      "第十三レジ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc05",
-    "title": "汗田登場・感情の熱源",
-    "plannedImage": "assets/scenes/planned/ep04_vc05_aseda_enters_memory_heat.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc05_aseda_enters_memory_heat.png",
-    "lineRangeDraft": "ep04_v025-ep04_v030",
-    "prompt": "自動ドアから汗田竜司が来店し、温度のズレを指摘する。夜の駐車場がガラス越しに見える。タクミは振り返って驚き、エリはカウンター側で淡々と見る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。",
+    "lineStart": "ep04_v026",
+    "lineEnd": "ep04_v033",
+    "title": "期待値と勤務時間の問答",
+    "plannedImage": "assets/scenes/planned/ep04_vc05_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "タクミが第十三レジに問いただすが、レジは勤務時間（2時17分〜2時20分）を理由に淡々と受け答えする。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "aseda_ryuji"
+      "タクミ",
+      "第十三レジ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc06",
-    "title": "記憶温度スキャン提案",
-    "plannedImage": "assets/scenes/planned/ep04_vc06_memory_temperature_scan_prompt.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc06_memory_temperature_scan_prompt.png",
-    "lineRangeDraft": "ep04_v031-ep04_v036",
-    "prompt": "第十三レジの画面に記憶温度の診断を示す小さな46度風の光。エリがスキャンするか尋ねる雰囲気、タクミは「何を」と不安げ。レジは通常サイズの黒いセルフレジ。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v034",
+    "lineEnd": "ep04_v040",
+    "title": "汗田竜司来店・唐揚げ棒を検知",
+    "plannedImage": "assets/scenes/planned/ep04_vc06_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "自動ドアから汗田竜司が来店し、バイクナビが唐揚げ棒だけを未来仕様として検知したと告げる。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "thirteenth_register"
+      "汗田竜司",
+      "タクミ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc07",
-    "title": "唐揚げ棒温度46度",
-    "plannedImage": "assets/scenes/planned/ep04_vc07_karaage_temperature_scan.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc07_karaage_temperature_scan.png",
-    "lineRangeDraft": "ep04_v037-ep04_v042",
-    "prompt": "スキャナーが短く鳴り、唐揚げ棒に淡いシアンの光が当たる。商品温度46度のニュアンスを画面に小さく示す。唐揚げ棒とスキャナーを主役にし、レシートは出さない。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v041",
+    "lineEnd": "ep04_v047",
+    "title": "食べ頃ボタン発見",
+    "plannedImage": "assets/scenes/planned/ep04_vc07_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "唐揚げ棒の串の根元がうっすら光り、小さな食べ頃ボタンが見つかる。タクミと汗田が覗き込む。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "thirteenth_register"
+      "第十三レジ",
+      "タクミ",
+      "汗田竜司"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc08",
-    "title": "生体購買履歴スキャン開始",
-    "plannedImage": "assets/scenes/planned/ep04_vc08_bio_purchase_history_ring_scan.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc08_bio_purchase_history_ring_scan.png",
-    "lineRangeDraft": "ep04_v043-ep04_v048",
-    "prompt": "第十三レジ上部から小型のリング状スキャナーが展開し、生体購買履歴スキャンが始まる見せ場。淡いシアン粒子と薄い光だけで控えめに。タクミは驚き、汗田は技術者目線で観察。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v048",
+    "lineEnd": "ep04_v053",
+    "title": "好感度演出のボタンを押す",
+    "plannedImage": "assets/scenes/planned/ep04_vc08_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "タクミが恐る恐る食べ頃ボタンを押そうとする。第十三レジが好感度演出の開始を告げる。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "aseda_ryuji",
-      "thirteenth_register"
+      "第十三レジ",
+      "タクミ",
+      "汗田竜司"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc09",
-    "title": "光が店内を横断",
-    "plannedImage": "assets/scenes/planned/ep04_vc09_light_crosses_store.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc09_light_crosses_store.png",
-    "lineRangeDraft": "ep04_v049-ep04_v054",
-    "prompt": "淡いスキャン光が店内を横断し、棚、床、空気、まだ来ていない客の輪郭をうっすら浮かべる。未来の来店者の影は透明で控えめ。普通のコンビニ空間を壊さない。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v054",
+    "lineEnd": "ep04_v061",
+    "title": "黄金の湯気ホログラム演出",
+    "plannedImage": "assets/scenes/planned/ep04_vc09_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "ボタンが押され、唐揚げ棒から黄金色の湯気とホログラム演出が立ち上る。タクミ・エリ・汗田が驚き見入る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "aseda_ryuji",
-      "thirteenth_register"
+      "タクミ",
+      "エリ",
+      "汗田竜司"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc10",
-    "title": "トラック運転手と記憶温度72度",
-    "plannedImage": "assets/scenes/planned/ep04_vc10_truck_driver_memory_72.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc10_truck_driver_memory_72.png",
-    "lineRangeDraft": "ep04_v055-ep04_v060",
-    "prompt": "2時28分、疲れたトラック運転手が来店し唐揚げ棒を注文する。第十三レジ側に記憶温度72度の小さな気配。タクミは慌て、エリは通常接客。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v062",
+    "lineEnd": "ep04_v065",
+    "title": "触れると冷たい現実",
+    "plannedImage": "assets/scenes/planned/ep04_vc10_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "演出に反してタクミが唐揚げ棒に触れると冷たいままだと気づく。第十三レジが「好感度演出です」と告げる。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "truck_driver_ep04",
-      "thirteenth_register"
+      "タクミ",
+      "第十三レジ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "truck_driver_ep04",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/truck_driver_ep04_sheet.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc11",
-    "title": "温め直し判断",
-    "plannedImage": "assets/scenes/planned/ep04_vc11_reheat_decision.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc11_reheat_decision.png",
-    "lineRangeDraft": "ep04_v061-ep04_v066",
-    "prompt": "差分26度を受け、エリが唐揚げ棒を温め直す判断をする。唐揚げ棒、トング、ホットスナックケースまたはレンジ周辺を見せる。タクミは「どっちを」と困惑。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v066",
+    "lineEnd": "ep04_v070",
+    "title": "2時20分・第十三レジ退勤",
+    "plannedImage": "assets/scenes/planned/ep04_vc11_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "2時20分、第十三レジが営業終了を告げて消える。肝心なところを残されタクミが困惑する。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "truck_driver_ep04",
-      "thirteenth_register"
+      "第十三レジ",
+      "タクミ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "truck_driver_ep04",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/truck_driver_ep04_sheet.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc12",
-    "title": "レシート補正と古い国道の湯気",
-    "plannedImage": "assets/scenes/planned/ep04_vc12_receipt_correction_road_lamps.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc12_receipt_correction_road_lamps.png",
-    "lineRangeDraft": "ep04_v067-ep04_v072",
-    "prompt": "温め直した唐揚げ棒の湯気に、古い国道の街灯がぼんやり重なる。第十三レジが静かに記憶温度合わせを行う。湯気の中の過去イメージは柔らかく、派手なホログラムにしない。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v071",
+    "lineEnd": "ep04_v076",
+    "title": "2時28分・トラック運転手来店",
+    "plannedImage": "assets/scenes/planned/ep04_vc12_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "2時28分、疲れたトラック運転手が来店し唐揚げ棒を注文する。タクミが渡すと、本物のかすかな湯気が立ち始める。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "truck_driver_ep04",
-      "thirteenth_register"
+      "トラック運転手",
+      "タクミ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "truck_driver_ep04",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/truck_driver_ep04_sheet.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc13",
-    "title": "通常販売可能",
-    "plannedImage": "assets/scenes/planned/ep04_vc13_normal_sale_receipt.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc13_normal_sale_receipt.png",
-    "lineRangeDraft": "ep04_v073-ep04_v078",
-    "prompt": "第十三レジが再発行し、謝罪の気配が消えて通常販売可能になった穏やかなレシート。短いレシート、タクミの安堵混じりの困惑、エリの「売れるね」という平静さ。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v077",
+    "lineEnd": "ep04_v086",
+    "title": "ぬるい、が惜しい",
+    "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "客が一口食べて「ぬるい」と言う。タクミが「惜しい」と返し、期待だけ温めるなと突っ込まれる。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "thirteenth_register"
+      "トラック運転手",
+      "タクミ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc14",
-    "title": "昔を思い出す一口",
-    "plannedImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc14_driver_first_bite.png",
-    "lineRangeDraft": "ep04_v079-ep04_v084",
-    "prompt": "トラック運転手が唐揚げ棒を一口食べ、疲れた顔が少し和らぐ。昔を思い出すような温かい表情。タクミは怒られないことに驚き、エリは落ち着いている。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。",
+    "lineStart": "ep04_v087",
+    "lineEnd": "ep04_v091",
+    "title": "長押しで唐揚げ棒が赤く光る",
+    "plannedImage": "assets/scenes/planned/ep04_vc14_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "汗田竜司の助言でタクミがボタンを長押しする。唐揚げ棒が赤く光り始める。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "truck_driver_ep04"
+      "汗田竜司",
+      "タクミ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "truck_driver_ep04",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/truck_driver_ep04_sheet.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc15",
-    "title": "冷めてないよ、十分だ",
-    "plannedImage": "assets/scenes/planned/ep04_vc15_bag_split_gag.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc15_bag_split_gag.png",
-    "lineRangeDraft": "ep04_v085-ep04_v090",
-    "prompt": "トラック運転手がイートイン付近またはカウンター横で唐揚げ棒を一口食べ、昔を思い出すように穏やかに微笑む。タクミは「冷めてませんか？」と心配している困り顔、エリは淡々と見守る。唐揚げ棒から控えめな湯気。袋分けやレジ袋は出さない。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、胸に白い横ライン、緑色の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。",
+    "lineStart": "ep04_v092",
+    "lineEnd": "ep04_v098",
+    "title": "炎のホログラム演出",
+    "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "ケースいっぱいに炎のホログラム演出が展開する。黄金の湯気、肉汁、揚げ音が重なる派手な見せ場。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "truck_driver_ep04"
+      "タクミ",
+      "エリ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "truck_driver_ep04",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/truck_driver_ep04_sheet.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc16",
-    "title": "会計と退店",
-    "plannedImage": "assets/scenes/planned/ep04_vc16_checkout_driver_leaves.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc16_checkout_driver_leaves.png",
-    "lineRangeDraft": "ep04_v091-ep04_v096",
-    "prompt": "通常の会計が終わり、トラック運転手が唐揚げ棒を食べながら店を出ていく。背中は少し軽やか。タクミとエリはカウンターで見送る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。",
+    "lineStart": "ep04_v099",
+    "lineEnd": "ep04_v106",
+    "title": "ちょうどいい、が見た目は熱すぎる",
+    "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "客が恐る恐る一口食べると「ちょうどいい」と満足する一方、タクミは見た目だけ熱すぎると突っ込む。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri",
-      "truck_driver_ep04"
+      "トラック運転手",
+      "汗田竜司",
+      "タクミ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "truck_driver_ep04",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/truck_driver_ep04_sheet.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc17",
-    "title": "最後のレシート印字",
-    "plannedImage": "assets/scenes/planned/ep04_vc17_copier_result_report.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc17_copier_result_report.png",
-    "lineRangeDraft": "ep04_v097-ep04_v102",
-    "prompt": "自動ドアが閉まった後、第十三レジが最後の短いレシートを印字する。未来クレーム発生回避と返品済み青年の再照合予定を示す伏線の場面だが、紙面の文字は読ませない。タクミは不安そうにレジを見つめ、汗田竜司は真剣に見守る。コピー機は出さない。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、胸に白い横ライン、緑色の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v107",
+    "lineEnd": "ep04_v111",
+    "title": "レシート自動印字・お詫び0件",
+    "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "第十三レジが自動でレシートを印字し、未来クレーム回避とお詫び0件、ありがとう1件を示す。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri"
+      "第十三レジ",
+      "タクミ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc18",
-    "title": "返品済み青年再照合予定",
-    "plannedImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc18_future_receipt_recheck_hint.png",
-    "lineRangeDraft": "ep04_v103-ep04_v108",
-    "prompt": "第十三レジが処理結果を短いレシートで出し、返品済み青年の再照合を示す不穏な引き。汗田は真剣、タクミは不安。怖くしすぎず静かな伏線にする。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 汗田竜司は同一人物固定。54歳の現代側の自動車研究開発者、長めの黒髪を後ろへ流す、濃い髭、スポーツサングラス、黒いバイクジャケット、紫のフルフェイスヘルメットを自然に持つ。未来青年や釣り常連に似せない。 第十三レジは同一機体固定。黒く重い背の高いセルフレジ型POS。角ばった黒い筐体、斜めの黒い画面にシアンの短い水平な目二本と小さな水平の口、カード端末、バーコードリーダー、レシート排出口、細い青白いLEDライン。銀色の古いレジ、巨大装置、人型ロボット、かわいいマスコット顔は禁止。",
+    "lineStart": "ep04_v112",
+    "lineEnd": "ep04_v113",
+    "title": "客の退店",
+    "plannedImage": "assets/scenes/planned/ep04_vc18_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "満足したトラック運転手が礼を言って店を出ていく。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 トラック運転手は同一人物固定。現代の中年日本人男性、疲れているが善良な顔、作業着またはワークジャケット、実用的なズボン、深夜配送帰りの雰囲気。未来人や悪人顔にしない。",
     "characterIds": [
-      "takumi",
-      "aseda_ryuji",
-      "thirteenth_register"
+      "トラック運転手"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc19",
-    "title": "第十三レジ消滅",
-    "plannedImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc19_register_disappears_restock.png",
-    "lineRangeDraft": "ep04_v109-ep04_v114",
-    "prompt": "2時20分、第十三レジが消えた後のカウンター右端。薄いグレーの四角だけが残り、店内は通常の静けさ。タクミは補充や片付けをし、エリは平常運転。第十三レジは描かない。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。",
+    "lineStart": "ep04_v114",
+    "lineEnd": "ep04_v117",
+    "title": "業務ノートに追記",
+    "plannedImage": "assets/scenes/planned/ep04_vc19_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "タクミが業務ノートに「演出より先に温めること」と書き足す。エリが淡々と見守る。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。",
     "characterIds": [
-      "takumi",
-      "eri"
+      "タクミ",
+      "エリ"
     ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc20",
-    "title": "ノート追記・先に温め直す",
-    "plannedImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
-    "fallbackImage": "assets/scenes/planned/ep04_vc20_manual_note_reheat_fix.png",
-    "lineRangeDraft": "ep04_v115-ep04_v119",
-    "prompt": "締め。タクミが業務ノートに新しい教訓を書き足す。近くに唐揚げ棒やホットスナックの小物を置き、「先に温め直す」雰囲気を視覚化。エリは現場っぽいと淡々と見守る。文字は読ませない。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。 タクミは同一人物固定。20歳前後の日本人男性、新人夜勤バイト、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、普通で親しみやすい困り顔。制服は濃紺ベース、深緑の前身頃、白い横ライン、緑の襟、左胸に名札領域、黒いズボン、地味なスニーカー。イケメン化、髪型変更、制服変更禁止。 エリは同一人物固定。20代前半の日本人女性、黒髪の低いひとつ結び、落ち着いた目、淡々としたほぼ無表情、背筋がまっすぐ。制服はタクミと同じ濃紺/深緑/白ライン/緑襟、左胸に名札領域。華美にしない。ボブ化、長髪化、制服変更禁止。",
-    "characterIds": [
-      "takumi",
-      "eri"
-    ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "eri",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/eri_sheet_v1.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "lineStart": "ep04_v118",
+    "lineEnd": "ep04_v118",
+    "title": "締めのナレーション",
+    "plannedImage": "assets/scenes/planned/ep04_vc20_v2.png",
+    "fallbackImage": "assets/scenes/scene_02_onigiri_shelf.jpg",
+    "prompt": "締めのナレーションカット。深夜のコンビニの日常に戻る、静かな店内の引き画。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%は字幕/UIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、長文テキスト、実在ロゴ、ウォーターマークを描かない。現代日本の地方コンビニ、深夜、蛍光灯、2Dアニメイラスト、ビジュアルノベル風、セルルック、非写実。普通のコンビニ日常に小さな異常が混じるトーン。派手なSFホログラム、巨大装置、壁一面の機械、ロボットアームは禁止。",
+    "characterIds": [],
+    "characterReferenceImages": []
   }
 ]

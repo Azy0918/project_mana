@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>第十三レジ エピソードスタジオ</title>
+<style>
+:root{--bg:#0e1b2e;--panel:#152238;--line:#22334e;--tx:#f1e8d2;--ac:#a6c178;--cy:#7fd4d4;--ng:#e08a8a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Yu Gothic UI","Hiragino Sans",sans-serif;font-size:15px;padding-bottom:90px}
+header{position:sticky;top:0;z-index:10;background:var(--panel);border-bottom:2px solid var(--ac);padding:10px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+h1{font-size:16px;margin:0;color:var(--ac)}
+select,input,textarea,button{font:inherit;color:var(--tx);background:#0b1626;border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+button{cursor:pointer;background:#1b2c47}
+button.pri{background:var(--ac);color:#12210f;font-weight:700;border:none}
+button.warn{background:#5c2b2b}
+button:disabled{opacity:.4}
+nav{display:flex;gap:6px;overflow-x:auto;padding:8px 10px;background:var(--panel);position:sticky;top:52px;z-index:9}
+nav button{white-space:nowrap;border-radius:20px;padding:7px 14px}
+nav button.on{background:var(--ac);color:#12210f;font-weight:700}
+main{padding:10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.line{border-bottom:1px solid var(--line);padding:8px 4px}
+.line .no{color:#7c8db0;font-size:12px;min-width:34px}
+.badge{font-size:12px;padding:2px 8px;border-radius:10px;background:#223a5c;color:var(--cy);white-space:nowrap}
+.badge.cut{background:#2c4020;color:var(--ac)}
+.badge.sfx{background:#4a3a1a;color:#e6c46a}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:#444}
+.dot.ok{background:var(--ac)}
+.dlg{flex:1;min-width:180px}
+.reading{width:100%;margin-top:6px;font-size:13px;color:var(--cy)}
+.small{font-size:12px;color:#8fa2c4}
+.cutimg{width:84px;height:148px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:#000}
+#jobbar{position:fixed;left:0;right:0;bottom:0;background:#101d33;border-top:2px solid var(--ac);padding:8px 12px;z-index:20}
+#jobmsg{font-size:13px}
+progress{width:100%;height:10px}
+textarea{width:100%;min-height:200px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+pre{white-space:pre-wrap;font-size:12px;background:#0b1626;padding:10px;border-radius:8px;max-height:280px;overflow:auto}
+a{color:var(--cy)}
+.num{color:var(--ac);font-weight:700;font-size:20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏪 エピソードスタジオ</h1>
+  <select id="epSel"></select>
+  <span id="engineBadge" class="badge">…</span>
+</header>
+<nav id="tabs">
+  <button data-t="home" class="on">📊 状態</button>
+  <button data-t="script">📜 台本</button>
+  <button data-t="lines">🎙 行と読み</button>
+  <button data-t="cuts">🖼 カット</button>
+  <button data-t="build">🚀 生成と公開</button>
+  <button data-t="codex">🎨 Codex依頼</button>
+</nav>
+<main>
+  <section id="t-home" class="card"></section>
+
+  <section id="t-script" class="card" hidden>
+    <p>台本を貼り付け(またはファイル選択)して取り込み。形式: <code>話者：セリフ｜読み(任意)</code>。
+    「<code>通常レジSE：ピッ。</code>」行は直前行のスキャンSEになります。#始まりはコメント。</p>
+    <input type="file" id="scriptFile" accept=".txt,.md">
+    <textarea id="scriptText" placeholder="ナレーション：午前2時5分。&#10;タクミ：あと23分で怒られます。"></textarea>
+    <div class="row" style="margin-top:8px">
+      <button class="pri" id="btnImport">取り込む(既存を置き換え)</button>
+      <span class="small">行数が同じなら既存カット割りと同一セリフの音声クリップを自動流用します</span>
+    </div>
+    <div id="importResult"></div>
+  </section>
+
+  <section id="t-lines" class="card" hidden>
+    <div class="row">
+      <input id="lineFilter" placeholder="検索(話者/セリフ)" style="flex:1">
+      <label class="small"><input type="checkbox" id="onlyMissing">未生成のみ</label>
+    </div>
+    <div id="lineList"></div>
+  </section>
+
+  <section id="t-cuts" class="card" hidden>
+    <p class="small">カットの開始行は「🎙行と読み」タブの ✂ ボタンで設定。ここではタイトルと画像を確認。</p>
+    <div id="cutList" class="grid"></div>
+  </section>
+
+  <section id="t-build" class="card" hidden>
+    <div class="row" style="gap:10px">
+      <button class="pri" id="btnSynthMissing">🎙 未生成を一括合成</button>
+      <button id="btnSynthAll">全行を再合成</button>
+    </div>
+    <hr style="border-color:var(--line)">
+    <div class="row" style="gap:10px">
+      <button class="pri" id="btnApply">📺 紙芝居プレイヤーへ反映</button>
+      <button class="pri" id="btnVideo">🎬 YouTube動画を生成</button>
+      <button class="warn" id="btnPublish">🌐 gh-pagesへ公開(push)</button>
+    </div>
+    <p class="small">反映=音声連結+タイミング確定+manifest書込+キャッシュバスト。公開はgithub.ioに載ります。</p>
+    <div class="row">
+      <audio id="fullAudio" controls style="width:100%"></audio>
+    </div>
+    <pre id="jobLog"></pre>
+  </section>
+
+  <section id="t-codex" class="card" hidden>
+    <button id="btnCodexCopy">📋 コピー</button>
+    <pre id="codexDoc"></pre>
+  </section>
+</main>
+
+<div id="jobbar" hidden>
+  <div id="jobmsg"></div>
+  <progress id="jobprog" value="0" max="1"></progress>
+</div>
+
+<script>
+const $=q=>document.querySelector(q);
+let EP=localStorage.getItem("studio_ep")||"ep04", DET=null, PIN=localStorage.getItem("studio_pin")||"";
+const api=async(p,body)=>{
+  const opt=body?{method:"POST",headers:{"Content-Type":"application/json","X-Pin":PIN},body:JSON.stringify(body)}:{headers:{"X-Pin":PIN}};
+  const r=await fetch(p,opt); const j=await r.json().catch(()=>({error:"応答なし"}));
+  if(r.status===401){PIN=prompt("PINを入力")||"";localStorage.setItem("studio_pin",PIN);return api(p,body);}
+  if(!r.ok){alert(j.error||("エラー "+r.status));throw j;}
+  return j;
+};
+// タブ
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#tabs button").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on");
+  document.querySelectorAll("main section").forEach(s=>s.hidden=true);
+  $("#t-"+b.dataset.t).hidden=false;
+  if(b.dataset.t==="codex")loadCodex();
+  if(b.dataset.t==="home")loadHome();
+});
+// 話数
+const epSel=$("#epSel");
+for(let i=1;i<=12;i++){const o=document.createElement("option");o.value="ep"+String(i).padStart(2,"0");o.textContent="第"+i+"話";epSel.appendChild(o);}
+epSel.value=EP;
+epSel.onchange=()=>{EP=epSel.value;localStorage.setItem("studio_ep",EP);loadEp();loadHome();};
+
+async function loadHome(){
+  const st=await api("/api/state");
+  const rows=st.episodes.map(e=>{
+    const cur=e.ep===EP?" style='outline:2px solid var(--ac)'":"";
+    return `<div class="card"${cur}><b>第${parseInt(e.ep.slice(2))}話</b>
+      <span class="badge">${e.lines}行</span>
+      <span class="badge">🎙${e.clips}/${e.lines}</span>
+      ${e.duration?`<span class="badge">⏱${e.duration}s</span>`:""}
+      ${e.wav?'<span class="badge cut">音声✓</span>':""}
+      ${e.video?`<span class="badge cut">動画✓ ${e.video_mb}MB</span>`:""}</div>`;
+  }).join("");
+  $("#t-home").innerHTML=`<div class="grid">${rows}</div>`;
+}
+async function loadEp(){
+  DET=await api("/api/episode?ep="+EP);
+  $("#engineBadge").textContent=DET.engine?"エンジン🟢":"エンジン🔴(生成時に自動起動)";
+  renderLines();renderCuts();
+  $("#fullAudio").src="/wav?ep="+EP+"&t="+Date.now()+(PIN?"&pin="+PIN:"");
+}
+function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function renderLines(){
+  const f=($("#lineFilter").value||"").trim(), om=$("#onlyMissing").checked;
+  const cutStart=new Set(); let prev="";
+  DET.lines.forEach(l=>{if(l.vc!==prev)cutStart.add(l.id);prev=l.vc;});
+  $("#lineList").innerHTML=DET.lines.filter(l=>
+    (!f||l.speaker.includes(f)||l.dialogue.includes(f))&&(!om||!l.clip)
+  ).map((l)=>{
+    const n=parseInt(l.id.slice(-3));
+    return `<div class="line" data-id="${l.id}">
+      <div class="row">
+        <span class="no">${n}</span>
+        <span class="dot ${l.clip?"ok":""}" title="${l.clip?"生成済":"未生成"}"></span>
+        <span class="badge">${esc(l.speaker)}</span>
+        ${cutStart.has(l.id)?`<span class="badge cut">✂ ${l.vc}</span>`:""}
+        ${l.sfxAfter?`<span class="badge sfx">SE:${l.sfxAfter}</span>`:""}
+        <span class="dlg" contenteditable data-k="dialogue">${esc(l.dialogue)}</span>
+      </div>
+      <input class="reading" data-k="reading" value="${esc(l.reading)}" placeholder="読み(発音)">
+      <div class="row" style="margin-top:4px">
+        <button data-a="synth">🎙生成</button>
+        <button data-a="play" ${l.clip?"":"disabled"}>▶試聴</button>
+        <button data-a="cut" title="この行からカットを開始/解除">✂</button>
+        <button data-a="ins">＋行</button>
+        <button data-a="del" class="warn">🗑</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+$("#lineFilter").oninput=renderLines; $("#onlyMissing").onchange=renderLines;
+
+$("#lineList").addEventListener("click",async ev=>{
+  const b=ev.target.closest("button"); if(!b)return;
+  const div=ev.target.closest(".line"), id=div.dataset.id, a=b.dataset.a;
+  if(a==="play"){new Audio("/clip?ep="+EP+"&id="+id+(PIN?"&pin="+PIN:"")).play();return;}
+  if(a==="synth"){await api("/api/synth",{ep:EP,mode:"ids",ids:[id]});watchJob();return;}
+  if(a==="del"){if(!confirm("この行を削除しますか？(以降のID/クリップは自動で繰り上げ)"))return;
+    const idx=DET.lines.findIndex(x=>x.id===id);
+    await api("/api/lines_edit",{ep:EP,op:"delete",index:idx});await loadEp();return;}
+  if(a==="ins"){const sp=prompt("話者",DET.lines.find(x=>x.id===id)?.speaker||"ナレーション");if(sp===null)return;
+    const dl=prompt("セリフ");if(!dl)return;
+    const idx=DET.lines.findIndex(x=>x.id===id);
+    await api("/api/lines_edit",{ep:EP,op:"insert",index:idx,speaker:sp,dialogue:dl});await loadEp();return;}
+  if(a==="cut"){ // この行を開始行にトグル(既存境界はvcを維持、新設は空=サーバーが未使用番号を割当)
+    const idx=DET.lines.findIndex(x=>x.id===id);
+    let bounds=[]; let prev="";   // [{i, vc, title}]
+    DET.lines.forEach((l,i)=>{if(l.vc!==prev){const c=DET.cuts.find(c=>c.vc===l.vc);bounds.push({i,vc:l.vc,title:c?c.title:""});}prev=l.vc;});
+    const hit=bounds.findIndex(b=>b.i===idx);
+    if(hit>=0){if(idx===0)return alert("先頭は解除できません");bounds.splice(hit,1);}
+    else{bounds.push({i:idx,vc:"",title:""});bounds.sort((x,y)=>x.i-y.i);}
+    if(bounds.length>20&&!confirm(bounds.length+"カットになります。続行？"))return;
+    await api("/api/cuts",{ep:EP,starts:bounds.map(b=>({line:b.i+1,vc:b.vc,title:b.title}))});
+    await loadEp();return;}
+});
+// セリフ/読みのインライン編集(フォーカスアウトで保存)
+$("#lineList").addEventListener("focusout",async ev=>{
+  const el=ev.target.closest("[data-k]"); if(!el)return;
+  const div=ev.target.closest(".line"), id=div.dataset.id, k=el.dataset.k;
+  const v=(k==="dialogue"?el.textContent:el.value).trim();
+  const l=DET.lines.find(x=>x.id===id);
+  if(l&&l[k]!==v){const r=await api("/api/line",{ep:EP,id,[k]:v});l[k]=v;
+    if(r.clipDeleted){l.clip=false;renderLines();}}
+});
+
+function renderCuts(){
+  $("#cutList").innerHTML=DET.cuts.map(c=>`
+    <div class="card">
+      <div class="row">
+        <img class="cutimg" src="${c.image?("/img?p="+encodeURIComponent(c.image)+(PIN?"&pin="+PIN:"")+"&t="+Date.now()):""}"
+             onerror="this.style.opacity=.2">
+        <div style="flex:1">
+          <b>${c.vc}</b> <span class="small">v${String(c.from).padStart(3,"0")}〜v${String(c.to).padStart(3,"0")} (${c.to-c.from+1}行)</span><br>
+          <input value="${esc(c.title)}" data-vc="${c.vc}" class="cutTitle" style="width:100%;margin:4px 0" placeholder="カットタイトル">
+          <div class="small">${c.imageExists?"🟢":"🔴 未着"} <code>${esc((c.planned||"").split("/").pop())}</code></div>
+        </div>
+      </div>
+    </div>`).join("");
+  document.querySelectorAll(".cutTitle").forEach(inp=>inp.onchange=async()=>{
+    let prev=""; const bounds=[];
+    DET.lines.forEach((l,i)=>{if(l.vc!==prev)bounds.push({line:i+1,vc:l.vc});prev=l.vc;});
+    const titles={}; DET.cuts.forEach(c=>titles[c.vc]=c.title);
+    titles[inp.dataset.vc]=inp.value;
+    await api("/api/cuts",{ep:EP,starts:bounds.map(b=>({line:b.line,vc:b.vc,title:titles[b.vc]||""}))});
+    await loadEp();
+  });
+}
+
+// 台本取り込み
+$("#scriptFile").onchange=async ev=>{
+  const f=ev.target.files[0]; if(f)$("#scriptText").value=await f.text();
+};
+$("#btnImport").onclick=async()=>{
+  const t=$("#scriptText").value.trim();
+  if(!t)return alert("台本が空です");
+  if(!confirm(EP+" の台本を置き換えます。よろしいですか？"))return;
+  const r=await api("/api/import",{ep:EP,text:t});
+  $("#importResult").innerHTML=`<p class="badge cut">取込 ${r.lines}行 / クリップ流用 ${r.reused_clips}本</p>`;
+  await loadEp();
+};
+
+// 生成/反映/動画/公開
+$("#btnSynthMissing").onclick=async()=>{const r=await api("/api/synth",{ep:EP,mode:"missing"});r.queued?watchJob():alert(r.msg||"対象なし");};
+$("#btnSynthAll").onclick=async()=>{if(confirm("全行を再合成しますか？"))
+  {await api("/api/synth",{ep:EP,mode:"all"});watchJob();}};
+$("#btnApply").onclick=async()=>{await api("/api/apply",{ep:EP});watchJob();};
+$("#btnVideo").onclick=async()=>{await api("/api/video",{ep:EP});watchJob();};
+$("#btnPublish").onclick=async()=>{if(confirm("gh-pagesへ公開(push)します。よろしいですか？"))
+  {await api("/api/publish",{ep:EP});watchJob();}};
+
+async function loadCodex(){$("#codexDoc").textContent=(await api("/api/codexdoc?ep="+EP)).doc;}
+$("#btnCodexCopy").onclick=()=>{navigator.clipboard.writeText($("#codexDoc").textContent);alert("コピーしました");};
+
+// ジョブ監視
+let jobTimer=null;
+function watchJob(){
+  $("#jobbar").hidden=false;
+  clearInterval(jobTimer);
+  jobTimer=setInterval(async()=>{
+    const j=await api("/api/job");
+    $("#jobmsg").textContent=`[${j.kind}] ${j.msg} ${j.total?`(${j.done}/${j.total})`:""} ${j.error?("★"+j.error):""}`;
+    $("#jobprog").value=j.total?j.done/j.total:(j.running?0:1);
+    $("#jobprog").max=1;
+    $("#jobLog").textContent=(j.log||[]).slice(-30).join("\n");
+    if(!j.running){clearInterval(jobTimer);setTimeout(()=>{$("#jobbar").hidden=true;},4000);await loadEp();await loadHome();}
+  },1200);
+}
+loadHome();loadEp();
+</script>
+</body>
+</html>

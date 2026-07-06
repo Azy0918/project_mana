@@ -1,9 +1,11 @@
 import "./index.css";
 import { Composition } from "remotion";
 import { ThirteenthRegisterPv } from "./Composition";
+import { KamishibaiAsedaPV } from "./KamishibaiAsedaPV";
 import { KamishibaiRealPV } from "./KamishibaiRealPV";
 import { NoSubtitleAnimePV, TrailerAnimePV } from "./NoSubtitleAnime";
 import { VerticalShortPV } from "./VerticalShortPV";
+import { kamishibaiAsedaDurationInFrames } from "./kamishibaiCutsAseda";
 import { kamishibaiDurationInFrames } from "./kamishibaiCuts";
 
 export const RemotionRoot: React.FC = () => {
@@ -53,6 +55,14 @@ export const RemotionRoot: React.FC = () => {
         id="KamishibaiRealPV"
         component={KamishibaiRealPV}
         durationInFrames={kamishibaiDurationInFrames}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="KamishibaiAsedaPV"
+        component={KamishibaiAsedaPV}
+        durationInFrames={kamishibaiAsedaDurationInFrames}
         fps={30}
         width={1080}
         height={1920}

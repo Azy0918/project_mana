@@ -65,8 +65,8 @@
   // ---------- GitHub Contents API ----------
   function ghConfig() {
     return {
-      owner: localStorage.getItem("es_owner") || "",
-      repo: localStorage.getItem("es_repo") || "",
+      owner: localStorage.getItem("es_owner") || "azy0918",
+      repo: localStorage.getItem("es_repo") || "project_mana",
       branch: localStorage.getItem("es_branch") || "gh-pages",
       token: localStorage.getItem("es_token") || "",
     };
@@ -337,9 +337,13 @@
     state.timings = {};
     state.fullAudioBytes = null;
     const files = epFiles(epId);
+    const c = ghConfig();
+    if (!c.owner || !c.repo || !c.token) {
+      throw new Error("GitHub接続が未設定です。設定タブでOwner/Repo/Tokenを入力し「保存して接続確認」を押してください。");
+    }
     const [manifest, visualCutPlan] = await Promise.all([
-      ghGetJSON(files.manifest).catch(() => null),
-      ghGetJSON(files.visualCutPlan).catch(() => null),
+      ghGetJSON(files.manifest),
+      ghGetJSON(files.visualCutPlan),
     ]);
 
     if (!manifest || !manifest.length) {
@@ -1026,6 +1030,7 @@
       opt.textContent = label;
       epSelect.appendChild(opt);
     });
+    epSelect.addEventListener("change", () => $("#loadEpisodeBtn").click());
     $("#loadEpisodeBtn").addEventListener("click", async () => {
       $("#episodeStatus").textContent = "読み込み中…";
       try {

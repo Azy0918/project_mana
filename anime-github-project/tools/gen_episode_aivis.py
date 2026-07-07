@@ -39,10 +39,10 @@ _SFX = TOOLS / "sfx_register.wav"
 _SFX_SCAN = TOOLS / "sfx_scan.wav"  # 通常レジのスキャン音「ピッ」(台本の通常レジSE行の代替)
 SFX_AFTER = {k: _SFX for k in (
     "ep02_v024",  # 「第13レジ。ただいま営業中。」
-    "ep03_v036_reg", "ep04_v017", "ep05_v009_reg", "ep06_v009_reg", "ep07_v007_reg",
+    "ep03_v036_reg", "ep04_v020", "ep05_v009_reg", "ep06_v009_reg", "ep07_v007_reg",
     "ep08_v008_reg", "ep09_v011_reg", "ep10_v015_reg", "ep11_v007_reg", "ep12_v015_reg",  # 各話 登場「ただいま営業中」直後
 )}
-# EP04全面改稿v4(2026-07-05): スキャンSE行なし(登場SEのみ、上のep04_v017)
+# EP04食べ頃ボタン版: SFXはep04_v020「第十三レジ。ただいま営業中。」直後
 def _sfx_pcm(p):
     with wave.open(str(p), "rb") as w:
         return w.readframes(w.getnframes())

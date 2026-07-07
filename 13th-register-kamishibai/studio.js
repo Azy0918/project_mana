@@ -1082,10 +1082,22 @@
       renderLines();
     });
     $("#saveDialogueBtn").addEventListener("click", async () => {
+      const statusEl = $("#dialogueSaveStatus");
+      const btn = $("#saveDialogueBtn");
+      if (!state.epId) {
+        statusEl.textContent = "❌ エピソードを先に読み込んでください（設定タブ）";
+        return;
+      }
+      btn.disabled = true;
+      statusEl.textContent = "保存中…";
       try {
         await saveDialogue();
+        statusEl.textContent = "✅ 保存しました";
       } catch (err) {
+        statusEl.textContent = `❌ 保存失敗: ${err.message}`;
         log(`保存失敗: ${err.message}`);
+      } finally {
+        btn.disabled = false;
       }
     });
     $("#csvExportBtn").addEventListener("click", exportCSV);
@@ -1104,10 +1116,21 @@
 
   function setupImagesTab() {
     $("#saveCutsBtn").addEventListener("click", async () => {
+      const btn = $("#saveCutsBtn");
+      if (!state.epId) {
+        log("エピソードを先に読み込んでください（設定タブ）");
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = "保存中…";
       try {
         await saveCuts();
+        btn.textContent = "✅ カット情報をGitHubに保存";
       } catch (err) {
+        btn.textContent = "❌ 保存失敗";
         log(`保存失敗: ${err.message}`);
+      } finally {
+        btn.disabled = false;
       }
     });
   }

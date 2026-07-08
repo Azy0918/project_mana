@@ -115,7 +115,11 @@
     });
     if (!res.ok) {
       const t = await res.text();
-      throw new Error(`PUT ${relPath} → ${res.status} ${t.slice(0, 300)}`);
+      let msg = `PUT ${relPath} → ${res.status} ${t.slice(0, 300)}`;
+      if (res.status === 403 && /not accessible by personal access token/i.test(t)) {
+        msg += " ｜対処: Fine-grained PATの「Repository access」に Azy0918/project_mana を追加し、「Permissions→Contents」を Read and write にしてください";
+      }
+      throw new Error(msg);
     }
     return res.json();
   }

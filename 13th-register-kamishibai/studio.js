@@ -88,12 +88,26 @@
     const json = await res.json();
     return { sha: json.sha, bytes: base64ToBytes(json.content) };
   }
+  async function ghGetSha(relPath) {
+    // Contents APIのファイルGETは1MB超で403になるため、親ディレクトリ一覧からshaを取る
+    const c = ghConfig();
+    const full = fullPath(relPath);
+    const dir = full.split("/").slice(0, -1).join("/");
+    const name = full.split("/").pop();
+    const url = `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${encodePath(dir)}?ref=${encodeURIComponent(c.branch)}`;
+    const res = await fetch(url, { headers: ghHeaders() });
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error(`GET ${dir} → ${res.status}`);
+    const list = await res.json();
+    const hit = Array.isArray(list) ? list.find((e) => e.name === name) : null;
+    return hit ? hit.sha : null;
+  }
   async function ghPutFile(relPath, bytes, message) {
     const c = ghConfig();
-    const existing = await ghGetFile(relPath);
+    const sha = await ghGetSha(relPath);
     const url = `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${encodePath(fullPath(relPath))}`;
     const body = { message, content: bytesToBase64(bytes), branch: c.branch };
-    if (existing) body.sha = existing.sha;
+    if (sha) body.sha = sha;
     const res = await fetch(url, {
       method: "PUT",
       headers: { ...ghHeaders(), "Content-Type": "application/json" },
@@ -502,6 +516,7 @@
           <div class="col"><label>開始(秒・空欄=自動)</label><input class="c-start" type="number" step="0.1" value="${c.manualStart}"></div>
           <div class="col flex1"><label>画像を差し替え</label><input class="c-file" type="file" accept="image/*"></div>
         </div>
+        <div class="muted c-status" style="margin-top:4px"></div>
       </div>`
       )
       .join("");
@@ -513,15 +528,18 @@
       card.querySelector(".c-file").addEventListener("change", async (e) => {
         const file = e.target.files[0];
         if (!file) return;
+        const status = card.querySelector(".c-status");
         const bytes = new Uint8Array(await file.arrayBuffer());
         const ext = (file.name.match(/\.\w+$/) || [".png"])[0];
         const path = state.cuts[i].image.replace(/\.\w+$/, ext);
         state.cuts[i].image = path;
+        status.textContent = `アップロード中… (${Math.round(bytes.length / 1024)} KB)`;
         try {
           await ghPutFile(path, bytes, `${state.epId} vc${String(i + 1).padStart(2, "0")} 画像を更新`);
           log(`画像を保存しました: ${path}`);
           renderCuts();
         } catch (err) {
+          status.textContent = `❌ 保存失敗: ${err.message}`;
           log(`画像の保存に失敗: ${err.message}`);
         }
       });

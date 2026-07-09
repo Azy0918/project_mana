@@ -13,3 +13,4 @@ data/cards_deduped.csv
 data/*.db
 data/*.sqlite
 *.zip
+data/card_effect_features.csv

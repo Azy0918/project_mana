@@ -230,8 +230,17 @@ miss/full二値では改善が見えないため、「アンカー(コア1枚)+�
 
 ### 次の最優先タスク
 
-1. **race(種族)データの充填**: 公式ソース(fetch_dmps_official_cards)がrace取得可能か確認し、
-   cards.race を埋める。埋まれば deploy link の種族照合が有効化され、必駆→覇道系が接続される見込み。
+1. **race(種族)データの充填**: 公式API(dmps.takaratomy.co.jp)はraceフィールドを返すが、
+   **リモート研究環境からはネットワークポリシーで遮断されている(プロキシ403)**。
+   ローカル(Windows環境等)で以下を実行すればturnkeyで充填できる:
+   ```bash
+   python -m src.fetch_dmps_official_cards --limit 6000
+   python -m src.fill_card_races
+   python -c "from src.card_effect_feature_store import rebuild_card_effect_features as r; r()"
+   python -m src.route_rediscovery_checker   # 相方順位の改善を確認
+   ```
+   埋まれば deploy link の種族照合が有効化され、必駆→覇道系(現在2673位)が接続される見込み。
 2. 参照抽出パターンの拡充: 「進化元にする」「無月の門」「侵略」「G・ゼロ条件」等。
 3. ビーム探索の採用圏(~100位)に対して中央値935はまだ遠い。参照リンクを
    ビームの多様性維持(リンク持ちペアの優先残留)にも使う設計を検討。
+4. KB修正: ヘブフォ絶十(コスト上限が合わない)とバイケン(相手依存コンボ)のエントリ見直し。

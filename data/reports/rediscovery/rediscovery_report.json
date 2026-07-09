@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-07-09T11:09:19",
+  "created_at": "2026-07-09T13:43:22",
   "total_known_combos": 13,
   "full_rediscovered": 0,
   "partial_rediscovered": 0,
@@ -17,10 +17,10 @@
       ],
       "core_size": 2,
       "status": "miss",
-      "best_overlap": 0,
-      "matched_route_type": "",
-      "matched_route_cards": "",
-      "matched_proof_score": ""
+      "best_overlap": 1,
+      "matched_route_type": "direct_attack_win",
+      "matched_route_cards": "ベイB パオパオ / 超過の守護者イカ・イカガ / ヘブンズ・フォース",
+      "matched_proof_score": 92
     },
     {
       "combo_name": "ドンジャングルS7 デル・フィン 呪文ロック制圧",
@@ -140,10 +140,10 @@
       ],
       "core_size": 2,
       "status": "miss",
-      "best_overlap": 0,
-      "matched_route_type": "",
-      "matched_route_cards": "",
-      "matched_proof_score": ""
+      "best_overlap": 1,
+      "matched_route_type": "lock_confirmed_win",
+      "matched_route_cards": "音精 ラフルル / ツクモ・スパーク",
+      "matched_proof_score": 100
     },
     {
       "combo_name": "グスタフ 落城の計 拘束ループ",
@@ -309,11 +309,11 @@
       "matched_proof_score": ""
     }
   ],
-  "partner_rank_median": 946,
+  "partner_rank_median": 935,
   "partner_ranks": [
     {
       "combo_name": "ヘブンズ・フォース 絶十 早出しメタビート",
-      "best_partner_rank": 783,
+      "best_partner_rank": 935,
       "anchor": "煌メク聖戦 絶十",
       "partner": "ヘブンズ・フォース",
       "condition": "lock_confirmed_win",
@@ -321,7 +321,7 @@
     },
     {
       "combo_name": "ドンジャングルS7 デル・フィン 呪文ロック制圧",
-      "best_partner_rank": 224,
+      "best_partner_rank": 195,
       "anchor": "ドンジャングルS7",
       "partner": "光神龍スペル・デル・フィン",
       "condition": "lock_confirmed_win",
@@ -333,7 +333,7 @@
     },
     {
       "combo_name": "B-零朱レイド シールド焼却",
-      "best_partner_rank": 2853,
+      "best_partner_rank": 2856,
       "anchor": "“必駆”蛮触礼亞",
       "partner": "“B-零朱”レイド",
       "condition": "damage_overflow_win",
@@ -341,7 +341,7 @@
     },
     {
       "combo_name": "バクアドルガン バイケン マッドネスカウンター",
-      "best_partner_rank": 367,
+      "best_partner_rank": 474,
       "anchor": "熱血龍 バクアドルガン",
       "partner": "蒼神龍バイケン",
       "condition": "damage_overflow_win",
@@ -349,7 +349,7 @@
     },
     {
       "combo_name": "必駆蛮触礼亞 クラッシュ覇道 追加ターン",
-      "best_partner_rank": 2669,
+      "best_partner_rank": 2673,
       "anchor": "“必駆”蛮触礼亞",
       "partner": "勝利龍装 クラッシュ“覇道”",
       "condition": "damage_overflow_win",
@@ -357,7 +357,7 @@
     },
     {
       "combo_name": "ミラダンテXII ラフルル 呪文召喚ロック",
-      "best_partner_rank": 2979,
+      "best_partner_rank": 521,
       "anchor": "時の法皇 ミラダンテXII",
       "partner": "音精 ラフルル",
       "condition": "lock_confirmed_win",
@@ -365,9 +365,9 @@
     },
     {
       "combo_name": "グスタフ 落城の計 拘束ループ",
-      "best_partner_rank": 946,
-      "anchor": "グスタフ・アルブサール",
-      "partner": "龍脈術 落城の計",
+      "best_partner_rank": 2455,
+      "anchor": "龍脈術 落城の計",
+      "partner": "グスタフ・アルブサール",
       "condition": "lock_confirmed_win",
       "pool_size": 4857
     },

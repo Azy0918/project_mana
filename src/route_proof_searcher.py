@@ -11,6 +11,12 @@ from pathlib import Path
 from typing import Any
 
 from src.card_effect_feature_store import load_card_effect_features
+from src.card_reference_extractor import (
+    change_link,
+    deploy_link,
+    extract_reference_profile,
+    madness_link,
+)
 from src.combo_knowledge_base import load_known_combos
 from src.effect_semantics import has_extra_turn_text, has_self_win_text
 from src.import_cards import DEFAULT_DB_PATH
@@ -62,6 +68,10 @@ class ProofCardNode:
     produced_states: dict[str, int]
     risk_states: tuple[str, ...]
     proof_terms: tuple[str, ...]
+    text: str = ""
+    power: int | None = None
+    race: str = ""
+    reference: Any = None
 
 
 @dataclass(frozen=True)
@@ -231,6 +241,7 @@ def load_proof_card_nodes(db_path: str | Path = DEFAULT_DB_PATH) -> list[ProofCa
         for card in search_cards(db_path):
             transition = infer_state_transition(card)
             delta = {key: int(value) for key, value in transition.delta.items() if int(value) != 0}
+            card_text = str(card.get("text", "") or "")
             node = ProofCardNode(
                 card_id=str(card.get("card_id", "")),
                 name=str(card.get("name", "")),
@@ -242,6 +253,10 @@ def load_proof_card_nodes(db_path: str | Path = DEFAULT_DB_PATH) -> list[ProofCa
                 produced_states=_apply_virtual_states(_merge_states(delta, _virtual_states_from_blob(card))),
                 risk_states=tuple(_risk_states_from_delta(delta)),
                 proof_terms=tuple(_split_terms(str(card.get("tags", "")))),
+                text=card_text,
+                power=_safe_power(card.get("power")),
+                race=str(card.get("race", "") or ""),
+                reference=extract_reference_profile(card_text),
             )
             if not _is_excluded_node(node):
                 nodes.append(node)
@@ -402,6 +417,8 @@ def _load_card_meta(db_path: Path) -> dict[str, dict[str, Any]]:
             c.civilization,
             c.cost,
             c.card_type,
+            c.power,
+            c.race,
             c.text,
             COALESCE(GROUP_CONCAT(ct.tag, ';'), '') AS tags
         FROM cards c
@@ -422,6 +439,7 @@ def _node_from_feature_row(row: dict[str, Any]) -> ProofCardNode:
     terms = _split_terms(row.get("tags", ""))
     terms.extend(_split_terms(row.get("output_signals", "")))
     terms.extend(_split_terms(row.get("win_contribution", "")))
+    text = str(row.get("text", "") or "")
     return ProofCardNode(
         card_id=str(row.get("card_id", "")),
         name=str(row.get("name", "")),
@@ -433,6 +451,10 @@ def _node_from_feature_row(row: dict[str, Any]) -> ProofCardNode:
         produced_states=delta,
         risk_states=tuple(_risk_states_from_delta(delta)),
         proof_terms=tuple(dict.fromkeys(terms)),
+        text=text,
+        power=_safe_power(row.get("power")),
+        race=str(row.get("race", "") or ""),
+        reference=extract_reference_profile(text),
     )
 
 
@@ -573,6 +595,7 @@ def _score_route(
         score -= 14
     elif total_cost >= 13:
         score -= 8
+    score += _reference_bonus(cards)
     if _is_known_combo_exact(cards, known_combo_sets):
         score -= 6
     if _route_type_mismatch(condition.key, produced_states):
@@ -596,6 +619,55 @@ def _score_route(
         required_support_roles=tuple(required_support_roles),
         proof_comment=_proof_comment(condition, cards, produced_states, missing_states, required_support_roles, risk_score),
     )
+
+
+def _reference_bonus(cards: tuple[ProofCardNode, ...]) -> int:
+    """カード間のメカニズム参照(踏み倒し先条件、革命チェンジ元条件、マッドネス)を加点する。
+
+    状態の単純加算では「AがBを実際に出せる」関係を評価できないため、
+    テキストから抽出した参照条件の充足をペア単位で確認する。
+    """
+    if len(cards) < 2:
+        return 0
+    bonus = 0
+    for enabler in cards:
+        if enabler.reference is None:
+            continue
+        for target in cards:
+            if target is enabler:
+                continue
+            if deploy_link(
+                enabler.reference,
+                target_civ=target.civilization,
+                target_cost=target.cost,
+                target_power=target.power,
+                target_type=target.card_type,
+                target_name=target.name,
+                target_text=target.text,
+                target_race=target.race,
+                target_is_evolution="進化" in target.card_type,
+            ):
+                bonus += 14
+            if target.reference is not None and change_link(
+                target.reference,
+                source_civ=enabler.civilization,
+                source_cost=enabler.cost,
+                source_type=enabler.card_type,
+                source_name=enabler.name,
+                source_text=enabler.text,
+                source_race=enabler.race,
+            ):
+                bonus += 12
+            if target.reference is not None and madness_link(target.reference, enabler.reference):
+                bonus += 10
+    return min(26, bonus)
+
+
+def _safe_power(value: Any) -> int | None:
+    try:
+        return int(float(str(value).strip()))
+    except Exception:
+        return None
 
 
 def _route_risk_score(

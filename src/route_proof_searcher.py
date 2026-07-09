@@ -16,6 +16,7 @@ from src.card_reference_extractor import (
     deploy_link,
     extract_reference_profile,
     madness_link,
+    ride_condition_link,
 )
 from src.combo_knowledge_base import load_known_combos
 from src.effect_semantics import has_extra_turn_text, has_self_win_text
@@ -84,6 +85,7 @@ class ProofRoute:
     missing_states: tuple[str, ...]
     required_support_roles: tuple[str, ...]
     proof_comment: str
+    reference_links: int = 0
 
 
 def list_proof_win_conditions() -> dict[str, ProofWinCondition]:
@@ -210,6 +212,17 @@ def search_route_proofs(
                 )
         expanded.sort(key=lambda route: route.proof_score, reverse=True)
         beams = expanded[: max(1, int(beam_width))]
+        # 参照リンク(踏み倒し/チェンジ/侵略/進化元)を持つルートは、
+        # スコア上位に届かなくても別枠で残す。実コンボは汎用グッドスタッフに
+        # スコアで劣ることが多く、リンクこそがコンボ性の証拠のため。
+        beam_keys = {tuple(card.card_id for card in route.cards) for route in beams}
+        linked = [
+            route
+            for route in expanded
+            if route.reference_links > 0
+            and tuple(card.card_id for card in route.cards) not in beam_keys
+        ]
+        beams = beams + linked[: max(8, int(beam_width) // 4)]
         found.extend(beams)
 
     unique: dict[tuple[str, tuple[str, ...]], ProofRoute] = {}
@@ -220,7 +233,18 @@ def search_route_proofs(
             unique[key] = route
 
     ranked = sorted(unique.values(), key=lambda route: route.proof_score, reverse=True)
-    return [_route_to_row(route, index + 1) for index, route in enumerate(ranked[:limit])]
+    # 出力にも参照リンク持ちルートの枠を確保する(上位limitに届かなくても報告する)
+    linked_quota = max(4, int(limit) // 4)
+    selected = list(ranked[:limit])
+    selected_keys = {tuple(card.card_id for card in route.cards) for route in selected}
+    for route in ranked[limit:]:
+        if linked_quota <= 0:
+            break
+        if route.reference_links > 0 and tuple(card.card_id for card in route.cards) not in selected_keys:
+            selected.append(route)
+            linked_quota -= 1
+    selected = selected[: int(limit) + max(4, int(limit) // 4)]
+    return [_route_to_row(route, index + 1) for index, route in enumerate(selected)]
 
 
 def load_proof_card_nodes(db_path: str | Path = DEFAULT_DB_PATH) -> list[ProofCardNode]:
@@ -595,7 +619,8 @@ def _score_route(
         score -= 14
     elif total_cost >= 13:
         score -= 8
-    score += _reference_bonus(cards)
+    reference_links = _reference_bonus(cards)
+    score += reference_links
     if _is_known_combo_exact(cards, known_combo_sets):
         score -= 6
     if _route_type_mismatch(condition.key, produced_states):
@@ -618,6 +643,7 @@ def _score_route(
         missing_states=tuple(dict.fromkeys(missing_states)),
         required_support_roles=tuple(required_support_roles),
         proof_comment=_proof_comment(condition, cards, produced_states, missing_states, required_support_roles, risk_score),
+        reference_links=reference_links,
     )
 
 
@@ -658,6 +684,30 @@ def _reference_bonus(cards: tuple[ProofCardNode, ...]) -> int:
                 source_race=enabler.race,
             ):
                 bonus += 12
+            if target.reference is not None and ride_condition_link(
+                target.reference.invasion_condition,
+                source_civ=enabler.civilization,
+                source_cost=enabler.cost,
+                source_type=enabler.card_type,
+                source_name=enabler.name,
+                source_text=enabler.text,
+                source_race=enabler.race,
+            ):
+                bonus += 12
+            if target.reference is not None:
+                evolution = target.reference.evolution_condition
+                # 「進化：クリーチャー」のような無条件進化は識別力がないため対象外
+                if evolution is not None and (evolution.civs or evolution.race_terms or evolution.needs_dragon):
+                    if ride_condition_link(
+                        evolution,
+                        source_civ=enabler.civilization,
+                        source_cost=enabler.cost,
+                        source_type=enabler.card_type,
+                        source_name=enabler.name,
+                        source_text=enabler.text,
+                        source_race=enabler.race,
+                    ):
+                        bonus += 9 if (evolution.race_terms or evolution.needs_dragon) else 5
             if target.reference is not None and madness_link(target.reference, enabler.reference):
                 bonus += 10
     return min(26, bonus)
@@ -751,6 +801,7 @@ def _route_to_row(route: ProofRoute, rank: int) -> dict[str, Any]:
         "proof_comment": route.proof_comment,
         "total_cost": route.total_cost,
         "depth": len(route.cards),
+        "reference_links": route.reference_links,
     }
 
 

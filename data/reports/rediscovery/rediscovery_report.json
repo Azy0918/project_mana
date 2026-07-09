@@ -1,26 +1,40 @@
 {
-  "created_at": "2026-07-09T13:43:22",
+  "created_at": "2026-07-09T14:08:16",
   "total_known_combos": 13,
   "full_rediscovered": 0,
   "partial_rediscovered": 0,
   "missed": 13,
   "full_rate": 0.0,
   "full_or_partial_rate": 0.0,
-  "route_pool_size": 720,
+  "route_pool_size": 900,
   "results": [
     {
-      "combo_name": "ヘブンズ・フォース 絶十 早出しメタビート",
+      "combo_name": "ヘブンズ・フォース 軽量メタクリ多面展開",
       "pattern_type": "制約解除",
       "core_cards": [
         "ヘブンズ・フォース",
-        "煌メク聖戦 絶十"
+        "奇石 ミクセル/ジャミング・チャフ"
       ],
       "core_size": 2,
       "status": "miss",
       "best_overlap": 1,
       "matched_route_type": "direct_attack_win",
-      "matched_route_cards": "ベイB パオパオ / 超過の守護者イカ・イカガ / ヘブンズ・フォース",
+      "matched_route_cards": "ベイB パオパオ / 超過の守護者イカ・イカガ / 奇石 ミクセル/ジャミング・チャフ",
       "matched_proof_score": 92
+    },
+    {
+      "combo_name": "バクアドルガン バイケン マッドネスカウンター",
+      "pattern_type": "状態変化",
+      "core_cards": [
+        "熱血龍 バクアドルガン",
+        "蒼神龍バイケン"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
     },
     {
       "combo_name": "ドンジャングルS7 デル・フィン 呪文ロック制圧",
@@ -71,20 +85,6 @@
         "“轟轟轟”ブランド"
       ],
       "core_size": 1,
-      "status": "miss",
-      "best_overlap": 0,
-      "matched_route_type": "",
-      "matched_route_cards": "",
-      "matched_proof_score": ""
-    },
-    {
-      "combo_name": "バクアドルガン バイケン マッドネスカウンター",
-      "pattern_type": "状態変化",
-      "core_cards": [
-        "熱血龍 バクアドルガン",
-        "蒼神龍バイケン"
-      ],
-      "core_size": 2,
       "status": "miss",
       "best_overlap": 0,
       "matched_route_type": "",
@@ -169,9 +169,9 @@
       "core_size": 2,
       "status": "miss",
       "best_overlap": 1,
-      "matched_route_type": "damage_overflow_win",
-      "matched_route_cards": "運命の選択 / Q.Q.QX./終葬 5.S.D.",
-      "matched_proof_score": 100
+      "matched_route_type": "direct_attack_win",
+      "matched_route_cards": "Q.Q.QX./終葬 5.S.D. / デュエにゃん皇帝",
+      "matched_proof_score": 90
     },
     {
       "combo_name": "青単スコーラー 追加ターン連打",
@@ -188,14 +188,29 @@
     }
   ],
   "anchored_total": 9,
-  "anchored_full": 0,
-  "anchored_full_rate": 0.0,
+  "anchored_full": 2,
+  "anchored_full_rate": 0.222,
   "anchored_results": [
     {
-      "combo_name": "ヘブンズ・フォース 絶十 早出しメタビート",
+      "combo_name": "ヘブンズ・フォース 軽量メタクリ多面展開",
       "core_cards": [
         "ヘブンズ・フォース",
-        "煌メク聖戦 絶十"
+        "奇石 ミクセル/ジャミング・チャフ"
+      ],
+      "status": "full",
+      "anchor": "ヘブンズ・フォース",
+      "found_partners": [
+        "奇石 ミクセル/ジャミング・チャフ"
+      ],
+      "condition": "lock_confirmed_win",
+      "matched_route_cards": "ヘブンズ・フォース / P・P・P・P / 奇石 ミクセル/ジャミング・チャフ",
+      "matched_proof_score": 100
+    },
+    {
+      "combo_name": "バクアドルガン バイケン マッドネスカウンター",
+      "core_cards": [
+        "熱血龍 バクアドルガン",
+        "蒼神龍バイケン"
       ],
       "status": "miss",
       "anchor": "",
@@ -235,19 +250,6 @@
       "core_cards": [
         "“B-零朱”レイド",
         "“必駆”蛮触礼亞"
-      ],
-      "status": "miss",
-      "anchor": "",
-      "found_partners": [],
-      "condition": "",
-      "matched_route_cards": "",
-      "matched_proof_score": ""
-    },
-    {
-      "combo_name": "バクアドルガン バイケン マッドネスカウンター",
-      "core_cards": [
-        "熱血龍 バクアドルガン",
-        "蒼神龍バイケン"
       ],
       "status": "miss",
       "anchor": "",
@@ -301,22 +303,32 @@
         "Q.Q.QX./終葬 5.S.D.",
         "龍装鬼 オブザ08号/終焉の開闢"
       ],
-      "status": "miss",
-      "anchor": "",
-      "found_partners": [],
-      "condition": "",
-      "matched_route_cards": "",
-      "matched_proof_score": ""
+      "status": "full",
+      "anchor": "龍装鬼 オブザ08号/終焉の開闢",
+      "found_partners": [
+        "Q.Q.QX./終葬 5.S.D."
+      ],
+      "condition": "opponent_deckout_win",
+      "matched_route_cards": "龍装鬼 オブザ08号/終焉の開闢 / シモーヌ・ペトル / Q.Q.QX./終葬 5.S.D.",
+      "matched_proof_score": 84
     }
   ],
-  "partner_rank_median": 935,
+  "partner_rank_median": 547,
   "partner_ranks": [
     {
-      "combo_name": "ヘブンズ・フォース 絶十 早出しメタビート",
-      "best_partner_rank": 935,
-      "anchor": "煌メク聖戦 絶十",
-      "partner": "ヘブンズ・フォース",
+      "combo_name": "ヘブンズ・フォース 軽量メタクリ多面展開",
+      "best_partner_rank": 2,
+      "anchor": "ヘブンズ・フォース",
+      "partner": "奇石 ミクセル/ジャミング・チャフ",
       "condition": "lock_confirmed_win",
+      "pool_size": 4855
+    },
+    {
+      "combo_name": "バクアドルガン バイケン マッドネスカウンター",
+      "best_partner_rank": 482,
+      "anchor": "熱血龍 バクアドルガン",
+      "partner": "蒼神龍バイケン",
+      "condition": "damage_overflow_win",
       "pool_size": 4856
     },
     {
@@ -340,14 +352,6 @@
       "pool_size": 4855
     },
     {
-      "combo_name": "バクアドルガン バイケン マッドネスカウンター",
-      "best_partner_rank": 474,
-      "anchor": "熱血龍 バクアドルガン",
-      "partner": "蒼神龍バイケン",
-      "condition": "damage_overflow_win",
-      "pool_size": 4856
-    },
-    {
       "combo_name": "必駆蛮触礼亞 クラッシュ覇道 追加ターン",
       "best_partner_rank": 2673,
       "anchor": "“必駆”蛮触礼亞",
@@ -357,7 +361,7 @@
     },
     {
       "combo_name": "ミラダンテXII ラフルル 呪文召喚ロック",
-      "best_partner_rank": 521,
+      "best_partner_rank": 547,
       "anchor": "時の法皇 ミラダンテXII",
       "partner": "音精 ラフルル",
       "condition": "lock_confirmed_win",
@@ -373,7 +377,7 @@
     },
     {
       "combo_name": "QQQX 終焉の開闢 山札破壊ループ",
-      "best_partner_rank": 442,
+      "best_partner_rank": 496,
       "anchor": "龍装鬼 オブザ08号/終焉の開闢",
       "partner": "Q.Q.QX./終葬 5.S.D.",
       "condition": "opponent_deckout_win",

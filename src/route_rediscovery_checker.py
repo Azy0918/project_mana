@@ -102,6 +102,79 @@ def check_anchored_rediscovery(
     return results
 
 
+def check_partner_ranks(db_path: Path = DEFAULT_DB_PATH, max_total_cost: int = 24) -> list[dict[str, Any]]:
+    """アンカー+相方のペアスコアが、アンカー+全カードの中で何位に来るかを測る。
+
+    miss/fullの二値では探索器の改善が見えないため、真の相方の順位を
+    連続値の回帰指標として使う(順位が上がる=接続性の評価が改善)。
+    """
+    from src.route_proof_searcher import (
+        _apply_virtual_states,
+        _merge_states,
+        _score_route,
+        list_proof_win_conditions,
+        load_proof_card_nodes,
+    )
+
+    combos = load_known_combos(db_path)
+    nodes = load_proof_card_nodes(db_path)
+    by_name = {node.name: node for node in nodes}
+    conditions = list_proof_win_conditions()
+
+    results: list[dict[str, Any]] = []
+    for _, combo in combos.iterrows():
+        core = _split_names(combo.get("core_cards"))
+        if len(core) < 2:
+            continue
+        condition_keys = _expected_conditions(combo.get("notes"))
+        best_rank: int | None = None
+        best_detail: dict[str, Any] = {}
+        for anchor_name in core:
+            anchor = by_name.get(anchor_name)
+            if anchor is None:
+                continue
+            partners = [name for name in core if name != anchor_name]
+            for condition_key in condition_keys:
+                condition = conditions[condition_key]
+                scores: list[tuple[int, str]] = []
+                for node in nodes:
+                    if node.name == anchor.name:
+                        continue
+                    produced = _apply_virtual_states(_merge_states(anchor.produced_states, node.produced_states))
+                    route = _score_route(
+                        condition=condition,
+                        cards=(anchor, node),
+                        produced_states=produced,
+                        total_cost=anchor.cost + node.cost,
+                        max_total_cost=max_total_cost,
+                        missing_state="",
+                        known_combo_sets=[],
+                    )
+                    scores.append((route.proof_score, node.name))
+                scores.sort(key=lambda item: item[0], reverse=True)
+                position = {name: index + 1 for index, (_, name) in enumerate(scores)}
+                for partner_name in partners:
+                    rank = position.get(partner_name)
+                    if rank is None:
+                        continue
+                    if best_rank is None or rank < best_rank:
+                        best_rank = rank
+                        best_detail = {
+                            "anchor": anchor_name,
+                            "partner": partner_name,
+                            "condition": condition_key,
+                            "pool_size": len(scores),
+                        }
+        results.append(
+            {
+                "combo_name": str(combo.get("combo_name", "")),
+                "best_partner_rank": best_rank,
+                **best_detail,
+            }
+        )
+    return results
+
+
 def collect_route_pool(
     db_path: Path = DEFAULT_DB_PATH,
     max_depth: int = 3,
@@ -184,6 +257,9 @@ def check_rediscovery(
     anchored = check_anchored_rediscovery(db_path)
     anchored_full = sum(1 for r in anchored if r["status"] == "full")
     anchored_total = len(anchored)
+    partner_ranks = check_partner_ranks(db_path)
+    ranked = [r["best_partner_rank"] for r in partner_ranks if r.get("best_partner_rank")]
+    median_rank = sorted(ranked)[len(ranked) // 2] if ranked else None
     return {
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "total_known_combos": total,
@@ -198,6 +274,8 @@ def check_rediscovery(
         "anchored_full": anchored_full,
         "anchored_full_rate": round(anchored_full / anchored_total, 3) if anchored_total else 0.0,
         "anchored_results": anchored,
+        "partner_rank_median": median_rank,
+        "partner_ranks": partner_ranks,
     }
 
 
@@ -260,6 +338,33 @@ def rediscovery_report_to_markdown(report: dict[str, Any]) -> str:
             )
         lines.append("")
         lines.append("アンカー探索: コアカード1枚を起点に固定し、探索器が残りのコアカードを相方として拾えるかを見る。実運用(seed起点の構築)に近い条件。")
+
+    partner_ranks = report.get("partner_ranks", [])
+    if partner_ranks:
+        lines.extend(
+            [
+                "",
+                "## 相方順位 (回帰指標)",
+                "",
+                f"- 真の相方順位の中央値: {report.get('partner_rank_median')}",
+                "",
+                "| コンボ | アンカー | 相方 | 順位 | 母数 | 勝利条件 |",
+                "| --- | --- | --- | --- | --- | --- |",
+            ]
+        )
+        for row in partner_ranks:
+            lines.append(
+                "| {combo} | {anchor} | {partner} | {rank} | {pool} | {cond} |".format(
+                    combo=row["combo_name"],
+                    anchor=row.get("anchor", ""),
+                    partner=row.get("partner", ""),
+                    rank=row.get("best_partner_rank", "-"),
+                    pool=row.get("pool_size", ""),
+                    cond=row.get("condition", ""),
+                )
+            )
+        lines.append("")
+        lines.append("相方順位: アンカーと全カードのペアスコアを総当たりし、真の相方が何位に来るかを見る。探索器の接続性評価が改善するほど順位が上がるはず。")
     return "\n".join(lines)
 
 

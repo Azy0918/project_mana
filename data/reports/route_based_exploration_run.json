@@ -2,7 +2,7 @@
   "lock_confirmed_win": {
     "saved": [
       {
-        "保存ID": 1,
+        "保存ID": 11,
         "route_type": "lock_confirmed_win",
         "route_score": 48,
         "required_mana_estimate": 9,
@@ -10,18 +10,18 @@
         "route_reproducibility_score": 27,
         "route_risk_score": 66,
         "route_seed_cards": "ジョジョジョ・マキシマム / 光神龍スペル・デル・フィン",
-        "state_chain": "ジョジョジョ・マキシマム -> 光神龍スペル・デル・フィン -> lock_confirmed_win (opponent_action_lock:+4 / cast_permission:-4 / action_window:+1 / win_progress:+1 / shield:+1 / defense:+3 / tempo:+2 / summon_permission:+1 / disruption:+6)"
+        "state_chain": "ジョジョジョ・マキシマム -> 光神龍スペル・デル・フィン -> lock_confirmed_win (defense:+2 / opponent_action_lock:+4 / shield:+1 / tempo:+2 / summon_permission:+1 / disruption:+4 / action_window:+1 / cast_permission:-4)"
       },
       {
-        "保存ID": 2,
+        "保存ID": 12,
         "route_type": "lock_confirmed_win",
         "route_score": 48,
         "required_mana_estimate": 9,
         "earliest_route_turn": 9,
         "route_reproducibility_score": 27,
         "route_risk_score": 66,
-        "route_seed_cards": "光神龍スペル・デル・フィン / ジョジョジョ・マキシマム",
-        "state_chain": "光神龍スペル・デル・フィン -> ジョジョジョ・マキシマム -> lock_confirmed_win (opponent_action_lock:+4 / cast_permission:-4 / action_window:+1 / win_progress:+1 / shield:+1 / defense:+3 / tempo:+2 / summon_permission:+1 / disruption:+6)"
+        "route_seed_cards": "奇石 ミクセル/ジャミング・チャフ / ジョジョジョ・マキシマム",
+        "state_chain": "奇石 ミクセル/ジャミング・チャフ -> ジョジョジョ・マキシマム -> lock_confirmed_win (defense:+2 / resource_loop:+1 / shield:+1 / action_window:+1 / board:+1 / tempo:+2 / summon_permission:+1 / disruption:+4 / damage_pressure:+1 / opponent_deck_pressure:+1 / opponent_action_lock:+4 / cast_permission:-4)"
       }
     ],
     "seed_count": 2
@@ -29,26 +29,26 @@
   "loop_converted_win": {
     "saved": [
       {
-        "保存ID": 3,
+        "保存ID": 13,
         "route_type": "loop_converted_win",
-        "route_score": 77,
-        "required_mana_estimate": 7,
-        "earliest_route_turn": 7,
-        "route_reproducibility_score": 52,
-        "route_risk_score": 36,
-        "route_seed_cards": "龍聖霊ウルフェウス / 聖霊提督セフィア・パルテノン",
-        "state_chain": "龍聖霊ウルフェウス -> 聖霊提督セフィア・パルテノン -> loop_converted_win (replacement_destroy:+1 / board:+2 / resource_loop:+4 / graveyard:+1 / board_persistence:+2 / opponent_deck_pressure:+1 / action_window:+2 / damage_pressure:+2 / win_progress:+3 / tempo:+4 / summon_permission:+2)"
+        "route_score": 58,
+        "required_mana_estimate": 8,
+        "earliest_route_turn": 8,
+        "route_reproducibility_score": 32,
+        "route_risk_score": 60,
+        "route_seed_cards": "偉大なる魔術師 コギリーザ / 渦中の隠者 メルカジーク",
+        "state_chain": "偉大なる魔術師 コギリーザ -> 渦中の隠者 メルカジーク -> loop_converted_win (replacement_destroy:+2 / resource_loop:+6 / graveyard:+2 / tempo:+2 / summon_permission:+1 / board_persistence:+4 / action_window:+1)"
       },
       {
-        "保存ID": 4,
+        "保存ID": 14,
         "route_type": "loop_converted_win",
-        "route_score": 77,
-        "required_mana_estimate": 7,
-        "earliest_route_turn": 7,
-        "route_reproducibility_score": 52,
-        "route_risk_score": 36,
-        "route_seed_cards": "聖霊提督セフィア・パルテノン / 龍聖霊ウルフェウス",
-        "state_chain": "聖霊提督セフィア・パルテノン -> 龍聖霊ウルフェウス -> loop_converted_win (opponent_deck_pressure:+1 / replacement_destroy:+1 / action_window:+2 / damage_pressure:+2 / board:+2 / resource_loop:+4 / win_progress:+3 / graveyard:+1 / tempo:+4 / summon_permission:+2 / board_persistence:+2)"
+        "route_score": 87,
+        "required_mana_estimate": 6,
+        "earliest_route_turn": 6,
+        "route_reproducibility_score": 57,
+        "route_risk_score": 30,
+        "route_seed_cards": "運命の選択 / 偉大なる魔術師 コギリーザ",
+        "state_chain": "運命の選択 -> 偉大なる魔術師 コギリーザ -> loop_converted_win (replacement_destroy:+1 / resource_loop:+5 / graveyard:+1 / tempo:+5 / summon_permission:+2 / board:+1 / board_persistence:+2 / damage_pressure:+3 / action_window:+2 / stability:+1)"
       }
     ],
     "seed_count": 2
@@ -56,26 +56,26 @@
   "alternate_effect_win": {
     "saved": [
       {
-        "保存ID": 5,
+        "保存ID": 15,
         "route_type": "alternate_effect_win",
-        "route_score": 80,
-        "required_mana_estimate": 7,
-        "earliest_route_turn": 7,
-        "route_reproducibility_score": 65,
-        "route_risk_score": 42,
-        "route_seed_cards": "剛勇王機フルメタル・レモン / ジョリー・ザ・ジョニー",
-        "state_chain": "剛勇王機フルメタル・レモン -> ジョリー・ザ・ジョニー -> alternate_effect_win (replacement_destroy:+1 / stability:+1 / resource_loop:+1 / board:+1 / turn_count:+2 / graveyard:+1 / hand:+1 / board_persistence:+2 / opponent_deck_pressure:+1 / action_window:+4 / damage_pressure:+3 / win_progress:+10 / alternate_win_progress:+6 / tempo:+7)"
+        "route_score": 48,
+        "required_mana_estimate": 9,
+        "earliest_route_turn": 9,
+        "route_reproducibility_score": 35,
+        "route_risk_score": 78,
+        "route_seed_cards": "ジョリー・ザ・ジョニー / 水上第九院 シャコガイル",
+        "state_chain": "ジョリー・ザ・ジョニー -> 水上第九院 シャコガイル -> alternate_effect_win (hand:+1 / deck_out_prevention:+1 / win_progress:+6 / board_persistence:+2 / zone_change_permission:+1 / stability:+1 / alternate_win_progress:+6 / lose_condition:-1 / replacement_destroy:+1 / graveyard:+1 / board:+2 / tempo:+1 / disruption:+3 / damage_pressure:+4)"
       },
       {
-        "保存ID": 6,
+        "保存ID": 16,
         "route_type": "alternate_effect_win",
-        "route_score": 80,
+        "route_score": 74,
         "required_mana_estimate": 7,
         "earliest_route_turn": 7,
-        "route_reproducibility_score": 65,
-        "route_risk_score": 42,
-        "route_seed_cards": "ジョリー・ザ・ジョニー / 剛勇王機フルメタル・レモン",
-        "state_chain": "ジョリー・ザ・ジョニー -> 剛勇王機フルメタル・レモン -> alternate_effect_win (replacement_destroy:+1 / stability:+1 / board:+1 / resource_loop:+1 / turn_count:+2 / graveyard:+1 / hand:+1 / board_persistence:+2 / opponent_deck_pressure:+1 / action_window:+4 / damage_pressure:+3 / win_progress:+10 / alternate_win_progress:+6 / tempo:+7)"
+        "route_reproducibility_score": 55,
+        "route_risk_score": 54,
+        "route_seed_cards": "Q.Q.QX./終葬 5.S.D. / ジョリー・ザ・ジョニー",
+        "state_chain": "Q.Q.QX./終葬 5.S.D. -> ジョリー・ザ・ジョニー -> alternate_effect_win (hand:+2 / replacement_destroy:+1 / graveyard:+1 / shield:-1 / stability:+2 / win_progress:+5 / board:+1 / tempo:+1 / board_persistence:+2 / damage_pressure:+3 / opponent_deck_pressure:+1 / alternate_win_progress:+6)"
       }
     ],
     "seed_count": 2
@@ -83,26 +83,26 @@
   "opponent_deckout_win": {
     "saved": [
       {
-        "保存ID": 7,
+        "保存ID": 21,
         "route_type": "opponent_deckout_win",
-        "route_score": 61,
-        "required_mana_estimate": 8,
-        "earliest_route_turn": 8,
-        "route_reproducibility_score": 55,
-        "route_risk_score": 42,
-        "route_seed_cards": "煌メク聖壁 灰瞳 / サッヴァーク ～正義ノ裁キ～",
-        "state_chain": "煌メク聖壁 灰瞳 -> サッヴァーク ～正義ノ裁キ～ -> opponent_deckout_win (replacement_destroy:+1 / stability:+1 / zone_change_permission:+1 / board:+1 / resource_loop:+2 / turn_count:+1 / defense:+5 / graveyard:+2 / hand:+1 / board_persistence:+2 / opponent_deck_pressure:+2 / action_window:+2 / damage_pressure:+2 / win_progress:+2 / shield:+2 / tempo:+3 / disruption:+5)"
+        "route_score": 46,
+        "required_mana_estimate": 10,
+        "earliest_route_turn": 10,
+        "route_reproducibility_score": 40,
+        "route_risk_score": 60,
+        "route_seed_cards": "悪魔神王バルカディアス / 偽りの悪魔神王 デス・マリッジ",
+        "state_chain": "悪魔神王バルカディアス -> 偽りの悪魔神王 デス・マリッジ -> opponent_deckout_win (defense:+2 / cast_permission:-4 / resource_loop:+1 / opponent_action_lock:+4 / hand:+1 / stability:+1 / disruption:+14 / zone_change_permission:+2)"
       },
       {
-        "保存ID": 8,
+        "保存ID": 22,
         "route_type": "opponent_deckout_win",
-        "route_score": 61,
+        "route_score": 72,
         "required_mana_estimate": 8,
         "earliest_route_turn": 8,
-        "route_reproducibility_score": 55,
-        "route_risk_score": 42,
-        "route_seed_cards": "サッヴァーク ～正義ノ裁キ～ / 煌メク聖壁 灰瞳",
-        "state_chain": "サッヴァーク ～正義ノ裁キ～ -> 煌メク聖壁 灰瞳 -> opponent_deckout_win (replacement_destroy:+1 / stability:+1 / zone_change_permission:+1 / resource_loop:+2 / board:+1 / turn_count:+1 / defense:+5 / graveyard:+2 / hand:+1 / board_persistence:+2 / opponent_deck_pressure:+2 / action_window:+2 / damage_pressure:+2 / win_progress:+2 / shield:+2 / tempo:+3 / disruption:+5)"
+        "route_reproducibility_score": 60,
+        "route_risk_score": 36,
+        "route_seed_cards": "超奇天烈 ベガスダラー / 悪魔神王バルカディアス",
+        "state_chain": "超奇天烈 ベガスダラー -> 悪魔神王バルカディアス -> opponent_deckout_win (defense:+2 / graveyard:+1 / opponent_deck_pressure:+1 / cast_permission:-2 / resource_loop:+1 / damage_pressure:+1 / opponent_action_lock:+2 / hand:+1 / stability:+1 / board:+1 / disruption:+12 / zone_change_permission:+2)"
       }
     ],
     "seed_count": 2
@@ -110,7 +110,7 @@
   "damage_overflow_win": {
     "saved": [
       {
-        "保存ID": 9,
+        "保存ID": 19,
         "route_type": "damage_overflow_win",
         "route_score": 77,
         "required_mana_estimate": 7,
@@ -118,18 +118,18 @@
         "route_reproducibility_score": 52,
         "route_risk_score": 36,
         "route_seed_cards": "連珠の精霊アガピトス / 龍聖霊ウルフェウス",
-        "state_chain": "連珠の精霊アガピトス -> 龍聖霊ウルフェウス -> damage_overflow_win (action_window:+2 / damage_pressure:+4 / stability:+1 / win_progress:+2 / board:+2 / resource_loop:+2 / tempo:+5 / summon_permission:+2)"
+        "state_chain": "連珠の精霊アガピトス -> 龍聖霊ウルフェウス -> damage_overflow_win (tempo:+4 / summon_permission:+2 / board:+2 / damage_pressure:+2 / action_window:+2 / stability:+1)"
       },
       {
-        "保存ID": 10,
+        "保存ID": 20,
         "route_type": "damage_overflow_win",
         "route_score": 77,
         "required_mana_estimate": 7,
         "earliest_route_turn": 7,
         "route_reproducibility_score": 52,
         "route_risk_score": 36,
-        "route_seed_cards": "龍聖霊ウルフェウス / 連珠の精霊アガピトス",
-        "state_chain": "龍聖霊ウルフェウス -> 連珠の精霊アガピトス -> damage_overflow_win (action_window:+2 / damage_pressure:+4 / stability:+1 / win_progress:+2 / board:+2 / resource_loop:+2 / tempo:+5 / summon_permission:+2)"
+        "route_seed_cards": "聖霊提督セフィア・パルテノン / 連珠の精霊アガピトス",
+        "state_chain": "聖霊提督セフィア・パルテノン -> 連珠の精霊アガピトス -> damage_overflow_win (replacement_destroy:+1 / resource_loop:+1 / graveyard:+1 / board:+2 / summon_permission:+2 / tempo:+4 / board_persistence:+2 / damage_pressure:+2 / action_window:+2 / stability:+1)"
       }
     ],
     "seed_count": 2

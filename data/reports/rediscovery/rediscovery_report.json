@@ -1,11 +1,11 @@
 {
-  "created_at": "2026-07-09T10:07:35",
+  "created_at": "2026-07-09T11:09:19",
   "total_known_combos": 13,
-  "full_rediscovered": 1,
+  "full_rediscovered": 0,
   "partial_rediscovered": 0,
-  "missed": 12,
-  "full_rate": 0.077,
-  "full_or_partial_rate": 0.077,
+  "missed": 13,
+  "full_rate": 0.0,
+  "full_or_partial_rate": 0.0,
   "route_pool_size": 720,
   "results": [
     {
@@ -17,10 +17,10 @@
       ],
       "core_size": 2,
       "status": "miss",
-      "best_overlap": 1,
-      "matched_route_type": "opponent_deckout_win",
-      "matched_route_cards": "葬送の守護者ドルルン / ヘブンズ・フォース",
-      "matched_proof_score": 91
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
     },
     {
       "combo_name": "ドンジャングルS7 デル・フィン 呪文ロック制圧",
@@ -111,11 +111,11 @@
         "水上第九院 シャコガイル"
       ],
       "core_size": 1,
-      "status": "full",
-      "best_overlap": 1,
-      "matched_route_type": "alternate_effect_win",
-      "matched_route_cards": "水上第九院 シャコガイル",
-      "matched_proof_score": 87
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
     },
     {
       "combo_name": "必駆蛮触礼亞 クラッシュ覇道 追加ターン",
@@ -168,10 +168,10 @@
       ],
       "core_size": 2,
       "status": "miss",
-      "best_overlap": 0,
-      "matched_route_type": "",
-      "matched_route_cards": "",
-      "matched_proof_score": ""
+      "best_overlap": 1,
+      "matched_route_type": "damage_overflow_win",
+      "matched_route_cards": "運命の選択 / Q.Q.QX./終葬 5.S.D.",
+      "matched_proof_score": 100
     },
     {
       "combo_name": "青単スコーラー 追加ターン連打",
@@ -307,6 +307,77 @@
       "condition": "",
       "matched_route_cards": "",
       "matched_proof_score": ""
+    }
+  ],
+  "partner_rank_median": 946,
+  "partner_ranks": [
+    {
+      "combo_name": "ヘブンズ・フォース 絶十 早出しメタビート",
+      "best_partner_rank": 783,
+      "anchor": "煌メク聖戦 絶十",
+      "partner": "ヘブンズ・フォース",
+      "condition": "lock_confirmed_win",
+      "pool_size": 4856
+    },
+    {
+      "combo_name": "ドンジャングルS7 デル・フィン 呪文ロック制圧",
+      "best_partner_rank": 224,
+      "anchor": "ドンジャングルS7",
+      "partner": "光神龍スペル・デル・フィン",
+      "condition": "lock_confirmed_win",
+      "pool_size": 4856
+    },
+    {
+      "combo_name": "ザビ・ミラ ヴォルグ・サンダー 山札破壊",
+      "best_partner_rank": null
+    },
+    {
+      "combo_name": "B-零朱レイド シールド焼却",
+      "best_partner_rank": 2853,
+      "anchor": "“必駆”蛮触礼亞",
+      "partner": "“B-零朱”レイド",
+      "condition": "damage_overflow_win",
+      "pool_size": 4855
+    },
+    {
+      "combo_name": "バクアドルガン バイケン マッドネスカウンター",
+      "best_partner_rank": 367,
+      "anchor": "熱血龍 バクアドルガン",
+      "partner": "蒼神龍バイケン",
+      "condition": "damage_overflow_win",
+      "pool_size": 4856
+    },
+    {
+      "combo_name": "必駆蛮触礼亞 クラッシュ覇道 追加ターン",
+      "best_partner_rank": 2669,
+      "anchor": "“必駆”蛮触礼亞",
+      "partner": "勝利龍装 クラッシュ“覇道”",
+      "condition": "damage_overflow_win",
+      "pool_size": 4855
+    },
+    {
+      "combo_name": "ミラダンテXII ラフルル 呪文召喚ロック",
+      "best_partner_rank": 2979,
+      "anchor": "時の法皇 ミラダンテXII",
+      "partner": "音精 ラフルル",
+      "condition": "lock_confirmed_win",
+      "pool_size": 4853
+    },
+    {
+      "combo_name": "グスタフ 落城の計 拘束ループ",
+      "best_partner_rank": 946,
+      "anchor": "グスタフ・アルブサール",
+      "partner": "龍脈術 落城の計",
+      "condition": "lock_confirmed_win",
+      "pool_size": 4857
+    },
+    {
+      "combo_name": "QQQX 終焉の開闢 山札破壊ループ",
+      "best_partner_rank": 442,
+      "anchor": "龍装鬼 オブザ08号/終焉の開闢",
+      "partner": "Q.Q.QX./終葬 5.S.D.",
+      "condition": "opponent_deckout_win",
+      "pool_size": 4855
     }
   ]
 }

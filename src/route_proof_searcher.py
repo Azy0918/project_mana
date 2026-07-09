@@ -12,6 +12,7 @@ from typing import Any
 
 from src.card_effect_feature_store import load_card_effect_features
 from src.combo_knowledge_base import load_known_combos
+from src.effect_semantics import has_extra_turn_text, has_self_win_text
 from src.import_cards import DEFAULT_DB_PATH
 from src.search_cards import search_cards
 from src.state_transition_model import STATE_KEYS, infer_state_transition
@@ -718,11 +719,18 @@ def _virtual_states_from_blob(value: dict[str, Any]) -> dict[str, int]:
         ]
     )
     delta: dict[str, int] = {}
-    if any(keyword in blob for keyword in ["ゲームに勝つ", "勝利する", "特殊勝利"]):
+    # テキスト全文の「ゲームに勝つ」は「相手がゲームに勝つ時、かわりに〜」型の
+    # 防御置換も拾ってしまうため、主語判定つきのヘルパーで判定する。
+    win_text_hit = has_self_win_text(str(value.get("text", "") or ""))
+    meta_blob = " ".join(
+        str(value.get(key, "") or "")
+        for key in ["tags", "output_signals", "win_contribution"]
+    )
+    if win_text_hit or any(keyword in meta_blob for keyword in ["terminal_win", "特殊勝利"]):
         delta["terminal_win"] = 1
         delta["alternate_win_progress"] = max(delta.get("alternate_win_progress", 0), 3)
         delta["win_progress"] = max(delta.get("win_progress", 0), 2)
-    if any(keyword in blob for keyword in ["追加ターン", "ターンを追加", "もう一度自分のターン"]):
+    if has_extra_turn_text(str(value.get("text", "") or "")):
         delta["extra_turn"] = 1
         delta["turn_count"] = max(delta.get("turn_count", 0), 1)
         delta["win_progress"] = max(delta.get("win_progress", 0), 1)

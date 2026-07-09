@@ -93,10 +93,16 @@ def discover_route_seeds(
 
     scored.sort(key=lambda item: item[0], reverse=True)
     seeds = []
+    seen_pairs: set[frozenset[str]] = set()
     for score, card, delta in scored[: max(max_seeds * 3, max_seeds)]:
         seed_cards = [card]
         partner = _find_partner(card, scored, route_type)
         if partner:
+            # A/BとB/Aは同一seedとして扱う
+            pair_key = frozenset({str(card.get("name", "")), str(partner[1].get("name", ""))})
+            if pair_key in seen_pairs:
+                continue
+            seen_pairs.add(pair_key)
             seed_cards.append(partner[1])
             produced = _merge_delta(delta, partner[2])
             combined_score = min(100, score + partner[0] // 3)
@@ -305,8 +311,10 @@ def _required_support_roles(route_type: str, required_mana: int, missing_support
 
 def _find_partner(seed_card: dict[str, Any], scored: list[tuple[int, dict[str, Any], dict[str, int]]], route_type: str):
     seed_id = str(seed_card.get("card_id", ""))
+    seed_name = str(seed_card.get("name", ""))
     for score, card, delta in scored:
-        if str(card.get("card_id", "")) == seed_id:
+        # 同名の別刷り(card_id違い)を相方に選ばない
+        if str(card.get("card_id", "")) == seed_id or str(card.get("name", "")) == seed_name:
             continue
         if score < 20:
             continue

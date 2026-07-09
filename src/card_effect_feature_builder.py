@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from src.effect_graph_builder import infer_effect_node
+from src.effect_semantics import has_extra_turn_text, has_self_win_text
 from src.search_cards import DEFAULT_DB_PATH, search_cards
 from src.state_transition_model import infer_state_transition
 
@@ -183,7 +184,7 @@ def _infer_vulnerability(text: str, inputs: list[str], outputs: list[str]) -> st
 
 def _infer_win_contribution(text: str, payoff_score: int, value_signals: list[str]) -> str:
     signals = []
-    if any(keyword in text for keyword in ["ゲームに勝つ", "追加ターン"]):
+    if has_self_win_text(text) or has_extra_turn_text(text):
         signals.append("terminal_win")
     if any(keyword in text for keyword in ["スピードアタッカー", "攻撃できる", "ブロックされない"]):
         signals.append("damage_push")

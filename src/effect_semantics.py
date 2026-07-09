@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from typing import Any
 
 
@@ -61,6 +62,10 @@ def infer_constraint_breaks(text: str, tags: list[str]) -> list[str]:
     breaks = []
     if any(keyword in haystack for keyword in ["コストを支払わず", "踏み倒し", "無料", "ただで"]):
         breaks.append("cost_bypass")
+    # 「手札から〜バトルゾーンに出す」型の踏み倒し。
+    # 「バトルゾーンに出た時」(単なるcip誘発)を拾わないよう、出す/出しの形のみ。
+    if re.search(r"(手札|マナゾーン|墓地|山札)(の中)?から[^。]{0,40}バトルゾーンに出[すし]", text):
+        breaks.append("cost_bypass")
     if "G・ゼロ" in haystack or "Gゼロ" in haystack:
         breaks.extend(["cost_bypass", "condition_based_free_cast"])
     if any(keyword in haystack for keyword in ["超次元ゾーンから出", "超次元", "超GR"]):
@@ -72,10 +77,30 @@ def infer_constraint_breaks(text: str, tags: list[str]) -> list[str]:
     return _unique(breaks)
 
 
+def has_extra_turn_text(text: str) -> bool:
+    """追加ターンを得る効果か。「追加ターンを行うことはできない」型の禁止効果は除外する。"""
+    for sentence in _sentences(text):
+        if any(keyword in sentence for keyword in ["ターンを追加", "追加ターン", "もう一度自分のターン"]):
+            if any(negation in sentence for negation in ["できず", "できない", "封じ"]):
+                continue
+            return True
+    return False
+
+
+def has_self_win_text(text: str) -> bool:
+    """自分が勝つ特殊勝利テキストか。「相手がゲームに勝つ時、かわりに〜」型の防御置換は除外する。"""
+    for sentence in _sentences(text):
+        if any(keyword in sentence for keyword in ["ゲームに勝つ", "勝利する"]):
+            if "相手が" in sentence and "かわりに" in sentence:
+                continue
+            return True
+    return False
+
+
 def infer_terminal_effects(text: str, tags: list[str]) -> list[str]:
     haystack = _haystack(text, tags)
     effects = []
-    if any(keyword in haystack for keyword in ["ゲームに勝つ", "自分はゲームに勝つ", "勝利する"]):
+    if has_self_win_text(text) or "特殊勝利" in " ".join(tags):
         effects.append("extra_win")
     if any(keyword in haystack for keyword in ["山札の最後", "山札がなくなるかわり", "山札が0"]):
         effects.append("extra_win_deck_drawout")
@@ -85,7 +110,10 @@ def infer_terminal_effects(text: str, tags: list[str]) -> list[str]:
         effects.append("extra_win_hand_count")
     if any(keyword in haystack for keyword in ["クリーチャーが11体以上", "クリーチャーが18体以上", "11体以上", "18体以上"]):
         effects.append("extra_win_creature_count")
-    if any(keyword in haystack for keyword in ["ターンを追加", "追加ターン", "もう一度自分のターン"]):
+    # 「相手は〜かわりにゲームに負ける」型(QQQXなど)は実質特殊勝利
+    if any("相手" in sentence and "ゲームに負ける" in sentence for sentence in _sentences(text)):
+        effects.append("opponent_lose_win")
+    if has_extra_turn_text(text):
         effects.append("extra_turn")
     if any(keyword in haystack for keyword in ["すべて破壊", "すべて墓地", "すべて山札", "すべて手札"]):
         effects.append("reset_effect")
@@ -105,9 +133,15 @@ def infer_special_mechanics(text: str, tags: list[str]) -> list[str]:
         mechanics.append("graveyard_evolution")
     if any(keyword in haystack for keyword in ["墓地退化", "墓地から出", "墓地から進化クリーチャー"]):
         mechanics.append("graveyard_devolution_candidate")
-    if any(keyword in haystack for keyword in ["手札に戻す", "墓地から手札", "マナゾーンから手札", "回収"]):
+    # 再利用は自分側の回収に限る。「相手のクリーチャーを手札に戻す」は除去(board_control)であって再利用ではない。
+    if any(
+        "相手" not in sentence
+        and any(keyword in sentence for keyword in ["手札に戻す", "墓地から手札", "マナゾーンから手札", "回収"])
+        for sentence in _sentences(text)
+    ) or any(keyword in " ".join(tags) for keyword in ["墓地回収", "回収"]):
         mechanics.append("recursion_candidate")
-    if any(keyword in haystack for keyword in ["アンタップする", "もう一度使", "唱えてもよい", "再び", "ループ"]):
+    # 「唱えてもよい」単体は任意詠唱全般に発火するため、自己再利用の文脈に限る
+    if any(keyword in haystack for keyword in ["アンタップする", "もう一度使", "もう一度唱え", "再び", "ループ", "墓地から唱え", "唱えた後"]):
         mechanics.append("loop_candidate")
     if any(keyword in haystack for keyword in ["超次元", "超GR", "ドラグハート"]):
         mechanics.append("external_zone_access")
@@ -158,6 +192,11 @@ def _split_tags(value: str | list[str] | None) -> list[str]:
 
 def _haystack(text: str, tags: list[str]) -> str:
     return f"{text} {' '.join(tags)}"
+
+
+def _sentences(text: str) -> list[str]:
+    """カードテキストを文単位に分割する。主語(自分/相手)の判定に使う。"""
+    return [sentence for sentence in re.split(r"[。\n■◇【】]", str(text or "")) if sentence]
 
 
 def _unique(values: list[str]) -> list[str]:

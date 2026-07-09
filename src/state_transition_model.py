@@ -174,12 +174,12 @@ def analyze_state_chains_from_db(
 
 
 def _apply_outputs(node: EffectNode, delta: dict[str, int]) -> None:
+    # resource_loop / win_progress は探索の識別力を担う希少状態。
+    # 単なる墓地肥やしや踏み倒しには付与せず、真の再使用・終端効果に限定する。
     if "mana_plus" in node.outputs:
         delta["tempo"] += 1
     if "hand_plus" in node.outputs or "search" in node.outputs:
         delta["stability"] = delta.get("stability", 0) + 1
-    if "graveyard_plus" in node.outputs:
-        delta["resource_loop"] += 1
     if "board_plus" in node.outputs or "creature_deploy" in node.outputs:
         delta["damage_pressure"] += 1
     if "attack_ready" in node.outputs:
@@ -194,33 +194,30 @@ def _apply_outputs(node: EffectNode, delta: dict[str, int]) -> None:
         delta["defense"] += 2
     if "cost_bypass" in node.outputs or "external_zone_access" in node.outputs:
         delta["tempo"] += 2
-        delta["win_progress"] += 1
-    if "repeatable_action" in node.outputs or "recursion" in node.outputs:
+    if "repeatable_action" in node.outputs:
         delta["resource_loop"] += 2
+    elif "recursion" in node.outputs:
+        delta["resource_loop"] += 1
     if "evolution_stack_manipulation" in node.outputs:
-        delta["win_progress"] += 1
         delta["resource_loop"] += 1
 
 
 def _apply_special_effects(node: EffectNode, delta: dict[str, int]) -> None:
-    text = " ".join(
-        str(node.semantics.get(key, "") or "")
-        for key in ["name"]
-    )
-    comments = " ".join(node.semantics.get("comments", []))
-    raw = f"{text} {comments}"
+    # 生成済みコメント(「追加ターンなど終端効果の候補があります」等)をhaystackに
+    # 混ぜるとキーワードが自己汚染するため、カード名と原文のみを対象にする。
+    name = str(node.semantics.get("name", "") or "")
     mechanics = node.semantics.get("special_mechanics", [])
     terminals = node.semantics.get("terminal_effects", [])
     breaks = node.semantics.get("constraint_breaks", [])
     card_text = str(node.semantics.get("raw_text", "") or "")
-    haystack = f"{raw} {card_text}"
+    haystack = f"{name} {card_text}"
 
-    if "extra_turn" in terminals or any(keyword in haystack for keyword in ["追加ターン", "ターンを追加", "もう一度自分のターン"]):
+    if "extra_turn" in terminals:
         delta["turn_count"] += 1
         delta["action_window"] += 2
         delta["tempo"] += 3
         delta["win_progress"] += 2
-    if "extra_win" in terminals or any(keyword in haystack for keyword in ["ゲームに勝つ", "勝利する"]):
+    if "extra_win" in terminals:
         delta["alternate_win_progress"] += 3
         delta["win_progress"] += 3
     if "reset_effect" in terminals or any(keyword in haystack for keyword in ["すべて破壊", "すべて墓地", "すべて手札", "すべて山札"]):
@@ -234,14 +231,19 @@ def _apply_special_effects(node: EffectNode, delta: dict[str, int]) -> None:
         delta["action_window"] += 1
     if "zone_bypass" in breaks or "external_zone_access" in mechanics:
         delta["zone_change_permission"] += 2
-    if any(keyword in haystack for keyword in ["呪文を唱えられない", "呪文を唱えることができない", "唱えられない"]):
+
+    # 行動制限系は主語が相手の場合のみロックとして扱う。
+    # 「(このクリーチャーは)攻撃できない」のような自分側デメリットを
+    # opponent_action_lock に数えると、ロック探索の識別力が消える。
+    sentences = _text_sentences(card_text)
+    if _opponent_restriction(sentences, ["呪文を唱えられない", "呪文を唱えることができない", "唱えられない"]):
         delta["cast_permission"] -= 2
         delta["opponent_action_lock"] += 2
         delta["disruption"] += 2
-    if any(keyword in haystack for keyword in ["召喚できない", "召喚することができない"]):
+    if _opponent_restriction(sentences, ["召喚できない", "召喚することができない"]):
         delta["summon_permission"] -= 2
         delta["opponent_action_lock"] += 2
-    if any(keyword in haystack for keyword in ["攻撃できない", "攻撃することができない"]):
+    if _opponent_restriction(sentences, ["攻撃できない", "攻撃することができない"]):
         delta["attack_permission"] -= 2
         delta["opponent_action_lock"] += 1
         delta["defense"] += 1
@@ -249,14 +251,40 @@ def _apply_special_effects(node: EffectNode, delta: dict[str, int]) -> None:
         delta["trigger_window"] -= 2
         delta["replacement_shield"] += 1
         delta["disruption"] += 1
-    if any(keyword in haystack for keyword in ["能力を無視", "能力を失", "効果を無視"]):
+    if _opponent_restriction(sentences, ["能力を無視", "能力を失", "効果を無視"]):
         delta["effect_permission"] -= 2
         delta["opponent_action_lock"] += 2
-    if any(keyword in haystack for keyword in ["山札がなくなるかわり", "山札の最後", "負けるかわり"]):
+    # 自分の敗北を置換する効果(シャコガイル型)。相手が負ける置換は特殊勝利側で扱う。
+    if any(
+        "相手" not in sentence
+        and any(keyword in sentence for keyword in ["山札がなくなるかわり", "山札の最後", "負けるかわり"])
+        for sentence in sentences
+    ):
         delta["lose_condition"] -= 1
         delta["deck_out_prevention"] += 1
-    if any(keyword in haystack for keyword in ["山札の上から", "相手の山札", "相手はカードを引", "相手にカードを引"]):
+    if "opponent_lose_win" in terminals:
+        delta["alternate_win_progress"] += 3
+        delta["win_progress"] += 2
+    # 山札破壊圧は相手の山札に触れる効果に限る。「自分の山札の上から」は対象外。
+    if any(
+        ("相手" in sentence or "自身" in sentence) and "山札" in sentence
+        for sentence in sentences
+    ) or any(keyword in haystack for keyword in ["相手はカードを引", "相手にカードを引"]):
         delta["opponent_deck_pressure"] += 1
+
+
+def _text_sentences(text: str) -> list[str]:
+    import re
+
+    return [sentence for sentence in re.split(r"[。\n■◇【】]", str(text or "")) if sentence]
+
+
+def _opponent_restriction(sentences: list[str], patterns: list[str]) -> bool:
+    """相手を主語とする行動制限か。「相手」を含む文でパターンが出た場合のみ真。"""
+    return any(
+        "相手" in sentence and any(pattern in sentence for pattern in patterns)
+        for sentence in sentences
+    )
 
 
 def _apply_inputs(node: EffectNode, requires: dict[str, int]) -> None:

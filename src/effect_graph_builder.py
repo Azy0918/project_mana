@@ -88,7 +88,7 @@ def _infer_outputs(
         outputs.append("board_plus")
     if delta.get("shield", 0) > 0:
         outputs.append("shield_plus")
-    if delta.get("board", 0) < 0 or any(keyword in haystack for keyword in ["破壊", "手札に戻す", "パワーを", "山札の下"]):
+    if delta.get("board", 0) < 0 or any(keyword in haystack for keyword in ["破壊", "手札に戻す", "パワーを-", "パワーを0", "山札の下"]):
         outputs.append("board_control")
     if delta.get("hand", 0) < 0 or any(keyword in haystack for keyword in ["手札を捨て", "手札から選び"]):
         outputs.append("opponent_hand_minus")
@@ -100,7 +100,8 @@ def _infer_outputs(
         outputs.append("recursion")
     if "loop_candidate" in semantics.get("special_mechanics", []):
         outputs.append("repeatable_action")
-    if any(keyword in haystack for keyword in ["スピードアタッカー", "アンタップ", "攻撃できる"]):
+    # 「アンタップ」単体はマナや防御のアンタップも拾うため、攻撃準備の文脈に限る
+    if any(keyword in haystack for keyword in ["スピードアタッカー", "召喚酔いしない", "攻撃できる", "アンタップし、攻撃"]):
         outputs.append("attack_ready")
     if any(keyword in haystack for keyword in ["進化クリーチャーの下", "下に置", "下から"]):
         outputs.append("evolution_stack_manipulation")
@@ -108,7 +109,8 @@ def _infer_outputs(
         outputs.append("spell_cast")
     if any(keyword in haystack for keyword in ["山札を見る", "山札から", "サーチ"]):
         outputs.append("search")
-    if any(keyword in haystack for keyword in ["クリーチャーを出", "バトルゾーンに出", "踏み倒し"]):
+    # 「バトルゾーンに出た時」(単なるcip誘発)を展開能力と誤認しないよう、出す/出しの形のみ
+    if any(keyword in haystack for keyword in ["バトルゾーンに出す", "バトルゾーンに出し", "踏み倒し"]):
         outputs.append("creature_deploy")
 
     return _unique(outputs)

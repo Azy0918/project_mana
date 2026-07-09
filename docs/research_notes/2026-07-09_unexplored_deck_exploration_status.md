@@ -47,6 +47,66 @@
 
 ## 次セッションの具体タスク
 
-- [ ] known_combos に既知コンボ10件以上を登録するスクリプト/CSVを作成
-- [ ] `python -m src.route_seed_generator` 系の実走とレポートの `data/reports/` 保存+コミット運用の決定
-- [ ] 再発見率(既知コンボのうち何件を探索器が自力で見つけるか)の計測
+- [x] known_combos に既知コンボ10件以上を登録するスクリプト/CSVを作成
+- [x] `python -m src.route_seed_generator` 系の実走とレポートの `data/reports/` 保存+コミット運用の決定
+- [x] 再発見率(既知コンボのうち何件を探索器が自力で見つけるか)の計測
+
+---
+
+## 実走結果 (2026-07-09 同日追記)
+
+### 実施内容
+
+1. **既知コンボKB投入**: `src/known_combo_seed_data.py` で現環境の既知コンボ13件を `known_combos` に登録
+   (青単スコーラー、QQQXループ、グスタフループ、ミラダンテ+ラフルル、必駆覇道、シャコガイル、J・イレブン、
+   マッドネスカウンター、轟轟轟GG-0、B-零朱、ザビ・ミラ+ヴォルグ、ドンジャングル+デル・フィン、ヘブフォ絶十)。
+   カード名は cards テーブルと完全一致を検証済み。
+2. **再発見率計測ハーネス**: `src/route_rediscovery_checker.py` を新設。2つの指標を計測:
+   - グローバル指標: 全勝利条件の探索上位ルートに既知コンボのコアカードが同居するか
+   - アンカー指標: コアカード1枚を起点固定した探索(`search_route_proofs(anchor_card_name=...)` を追加)で相方を拾えるか
+   - レポート: `data/reports/rediscovery/`
+3. **探索器の修正**: エネイブラー(踏み倒し/展開/再利用)のプール別枠追加、
+   ロック勝ちルートで負値permission(例: デル・フィンの `cast_permission:-2`)をhelper加点対象にする意味論修正
+4. **フルラン**: route_seed_generator / route_proof_searcher --all / route_based_explorer(全5ルート型)を実行。
+   `generated_decks` に10件保存、レポートは `data/reports/` にコミット。
+
+### 計測結果
+
+| 指標 | 結果 |
+| --- | --- |
+| グローバル再発見率 | 1〜2/13 (約8〜15%)。単カード特殊勝利(シャコガイル、J・イレブン)のみ |
+| アンカー再発見率 | 0/9。2枚コンボの相方は一度も上位に浮上せず |
+
+試した改良(汎用チェーンボーナス)はむしろ悪化(15%→0%)したため撤回。
+
+### 根本原因の特定: 特徴量 state_delta の過剰付与
+
+再発見失敗はスコアリングではなく**入力データの識別力不足**が原因。
+
+- `resource_loop` が全5178枚中 36% に付与(本来は数十枚レベルの希少状態のはず)
+- `opponent_action_lock` が 10%(497枚)に付与。ドロー呪文のエターナル・ブレインにすら `opponent_action_lock:2` が付く
+- `win_progress` 30%、`damage_pressure` 60%
+- `creature_deploy` シグナルはほぼ全カードに付き、リンク判定に使えない
+- 一方で “必駆”蛮触礼亞 の踏み倒しに `cost_bypass` が付かないなど、肝心なカードで抽出漏れ
+
+この状態ではどんな探索アルゴリズムでも既知コンボと汎用カードを区別できない。
+
+### 次の最優先タスク(優先順)
+
+1. **card_effect_feature_builder の state_delta 抽出精度の改善**(本丸)
+   - `resource_loop` / `opponent_action_lock` / `win_progress` の付与条件を厳格化(パターン監査)
+   - 踏み倒し(「コストを支払わずに」「出す」系)の `cost_bypass` 抽出漏れ修正
+   - 改善のたびに `python -m src.route_rediscovery_checker` を回帰テストとして実行し、
+     アンカー再発見率が上がることを確認する(計測基盤は今回整備済み)
+2. 特徴量改善後、`card_relation_discoverer` の関係ルール(cost_bypass→needs_payoff等)を
+   `_score_route` のチェーンボーナスとして再導入
+3. route_based_explorer の重複出力(A/BとB/Aの同一ペア)のdedupe
+4. 生成された10デッキ(特に ウルフェウス+セフィア・パルテノンのループ、ジョリー・ザ・ジョニー特殊勝利)の実戦検証
+
+### 成果物
+
+- `src/known_combo_seed_data.py`(既知コンボseed 13件+名寄せ検証)
+- `src/route_rediscovery_checker.py`(再発見率の回帰計測ハーネス)
+- `src/route_proof_searcher.py`(アンカー探索対応、エネイブラープール枠、ロック意味論修正)
+- `data/reports/rediscovery/`、`data/reports/route_*`、`data/reports/route_based_exploration_run.json`
+- `generated_decks` にルート探索由来の10デッキ(cards.db内)

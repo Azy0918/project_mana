@@ -111,6 +111,7 @@ def search_route_proofs(
     beam_width: int = 40,
     max_total_cost: int = 18,
     limit: int = 30,
+    anchor_card_name: str = "",
 ) -> list[dict[str, Any]]:
     db_path = Path(db_path)
     if required_missing_state:
@@ -120,8 +121,17 @@ def search_route_proofs(
         win_condition = "loop_converted_win"
 
     condition = _condition_for_missing_state(conditions[win_condition], missing_state)
-    nodes = load_proof_card_nodes(db_path)
-    nodes = _rank_node_pool(nodes, condition, missing_state)[:900]
+    all_nodes = load_proof_card_nodes(db_path)
+    nodes = _rank_node_pool(all_nodes, condition, missing_state)[:900]
+    # 勝利状態を直接出さないエネイブラー(踏み倒し/展開/再利用)は
+    # 上記ランキングでプール落ちしやすいため、別枠で追加する。
+    pooled_ids = {node.card_id for node in nodes}
+    enablers = sorted(
+        (node for node in all_nodes if node.card_id not in pooled_ids and _enabler_score(node) > 0),
+        key=_enabler_score,
+        reverse=True,
+    )
+    nodes = nodes + enablers[:200]
     known_combo_sets = _load_known_combo_sets(db_path)
 
     start_states = _initial_states_for_missing(missing_state)
@@ -137,6 +147,25 @@ def search_route_proofs(
             proof_comment="",
         )
     ]
+    if anchor_card_name:
+        # 起点カードを固定した探索。テーマ研究や既知コンボ再発見検証で、
+        # 「このカードを含む勝ち筋ルート」だけを列挙したい場合に使う。
+        anchor = next((node for node in all_nodes if node.name == anchor_card_name), None)
+        if anchor is None:
+            return []
+        if all(node.card_id != anchor.card_id for node in nodes):
+            nodes = [anchor] + nodes
+        beams = [
+            _score_route(
+                condition=condition,
+                cards=(anchor,),
+                produced_states=_apply_virtual_states(_merge_states(start_states, anchor.produced_states)),
+                total_cost=anchor.cost,
+                max_total_cost=max_total_cost,
+                missing_state=missing_state,
+                known_combo_sets=known_combo_sets,
+            )
+        ]
     found: list[ProofRoute] = []
 
     for _depth in range(1, max(1, int(max_depth)) + 1):
@@ -433,6 +462,26 @@ def _initial_states_for_missing(missing_state: str) -> dict[str, int]:
     return {}
 
 
+ENABLER_DEPLOY_TERMS = {"cost_bypass", "creature_deploy"}
+ENABLER_POOL_TERMS = {"cost_bypass", "creature_deploy", "recursion", "spell_cast"}
+
+
+def _enabler_score(node: ProofCardNode) -> int:
+    terms = set(node.proof_terms)
+    score = 0
+    if "cost_bypass" in terms:
+        score += 20
+    if "creature_deploy" in terms:
+        score += 14
+    if "recursion" in terms:
+        score += 10
+    if "spell_cast" in terms:
+        score += 6
+    if score and node.cost <= 5:
+        score += 8
+    return score
+
+
 def _rank_node_pool(
     nodes: list[ProofCardNode],
     condition: ProofWinCondition,
@@ -474,8 +523,17 @@ def _score_route(
     missing_states = [
         state for state in condition.required_states if produced_states.get(state, 0) <= 0
     ]
+    # permission系の負値は「相手の行動を封じる」効果(例: デル・フィンのcast_permission:-2)。
+    # ロック勝ちルートでは正の自己許可と同様に加点対象とする。
     helper_hits = [
-        state for state in condition.helper_states if produced_states.get(state, 0) > 0
+        state
+        for state in condition.helper_states
+        if produced_states.get(state, 0) > 0
+        or (
+            condition.key == "lock_confirmed_win"
+            and state.endswith("_permission")
+            and produced_states.get(state, 0) < 0
+        )
     ]
     required_coverage = len(condition.required_states) - len(missing_states)
     required_strength = sum(

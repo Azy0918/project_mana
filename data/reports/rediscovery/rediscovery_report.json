@@ -1,0 +1,312 @@
+{
+  "created_at": "2026-07-09T10:07:35",
+  "total_known_combos": 13,
+  "full_rediscovered": 1,
+  "partial_rediscovered": 0,
+  "missed": 12,
+  "full_rate": 0.077,
+  "full_or_partial_rate": 0.077,
+  "route_pool_size": 720,
+  "results": [
+    {
+      "combo_name": "ヘブンズ・フォース 絶十 早出しメタビート",
+      "pattern_type": "制約解除",
+      "core_cards": [
+        "ヘブンズ・フォース",
+        "煌メク聖戦 絶十"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 1,
+      "matched_route_type": "opponent_deckout_win",
+      "matched_route_cards": "葬送の守護者ドルルン / ヘブンズ・フォース",
+      "matched_proof_score": 91
+    },
+    {
+      "combo_name": "ドンジャングルS7 デル・フィン 呪文ロック制圧",
+      "pattern_type": "制約解除",
+      "core_cards": [
+        "ドンジャングルS7",
+        "光神龍スペル・デル・フィン"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "ザビ・ミラ ヴォルグ・サンダー 山札破壊",
+      "pattern_type": "特殊勝利",
+      "core_cards": [
+        "ヴォルグ・サンダー",
+        "復活の祈祷師ザビ・ミラ"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "B-零朱レイド シールド焼却",
+      "pattern_type": "制約解除",
+      "core_cards": [
+        "“B-零朱”レイド",
+        "“必駆”蛮触礼亞"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "轟轟轟ブランド GG-0 高速打点",
+      "pattern_type": "制約解除",
+      "core_cards": [
+        "“轟轟轟”ブランド"
+      ],
+      "core_size": 1,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "バクアドルガン バイケン マッドネスカウンター",
+      "pattern_type": "状態変化",
+      "core_cards": [
+        "熱血龍 バクアドルガン",
+        "蒼神龍バイケン"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "サイバー・J・イレブン 特殊勝利",
+      "pattern_type": "特殊勝利",
+      "core_cards": [
+        "サイバー・J・イレブン"
+      ],
+      "core_size": 1,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "シャコガイル 山札0特殊勝利",
+      "pattern_type": "特殊勝利",
+      "core_cards": [
+        "水上第九院 シャコガイル"
+      ],
+      "core_size": 1,
+      "status": "full",
+      "best_overlap": 1,
+      "matched_route_type": "alternate_effect_win",
+      "matched_route_cards": "水上第九院 シャコガイル",
+      "matched_proof_score": 87
+    },
+    {
+      "combo_name": "必駆蛮触礼亞 クラッシュ覇道 追加ターン",
+      "pattern_type": "制約解除",
+      "core_cards": [
+        "“必駆”蛮触礼亞",
+        "勝利龍装 クラッシュ“覇道”"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "ミラダンテXII ラフルル 呪文召喚ロック",
+      "pattern_type": "制約解除",
+      "core_cards": [
+        "時の法皇 ミラダンテXII",
+        "音精 ラフルル"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "グスタフ 落城の計 拘束ループ",
+      "pattern_type": "ループ",
+      "core_cards": [
+        "グスタフ・アルブサール",
+        "龍脈術 落城の計"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "QQQX 終焉の開闢 山札破壊ループ",
+      "pattern_type": "ループ",
+      "core_cards": [
+        "Q.Q.QX./終葬 5.S.D.",
+        "龍装鬼 オブザ08号/終焉の開闢"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "青単スコーラー 追加ターン連打",
+      "pattern_type": "価値増幅",
+      "core_cards": [
+        "次元の嵐 スコーラー"
+      ],
+      "core_size": 1,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    }
+  ],
+  "anchored_total": 9,
+  "anchored_full": 0,
+  "anchored_full_rate": 0.0,
+  "anchored_results": [
+    {
+      "combo_name": "ヘブンズ・フォース 絶十 早出しメタビート",
+      "core_cards": [
+        "ヘブンズ・フォース",
+        "煌メク聖戦 絶十"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "ドンジャングルS7 デル・フィン 呪文ロック制圧",
+      "core_cards": [
+        "ドンジャングルS7",
+        "光神龍スペル・デル・フィン"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "ザビ・ミラ ヴォルグ・サンダー 山札破壊",
+      "core_cards": [
+        "ヴォルグ・サンダー",
+        "復活の祈祷師ザビ・ミラ"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "B-零朱レイド シールド焼却",
+      "core_cards": [
+        "“B-零朱”レイド",
+        "“必駆”蛮触礼亞"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "バクアドルガン バイケン マッドネスカウンター",
+      "core_cards": [
+        "熱血龍 バクアドルガン",
+        "蒼神龍バイケン"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "必駆蛮触礼亞 クラッシュ覇道 追加ターン",
+      "core_cards": [
+        "“必駆”蛮触礼亞",
+        "勝利龍装 クラッシュ“覇道”"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "ミラダンテXII ラフルル 呪文召喚ロック",
+      "core_cards": [
+        "時の法皇 ミラダンテXII",
+        "音精 ラフルル"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "グスタフ 落城の計 拘束ループ",
+      "core_cards": [
+        "グスタフ・アルブサール",
+        "龍脈術 落城の計"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
+    {
+      "combo_name": "QQQX 終焉の開闢 山札破壊ループ",
+      "core_cards": [
+        "Q.Q.QX./終葬 5.S.D.",
+        "龍装鬼 オブザ08号/終焉の開闢"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    }
+  ]
+}

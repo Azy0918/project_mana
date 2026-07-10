@@ -145,6 +145,21 @@ jobs:
           print(f"cache-bust updated: {cnt} entries")
           EOF
 
+      - name: 公開前検証（zeroタイミング・カット割り崩壊を拒否）
+        run: |
+          python3 - "${{ steps.ep.outputs.episode }}" <<'EOF'
+          import json, sys
+          ep = sys.argv[1]
+          sc = json.load(open(f"13th-register-kamishibai/scene_manifest_{ep}.json", encoding="utf-8"))
+          zeros = [s["id"] for s in sc if not s.get("end")]
+          starts = [s["start"] for s in sc]
+          cuts = {s.get("visualCutId") for s in sc}
+          assert not zeros, f"end=0の行があります: {zeros[:5]}"
+          assert starts == sorted(starts), "startが単調増加になっていません"
+          assert len(cuts) >= 2, f"カットが{len(cuts)}種しかありません(カット割り崩壊の疑い)"
+          print(f"検証OK: {len(sc)}行 / {len(cuts)}カット / 総尺{sc[-1]['end']}s")
+          EOF
+
       - name: gh-pages へコミット
         run: |
           git config user.name "github-actions[bot]"

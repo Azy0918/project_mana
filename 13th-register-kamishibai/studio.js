@@ -12,7 +12,7 @@
     ["ep01", "第1話 未来のおにぎり、温めますか"],
     ["ep02", "第2話 ナビが未来を案内しました"],
     ["ep03", "第3話 昨日に溶けるアイスクリーム"],
-    ["ep04", "第4話 未来レシートは先に謝る"],
+    ["ep04", "第4話 食べ頃ボタン"],
     ["ep05", "第5話 昭和の伝票、まだ未処理です"],
     ["ep06", "第6話 賞味期限が生まれる前のパン"],
     ["ep07", "第7話 宇宙宅配便、店留めです"],
@@ -133,9 +133,15 @@
   }
   async function ghCheckConnection() {
     const c = ghConfig();
+    if (!c.token) throw new Error("トークンが未入力です");
     const res = await fetch(`https://api.github.com/repos/${c.owner}/${c.repo}`, { headers: ghHeaders() });
     if (!res.ok) throw new Error(`repo check → ${res.status}`);
-    return res.json();
+    const json = await res.json();
+    // 公開リポジトリは無権限トークンでも読めるため、書き込み権限を明示チェック
+    if (!json.permissions || !json.permissions.push) {
+      throw new Error("このトークンには書き込み権限がありません。Fine-grained PATの「Repository access」に対象リポジトリを追加し、Contents権限を Read and write にしてください");
+    }
+    return json;
   }
 
   // ---------- WAV helpers (generic chunk scan, no fixed offsets) ----------
@@ -578,12 +584,31 @@
     });
   }
 
+  function diagnoseAivis(err) {
+    const m = String((err && err.message) || err);
+    if (/Failed to fetch|NetworkError|load failed/i.test(m)) {
+      return "AivisSpeech未接続かCORS未許可。PCでエンジンを --cors_policy_mode all 付きで起動してください";
+    }
+    if (/\b403\b/.test(m)) return "エンジンが拒否(403)。--cors_policy_mode all で起動し直してください";
+    return m;
+  }
+
+  function setGenBadge(i, text, cls) {
+    const el = $(`#genstat-${i}`);
+    if (el) {
+      el.textContent = text;
+      el.className = `badge ${cls}`;
+    }
+  }
+
   async function generateLine(i) {
     const l = state.lines[i];
     if (!l.styleId) {
+      setGenBadge(i, "style_id未設定", "bad");
       log(`${l.id}: style_id が未設定です。`);
-      return;
+      return false;
     }
+    setGenBadge(i, "合成中…", "warn");
     try {
       const buf = await aivisSynthesize(l.reading || l.text, l.styleId);
       l.clipBuf = buf;
@@ -591,28 +616,39 @@
       l.generated = true;
       log(`${l.id}: 生成完了 (${wavDurationSec(buf).toFixed(2)}s)`);
       renderAudioLines();
+      return true;
     } catch (err) {
+      setGenBadge(i, `✕ ${diagnoseAivis(err)}`, "bad");
       log(`${l.id}: 生成失敗 — ${err.message}`);
+      return false;
     }
   }
 
   async function generateAll(force) {
     const bar = $("#genProgressBar");
     const total = state.lines.length;
-    let done = 0;
+    let ok = 0;
+    let fail = 0;
     for (let i = 0; i < state.lines.length; i += 1) {
       const l = state.lines[i];
       if (!force && l.generated && l.clipBuf) {
-        done += 1;
+        ok += 1;
         continue;
       }
-      $("#genProgress").textContent = `${l.id} 生成中… (${done + 1}/${total})`;
+      $("#genProgress").textContent = `${l.id} 生成中… (${ok + fail + 1}/${total})`;
       // eslint-disable-next-line no-await-in-loop
-      await generateLine(i);
-      done += 1;
-      bar.style.width = `${Math.round((done / total) * 100)}%`;
+      const success = await generateLine(i);
+      if (success) ok += 1;
+      else fail += 1;
+      bar.style.width = `${Math.round(((ok + fail) / total) * 100)}%`;
+      if (fail >= 3 && ok === 0) {
+        $("#genProgress").textContent = `❌ 中断: 連続失敗。AivisSpeechエンジンの起動とCORS許可(--cors_policy_mode all)を確認してください`;
+        return;
+      }
     }
-    $("#genProgress").textContent = `完了: ${done}/${total}`;
+    $("#genProgress").textContent = fail
+      ? `⚠ 完了: 成功${ok} / 失敗${fail} — 失敗行のバッジを確認してください`
+      : `✅ 完了: ${ok}/${total} 全行生成済み。下の「結合してGitHubへコミット」で公開できます`;
   }
 
   function buildSceneManifest() {
@@ -679,8 +715,7 @@
   async function commitAudio() {
     const missing = state.lines.filter((l) => !l.clipBuf);
     if (missing.length) {
-      log(`未生成の行が${missing.length}件あります。先に一括生成してください。`);
-      return;
+      throw new Error(`未生成の行が${missing.length}件あります。先に音声タブで一括生成してください（このブラウザで生成した音声だけが結合対象です）`);
     }
     const clips = state.lines.map((l) => ({ id: l.id, buf: l.clipBuf, pauseMs: l.pauseMs }));
     const { wavBytes, timings } = concatClips(clips);
@@ -818,28 +853,46 @@
   }
 
   // ---------- preview ----------
-  function renderPreview() {
-    const scenes = buildSceneManifest();
+  async function renderPreview() {
     let i = 0;
     const img = $("#prevImg");
     const speaker = $("#prevSpeaker");
     const text = $("#prevText");
     const meta = $("#prevMeta");
     const audio = $("#prevAudio");
-    if (state.fullAudioBytes) {
-      audio.src = URL.createObjectURL(new Blob([state.fullAudioBytes], { type: "audio/wav" }));
-    }
     const rawBase = () => {
       const c = ghConfig();
       return `https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${BASE_DIR}/`;
     };
+    let scenes;
+    let source;
+    if (state.fullAudioBytes) {
+      // このセッションで生成・結合した未公開音声を使う
+      scenes = buildSceneManifest();
+      audio.src = URL.createObjectURL(new Blob([state.fullAudioBytes], { type: "audio/wav" }));
+      source = "未公開の生成音声";
+    } else {
+      // 公開済みの scene_manifest + 結合wav にフォールバック
+      const files = epFiles(state.epId);
+      meta.textContent = "公開済みデータを読み込み中…";
+      try {
+        const res = await fetch(rawBase() + files.sceneManifest + "?t=" + Date.now(), { cache: "no-store" });
+        if (!res.ok) throw new Error(`scene_manifest ${res.status}`);
+        scenes = await res.json();
+        audio.src = rawBase() + files.fullAudio;
+        source = "公開済みデータ";
+      } catch (err) {
+        meta.textContent = `❌ 公開済みデータの読み込みに失敗: ${err.message}（未公開の話数は先に音声を生成してください）`;
+        return;
+      }
+    }
     function show(idx) {
       const s = scenes[idx];
       if (!s) return;
       img.src = rawBase() + s.image;
       speaker.textContent = s.speaker;
       text.textContent = s.dialogue;
-      meta.textContent = `${idx + 1}/${scenes.length} ｜ ${s.start.toFixed(1)}s - ${s.end.toFixed(1)}s ｜ ${s.visualCutId}`;
+      meta.textContent = `${idx + 1}/${scenes.length} ｜ ${Number(s.start).toFixed(1)}s - ${Number(s.end).toFixed(1)}s ｜ ${s.visualCutId} ｜ ${source}`;
     }
     show(0);
     audio.ontimeupdate = () => {
@@ -1035,11 +1088,11 @@
       badge.className = "badge warn";
       try {
         await ghCheckConnection();
-        badge.textContent = "接続OK";
+        badge.textContent = "接続OK（書き込み可）";
         badge.className = "badge ok";
-        log("GitHub接続を確認しました。");
+        log("GitHub接続を確認しました（書き込み権限あり）。");
       } catch (err) {
-        badge.textContent = "接続失敗";
+        badge.textContent = err.message.length > 60 ? "接続失敗（ログ参照）" : `接続失敗: ${err.message}`;
         badge.className = "badge bad";
         log(`GitHub接続に失敗: ${err.message}`);
       }
@@ -1161,10 +1214,18 @@
     $("#genAllBtn").addEventListener("click", () => generateAll(false));
     $("#genAllForceBtn").addEventListener("click", () => generateAll(true));
     $("#commitAudioBtn").addEventListener("click", async () => {
+      const st = $("#commitStatus");
+      const btn = $("#commitAudioBtn");
+      btn.disabled = true;
+      st.textContent = "結合・コミット中…";
       try {
         await commitAudio();
+        st.textContent = "✅ コミット完了。プレビュー/紙芝居に反映されます";
       } catch (err) {
+        st.textContent = `❌ ${err.message}`;
         log(`コミット失敗: ${err.message}`);
+      } finally {
+        btn.disabled = false;
       }
     });
   }

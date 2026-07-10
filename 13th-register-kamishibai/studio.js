@@ -1219,8 +1219,9 @@
   }
 
   // ---------- cloud generation via GitHub Actions ----------
-  const CLOUD_WORKFLOW = "generate-episode-audio.yml";
-
+  // workflow_dispatchはデフォルトブランチ登録が必要なため、gh-pagesへの
+  // リクエストファイルのコミット(pushイベント)でワークフローを起動する。
+  // PATはContents権限だけでよい。
   async function cloudGenerate() {
     const st = $("#cloudGenStatus");
     const c = ghConfig();
@@ -1228,29 +1229,21 @@
     await saveDialogue();
     const files = epFiles(state.epId);
     await ghPutJSON(files.sceneManifest, buildSceneManifest(), `${state.epId} scene_manifest を更新（クラウド生成前）`);
-    st.textContent = "GitHub Actions を起動中…";
-    const res = await fetch(`https://api.github.com/repos/${c.owner}/${c.repo}/actions/workflows/${CLOUD_WORKFLOW}/dispatches`, {
-      method: "POST",
-      headers: { ...ghHeaders(), "Content-Type": "application/json" },
-      body: JSON.stringify({ ref: c.branch, inputs: { episode: state.epId } }),
-    });
-    if (res.status !== 204) {
-      const t = await res.text();
-      let msg = `起動失敗 → ${res.status} ${t.slice(0, 200)}`;
-      if (res.status === 403 || res.status === 404) {
-        msg += " ｜対処: PATの「Permissions→Actions」を Read and write にしてください";
-      }
-      throw new Error(msg);
-    }
-    // ポーリングで進行状況を表示
-    const runsUrl = `https://api.github.com/repos/${c.owner}/${c.repo}/actions/workflows/${CLOUD_WORKFLOW}/runs?per_page=1`;
+    st.textContent = "クラウド生成を要求中…";
+    const requestedAt = new Date().toISOString();
+    await ghPutJSON("cloud_gen_request.json", { episode: state.epId, requestedAt }, `${state.epId} クラウド生成を要求`);
+    // ポーリングで進行状況を表示(公開リポジトリのrun一覧は読み取り可能)
+    const runsUrl = `https://api.github.com/repos/${c.owner}/${c.repo}/actions/runs?branch=${encodeURIComponent(c.branch)}&per_page=10`;
     const actionsPage = `https://github.com/${c.owner}/${c.repo}/actions`;
-    await new Promise((r) => setTimeout(r, 5000));
+    await new Promise((r) => setTimeout(r, 8000));
     for (let i = 0; i < 120; i += 1) {
       let run = null;
       try {
         const rr = await fetch(runsUrl, { headers: ghHeaders() });
-        if (rr.ok) run = (await rr.json()).workflow_runs?.[0] || null;
+        if (rr.ok) {
+          const runs = (await rr.json()).workflow_runs || [];
+          run = runs.find((r2) => (r2.path || "").includes("generate-episode-audio") && r2.created_at >= requestedAt) || null;
+        }
       } catch (e) { /* 一時的な失敗は無視して継続 */ }
       if (run) {
         if (run.status === "completed") {

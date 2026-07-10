@@ -1,6 +1,11 @@
 name: エピソード音声生成
 
 on:
+  # スタジオの「クラウドで生成して公開」ボタンが cloud_gen_request.json を
+  # コミットすると起動する(gh-pagesブランチ上だけで完結し、mainへの登録不要)
+  push:
+    branches: [gh-pages]
+    paths: ["13th-register-kamishibai/cloud_gen_request.json"]
   workflow_dispatch:
     inputs:
       episode:
@@ -37,6 +42,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: gh-pages
+
+      - name: 話数を決定
+        id: ep
+        run: |
+          if [ -n "${{ inputs.episode }}" ]; then
+            EP="${{ inputs.episode }}"
+          else
+            EP=$(python3 -c 'import json; print(json.load(open("13th-register-kamishibai/cloud_gen_request.json"))["episode"])')
+          fi
+          echo "episode=$EP" >> "$GITHUB_OUTPUT"
+          echo "対象: $EP"
 
       - name: 音声モデルキャッシュを復元
         uses: actions/cache@v4
@@ -102,18 +118,18 @@ jobs:
         env:
           MANA_REPO_ROOT: ${{ github.workspace }}
         run: |
-          python3 anime-github-project/tools/sync_scene_from_voice.py "${{ inputs.episode }}"
+          python3 anime-github-project/tools/sync_scene_from_voice.py "${{ steps.ep.outputs.episode }}"
 
       - name: 音声を生成
         env:
           MANA_REPO_ROOT: ${{ github.workspace }}
           MANA_CLIP_DIR: /tmp/anime_clips
         run: |
-          python3 anime-github-project/tools/gen_episode_aivis.py "${{ inputs.episode }}"
+          python3 anime-github-project/tools/gen_episode_aivis.py "${{ steps.ep.outputs.episode }}"
 
       - name: 音声キャッシュバスターを更新
         run: |
-          python3 - "${{ inputs.episode }}" <<'EOF'
+          python3 - "${{ steps.ep.outputs.episode }}" <<'EOF'
           import re, sys
           ep = sys.argv[1]
           p = "13th-register-kamishibai/index.html"
@@ -136,6 +152,6 @@ jobs:
             echo "変更なし"
             exit 0
           fi
-          git commit -m "${{ inputs.episode }} 音声をクラウド生成する"
+          git commit -m "${{ steps.ep.outputs.episode }} 音声をクラウド生成する"
           git pull --rebase origin gh-pages
           git push origin gh-pages

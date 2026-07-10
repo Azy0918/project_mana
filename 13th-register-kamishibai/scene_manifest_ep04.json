@@ -5,8 +5,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 0.0,
-    "end": 1.946,
+    "start": 0,
+    "end": 0.98,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -15,8 +15,7 @@
     "dialogue": "午前2時5分。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "01/107　ナレーション",
-    "reading": "午前2時5分。"
+    "progressLabel": "01/107　ナレーション"
   },
   {
     "id": "ep04_v002",
@@ -24,8 +23,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 2.396,
-    "end": 7.001,
+    "start": 1.38,
+    "end": 5.86,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -34,8 +33,7 @@
     "dialogue": "タクミはホットスナックケースの表示が点滅していることに気付いた。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "02/107　ナレーション",
-    "reading": "タクミはホットスナックケースの表示が点滅していることに気付いた。"
+    "progressLabel": "02/107　ナレーション"
   },
   {
     "id": "ep04_v003",
@@ -43,8 +41,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 7.451,
-    "end": 8.456,
+    "start": 6.26,
+    "end": 6.96,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -53,8 +51,7 @@
     "dialogue": "エリさん。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "03/107　タクミ",
-    "reading": "エリさん。"
+    "progressLabel": "03/107　タクミ"
   },
   {
     "id": "ep04_v004",
@@ -62,8 +59,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 8.706,
-    "end": 9.808,
+    "start": 7.36,
+    "end": 7.96,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -72,8 +69,7 @@
     "dialogue": "何。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "04/107　エリ",
-    "reading": "何。"
+    "progressLabel": "04/107　エリ"
   },
   {
     "id": "ep04_v005",
@@ -81,8 +77,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 10.058,
-    "end": 11.734,
+    "start": 8.36,
+    "end": 9.76,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -91,8 +87,7 @@
     "dialogue": "ケースが壊れてます。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "05/107　タクミ",
-    "reading": "ケースが壊れてます。"
+    "progressLabel": "05/107　タクミ"
   },
   {
     "id": "ep04_v006",
@@ -100,8 +95,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 11.984,
-    "end": 13.448,
+    "start": 10.16,
+    "end": 10.86,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -110,8 +105,7 @@
     "dialogue": "壊れたね。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "06/107　エリ",
-    "reading": "壊れたね。"
+    "progressLabel": "06/107　エリ"
   },
   {
     "id": "ep04_v007",
@@ -119,8 +113,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 13.698,
-    "end": 15.18,
+    "start": 11.26,
+    "end": 12.24,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -129,8 +123,7 @@
     "dialogue": "困りましたね。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "07/107　タクミ",
-    "reading": "困りましたね。"
+    "progressLabel": "07/107　タクミ"
   },
   {
     "id": "ep04_v008",
@@ -138,8 +131,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 15.43,
-    "end": 18.862,
+    "start": 12.64,
+    "end": 15.44,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -148,8 +141,7 @@
     "dialogue": "ケースには唐揚げ棒が一本だけ残っていた。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "08/107　ナレーション",
-    "reading": "ケースには唐揚げ棒が一本だけ残っていた。"
+    "progressLabel": "08/107　ナレーション"
   },
   {
     "id": "ep04_v009",
@@ -157,8 +149,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 19.312,
-    "end": 21.738,
+    "start": 15.84,
+    "end": 17.94,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -167,8 +159,7 @@
     "dialogue": "今日に限って最後の一本ですよ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "09/107　タクミ",
-    "reading": "今日に限って最後の一本ですよ。"
+    "progressLabel": "09/107　タクミ"
   },
   {
     "id": "ep04_v010",
@@ -176,8 +167,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 21.988,
-    "end": 23.255,
+    "start": 18.34,
+    "end": 19.04,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -186,8 +177,7 @@
     "dialogue": "売れるね。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "10/107　エリ",
-    "reading": "売れるね。"
+    "progressLabel": "10/107　エリ"
   },
   {
     "id": "ep04_v011",
@@ -195,8 +185,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "予告レシート印字・2時28分クレーム予告",
     "visualCutIndex": 2,
-    "start": 23.505,
-    "end": 25.126,
+    "start": 19.44,
+    "end": 20.84,
     "image": "assets/scenes/planned/ep04_vc02_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc02_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc02_v2.png",
@@ -205,8 +195,7 @@
     "dialogue": "未来レシートですか。",
     "log": [],
     "visualLabel": "02/20　予告レシート印字・2時28分クレーム予告",
-    "progressLabel": "11/107　タクミ",
-    "reading": "未来レシートですか。"
+    "progressLabel": "11/107　タクミ"
   },
   {
     "id": "ep04_v012",
@@ -214,8 +203,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "予告レシート印字・2時28分クレーム予告",
     "visualCutIndex": 2,
-    "start": 25.376,
-    "end": 27.334,
+    "start": 21.24,
+    "end": 22.64,
     "image": "assets/scenes/planned/ep04_vc02_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc02_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc02_v2.png",
@@ -224,8 +213,7 @@
     "dialogue": "未来レシートですか。",
     "log": [],
     "visualLabel": "02/20　予告レシート印字・2時28分クレーム予告",
-    "progressLabel": "12/107　エリ",
-    "reading": "未来レシートですか。"
+    "progressLabel": "12/107　エリ"
   },
   {
     "id": "ep04_v013",
@@ -233,8 +221,8 @@
     "visualCutId": "vc02",
     "visualCutTitle": "予告レシート印字・2時28分クレーム予告",
     "visualCutIndex": 2,
-    "start": 27.584,
-    "end": 29.492,
+    "start": 23.04,
+    "end": 24.72,
     "image": "assets/scenes/planned/ep04_vc02_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc02_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc02_v2.png",
@@ -243,8 +231,7 @@
     "dialogue": "怒られる原因が気になる。",
     "log": [],
     "visualLabel": "02/20　予告レシート印字・2時28分クレーム予告",
-    "progressLabel": "13/107　タクミ",
-    "reading": "怒られる原因が気になる。"
+    "progressLabel": "13/107　タクミ"
   },
   {
     "id": "ep04_v014",
@@ -252,8 +239,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "2時17分・第十三レジ出現",
     "visualCutIndex": 3,
-    "start": 29.742,
-    "end": 31.734,
+    "start": 25.12,
+    "end": 25.96,
     "image": "assets/scenes/planned/ep04_vc03_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc03_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc03_v2.png",
@@ -262,8 +249,7 @@
     "dialogue": "2時17分。",
     "log": [],
     "visualLabel": "03/20　2時17分・第十三レジ出現",
-    "progressLabel": "14/107　ナレーション",
-    "reading": "2時17分。"
+    "progressLabel": "14/107　ナレーション"
   },
   {
     "id": "ep04_v015",
@@ -271,8 +257,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "2時17分・第十三レジ出現",
     "visualCutIndex": 3,
-    "start": 32.184,
-    "end": 35.861,
+    "start": 26.36,
+    "end": 29.02,
     "image": "assets/scenes/planned/ep04_vc03_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc03_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc03_v2.png",
@@ -281,8 +267,7 @@
     "dialogue": "カウンター右端に、第十三レジが現れた。",
     "log": [],
     "visualLabel": "03/20　2時17分・第十三レジ出現",
-    "progressLabel": "15/107　ナレーション",
-    "reading": "カウンター右端に、第十三レジが現れた。"
+    "progressLabel": "15/107　ナレーション"
   },
   {
     "id": "ep04_v016",
@@ -290,8 +275,8 @@
     "visualCutId": "vc03",
     "visualCutTitle": "2時17分・第十三レジ出現",
     "visualCutIndex": 3,
-    "start": 36.311,
-    "end": 39.331,
+    "start": 29.42,
+    "end": 31.38,
     "image": "assets/scenes/planned/ep04_vc03_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc03_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc03_v2.png",
@@ -300,8 +285,7 @@
     "dialogue": "第十三レジ。ただいま営業中。",
     "log": [],
     "visualLabel": "03/20　2時17分・第十三レジ出現",
-    "progressLabel": "16/107　第十三レジ",
-    "reading": "第十三レジ。ただいま営業中。"
+    "progressLabel": "16/107　第十三レジ"
   },
   {
     "id": "ep04_v017",
@@ -309,8 +293,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "未来レシート先行印字・お詫び理由",
     "visualCutIndex": 4,
-    "start": 42.711,
-    "end": 45.289,
+    "start": 31.78,
+    "end": 33.6,
     "image": "assets/scenes/planned/ep04_vc04_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc04_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc04_v2.png",
@@ -319,8 +303,7 @@
     "dialogue": "未来レシートを印字します。",
     "log": [],
     "visualLabel": "04/20　未来レシート先行印字・お詫び理由",
-    "progressLabel": "17/107　第十三レジ",
-    "reading": "未来レシートを印字します。"
+    "progressLabel": "17/107　第十三レジ"
   },
   {
     "id": "ep04_v018",
@@ -328,8 +311,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "未来レシート先行印字・お詫び理由",
     "visualCutIndex": 4,
-    "start": 45.639,
-    "end": 47.48,
+    "start": 34,
+    "end": 35.12,
     "image": "assets/scenes/planned/ep04_vc04_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc04_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc04_v2.png",
@@ -338,8 +321,7 @@
     "dialogue": "レシートが出た。",
     "log": [],
     "visualLabel": "04/20　未来レシート先行印字・お詫び理由",
-    "progressLabel": "18/107　ナレーション",
-    "reading": "レシートが出た。"
+    "progressLabel": "18/107　ナレーション"
   },
   {
     "id": "ep04_v019",
@@ -347,8 +329,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "未来レシート先行印字・お詫び理由",
     "visualCutIndex": 4,
-    "start": 47.93,
-    "end": 49.523,
+    "start": 35.52,
+    "end": 36.64,
     "image": "assets/scenes/planned/ep04_vc04_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc04_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc04_v2.png",
@@ -357,8 +339,7 @@
     "dialogue": "唐揚げ棒 一点。",
     "log": [],
     "visualLabel": "04/20　未来レシート先行印字・お詫び理由",
-    "progressLabel": "19/107　第十三レジ",
-    "reading": "唐揚げ棒 一点。"
+    "progressLabel": "19/107　第十三レジ"
   },
   {
     "id": "ep04_v020",
@@ -366,8 +347,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "未来レシート先行印字・お詫び理由",
     "visualCutIndex": 4,
-    "start": 49.873,
-    "end": 51.45,
+    "start": 37.04,
+    "end": 38.02,
     "image": "assets/scenes/planned/ep04_vc04_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc04_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc04_v2.png",
@@ -376,8 +357,7 @@
     "dialogue": "お詫び 一件。",
     "log": [],
     "visualLabel": "04/20　未来レシート先行印字・お詫び理由",
-    "progressLabel": "20/107　第十三レジ",
-    "reading": "お詫び 一件。"
+    "progressLabel": "20/107　第十三レジ"
   },
   {
     "id": "ep04_v021",
@@ -385,8 +365,8 @@
     "visualCutId": "vc04",
     "visualCutTitle": "未来レシート先行印字・お詫び理由",
     "visualCutIndex": 4,
-    "start": 51.8,
-    "end": 55.186,
+    "start": 38.42,
+    "end": 40.94,
     "image": "assets/scenes/planned/ep04_vc04_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc04_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc04_v2.png",
@@ -395,8 +375,7 @@
     "dialogue": "理由。期待値が商品温度を上回ります。",
     "log": [],
     "visualLabel": "04/20　未来レシート先行印字・お詫び理由",
-    "progressLabel": "21/107　第十三レジ",
-    "reading": "理由。期待値が商品温度を上回ります。"
+    "progressLabel": "21/107　第十三レジ"
   },
   {
     "id": "ep04_v022",
@@ -404,8 +383,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "期待値と勤務時間の問答",
     "visualCutIndex": 5,
-    "start": 55.536,
-    "end": 57.483,
+    "start": 41.34,
+    "end": 43.16,
     "image": "assets/scenes/planned/ep04_vc05_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc05_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc05_v2.png",
@@ -414,8 +393,7 @@
     "dialogue": "温度より期待値なんですか。",
     "log": [],
     "visualLabel": "05/20　期待値と勤務時間の問答",
-    "progressLabel": "22/107　タクミ",
-    "reading": "温度より期待値なんですか。"
+    "progressLabel": "22/107　タクミ"
   },
   {
     "id": "ep04_v023",
@@ -423,8 +401,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "期待値と勤務時間の問答",
     "visualCutIndex": 5,
-    "start": 57.733,
-    "end": 60.51,
+    "start": 43.56,
+    "end": 45.8,
     "image": "assets/scenes/planned/ep04_vc05_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc05_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc05_v2.png",
@@ -433,8 +411,7 @@
     "dialogue": "私の勤務時間では対応できません。",
     "log": [],
     "visualLabel": "05/20　期待値と勤務時間の問答",
-    "progressLabel": "23/107　第十三レジ",
-    "reading": "私の勤務時間では対応できません。"
+    "progressLabel": "23/107　第十三レジ"
   },
   {
     "id": "ep04_v024",
@@ -442,8 +419,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "期待値と勤務時間の問答",
     "visualCutIndex": 5,
-    "start": 60.86,
-    "end": 61.699,
+    "start": 46.2,
+    "end": 46.8,
     "image": "assets/scenes/planned/ep04_vc05_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc05_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc05_v2.png",
@@ -452,8 +429,7 @@
     "dialogue": "はぁ？",
     "log": [],
     "visualLabel": "05/20　期待値と勤務時間の問答",
-    "progressLabel": "24/107　タクミ",
-    "reading": "はぁ？"
+    "progressLabel": "24/107　タクミ"
   },
   {
     "id": "ep04_v025",
@@ -461,8 +437,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "期待値と勤務時間の問答",
     "visualCutIndex": 5,
-    "start": 61.949,
-    "end": 65.471,
+    "start": 47.2,
+    "end": 49.58,
     "image": "assets/scenes/planned/ep04_vc05_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc05_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc05_v2.png",
@@ -471,8 +447,7 @@
     "dialogue": "クレーム予定時刻は午前2時28分。",
     "log": [],
     "visualLabel": "05/20　期待値と勤務時間の問答",
-    "progressLabel": "25/107　第十三レジ",
-    "reading": "クレーム予定時刻は午前2時28分。"
+    "progressLabel": "25/107　第十三レジ"
   },
   {
     "id": "ep04_v026",
@@ -480,8 +455,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "期待値と勤務時間の問答",
     "visualCutIndex": 5,
-    "start": 65.821,
-    "end": 68.897,
+    "start": 49.98,
+    "end": 52.22,
     "image": "assets/scenes/planned/ep04_vc05_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc05_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc05_v2.png",
@@ -490,8 +465,7 @@
     "dialogue": "私は午前2時20分に退勤します。",
     "log": [],
     "visualLabel": "05/20　期待値と勤務時間の問答",
-    "progressLabel": "26/107　第十三レジ",
-    "reading": "私は午前2時20分に退勤します。"
+    "progressLabel": "26/107　第十三レジ"
   },
   {
     "id": "ep04_v027",
@@ -499,8 +473,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "期待値と勤務時間の問答",
     "visualCutIndex": 5,
-    "start": 69.247,
-    "end": 71.29,
+    "start": 52.62,
+    "end": 54.44,
     "image": "assets/scenes/planned/ep04_vc05_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc05_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc05_v2.png",
@@ -509,8 +483,7 @@
     "dialogue": "だから先に謝ったんですか！",
     "log": [],
     "visualLabel": "05/20　期待値と勤務時間の問答",
-    "progressLabel": "27/107　タクミ",
-    "reading": "だから先に謝ったんですか！"
+    "progressLabel": "27/107　タクミ"
   },
   {
     "id": "ep04_v028",
@@ -518,8 +491,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "期待値と勤務時間の問答",
     "visualCutIndex": 5,
-    "start": 71.54,
-    "end": 72.592,
+    "start": 54.84,
+    "end": 55.44,
     "image": "assets/scenes/planned/ep04_vc05_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc05_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc05_v2.png",
@@ -528,8 +501,7 @@
     "dialogue": "はい。",
     "log": [],
     "visualLabel": "05/20　期待値と勤務時間の問答",
-    "progressLabel": "28/107　第十三レジ",
-    "reading": "はい。"
+    "progressLabel": "28/107　第十三レジ"
   },
   {
     "id": "ep04_v029",
@@ -537,8 +509,8 @@
     "visualCutId": "vc05",
     "visualCutTitle": "期待値と勤務時間の問答",
     "visualCutIndex": 5,
-    "start": 72.942,
-    "end": 74.835,
+    "start": 55.84,
+    "end": 57.1,
     "image": "assets/scenes/planned/ep04_vc05_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc05_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc05_v2.png",
@@ -547,8 +519,7 @@
     "dialogue": "働き方改革すぎる！",
     "log": [],
     "visualLabel": "05/20　期待値と勤務時間の問答",
-    "progressLabel": "29/107　タクミ",
-    "reading": "働き方改革すぎる！"
+    "progressLabel": "29/107　タクミ"
   },
   {
     "id": "ep04_v030",
@@ -556,8 +527,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "汗田竜司来店・唐揚げ棒を検知",
     "visualCutIndex": 6,
-    "start": 75.085,
-    "end": 77.646,
+    "start": 57.5,
+    "end": 59.18,
     "image": "assets/scenes/planned/ep04_vc06_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc06_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc06_v2.png",
@@ -566,8 +537,7 @@
     "dialogue": "汗田が店に入ってきた。",
     "log": [],
     "visualLabel": "06/20　汗田竜司来店・唐揚げ棒を検知",
-    "progressLabel": "30/107　ナレーション",
-    "reading": "あせだが店に入ってきた。"
+    "progressLabel": "30/107　ナレーション"
   },
   {
     "id": "ep04_v031",
@@ -575,8 +545,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "汗田竜司来店・唐揚げ棒を検知",
     "visualCutIndex": 6,
-    "start": 78.096,
-    "end": 80.91,
+    "start": 59.58,
+    "end": 61.4,
     "image": "assets/scenes/planned/ep04_vc06_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc06_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc06_v2.png",
@@ -585,8 +555,7 @@
     "dialogue": "ナビが未来商品を検知した。",
     "log": [],
     "visualLabel": "06/20　汗田竜司来店・唐揚げ棒を検知",
-    "progressLabel": "31/107　汗田竜司",
-    "reading": "ナビが未来商品を検知した。"
+    "progressLabel": "31/107　汗田竜司"
   },
   {
     "id": "ep04_v032",
@@ -594,8 +563,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "汗田竜司来店・唐揚げ棒を検知",
     "visualCutIndex": 6,
-    "start": 81.16,
-    "end": 82.388,
+    "start": 61.8,
+    "end": 62.78,
     "image": "assets/scenes/planned/ep04_vc06_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc06_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc06_v2.png",
@@ -604,8 +573,7 @@
     "dialogue": "ケースですか？",
     "log": [],
     "visualLabel": "06/20　汗田竜司来店・唐揚げ棒を検知",
-    "progressLabel": "32/107　タクミ",
-    "reading": "ケースですか？"
+    "progressLabel": "32/107　タクミ"
   },
   {
     "id": "ep04_v033",
@@ -613,8 +581,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "汗田竜司来店・唐揚げ棒を検知",
     "visualCutIndex": 6,
-    "start": 82.638,
-    "end": 84.967,
+    "start": 63.18,
+    "end": 64.44,
     "image": "assets/scenes/planned/ep04_vc06_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc06_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc06_v2.png",
@@ -623,8 +591,7 @@
     "dialogue": "違う。唐揚げ棒だ。",
     "log": [],
     "visualLabel": "06/20　汗田竜司来店・唐揚げ棒を検知",
-    "progressLabel": "33/107　汗田竜司",
-    "reading": "違う。唐揚げ棒だ。"
+    "progressLabel": "33/107　汗田竜司"
   },
   {
     "id": "ep04_v034",
@@ -632,8 +599,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "汗田竜司来店・唐揚げ棒を検知",
     "visualCutIndex": 6,
-    "start": 85.217,
-    "end": 86.39,
+    "start": 64.84,
+    "end": 65.54,
     "image": "assets/scenes/planned/ep04_vc06_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc06_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc06_v2.png",
@@ -642,8 +609,7 @@
     "dialogue": "棒ですか？",
     "log": [],
     "visualLabel": "06/20　汗田竜司来店・唐揚げ棒を検知",
-    "progressLabel": "34/107　タクミ",
-    "reading": "棒ですか？"
+    "progressLabel": "34/107　タクミ"
   },
   {
     "id": "ep04_v035",
@@ -651,8 +617,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "汗田竜司来店・唐揚げ棒を検知",
     "visualCutIndex": 6,
-    "start": 86.64,
-    "end": 89.234,
+    "start": 65.94,
+    "end": 67.62,
     "image": "assets/scenes/planned/ep04_vc06_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc06_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc06_v2.png",
@@ -661,8 +627,7 @@
     "dialogue": "一本だけ未来仕様らしい。",
     "log": [],
     "visualLabel": "06/20　汗田竜司来店・唐揚げ棒を検知",
-    "progressLabel": "35/107　汗田竜司",
-    "reading": "一本だけ未来仕様らしい。"
+    "progressLabel": "35/107　汗田竜司"
   },
   {
     "id": "ep04_v036",
@@ -670,8 +635,8 @@
     "visualCutId": "vc06",
     "visualCutTitle": "汗田竜司来店・唐揚げ棒を検知",
     "visualCutIndex": 6,
-    "start": 89.484,
-    "end": 90.86,
+    "start": 68.02,
+    "end": 68.72,
     "image": "assets/scenes/planned/ep04_vc06_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc06_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc06_v2.png",
@@ -680,8 +645,7 @@
     "dialogue": "商品確認。",
     "log": [],
     "visualLabel": "06/20　汗田竜司来店・唐揚げ棒を検知",
-    "progressLabel": "36/107　第十三レジ",
-    "reading": "商品確認。"
+    "progressLabel": "36/107　第十三レジ"
   },
   {
     "id": "ep04_v037",
@@ -689,8 +653,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "食べ頃ボタン発見",
     "visualCutIndex": 7,
-    "start": 91.21,
-    "end": 94.12,
+    "start": 69.12,
+    "end": 71.08,
     "image": "assets/scenes/planned/ep04_vc07_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc07_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc07_v2.png",
@@ -699,8 +663,7 @@
     "dialogue": "唐揚げ棒の串の根元が光った。",
     "log": [],
     "visualLabel": "07/20　食べ頃ボタン発見",
-    "progressLabel": "37/107　ナレーション",
-    "reading": "唐揚げ棒の串の根元が光った。"
+    "progressLabel": "37/107　ナレーション"
   },
   {
     "id": "ep04_v038",
@@ -708,8 +671,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "食べ頃ボタン発見",
     "visualCutIndex": 7,
-    "start": 94.57,
-    "end": 95.553,
+    "start": 71.48,
+    "end": 72.08,
     "image": "assets/scenes/planned/ep04_vc07_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc07_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc07_v2.png",
@@ -718,8 +681,7 @@
     "dialogue": "ボタン？",
     "log": [],
     "visualLabel": "07/20　食べ頃ボタン発見",
-    "progressLabel": "38/107　タクミ",
-    "reading": "ボタン？"
+    "progressLabel": "38/107　タクミ"
   },
   {
     "id": "ep04_v039",
@@ -727,8 +689,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "食べ頃ボタン発見",
     "visualCutIndex": 7,
-    "start": 95.803,
-    "end": 97.532,
+    "start": 72.48,
+    "end": 73.6,
     "image": "assets/scenes/planned/ep04_vc07_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc07_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc07_v2.png",
@@ -737,8 +699,7 @@
     "dialogue": "食べ頃ボタンだ。",
     "log": [],
     "visualLabel": "07/20　食べ頃ボタン発見",
-    "progressLabel": "39/107　汗田竜司",
-    "reading": "食べ頃ボタンだ。"
+    "progressLabel": "39/107　汗田竜司"
   },
   {
     "id": "ep04_v040",
@@ -746,8 +707,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "食べ頃ボタン発見",
     "visualCutIndex": 7,
-    "start": 97.782,
-    "end": 99.077,
+    "start": 74,
+    "end": 74.84,
     "image": "assets/scenes/planned/ep04_vc07_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc07_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc07_v2.png",
@@ -756,8 +717,7 @@
     "dialogue": "唐揚げ棒に？",
     "log": [],
     "visualLabel": "07/20　食べ頃ボタン発見",
-    "progressLabel": "40/107　タクミ",
-    "reading": "唐揚げ棒に？"
+    "progressLabel": "40/107　タクミ"
   },
   {
     "id": "ep04_v041",
@@ -765,8 +725,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "食べ頃ボタン発見",
     "visualCutIndex": 7,
-    "start": 99.327,
-    "end": 101.431,
+    "start": 75.24,
+    "end": 76.64,
     "image": "assets/scenes/planned/ep04_vc07_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc07_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc07_v2.png",
@@ -775,8 +735,7 @@
     "dialogue": "未来では普通らしい。",
     "log": [],
     "visualLabel": "07/20　食べ頃ボタン発見",
-    "progressLabel": "41/107　汗田竜司",
-    "reading": "未来では普通らしい。"
+    "progressLabel": "41/107　汗田竜司"
   },
   {
     "id": "ep04_v042",
@@ -784,8 +743,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "食べ頃ボタン発見",
     "visualCutIndex": 7,
-    "start": 101.681,
-    "end": 103.657,
+    "start": 77.04,
+    "end": 78.72,
     "image": "assets/scenes/planned/ep04_vc07_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc07_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc07_v2.png",
@@ -794,8 +753,7 @@
     "dialogue": "どんな効果なんですかね？",
     "log": [],
     "visualLabel": "07/20　食べ頃ボタン発見",
-    "progressLabel": "42/107　タクミ",
-    "reading": "どんな効果なんですかね？"
+    "progressLabel": "42/107　タクミ"
   },
   {
     "id": "ep04_v043",
@@ -803,8 +761,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "食べ頃ボタン発見",
     "visualCutIndex": 7,
-    "start": 103.907,
-    "end": 106.988,
+    "start": 79.12,
+    "end": 81.22,
     "image": "assets/scenes/planned/ep04_vc07_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc07_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc07_v2.png",
@@ -813,8 +771,7 @@
     "dialogue": "押すと好感度演出を開始します。",
     "log": [],
     "visualLabel": "07/20　食べ頃ボタン発見",
-    "progressLabel": "43/107　第十三レジ",
-    "reading": "押すと好感度演出を開始します。"
+    "progressLabel": "43/107　第十三レジ"
   },
   {
     "id": "ep04_v044",
@@ -822,8 +779,8 @@
     "visualCutId": "vc07",
     "visualCutTitle": "食べ頃ボタン発見",
     "visualCutIndex": 7,
-    "start": 107.338,
-    "end": 108.507,
+    "start": 81.62,
+    "end": 82.22,
     "image": "assets/scenes/planned/ep04_vc07_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc07_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc07_v2.png",
@@ -832,8 +789,7 @@
     "dialogue": "好感度？",
     "log": [],
     "visualLabel": "07/20　食べ頃ボタン発見",
-    "progressLabel": "44/107　タクミ",
-    "reading": "好感度？"
+    "progressLabel": "44/107　タクミ"
   },
   {
     "id": "ep04_v045",
@@ -841,8 +797,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "好感度演出のボタンを押す",
     "visualCutIndex": 8,
-    "start": 108.757,
-    "end": 110.186,
+    "start": 82.62,
+    "end": 83.46,
     "image": "assets/scenes/planned/ep04_vc08_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc08_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc08_v2.png",
@@ -851,8 +807,7 @@
     "dialogue": "押してみろ。",
     "log": [],
     "visualLabel": "08/20　好感度演出のボタンを押す",
-    "progressLabel": "45/107　汗田竜司",
-    "reading": "押してみろ。"
+    "progressLabel": "45/107　汗田竜司"
   },
   {
     "id": "ep04_v046",
@@ -860,8 +815,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "好感度演出のボタンを押す",
     "visualCutIndex": 8,
-    "start": 110.436,
-    "end": 111.866,
+    "start": 83.86,
+    "end": 84.84,
     "image": "assets/scenes/planned/ep04_vc08_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc08_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc08_v2.png",
@@ -870,8 +825,7 @@
     "dialogue": "大丈夫ですか？",
     "log": [],
     "visualLabel": "08/20　好感度演出のボタンを押す",
-    "progressLabel": "46/107　タクミ",
-    "reading": "大丈夫ですか？"
+    "progressLabel": "46/107　タクミ"
   },
   {
     "id": "ep04_v047",
@@ -879,8 +833,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "好感度演出のボタンを押す",
     "visualCutIndex": 8,
-    "start": 112.116,
-    "end": 114.639,
+    "start": 85.24,
+    "end": 87.2,
     "image": "assets/scenes/planned/ep04_vc08_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc08_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc08_v2.png",
@@ -889,8 +843,7 @@
     "dialogue": "未来の製品のことは分からん。",
     "log": [],
     "visualLabel": "08/20　好感度演出のボタンを押す",
-    "progressLabel": "47/107　汗田竜司",
-    "reading": "未来の製品のことは分からん。"
+    "progressLabel": "47/107　汗田竜司"
   },
   {
     "id": "ep04_v048",
@@ -898,8 +851,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "好感度演出のボタンを押す",
     "visualCutIndex": 8,
-    "start": 114.889,
-    "end": 116.082,
+    "start": 87.6,
+    "end": 88.72,
     "image": "assets/scenes/planned/ep04_vc08_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc08_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc08_v2.png",
@@ -908,8 +861,7 @@
     "dialogue": "押しちゃいます。",
     "log": [],
     "visualLabel": "08/20　好感度演出のボタンを押す",
-    "progressLabel": "48/107　タクミ",
-    "reading": "押しちゃいます。"
+    "progressLabel": "48/107　タクミ"
   },
   {
     "id": "ep04_v049",
@@ -917,8 +869,8 @@
     "visualCutId": "vc08",
     "visualCutTitle": "好感度演出のボタンを押す",
     "visualCutIndex": 8,
-    "start": 116.332,
-    "end": 121.161,
+    "start": 89.12,
+    "end": 93.46,
     "image": "assets/scenes/planned/ep04_vc08_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc08_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc08_v2.png",
@@ -927,8 +879,7 @@
     "dialogue": "タクミがボタンを押すと、唐揚げ棒から黄金色の湯気が立ち上った。",
     "log": [],
     "visualLabel": "08/20　好感度演出のボタンを押す",
-    "progressLabel": "49/107　ナレーション",
-    "reading": "タクミがボタンを押すと、唐揚げ棒から黄金色の湯気が立ち上った。"
+    "progressLabel": "49/107　ナレーション"
   },
   {
     "id": "ep04_v050",
@@ -936,8 +887,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "黄金の湯気ホログラム演出",
     "visualCutIndex": 9,
-    "start": 121.611,
-    "end": 125.891,
+    "start": 93.86,
+    "end": 97.22,
     "image": "assets/scenes/planned/ep04_vc09_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc09_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc09_v2.png",
@@ -946,8 +897,7 @@
     "dialogue": "肉汁が飛び散り、揚げたての映像が湯気の中に映る。",
     "log": [],
     "visualLabel": "09/20　黄金の湯気ホログラム演出",
-    "progressLabel": "50/107　ナレーション",
-    "reading": "肉汁が飛び散り、揚げたての映像が湯気の中に映る。"
+    "progressLabel": "50/107　ナレーション"
   },
   {
     "id": "ep04_v051",
@@ -955,8 +905,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "黄金の湯気ホログラム演出",
     "visualCutIndex": 9,
-    "start": 126.341,
-    "end": 127.546,
+    "start": 97.62,
+    "end": 98.32,
     "image": "assets/scenes/planned/ep04_vc09_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc09_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc09_v2.png",
@@ -965,8 +915,7 @@
     "dialogue": "うわぁ……",
     "log": [],
     "visualLabel": "09/20　黄金の湯気ホログラム演出",
-    "progressLabel": "51/107　タクミ",
-    "reading": "うわぁ……"
+    "progressLabel": "51/107　タクミ"
   },
   {
     "id": "ep04_v052",
@@ -974,8 +923,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "黄金の湯気ホログラム演出",
     "visualCutIndex": 9,
-    "start": 127.796,
-    "end": 129.166,
+    "start": 98.72,
+    "end": 99.56,
     "image": "assets/scenes/planned/ep04_vc09_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc09_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc09_v2.png",
@@ -984,8 +933,7 @@
     "dialogue": "おいしそう。",
     "log": [],
     "visualLabel": "09/20　黄金の湯気ホログラム演出",
-    "progressLabel": "52/107　エリ",
-    "reading": "おいしそう。"
+    "progressLabel": "52/107　エリ"
   },
   {
     "id": "ep04_v053",
@@ -993,8 +941,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "黄金の湯気ホログラム演出",
     "visualCutIndex": 9,
-    "start": 129.416,
-    "end": 131.045,
+    "start": 99.96,
+    "end": 100.94,
     "image": "assets/scenes/planned/ep04_vc09_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc09_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc09_v2.png",
@@ -1003,8 +951,7 @@
     "dialogue": "ホログラムだ。",
     "log": [],
     "visualLabel": "09/20　黄金の湯気ホログラム演出",
-    "progressLabel": "53/107　汗田竜司",
-    "reading": "ホログラムだ。"
+    "progressLabel": "53/107　汗田竜司"
   },
   {
     "id": "ep04_v054",
@@ -1012,8 +959,8 @@
     "visualCutId": "vc09",
     "visualCutTitle": "黄金の湯気ホログラム演出",
     "visualCutIndex": 9,
-    "start": 131.295,
-    "end": 132.554,
+    "start": 101.34,
+    "end": 102.18,
     "image": "assets/scenes/planned/ep04_vc09_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc09_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc09_v2.png",
@@ -1022,8 +969,7 @@
     "dialogue": "未来すごい。",
     "log": [],
     "visualLabel": "09/20　黄金の湯気ホログラム演出",
-    "progressLabel": "54/107　タクミ",
-    "reading": "未来すごい。"
+    "progressLabel": "54/107　タクミ"
   },
   {
     "id": "ep04_v055",
@@ -1031,8 +977,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "触れると冷たい現実",
     "visualCutIndex": 10,
-    "start": 132.804,
-    "end": 135.26,
+    "start": 102.58,
+    "end": 104.26,
     "image": "assets/scenes/planned/ep04_vc10_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc10_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc10_v2.png",
@@ -1041,8 +987,7 @@
     "dialogue": "タクミが唐揚げ棒を触る。",
     "log": [],
     "visualLabel": "10/20　触れると冷たい現実",
-    "progressLabel": "55/107　ナレーション",
-    "reading": "タクミが唐揚げ棒を触る。"
+    "progressLabel": "55/107　ナレーション"
   },
   {
     "id": "ep04_v056",
@@ -1050,8 +995,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "触れると冷たい現実",
     "visualCutIndex": 10,
-    "start": 135.71,
-    "end": 136.912,
+    "start": 104.66,
+    "end": 105.5,
     "image": "assets/scenes/planned/ep04_vc10_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc10_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc10_v2.png",
@@ -1060,8 +1005,7 @@
     "dialogue": "冷たいです。",
     "log": [],
     "visualLabel": "10/20　触れると冷たい現実",
-    "progressLabel": "56/107　タクミ",
-    "reading": "冷たいです。"
+    "progressLabel": "56/107　タクミ"
   },
   {
     "id": "ep04_v057",
@@ -1069,8 +1013,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "触れると冷たい現実",
     "visualCutIndex": 10,
-    "start": 137.162,
-    "end": 138.907,
+    "start": 105.9,
+    "end": 107.02,
     "image": "assets/scenes/planned/ep04_vc10_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc10_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc10_v2.png",
@@ -1079,8 +1023,7 @@
     "dialogue": "好感度演出です。",
     "log": [],
     "visualLabel": "10/20　触れると冷たい現実",
-    "progressLabel": "57/107　第十三レジ",
-    "reading": "好感度演出です。"
+    "progressLabel": "57/107　第十三レジ"
   },
   {
     "id": "ep04_v058",
@@ -1088,8 +1031,8 @@
     "visualCutId": "vc10",
     "visualCutTitle": "触れると冷たい現実",
     "visualCutIndex": 10,
-    "start": 139.257,
-    "end": 141.686,
+    "start": 107.42,
+    "end": 109.24,
     "image": "assets/scenes/planned/ep04_vc10_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc10_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc10_v2.png",
@@ -1098,8 +1041,7 @@
     "dialogue": "ちゃんと、温めてください。",
     "log": [],
     "visualLabel": "10/20　触れると冷たい現実",
-    "progressLabel": "58/107　タクミ",
-    "reading": "ちゃんと、温めてください。"
+    "progressLabel": "58/107　タクミ"
   },
   {
     "id": "ep04_v059",
@@ -1107,8 +1049,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "2時20分・第十三レジ退勤",
     "visualCutIndex": 11,
-    "start": 141.936,
-    "end": 144.172,
+    "start": 109.64,
+    "end": 110.76,
     "image": "assets/scenes/planned/ep04_vc11_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc11_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc11_v2.png",
@@ -1117,8 +1059,7 @@
     "dialogue": "午前2時20分。",
     "log": [],
     "visualLabel": "11/20　2時20分・第十三レジ退勤",
-    "progressLabel": "59/107　ナレーション",
-    "reading": "午前2時20分。"
+    "progressLabel": "59/107　ナレーション"
   },
   {
     "id": "ep04_v060",
@@ -1126,8 +1067,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "2時20分・第十三レジ退勤",
     "visualCutIndex": 11,
-    "start": 144.622,
-    "end": 146.195,
+    "start": 111.16,
+    "end": 112.14,
     "image": "assets/scenes/planned/ep04_vc11_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc11_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc11_v2.png",
@@ -1136,8 +1077,7 @@
     "dialogue": "営業時間終了。",
     "log": [],
     "visualLabel": "11/20　2時20分・第十三レジ退勤",
-    "progressLabel": "60/107　第十三レジ",
-    "reading": "営業時間終了。"
+    "progressLabel": "60/107　第十三レジ"
   },
   {
     "id": "ep04_v061",
@@ -1145,8 +1085,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "2時20分・第十三レジ退勤",
     "visualCutIndex": 11,
-    "start": 146.545,
-    "end": 148.104,
+    "start": 112.54,
+    "end": 113.94,
     "image": "assets/scenes/planned/ep04_vc11_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc11_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc11_v2.png",
@@ -1155,8 +1095,7 @@
     "dialogue": "あとはお願いします。",
     "log": [],
     "visualLabel": "11/20　2時20分・第十三レジ退勤",
-    "progressLabel": "61/107　第十三レジ",
-    "reading": "あとはお願いします。"
+    "progressLabel": "61/107　第十三レジ"
   },
   {
     "id": "ep04_v062",
@@ -1164,8 +1103,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "2時20分・第十三レジ退勤",
     "visualCutIndex": 11,
-    "start": 148.454,
-    "end": 149.958,
+    "start": 114.34,
+    "end": 115.18,
     "image": "assets/scenes/planned/ep04_vc11_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc11_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc11_v2.png",
@@ -1174,8 +1113,7 @@
     "dialogue": "温め方は！？",
     "log": [],
     "visualLabel": "11/20　2時20分・第十三レジ退勤",
-    "progressLabel": "62/107　タクミ",
-    "reading": "温め方は！？"
+    "progressLabel": "62/107　タクミ"
   },
   {
     "id": "ep04_v063",
@@ -1183,8 +1121,8 @@
     "visualCutId": "vc11",
     "visualCutTitle": "2時20分・第十三レジ退勤",
     "visualCutIndex": 11,
-    "start": 150.208,
-    "end": 152.538,
+    "start": 115.58,
+    "end": 116.98,
     "image": "assets/scenes/planned/ep04_vc11_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc11_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc11_v2.png",
@@ -1193,8 +1131,7 @@
     "dialogue": "第十三レジは消えた。",
     "log": [],
     "visualLabel": "11/20　2時20分・第十三レジ退勤",
-    "progressLabel": "63/107　ナレーション",
-    "reading": "第十三レジは消えた。"
+    "progressLabel": "63/107　ナレーション"
   },
   {
     "id": "ep04_v064",
@@ -1202,8 +1139,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "2時28分・トラック運転手来店",
     "visualCutIndex": 12,
-    "start": 152.988,
-    "end": 155.444,
+    "start": 117.38,
+    "end": 118.5,
     "image": "assets/scenes/planned/ep04_vc12_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc12_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc12_v2.png",
@@ -1212,8 +1149,7 @@
     "dialogue": "午前2時28分。",
     "log": [],
     "visualLabel": "12/20　2時28分・トラック運転手来店",
-    "progressLabel": "64/107　ナレーション",
-    "reading": "午前2時28分。"
+    "progressLabel": "64/107　ナレーション"
   },
   {
     "id": "ep04_v065",
@@ -1221,8 +1157,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "2時28分・トラック運転手来店",
     "visualCutIndex": 12,
-    "start": 155.894,
-    "end": 158.549,
+    "start": 118.9,
+    "end": 120.86,
     "image": "assets/scenes/planned/ep04_vc12_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc12_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc12_v2.png",
@@ -1231,8 +1167,7 @@
     "dialogue": "トラック運転手が入ってきた。",
     "log": [],
     "visualLabel": "12/20　2時28分・トラック運転手来店",
-    "progressLabel": "65/107　ナレーション",
-    "reading": "トラック運転手が入ってきた。"
+    "progressLabel": "65/107　ナレーション"
   },
   {
     "id": "ep04_v066",
@@ -1240,8 +1175,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "2時28分・トラック運転手来店",
     "visualCutIndex": 12,
-    "start": 158.999,
-    "end": 160.712,
+    "start": 121.26,
+    "end": 122.52,
     "image": "assets/scenes/planned/ep04_vc12_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc12_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc12_v2.png",
@@ -1250,8 +1185,7 @@
     "dialogue": "唐揚げ棒をひとつ。",
     "log": [],
     "visualLabel": "12/20　2時28分・トラック運転手来店",
-    "progressLabel": "66/107　トラック運転手",
-    "reading": "唐揚げ棒をひとつ。"
+    "progressLabel": "66/107　トラック運転手"
   },
   {
     "id": "ep04_v067",
@@ -1259,8 +1193,8 @@
     "visualCutId": "vc12",
     "visualCutTitle": "2時28分・トラック運転手来店",
     "visualCutIndex": 12,
-    "start": 160.962,
-    "end": 162.193,
+    "start": 122.92,
+    "end": 124.18,
     "image": "assets/scenes/planned/ep04_vc12_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc12_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc12_v2.png",
@@ -1269,8 +1203,7 @@
     "dialogue": "いらっしゃいませ。",
     "log": [],
     "visualLabel": "12/20　2時28分・トラック運転手来店",
-    "progressLabel": "67/107　タクミ",
-    "reading": "いらっしゃいませ。"
+    "progressLabel": "67/107　タクミ"
   },
   {
     "id": "ep04_v068",
@@ -1278,8 +1211,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 162.443,
-    "end": 165.713,
+    "start": 124.58,
+    "end": 127.24,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1288,8 +1221,7 @@
     "dialogue": "タクミが唐揚げ棒のボタンを押し渡した。",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "68/107　ナレーション",
-    "reading": "タクミが唐揚げ棒のボタンを押し渡した。"
+    "progressLabel": "68/107　ナレーション"
   },
   {
     "id": "ep04_v069",
@@ -1297,8 +1229,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 166.163,
-    "end": 169.913,
+    "start": 127.64,
+    "end": 130.72,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1307,8 +1239,7 @@
     "dialogue": "唐揚げ棒から本物の湯気がたくさん立ち始めた。",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "69/107　ナレーション",
-    "reading": "唐揚げ棒から本物の湯気がたくさん立ち始めた。"
+    "progressLabel": "69/107　ナレーション"
   },
   {
     "id": "ep04_v070",
@@ -1316,8 +1247,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 170.363,
-    "end": 171.191,
+    "start": 131.12,
+    "end": 131.72,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1326,8 +1257,7 @@
     "dialogue": "おっ。",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "70/107　トラック運転手",
-    "reading": "おっ。"
+    "progressLabel": "70/107　トラック運転手"
   },
   {
     "id": "ep04_v071",
@@ -1335,8 +1265,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 171.441,
-    "end": 172.971,
+    "start": 132.12,
+    "end": 133.1,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1345,8 +1275,7 @@
     "dialogue": "湯気出てるな。",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "71/107　トラック運転手",
-    "reading": "湯気出てるな。"
+    "progressLabel": "71/107　トラック運転手"
   },
   {
     "id": "ep04_v072",
@@ -1354,8 +1283,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 173.221,
-    "end": 174.776,
+    "start": 133.5,
+    "end": 134.62,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1364,8 +1293,7 @@
     "dialogue": "温まりましたか？",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "72/107　タクミ",
-    "reading": "温まりましたか？"
+    "progressLabel": "72/107　タクミ"
   },
   {
     "id": "ep04_v073",
@@ -1373,8 +1301,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 175.026,
-    "end": 177.173,
+    "start": 135.02,
+    "end": 136.14,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1383,8 +1311,7 @@
     "dialogue": "客が一口食べる。",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "73/107　ナレーション",
-    "reading": "客が一口食べる。"
+    "progressLabel": "73/107　ナレーション"
   },
   {
     "id": "ep04_v074",
@@ -1392,8 +1319,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 177.623,
-    "end": 178.696,
+    "start": 136.54,
+    "end": 137.14,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1402,8 +1329,7 @@
     "dialogue": "ぬるい。",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "74/107　トラック運転手",
-    "reading": "ぬるい。"
+    "progressLabel": "74/107　トラック運転手"
   },
   {
     "id": "ep04_v075",
@@ -1411,8 +1337,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 178.946,
-    "end": 179.949,
+    "start": 137.54,
+    "end": 138.14,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1421,8 +1347,7 @@
     "dialogue": "惜しい！",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "75/107　タクミ",
-    "reading": "惜しい！"
+    "progressLabel": "75/107　タクミ"
   },
   {
     "id": "ep04_v076",
@@ -1430,8 +1355,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 180.199,
-    "end": 181.599,
+    "start": 138.54,
+    "end": 139.52,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1440,8 +1365,7 @@
     "dialogue": "惜しくないよ。",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "76/107　トラック運転手",
-    "reading": "惜しくないよ。"
+    "progressLabel": "76/107　トラック運転手"
   },
   {
     "id": "ep04_v077",
@@ -1449,8 +1373,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 181.849,
-    "end": 183.826,
+    "start": 139.92,
+    "end": 141.18,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1459,8 +1383,7 @@
     "dialogue": "期待だけ温めるな。",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "77/107　トラック運転手",
-    "reading": "期待だけ温めるな。"
+    "progressLabel": "77/107　トラック運転手"
   },
   {
     "id": "ep04_v078",
@@ -1468,8 +1391,8 @@
     "visualCutId": "vc13",
     "visualCutTitle": "唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
     "visualCutIndex": 13,
-    "start": 184.076,
-    "end": 185.278,
+    "start": 141.58,
+    "end": 142.28,
     "image": "assets/scenes/planned/ep04_vc13_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc13_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc13_v2.png",
@@ -1478,8 +1401,7 @@
     "dialogue": "正論です。",
     "log": [],
     "visualLabel": "13/20　唐揚げ棒から本物の湯気が少しだけ立ち始めた。",
-    "progressLabel": "78/107　タクミ",
-    "reading": "正論です。"
+    "progressLabel": "78/107　タクミ"
   },
   {
     "id": "ep04_v079",
@@ -1487,8 +1409,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "長押しで唐揚げ棒が赤く光る",
     "visualCutIndex": 14,
-    "start": 185.528,
-    "end": 187.377,
+    "start": 142.68,
+    "end": 143.8,
     "image": "assets/scenes/planned/ep04_vc14_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc14_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc14_v2.png",
@@ -1497,8 +1419,7 @@
     "dialogue": "長押ししてみろ。",
     "log": [],
     "visualLabel": "14/20　長押しで唐揚げ棒が赤く光る",
-    "progressLabel": "79/107　汗田竜司",
-    "reading": "長押ししてみろ。"
+    "progressLabel": "79/107　汗田竜司"
   },
   {
     "id": "ep04_v080",
@@ -1506,8 +1427,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "長押しで唐揚げ棒が赤く光る",
     "visualCutIndex": 14,
-    "start": 187.627,
-    "end": 189.436,
+    "start": 144.2,
+    "end": 145.6,
     "image": "assets/scenes/planned/ep04_vc14_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc14_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc14_v2.png",
@@ -1516,8 +1437,7 @@
     "dialogue": "今度は長押しですね。",
     "log": [],
     "visualLabel": "14/20　長押しで唐揚げ棒が赤く光る",
-    "progressLabel": "80/107　タクミ",
-    "reading": "今度は長押しですね。"
+    "progressLabel": "80/107　タクミ"
   },
   {
     "id": "ep04_v081",
@@ -1525,8 +1445,8 @@
     "visualCutId": "vc14",
     "visualCutTitle": "長押しで唐揚げ棒が赤く光る",
     "visualCutIndex": 14,
-    "start": 189.686,
-    "end": 192.166,
+    "start": 146,
+    "end": 147.54,
     "image": "assets/scenes/planned/ep04_vc14_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc14_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc14_v2.png",
@@ -1535,8 +1455,7 @@
     "dialogue": "唐揚げ棒が赤く光った。",
     "log": [],
     "visualLabel": "14/20　長押しで唐揚げ棒が赤く光る",
-    "progressLabel": "81/107　ナレーション",
-    "reading": "唐揚げ棒が赤く光った。"
+    "progressLabel": "81/107　ナレーション"
   },
   {
     "id": "ep04_v082",
@@ -1544,8 +1463,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 192.616,
-    "end": 195.456,
+    "start": 147.94,
+    "end": 150.04,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1554,8 +1473,7 @@
     "dialogue": "店内いっぱいに炎のホログラム。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "82/107　ナレーション",
-    "reading": "店内いっぱいに炎のホログラム。"
+    "progressLabel": "82/107　ナレーション"
   },
   {
     "id": "ep04_v083",
@@ -1563,8 +1481,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 195.906,
-    "end": 197.829,
+    "start": 150.44,
+    "end": 151.28,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1573,8 +1491,7 @@
     "dialogue": "黄金の湯気。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "83/107　ナレーション",
-    "reading": "黄金の湯気。"
+    "progressLabel": "83/107　ナレーション"
   },
   {
     "id": "ep04_v084",
@@ -1582,8 +1499,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 198.279,
-    "end": 199.761,
+    "start": 151.68,
+    "end": 152.28,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1592,8 +1509,7 @@
     "dialogue": "肉汁。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "84/107　ナレーション",
-    "reading": "肉汁。"
+    "progressLabel": "84/107　ナレーション"
   },
   {
     "id": "ep04_v085",
@@ -1601,8 +1517,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 200.211,
-    "end": 201.623,
+    "start": 152.68,
+    "end": 153.28,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1611,8 +1527,7 @@
     "dialogue": "揚げ音。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "85/107　ナレーション",
-    "reading": "揚げ音。"
+    "progressLabel": "85/107　ナレーション"
   },
   {
     "id": "ep04_v086",
@@ -1620,8 +1535,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 202.073,
-    "end": 204.484,
+    "start": 153.68,
+    "end": 155.22,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1630,8 +1545,7 @@
     "dialogue": "まるで料理番組だった。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "86/107　ナレーション",
-    "reading": "まるで料理番組だった。"
+    "progressLabel": "86/107　ナレーション"
   },
   {
     "id": "ep04_v087",
@@ -1639,8 +1553,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 204.934,
-    "end": 206.557,
+    "start": 155.62,
+    "end": 157.02,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1649,8 +1563,7 @@
     "dialogue": "ちょっと、やりすぎ！",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "87/107　タクミ",
-    "reading": "ちょっと、やりすぎ！"
+    "progressLabel": "87/107　タクミ"
   },
   {
     "id": "ep04_v088",
@@ -1658,8 +1571,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 206.807,
-    "end": 207.94,
+    "start": 157.42,
+    "end": 158.02,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1668,8 +1581,7 @@
     "dialogue": "派手。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "88/107　エリ",
-    "reading": "派手。"
+    "progressLabel": "88/107　エリ"
   },
   {
     "id": "ep04_v089",
@@ -1677,8 +1589,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 208.19,
-    "end": 209.728,
+    "start": 158.42,
+    "end": 159.4,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1687,8 +1599,7 @@
     "dialogue": "大丈夫なのか？",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "89/107　トラック運転手",
-    "reading": "大丈夫なのか？"
+    "progressLabel": "89/107　トラック運転手"
   },
   {
     "id": "ep04_v090",
@@ -1696,8 +1607,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 209.978,
-    "end": 211.597,
+    "start": 159.8,
+    "end": 160.64,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1706,8 +1617,7 @@
     "dialogue": "演出だけだ。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "90/107　汗田竜司",
-    "reading": "演出だけだ。"
+    "progressLabel": "90/107　汗田竜司"
   },
   {
     "id": "ep04_v091",
@@ -1715,8 +1625,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 211.847,
-    "end": 214.257,
+    "start": 161.04,
+    "end": 163.28,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1725,8 +1635,7 @@
     "dialogue": "これは流石に熱々じゃないですか？",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "91/107　タクミ",
-    "reading": "これは流石に熱々じゃないですか？"
+    "progressLabel": "91/107　タクミ"
   },
   {
     "id": "ep04_v092",
@@ -1734,8 +1643,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 214.507,
-    "end": 217.292,
+    "start": 163.68,
+    "end": 165.36,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1744,8 +1653,7 @@
     "dialogue": "客が恐る恐る一口食べる。",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "92/107　ナレーション",
-    "reading": "客が恐る恐る一口食べる。"
+    "progressLabel": "92/107　ナレーション"
   },
   {
     "id": "ep04_v093",
@@ -1753,8 +1661,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 217.742,
-    "end": 219.825,
+    "start": 165.76,
+    "end": 167.16,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1763,8 +1671,7 @@
     "dialogue": "あっ、ちょうどいい。",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "93/107　トラック運転手",
-    "reading": "あっ、ちょうどいい。"
+    "progressLabel": "93/107　トラック運転手"
   },
   {
     "id": "ep04_v094",
@@ -1772,8 +1679,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 220.075,
-    "end": 221.653,
+    "start": 167.56,
+    "end": 168.96,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1782,8 +1689,7 @@
     "dialogue": "見た目だけ熱すぎる！",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "94/107　タクミ",
-    "reading": "見た目だけ熱すぎる！"
+    "progressLabel": "94/107　タクミ"
   },
   {
     "id": "ep04_v095",
@@ -1791,8 +1697,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 221.903,
-    "end": 224.066,
+    "start": 169.36,
+    "end": 170.62,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1801,8 +1707,7 @@
     "dialogue": "未来は演出を盛る。",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "95/107　汗田竜司",
-    "reading": "未来は演出を盛る。"
+    "progressLabel": "95/107　汗田竜司"
   },
   {
     "id": "ep04_v096",
@@ -1810,8 +1715,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 224.316,
-    "end": 227.005,
+    "start": 171.02,
+    "end": 172.98,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1820,8 +1725,7 @@
     "dialogue": "レシートが勝手に印字された。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "96/107　ナレーション",
-    "reading": "レシートが勝手に印字された。"
+    "progressLabel": "96/107　ナレーション"
   },
   {
     "id": "ep04_v097",
@@ -1829,8 +1733,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 227.455,
-    "end": 229.425,
+    "start": 173.38,
+    "end": 175.06,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1839,8 +1743,7 @@
     "dialogue": "未来クレーム 発生回避。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "97/107　第十三レジ",
-    "reading": "未来クレーム 発生回避。"
+    "progressLabel": "97/107　第十三レジ"
   },
   {
     "id": "ep04_v098",
@@ -1848,8 +1751,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 229.775,
-    "end": 231.103,
+    "start": 175.46,
+    "end": 176.44,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1858,8 +1761,7 @@
     "dialogue": "お詫び 0件。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "98/107　第十三レジ",
-    "reading": "お詫び 0件。"
+    "progressLabel": "98/107　第十三レジ"
   },
   {
     "id": "ep04_v099",
@@ -1867,8 +1769,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 231.453,
-    "end": 232.839,
+    "start": 176.84,
+    "end": 178.1,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1877,8 +1779,7 @@
     "dialogue": "ありがとう 1件。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "99/107　第十三レジ",
-    "reading": "ありがとう 1件。"
+    "progressLabel": "99/107　第十三レジ"
   },
   {
     "id": "ep04_v100",
@@ -1886,8 +1787,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 233.189,
-    "end": 234.552,
+    "start": 178.5,
+    "end": 179.34,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1896,8 +1797,7 @@
     "dialogue": "更新された。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "100/107　タクミ",
-    "reading": "更新された。"
+    "progressLabel": "100/107　タクミ"
   },
   {
     "id": "ep04_v101",
@@ -1905,8 +1805,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "客の退店",
     "visualCutIndex": 18,
-    "start": 234.802,
-    "end": 236.261,
+    "start": 179.74,
+    "end": 180.72,
     "image": "assets/scenes/planned/ep04_vc18_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_v2.png",
@@ -1915,8 +1815,7 @@
     "dialogue": "ごちそうさま。",
     "log": [],
     "visualLabel": "18/20　客の退店",
-    "progressLabel": "101/107　トラック運転手",
-    "reading": "ごちそうさま。"
+    "progressLabel": "101/107　トラック運転手"
   },
   {
     "id": "ep04_v102",
@@ -1924,8 +1823,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "客の退店",
     "visualCutIndex": 18,
-    "start": 236.511,
-    "end": 237.689,
+    "start": 181.12,
+    "end": 181.96,
     "image": "assets/scenes/planned/ep04_vc18_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_v2.png",
@@ -1934,8 +1833,7 @@
     "dialogue": "ありがとう。",
     "log": [],
     "visualLabel": "18/20　客の退店",
-    "progressLabel": "102/107　トラック運転手",
-    "reading": "ありがとう。"
+    "progressLabel": "102/107　トラック運転手"
   },
   {
     "id": "ep04_v103",
@@ -1943,8 +1841,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "業務ノートに追記",
     "visualCutIndex": 19,
-    "start": 237.939,
-    "end": 240.721,
+    "start": 182.36,
+    "end": 184.6,
     "image": "assets/scenes/planned/ep04_vc19_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc19_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc19_v2.png",
@@ -1953,8 +1851,7 @@
     "dialogue": "タクミは業務ノートを書き足した。",
     "log": [],
     "visualLabel": "19/20　業務ノートに追記",
-    "progressLabel": "103/107　ナレーション",
-    "reading": "タクミは業務ノートを書き足した。"
+    "progressLabel": "103/107　ナレーション"
   },
   {
     "id": "ep04_v104",
@@ -1962,8 +1859,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "業務ノートに追記",
     "visualCutIndex": 19,
-    "start": 241.171,
-    "end": 245.024,
+    "start": 185,
+    "end": 187.52,
     "image": "assets/scenes/planned/ep04_vc19_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc19_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc19_v2.png",
@@ -1972,8 +1869,7 @@
     "dialogue": "未来商品は、演出より先に温めること。",
     "log": [],
     "visualLabel": "19/20　業務ノートに追記",
-    "progressLabel": "104/107　ナレーション",
-    "reading": "未来商品は、演出より先に温めること。"
+    "progressLabel": "104/107　ナレーション"
   },
   {
     "id": "ep04_v105",
@@ -1981,8 +1877,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "業務ノートに追記",
     "visualCutIndex": 19,
-    "start": 245.474,
-    "end": 247.548,
+    "start": 187.92,
+    "end": 189.74,
     "image": "assets/scenes/planned/ep04_vc19_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc19_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc19_v2.png",
@@ -1991,8 +1887,7 @@
     "dialogue": "当たり前のことですけどね。",
     "log": [],
     "visualLabel": "19/20　業務ノートに追記",
-    "progressLabel": "105/107　タクミ",
-    "reading": "当たり前のことですけどね。"
+    "progressLabel": "105/107　タクミ"
   },
   {
     "id": "ep04_v106",
@@ -2000,8 +1895,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "業務ノートに追記",
     "visualCutIndex": 19,
-    "start": 247.798,
-    "end": 249.416,
+    "start": 190.14,
+    "end": 191.12,
     "image": "assets/scenes/planned/ep04_vc19_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc19_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc19_v2.png",
@@ -2010,8 +1905,7 @@
     "dialogue": "未来では違う。",
     "log": [],
     "visualLabel": "19/20　業務ノートに追記",
-    "progressLabel": "106/107　エリ",
-    "reading": "未来では違う。"
+    "progressLabel": "106/107　エリ"
   },
   {
     "id": "ep04_v107",
@@ -2019,8 +1913,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "締めのナレーション",
     "visualCutIndex": 20,
-    "start": 249.666,
-    "end": 255.119,
+    "start": 191.52,
+    "end": 196.28,
     "image": "assets/scenes/planned/ep04_vc20_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc20_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc20_v2.png",
@@ -2029,7 +1923,6 @@
     "dialogue": "深夜のコンビニでは、未来の商品ほど、味より演出を優先することがある。",
     "log": [],
     "visualLabel": "20/20　締めのナレーション",
-    "progressLabel": "107/107　ナレーション",
-    "reading": "深夜のコンビニでは、未来の商品ほど、味より演出を優先することがある。"
+    "progressLabel": "107/107　ナレーション"
   }
 ]

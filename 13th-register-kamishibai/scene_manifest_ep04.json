@@ -5,8 +5,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 0,
-    "end": 0.98,
+    "start": 0.0,
+    "end": 2.062,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -15,7 +15,8 @@
     "dialogue": "午前2時5分。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "01/112　ナレーション"
+    "progressLabel": "01/112　ナレーション",
+    "reading": "午前2時5分。"
   },
   {
     "id": "ep04_v002",
@@ -23,8 +24,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 1.38,
-    "end": 5.86,
+    "start": 2.512,
+    "end": 7.152,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -33,7 +34,8 @@
     "dialogue": "タクミはホットスナックケースの表示が点滅していることに気付いた。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "02/112　ナレーション"
+    "progressLabel": "02/112　ナレーション",
+    "reading": "タクミはホットスナックケースの表示が点滅していることに気付いた。"
   },
   {
     "id": "ep04_v003",
@@ -41,8 +43,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 6.26,
-    "end": 6.96,
+    "start": 7.602,
+    "end": 8.633,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -51,7 +53,8 @@
     "dialogue": "エリさん。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "03/112　タクミ"
+    "progressLabel": "03/112　タクミ",
+    "reading": "エリさん。"
   },
   {
     "id": "ep04_v004",
@@ -59,8 +62,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 7.36,
-    "end": 7.96,
+    "start": 8.883,
+    "end": 9.967,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -69,7 +72,8 @@
     "dialogue": "何。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "04/112　エリ"
+    "progressLabel": "04/112　エリ",
+    "reading": "何。"
   },
   {
     "id": "ep04_v005",
@@ -77,8 +81,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 8.36,
-    "end": 9.76,
+    "start": 10.217,
+    "end": 11.789,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -87,7 +91,8 @@
     "dialogue": "ケースが壊れてます。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "05/112　タクミ"
+    "progressLabel": "05/112　タクミ",
+    "reading": "ケースが壊れてます。"
   },
   {
     "id": "ep04_v006",
@@ -95,8 +100,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 10.16,
-    "end": 10.86,
+    "start": 12.039,
+    "end": 13.507,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -105,7 +110,8 @@
     "dialogue": "壊れたね。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "06/112　エリ"
+    "progressLabel": "06/112　エリ",
+    "reading": "壊れたね。"
   },
   {
     "id": "ep04_v007",
@@ -113,8 +119,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 11.26,
-    "end": 12.66,
+    "start": 13.757,
+    "end": 15.183,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -123,7 +129,8 @@
     "dialogue": "リアクションが軽い。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "07/112　タクミ"
+    "progressLabel": "07/112　タクミ",
+    "reading": "リアクションが軽い。"
   },
   {
     "id": "ep04_v008",
@@ -131,8 +138,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 13.06,
-    "end": 15.86,
+    "start": 15.433,
+    "end": 18.854,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -141,7 +148,8 @@
     "dialogue": "ケースには唐揚げ棒が一本だけ残っていた。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "08/112　ナレーション"
+    "progressLabel": "08/112　ナレーション",
+    "reading": "ケースには唐揚げ棒が一本だけ残っていた。"
   },
   {
     "id": "ep04_v009",
@@ -149,8 +157,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 16.26,
-    "end": 18.36,
+    "start": 19.304,
+    "end": 21.734,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -159,7 +167,8 @@
     "dialogue": "今日に限って最後の一本ですよ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "09/112　タクミ"
+    "progressLabel": "09/112　タクミ",
+    "reading": "今日に限って最後の一本ですよ。"
   },
   {
     "id": "ep04_v010",
@@ -167,8 +176,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 18.76,
-    "end": 19.46,
+    "start": 21.984,
+    "end": 23.273,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -177,7 +186,8 @@
     "dialogue": "売れるね。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "10/112　エリ"
+    "progressLabel": "10/112　エリ",
+    "reading": "売れるね。"
   },
   {
     "id": "ep04_v011",
@@ -185,8 +195,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 19.86,
-    "end": 20.7,
+    "start": 23.523,
+    "end": 24.491,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -195,7 +205,8 @@
     "dialogue": "ポジティブ！",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "11/112　タクミ"
+    "progressLabel": "11/112　タクミ",
+    "reading": "ポジティブ！"
   },
   {
     "id": "ep04_v012",
@@ -203,8 +214,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 21.1,
-    "end": 22.64,
+    "start": 24.741,
+    "end": 27.419,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -213,7 +224,8 @@
     "dialogue": "一枚の紙が印刷された。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "12/112　ナレーション"
+    "progressLabel": "12/112　ナレーション",
+    "reading": "一枚の紙が印刷された。"
   },
   {
     "id": "ep04_v013",
@@ -221,8 +233,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 23.04,
-    "end": 25.98,
+    "start": 27.869,
+    "end": 32.17,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -231,7 +243,8 @@
     "dialogue": "午前2時28分。唐揚げ棒を買った客が怒る。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "13/112　ナレーション"
+    "progressLabel": "13/112　ナレーション",
+    "reading": "午前2時28分。唐揚げ棒を買った客が怒る。"
   },
   {
     "id": "ep04_v014",
@@ -239,8 +252,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 26.38,
-    "end": 27.5,
+    "start": 32.62,
+    "end": 34.123,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -249,7 +262,8 @@
     "dialogue": "また予告ですか。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "14/112　タクミ"
+    "progressLabel": "14/112　タクミ",
+    "reading": "また予告ですか。"
   },
   {
     "id": "ep04_v015",
@@ -257,8 +271,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 27.9,
-    "end": 28.5,
+    "start": 34.373,
+    "end": 35.53,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -267,7 +281,8 @@
     "dialogue": "当たる。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "15/112　エリ"
+    "progressLabel": "15/112　エリ",
+    "reading": "当たる。"
   },
   {
     "id": "ep04_v016",
@@ -275,8 +290,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 28.9,
-    "end": 30.44,
+    "start": 35.78,
+    "end": 37.327,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -285,7 +300,8 @@
     "dialogue": "当たらなくていいです。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "16/112　タクミ"
+    "progressLabel": "16/112　タクミ",
+    "reading": "当たらなくていいです。"
   },
   {
     "id": "ep04_v017",
@@ -293,8 +309,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 30.84,
-    "end": 31.96,
+    "start": 37.577,
+    "end": 39.919,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -303,7 +319,8 @@
     "dialogue": "午前2時17分。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "17/112　ナレーション"
+    "progressLabel": "17/112　ナレーション",
+    "reading": "午前2時17分。"
   },
   {
     "id": "ep04_v018",
@@ -311,8 +328,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 32.36,
-    "end": 35.02,
+    "start": 40.369,
+    "end": 44.08,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -321,7 +338,8 @@
     "dialogue": "カウンター右端に、第十三レジが現れた。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "18/112　ナレーション"
+    "progressLabel": "18/112　ナレーション",
+    "reading": "カウンター右端に、第十三レジが現れた。"
   },
   {
     "id": "ep04_v019",
@@ -329,8 +347,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 35.42,
-    "end": 37.38,
+    "start": 44.53,
+    "end": 47.604,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -339,7 +357,8 @@
     "dialogue": "第十三レジ。ただいま営業中。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "19/112　第十三レジ"
+    "progressLabel": "19/112　第十三レジ",
+    "reading": "第十三レジ。ただいま営業中。"
   },
   {
     "id": "ep04_v020",
@@ -347,8 +366,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 37.78,
-    "end": 39.6,
+    "start": 50.984,
+    "end": 53.345,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -357,7 +376,8 @@
     "dialogue": "未来レシートを印字します。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "20/112　第十三レジ"
+    "progressLabel": "20/112　第十三レジ",
+    "reading": "未来レシートを印字します。"
   },
   {
     "id": "ep04_v021",
@@ -365,8 +385,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 40,
-    "end": 41.12,
+    "start": 53.695,
+    "end": 55.571,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -375,7 +395,8 @@
     "dialogue": "レシートが出た。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "21/112　ナレーション"
+    "progressLabel": "21/112　ナレーション",
+    "reading": "レシートが出た。"
   },
   {
     "id": "ep04_v022",
@@ -383,8 +404,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 41.52,
-    "end": 42.64,
+    "start": 56.021,
+    "end": 57.89,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -393,7 +414,8 @@
     "dialogue": "唐揚げ棒 一点。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "22/112　第十三レジ"
+    "progressLabel": "22/112　第十三レジ",
+    "reading": "唐揚げ棒 一点。"
   },
   {
     "id": "ep04_v023",
@@ -401,8 +423,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 43.04,
-    "end": 44.02,
+    "start": 58.24,
+    "end": 59.816,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -411,7 +433,8 @@
     "dialogue": "お詫び 一件。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "23/112　第十三レジ"
+    "progressLabel": "23/112　第十三レジ",
+    "reading": "お詫び 一件。"
   },
   {
     "id": "ep04_v024",
@@ -419,8 +442,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 44.42,
-    "end": 46.94,
+    "start": 60.166,
+    "end": 63.467,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -429,7 +452,8 @@
     "dialogue": "理由。期待値が商品温度を上回ります。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "24/112　第十三レジ"
+    "progressLabel": "24/112　第十三レジ",
+    "reading": "理由。期待値が商品温度を上回ります。"
   },
   {
     "id": "ep04_v025",
@@ -437,8 +461,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 47.34,
-    "end": 49.16,
+    "start": 63.817,
+    "end": 65.727,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -447,7 +471,8 @@
     "dialogue": "温度より期待値なんですか。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "25/112　タクミ"
+    "progressLabel": "25/112　タクミ",
+    "reading": "温度より期待値なんですか。"
   },
   {
     "id": "ep04_v026",
@@ -455,8 +480,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 49.56,
-    "end": 51.8,
+    "start": 65.977,
+    "end": 68.767,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -465,7 +490,8 @@
     "dialogue": "私の勤務時間では対応できません。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "26/112　第十三レジ"
+    "progressLabel": "26/112　第十三レジ",
+    "reading": "私の勤務時間では対応できません。"
   },
   {
     "id": "ep04_v027",
@@ -473,8 +499,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 52.2,
-    "end": 52.8,
+    "start": 69.117,
+    "end": 69.947,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -483,7 +509,8 @@
     "dialogue": "はい？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "27/112　タクミ"
+    "progressLabel": "27/112　タクミ",
+    "reading": "はい？"
   },
   {
     "id": "ep04_v028",
@@ -491,8 +518,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 53.2,
-    "end": 55.58,
+    "start": 70.197,
+    "end": 73.477,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -501,7 +528,8 @@
     "dialogue": "クレーム予定時刻は午前2時28分。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "28/112　第十三レジ"
+    "progressLabel": "28/112　第十三レジ",
+    "reading": "クレーム予定時刻は午前2時28分。"
   },
   {
     "id": "ep04_v029",
@@ -509,8 +537,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 55.98,
-    "end": 58.22,
+    "start": 73.827,
+    "end": 76.874,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -519,7 +547,8 @@
     "dialogue": "私は午前2時20分に退勤します。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "29/112　第十三レジ"
+    "progressLabel": "29/112　第十三レジ",
+    "reading": "私は午前2時20分に退勤します。"
   },
   {
     "id": "ep04_v030",
@@ -527,8 +556,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 58.62,
-    "end": 60.44,
+    "start": 77.224,
+    "end": 79.428,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -537,7 +566,8 @@
     "dialogue": "だから先に謝ったんですか。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "30/112　タクミ"
+    "progressLabel": "30/112　タクミ",
+    "reading": "だから先に謝ったんですか。"
   },
   {
     "id": "ep04_v031",
@@ -545,8 +575,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 60.84,
-    "end": 61.44,
+    "start": 79.678,
+    "end": 80.744,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -555,7 +585,8 @@
     "dialogue": "はい。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "31/112　第十三レジ"
+    "progressLabel": "31/112　第十三レジ",
+    "reading": "はい。"
   },
   {
     "id": "ep04_v032",
@@ -563,8 +594,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 61.84,
-    "end": 63.1,
+    "start": 81.094,
+    "end": 82.968,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -573,7 +604,8 @@
     "dialogue": "働き方改革すぎる。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "32/112　タクミ"
+    "progressLabel": "32/112　タクミ",
+    "reading": "働き方改革すぎる。"
   },
   {
     "id": "ep04_v033",
@@ -581,8 +613,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 63.5,
-    "end": 65.04,
+    "start": 83.218,
+    "end": 85.745,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -591,7 +623,8 @@
     "dialogue": "汗田が店に入ってきた。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "33/112　ナレーション"
+    "progressLabel": "33/112　ナレーション",
+    "reading": "あせだが店に入ってきた。"
   },
   {
     "id": "ep04_v034",
@@ -599,8 +632,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 65.44,
-    "end": 67.26,
+    "start": 86.195,
+    "end": 88.975,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -609,7 +642,8 @@
     "dialogue": "ナビが未来商品を検知した。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "34/112　汗田竜司"
+    "progressLabel": "34/112　汗田竜司",
+    "reading": "ナビが未来商品を検知した。"
   },
   {
     "id": "ep04_v035",
@@ -617,8 +651,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 67.66,
-    "end": 68.64,
+    "start": 89.225,
+    "end": 90.4,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -627,7 +661,8 @@
     "dialogue": "ケースですか？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "35/112　タクミ"
+    "progressLabel": "35/112　タクミ",
+    "reading": "ケースですか？"
   },
   {
     "id": "ep04_v036",
@@ -635,8 +670,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 69.04,
-    "end": 70.3,
+    "start": 90.65,
+    "end": 92.641,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -645,7 +680,8 @@
     "dialogue": "違う。唐揚げ棒だ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "36/112　汗田竜司"
+    "progressLabel": "36/112　汗田竜司",
+    "reading": "違う。唐揚げ棒だ。"
   },
   {
     "id": "ep04_v037",
@@ -653,8 +689,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 70.7,
-    "end": 71.4,
+    "start": 92.891,
+    "end": 94.081,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -663,7 +699,8 @@
     "dialogue": "棒ですか？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "37/112　タクミ"
+    "progressLabel": "37/112　タクミ",
+    "reading": "棒ですか？"
   },
   {
     "id": "ep04_v038",
@@ -671,8 +708,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 71.8,
-    "end": 73.48,
+    "start": 94.331,
+    "end": 96.88,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -681,7 +718,8 @@
     "dialogue": "一本だけ未来仕様らしい。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "38/112　汗田竜司"
+    "progressLabel": "38/112　汗田竜司",
+    "reading": "一本だけ未来仕様らしい。"
   },
   {
     "id": "ep04_v039",
@@ -689,8 +727,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 73.88,
-    "end": 74.58,
+    "start": 97.13,
+    "end": 98.497,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -699,7 +737,8 @@
     "dialogue": "商品確認。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "39/112　第十三レジ"
+    "progressLabel": "39/112　第十三レジ",
+    "reading": "商品確認。"
   },
   {
     "id": "ep04_v040",
@@ -707,8 +746,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 74.98,
-    "end": 76.94,
+    "start": 98.847,
+    "end": 101.78,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -717,7 +756,8 @@
     "dialogue": "唐揚げ棒の串の根元が光った。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "40/112　ナレーション"
+    "progressLabel": "40/112　ナレーション",
+    "reading": "唐揚げ棒の串の根元が光った。"
   },
   {
     "id": "ep04_v041",
@@ -725,8 +765,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 77.34,
-    "end": 77.94,
+    "start": 102.23,
+    "end": 103.22,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -735,7 +775,8 @@
     "dialogue": "ボタン？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "41/112　タクミ"
+    "progressLabel": "41/112　タクミ",
+    "reading": "ボタン？"
   },
   {
     "id": "ep04_v042",
@@ -743,8 +784,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 78.34,
-    "end": 79.46,
+    "start": 103.47,
+    "end": 105.309,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -753,7 +794,8 @@
     "dialogue": "食べ頃ボタンだ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "42/112　汗田竜司"
+    "progressLabel": "42/112　汗田竜司",
+    "reading": "食べ頃ボタンだ。"
   },
   {
     "id": "ep04_v043",
@@ -761,8 +803,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 79.86,
-    "end": 80.7,
+    "start": 105.559,
+    "end": 106.843,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -771,7 +813,8 @@
     "dialogue": "唐揚げ棒に？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "43/112　タクミ"
+    "progressLabel": "43/112　タクミ",
+    "reading": "唐揚げ棒に？"
   },
   {
     "id": "ep04_v044",
@@ -779,8 +822,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 81.1,
-    "end": 82.5,
+    "start": 107.093,
+    "end": 109.196,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -789,7 +832,8 @@
     "dialogue": "未来では普通らしい。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "44/112　汗田竜司"
+    "progressLabel": "44/112　汗田竜司",
+    "reading": "未来では普通らしい。"
   },
   {
     "id": "ep04_v045",
@@ -797,8 +841,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 82.9,
-    "end": 84.58,
+    "start": 109.446,
+    "end": 111.456,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -807,7 +851,8 @@
     "dialogue": "どんな効果なんですかね？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "45/112　タクミ"
+    "progressLabel": "45/112　タクミ",
+    "reading": "どんな効果なんですかね？"
   },
   {
     "id": "ep04_v046",
@@ -815,8 +860,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 84.98,
-    "end": 87.08,
+    "start": 111.706,
+    "end": 114.851,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -825,7 +870,8 @@
     "dialogue": "押すと好感度演出を開始します。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "46/112　第十三レジ"
+    "progressLabel": "46/112　第十三レジ",
+    "reading": "押すと好感度演出を開始します。"
   },
   {
     "id": "ep04_v047",
@@ -833,8 +879,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 87.48,
-    "end": 88.08,
+    "start": 115.201,
+    "end": 116.382,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -843,7 +889,8 @@
     "dialogue": "好感度？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "47/112　タクミ"
+    "progressLabel": "47/112　タクミ",
+    "reading": "好感度？"
   },
   {
     "id": "ep04_v048",
@@ -851,8 +898,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 88.48,
-    "end": 89.32,
+    "start": 116.632,
+    "end": 118.136,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -861,7 +908,8 @@
     "dialogue": "押してみろ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "48/112　汗田竜司"
+    "progressLabel": "48/112　汗田竜司",
+    "reading": "押してみろ。"
   },
   {
     "id": "ep04_v049",
@@ -869,8 +917,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 89.72,
-    "end": 90.7,
+    "start": 118.386,
+    "end": 119.832,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -879,7 +927,8 @@
     "dialogue": "大丈夫ですか？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "49/112　タクミ"
+    "progressLabel": "49/112　タクミ",
+    "reading": "大丈夫ですか？"
   },
   {
     "id": "ep04_v050",
@@ -887,8 +936,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 91.1,
-    "end": 93.06,
+    "start": 120.082,
+    "end": 122.706,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -897,7 +946,8 @@
     "dialogue": "分からん。まずはやってみろ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "50/112　汗田竜司"
+    "progressLabel": "50/112　汗田竜司",
+    "reading": "分からん。まずはやってみろ。"
   },
   {
     "id": "ep04_v051",
@@ -905,8 +955,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 93.46,
-    "end": 94.58,
+    "start": 122.956,
+    "end": 124.571,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -915,7 +965,8 @@
     "dialogue": "俺で実験ですか？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "51/112　タクミ"
+    "progressLabel": "51/112　タクミ",
+    "reading": "俺で実験ですか？"
   },
   {
     "id": "ep04_v052",
@@ -923,8 +974,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 94.98,
-    "end": 99.32,
+    "start": 124.821,
+    "end": 129.751,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -933,7 +984,8 @@
     "dialogue": "タクミがボタンを押すと、唐揚げ棒から黄金色の湯気が立ち上った。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "52/112　ナレーション"
+    "progressLabel": "52/112　ナレーション",
+    "reading": "タクミがボタンを押すと、唐揚げ棒から黄金色の湯気が立ち上った。"
   },
   {
     "id": "ep04_v053",
@@ -941,8 +993,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 99.72,
-    "end": 103.08,
+    "start": 130.201,
+    "end": 134.458,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -951,7 +1003,8 @@
     "dialogue": "肉汁が飛び散り、揚げたての映像が湯気の中に映る。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "53/112　ナレーション"
+    "progressLabel": "53/112　ナレーション",
+    "reading": "肉汁が飛び散り、揚げたての映像が湯気の中に映る。"
   },
   {
     "id": "ep04_v054",
@@ -959,8 +1012,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 103.48,
-    "end": 104.18,
+    "start": 134.908,
+    "end": 136.173,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -969,7 +1022,8 @@
     "dialogue": "うわぁ……",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "54/112　タクミ"
+    "progressLabel": "54/112　タクミ",
+    "reading": "うわぁ……"
   },
   {
     "id": "ep04_v055",
@@ -977,8 +1031,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 104.58,
-    "end": 105.42,
+    "start": 136.423,
+    "end": 137.856,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -987,7 +1041,8 @@
     "dialogue": "おいしそう。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "55/112　エリ"
+    "progressLabel": "55/112　エリ",
+    "reading": "おいしそう。"
   },
   {
     "id": "ep04_v056",
@@ -995,8 +1050,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 105.82,
-    "end": 106.8,
+    "start": 138.106,
+    "end": 139.75,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1005,7 +1060,8 @@
     "dialogue": "ホログラムだ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "56/112　汗田竜司"
+    "progressLabel": "56/112　汗田竜司",
+    "reading": "ホログラムだ。"
   },
   {
     "id": "ep04_v057",
@@ -1013,8 +1069,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 107.2,
-    "end": 108.04,
+    "start": 140.0,
+    "end": 141.207,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1023,7 +1079,8 @@
     "dialogue": "未来すごい。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "57/112　タクミ"
+    "progressLabel": "57/112　タクミ",
+    "reading": "未来すごい。"
   },
   {
     "id": "ep04_v058",
@@ -1031,8 +1088,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 108.44,
-    "end": 110.96,
+    "start": 141.457,
+    "end": 144.69,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1041,7 +1098,8 @@
     "dialogue": "タクミが袋越しに唐揚げ棒を触る。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "58/112　ナレーション"
+    "progressLabel": "58/112　ナレーション",
+    "reading": "タクミが袋越しに唐揚げ棒を触る。"
   },
   {
     "id": "ep04_v059",
@@ -1049,8 +1107,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 111.36,
-    "end": 112.2,
+    "start": 145.14,
+    "end": 146.34,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1059,7 +1117,8 @@
     "dialogue": "冷たいです。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "59/112　タクミ"
+    "progressLabel": "59/112　タクミ",
+    "reading": "冷たいです。"
   },
   {
     "id": "ep04_v060",
@@ -1067,8 +1126,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 112.6,
-    "end": 113.72,
+    "start": 146.59,
+    "end": 148.329,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1077,7 +1136,8 @@
     "dialogue": "好感度演出です。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "60/112　第十三レジ"
+    "progressLabel": "60/112　第十三レジ",
+    "reading": "好感度演出です。"
   },
   {
     "id": "ep04_v061",
@@ -1085,8 +1145,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 114.12,
-    "end": 115.94,
+    "start": 148.679,
+    "end": 151.089,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1095,7 +1155,8 @@
     "dialogue": "ちゃんと、温めてください。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "61/112　タクミ"
+    "progressLabel": "61/112　タクミ",
+    "reading": "ちゃんと、温めてください。"
   },
   {
     "id": "ep04_v062",
@@ -1103,8 +1164,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 116.34,
-    "end": 117.46,
+    "start": 151.339,
+    "end": 153.61,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1113,7 +1174,8 @@
     "dialogue": "午前2時20分。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "62/112　ナレーション"
+    "progressLabel": "62/112　ナレーション",
+    "reading": "午前2時20分。"
   },
   {
     "id": "ep04_v063",
@@ -1121,8 +1183,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 117.86,
-    "end": 118.84,
+    "start": 154.06,
+    "end": 155.8,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1131,7 +1193,8 @@
     "dialogue": "営業時間終了。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "63/112　第十三レジ"
+    "progressLabel": "63/112　第十三レジ",
+    "reading": "営業時間終了。"
   },
   {
     "id": "ep04_v064",
@@ -1139,8 +1202,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 119.24,
-    "end": 120.64,
+    "start": 156.15,
+    "end": 157.638,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1149,7 +1212,8 @@
     "dialogue": "あとはお願いします。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "64/112　第十三レジ"
+    "progressLabel": "64/112　第十三レジ",
+    "reading": "あとはお願いします。"
   },
   {
     "id": "ep04_v065",
@@ -1157,8 +1221,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 121.04,
-    "end": 121.88,
+    "start": 157.988,
+    "end": 159.388,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1167,7 +1231,8 @@
     "dialogue": "温め方は！？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "65/112　タクミ"
+    "progressLabel": "65/112　タクミ",
+    "reading": "温め方は！？"
   },
   {
     "id": "ep04_v066",
@@ -1175,8 +1240,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 122.28,
-    "end": 123.68,
+    "start": 159.638,
+    "end": 161.99,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1185,7 +1250,8 @@
     "dialogue": "第十三レジは消えた。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "66/112　ナレーション"
+    "progressLabel": "66/112　ナレーション",
+    "reading": "第十三レジは消えた。"
   },
   {
     "id": "ep04_v068",
@@ -1193,8 +1259,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 124.08,
-    "end": 125.2,
+    "start": 162.44,
+    "end": 164.979,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1203,7 +1269,8 @@
     "dialogue": "午前2時28分。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "67/112　ナレーション"
+    "progressLabel": "67/112　ナレーション",
+    "reading": "午前2時28分。"
   },
   {
     "id": "ep04_v067",
@@ -1211,8 +1278,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 125.6,
-    "end": 127.56,
+    "start": 165.429,
+    "end": 168.083,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1221,7 +1288,8 @@
     "dialogue": "トラック運転手が入ってきた。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "68/112　ナレーション"
+    "progressLabel": "68/112　ナレーション",
+    "reading": "トラック運転手が入ってきた。"
   },
   {
     "id": "ep04_v069",
@@ -1229,8 +1297,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 127.96,
-    "end": 129.22,
+    "start": 168.533,
+    "end": 170.271,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1239,7 +1307,8 @@
     "dialogue": "唐揚げ棒をひとつ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "69/112　トラック運転手"
+    "progressLabel": "69/112　トラック運転手",
+    "reading": "唐揚げ棒をひとつ。"
   },
   {
     "id": "ep04_v070",
@@ -1247,8 +1316,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 129.62,
-    "end": 131.16,
+    "start": 170.521,
+    "end": 172.303,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1257,7 +1326,8 @@
     "dialogue": "い、いらっしゃいませ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "70/112　タクミ"
+    "progressLabel": "70/112　タクミ",
+    "reading": "い、いらっしゃいませ。"
   },
   {
     "id": "ep04_v071",
@@ -1265,8 +1335,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 131.56,
-    "end": 134.22,
+    "start": 172.553,
+    "end": 175.73,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1275,7 +1345,8 @@
     "dialogue": "タクミが唐揚げ棒のボタンを押し渡した。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "71/112　ナレーション"
+    "progressLabel": "71/112　ナレーション",
+    "reading": "タクミが唐揚げ棒のボタンを押し渡した。"
   },
   {
     "id": "ep04_v072",
@@ -1283,8 +1354,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 134.62,
-    "end": 137.7,
+    "start": 176.18,
+    "end": 180.03,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1293,7 +1364,8 @@
     "dialogue": "唐揚げ棒から本物の湯気がたくさん立ち始めた。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "72/112　ナレーション"
+    "progressLabel": "72/112　ナレーション",
+    "reading": "唐揚げ棒から本物の湯気がたくさん立ち始めた。"
   },
   {
     "id": "ep04_v073",
@@ -1301,8 +1373,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 138.1,
-    "end": 138.7,
+    "start": 180.48,
+    "end": 181.288,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1311,7 +1383,8 @@
     "dialogue": "おっ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "73/112　トラック運転手"
+    "progressLabel": "73/112　トラック運転手",
+    "reading": "おっ。"
   },
   {
     "id": "ep04_v074",
@@ -1319,8 +1392,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 139.1,
-    "end": 140.22,
+    "start": 181.538,
+    "end": 183.226,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1329,7 +1402,8 @@
     "dialogue": "湯気、出てるな。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "74/112　トラック運転手"
+    "progressLabel": "74/112　トラック運転手",
+    "reading": "湯気、出てるな。"
   },
   {
     "id": "ep04_v075",
@@ -1337,8 +1411,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 140.62,
-    "end": 141.74,
+    "start": 183.476,
+    "end": 184.96,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1347,7 +1421,8 @@
     "dialogue": "温まりましたか？",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "75/112　タクミ"
+    "progressLabel": "75/112　タクミ",
+    "reading": "温まりましたか？"
   },
   {
     "id": "ep04_v076",
@@ -1355,8 +1430,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 142.14,
-    "end": 143.26,
+    "start": 185.21,
+    "end": 187.321,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1365,7 +1440,8 @@
     "dialogue": "客が一口食べる。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "76/112　ナレーション"
+    "progressLabel": "76/112　ナレーション",
+    "reading": "客が一口食べる。"
   },
   {
     "id": "ep04_v077",
@@ -1373,8 +1449,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 143.66,
-    "end": 144.26,
+    "start": 187.771,
+    "end": 188.754,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1383,7 +1459,8 @@
     "dialogue": "……。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "77/112　トラック運転手"
+    "progressLabel": "77/112　トラック運転手",
+    "reading": "……。"
   },
   {
     "id": "ep04_v078",
@@ -1391,8 +1468,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 144.66,
-    "end": 145.26,
+    "start": 189.004,
+    "end": 190.067,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1401,7 +1478,8 @@
     "dialogue": "ぬるい。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "78/112　トラック運転手"
+    "progressLabel": "78/112　トラック運転手",
+    "reading": "ぬるい。"
   },
   {
     "id": "ep04_v079",
@@ -1409,8 +1487,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 145.66,
-    "end": 146.26,
+    "start": 190.317,
+    "end": 191.301,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1419,7 +1497,8 @@
     "dialogue": "惜しい！",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "79/112　タクミ"
+    "progressLabel": "79/112　タクミ",
+    "reading": "惜しい！"
   },
   {
     "id": "ep04_v080",
@@ -1427,8 +1506,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 146.66,
-    "end": 147.64,
+    "start": 191.551,
+    "end": 192.928,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1437,7 +1516,8 @@
     "dialogue": "惜しくないよ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "80/112　トラック運転手"
+    "progressLabel": "80/112　トラック運転手",
+    "reading": "惜しくないよ。"
   },
   {
     "id": "ep04_v081",
@@ -1445,8 +1525,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 148.04,
-    "end": 149.3,
+    "start": 193.178,
+    "end": 195.146,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1455,7 +1535,8 @@
     "dialogue": "期待だけ温めるな。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "81/112　トラック運転手"
+    "progressLabel": "81/112　トラック運転手",
+    "reading": "期待だけ温めるな。"
   },
   {
     "id": "ep04_v082",
@@ -1463,8 +1544,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 149.7,
-    "end": 150.4,
+    "start": 195.396,
+    "end": 196.598,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1473,7 +1554,8 @@
     "dialogue": "正論です。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "82/112　タクミ"
+    "progressLabel": "82/112　タクミ",
+    "reading": "正論です。"
   },
   {
     "id": "ep04_v083",
@@ -1481,8 +1563,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 150.8,
-    "end": 151.92,
+    "start": 196.848,
+    "end": 198.687,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1491,7 +1573,8 @@
     "dialogue": "長押ししてみろ。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "83/112　汗田竜司"
+    "progressLabel": "83/112　汗田竜司",
+    "reading": "長押ししてみろ。"
   },
   {
     "id": "ep04_v084",
@@ -1499,8 +1582,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 152.32,
-    "end": 153.72,
+    "start": 198.937,
+    "end": 200.798,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1509,7 +1592,8 @@
     "dialogue": "今度は長押しですね。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "84/112　タクミ"
+    "progressLabel": "84/112　タクミ",
+    "reading": "今度は長押しですね。"
   },
   {
     "id": "ep04_v085",
@@ -1517,8 +1601,8 @@
     "visualCutId": "vc01",
     "visualCutTitle": "ホットスナックケース故障・最後の唐揚げ棒",
     "visualCutIndex": 1,
-    "start": 154.12,
-    "end": 155.66,
+    "start": 201.048,
+    "end": 203.54,
     "image": "assets/scenes/planned/ep04_vc01_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc01_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc01_v2.png",
@@ -1527,7 +1611,8 @@
     "dialogue": "唐揚げ棒が赤く光った。",
     "log": [],
     "visualLabel": "01/20　ホットスナックケース故障・最後の唐揚げ棒",
-    "progressLabel": "85/112　ナレーション"
+    "progressLabel": "85/112　ナレーション",
+    "reading": "唐揚げ棒が赤く光った。"
   },
   {
     "id": "ep04_v086",
@@ -1535,8 +1620,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 156.06,
-    "end": 158.16,
+    "start": 203.99,
+    "end": 206.853,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1545,7 +1630,8 @@
     "dialogue": "店内いっぱいに炎のホログラム。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "86/112　ナレーション"
+    "progressLabel": "86/112　ナレーション",
+    "reading": "店内いっぱいに炎のホログラム。"
   },
   {
     "id": "ep04_v087",
@@ -1553,8 +1639,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 158.56,
-    "end": 159.4,
+    "start": 207.303,
+    "end": 209.157,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1563,7 +1649,8 @@
     "dialogue": "黄金の湯気。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "87/112　ナレーション"
+    "progressLabel": "87/112　ナレーション",
+    "reading": "黄金の湯気。"
   },
   {
     "id": "ep04_v088",
@@ -1571,8 +1658,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 159.8,
-    "end": 160.4,
+    "start": 209.607,
+    "end": 211.054,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1581,7 +1668,8 @@
     "dialogue": "肉汁。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "88/112　ナレーション"
+    "progressLabel": "88/112　ナレーション",
+    "reading": "肉汁。"
   },
   {
     "id": "ep04_v089",
@@ -1589,8 +1677,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 160.8,
-    "end": 161.5,
+    "start": 211.504,
+    "end": 212.916,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1599,7 +1687,8 @@
     "dialogue": "揚げ音。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "89/112　ナレーション"
+    "progressLabel": "89/112　ナレーション",
+    "reading": "揚げ音。"
   },
   {
     "id": "ep04_v090",
@@ -1607,8 +1696,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 161.9,
-    "end": 163.44,
+    "start": 213.366,
+    "end": 215.811,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1617,7 +1706,8 @@
     "dialogue": "まるで料理番組だった。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "90/112　ナレーション"
+    "progressLabel": "90/112　ナレーション",
+    "reading": "まるで料理番組だった。"
   },
   {
     "id": "ep04_v091",
@@ -1625,8 +1715,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 163.84,
-    "end": 165.24,
+    "start": 216.261,
+    "end": 217.815,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1635,7 +1725,8 @@
     "dialogue": "ちょっと、やりすぎ！",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "91/112　タクミ"
+    "progressLabel": "91/112　タクミ",
+    "reading": "ちょっと、やりすぎ！"
   },
   {
     "id": "ep04_v092",
@@ -1643,8 +1734,8 @@
     "visualCutId": "vc15",
     "visualCutTitle": "炎のホログラム演出",
     "visualCutIndex": 15,
-    "start": 165.64,
-    "end": 166.24,
+    "start": 218.065,
+    "end": 219.185,
     "image": "assets/scenes/planned/ep04_vc15_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc15_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc15_v2.png",
@@ -1653,7 +1744,8 @@
     "dialogue": "派手。",
     "log": [],
     "visualLabel": "15/20　炎のホログラム演出",
-    "progressLabel": "92/112　エリ"
+    "progressLabel": "92/112　エリ",
+    "reading": "派手。"
   },
   {
     "id": "ep04_v093",
@@ -1661,8 +1753,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 166.64,
-    "end": 168.18,
+    "start": 219.435,
+    "end": 222.018,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1671,7 +1763,8 @@
     "dialogue": "おい、爆発しないよな？",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "93/112　トラック運転手"
+    "progressLabel": "93/112　トラック運転手",
+    "reading": "おい、爆発しないよな？"
   },
   {
     "id": "ep04_v094",
@@ -1679,8 +1772,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 168.58,
-    "end": 169.42,
+    "start": 222.268,
+    "end": 223.852,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1689,7 +1782,8 @@
     "dialogue": "演出だけだ。",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "94/112　汗田竜司"
+    "progressLabel": "94/112　汗田竜司",
+    "reading": "演出だけだ。"
   },
   {
     "id": "ep04_v095",
@@ -1697,8 +1791,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 169.82,
-    "end": 172.06,
+    "start": 224.102,
+    "end": 226.489,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1707,7 +1801,8 @@
     "dialogue": "これは流石に熱々じゃないですか？",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "95/112　タクミ"
+    "progressLabel": "95/112　タクミ",
+    "reading": "これは流石に熱々じゃないですか？"
   },
   {
     "id": "ep04_v096",
@@ -1715,8 +1810,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 172.46,
-    "end": 174.14,
+    "start": 226.739,
+    "end": 229.433,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1725,7 +1820,8 @@
     "dialogue": "客が恐る恐る一口食べる。",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "96/112　ナレーション"
+    "progressLabel": "96/112　ナレーション",
+    "reading": "客が恐る恐る一口食べる。"
   },
   {
     "id": "ep04_v097",
@@ -1733,8 +1829,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 174.54,
-    "end": 175.14,
+    "start": 229.883,
+    "end": 230.866,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1743,7 +1839,8 @@
     "dialogue": "……。",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "97/112　トラック運転手"
+    "progressLabel": "97/112　トラック運転手",
+    "reading": "……。"
   },
   {
     "id": "ep04_v098",
@@ -1751,8 +1848,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 175.54,
-    "end": 176.52,
+    "start": 231.116,
+    "end": 232.389,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1761,7 +1858,8 @@
     "dialogue": "ちょうどいい。",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "98/112　トラック運転手"
+    "progressLabel": "98/112　トラック運転手",
+    "reading": "ちょうどいい。"
   },
   {
     "id": "ep04_v099",
@@ -1769,8 +1867,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 176.92,
-    "end": 178.32,
+    "start": 232.639,
+    "end": 234.314,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1779,7 +1877,8 @@
     "dialogue": "見た目だけ熱すぎる！",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "99/112　タクミ"
+    "progressLabel": "99/112　タクミ",
+    "reading": "見た目だけ熱すぎる！"
   },
   {
     "id": "ep04_v100",
@@ -1787,8 +1886,8 @@
     "visualCutId": "vc16",
     "visualCutTitle": "ちょうどいい、が見た目は熱すぎる",
     "visualCutIndex": 16,
-    "start": 178.72,
-    "end": 179.98,
+    "start": 234.564,
+    "end": 236.727,
     "image": "assets/scenes/planned/ep04_vc16_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc16_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc16_v2.png",
@@ -1797,7 +1896,8 @@
     "dialogue": "未来は演出を盛る。",
     "log": [],
     "visualLabel": "16/20　ちょうどいい、が見た目は熱すぎる",
-    "progressLabel": "100/112　汗田竜司"
+    "progressLabel": "100/112　汗田竜司",
+    "reading": "未来は演出を盛る。"
   },
   {
     "id": "ep04_v101",
@@ -1805,8 +1905,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 180.38,
-    "end": 182.34,
+    "start": 236.977,
+    "end": 239.678,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1815,7 +1915,8 @@
     "dialogue": "レシートが勝手に印字された。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "101/112　ナレーション"
+    "progressLabel": "101/112　ナレーション",
+    "reading": "レシートが勝手に印字された。"
   },
   {
     "id": "ep04_v102",
@@ -1823,8 +1924,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 182.74,
-    "end": 184.42,
+    "start": 240.128,
+    "end": 242.15,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1833,7 +1934,8 @@
     "dialogue": "未来クレーム 発生回避。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "102/112　第十三レジ"
+    "progressLabel": "102/112　第十三レジ",
+    "reading": "未来クレーム 発生回避。"
   },
   {
     "id": "ep04_v103",
@@ -1841,8 +1943,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 184.82,
-    "end": 185.8,
+    "start": 242.5,
+    "end": 243.942,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1851,7 +1953,8 @@
     "dialogue": "お詫び 0件。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "103/112　第十三レジ"
+    "progressLabel": "103/112　第十三レジ",
+    "reading": "お詫び 0件。"
   },
   {
     "id": "ep04_v104",
@@ -1859,8 +1962,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 186.2,
-    "end": 187.46,
+    "start": 244.292,
+    "end": 245.761,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1869,7 +1972,8 @@
     "dialogue": "ありがとう 1件。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "104/112　第十三レジ"
+    "progressLabel": "104/112　第十三レジ",
+    "reading": "ありがとう 1件。"
   },
   {
     "id": "ep04_v105",
@@ -1877,8 +1981,8 @@
     "visualCutId": "vc17",
     "visualCutTitle": "レシート自動印字・お詫び0件",
     "visualCutIndex": 17,
-    "start": 187.86,
-    "end": 188.7,
+    "start": 246.111,
+    "end": 247.49,
     "image": "assets/scenes/planned/ep04_vc17_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc17_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc17_v2.png",
@@ -1887,7 +1991,8 @@
     "dialogue": "更新された。",
     "log": [],
     "visualLabel": "17/20　レシート自動印字・お詫び0件",
-    "progressLabel": "105/112　タクミ"
+    "progressLabel": "105/112　タクミ",
+    "reading": "更新された。"
   },
   {
     "id": "ep04_v106",
@@ -1895,8 +2000,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "客の退店",
     "visualCutIndex": 18,
-    "start": 189.1,
-    "end": 190.08,
+    "start": 247.74,
+    "end": 249.155,
     "image": "assets/scenes/planned/ep04_vc18_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_v2.png",
@@ -1905,7 +2010,8 @@
     "dialogue": "ごちそうさま。",
     "log": [],
     "visualLabel": "18/20　客の退店",
-    "progressLabel": "106/112　トラック運転手"
+    "progressLabel": "106/112　トラック運転手",
+    "reading": "ごちそうさま。"
   },
   {
     "id": "ep04_v107",
@@ -1913,8 +2019,8 @@
     "visualCutId": "vc18",
     "visualCutTitle": "客の退店",
     "visualCutIndex": 18,
-    "start": 190.48,
-    "end": 191.32,
+    "start": 249.405,
+    "end": 250.608,
     "image": "assets/scenes/planned/ep04_vc18_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc18_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc18_v2.png",
@@ -1923,7 +2029,8 @@
     "dialogue": "ありがとう。",
     "log": [],
     "visualLabel": "18/20　客の退店",
-    "progressLabel": "107/112　トラック運転手"
+    "progressLabel": "107/112　トラック運転手",
+    "reading": "ありがとう。"
   },
   {
     "id": "ep04_v108",
@@ -1931,8 +2038,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "業務ノートに追記",
     "visualCutIndex": 19,
-    "start": 191.72,
-    "end": 193.96,
+    "start": 250.858,
+    "end": 253.582,
     "image": "assets/scenes/planned/ep04_vc19_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc19_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc19_v2.png",
@@ -1941,7 +2048,8 @@
     "dialogue": "タクミは業務ノートを書き足した。",
     "log": [],
     "visualLabel": "19/20　業務ノートに追記",
-    "progressLabel": "108/112　ナレーション"
+    "progressLabel": "108/112　ナレーション",
+    "reading": "タクミは業務ノートを書き足した。"
   },
   {
     "id": "ep04_v109",
@@ -1949,8 +2057,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "業務ノートに追記",
     "visualCutIndex": 19,
-    "start": 194.36,
-    "end": 196.88,
+    "start": 254.032,
+    "end": 257.781,
     "image": "assets/scenes/planned/ep04_vc19_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc19_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc19_v2.png",
@@ -1959,7 +2067,8 @@
     "dialogue": "未来商品は、演出より先に温めること。",
     "log": [],
     "visualLabel": "19/20　業務ノートに追記",
-    "progressLabel": "109/112　ナレーション"
+    "progressLabel": "109/112　ナレーション",
+    "reading": "未来商品は、演出より先に温めること。"
   },
   {
     "id": "ep04_v110",
@@ -1967,8 +2076,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "業務ノートに追記",
     "visualCutIndex": 19,
-    "start": 197.28,
-    "end": 199.1,
+    "start": 258.231,
+    "end": 260.226,
     "image": "assets/scenes/planned/ep04_vc19_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc19_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc19_v2.png",
@@ -1977,7 +2086,8 @@
     "dialogue": "当たり前のことですけどね。",
     "log": [],
     "visualLabel": "19/20　業務ノートに追記",
-    "progressLabel": "110/112　タクミ"
+    "progressLabel": "110/112　タクミ",
+    "reading": "当たり前のことですけどね。"
   },
   {
     "id": "ep04_v111",
@@ -1985,8 +2095,8 @@
     "visualCutId": "vc19",
     "visualCutTitle": "業務ノートに追記",
     "visualCutIndex": 19,
-    "start": 199.5,
-    "end": 200.48,
+    "start": 260.476,
+    "end": 262.132,
     "image": "assets/scenes/planned/ep04_vc19_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc19_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc19_v2.png",
@@ -1995,7 +2105,8 @@
     "dialogue": "未来では違う。",
     "log": [],
     "visualLabel": "19/20　業務ノートに追記",
-    "progressLabel": "111/112　エリ"
+    "progressLabel": "111/112　エリ",
+    "reading": "未来では違う。"
   },
   {
     "id": "ep04_v112",
@@ -2003,8 +2114,8 @@
     "visualCutId": "vc20",
     "visualCutTitle": "締めのナレーション",
     "visualCutIndex": 20,
-    "start": 200.88,
-    "end": 205.64,
+    "start": 262.382,
+    "end": 267.87,
     "image": "assets/scenes/planned/ep04_vc20_v2.png",
     "plannedImage": "assets/scenes/planned/ep04_vc20_v2.png",
     "fallbackImage": "assets/scenes/planned/ep04_vc20_v2.png",
@@ -2013,6 +2124,7 @@
     "dialogue": "深夜のコンビニでは、未来の商品ほど、味より演出を優先することがある。",
     "log": [],
     "visualLabel": "20/20　締めのナレーション",
-    "progressLabel": "112/112　ナレーション"
+    "progressLabel": "112/112　ナレーション",
+    "reading": "深夜のコンビニでは、未来の商品ほど、味より演出を優先することがある。"
   }
 ]

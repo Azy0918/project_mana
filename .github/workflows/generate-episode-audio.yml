@@ -63,6 +63,8 @@ jobs:
       - name: AivisSpeech Engine を起動
         run: |
           mkdir -p ~/aivis-data/std ~/aivis-data/dev
+          # コンテナ内ユーザー(uid 1000)が書けるように権限を開放
+          chmod -R 777 ~/aivis-data
           docker run -d --name aivis -p 10101:10101 \
             -v "$HOME/aivis-data/std:/home/user/.local/share/AivisSpeech-Engine" \
             -v "$HOME/aivis-data/dev:/home/user/.local/share/AivisSpeech-Engine-Dev" \

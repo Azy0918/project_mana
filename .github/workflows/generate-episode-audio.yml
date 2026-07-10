@@ -98,6 +98,12 @@ jobs:
           done
           curl -sf http://127.0.0.1:10101/speakers > /dev/null
 
+      - name: スタジオ保存のセリフを scene_manifest に同期
+        env:
+          MANA_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python3 anime-github-project/tools/sync_scene_from_voice.py "${{ inputs.episode }}"
+
       - name: 音声を生成
         env:
           MANA_REPO_ROOT: ${{ github.workspace }}

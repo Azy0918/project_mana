@@ -5,7 +5,7 @@
 - 声/パラメータ = ep01_voice_cast.csv(キャラ→style_id/速度/抑揚/ピッチ)
 - テンポ = EP01 aivisと同一(ナレ450/レジ350/既定250ms)
 """
-import sys, os, json, io, time, wave, csv, urllib.parse, urllib.request
+import sys, os, json, io, time, wave, csv, hashlib, urllib.parse, urllib.request
 from pathlib import Path
 
 EP = sys.argv[1] if len(sys.argv) > 1 else "ep02"
@@ -41,10 +41,17 @@ _SFX = TOOLS / "sfx_register.wav"
 _SFX_SCAN = TOOLS / "sfx_scan.wav"  # 通常レジのスキャン音「ピッ」(台本の通常レジSE行の代替)
 SFX_AFTER = {k: _SFX for k in (
     "ep02_v024",  # 「第13レジ。ただいま営業中。」
-    "ep03_v036_reg", "ep04_v019", "ep05_v009_reg", "ep06_v009_reg", "ep07_v007_reg",
+    "ep03_v036_reg", "ep05_v009_reg", "ep06_v009_reg", "ep07_v007_reg",
     "ep08_v008_reg", "ep09_v011_reg", "ep10_v015_reg", "ep11_v007_reg", "ep12_v015_reg",  # 各話 登場「ただいま営業中」直後
 )}
-# EP04食べ頃ボタン版(スタジオ改稿2026-07-10で連番化): SFXはep04_v019「第十三レジ。ただいま営業中。」直後
+def sfx_after_ids(src):
+    """静的ID + セリフ検出の動的マップ。スタジオ保存で行番号が振り直されてもSFX位置が追従する"""
+    m = dict(SFX_AFTER)
+    for s in src:
+        if "ただいま営業中" in s.get("dialogue", "") and s["id"] not in m:
+            m[s["id"]] = _SFX
+            break
+    return m
 def _sfx_pcm(p):
     with wave.open(str(p), "rb") as w:
         return w.readframes(w.getnframes())
@@ -92,6 +99,7 @@ def main():
                 s["plannedImage"] = c.get("plannedImage", s.get("plannedImage", ""))
                 s["fallbackImage"] = c.get("fallbackImage", s.get("fallbackImage", ""))
     CLIP_DIR.mkdir(parents=True, exist_ok=True)
+    sfx_map = sfx_after_ids(src)
     print(f"{EP}: {len(src)}行 AivisSpeech合成", flush=True)
     clips = []
     for i, sc in enumerate(src, 1):
@@ -102,7 +110,10 @@ def main():
         sid = int(info["style_id"]); dialogue = sc.get("dialogue", "")
         reading = LINE_READING.get(sc["id"]) or to_reading(dialogue)   # 行上書き優先、無ければ辞書適用
         sc["reading"] = reading          # scene_manifestにも読みを格納
-        cp = CLIP_DIR / f"{sc['id']}.wav"
+        # キャッシュ鍵に読みとstyle_idのハッシュを含める: スタジオ保存で行番号が
+        # 振り直されても、別セリフの古いクリップを誤流用しない
+        h = hashlib.md5(f"{sid}|{reading}".encode("utf-8")).hexdigest()[:8]
+        cp = CLIP_DIR / f"{sc['id']}_{h}.wav"
         if not cp.exists():   # 再開: 既存クリップ再利用(AivisSpeechは決定的)
             q = audio_query(reading, sid)
             for k in PARAM_KEYS:
@@ -125,8 +136,8 @@ def main():
         pa = PAUSE.get(ch, PAUSE_DEFAULT)
         if pa:
             full += b"\x00\x00" * int(rate * pa / 1000); cursor += pa / 1000.0
-        if sc["id"] in SFX_AFTER and SFX_AFTER[sc["id"]].exists():
-            sfx = _sfx_pcm(SFX_AFTER[sc["id"]]); full += sfx; cursor += len(sfx) / 2 / rate
+        if sc["id"] in sfx_map and sfx_map[sc["id"]].exists():
+            sfx = _sfx_pcm(sfx_map[sc["id"]]); full += sfx; cursor += len(sfx) / 2 / rate
 
     buf = io.BytesIO()
     with wave.open(buf, "wb") as o:

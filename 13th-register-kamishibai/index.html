@@ -672,7 +672,7 @@
       return `${min}:${sec}`;
     };
 
-    const ASSET_VERSION = new URLSearchParams(window.location.search).get("v") || "ep03img1";
+    const ASSET_VERSION = new URLSearchParams(window.location.search).get("v") || "ep04-timing-20260710-v2";
 
     const normalizeAssetPath = path => {
       if (!path) return FALLBACK_IMAGE;
@@ -913,8 +913,8 @@
         label: "第4話 食べ頃ボタン",
         title: "深夜二時の第十三レジ 第4話",
         badge: "第4話『食べ頃ボタン』",
-        audio: "./assets/ep04_full_voice_reading_hiragana.wav?v=8",
-        manifest: "./scene_manifest_ep04.json",
+        audio: "./assets/ep04_full_voice_reading_hiragana.wav?v=9",
+        manifest: "./scene_manifest_ep04.json?v=ep04-timing-20260710-v2",
         fallbackImage: "./assets/scenes/planned/ep04_vc01_manual_note.png",
         links: [
           { href: "./assets/ep04_full_voice_reading_hiragana.wav", text: "音声を保存", download: true },

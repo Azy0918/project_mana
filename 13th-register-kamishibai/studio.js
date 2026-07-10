@@ -399,19 +399,27 @@
         const endIdx = idIndex[vc.lineEnd];
         if (startIdx !== undefined && endIdx !== undefined && i >= startIdx && i <= endIdx) return ci + 1;
       }
-      return 1;
+      return 0; // 未判定
     };
-    state.lines = manifest.map((m, i) => ({
-      id: m.id,
-      speaker: m.character || "",
-      text: m.text || "",
-      reading: m.synthesis_text || m.text || "",
-      pauseMs: m.pause_after_ms ?? 400,
-      cut: cutForLine(i),
-      styleId: m.style_id != null ? String(m.style_id) : "",
-      speakerName: m.speaker_name || "",
-      generated: true,
-    }));
+    // カットは行自身のvisualCutIdを最優先(行番号振り直しでplanの範囲が古くても壊れない)。
+    // 無ければplanの範囲、それも無ければ直前の行を引き継ぐ
+    let lastCut = 1;
+    state.lines = manifest.map((m, i) => {
+      const own = Number(String(m.visualCutId || "").replace(/^vc/, ""));
+      const cut = own >= 1 && own <= CUT_COUNT ? own : cutForLine(i) || lastCut;
+      lastCut = cut;
+      return {
+        id: m.id,
+        speaker: m.character || "",
+        text: m.text || "",
+        reading: m.synthesis_text || m.text || "",
+        pauseMs: m.pause_after_ms ?? 400,
+        cut,
+        styleId: m.style_id != null ? String(m.style_id) : "",
+        speakerName: m.speaker_name || "",
+        generated: true,
+      };
+    });
     state.cuts = cuts;
     log(`${epId}: ${state.lines.length}行 / ${(visualCutPlan || []).length}カットを読み込みました。`);
   }

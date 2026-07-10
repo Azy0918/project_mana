@@ -1210,7 +1210,76 @@
     });
   }
 
+  // ---------- cloud generation via GitHub Actions ----------
+  const CLOUD_WORKFLOW = "generate-episode-audio.yml";
+
+  async function cloudGenerate() {
+    const st = $("#cloudGenStatus");
+    const c = ghConfig();
+    st.textContent = "セリフ・カット情報を保存中…";
+    await saveDialogue();
+    const files = epFiles(state.epId);
+    await ghPutJSON(files.sceneManifest, buildSceneManifest(), `${state.epId} scene_manifest を更新（クラウド生成前）`);
+    st.textContent = "GitHub Actions を起動中…";
+    const res = await fetch(`https://api.github.com/repos/${c.owner}/${c.repo}/actions/workflows/${CLOUD_WORKFLOW}/dispatches`, {
+      method: "POST",
+      headers: { ...ghHeaders(), "Content-Type": "application/json" },
+      body: JSON.stringify({ ref: c.branch, inputs: { episode: state.epId } }),
+    });
+    if (res.status !== 204) {
+      const t = await res.text();
+      let msg = `起動失敗 → ${res.status} ${t.slice(0, 200)}`;
+      if (res.status === 403 || res.status === 404) {
+        msg += " ｜対処: PATの「Permissions→Actions」を Read and write にしてください";
+      }
+      throw new Error(msg);
+    }
+    // ポーリングで進行状況を表示
+    const runsUrl = `https://api.github.com/repos/${c.owner}/${c.repo}/actions/workflows/${CLOUD_WORKFLOW}/runs?per_page=1`;
+    const actionsPage = `https://github.com/${c.owner}/${c.repo}/actions`;
+    await new Promise((r) => setTimeout(r, 5000));
+    for (let i = 0; i < 120; i += 1) {
+      let run = null;
+      try {
+        const rr = await fetch(runsUrl, { headers: ghHeaders() });
+        if (rr.ok) run = (await rr.json()).workflow_runs?.[0] || null;
+      } catch (e) { /* 一時的な失敗は無視して継続 */ }
+      if (run) {
+        if (run.status === "completed") {
+          if (run.conclusion === "success") {
+            st.innerHTML = `✅ 完了。1〜2分でPagesに反映されます（<a href="${run.html_url}" target="_blank" style="color:var(--cyan)">ログ</a>）`;
+          } else {
+            st.innerHTML = `❌ 失敗 (${run.conclusion})。<a href="${run.html_url}" target="_blank" style="color:var(--cyan)">ログを確認</a>`;
+          }
+          return;
+        }
+        st.innerHTML = `⏳ 実行中 (${run.status})… <a href="${run.html_url}" target="_blank" style="color:var(--cyan)">進行状況</a>`;
+      } else {
+        st.innerHTML = `⏳ 起動確認中… <a href="${actionsPage}" target="_blank" style="color:var(--cyan)">Actions</a>`;
+      }
+      await new Promise((r) => setTimeout(r, 15000));
+    }
+    st.innerHTML = `⏱ 監視を終了しました。<a href="${actionsPage}" target="_blank" style="color:var(--cyan)">Actionsページ</a>で確認してください`;
+  }
+
   function setupAudioTab() {
+    $("#cloudGenBtn").addEventListener("click", async () => {
+      const btn = $("#cloudGenBtn");
+      const st = $("#cloudGenStatus");
+      if (!state.epId) {
+        st.textContent = "❌ エピソードを先に読み込んでください（設定タブ）";
+        return;
+      }
+      btn.disabled = true;
+      try {
+        await cloudGenerate();
+      } catch (err) {
+        st.textContent = `❌ ${err.message}`;
+        log(`クラウド生成失敗: ${err.message}`);
+      } finally {
+        btn.disabled = false;
+      }
+    });
     $("#genAllBtn").addEventListener("click", () => generateAll(false));
     $("#genAllForceBtn").addEventListener("click", () => generateAll(true));
     $("#commitAudioBtn").addEventListener("click", async () => {

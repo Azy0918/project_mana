@@ -1,0 +1,135 @@
+name: エピソード音声生成
+
+on:
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: '話数'
+        required: true
+        default: 'ep04'
+        type: choice
+        options:
+          - ep01
+          - ep02
+          - ep03
+          - ep04
+          - ep05
+          - ep06
+          - ep07
+          - ep08
+          - ep09
+          - ep10
+          - ep11
+          - ep12
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate-audio
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: 音声モデルキャッシュを復元
+        uses: actions/cache@v4
+        with:
+          path: ~/aivis-data
+          key: aivis-models-v1
+
+      - name: AivisSpeech Engine を起動
+        run: |
+          mkdir -p ~/aivis-data/std ~/aivis-data/dev
+          docker run -d --name aivis -p 10101:10101 \
+            -v "$HOME/aivis-data/std:/home/user/.local/share/AivisSpeech-Engine" \
+            -v "$HOME/aivis-data/dev:/home/user/.local/share/AivisSpeech-Engine-Dev" \
+            ghcr.io/aivis-project/aivisspeech-engine:cpu-latest
+          echo "エンジンの起動を待機中…"
+          for i in $(seq 1 90); do
+            if curl -sf -m 5 http://127.0.0.1:10101/version > /dev/null 2>&1; then
+              echo "起動確認: $(curl -s http://127.0.0.1:10101/version)"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "エンジンが起動しませんでした"; docker logs aivis | tail -50; exit 1
+
+      - name: キャストの音声モデルをインストール
+        run: |
+          # ep01_voice_cast.csv 全キャストのAivisHubモデル(2026-07-10時点のローカル環境から採取)
+          UUIDS="
+          2e1fdde8-d089-42d7-b64f-cf89952b1bdc
+          47e53151-a378-46f3-abee-ce13aa07feb1
+          6d11c6c2-f4a4-4435-887e-23dd60f8b8dd
+          9107b8b6-1ed1-43f5-bebe-0de4df4d229d
+          80fe2db4-5891-4550-a3f3-dff9a91c0946
+          1f04a608-916c-4d9e-bf6e-b9da5c176f85
+          ed47c952-c253-405e-adba-1172399816a1
+          d1a7446f-230d-4077-afdf-923eddabe53c
+          22e8ed77-94fe-4ef2-871f-a86f94e9a579
+          3328da9a-8124-4619-a853-f7fc2f37889f
+          3dabea2b-cc10-41da-955b-4618ce84e716
+          a670e6b8-0852-45b2-8704-1bc9862f2fe6
+          d7255c2c-ddd0-425a-808c-662cd94c7f41
+          "
+          INSTALLED=$(curl -s http://127.0.0.1:10101/aivm_models)
+          for u in $UUIDS; do
+            if echo "$INSTALLED" | grep -q "$u"; then
+              echo "済: $u"
+              continue
+            fi
+            echo "インストール: $u"
+            curl -sf -X POST "http://127.0.0.1:10101/aivm_models/install" \
+              -F "url=https://api.aivis-project.com/v1/aivm-models/$u/download?model_type=AIVMX" \
+              || { echo "モデル $u のインストールに失敗"; exit 1; }
+          done
+          # モデル読み込みのためエンジンを再起動
+          docker restart aivis
+          for i in $(seq 1 60); do
+            curl -sf -m 5 http://127.0.0.1:10101/version > /dev/null 2>&1 && break
+            sleep 5
+          done
+          curl -sf http://127.0.0.1:10101/speakers > /dev/null
+
+      - name: 音声を生成
+        env:
+          MANA_REPO_ROOT: ${{ github.workspace }}
+          MANA_CLIP_DIR: /tmp/anime_clips
+        run: |
+          python3 anime-github-project/tools/gen_episode_aivis.py "${{ inputs.episode }}"
+
+      - name: 音声キャッシュバスターを更新
+        run: |
+          python3 - "${{ inputs.episode }}" <<'EOF'
+          import re, sys
+          ep = sys.argv[1]
+          p = "13th-register-kamishibai/index.html"
+          s = open(p, encoding="utf-8").read()
+          pat = re.compile(r'(audio: "\./assets/%s_full_voice[^"?]*\.wav)(\?v=(\d+))?"' % ep)
+          def bump(m):
+              n = int(m.group(3)) + 1 if m.group(3) else 2
+              return f'{m.group(1)}?v={n}"'
+          s2, cnt = pat.subn(bump, s)
+          open(p, "w", encoding="utf-8", newline="\n").write(s2)
+          print(f"cache-bust updated: {cnt} entries")
+          EOF
+
+      - name: gh-pages へコミット
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 13th-register-kamishibai
+          if git diff --cached --quiet; then
+            echo "変更なし"
+            exit 0
+          fi
+          git commit -m "${{ inputs.episode }} 音声をクラウド生成する"
+          git pull --rebase origin gh-pages
+          git push origin gh-pages

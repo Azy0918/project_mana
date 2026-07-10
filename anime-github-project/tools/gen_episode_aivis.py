@@ -5,21 +5,23 @@
 - 声/パラメータ = ep01_voice_cast.csv(キャラ→style_id/速度/抑揚/ピッチ)
 - テンポ = EP01 aivisと同一(ナレ450/レジ350/既定250ms)
 """
-import sys, json, io, time, wave, csv, urllib.parse, urllib.request
+import sys, os, json, io, time, wave, csv, urllib.parse, urllib.request
 from pathlib import Path
 
 EP = sys.argv[1] if len(sys.argv) > 1 else "ep02"
-API = "http://127.0.0.1:10101"
+# 環境変数で上書き可能(GitHub Actionsクラウド生成用)。未設定ならローカルPCの既定値
+API = os.environ.get("MANA_AIVIS_API", "http://127.0.0.1:10101")
 RATE = 44100
 PARAM_KEYS = ("speedScale", "intonationScale", "tempoDynamicsScale", "pitchScale",
               "volumeScale", "prePhonemeLength", "postPhonemeLength")
 TOOLS = Path(__file__).resolve().parent
-CODEX = Path(r"C:\Users\qvf03\Documents\Codex\2026-06-08\files-mentioned-by-the-user-13th\project_mana_gh_pages")
-OD = Path(r"C:\Users\qvf03\OneDrive\ドキュメント\深夜二時の第十三レジ")
+CODEX = Path(os.environ.get("MANA_REPO_ROOT",
+             r"C:\Users\qvf03\Documents\Codex\2026-06-08\files-mentioned-by-the-user-13th\project_mana_gh_pages"))
 DESTS = [(CODEX, s) for s in ("13th-register-kamishibai",)]  # siteミラー廃止(2026-07 棚卸し)
 SCENE_NAME = f"scene_manifest_{EP}.json"
 WAV_NAME = f"{EP}_full_voice_reading_hiragana.wav"
-CLIP_DIR = Path(r"C:\Users\qvf03\Documents\anime_clips") / f"{EP}_aivis" / "raw"  # OneDrive外
+CLIP_DIR = Path(os.environ.get("MANA_CLIP_DIR",
+               r"C:\Users\qvf03\Documents\anime_clips")) / f"{EP}_aivis" / "raw"  # OneDrive外
 CAST_CSV = TOOLS / "ep01_voice_cast.csv"
 FB = {"レシート": "第十三レジ"}
 PAUSE = {"ナレーション": 450, "第十三レジ": 350}

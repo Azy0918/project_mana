@@ -165,7 +165,17 @@
   <!-- ===== 音声 ===== -->
   <section class="tab" data-tab="audio">
     <div class="card">
-      <h2>音声生成</h2>
+      <h2>クラウド生成（GitHub Actions）</h2>
+      <p class="muted">PCのAivisSpeechがなくても使えます。セリフ・カット情報を保存してからGitHub Actions上でエンジンを起動し、
+        全行合成→結合→retime→公開まで自動で行います（初回は約15分、2回目以降は5〜10分）。
+        トークンに <code class="small">Actions: Read and write</code> 権限が必要です。</p>
+      <div class="row">
+        <button class="go" id="cloudGenBtn">クラウドで生成して公開</button>
+        <span id="cloudGenStatus" class="muted"></span>
+      </div>
+    </div>
+    <div class="card">
+      <h2>音声生成（ローカルPC）</h2>
       <div class="row">
         <button class="go" id="genAllBtn">一括生成（未生成分のみ）</button>
         <button id="genAllForceBtn">一括再生成（全部）</button>

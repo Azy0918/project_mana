@@ -89,39 +89,49 @@
     return { sha: json.sha, bytes: base64ToBytes(json.content) };
   }
   async function ghGetSha(relPath) {
-    // Contents APIのファイルGETは1MB超で403になるため、親ディレクトリ一覧からshaを取る
+    // objectメディアタイプなら1MB超のファイルでもshaが取れる(contentは空になる)。
+    // ディレクトリ一覧より鮮度が高く、連続コミット中の409を減らす
     const c = ghConfig();
-    const full = fullPath(relPath);
-    const dir = full.split("/").slice(0, -1).join("/");
-    const name = full.split("/").pop();
-    const url = `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${encodePath(dir)}?ref=${encodeURIComponent(c.branch)}`;
-    const res = await fetch(url, { headers: ghHeaders() });
+    const url = `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${encodePath(fullPath(relPath))}?ref=${encodeURIComponent(c.branch)}&t=${Date.now()}`;
+    const res = await fetch(url, {
+      headers: { ...ghHeaders(), Accept: "application/vnd.github.object+json" },
+      cache: "no-store",
+    });
     if (res.status === 404) return null;
-    if (!res.ok) throw new Error(`GET ${dir} → ${res.status}`);
-    const list = await res.json();
-    const hit = Array.isArray(list) ? list.find((e) => e.name === name) : null;
-    return hit ? hit.sha : null;
+    if (!res.ok) throw new Error(`GET ${relPath} → ${res.status}`);
+    const json = await res.json();
+    return json.sha || null;
   }
   async function ghPutFile(relPath, bytes, message) {
     const c = ghConfig();
-    const sha = await ghGetSha(relPath);
     const url = `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${encodePath(fullPath(relPath))}`;
-    const body = { message, content: bytesToBase64(bytes), branch: c.branch };
-    if (sha) body.sha = sha;
-    const res = await fetch(url, {
-      method: "PUT",
-      headers: { ...ghHeaders(), "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    if (!res.ok) {
+    const content = bytesToBase64(bytes);
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      // 409(sha不一致)対策: 毎回shaを取り直してから送る
+      const sha = await ghGetSha(relPath);
+      const body = { message, content, branch: c.branch };
+      if (sha) body.sha = sha;
+      const res = await fetch(url, {
+        method: "PUT",
+        headers: { ...ghHeaders(), "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (res.ok) return res.json();
       const t = await res.text();
+      if (res.status === 409 && attempt < 2) {
+        await new Promise((r) => setTimeout(r, 1500 * (attempt + 1)));
+        continue;
+      }
       let msg = `PUT ${relPath} → ${res.status} ${t.slice(0, 300)}`;
       if (res.status === 403 && /not accessible by personal access token/i.test(t)) {
         msg += " ｜対処: Fine-grained PATの「Repository access」に Azy0918/project_mana を追加し、「Permissions→Contents」を Read and write にしてください";
       }
+      if (res.status === 409) {
+        msg += " ｜リトライしても競合が解消しません。少し待ってからもう一度押してください";
+      }
       throw new Error(msg);
     }
-    return res.json();
+    throw new Error(`PUT ${relPath} → リトライ上限`);
   }
   async function ghPutJSON(relPath, obj, message) {
     return ghPutFile(relPath, textToBytes(JSON.stringify(obj, null, 2)), message);

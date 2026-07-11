@@ -763,8 +763,8 @@
     "speaker_name": "澤原 玄二郎",
     "style_name": "",
     "style_id": "2029042368",
-    "text": "タクミが唐揚げ棒を触る。",
-    "synthesis_text": "タクミが唐揚げ棒を触る。",
+    "text": "タクミが唐揚げ棒に手をかざす。",
+    "synthesis_text": "タクミが唐揚げ棒に手をかざす。",
     "synthesis_source": "aivis_studio",
     "pause_after_ms": 400,
     "clip": "13th-register-kamishibai/assets/clips_ep04/ep04_v055.wav"

@@ -74,12 +74,12 @@
     "ep04_v070": "assets/scenes/planned/ep04_vc13_v2.png",
     "ep04_v071": "assets/scenes/planned/ep04_vc13_v2.png",
     "ep04_v072": "assets/scenes/planned/ep04_vc13_v2.png",
-    "ep04_v073": "assets/scenes/planned/ep04_vc13_v2.png",
-    "ep04_v074": "assets/scenes/planned/ep04_vc13_v2.png",
-    "ep04_v075": "assets/scenes/planned/ep04_vc13_v2.png",
-    "ep04_v076": "assets/scenes/planned/ep04_vc13_v2.png",
-    "ep04_v077": "assets/scenes/planned/ep04_vc13_v2.png",
-    "ep04_v078": "assets/scenes/planned/ep04_vc13_v2.png",
+    "ep04_v073": "assets/scenes/planned/ep04_vc14_v2.png",
+    "ep04_v074": "assets/scenes/planned/ep04_vc14_v2.png",
+    "ep04_v075": "assets/scenes/planned/ep04_vc14_v2.png",
+    "ep04_v076": "assets/scenes/planned/ep04_vc14_v2.png",
+    "ep04_v077": "assets/scenes/planned/ep04_vc14_v2.png",
+    "ep04_v078": "assets/scenes/planned/ep04_vc14_v2.png",
     "ep04_v079": "assets/scenes/planned/ep04_vc14_v2.png",
     "ep04_v080": "assets/scenes/planned/ep04_vc14_v2.png",
     "ep04_v081": "assets/scenes/planned/ep04_vc14_v2.png",
@@ -110,5 +110,5 @@
     "ep04_v106": "assets/scenes/planned/ep04_vc19_v2.png",
     "ep04_v107": "assets/scenes/planned/ep04_vc20_v2.png"
   },
-  "assetVersion": "ep04-vc14-20260712-v1"
+  "assetVersion": "ep04-vc12-16-continuity-20260712-v1"
 }

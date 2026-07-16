@@ -33,25 +33,8 @@
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png",
     "lineRangeDraft": "ep03_v007-ep03_v011",
     "prompt": "カウンター上の小さなカップアイス「昨日バニラ」。白いフタ、クリーム色と淡い青、眠そうな月と戻る矢印のラベル。",
-    "characterIds": [
-      "takumi",
-      "mina"
-    ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+    "characterIds": [],
+    "characterReferenceImages": []
   },
   {
     "visualCutId": "vc03",
@@ -89,11 +72,7 @@
     "prompt": "冷凍庫の温度表示が上がり、赤い警告灯。タクミが焦り、エリは平常運転。昨日バニラに水滴。",
     "characterIds": [
       "takumi",
-      "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register"
+      "mina"
     ],
     "characterReferenceImages": [
       {
@@ -107,30 +86,6 @@
         "role": "design_sheet",
         "path": "assets/character_sheets/mina_sheet_v2.png",
         "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
       }
     ],
     "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
@@ -142,6 +97,26 @@
     "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png",
     "lineRangeDraft": "ep03_v023-ep03_v026",
     "prompt": "昨日バニラの融解でレジに昨日の売上履歴が戻る。レシート風の半透明表示とタクミの驚き。",
+    "characterIds": [
+      "takumi"
+    ],
+    "characterReferenceImages": [
+      {
+        "characterId": "takumi",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/takumi_sheet_v2.png",
+        "weight": 1.0
+      }
+    ],
+    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
+  },
+  {
+    "visualCutId": "vc06",
+    "title": "戻ったコーヒー",
+    "plannedImage": "assets/scenes/planned/ep03_vc06_returned_paper_coffee_yvtm_v1.png",
+    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png",
+    "lineRangeDraft": "ep03_v027-ep03_v032",
+    "prompt": "飲み切ったはずの紙コップコーヒーが半分戻る。昨日バニラと並び、タクミが叫び、エリが淡々と見る。",
     "characterIds": [
       "takumi",
       "mina"
@@ -163,68 +138,6 @@
     "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
   },
   {
-    "visualCutId": "vc06",
-    "title": "戻ったコーヒー",
-    "plannedImage": "assets/scenes/planned/ep03_vc06_returned_paper_coffee_yvtm_v1.png",
-    "fallbackImage": "assets/scenes/planned/ep03_vc01_freezer_yesterday.png",
-    "lineRangeDraft": "ep03_v027-ep03_v032",
-    "prompt": "飲み切ったはずの紙コップコーヒーが半分戻る。昨日バニラと並び、タクミが叫び、エリが淡々と見る。",
-    "characterIds": [
-      "takumi",
-      "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
-      "navigation_terminal_ep02"
-    ],
-    "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "navigation_terminal_ep02",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
-        "weight": 1.0
-      }
-    ],
-    "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
-  },
-  {
     "visualCutId": "vc07",
     "title": "汗田、来店",
     "plannedImage": "assets/scenes/planned/ep03_vc07_aseda_enters_yvtm_v1.png",
@@ -232,49 +145,14 @@
     "lineRangeDraft": "ep03_v033-ep03_v038",
     "prompt": "自動ドアから汗田が来店。紫ヘルメット、黒いバイクジャケット、小型ナビの冷凍庫警告。",
     "characterIds": [
-      "takumi",
-      "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
       "navigation_terminal_ep02"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
         "weight": 1.0
       },
       {
@@ -295,12 +173,7 @@
     "prompt": "タクミが昨日バニラを汗田へ差し出す。汗田は読めるが理解したくない顔。",
     "characterIds": [
       "takumi",
-      "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
-      "navigation_terminal_ep02"
+      "aseda_ryuji"
     ],
     "characterReferenceImages": [
       {
@@ -310,39 +183,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "navigation_terminal_ep02",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
         "weight": 1.0
       }
     ],
@@ -356,49 +199,14 @@
     "lineRangeDraft": "ep03_v045-ep03_v048",
     "prompt": "汗田が昨日バニラのラベル横コードを解析。ナビ端末とカップアイスを中心に、未来食品ではなく時間保存媒体と示す。",
     "characterIds": [
-      "takumi",
-      "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
       "navigation_terminal_ep02"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
         "weight": 1.0
       },
       {
@@ -418,55 +226,13 @@
     "lineRangeDraft": "ep03_v049-ep03_v054",
     "prompt": "雑誌棚や清掃記録が昨日状態へ戻る。タクミが青ざめ、棚が半透明に二重化する。",
     "characterIds": [
-      "takumi",
-      "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
-      "navigation_terminal_ep02"
+      "takumi"
     ],
     "characterReferenceImages": [
       {
         "characterId": "takumi",
         "role": "design_sheet",
         "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "navigation_terminal_ep02",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
         "weight": 1.0
       }
     ],
@@ -482,11 +248,8 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
-      "navigation_terminal_ep02"
+      "thirteenth_register"
     ],
     "characterReferenceImages": [
       {
@@ -502,33 +265,15 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
         "weight": 1.0
       },
       {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "thirteenth_register",
         "role": "design_sheet",
         "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "navigation_terminal_ep02",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
         "weight": 1.0
       }
     ],
@@ -542,43 +287,15 @@
     "lineRangeDraft": "ep03_v061-ep03_v067",
     "prompt": "汗田がナビ端末を第十三レジ横に置き、戻るのは店舗記録と商品状態だけだと説明する。",
     "characterIds": [
-      "takumi",
-      "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -605,12 +322,7 @@
     "prompt": "タクミの掃除やメモが昨日状態に戻り、タクミが絶望。第十三レジは無表情。",
     "characterIds": [
       "takumi",
-      "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
-      "navigation_terminal_ep02"
+      "thirteenth_register"
     ],
     "characterReferenceImages": [
       {
@@ -620,39 +332,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "thirteenth_register",
         "role": "design_sheet",
         "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "navigation_terminal_ep02",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
         "weight": 1.0
       }
     ],
@@ -666,27 +348,13 @@
     "lineRangeDraft": "ep03_v072-ep03_v075",
     "prompt": "未来おにぎり修正メモまで戻る危険を知り、汗田の表情が真剣になる。",
     "characterIds": [
-      "takumi",
-      "mina",
-      "thirteenth_register"
+      "aseda_ryuji"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "takumi",
+        "characterId": "aseda_ryuji",
         "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -701,12 +369,7 @@
     "prompt": "エリがレジ袋を持ち、昨日と今日で袋を分ける提案をする。タクミがツッコむ。",
     "characterIds": [
       "takumi",
-      "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
-      "navigation_terminal_ep02"
+      "mina"
     ],
     "characterReferenceImages": [
       {
@@ -719,36 +382,6 @@
         "characterId": "mina",
         "role": "design_sheet",
         "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "navigation_terminal_ep02",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
         "weight": 1.0
       }
     ],
@@ -762,43 +395,15 @@
     "lineRangeDraft": "ep03_v081-ep03_v088",
     "prompt": "汗田が袋単位の別取引として理屈を説明する。二枚の袋、昨日バニラ、ナビ、第十三レジ。",
     "characterIds": [
-      "takumi",
-      "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -824,55 +429,13 @@
     "lineRangeDraft": "ep03_v089-ep03_v093",
     "prompt": "エリが袋を二枚出し、一枚に昨日バニラを入れる。片方は過去光、片方は通常光。",
     "characterIds": [
-      "takumi",
-      "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
-      "navigation_terminal_ep02"
+      "mina"
     ],
     "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
       {
         "characterId": "mina",
         "role": "design_sheet",
         "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "navigation_terminal_ep02",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
         "weight": 1.0
       }
     ],
@@ -886,23 +449,9 @@
     "lineRangeDraft": "ep03_v094-ep03_v101",
     "prompt": "第十三レジが袋分けを処理し、店内照明が青白く揺れる。売上履歴と棚配置が昨日と今日を行き来する。",
     "characterIds": [
-      "takumi",
-      "mina",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "mina",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
       {
         "characterId": "thirteenth_register",
         "role": "design_sheet",
@@ -920,27 +469,13 @@
     "lineRangeDraft": "ep03_v102-ep03_v108",
     "prompt": "エリが保冷剤を袋に置き、処理完了。カップは明日ミルクへ変化する。",
     "characterIds": [
-      "takumi",
-      "mina",
-      "thirteenth_register"
+      "mina"
     ],
     "characterReferenceImages": [
-      {
-        "characterId": "takumi",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/takumi_sheet_v2.png",
-        "weight": 1.0
-      },
       {
         "characterId": "mina",
         "role": "design_sheet",
         "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
         "weight": 1.0
       }
     ],
@@ -955,7 +490,7 @@
     "prompt": "汗田が明日ミルク入り袋を持ち、レシート、コピー機の次回予告、タクミのマニュアルノートで締める。",
     "characterIds": [
       "takumi",
-      "mina"
+      "aseda_ryuji"
     ],
     "characterReferenceImages": [
       {
@@ -965,9 +500,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "mina",
+        "characterId": "aseda_ryuji",
         "role": "design_sheet",
-        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
         "weight": 1.0
       }
     ],

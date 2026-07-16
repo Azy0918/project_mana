@@ -2,7 +2,7 @@
   "version": 1,
   "episode": "ep05",
   "status": "draft_until_claude_line_ids_are_final",
-  "assetVersion": "ep05-full-redraw-20260716-v1",
+  "assetVersion": "ep05-zakiyama-current-20260716-v1",
   "policy": "Codex owns assignments, image paths, planned images, and image prompts. Claude may read this file but should not edit assignment values.",
   "notes": [
     "Assignments are provisional because dialogue IDs from Claude are not available yet.",

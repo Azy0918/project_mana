@@ -41,6 +41,11 @@
 2. Codexが `visual_cut_plan_ep*.json` の `plannedImage` を更新。
 3. Claudeが該当話を再生成（`gen_episode_aivis`が visual_cut_plan→scene_manifest の image を同期）→ 動画/プレイヤー反映→公開。
 
+### 画像生成前チェック
+- 座木山辰哉など固定キャラを含む画像生成前に `python 13th-register-kamishibai/tools/check_visual_prompt_locks.py` を実行する。
+- 座木山の正本は `assets/character_reference.json` と `character_visual_locks.json`。旧設定（暗いフーディー、黒い長靴、店内の釣り竿・タモ網・バケツ・クーラーボックス）をプロンプト本文へ復活させない。
+- `apply_character_references.py` は「似せない」「禁止」などの否定文だけではキャラ登場扱いにしない。
+
 ## 旧世代（未使用・撤去対象）
 - 旧Gemini音声：`cloud_tts.py`/`gen_episode_cloud.py`/`reapply_ep01_gemini.py`/`regen_*`/`gemini_voice_audition_app.py`/`voice-auditions/`
 - 旧パペット/PV：`puppet_motion_engine.py` 系 / `make_new_pv_video.py` / `13th-register-pv/`

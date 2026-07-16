@@ -35,7 +35,7 @@
 | 08 | 商店伝票に偽装 | `assets/scenes/planned/ep05_vc08_disguised_future_log.png` | `ep05_v036-ep05_v040` | 未来青年の記憶封印ログが古い商店伝票に偽装されている様子を、紙束と微細回路の対比で表現。 |
 | 09 | 仕分け作業 | `assets/scenes/planned/ep05_vc09_sorting_slips.png` | `ep05_v041-ep05_v045` | 牛乳、食パン、乾電池、記憶封印、のり弁、危険知識などを机に並べて地味に仕分ける。 |
 | 10 | 分類精度六十八 | `assets/scenes/planned/ep05_vc10_classification_low.png` | `ep05_v046-ep05_v050` | 第十三レジが分類精度低めを表示。タクミが低いと驚く。 |
-| 11 | 座木山の店の記憶 | `assets/scenes/planned/ep05_vc11_zakiyama_old_store_memory.png` | `ep05_v051-ep05_v055` | 座木山が昔ここに小さい雑貨屋があったと語る。夜釣り常連姿、古い場所の記憶。 |
+| 11 | 座木山の店の記憶 | `assets/scenes/planned/ep05_vc11_zakiyama_old_store_memory.png` | `ep05_v051-ep05_v055` | 座木山が昔ここに小さい雑貨屋があったと語る。チェックシャツとオリーブの釣りベスト姿、古い場所の記憶。 |
 | 12 | 夜の人を助けた場所 | `assets/scenes/planned/ep05_vc12_old_store_helped_night_people.png` | `ep05_v056-ep05_v060` | 昔の小さな雑貨屋の幻影と現在のコンビニが重なる。電池を買う夜の人の記憶を静かに表現。 |
 | 13 | 判断できないものは預かる | `assets/scenes/planned/ep05_vc13_hold_if_undecidable.png` | `ep05_v061-ep05_v065` | 問題の伝票に手書きで判断できないものは預かる、というメモ。長文は読ませず印象で。 |
 | 14 | 処理選択三択 | `assets/scenes/planned/ep05_vc14_processing_choices_slips.png` | `ep05_v066-ep05_v070` | 第十三レジが過去伝票廃棄、未来記録開封、現代店舗保留を提示する。 |

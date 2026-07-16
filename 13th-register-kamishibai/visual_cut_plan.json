@@ -147,9 +147,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -168,18 +166,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -196,9 +182,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -217,18 +201,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -246,8 +218,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
@@ -267,18 +237,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -301,9 +259,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -323,18 +279,6 @@
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
         "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
       }
     ],
     "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
@@ -351,8 +295,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
@@ -372,18 +314,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -407,8 +337,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
@@ -431,18 +359,6 @@
         "weight": 1.0
       },
       {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "thirteenth_register",
         "role": "design_sheet",
         "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
@@ -462,9 +378,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -484,18 +398,6 @@
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
         "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
       }
     ],
     "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
@@ -509,27 +411,13 @@
     "fallbackImage": "assets/scenes/scene_06_microwave.jpg",
     "prompt": "電子レンジの光の中に未来の食堂、空っぽの棚、長い列、子どもがおにぎりを持って笑う映像。手前に同一人物の未来青年 / 未来の会社員が息を呑む。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "characterIds": [
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -582,8 +470,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
@@ -603,18 +489,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -654,12 +528,10 @@
     "title": "座木山辰哉、コピー機へ",
     "plannedImage": "assets/scenes/planned/ep01_vc17_zakiyama_copy_v3.png",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
-    "prompt": "夜釣り帰りの常連、座木山辰哉が釣り竿とコピーしたい紙束を持ってコピー機へ向かう。コピー機の光、深夜コンビニ、タクミが固まる。 座木山辰哉は55歳の近所の常連客で、未来人ではない。深夜二時台によく来てコピー機を使う、夜釣り好きの変わりもの。昔、バイクで頭を打つ大怪我をしたため、記憶や時間のズレに妙に驚かない。短く乱れた黒髪、眠そうで少し開いた目、薄い眉、薄い無精髭と口髭、下唇が少し前に出て上唇を隠す独特の口元。閉じた口でもこの下唇の形を保つ。表情はぼんやり穏やかで、悪人顔にしない。服は暗いフーディー、ポケットの多いカーキの釣りベスト、オリーブ色のカーゴパンツ、黒い長靴。少し猫背で肩の力が抜けた立ち姿。小道具は長い釣り竿、リール、タモ網、バケツ、タックルバッグ、青灰色のクーラーボックス、古いツーリング地図、コピーした紙束。釣り場では黙々と釣り、店内ではコピー機の前で紙や地図を見ている。缶コーヒーはブラック派。眼鏡、補修眼鏡、コピーカード、方位磁石、カーディガン、チェックシャツ、未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。未来青年や汗田竜司に似せない。実在人物そっくりにしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "prompt": "近所の常連、座木山辰哉が古いツーリング地図とコピーしたい紙束を持ってコピー機へ向かう。コピー機の光、深夜コンビニ、タクミが固まる。 座木山辰哉は55歳の近所の常連客で、未来人ではない。深夜二時台によく来てコピー機を使う、古い地図や紙の記録に詳しい日常側の変わりもの。短く刈った黒白混じりの髪、眠そうで少し開いた目、薄い眉、薄い髭、穏やかで少しぼんやりした普通の顔。表情はぼんやり穏やかで、悪人顔にしない。服はチェックシャツ、オリーブの釣りベスト、カーゴパンツ、普通の靴。少し猫背で肩の力が抜けた立ち姿。店内ではコピー機の前で古いツーリング地図やコピーした紙束を持っている。缶コーヒーはブラック派。暗いフーディー、黒い長靴、店内での釣り竿、リール、タモ網、バケツ、タックルバッグ、クーラーボックス、眼鏡、補修眼鏡、コピーカード、方位磁石、カーディガン、未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。未来青年や汗田竜司に似せない。実在人物そっくりにしない。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
       "zakiyama_tatsuya"
     ],
     "characterReferenceImages": [
@@ -673,18 +545,6 @@
         "characterId": "mina",
         "role": "design_sheet",
         "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -703,12 +563,10 @@
     "title": "夜勤だから",
     "plannedImage": "assets/scenes/planned/ep01_vc18_night_shift_answer_eri_v1.png",
     "fallbackImage": "assets/scenes/scene_08_back_to_normal.jpg",
-    "prompt": "タクミが普通のお客も変なのかと聞き、エリが『夜勤だから』と無表情で返す。奥に座木山辰哉が釣りベスト姿でコピー機を使い、紙束を白黒コピーしている。店内は平常運転。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 座木山辰哉は55歳の近所の常連客で、未来人ではない。深夜二時台によく来てコピー機を使う、夜釣り好きの変わりもの。昔、バイクで頭を打つ大怪我をしたため、記憶や時間のズレに妙に驚かない。短く乱れた黒髪、眠そうで少し開いた目、薄い眉、薄い無精髭と口髭、下唇が少し前に出て上唇を隠す独特の口元。閉じた口でもこの下唇の形を保つ。表情はぼんやり穏やかで、悪人顔にしない。服は暗いフーディー、ポケットの多いカーキの釣りベスト、オリーブ色のカーゴパンツ、黒い長靴。少し猫背で肩の力が抜けた立ち姿。小道具は長い釣り竿、リール、タモ網、バケツ、タックルバッグ、青灰色のクーラーボックス、古いツーリング地図、コピーした紙束。釣り場では黙々と釣り、店内ではコピー機の前で紙や地図を見ている。缶コーヒーはブラック派。眼鏡、補修眼鏡、コピーカード、方位磁石、カーディガン、チェックシャツ、未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。未来青年や汗田竜司に似せない。実在人物そっくりにしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
+    "prompt": "タクミが普通のお客も変なのかと聞き、エリが『夜勤だから』と無表情で返す。奥に座木山辰哉がチェックシャツとオリーブの釣りベスト姿でコピー機を使い、紙束を白黒コピーしている。店内は平常運転。 タクミは全カットで同一人物として固定。キャラID: takumi。20歳前後の若い日本人男性、細身で少し猫背、短い黒髪で軽い寝癖、丸めの目、驚きや困惑が表情に出やすい普通の新人夜勤バイト。制服は全カットで同じ、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「タクミ」。顔をクールな主人公顔にしない。髪型、顔立ち、制服配色、名札位置を変えない。エリの制服と同じ店舗制服にするが、女性用に見せない。 エリは全カットで同一人物として固定。キャラID: mina。20代前半の日本人女性、黒髪の低いひとつ結び、前髪は自然に下ろしすぎず整える、落ち着いた目、無表情に近い淡々とした顔、背筋がまっすぐ。制服はタクミと同じ店舗制服で、濃紺ベースに深緑の前身頃、白い横ライン、緑の襟、左胸に名札「エリ」。華美にしない。髪型、顔立ち、制服配色、名札位置を変えない。ボブやロングヘアへ変更しない。 座木山辰哉は55歳の近所の常連客で、未来人ではない。深夜二時台によく来てコピー機を使う、古い地図や紙の記録に詳しい日常側の変わりもの。短く刈った黒白混じりの髪、眠そうで少し開いた目、薄い眉、薄い髭、穏やかで少しぼんやりした普通の顔。表情はぼんやり穏やかで、悪人顔にしない。服はチェックシャツ、オリーブの釣りベスト、カーゴパンツ、普通の靴。少し猫背で肩の力が抜けた立ち姿。店内ではコピー機の前で古いツーリング地図やコピーした紙束を持っている。缶コーヒーはブラック派。暗いフーディー、黒い長靴、店内での釣り竿、リール、タモ網、バケツ、タックルバッグ、クーラーボックス、眼鏡、補修眼鏡、コピーカード、方位磁石、カーディガン、未来的装備、スーツ、肩液晶、首元タグ、長髪、濃い髭、スポーツサングラス、バイクジャケットは禁止。未来青年や汗田竜司に似せない。実在人物そっくりにしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
       "zakiyama_tatsuya"
     ],
     "characterReferenceImages": [
@@ -722,18 +580,6 @@
         "characterId": "mina",
         "role": "design_sheet",
         "path": "assets/character_sheets/mina_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
         "weight": 1.0
       },
       {

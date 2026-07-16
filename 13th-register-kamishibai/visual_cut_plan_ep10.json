@@ -63,9 +63,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -84,18 +82,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -111,9 +97,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -133,18 +117,6 @@
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
         "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
       }
     ],
     "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
@@ -157,27 +129,20 @@
     "lineRangeDraft": "ep10_v021-ep10_v025",
     "prompt": "未来青年の首元の透明パッチが端から浮き、銀色回路が弱く点滅する。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 未来青年 / 未来の会社員は全カットで同一人物として固定。キャラID: future_worker_ep01。2074年の食品流通管理課の若い男性会社員、実年齢27歳だが過労で40代手前に見える。細身で肩が落ちた体型、短く乱れた黒髪、疲れた目、目の下の薄いクマ、弱った困り顔、薄い無精髭、くたびれた濃紺スーツ、緩んだネクタイ、白シャツ。首元に透明な記憶返品タグ/絆創膏状パッチがあり、中の銀色回路が淡く光る。顔立ち、髪型、体格、スーツ、首元タグを毎カットで変えない。小道具は未来おにぎり、未来レシート、ホットコーヒー。別人化禁止。眼鏡禁止。長髪禁止。濃い髭禁止。スポーツサングラス禁止。バイクジャケット禁止。座木山辰哉や汗田竜司に似せない。未来警察やサイバー戦士にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "characterIds": [
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "mina",
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
       {
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -194,8 +159,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
@@ -215,18 +178,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -249,8 +200,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
@@ -270,18 +219,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -305,7 +242,6 @@
       "mina",
       "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -332,12 +268,6 @@
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -365,9 +295,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -386,18 +314,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -413,9 +329,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -434,18 +348,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -462,8 +364,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
@@ -486,18 +386,6 @@
         "weight": 1.0
       },
       {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "thirteenth_register",
         "role": "design_sheet",
         "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
@@ -516,9 +404,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -537,18 +423,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -564,9 +438,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -585,18 +457,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -614,7 +474,6 @@
       "mina",
       "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -641,12 +500,6 @@
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -674,9 +527,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -694,21 +545,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -737,8 +576,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
@@ -758,18 +595,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -791,9 +616,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -813,18 +636,6 @@
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
         "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
       }
     ],
     "characterReferenceInstruction": "Use characterReferenceImages as identity/design references. Preserve the same character, face, hairstyle, body type, outfit, and fixed prop design. Do not copy the reference sheet layout, labels, captions, or white margins. Change only expression, pose, camera angle, and scene composition."
@@ -840,8 +651,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register"
     ],
     "characterReferenceImages": [
@@ -864,18 +673,6 @@
         "weight": 1.0
       },
       {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "thirteenth_register",
         "role": "design_sheet",
         "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
@@ -894,9 +691,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -915,18 +710,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],

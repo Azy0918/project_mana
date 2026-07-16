@@ -9,9 +9,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -30,18 +28,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -57,9 +43,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -78,18 +62,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -243,8 +215,6 @@
       "takumi",
       "mina",
       "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "twelfth_register",
       "fourteenth_register"
@@ -266,18 +236,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -313,7 +271,6 @@
       "mina",
       "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -343,12 +300,6 @@
         "weight": 1.0
       },
       {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "thirteenth_register",
         "role": "design_sheet",
         "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
@@ -371,11 +322,18 @@
     "lineRangeDraft": "ep11_v036-ep11_v040",
     "prompt": "第十三レジが今の業務を処理すると示す。三台のレジの思想対比。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 第十二レジは過去処理を優先する古いレジ。キャラID: twelfth_register。昭和の商店にありそうな木目調またはくすんだベージュの古いレジ端末、丸みのある筐体、古い金属キー、紙伝票の差し込み口、琥珀色の小さな表示ランプ。第十三レジの黒いセルフレジ顔とは別機体にする。人型ロボットにしない。未来的な透明端末にしない。顔表示を派手にせず、過去の未処理を抱えた静かな存在感にする。 第十四レジは未来処理を優先する透明な未来型レジ。キャラID: fourteenth_register。透明アクリルやガラスのような筐体、白と淡い紫の光、薄い浮遊パネル風の表示、直線的で清潔すぎる未来端末。第十三レジの黒い重いセルフレジとも、第十二レジの古い木目レジとも別機体にする。人型ロボットにしない。巨大な宇宙兵器にしない。顔表示は冷たい未来処理の印象で、派手すぎない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "characterIds": [
+      "mina",
       "thirteenth_register",
       "twelfth_register",
       "fourteenth_register"
     ],
     "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
       {
         "characterId": "thirteenth_register",
         "role": "design_sheet",
@@ -407,9 +365,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -428,18 +384,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -544,9 +488,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -564,21 +506,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -606,9 +536,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya"
+      "future_worker_ep01"
     ],
     "characterReferenceImages": [
       {
@@ -627,18 +555,6 @@
         "characterId": "future_worker_ep01",
         "role": "design_sheet",
         "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "aseda_ryuji",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       }
     ],
@@ -734,11 +650,18 @@
     "lineRangeDraft": "ep11_v076-ep11_v080",
     "prompt": "第十三レジが第十二・第十四レジの記録を保留へ移行し、左右のレジが薄くなる。 9:16縦型ショート動画用。主要被写体は中央寄り、上端左右と下部30〜40%はHTMLのUIセーフエリアとして重要情報を置かない。画像内に字幕、会話ウィンドウ、時計、アプリUI、長文テキストを描かない。日本の深夜コンビニ背景、アニメ背景美術、静かなSFコメディ。 第十三レジは全カットで同一機体として固定。キャラID: thirteenth_register。黒く重いセルフレジ端末、角ばった金属とガラスの筐体、斜めのスクリーンにネオンシアンの短い水平な目が二本、小さな水平の口が一つだけ光る。無表情、眠そう、機械的だが意思がある。カード端末、スキャナー、レシート排出口を持つ。かわいいマスコット化しない。銀色の古いレジや人型ロボットにしない。顔表示をカットごとに変えず、二本の水平な目と小さな口だけにする。 第十二レジは過去処理を優先する古いレジ。キャラID: twelfth_register。昭和の商店にありそうな木目調またはくすんだベージュの古いレジ端末、丸みのある筐体、古い金属キー、紙伝票の差し込み口、琥珀色の小さな表示ランプ。第十三レジの黒いセルフレジ顔とは別機体にする。人型ロボットにしない。未来的な透明端末にしない。顔表示を派手にせず、過去の未処理を抱えた静かな存在感にする。 第十四レジは未来処理を優先する透明な未来型レジ。キャラID: fourteenth_register。透明アクリルやガラスのような筐体、白と淡い紫の光、薄い浮遊パネル風の表示、直線的で清潔すぎる未来端末。第十三レジの黒い重いセルフレジとも、第十二レジの古い木目レジとも別機体にする。人型ロボットにしない。巨大な宇宙兵器にしない。顔表示は冷たい未来処理の印象で、派手すぎない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "characterIds": [
+      "mina",
       "thirteenth_register",
       "twelfth_register",
       "fourteenth_register"
     ],
     "characterReferenceImages": [
+      {
+        "characterId": "mina",
+        "role": "design_sheet",
+        "path": "assets/character_sheets/mina_sheet_v2.png",
+        "weight": 1.0
+      },
       {
         "characterId": "thirteenth_register",
         "role": "design_sheet",
@@ -804,9 +727,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "karasawa_eiji",
       "thirteenth_register",
       "navigation_terminal_ep02"
@@ -825,27 +746,15 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
         "weight": 1.0
       },
       {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "karasawa_eiji",
         "role": "design_sheet",
-        "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+        "path": "assets/character_sheets/karasawa_eiji_sheet.png?v=glasses2",
         "weight": 1.0
       },
       {
@@ -894,7 +803,7 @@
       {
         "characterId": "karasawa_eiji",
         "role": "design_sheet",
-        "path": "assets/character_sheets/karasawa_eiji_sheet_v2.png",
+        "path": "assets/character_sheets/karasawa_eiji_sheet.png?v=glasses2",
         "weight": 1.0
       },
       {

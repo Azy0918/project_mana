@@ -157,13 +157,40 @@ def searchable_text(item: dict[str, Any]) -> str:
     return "\n".join(parts)
 
 
+def is_negative_reference(text: str, start: int, end: int) -> bool:
+    """Return true when a name is only mentioned as a "do not resemble" rule."""
+    context = text[max(0, start - 18) : min(len(text), end + 24)]
+    negative_markers = (
+        "似せない",
+        "に似ない",
+        "のような",
+        "にしない",
+        "禁止",
+        "避ける",
+        "mustAvoid",
+    )
+    return any(marker in context for marker in negative_markers)
+
+
+def has_positive_alias(text: str, alias: str) -> bool:
+    start = 0
+    while True:
+        index = text.find(alias, start)
+        if index < 0:
+            return False
+        end = index + len(alias)
+        if not is_negative_reference(text, index, end):
+            return True
+        start = end
+
+
 def detect_character_ids(item: dict[str, Any], refs: list[CharacterRef]) -> list[str]:
     text = searchable_text(item)
     if not text:
         return []
     detected: list[str] = []
     for ref in refs:
-        if any(alias and alias in text for alias in ref.aliases):
+        if any(alias and has_positive_alias(text, alias) for alias in ref.aliases):
             detected.append(ref.id)
     return detected
 

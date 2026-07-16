@@ -6,29 +6,15 @@
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada_v2.png",
     "prompt": "会社の駐輪場。雨の夜、汗田が黒いCB200X風アドベンチャーバイクの横に立ち、紫のフルフェイスヘルメットを自然に持つ。ヘルメットを持つ手は外側から縁またはストラップをつかみ、指がめり込まない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。 ナビ端末はカメラに画面を向けなくてよい。背面または斜め背面が写ってもよい。",
     "characterIds": [
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -53,29 +39,15 @@
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "prompt": "雨の駐輪場で汗田がバイクのナビに話しかける。ナビ画面は汗田の方を向き、シアンに発光する地図を表示する。紫ヘルメットと黒いバイクは同じ形状で統一。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。 ナビ端末はカメラに画面を向けなくてよい。背面または斜め背面が写ってもよい。",
     "characterIds": [
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -100,29 +72,15 @@
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "prompt": "夜の国道へ走り出す汗田。黒いCB200X風アドベンチャーバイク、紫ヘルメット、シアンに光る小型ナビ端末。走行中も手と視線が自然で、ヘルメット形状を変えない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。 ナビ端末はカメラに画面を向けなくてよい。背面または斜め背面が写ってもよい。",
     "characterIds": [
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -175,11 +133,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
-      "aseda_ryuji",
-      "zakiyama_tatsuya",
-      "thirteenth_register",
-      "navigation_terminal_ep02"
+      "aseda_ryuji"
     ],
     "characterReferenceImages": [
       {
@@ -195,33 +149,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "thirteenth_register",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/thirteenth_register_sheet_v3.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "navigation_terminal_ep02",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/navigation_terminal_ep02_sheet.png",
         "weight": 1.0
       }
     ],
@@ -236,9 +166,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -256,21 +184,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -297,9 +213,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -317,21 +231,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -358,9 +260,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -378,21 +278,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -419,9 +307,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -439,21 +325,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -480,9 +354,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -500,21 +372,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -541,9 +401,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -561,21 +419,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -602,9 +448,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -622,21 +466,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -663,9 +495,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -683,21 +513,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -724,9 +542,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -744,21 +560,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -785,9 +589,7 @@
     "characterIds": [
       "takumi",
       "mina",
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
@@ -805,21 +607,9 @@
         "weight": 1.0
       },
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -879,29 +669,15 @@
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "prompt": "汗田がコーヒーを持って外へ出る。紫ヘルメット、黒いバイクジャケット、雨のコンビニ外観。汗田の顔と髪型を固定。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。",
     "characterIds": [
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {
@@ -926,29 +702,15 @@
     "fallbackImage": "assets/scenes/planned/ep02_vc01_company_parking_asada.png",
     "prompt": "バイクナビに次の異常地点が小さく表示される。ナビ端末は小型、防水黒ケース、シアン画面。紫ヘルメットと雨のコンビニ外観を添える。 ナビ端末は第2話で同一機体として固定。キャラID: navigation_terminal_ep02。黒い防水ケースに入ったコンパクトなバイク用ナビ端末で、小型タブレットまたは大きめスマホ程度のサイズ。シアンに発光する地図や物流ネットワーク表示を出す。バイク上ではハンドル中央付近のマウントに固定され、汗田の顔や視線の方向へ自然に画面が向く。店内ではレジカウンター上に置かれてもサイズは小型のまま。巨大タブレット化しない。毎カットで外形、黒い防水ケース、シアン画面、サイズ感を変えない。ナビが会話している場面では画面が相手に背を向けない。 汗田竜司は54歳、現代側の自動車研究開発者で未来人ではない。キャラID: aseda_ryuji。長めの黒髪を後ろへ流し、濃い髭、スポーツサングラス、黒いバイク用ジャケット、同じ紫のフルフェイスヘルメット、黒系のCB200X風アドベンチャーバイク、コンパクトなバイク用ナビ端末。理屈っぽく責任感のある技術者で、落ち着いた大人のツッコミ役。全カットで同一人物として固定し、髪型、髭、サングラス、黒いバイクジャケット、紫ヘルメット、バイクの形を変えない。バイクに乗るカットでは両手は自然にハンドルを握り、ヘルメットは同じ紫色で統一。ヘルメットを持つカットでは指をヘルメットにめり込ませず、縁またはストラップを外側から自然につかむ。店内カットではヘルメットを片手または脇に抱え、視線はナビ端末・第十三レジ・相手の顔など場面の対象へ自然に向ける。ナビ端末は小型のバイク用ナビサイズで、巨大タブレット化しない。手指を増やさない、左手をねじらない、手を顔や画面に溶かさない。座木山のような釣り竿・釣りベスト・長靴の夜釣り常連にしない。未来青年のような疲弊した若い会社員にしない。 2Dアニメイラスト、ビジュアルノベル風、ゲーム立ち絵風、アニメ塗り、セルルック、線画がはっきりしたキャラクターデザイン、非写実的。人物をフォトリアルにしない。 ナビ端末はカメラに画面を向けなくてよい。背面または斜め背面が写ってもよい。端の青白い光だけで異常地点を示す。",
     "characterIds": [
-      "future_worker_ep01",
       "aseda_ryuji",
-      "zakiyama_tatsuya",
       "thirteenth_register",
       "navigation_terminal_ep02"
     ],
     "characterReferenceImages": [
       {
-        "characterId": "future_worker_ep01",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/future_worker_ep01_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
         "characterId": "aseda_ryuji",
         "role": "design_sheet",
         "path": "assets/character_sheets/aseda_ryuji_sheet_v2.png",
-        "weight": 1.0
-      },
-      {
-        "characterId": "zakiyama_tatsuya",
-        "role": "design_sheet",
-        "path": "assets/character_sheets/zakiyama_tatsuya_sheet_v2.png",
         "weight": 1.0
       },
       {

@@ -147,6 +147,24 @@ def extract_reference_profile(text: str) -> ReferenceProfile:
     return profile
 
 
+# cards.raceが未整備のため、種族専用メカニズムのキーワードから種族を推定する。
+# 推定に使うのは当該種族にほぼ専用のキーワードのみ(誤爆防止)。
+RACE_HINT_PATTERNS: dict[str, list[str]] = {
+    "ビートジョッキー": ["B・A・D", "G・G・G", "ビートジョッキー"],
+    "魔導具": ["堕呪", "堕魔", "無月の門"],
+    "メタリカ": ["ラビリンス", "メタリカ"],
+    "ジョーカーズ": ["ジョーカーズ", "マスター・W・ブレイカー"],
+    "グランセクト": ["グランセクト"],
+    "ムートピア": ["ムートピア"],
+    "マフィ・ギャング": ["マフィ・ギャング", "無月の門"],
+}
+
+
+def infer_race_hints(name: str, text: str) -> list[str]:
+    blob = f"{name} {text}"
+    return [race for race, keywords in RACE_HINT_PATTERNS.items() if any(k in blob for k in keywords)]
+
+
 def _is_creature_type(card_type: str) -> bool:
     return "クリーチャー" in card_type or "ツインパクト" in card_type
 
@@ -159,7 +177,8 @@ def _card_is_dragon(name: str, text: str, race: str) -> bool:
 def _card_matches_race_terms(race_terms: list[str], name: str, text: str, race: str) -> bool:
     if not race_terms:
         return True
-    blob = f"{name} {text} {race}"
+    hints = infer_race_hints(name, text)
+    blob = f"{name} {text} {race} {' '.join(hints)}"
     return any(term in blob for term in race_terms)
 
 

@@ -344,6 +344,52 @@ def save_top_candidate_decks(
     return saved
 
 
+def register_research_sessions(
+    db_path: Path = DEFAULT_DB_PATH,
+    opponent: str = "ランクマッチ(ND)",
+    format_name: str = "ND",
+) -> list[dict[str, Any]]:
+    """novel_combo_discovery由来のgenerated_decksをリモート研究ループのセッションに登録する。
+
+    既に同名セッションがあるデッキはスキップする(再実行安全)。
+    """
+    import json as json_module
+    import sqlite3
+
+    from src.remote_research_loop import create_session, list_sessions
+
+    with sqlite3.connect(db_path) as conn:
+        conn.row_factory = sqlite3.Row
+        decks = conn.execute(
+            """
+            SELECT id, deck_name, deck_type, strategy_note, deck_cards_json
+            FROM generated_decks
+            WHERE candidate_origin = 'novel_combo_discovery'
+            ORDER BY id
+            """
+        ).fetchall()
+
+    existing_titles = {str(session.get("title", "")) for session in list_sessions(db_path)}
+    registered = []
+    for deck in decks:
+        title = f"novel検証 #{deck['id']} {deck['deck_name']}"[:100]
+        if title in existing_titles:
+            registered.append({"deck_id": deck["id"], "skipped": True})
+            continue
+        deck_cards = json_module.loads(deck["deck_cards_json"] or "[]")
+        session_id = create_session(
+            db_path,
+            title=title,
+            theme_name="未知コンボ発掘",
+            format_name=format_name,
+            opponent=opponent,
+            candidate={"deck_name": deck["deck_name"], "deck": deck_cards},
+            notes=str(deck["strategy_note"] or ""),
+        )
+        registered.append({"deck_id": deck["id"], "session_id": session_id, "title": title})
+    return registered
+
+
 def report_to_markdown(report: dict[str, Any]) -> str:
     lines = [
         "# 未知コンボ候補レポート",

@@ -1,7 +1,8 @@
 {
-  "created_at": "2026-07-20T07:48:11",
+  "created_at": "2026-07-20T08:55:35",
   "searched_rows": 750,
   "linked_unique_routes": 552,
+  "tier_s_lethal_turn": 5,
   "novel_candidates": [
     {
       "route_type": "damage_overflow_win",
@@ -13,7 +14,9 @@
       "state_chain": "resource_loop(existing) -> 運命の選択 (action_window:+1 / board:+1 / damage_pressure:+5 / loop_output_to_win:+1 / repeated_attack:+1 / resource_loop:+2 / summon_permission:+1 / tempo:+3) -> 風の1号 ハムカツマン (board:+1 / damage_pressure:+4 / graveyard:+1 / loop_output_to_win:+1 / mana:+1 / opponent_deck_pressure:+1 / tempo:+2) -> ベイB パオパオ (board:+1 / damage_pressure:+3 / graveyard:+1 / hand:+1 / loop_output_to_win:+1 / mana:+1 / opponent_deck_pressure:+1 / repeated_attack:+1 / resource_loop:+2 / tempo:+1) -> damage_overflow_win (action_window:+1 / board:+3 / damage_pressure:+12 / graveyard:+2 / hand:+1 / loop_output_to_win:+3 / mana:+2 / opponent_deck_pressure:+2 / repeated_attack:+2 / resource_loop:+4 / summon_permission:+1 / tempo:+6)",
       "proof_comment": "damage_overflow_winの必須状態を満たす勝利証明候補です。seed=運命の選択 / 風の1号 ハムカツマン / ベイB パオパオ。作れている状態は action_window:+1 / board:+3 / damage_pressure:+12 / graveyard:+2 / hand:+1 / loop_output_to_win:+3 / mana:+2 / opponent_deck_pressure:+2 / repeated_attack:+2 / resource_loop:+4 / summon_permission:+1 / tempo:+6。",
       "linked_pairs": "ベイB パオパオ+運命の選択 ; 運命の選択+風の1号 ハムカツマン",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 4,
+      "race_check": "間に合う"
     },
     {
       "route_type": "damage_overflow_win",
@@ -25,7 +28,9 @@
       "state_chain": "運命の選択 (action_window:+1 / board:+1 / damage_pressure:+5 / loop_output_to_win:+1 / repeated_attack:+1 / resource_loop:+2 / summon_permission:+1 / tempo:+3) -> 風の1号 ハムカツマン (board:+1 / damage_pressure:+4 / graveyard:+1 / loop_output_to_win:+1 / mana:+1 / opponent_deck_pressure:+1 / tempo:+2) -> D2B バブール (board:+1 / damage_pressure:+3 / graveyard:+1 / hand:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / repeated_attack:+1) -> damage_overflow_win (action_window:+1 / board:+3 / damage_pressure:+12 / graveyard:+2 / hand:+1 / loop_output_to_win:+3 / mana:+1 / opponent_deck_pressure:+2 / repeated_attack:+2 / resource_loop:+2 / summon_permission:+1 / tempo:+5)",
       "proof_comment": "damage_overflow_winの必須状態を満たす勝利証明候補です。seed=運命の選択 / 風の1号 ハムカツマン / D2B バブール。作れている状態は action_window:+1 / board:+3 / damage_pressure:+12 / graveyard:+2 / hand:+1 / loop_output_to_win:+3 / mana:+1 / opponent_deck_pressure:+2 / repeated_attack:+2 / resource_loop:+2 / summon_permission:+1 / tempo:+5。",
       "linked_pairs": "D2B バブール+運命の選択 ; 運命の選択+風の1号 ハムカツマン",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 4,
+      "race_check": "間に合う"
     },
     {
       "route_type": "alternate_effect_win",
@@ -37,7 +42,9 @@
       "state_chain": "resource_loop(existing) -> ケロヨン・カルテット (alternate_win_progress:+6 / board_persistence:+2 / defense:+1 / disruption:+2 / hand:+1 / loop_output_to_win:+1 / replacement_destroy:+1 / resource_loop:+1 / terminal_win:+1 / win_progress:+5) -> ルソー・モンテス/法と契約の秤 (action_window:+1 / board:+1 / damage_pressure:+1 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+2) -> ベイB パオパオ (board:+1 / damage_pressure:+3 / graveyard:+1 / hand:+1 / loop_output_to_win:+1 / mana:+1 / opponent_deck_pressure:+1 / repeated_attack:+1 / resource_loop:+2 / tempo:+1) -> alternate_effect_win (action_window:+1 / alternate_win_progress:+6 / board:+2 / board_persistence:+2 / damage_pressure:+4 / defense:+1 / disruption:+2 / graveyard:+1 / hand:+2 / loop_output_to_win:+3 / mana:+1 / opponent_deck_pressure:+1 / repeated_attack:+1 / replacement_destroy:+1 / resource_loop:+3 / summon_permission:+1 / tempo:+3 / terminal_win:+1 / win_progress:+5)",
       "proof_comment": "alternate_effect_winの必須状態を満たす勝利証明候補です。seed=ケロヨン・カルテット / ルソー・モンテス/法と契約の秤 / ベイB パオパオ。作れている状態は action_window:+1 / alternate_win_progress:+6 / board:+2 / board_persistence:+2 / damage_pressure:+4 / defense:+1 / disruption:+2 / graveyard:+1 / hand:+2 / loop_output_to_win:+3 / mana:+1 / opponent_deck_pressure:+1 / repeated_attack:+1 / replacement_destroy:+1 / resource_loop:+3 / summon_permission:+1 / tempo:+3 / terminal_win:+1 / win_progress:+5。",
       "linked_pairs": "ケロヨン・カルテット+ルソー・モンテス/法と契約の秤 ; ベイB パオパオ+ルソー・モンテス/法と契約の秤",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 2,
+      "race_check": "間に合う"
     },
     {
       "route_type": "alternate_effect_win",
@@ -49,7 +56,9 @@
       "state_chain": "resource_loop(existing) -> ケロヨン・カルテット (alternate_win_progress:+6 / board_persistence:+2 / defense:+1 / disruption:+2 / hand:+1 / loop_output_to_win:+1 / replacement_destroy:+1 / resource_loop:+1 / terminal_win:+1 / win_progress:+5) -> ルソー・モンテス/法と契約の秤 (action_window:+1 / board:+1 / damage_pressure:+1 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+2) -> ベイB ポレポレ (board:+1 / damage_pressure:+3 / hand:+1 / loop_output_to_win:+1 / repeated_attack:+1 / resource_loop:+2) -> alternate_effect_win (action_window:+1 / alternate_win_progress:+6 / board:+2 / board_persistence:+2 / damage_pressure:+4 / defense:+1 / disruption:+2 / hand:+2 / loop_output_to_win:+3 / repeated_attack:+1 / replacement_destroy:+1 / resource_loop:+3 / summon_permission:+1 / tempo:+2 / terminal_win:+1 / win_progress:+5)",
       "proof_comment": "alternate_effect_winの必須状態を満たす勝利証明候補です。seed=ケロヨン・カルテット / ルソー・モンテス/法と契約の秤 / ベイB ポレポレ。作れている状態は action_window:+1 / alternate_win_progress:+6 / board:+2 / board_persistence:+2 / damage_pressure:+4 / defense:+1 / disruption:+2 / hand:+2 / loop_output_to_win:+3 / repeated_attack:+1 / replacement_destroy:+1 / resource_loop:+3 / summon_permission:+1 / tempo:+2 / terminal_win:+1 / win_progress:+5。",
       "linked_pairs": "ケロヨン・カルテット+ルソー・モンテス/法と契約の秤 ; ベイB ポレポレ+ルソー・モンテス/法と契約の秤",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 2,
+      "race_check": "間に合う"
     },
     {
       "route_type": "opponent_deckout_win",
@@ -61,7 +70,9 @@
       "state_chain": "ビシャモンス・デーケン/「深淵より来たれ、魂よ」 (action_window:+1 / damage_pressure:+1 / defense:+1 / disruption:+2 / graveyard:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+2 / summon_permission:+1 / tempo:+2) -> 次元院の霊騎アスファル (attack_permission:-2 / damage_pressure:+1 / defense:+2 / disruption:+2 / loop_output_to_win:+1 / opponent_action_lock:+1 / tempo:+2 / zone_change_permission:+2) -> opponent_deckout_win (action_window:+1 / attack_permission:-2 / damage_pressure:+2 / defense:+3 / disruption:+4 / graveyard:+1 / loop_output_to_win:+2 / opponent_action_lock:+1 / opponent_deck_pressure:+2 / summon_permission:+1 / tempo:+4 / zone_change_permission:+2)",
       "proof_comment": "opponent_deckout_winの必須状態を満たす勝利証明候補です。seed=ビシャモンス・デーケン/「深淵より来たれ、魂よ」 / 次元院の霊騎アスファル。作れている状態は action_window:+1 / attack_permission:-2 / damage_pressure:+2 / defense:+3 / disruption:+4 / graveyard:+1 / loop_output_to_win:+2 / opponent_action_lock:+1 / opponent_deck_pressure:+2 / summon_permission:+1 / tempo:+4 / zone_change_permission:+2。",
       "linked_pairs": "ビシャモンス・デーケン/「深淵より来たれ、魂よ」+次元院の霊騎アスファル",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 4,
+      "race_check": "間に合う"
     },
     {
       "route_type": "opponent_deckout_win",
@@ -73,7 +84,9 @@
       "state_chain": "resource_loop(existing) -> ビシャモンス・デーケン/「深淵より来たれ、魂よ」 (action_window:+1 / damage_pressure:+1 / defense:+1 / disruption:+2 / graveyard:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+2 / summon_permission:+1 / tempo:+2) -> 愛々の守護者チョップルン (attack_permission:-2 / damage_pressure:+2 / defense:+1 / loop_output_to_win:+1 / opponent_action_lock:+1 / repeated_attack:+1 / resource_loop:+2) -> ベイB パオパオ (board:+1 / damage_pressure:+3 / graveyard:+1 / hand:+1 / loop_output_to_win:+1 / mana:+1 / opponent_deck_pressure:+1 / repeated_attack:+1 / resource_loop:+2 / tempo:+1) -> opponent_deckout_win (action_window:+1 / attack_permission:-2 / board:+1 / damage_pressure:+6 / defense:+2 / disruption:+2 / graveyard:+2 / hand:+1 / loop_output_to_win:+3 / mana:+1 / opponent_action_lock:+1 / opponent_deck_pressure:+3 / repeated_attack:+2 / resource_loop:+4 / summon_permission:+1 / tempo:+3)",
       "proof_comment": "opponent_deckout_winの必須状態を満たす勝利証明候補です。seed=ビシャモンス・デーケン/「深淵より来たれ、魂よ」 / 愛々の守護者チョップルン / ベイB パオパオ。作れている状態は action_window:+1 / attack_permission:-2 / board:+1 / damage_pressure:+6 / defense:+2 / disruption:+2 / graveyard:+2 / hand:+1 / loop_output_to_win:+3 / mana:+1 / opponent_action_lock:+1 / opponent_deck_pressure:+3 / repeated_attack:+2 / resource_loop:+4 / summon_permission:+1 / tempo:+3。",
       "linked_pairs": "ビシャモンス・デーケン/「深淵より来たれ、魂よ」+ベイB パオパオ ; ビシャモンス・デーケン/「深淵より来たれ、魂よ」+愛々の守護者チョップルン",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 4,
+      "race_check": "間に合う"
     },
     {
       "route_type": "opponent_deckout_win",
@@ -85,7 +98,9 @@
       "state_chain": "resource_loop(existing) -> 奇石 ミクセル/ジャミング・チャフ (board:+1 / cast_permission:-2 / damage_pressure:+1 / disruption:+2 / loop_output_to_win:+1 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / resource_loop:+1) -> シモーヌ・ペトル (action_window:+1 / damage_pressure:+1 / defense:+1 / disruption:+2 / graveyard:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2) -> 侵略者 タネタロウ (defense:+1 / disruption:+2 / graveyard:+1 / hand:+1 / loop_output_to_win:+1 / mana:+1 / opponent_deck_pressure:+2 / resource_loop:+1 / tempo:+1) -> opponent_deckout_win (action_window:+1 / board:+1 / cast_permission:-2 / damage_pressure:+2 / defense:+2 / disruption:+6 / graveyard:+2 / hand:+1 / loop_output_to_win:+3 / mana:+1 / opponent_action_lock:+2 / opponent_deck_pressure:+4 / resource_loop:+2 / summon_permission:+1 / tempo:+3)",
       "proof_comment": "opponent_deckout_winの必須状態を満たす勝利証明候補です。seed=奇石 ミクセル/ジャミング・チャフ / シモーヌ・ペトル / 侵略者 タネタロウ。作れている状態は action_window:+1 / board:+1 / cast_permission:-2 / damage_pressure:+2 / defense:+2 / disruption:+6 / graveyard:+2 / hand:+1 / loop_output_to_win:+3 / mana:+1 / opponent_action_lock:+2 / opponent_deck_pressure:+4 / resource_loop:+2 / summon_permission:+1 / tempo:+3。",
       "linked_pairs": "シモーヌ・ペトル+侵略者 タネタロウ ; シモーヌ・ペトル+奇石 ミクセル/ジャミング・チャフ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "opponent_deckout_win",
@@ -97,7 +112,9 @@
       "state_chain": "resource_loop(existing) -> 奇石 ミクセル/ジャミング・チャフ (board:+1 / cast_permission:-2 / damage_pressure:+1 / disruption:+2 / loop_output_to_win:+1 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / resource_loop:+1) -> シモーヌ・ペトル (action_window:+1 / damage_pressure:+1 / defense:+1 / disruption:+2 / graveyard:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2) -> ガチャンコ ミニロボ3号 (board:+1 / damage_pressure:+1 / defense:+2 / graveyard:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+2 / resource_loop:+1 / shield:+1) -> opponent_deckout_win (action_window:+1 / board:+2 / cast_permission:-2 / damage_pressure:+3 / defense:+3 / disruption:+4 / graveyard:+2 / loop_output_to_win:+3 / opponent_action_lock:+2 / opponent_deck_pressure:+4 / resource_loop:+2 / shield:+1 / summon_permission:+1 / tempo:+2)",
       "proof_comment": "opponent_deckout_winの必須状態を満たす勝利証明候補です。seed=奇石 ミクセル/ジャミング・チャフ / シモーヌ・ペトル / ガチャンコ ミニロボ3号。作れている状態は action_window:+1 / board:+2 / cast_permission:-2 / damage_pressure:+3 / defense:+3 / disruption:+4 / graveyard:+2 / loop_output_to_win:+3 / opponent_action_lock:+2 / opponent_deck_pressure:+4 / resource_loop:+2 / shield:+1 / summon_permission:+1 / tempo:+2。",
       "linked_pairs": "ガチャンコ ミニロボ3号+シモーヌ・ペトル ; シモーヌ・ペトル+奇石 ミクセル/ジャミング・チャフ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "lock_confirmed_win",
@@ -109,7 +126,9 @@
       "state_chain": "resource_loop(existing) -> 超過の守護者イカ・イカガ (action_window:+1 / attack_permission:-2 / board:+1 / damage_pressure:+1 / defense:+1 / loop_output_to_win:+1 / opponent_action_lock:+1 / summon_permission:+1 / tempo:+2) -> シモーヌ・ペトル (action_window:+1 / damage_pressure:+1 / defense:+1 / disruption:+2 / graveyard:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2) -> 奇石 ミクセル/ジャミング・チャフ (board:+1 / cast_permission:-2 / damage_pressure:+1 / disruption:+2 / loop_output_to_win:+1 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / resource_loop:+1) -> lock_confirmed_win (action_window:+2 / attack_permission:-2 / board:+2 / cast_permission:-2 / damage_pressure:+3 / defense:+2 / disruption:+4 / graveyard:+1 / loop_output_to_win:+3 / opponent_action_lock:+3 / opponent_deck_pressure:+2 / resource_loop:+1 / summon_permission:+2 / tempo:+4)",
       "proof_comment": "lock_confirmed_winの必須状態を満たす勝利証明候補です。seed=超過の守護者イカ・イカガ / シモーヌ・ペトル / 奇石 ミクセル/ジャミング・チャフ。作れている状態は action_window:+2 / attack_permission:-2 / board:+2 / cast_permission:-2 / damage_pressure:+3 / defense:+2 / disruption:+4 / graveyard:+1 / loop_output_to_win:+3 / opponent_action_lock:+3 / opponent_deck_pressure:+2 / resource_loop:+1 / summon_permission:+2 / tempo:+4。",
       "linked_pairs": "シモーヌ・ペトル+奇石 ミクセル/ジャミング・チャフ ; シモーヌ・ペトル+超過の守護者イカ・イカガ ; 奇石 ミクセル/ジャミング・チャフ+超過の守護者イカ・イカガ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "lock_confirmed_win",
@@ -121,7 +140,9 @@
       "state_chain": "超過の守護者イカ・イカガ (action_window:+1 / attack_permission:-2 / board:+1 / damage_pressure:+1 / defense:+1 / loop_output_to_win:+1 / opponent_action_lock:+1 / summon_permission:+1 / tempo:+2) -> シモーヌ・ペトル (action_window:+1 / damage_pressure:+1 / defense:+1 / disruption:+2 / graveyard:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2) -> こたつむり (attack_permission:-2 / board:+1 / damage_pressure:+3 / defense:+1 / loop_output_to_win:+1 / opponent_action_lock:+1 / repeated_attack:+1) -> lock_confirmed_win (action_window:+2 / attack_permission:-4 / board:+2 / damage_pressure:+5 / defense:+3 / disruption:+2 / graveyard:+1 / loop_output_to_win:+3 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / repeated_attack:+1 / summon_permission:+2 / tempo:+4)",
       "proof_comment": "lock_confirmed_winの必須状態を満たす勝利証明候補です。seed=超過の守護者イカ・イカガ / シモーヌ・ペトル / こたつむり。作れている状態は action_window:+2 / attack_permission:-4 / board:+2 / damage_pressure:+5 / defense:+3 / disruption:+2 / graveyard:+1 / loop_output_to_win:+3 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / repeated_attack:+1 / summon_permission:+2 / tempo:+4。",
       "linked_pairs": "こたつむり+シモーヌ・ペトル ; こたつむり+超過の守護者イカ・イカガ ; シモーヌ・ペトル+超過の守護者イカ・イカガ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "lock_confirmed_win",
@@ -133,7 +154,9 @@
       "state_chain": "音精 ラフルル (board:+1 / cast_permission:-2 / damage_pressure:+1 / disruption:+2 / loop_output_to_win:+1 / opponent_action_lock:+2) -> ツクモ・スパーク (action_window:+1 / board:+1 / damage_pressure:+1 / defense:+1 / disruption:+2 / hand:+1 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+2) -> lock_confirmed_win (action_window:+1 / board:+2 / cast_permission:-2 / damage_pressure:+2 / defense:+1 / disruption:+4 / hand:+1 / loop_output_to_win:+2 / opponent_action_lock:+2 / summon_permission:+1 / tempo:+2)",
       "proof_comment": "lock_confirmed_winの必須状態を満たす勝利証明候補です。seed=音精 ラフルル / ツクモ・スパーク。作れている状態は action_window:+1 / board:+2 / cast_permission:-2 / damage_pressure:+2 / defense:+1 / disruption:+4 / hand:+1 / loop_output_to_win:+2 / opponent_action_lock:+2 / summon_permission:+1 / tempo:+2。",
       "linked_pairs": "ツクモ・スパーク+音精 ラフルル",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "lock_confirmed_win",
@@ -145,7 +168,9 @@
       "state_chain": "音精 ラフルル (board:+1 / cast_permission:-2 / damage_pressure:+1 / disruption:+2 / loop_output_to_win:+1 / opponent_action_lock:+2) -> 鏡面の翼 リブラミラ (action_window:+1 / board:+1 / damage_pressure:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2) -> lock_confirmed_win (action_window:+1 / board:+2 / cast_permission:-2 / damage_pressure:+2 / disruption:+2 / loop_output_to_win:+2 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2)",
       "proof_comment": "lock_confirmed_winの必須状態を満たす勝利証明候補です。seed=音精 ラフルル / 鏡面の翼 リブラミラ。作れている状態は action_window:+1 / board:+2 / cast_permission:-2 / damage_pressure:+2 / disruption:+2 / loop_output_to_win:+2 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2。",
       "linked_pairs": "鏡面の翼 リブラミラ+音精 ラフルル",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "lock_confirmed_win",
@@ -157,7 +182,9 @@
       "state_chain": "超過の翼 デネブモンゴ (action_window:+1 / attack_permission:-2 / board:+1 / damage_pressure:+1 / defense:+1 / loop_output_to_win:+1 / opponent_action_lock:+1 / summon_permission:+1 / tempo:+2) -> 鏡面の翼 リブラミラ (action_window:+1 / board:+1 / damage_pressure:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2) -> lock_confirmed_win (action_window:+2 / attack_permission:-2 / board:+2 / damage_pressure:+2 / defense:+1 / loop_output_to_win:+2 / opponent_action_lock:+1 / opponent_deck_pressure:+1 / summon_permission:+2 / tempo:+4)",
       "proof_comment": "lock_confirmed_winの必須状態を満たす勝利証明候補です。seed=超過の翼 デネブモンゴ / 鏡面の翼 リブラミラ。作れている状態は action_window:+2 / attack_permission:-2 / board:+2 / damage_pressure:+2 / defense:+1 / loop_output_to_win:+2 / opponent_action_lock:+1 / opponent_deck_pressure:+1 / summon_permission:+2 / tempo:+4。",
       "linked_pairs": "超過の翼 デネブモンゴ+鏡面の翼 リブラミラ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "lock_confirmed_win",
@@ -169,7 +196,9 @@
       "state_chain": "悪魔神王ディス・バルカミラ (cast_permission:-2 / damage_pressure:+1 / defense:+1 / disruption:+7 / loop_output_to_win:+1 / opponent_action_lock:+2 / tempo:+2 / zone_change_permission:+3) -> 奇跡の予言者ラッキー・クルト (attack_permission:-2 / defense:+1 / opponent_action_lock:+1) -> lock_confirmed_win (attack_permission:-2 / cast_permission:-2 / damage_pressure:+1 / defense:+2 / disruption:+7 / loop_output_to_win:+1 / opponent_action_lock:+3 / tempo:+2 / zone_change_permission:+3)",
       "proof_comment": "lock_confirmed_winの必須状態を満たす勝利証明候補です。seed=悪魔神王ディス・バルカミラ / 奇跡の予言者ラッキー・クルト。作れている状態は attack_permission:-2 / cast_permission:-2 / damage_pressure:+1 / defense:+2 / disruption:+7 / loop_output_to_win:+1 / opponent_action_lock:+3 / tempo:+2 / zone_change_permission:+3。",
       "linked_pairs": "奇跡の予言者ラッキー・クルト+悪魔神王ディス・バルカミラ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "direct_attack_win",
@@ -181,7 +210,9 @@
       "state_chain": "resource_loop(existing) -> ベイB パオパオ (board:+1 / damage_pressure:+3 / graveyard:+1 / hand:+1 / loop_output_to_win:+1 / mana:+1 / opponent_deck_pressure:+1 / repeated_attack:+1 / resource_loop:+2 / tempo:+1) -> 超過の守護者イカ・イカガ (action_window:+1 / attack_permission:-2 / board:+1 / damage_pressure:+1 / defense:+1 / loop_output_to_win:+1 / opponent_action_lock:+1 / summon_permission:+1 / tempo:+2) -> グレイト“S-駆” (damage_pressure:+4 / defense:+1 / disruption:+2 / hand:+1 / loop_output_to_win:+1 / repeated_attack:+1 / resource_loop:+1 / tempo:+1) -> direct_attack_win (action_window:+1 / attack_permission:-2 / board:+2 / damage_pressure:+8 / defense:+2 / disruption:+2 / graveyard:+1 / hand:+2 / loop_output_to_win:+3 / mana:+1 / opponent_action_lock:+1 / opponent_deck_pressure:+1 / repeated_attack:+2 / resource_loop:+3 / summon_permission:+1 / tempo:+4)",
       "proof_comment": "direct_attack_winへの状態変換候補です。seed=ベイB パオパオ / 超過の守護者イカ・イカガ / グレイト“S-駆”。作れている状態は action_window:+1 / attack_permission:-2 / board:+2 / damage_pressure:+8 / defense:+2 / disruption:+2 / graveyard:+1 / hand:+2 / loop_output_to_win:+3 / mana:+1 / opponent_action_lock:+1 / opponent_deck_pressure:+1 / repeated_attack:+2 / resource_loop:+3 / summon_permission:+1 / tempo:+4。不足は attack_permission。次は 打点形成 を探します。",
       "linked_pairs": "グレイト“S-駆”+超過の守護者イカ・イカガ ; ベイB パオパオ+超過の守護者イカ・イカガ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "direct_attack_win",
@@ -193,7 +224,9 @@
       "state_chain": "ベイB パオパオ (board:+1 / damage_pressure:+3 / graveyard:+1 / hand:+1 / loop_output_to_win:+1 / mana:+1 / opponent_deck_pressure:+1 / repeated_attack:+1 / resource_loop:+2 / tempo:+1) -> 超過の守護者イカ・イカガ (action_window:+1 / attack_permission:-2 / board:+1 / damage_pressure:+1 / defense:+1 / loop_output_to_win:+1 / opponent_action_lock:+1 / summon_permission:+1 / tempo:+2) -> D2B バブール (board:+1 / damage_pressure:+3 / graveyard:+1 / hand:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / repeated_attack:+1) -> direct_attack_win (action_window:+1 / attack_permission:-2 / board:+3 / damage_pressure:+7 / defense:+1 / graveyard:+2 / hand:+2 / loop_output_to_win:+3 / mana:+1 / opponent_action_lock:+1 / opponent_deck_pressure:+2 / repeated_attack:+2 / resource_loop:+2 / summon_permission:+1 / tempo:+3)",
       "proof_comment": "direct_attack_winへの状態変換候補です。seed=ベイB パオパオ / 超過の守護者イカ・イカガ / D2B バブール。作れている状態は action_window:+1 / attack_permission:-2 / board:+3 / damage_pressure:+7 / defense:+1 / graveyard:+2 / hand:+2 / loop_output_to_win:+3 / mana:+1 / opponent_action_lock:+1 / opponent_deck_pressure:+2 / repeated_attack:+2 / resource_loop:+2 / summon_permission:+1 / tempo:+3。不足は attack_permission。次は 打点形成 を探します。",
       "linked_pairs": "D2B バブール+超過の守護者イカ・イカガ ; ベイB パオパオ+超過の守護者イカ・イカガ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "direct_attack_win",
@@ -205,7 +238,9 @@
       "state_chain": "resource_loop(existing) -> D2P ヘビーポップ (action_window:+1 / alternate_win_progress:+6 / board:+1 / damage_pressure:+1 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+2 / terminal_win:+1 / win_progress:+5) -> タイム2 ファソラ (damage_pressure:+2 / loop_output_to_win:+1 / repeated_attack:+1 / resource_loop:+2) -> direct_attack_win (action_window:+1 / alternate_win_progress:+6 / board:+1 / damage_pressure:+3 / loop_output_to_win:+2 / repeated_attack:+1 / resource_loop:+2 / summon_permission:+1 / tempo:+2 / terminal_win:+1 / win_progress:+5)",
       "proof_comment": "direct_attack_winへの状態変換候補です。seed=D2P ヘビーポップ / タイム2 ファソラ。作れている状態は action_window:+1 / alternate_win_progress:+6 / board:+1 / damage_pressure:+3 / loop_output_to_win:+2 / repeated_attack:+1 / resource_loop:+2 / summon_permission:+1 / tempo:+2 / terminal_win:+1 / win_progress:+5。不足は attack_permission。次は 打点形成 を探します。",
       "linked_pairs": "D2P ヘビーポップ+タイム2 ファソラ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 5,
+      "race_check": "間に合う"
     },
     {
       "route_type": "direct_attack_win",
@@ -217,7 +252,9 @@
       "state_chain": "D2P ヘビーポップ (action_window:+1 / alternate_win_progress:+6 / board:+1 / damage_pressure:+1 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+2 / terminal_win:+1 / win_progress:+5) -> 鏡面の翼 リブラミラ (action_window:+1 / board:+1 / damage_pressure:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2) -> direct_attack_win (action_window:+2 / alternate_win_progress:+6 / board:+2 / damage_pressure:+2 / loop_output_to_win:+2 / opponent_deck_pressure:+1 / summon_permission:+2 / tempo:+4 / terminal_win:+1 / win_progress:+5)",
       "proof_comment": "direct_attack_winへの状態変換候補です。seed=D2P ヘビーポップ / 鏡面の翼 リブラミラ。作れている状態は action_window:+2 / alternate_win_progress:+6 / board:+2 / damage_pressure:+2 / loop_output_to_win:+2 / opponent_deck_pressure:+1 / summon_permission:+2 / tempo:+4 / terminal_win:+1 / win_progress:+5。不足は attack_permission。次は 打点形成 を探します。",
       "linked_pairs": "D2P ヘビーポップ+鏡面の翼 リブラミラ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "direct_attack_win",
@@ -229,7 +266,9 @@
       "state_chain": "正体不明 (action_window:+3 / alternate_win_progress:+3 / board:+1 / damage_pressure:+1 / extra_turn:+1 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+5 / terminal_win:+1 / turn_count:+2 / win_progress:+4) -> G・アイニー (action_window:+1 / damage_pressure:+4 / defense:+1 / disruption:+2 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+3) -> direct_attack_win (action_window:+4 / alternate_win_progress:+3 / board:+1 / damage_pressure:+5 / defense:+1 / disruption:+2 / extra_turn:+1 / loop_output_to_win:+2 / summon_permission:+2 / tempo:+8 / terminal_win:+1 / turn_count:+2 / win_progress:+4)",
       "proof_comment": "direct_attack_winへの状態変換候補です。seed=正体不明 / G・アイニー。作れている状態は action_window:+4 / alternate_win_progress:+3 / board:+1 / damage_pressure:+5 / defense:+1 / disruption:+2 / extra_turn:+1 / loop_output_to_win:+2 / summon_permission:+2 / tempo:+8 / terminal_win:+1 / turn_count:+2 / win_progress:+4。不足は attack_permission。次は 打点形成 を探します。",
       "linked_pairs": "G・アイニー+正体不明",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 2,
+      "race_check": "間に合う"
     },
     {
       "route_type": "direct_attack_win",
@@ -241,7 +280,9 @@
       "state_chain": "正体不明 (action_window:+3 / alternate_win_progress:+3 / board:+1 / damage_pressure:+1 / extra_turn:+1 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+5 / terminal_win:+1 / turn_count:+2 / win_progress:+4) -> 最強虫 ナゾまる (action_window:+1 / board:+1 / damage_pressure:+1 / loop_output_to_win:+1 / mana:+1 / summon_permission:+1 / tempo:+3) -> direct_attack_win (action_window:+4 / alternate_win_progress:+3 / board:+2 / damage_pressure:+2 / extra_turn:+1 / loop_output_to_win:+2 / mana:+1 / summon_permission:+2 / tempo:+8 / terminal_win:+1 / turn_count:+2 / win_progress:+4)",
       "proof_comment": "direct_attack_winへの状態変換候補です。seed=正体不明 / 最強虫 ナゾまる。作れている状態は action_window:+4 / alternate_win_progress:+3 / board:+2 / damage_pressure:+2 / extra_turn:+1 / loop_output_to_win:+2 / mana:+1 / summon_permission:+2 / tempo:+8 / terminal_win:+1 / turn_count:+2 / win_progress:+4。不足は attack_permission。次は 打点形成 を探します。",
       "linked_pairs": "最強虫 ナゾまる+正体不明",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 2,
+      "race_check": "間に合う"
     },
     {
       "route_type": "loop_converted_win",
@@ -253,7 +294,9 @@
       "state_chain": "ケロヨン・カルテット (alternate_win_progress:+6 / board_persistence:+2 / defense:+1 / disruption:+2 / hand:+1 / loop_output_to_win:+1 / replacement_destroy:+1 / resource_loop:+1 / terminal_win:+1 / win_progress:+5) -> G・アイニー (action_window:+1 / damage_pressure:+4 / defense:+1 / disruption:+2 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+3) -> loop_converted_win (action_window:+1 / alternate_win_progress:+6 / board_persistence:+2 / damage_pressure:+4 / defense:+2 / disruption:+4 / hand:+1 / loop_output_to_win:+2 / replacement_destroy:+1 / resource_loop:+1 / summon_permission:+1 / tempo:+3 / terminal_win:+1 / win_progress:+5)",
       "proof_comment": "loop_converted_winの必須状態を満たす勝利証明候補です。seed=ケロヨン・カルテット / G・アイニー。作れている状態は action_window:+1 / alternate_win_progress:+6 / board_persistence:+2 / damage_pressure:+4 / defense:+2 / disruption:+4 / hand:+1 / loop_output_to_win:+2 / replacement_destroy:+1 / resource_loop:+1 / summon_permission:+1 / tempo:+3 / terminal_win:+1 / win_progress:+5。",
       "linked_pairs": "G・アイニー+ケロヨン・カルテット",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 2,
+      "race_check": "間に合う"
     },
     {
       "route_type": "loop_converted_win",
@@ -265,7 +308,9 @@
       "state_chain": "ケロヨン・カルテット (alternate_win_progress:+6 / board_persistence:+2 / defense:+1 / disruption:+2 / hand:+1 / loop_output_to_win:+1 / replacement_destroy:+1 / resource_loop:+1 / terminal_win:+1 / win_progress:+5) -> ドラゴンの執事ニャンパッタ (action_window:+1 / damage_pressure:+4 / defense:+1 / disruption:+2 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+3) -> loop_converted_win (action_window:+1 / alternate_win_progress:+6 / board_persistence:+2 / damage_pressure:+4 / defense:+2 / disruption:+4 / hand:+1 / loop_output_to_win:+2 / replacement_destroy:+1 / resource_loop:+1 / summon_permission:+1 / tempo:+3 / terminal_win:+1 / win_progress:+5)",
       "proof_comment": "loop_converted_winの必須状態を満たす勝利証明候補です。seed=ケロヨン・カルテット / ドラゴンの執事ニャンパッタ。作れている状態は action_window:+1 / alternate_win_progress:+6 / board_persistence:+2 / damage_pressure:+4 / defense:+2 / disruption:+4 / hand:+1 / loop_output_to_win:+2 / replacement_destroy:+1 / resource_loop:+1 / summon_permission:+1 / tempo:+3 / terminal_win:+1 / win_progress:+5。",
       "linked_pairs": "ケロヨン・カルテット+ドラゴンの執事ニャンパッタ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 4,
+      "race_check": "間に合う"
     },
     {
       "route_type": "direct_attack_win",
@@ -277,7 +322,9 @@
       "state_chain": "こたつむり (attack_permission:-2 / board:+1 / damage_pressure:+3 / defense:+1 / loop_output_to_win:+1 / opponent_action_lock:+1 / repeated_attack:+1) -> 第1種 アクミM (action_window:+1 / damage_pressure:+1 / defense:+1 / disruption:+2 / loop_output_to_win:+1 / summon_permission:+1 / tempo:+2) -> direct_attack_win (action_window:+1 / attack_permission:-2 / board:+1 / damage_pressure:+4 / defense:+2 / disruption:+2 / loop_output_to_win:+2 / opponent_action_lock:+1 / repeated_attack:+1 / summon_permission:+1 / tempo:+2)",
       "proof_comment": "direct_attack_winへの状態変換候補です。seed=こたつむり / 第1種 アクミM。作れている状態は action_window:+1 / attack_permission:-2 / board:+1 / damage_pressure:+4 / defense:+2 / disruption:+2 / loop_output_to_win:+2 / opponent_action_lock:+1 / repeated_attack:+1 / summon_permission:+1 / tempo:+2。不足は attack_permission。次は 打点形成 を探します。",
       "linked_pairs": "こたつむり+第1種 アクミM",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     },
     {
       "route_type": "lock_confirmed_win",
@@ -289,7 +336,9 @@
       "state_chain": "resource_loop(existing) -> 奇石 ミクセル/ジャミング・チャフ (board:+1 / cast_permission:-2 / damage_pressure:+1 / disruption:+2 / loop_output_to_win:+1 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / resource_loop:+1) -> 龍装者 デュオ・コマンドー (action_window:+1 / board_persistence:+2 / damage_pressure:+3 / defense:+1 / disruption:+2 / loop_output_to_win:+1 / repeated_attack:+1 / replacement_destroy:+1 / resource_loop:+2 / summon_permission:+1 / tempo:+2) -> lock_confirmed_win (action_window:+1 / board:+1 / board_persistence:+2 / cast_permission:-2 / damage_pressure:+4 / defense:+1 / disruption:+4 / loop_output_to_win:+2 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / repeated_attack:+1 / replacement_destroy:+1 / resource_loop:+3 / summon_permission:+1 / tempo:+2)",
       "proof_comment": "lock_confirmed_winの必須状態を満たす勝利証明候補です。seed=奇石 ミクセル/ジャミング・チャフ / 龍装者 デュオ・コマンドー。作れている状態は action_window:+1 / board:+1 / board_persistence:+2 / cast_permission:-2 / damage_pressure:+4 / defense:+1 / disruption:+4 / loop_output_to_win:+2 / opponent_action_lock:+2 / opponent_deck_pressure:+1 / repeated_attack:+1 / replacement_destroy:+1 / resource_loop:+3 / summon_permission:+1 / tempo:+2。",
       "linked_pairs": "奇石 ミクセル/ジャミング・チャフ+龍装者 デュオ・コマンドー",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 6,
+      "race_check": "ギリギリ"
     },
     {
       "route_type": "direct_attack_win",
@@ -301,7 +350,9 @@
       "state_chain": "連珠の精霊アガピトス (action_window:+1 / board:+1 / damage_pressure:+3 / loop_output_to_win:+1 / repeated_attack:+1 / summon_permission:+1 / tempo:+2) -> 鏡面の翼 リブラミラ (action_window:+1 / board:+1 / damage_pressure:+1 / loop_output_to_win:+1 / opponent_deck_pressure:+1 / summon_permission:+1 / tempo:+2) -> direct_attack_win (action_window:+2 / board:+2 / damage_pressure:+4 / loop_output_to_win:+2 / opponent_deck_pressure:+1 / repeated_attack:+1 / summon_permission:+2 / tempo:+4)",
       "proof_comment": "direct_attack_winへの状態変換候補です。seed=連珠の精霊アガピトス / 鏡面の翼 リブラミラ。作れている状態は action_window:+2 / board:+2 / damage_pressure:+4 / loop_output_to_win:+2 / opponent_deck_pressure:+1 / repeated_attack:+1 / summon_permission:+2 / tempo:+4。不足は attack_permission。次は 打点形成 を探します。",
       "linked_pairs": "連珠の精霊アガピトス+鏡面の翼 リブラミラ",
-      "variant_count": 1
+      "variant_count": 1,
+      "estimated_online_turn": 3,
+      "race_check": "間に合う"
     }
   ],
   "known_combo_hits": [],

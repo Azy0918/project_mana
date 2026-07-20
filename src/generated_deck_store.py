@@ -219,6 +219,7 @@ def _normalize_candidate_origin(value: str) -> str:
         "combo_based",
         "meta_counter_based",
         "human_imported",
+        "novel_combo_discovery",
     }
     value = str(value or "").strip()
     return value if value in allowed else "tag_based"

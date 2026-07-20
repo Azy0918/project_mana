@@ -6,7 +6,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from src.card_reference_extractor import deploy_link, ride_condition_link
 from src.combo_knowledge_base import load_known_combos
+from src.deck_condition_analyzer import analyze_deck_condition
+from src.generated_deck_store import save_generated_deck
 from src.import_cards import DEFAULT_DB_PATH
 from src.route_deck_expander import expand_route_seed_to_deck
 from src.route_proof_searcher import (
@@ -60,6 +63,70 @@ def _load_meta_deck_sets(db_path: Path) -> list[tuple[str, frozenset[str]]]:
     return [(name, frozenset(cards)) for name, cards in decks.items()]
 
 
+def _tier_s_lethal_turn(db_path: Path) -> int:
+    """Tier S仮想敵の想定リーサルターン。mana_meta_deck_seedsのspeedから推定する。"""
+    import sqlite3
+
+    speed_to_turn = {"fast": 5, "mid": 6, "slow": 7}
+    try:
+        with sqlite3.connect(db_path) as conn:
+            speeds = [row[0] for row in conn.execute("SELECT speed FROM mana_meta_deck_seeds")]
+    except Exception:
+        speeds = []
+    turns = [speed_to_turn.get(str(speed), 6) for speed in speeds]
+    return min(turns) if turns else 5
+
+
+def estimate_online_turn(names: frozenset[str], nodes_by_name: dict[str, Any]) -> int | None:
+    """コンボが最速で成立するターンの粗い推定。
+
+    deploy linkはエネイブラーの着地ターン、チェンジ/侵略/進化は踏み台コスト+1(攻撃/重ね)とする。
+    """
+    cards = [nodes_by_name[name] for name in names if name in nodes_by_name]
+    best: int | None = None
+
+    def consider(turn: int) -> None:
+        nonlocal best
+        if best is None or turn < best:
+            best = turn
+
+    for enabler in cards:
+        for target in cards:
+            if target is enabler or enabler.reference is None:
+                continue
+            if deploy_link(
+                enabler.reference,
+                target_civ=target.civilization,
+                target_cost=target.cost,
+                target_power=target.power,
+                target_type=target.card_type,
+                target_name=target.name,
+                target_text=target.text,
+                target_race=target.race,
+                target_is_evolution="進化" in target.card_type,
+            ):
+                consider(max(2, enabler.cost))
+            if target.reference is not None:
+                for condition in [
+                    target.reference.change_condition,
+                    target.reference.invasion_condition,
+                    target.reference.evolution_condition,
+                ]:
+                    if condition and ride_condition_link(
+                        condition,
+                        source_civ=enabler.civilization,
+                        source_cost=enabler.cost,
+                        source_type=enabler.card_type,
+                        source_name=enabler.name,
+                        source_text=enabler.text,
+                        source_race=enabler.race,
+                    ):
+                        consider(max(2, enabler.cost) + 1)
+    if best is None and cards:
+        best = max(card.cost for card in cards)
+    return best
+
+
 def discover_novel_combos(
     db_path: Path = DEFAULT_DB_PATH,
     beam_width: int = 100,
@@ -86,6 +153,7 @@ def discover_novel_combos(
         )
 
     nodes_by_name = {node.name: node for node in load_proof_card_nodes(db_path)}
+    lethal_turn = _tier_s_lethal_turn(db_path)
 
     def linked_pair_signature(names: frozenset[str]) -> frozenset[tuple[str, str]]:
         """ルート内で実際に参照リンクが成立しているペアの集合。
@@ -160,11 +228,19 @@ def discover_novel_combos(
         if any(counter[name] >= 2 for name in names):
             continue
         counter.update(names)
+        online_turn = estimate_online_turn(names, nodes_by_name)
+        entry["estimated_online_turn"] = online_turn
+        entry["race_check"] = (
+            "間に合う"
+            if online_turn is not None and online_turn <= lethal_turn
+            else ("ギリギリ" if online_turn is not None and online_turn == lethal_turn + 1 else "遅い")
+        )
         novel.append(entry)
     return {
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "searched_rows": len(all_rows),
         "linked_unique_routes": len(seen),
+        "tier_s_lethal_turn": lethal_turn,
         "novel_candidates": novel[:top_n],
         "known_combo_hits": known_hits,
         "meta_deck_hits": meta_hits,
@@ -204,6 +280,70 @@ def expand_top_candidates(
     return expansions
 
 
+def save_top_candidate_decks(
+    report: dict[str, Any],
+    db_path: Path = DEFAULT_DB_PATH,
+    save_n: int = 5,
+) -> list[dict[str, Any]]:
+    """上位候補の40枚展開デッキをgenerated_decksへ保存し、実テスト対象に載せる。"""
+    saved = []
+    for candidate in report.get("novel_candidates", [])[:save_n]:
+        try:
+            expansion = expand_route_seed_to_deck(
+                {
+                    "route_type": candidate["route_type"],
+                    "route_seed_cards": candidate["cards"],
+                },
+                db_path=db_path,
+            )
+            deck_cards = [
+                {
+                    "name": row["card_name"],
+                    "count": row["count"],
+                    # generated_deck_storeの_deck_sizeはquantityキーで枚数を数える
+                    "quantity": row["count"],
+                    "civilization": row.get("civilization", ""),
+                    "cost": row.get("cost", 0),
+                    "card_type": row.get("card_type", ""),
+                    "tags": row.get("tags", ""),
+                }
+                for row in expansion.get("deck_rows", [])
+            ]
+            analysis = analyze_deck_condition(
+                deck_cards,
+                civilizations=[],
+                focus_tags=[],
+                avoid_tags=[],
+                target_starter_count=8,
+                target_defense_count=6,
+                target_finisher_count=3,
+            )
+            core = candidate["cards"].replace(" / ", "+")
+            deck_name = f"novel {candidate['route_type']} {core}"[:80]
+            saved_id = save_generated_deck(
+                deck_name=deck_name,
+                civilizations=[],
+                deck_type=str(candidate["route_type"]),
+                focus_tags=[],
+                avoid_tags=[],
+                strategy_note=(
+                    f"未知コンボ発掘候補。リンクペア: {candidate.get('linked_pairs', '')} / "
+                    f"成立目安{candidate.get('estimated_online_turn', '?')}ターン({candidate.get('race_check', '')}) / "
+                    f"{expansion.get('strategy_note', '')}"
+                ),
+                deck_cards=deck_cards,
+                analysis=analysis,
+                evaluation=expansion.get("deck_evaluation") or {},
+                format="ND",
+                candidate_origin="novel_combo_discovery",
+                db_path=db_path,
+            )
+            saved.append({"saved_id": saved_id, "deck_name": deck_name, "cards": candidate["cards"]})
+        except Exception as exc:
+            saved.append({"cards": candidate["cards"], "error": str(exc)})
+    return saved
+
+
 def report_to_markdown(report: dict[str, Any]) -> str:
     lines = [
         "# 未知コンボ候補レポート",
@@ -214,18 +354,22 @@ def report_to_markdown(report: dict[str, Any]) -> str:
         "",
         "## 新規コンボ候補 (発掘スコア順)",
         "",
-        "| # | ルート型 | カード | リンクペア | links | score | 変種数 |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
+        f"- Tier S仮想敵の想定リーサル: {report.get('tier_s_lethal_turn', '?')}ターン",
+        "",
+        "| # | ルート型 | カード | リンクペア | links | score | 成立T | レース | 変種数 |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for index, row in enumerate(report["novel_candidates"], start=1):
         lines.append(
-            "| {i} | {rt} | {cards} | {pairs} | {links} | {score} | {variants} |".format(
+            "| {i} | {rt} | {cards} | {pairs} | {links} | {score} | {turn} | {race} | {variants} |".format(
                 i=index,
                 rt=row["route_type"],
                 cards=row["cards"],
                 pairs=str(row.get("linked_pairs", "")).replace("|", "\\|"),
                 links=row["reference_links"],
                 score=row["discovery_score"],
+                turn=row.get("estimated_online_turn", "?"),
+                race=row.get("race_check", ""),
                 variants=row.get("variant_count", 1),
             )
         )
@@ -268,6 +412,7 @@ def main() -> None:
     parser.add_argument("--max-total-cost", type=int, default=22)
     parser.add_argument("--top", type=int, default=40)
     parser.add_argument("--expand", type=int, default=3, help="上位N件を40枚デッキ案へ展開")
+    parser.add_argument("--save-decks", type=int, default=0, help="上位N件をgenerated_decksへ保存")
     args = parser.parse_args()
 
     report = discover_novel_combos(
@@ -278,6 +423,12 @@ def main() -> None:
         top_n=args.top,
     )
     expansions = expand_top_candidates(report, Path(args.db), expand_n=args.expand) if args.expand else None
+    if args.save_decks:
+        for row in save_top_candidate_decks(report, Path(args.db), save_n=args.save_decks):
+            if "error" in row:
+                print(f"保存失敗: {row['cards']}: {row['error']}")
+            else:
+                print(f"generated_decks保存: id={row['saved_id']} {row['deck_name']}")
     paths = write_novel_combo_outputs(report, expansions, Path(args.out))
     print(f"新規候補: {len(report['novel_candidates'])}件 / 既知一致: {len(report['known_combo_hits'])}件 / メタ内: {len(report['meta_deck_hits'])}件")
     for row in report["novel_candidates"][:10]:

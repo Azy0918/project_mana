@@ -336,6 +336,29 @@ miss/full二値では改善が見えないため、「アンカー(コア1枚)+�
 - Tier S仮想敵とのレースチェック(4-5ターン目に間に合うか)を候補の一次フィルタへ
 - ローカルrace充填後に発掘を再実行(種族条件の照合精度が上がり候補が増減する)
 
+---
+
+## レースチェックとデッキ保存 (2026-07-20 第8ラウンド)
+
+1. **レースチェック**: Tier S仮想敵(mana_meta_deck_seedsのspeed=fast→リーサル5ターン想定)に対し、
+   各候補の成立ターンを参照リンクから推定(deploy=エネイブラー着地ターン、チェンジ/侵略/進化=踏み台コスト+1)。
+   レポートに「成立T / レース判定」列を追加。上位候補は全て成立2〜4ターンで「間に合う」判定。
+2. **デッキ保存**: `--save-decks N` で上位候補の40枚展開デッキを `generated_decks` に保存
+   (candidate_origin='novel_combo_discovery')。初回5デッキを保存済み(id 28-32)。
+   これで夜間研究ランナー/リモート研究ループの実テスト対象に載る。
+3. 修正: generated_deck_storeのcandidate_origin許可リストにnovel_combo_discoveryを追加
+   (未知値が'tag_based'に丸められていた)。deck_sizeはquantityキーで数える仕様に合わせた。
+
+### 実テスト待ちの発掘デッキ(generated_decks)
+
+| id | ルート型 | コア | 成立T |
+| --- | --- | --- | --- |
+| 28 | damage_overflow | ベイB パオパオ+運命の選択+ハムカツマン | 4 |
+| 29 | damage_overflow | D2B バブール+運命の選択+ハムカツマン | 4 |
+| 30 | alternate_effect | ケロヨン+ルソー・モンテス(+ベイB パオパオ) | 2 |
+| 31 | alternate_effect | ケロヨン+ルソー・モンテス(+ベイB ポレポレ) | 2 |
+| 32 | opponent_deckout | ビシャモンス・デーケン+アスファル | 4 |
+
 ### 次の最優先タスク
 
 1. **race(種族)データの充填**: 公式API(dmps.takaratomy.co.jp)はraceフィールドを返すが、

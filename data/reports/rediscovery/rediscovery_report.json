@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-07-19T09:58:34",
+  "created_at": "2026-07-20T06:21:51",
   "total_known_combos": 13,
   "full_rediscovered": 0,
   "partial_rediscovered": 0,
@@ -8,6 +8,20 @@
   "full_or_partial_rate": 0.0,
   "route_pool_size": 900,
   "results": [
+    {
+      "combo_name": "グスタフ 墓地蘇生ループ",
+      "pattern_type": "ループ",
+      "core_cards": [
+        "グスタフ・アルブサール",
+        "堕魔 ドゥポイズ"
+      ],
+      "core_size": 2,
+      "status": "miss",
+      "best_overlap": 0,
+      "matched_route_type": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
     {
       "combo_name": "ヘブンズ・フォース 軽量メタクリ多面展開",
       "pattern_type": "制約解除",
@@ -146,20 +160,6 @@
       "matched_proof_score": 100
     },
     {
-      "combo_name": "グスタフ 落城の計 拘束ループ",
-      "pattern_type": "ループ",
-      "core_cards": [
-        "グスタフ・アルブサール",
-        "龍脈術 落城の計"
-      ],
-      "core_size": 2,
-      "status": "miss",
-      "best_overlap": 0,
-      "matched_route_type": "",
-      "matched_route_cards": "",
-      "matched_proof_score": ""
-    },
-    {
       "combo_name": "QQQX 終焉の開闢 山札破壊ループ",
       "pattern_type": "ループ",
       "core_cards": [
@@ -191,6 +191,19 @@
   "anchored_full": 3,
   "anchored_full_rate": 0.333,
   "anchored_results": [
+    {
+      "combo_name": "グスタフ 墓地蘇生ループ",
+      "core_cards": [
+        "グスタフ・アルブサール",
+        "堕魔 ドゥポイズ"
+      ],
+      "status": "miss",
+      "anchor": "",
+      "found_partners": [],
+      "condition": "",
+      "matched_route_cards": "",
+      "matched_proof_score": ""
+    },
     {
       "combo_name": "ヘブンズ・フォース 軽量メタクリ多面展開",
       "core_cards": [
@@ -287,19 +300,6 @@
       "matched_proof_score": ""
     },
     {
-      "combo_name": "グスタフ 落城の計 拘束ループ",
-      "core_cards": [
-        "グスタフ・アルブサール",
-        "龍脈術 落城の計"
-      ],
-      "status": "miss",
-      "anchor": "",
-      "found_partners": [],
-      "condition": "",
-      "matched_route_cards": "",
-      "matched_proof_score": ""
-    },
-    {
       "combo_name": "QQQX 終焉の開闢 山札破壊ループ",
       "core_cards": [
         "Q.Q.QX./終葬 5.S.D.",
@@ -318,6 +318,14 @@
   "partner_rank_median": 496,
   "partner_ranks": [
     {
+      "combo_name": "グスタフ 墓地蘇生ループ",
+      "best_partner_rank": 319,
+      "anchor": "堕魔 ドゥポイズ",
+      "partner": "グスタフ・アルブサール",
+      "condition": "lock_confirmed_win",
+      "pool_size": 4856
+    },
+    {
       "combo_name": "ヘブンズ・フォース 軽量メタクリ多面展開",
       "best_partner_rank": 2,
       "anchor": "ヘブンズ・フォース",
@@ -327,7 +335,7 @@
     },
     {
       "combo_name": "バクアドルガン バイケン マッドネスカウンター",
-      "best_partner_rank": 482,
+      "best_partner_rank": 498,
       "anchor": "熱血龍 バクアドルガン",
       "partner": "蒼神龍バイケン",
       "condition": "damage_overflow_win",
@@ -343,11 +351,12 @@
     },
     {
       "combo_name": "ザビ・ミラ ヴォルグ・サンダー 山札破壊",
-      "best_partner_rank": null
+      "best_partner_rank": null,
+      "reason": "プール外(超次元等の除外カード): ヴォルグ・サンダー"
     },
     {
       "combo_name": "B-零朱レイド シールド焼却",
-      "best_partner_rank": 2104,
+      "best_partner_rank": 2110,
       "anchor": "“B-零朱”レイド",
       "partner": "“必駆”蛮触礼亞",
       "condition": "damage_overflow_win",
@@ -355,7 +364,7 @@
     },
     {
       "combo_name": "必駆蛮触礼亞 クラッシュ覇道 追加ターン",
-      "best_partner_rank": 117,
+      "best_partner_rank": 123,
       "anchor": "勝利龍装 クラッシュ“覇道”",
       "partner": "“必駆”蛮触礼亞",
       "condition": "damage_overflow_win",
@@ -363,19 +372,11 @@
     },
     {
       "combo_name": "ミラダンテXII ラフルル 呪文召喚ロック",
-      "best_partner_rank": 547,
+      "best_partner_rank": 553,
       "anchor": "時の法皇 ミラダンテXII",
       "partner": "音精 ラフルル",
       "condition": "lock_confirmed_win",
       "pool_size": 4853
-    },
-    {
-      "combo_name": "グスタフ 落城の計 拘束ループ",
-      "best_partner_rank": 2455,
-      "anchor": "龍脈術 落城の計",
-      "partner": "グスタフ・アルブサール",
-      "condition": "lock_confirmed_win",
-      "pool_size": 4857
     },
     {
       "combo_name": "QQQX 終焉の開闢 山札破壊ループ",

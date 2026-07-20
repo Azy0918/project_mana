@@ -165,13 +165,16 @@ def check_partner_ranks(db_path: Path = DEFAULT_DB_PATH, max_total_cost: int = 2
                             "condition": condition_key,
                             "pool_size": len(scores),
                         }
-        results.append(
-            {
-                "combo_name": str(combo.get("combo_name", "")),
-                "best_partner_rank": best_rank,
-                **best_detail,
-            }
-        )
+        row = {
+            "combo_name": str(combo.get("combo_name", "")),
+            "best_partner_rank": best_rank,
+            **best_detail,
+        }
+        if best_rank is None:
+            missing = [name for name in core if name not in by_name]
+            if missing:
+                row["reason"] = f"プール外(超次元等の除外カード): {' / '.join(missing)}"
+        results.append(row)
     return results
 
 
@@ -357,7 +360,7 @@ def rediscovery_report_to_markdown(report: dict[str, Any]) -> str:
                 "| {combo} | {anchor} | {partner} | {rank} | {pool} | {cond} |".format(
                     combo=row["combo_name"],
                     anchor=row.get("anchor", ""),
-                    partner=row.get("partner", ""),
+                    partner=row.get("partner", "") or row.get("reason", ""),
                     rank=row.get("best_partner_rank", "-"),
                     pool=row.get("pool_size", ""),
                     cond=row.get("condition", ""),
